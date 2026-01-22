@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\StocktakeV2;
 
+use Pionect\VismaSdk\Dto\StocktakeV2Dto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * StocktakeV2_GetByreferenceNumber
  */
 class StocktakeV2GetByreferenceNumberRequest extends Request
 {
+    protected $model = StocktakeV2Dto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

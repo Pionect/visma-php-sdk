@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\Customer;
 
+use Pionect\VismaSdk\Dto\CustomerClassDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Customer_GetSpecificCustomerClassBycustomerClassId
  */
 class CustomerGetSpecificCustomerClassBycustomerClassIdRequest extends Request
 {
+    protected $model = CustomerClassDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

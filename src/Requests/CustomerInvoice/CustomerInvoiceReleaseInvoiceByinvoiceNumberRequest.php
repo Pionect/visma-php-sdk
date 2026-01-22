@@ -2,10 +2,13 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerInvoice;
 
+use Pionect\VismaSdk\Dto\ReleaseInvoiceActionResultDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -22,7 +25,18 @@ class CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest extends Request implem
 {
     use HasJsonBody;
 
+    protected $model = ReleaseInvoiceActionResultDto::class;
+
     protected Method $method = Method::POST;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

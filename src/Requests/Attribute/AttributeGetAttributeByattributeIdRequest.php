@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\Attribute;
 
+use Pionect\VismaSdk\Dto\AttributeDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Attribute_GetAttributeByattributeId
  */
 class AttributeGetAttributeByattributeIdRequest extends Request
 {
+    protected $model = AttributeDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

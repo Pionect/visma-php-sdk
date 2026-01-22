@@ -2,10 +2,13 @@
 
 namespace Pionect\VismaSdk\Requests\TimeCard;
 
+use Pionect\VismaSdk\Dto\PutTimeCardOnHoldActionResultDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -22,7 +25,18 @@ class TimeCardPutTimeCardOnHoldBytimeCardCdRequest extends Request implements Ha
 {
     use HasJsonBody;
 
+    protected $model = PutTimeCardOnHoldActionResultDto::class;
+
     protected Method $method = Method::POST;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

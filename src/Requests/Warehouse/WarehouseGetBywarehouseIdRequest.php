@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\Warehouse;
 
+use Pionect\VismaSdk\Dto\WarehouseDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Warehouse_GetBywarehouseID
  */
 class WarehouseGetBywarehouseIdRequest extends Request
 {
+    protected $model = WarehouseDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

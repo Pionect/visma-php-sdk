@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\JournalTransactionV2;
 
+use Pionect\VismaSdk\Dto\JournalTransactionDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
@@ -13,7 +16,18 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class JournalTransactionV2GetAllJournalTransactionsCollectionRequest extends Request implements Paginatable
 {
+    protected $model = JournalTransactionDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrateCollection(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerInvoice;
 
+use Pionect\VismaSdk\Dto\CustomerInvoiceDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * CustomerInvoice_GetByinvoiceNumber
@@ -14,7 +17,18 @@ use Saloon\Http\Request;
  */
 class CustomerInvoiceGetByinvoiceNumberRequest extends Request
 {
+    protected $model = CustomerInvoiceDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

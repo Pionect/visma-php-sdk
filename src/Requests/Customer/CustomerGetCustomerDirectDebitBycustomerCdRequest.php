@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\Customer;
 
+use Pionect\VismaSdk\Dto\CustomerDirectDebitDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Customer_GetCustomerDirectDebitBycustomerCd
  */
 class CustomerGetCustomerDirectDebitBycustomerCdRequest extends Request
 {
+    protected $model = CustomerDirectDebitDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

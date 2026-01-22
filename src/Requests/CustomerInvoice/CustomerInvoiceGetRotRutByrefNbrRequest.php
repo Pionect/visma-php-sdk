@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerInvoice;
 
+use Pionect\VismaSdk\Dto\RotRutDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * CustomerInvoice_GetRotRutByrefNbr
@@ -12,7 +15,18 @@ use Saloon\Http\Request;
  */
 class CustomerInvoiceGetRotRutByrefNbrRequest extends Request
 {
+    protected $model = RotRutDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\Dimension;
 
+use Pionect\VismaSdk\Dto\DtoSegment;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Dimension_GetSegmentBydimensionIdsegmentId
@@ -14,7 +17,18 @@ use Saloon\Http\Request;
  */
 class DimensionGetSegmentBydimensionIdsegmentIdRequest extends Request
 {
+    protected $model = DtoSegment::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

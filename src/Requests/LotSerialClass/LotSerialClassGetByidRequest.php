@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\LotSerialClass;
 
+use Pionect\VismaSdk\Dto\LotSerialClassDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * LotSerialClass_GetByid
  */
 class LotSerialClassGetByidRequest extends Request
 {
+    protected $model = LotSerialClassDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

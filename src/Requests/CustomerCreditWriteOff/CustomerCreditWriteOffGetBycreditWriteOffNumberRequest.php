@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerCreditWriteOff;
 
+use Pionect\VismaSdk\Dto\CustomerCreditWriteOffDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * CustomerCreditWriteOff_GetBycreditWriteOffNumber
@@ -14,7 +17,18 @@ use Saloon\Http\Request;
  */
 class CustomerCreditWriteOffGetBycreditWriteOffNumberRequest extends Request
 {
+    protected $model = CustomerCreditWriteOffDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

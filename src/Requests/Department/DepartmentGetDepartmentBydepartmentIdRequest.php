@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\Department;
 
+use Pionect\VismaSdk\Dto\DepartmentDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Department_GetDepartmentBydepartmentId
@@ -14,7 +17,18 @@ use Saloon\Http\Request;
  */
 class DepartmentGetDepartmentBydepartmentIdRequest extends Request
 {
+    protected $model = DepartmentDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

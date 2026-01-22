@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\Currency;
 
+use Pionect\VismaSdk\Dto\CurrencyDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Currency_GetSpecificCurrencyBycuryId
  */
 class CurrencyGetSpecificCurrencyBycuryIdRequest extends Request
 {
+    protected $model = CurrencyDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

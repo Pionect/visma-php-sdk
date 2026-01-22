@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\SalesOrder;
 
+use Pionect\VismaSdk\Dto\SOCommissionDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * SalesOrder_GetCommissionsByorderTypeorderNbr
@@ -12,7 +15,18 @@ use Saloon\Http\Request;
  */
 class SalesOrderGetCommissionsByorderTypeorderNbrRequest extends Request
 {
+    protected $model = SOCommissionDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

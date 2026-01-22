@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\EarningType;
 
+use Pionect\VismaSdk\Dto\EarningTypeDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * EarningType_GetEarningTypeBytypeCd
  */
 class EarningTypeGetEarningTypeBytypeCdRequest extends Request
 {
+    protected $model = EarningTypeDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

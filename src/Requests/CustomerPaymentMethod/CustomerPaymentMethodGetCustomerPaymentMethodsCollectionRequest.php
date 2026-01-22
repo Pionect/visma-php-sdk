@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerPaymentMethod;
 
+use Pionect\VismaSdk\Dto\CustomerPaymentMethodsDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
@@ -11,7 +14,18 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class CustomerPaymentMethodGetCustomerPaymentMethodsCollectionRequest extends Request implements Paginatable
 {
+    protected $model = CustomerPaymentMethodsDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrateCollection(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

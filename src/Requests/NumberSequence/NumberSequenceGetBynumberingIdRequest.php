@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\NumberSequence;
 
+use Pionect\VismaSdk\Dto\NumberingDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * NumberSequence_GetBynumberingId
  */
 class NumberSequenceGetBynumberingIdRequest extends Request
 {
+    protected $model = NumberingDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

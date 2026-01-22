@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\Inventory;
 
+use Pionect\VismaSdk\Dto\BarCodeDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Inventory_GetInventorySalesOrderBarCodesByorderNbr
  */
 class InventoryGetInventorySalesOrderBarCodesByorderNbrRequest extends Request
 {
+    protected $model = BarCodeDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

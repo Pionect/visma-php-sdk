@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\Blob;
 
+use Pionect\VismaSdk\Dto\BlobMetadata;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Blob_GetMetadataByblobId
  */
 class BlobGetMetadataByblobIdRequest extends Request
 {
+    protected $model = BlobMetadata::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

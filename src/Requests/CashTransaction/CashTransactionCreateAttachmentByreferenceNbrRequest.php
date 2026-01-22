@@ -2,10 +2,13 @@
 
 namespace Pionect\VismaSdk\Requests\CashTransaction;
 
+use Pionect\VismaSdk\Dto\BackgroundApiAcceptedDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -22,7 +25,18 @@ class CashTransactionCreateAttachmentByreferenceNbrRequest extends Request imple
 {
     use HasJsonBody;
 
+    protected $model = BackgroundApiAcceptedDto::class;
+
     protected Method $method = Method::POST;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

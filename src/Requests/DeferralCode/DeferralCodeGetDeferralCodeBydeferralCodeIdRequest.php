@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\DeferralCode;
 
+use Pionect\VismaSdk\Dto\DeferralCodeDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * DeferralCode_GetDeferralCodeBydeferralCodeId
  */
 class DeferralCodeGetDeferralCodeBydeferralCodeIdRequest extends Request
 {
+    protected $model = DeferralCodeDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

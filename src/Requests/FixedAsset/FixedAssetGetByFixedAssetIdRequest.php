@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\FixedAsset;
 
+use Pionect\VismaSdk\Dto\FixedAssetDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * FixedAsset_GetByFixedAssetID
  */
 class FixedAssetGetByFixedAssetIdRequest extends Request
 {
+    protected $model = FixedAssetDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

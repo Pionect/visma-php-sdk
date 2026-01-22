@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerPaymentMethod;
 
+use Pionect\VismaSdk\Dto\CustomerPaymentMethodDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * CustomerPaymentMethod_GetCustomerPaymentMethodsBycustomerId
  */
 class CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest extends Request
 {
+    protected $model = CustomerPaymentMethodDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

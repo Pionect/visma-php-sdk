@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\Inventory;
 
+use Pionect\VismaSdk\Dto\PostingClassDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
@@ -11,7 +14,18 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class InventoryGetItemPostClassesCollectionRequest extends Request implements Paginatable
 {
+    protected $model = PostingClassDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrateCollection(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

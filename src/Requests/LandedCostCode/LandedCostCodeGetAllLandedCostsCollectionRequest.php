@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\LandedCostCode;
 
+use Pionect\VismaSdk\Dto\LandedCostCodeDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
@@ -11,7 +14,18 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class LandedCostCodeGetAllLandedCostsCollectionRequest extends Request implements Paginatable
 {
+    protected $model = LandedCostCodeDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrateCollection(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerContract;
 
+use Pionect\VismaSdk\Dto\CustomerContractRecurringSummaryDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * CustomerContract_GetCustomerContractRecurringSummaryBycontractId
  */
 class CustomerContractGetCustomerContractRecurringSummaryBycontractIdRequest extends Request
 {
+    protected $model = CustomerContractRecurringSummaryDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

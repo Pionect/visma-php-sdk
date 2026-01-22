@@ -2,10 +2,13 @@
 
 namespace Pionect\VismaSdk\Requests\InventoryIssue;
 
+use Pionect\VismaSdk\Dto\ReleaseInventoryDocumentActionResultDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -17,7 +20,18 @@ class InventoryIssueReleaseDocumentByinvoiceNumberRequest extends Request implem
 {
     use HasJsonBody;
 
+    protected $model = ReleaseInventoryDocumentActionResultDto::class;
+
     protected Method $method = Method::POST;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

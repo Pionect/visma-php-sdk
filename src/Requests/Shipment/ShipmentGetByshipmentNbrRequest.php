@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\Shipment;
 
+use Pionect\VismaSdk\Dto\ShipmentDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Shipment_GetByshipmentNbr
@@ -14,7 +17,18 @@ use Saloon\Http\Request;
  */
 class ShipmentGetByshipmentNbrRequest extends Request
 {
+    protected $model = ShipmentDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

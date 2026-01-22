@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\PurchaseOrder;
 
+use Pionect\VismaSdk\Dto\PurchaseOrderDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * PurchaseOrder_GetOrderBypurchaseOrderNumber
@@ -14,7 +17,18 @@ use Saloon\Http\Request;
  */
 class PurchaseOrderGetOrderBypurchaseOrderNumberRequest extends Request
 {
+    protected $model = PurchaseOrderDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

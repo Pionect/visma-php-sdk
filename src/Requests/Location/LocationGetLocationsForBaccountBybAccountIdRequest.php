@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\Location;
 
+use Pionect\VismaSdk\Dto\LocationDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Location_GetLocationsForBaccountBybAccountId
@@ -12,7 +15,18 @@ use Saloon\Http\Request;
  */
 class LocationGetLocationsForBaccountBybAccountIdRequest extends Request
 {
+    protected $model = LocationDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

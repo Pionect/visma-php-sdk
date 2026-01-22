@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\Branch;
 
+use Pionect\VismaSdk\Dto\BranchDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * Branch_GetSpecificBranchBybranchNumber
  */
 class BranchGetSpecificBranchBybranchNumberRequest extends Request
 {
+    protected $model = BranchDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

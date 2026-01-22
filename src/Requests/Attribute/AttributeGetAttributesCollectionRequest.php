@@ -2,8 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\Attribute;
 
+use Pionect\VismaSdk\Dto\AttributeDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
@@ -11,7 +14,18 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class AttributeGetAttributesCollectionRequest extends Request implements Paginatable
 {
+    protected $model = AttributeDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrateCollection(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {

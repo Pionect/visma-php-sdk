@@ -2,15 +2,29 @@
 
 namespace Pionect\VismaSdk\Requests\InventoryTransfer;
 
+use Pionect\VismaSdk\Dto\InventoryTransferDto;
+use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * InventoryTransfer_GetByinventoryTransferNumber
  */
 class InventoryTransferGetByinventoryTransferNumberRequest extends Request
 {
+    protected $model = InventoryTransferDto::class;
+
     protected Method $method = Method::GET;
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return Hydrator::hydrate(
+            $this->model,
+            $response->json('data'),
+            $response->json('included')
+        );
+    }
 
     public function resolveEndpoint(): string
     {
