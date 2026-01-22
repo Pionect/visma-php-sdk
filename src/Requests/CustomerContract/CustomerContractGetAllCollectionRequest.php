@@ -1,0 +1,75 @@
+<?php
+
+namespace Pionect\VismaSdk\Requests\CustomerContract;
+
+use Saloon\Enums\Method;
+use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
+
+/**
+ * CustomerContract_GetAll
+ */
+class CustomerContractGetAllCollectionRequest extends Request implements Paginatable
+{
+    protected Method $method = Method::GET;
+
+    public function resolveEndpoint(): string
+    {
+        return '/v1/customerContract';
+    }
+
+    /**
+     * @param  null|string  $attributes  Attributes (additional information) connected to the entity.
+     *                                   Examples:
+     *                                   {{base}}/customerContract?attributes={"AttributeID":"ValueID","AttributeID":"ValueID"}
+     *                                   {{base}}/customerContract?attributes={"AttributeID":"ValueID1,ValueID2"}
+     * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
+     *                                         Supported values:
+     *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
+     *                                         * "none" (without quotes): Fire and forget; no notification will be sent when background operation is finished.
+     *                                         * "subscription[:<name_1>=<value_1>,..,<name_n>=<value_n>]" (without quotes): when the background operation is finsihed, a notification is posted to the Webhook subscription set up in Developer Portal for your integration client.
+     *                                         Optionally a set of name-value pairs can be added. These will be sent as headers in the POST request to the Webhook subscription's url.
+     *
+     * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
+     */
+    public function __construct(
+        protected ?string $greaterThanValue = null,
+        protected ?int $numberToRead = null,
+        protected ?int $skipRecords = null,
+        protected ?string $orderBy = null,
+        protected ?string $lastModifiedDateTime = null,
+        protected ?string $lastModifiedDateTimeCondition = null,
+        protected ?string $contractTemplate = null,
+        protected ?string $status = null,
+        protected ?string $customer = null,
+        protected ?bool $expandSummary = null,
+        protected ?bool $expandDetails = null,
+        protected ?string $attributes = null,
+        protected ?bool $expandAttributes = null,
+        protected ?string $erpApiBackground = null,
+    ) {}
+
+    public function defaultQuery(): array
+    {
+        return array_filter([
+            'greaterThanValue' => $this->greaterThanValue,
+            'numberToRead' => $this->numberToRead,
+            'skipRecords' => $this->skipRecords,
+            'orderBy' => $this->orderBy,
+            'lastModifiedDateTime' => $this->lastModifiedDateTime,
+            'lastModifiedDateTimeCondition' => $this->lastModifiedDateTimeCondition,
+            'contractTemplate' => $this->contractTemplate,
+            'status' => $this->status,
+            'customer' => $this->customer,
+            'expandSummary' => $this->expandSummary,
+            'expandDetails' => $this->expandDetails,
+            'attributes' => $this->attributes,
+            'expandAttributes' => $this->expandAttributes,
+        ]);
+    }
+
+    public function defaultHeaders(): array
+    {
+        return array_filter(['erp-api-background' => $this->erpApiBackground]);
+    }
+}

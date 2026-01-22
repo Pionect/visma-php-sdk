@@ -1,0 +1,19 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * Mandatory field: VAT payable subaccount* &gt; The corresponding VAT payable subaccount.
+ */
+class VatPayableSubaccountInVatGlAccountsDto extends Model
+{
+    #[Property]
+    public ?bool $active;
+
+    /** Click on the magnifier. &gt; The description. */
+    #[Property]
+    public ?string $description;
+}

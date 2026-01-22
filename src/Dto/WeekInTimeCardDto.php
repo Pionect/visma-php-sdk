@@ -1,0 +1,20 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * The top part &gt; Week &gt; The week for which the time card has been created.
+ */
+class WeekInTimeCardDto extends Model
+{
+    /** Number of item */
+    #[Property]
+    public ?string $number;
+
+    /** Name of item/description */
+    #[Property]
+    public ?string $description;
+}

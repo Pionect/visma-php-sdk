@@ -1,0 +1,15 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * The cost of a unit of the item.
+ */
+class UnitCostInExpenseClaimDetailUpdateDto extends Model
+{
+    #[Property]
+    public ?float $value;
+}

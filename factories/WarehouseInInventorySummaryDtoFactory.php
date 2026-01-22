@@ -1,0 +1,21 @@
+<?php
+
+namespace Pionect\VismaSdk\Factories;
+
+use Pionect\VismaSdk\Dto\WarehouseInInventorySummaryDto;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+
+class WarehouseInInventorySummaryDtoFactory extends Factory
+{
+    protected function definition(): array
+    {
+        return [
+            'description' => $this->faker->sentence(),
+        ];
+    }
+
+    protected function modelClass(): string
+    {
+        return WarehouseInInventorySummaryDto::class;
+    }
+}

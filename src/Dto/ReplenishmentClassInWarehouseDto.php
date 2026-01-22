@@ -1,0 +1,16 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * The top part &gt; Replenishment class &gt; The replenishment class associated with this warehouse.
+ */
+class ReplenishmentClassInWarehouseDto extends Model
+{
+    /** Click on the magnifier. &gt; The description. */
+    #[Property]
+    public ?string $description;
+}

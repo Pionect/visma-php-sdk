@@ -1,0 +1,22 @@
+<?php
+
+namespace Pionect\VismaSdk\Factories;
+
+use Pionect\VismaSdk\Dto\EmployeeDescriptionDto;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+
+class EmployeeDescriptionDtoFactory extends Factory
+{
+    protected function definition(): array
+    {
+        return [
+            'employeeId' => $this->faker->uuid(),
+            'name' => $this->faker->name(),
+        ];
+    }
+
+    protected function modelClass(): string
+    {
+        return EmployeeDescriptionDto::class;
+    }
+}

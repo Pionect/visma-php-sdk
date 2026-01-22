@@ -1,0 +1,17 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * Mandatory field: The Supplier info tab &gt; The Info section &gt; Terms* &gt; The specific credit
+ * terms to be used for the purchase order.
+ */
+class TermsInPurchaseOrderDto extends Model
+{
+    /** Click on the magnifier. &gt; The description. */
+    #[Property]
+    public ?string $description;
+}

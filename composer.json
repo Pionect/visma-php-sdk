@@ -1,17 +1,58 @@
 {
     "name": "pionect/visma-sdk",
-    "type": "library",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Pionect\\VismaSdk\\": "src/"
-        }
-    },
+    "type": "library",
     "authors": [
         {
             "name": "Tomas van Rijsse",
             "email": "tomas@pionect.nl"
         }
     ],
-    "require": {}
+    "require": {
+        "nesbot/carbon": "^2.0 || ^3.0",
+        "saloonphp/laravel-plugin": "^3.0",
+        "saloonphp/pagination-plugin": "^2.0",
+        "saloonphp/saloon": "^3.0"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.48",
+        "fakerphp/faker": "^1.23",
+        "larastan/larastan": "^3.0",
+        "laravel/boost": "^1.8",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^8.0 || ^9.0 || ^10.0",
+        "pestphp/pest": "^2.0 || ^3.0",
+        "phpunit/phpunit": "^10.0 || ^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pionect\\VismaSdk\\": "src/",
+            "Pionect\\VismaSdk\\Factories\\": "factories/",
+            "Pionect\\VismaSdk\\Generator\\": "generator/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pionect\\VismaSdk\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pionect\\VismaSdk\\Providers\\VismaServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "analyse": "phpstan analyse --memory-limit=2G",
+        "coverage": "pest --coverage --coverage-clover coverage.xml",
+        "format": "pint",
+        "test": "pest"
+    }
 }

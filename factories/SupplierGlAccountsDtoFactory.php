@@ -1,0 +1,27 @@
+<?php
+
+namespace Pionect\VismaSdk\Factories;
+
+use Pionect\VismaSdk\Dto\SupplierGlAccountsDto;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+
+class SupplierGlAccountsDtoFactory extends Factory
+{
+    protected function definition(): array
+    {
+        return [
+            'supplierAccount' => $this->faker->word(),
+            'supplierSubaccount' => $this->faker->word(),
+            'expenseAccount' => $this->faker->word(),
+            'expenseAccountNonTax' => $this->faker->word(),
+            'expenseEuaccount' => $this->faker->word(),
+            'expenseAccountImport' => $this->faker->word(),
+            'expenseSubaccount' => $this->faker->word(),
+        ];
+    }
+
+    protected function modelClass(): string
+    {
+        return SupplierGlAccountsDto::class;
+    }
+}

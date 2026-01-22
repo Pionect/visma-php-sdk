@@ -1,0 +1,46 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * This class represents a inventory issue in InventoryIssueController. Used by getting data.
+ */
+class InventoryTransferUpdateDto extends Model
+{
+    #[Property]
+    public ?\DtoValueOfString $warehouseId;
+
+    #[Property]
+    public ?\DtoValueOfString $toWarehouseId;
+
+    /** The inventory issue lines */
+    #[Property]
+    public ?array $transferLines;
+
+    #[Property]
+    public ?\referenceNumberInInventoryTransferUpdateDto $referenceNumber;
+
+    #[Property]
+    public ?\holdInInventoryTransferUpdateDto $hold;
+
+    #[Property]
+    public ?\dateInInventoryTransferUpdateDto $date;
+
+    #[Property]
+    public ?\postPeriodInInventoryTransferUpdateDto $postPeriod;
+
+    #[Property]
+    public ?\externalReferenceInInventoryTransferUpdateDto $externalReference;
+
+    #[Property]
+    public ?\descriptionInInventoryTransferUpdateDto $description;
+
+    #[Property]
+    public ?\controlQuantityInInventoryTransferUpdateDto $controlQuantity;
+
+    #[Property]
+    public ?\branchNumberInInventoryTransferUpdateDto $branchNumber;
+}

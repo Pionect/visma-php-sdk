@@ -1,0 +1,21 @@
+<?php
+
+namespace Pionect\VismaSdk\Factories;
+
+use Pionect\VismaSdk\Dto\LedgerInExtendedOrganizationDto;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+
+class LedgerInExtendedOrganizationDtoFactory extends Factory
+{
+    protected function definition(): array
+    {
+        return [
+            'description' => $this->faker->sentence(),
+        ];
+    }
+
+    protected function modelClass(): string
+    {
+        return LedgerInExtendedOrganizationDto::class;
+    }
+}

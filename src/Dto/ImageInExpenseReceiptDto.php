@@ -1,0 +1,20 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * Receipt details tab &gt; Image section
+ */
+class ImageInExpenseReceiptDto extends Model
+{
+    /** The name of the attachment. */
+    #[Property]
+    public ?string $name;
+
+    /** The version of the attachment. */
+    #[Property]
+    public ?int $revision;
+}

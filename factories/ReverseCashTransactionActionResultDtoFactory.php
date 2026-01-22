@@ -1,0 +1,25 @@
+<?php
+
+namespace Pionect\VismaSdk\Factories;
+
+use Pionect\VismaSdk\Dto\ReverseCashTransactionActionResultDto;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+
+class ReverseCashTransactionActionResultDtoFactory extends Factory
+{
+    protected function definition(): array
+    {
+        return [
+            'referenceNbr' => $this->faker->word(),
+            'cashTransaction' => $this->faker->word(),
+            'actionId' => $this->faker->uuid(),
+            'actionResult' => $this->faker->word(),
+            'errorInfo' => $this->faker->word(),
+        ];
+    }
+
+    protected function modelClass(): string
+    {
+        return ReverseCashTransactionActionResultDto::class;
+    }
+}

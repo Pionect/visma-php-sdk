@@ -1,0 +1,16 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * Mandatory field: Warehouse* &gt; The warehouse where the item is stocked.
+ */
+class WarehouseInInventoryAdjustmentLineDto extends Model
+{
+    /** Click on the magnifier. &gt; The description. */
+    #[Property]
+    public ?string $description;
+}

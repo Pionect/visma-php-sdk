@@ -1,0 +1,23 @@
+<?php
+
+namespace Pionect\VismaSdk\Factories;
+
+use Pionect\VismaSdk\Dto\BarCodeDto;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+
+class BarCodeDtoFactory extends Factory
+{
+    protected function definition(): array
+    {
+        return [
+            'barCode' => $this->faker->word(),
+            'inventoryNumber' => $this->faker->word(),
+            'metadata' => $this->faker->word(),
+        ];
+    }
+
+    protected function modelClass(): string
+    {
+        return BarCodeDto::class;
+    }
+}

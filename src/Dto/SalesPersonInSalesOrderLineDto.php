@@ -1,0 +1,16 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * Salesperson ID &gt; The salesperson associated with the sale of the line item.
+ */
+class SalesPersonInSalesOrderLineDto extends Model
+{
+    /** Click on the magnifier. &gt; The description. */
+    #[Property]
+    public ?string $description;
+}

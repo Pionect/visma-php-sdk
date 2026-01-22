@@ -1,0 +1,37 @@
+<?php
+
+namespace Pionect\VismaSdk\Factories;
+
+use Carbon\Carbon;
+use Pionect\VismaSdk\Dto\ProjectBasicDto;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+
+class ProjectBasicDtoFactory extends Factory
+{
+    protected function definition(): array
+    {
+        return [
+            'internalId' => $this->faker->numberBetween(1, 1000),
+            'projectId' => $this->faker->uuid(),
+            'customer' => $this->faker->word(),
+            'hold' => $this->faker->boolean(),
+            'status' => $this->faker->word(),
+            'description' => $this->faker->sentence(),
+            'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'endDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'autoAllocate' => $this->faker->boolean(),
+            'automaticReleaseAr' => $this->faker->boolean(),
+            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'publicId' => $this->faker->uuid(),
+            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'visibility' => $this->faker->word(),
+            'errorInfo' => $this->faker->word(),
+            'metadata' => $this->faker->word(),
+        ];
+    }
+
+    protected function modelClass(): string
+    {
+        return ProjectBasicDto::class;
+    }
+}

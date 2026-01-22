@@ -1,0 +1,17 @@
+<?php
+
+namespace Pionect\VismaSdk\Dto;
+
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
+use Pionect\VismaSdk\Foundation\Hydration\Model;
+
+/**
+ * Deliver settings tab &gt; Default location settings section &gt; Price class &gt; The price class
+ * assigned to the customer.
+ */
+class PriceClassInCustomerDto extends Model
+{
+    /** Click on the magnifier. &gt; The description. */
+    #[Property]
+    public ?string $description;
+}
