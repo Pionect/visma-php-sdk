@@ -29,7 +29,7 @@ class VismaConnector extends Connector implements HasPagination
 
     public function resolveBaseUrl(): string
     {
-        return config('visma.base_url');
+        return config('visma-sdk.base_url');
     }
 
     protected function defaultHeaders(): array
@@ -43,8 +43,8 @@ class VismaConnector extends Connector implements HasPagination
     protected function defaultOAuth2Config(): OAuthConfig
     {
         return OAuthConfig::make()
-            ->setClientId(config('visma.application_id'))
-            ->setClientSecret(config('visma.application_secret'))
+            ->setClientId(config('visma-sdk.application_id'))
+            ->setClientSecret(config('visma-sdk.application_secret'))
             ->setTokenEndpoint('https://connect.visma.com/connect/token')
             ->setDefaultScopes([
                 'vismanet_erp_service_api:read',
@@ -53,7 +53,7 @@ class VismaConnector extends Connector implements HasPagination
                 'vismanet_erp_service_api:delete',
             ])
             ->setRequestModifier(function (Request $request) {
-                $request->body()->add('tenant_id', config('visma.tenant_id'));
+                $request->body()->add('tenant_id', config('visma-sdk.tenant_id'));
             });
     }
 

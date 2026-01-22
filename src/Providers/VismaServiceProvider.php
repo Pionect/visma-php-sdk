@@ -16,8 +16,8 @@ class VismaServiceProvider extends ServiceProvider
     {
         // Merge config
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/visma.php',
-            'visma'
+            __DIR__.'/../../config/visma-sdk.php',
+            'visma-sdk'
         );
 
         // Register VismaConnector as singleton
@@ -34,7 +34,7 @@ class VismaServiceProvider extends ServiceProvider
     {
         // Publish config
         $this->publishes([
-            __DIR__.'/../../config/visma.php' => config_path('visma.php'),
-        ], 'visma-config');
+            __DIR__.'/../../config/visma-sdk.php' => config_path('visma-sdk.php'),
+        ], 'visma-sdk-config');
     }
 }
