@@ -1,0 +1,17 @@
+{
+    "name": "pionect/visma-sdk",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pionect\\VismaSdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tomas van Rijsse",
+            "email": "tomas@pionect.nl"
+        }
+    ],
+    "require": {}
+}
