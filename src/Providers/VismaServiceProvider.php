@@ -21,9 +21,7 @@ class VismaServiceProvider extends ServiceProvider
         );
 
         // Register VismaConnector as singleton
-        $this->app->singleton(VismaConnector::class, fn () => new VismaConnector(
-            config('visma.api_token'),
-        ));
+        $this->app->singleton(VismaConnector::class);
 
         // Register alias
         $this->app->alias(VismaConnector::class, 'visma');

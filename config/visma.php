@@ -2,6 +2,12 @@
 
 return [
 
+    'application_id' => env('VISMA_APPLICATION_ID'),
+
+    'application_secret' => env('VISMA_APPLICATION_SECRET'),
+
+    'tenant_id' => env('VISMA_TENANT_ID'),
+
     /*
     |--------------------------------------------------------------------------
     | Visma API Base URL
@@ -12,33 +18,5 @@ return [
     |
     */
 
-    'base_url' => env('VISMA_BASE_URL'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Visma API Token
-    |--------------------------------------------------------------------------
-    |
-    | Your API authentication token. This will be sent as a Bearer
-    | token in the Authorization header.
-    |
-    */
-
-    'api_token' => env('VISMA_API_TOKEN'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Headers
-    |--------------------------------------------------------------------------
-    |
-    | The SDK automatically includes the following headers:
-    | - Accept: application/vnd.api+json
-    | - Content-Type: application/vnd.api+json
-    | - Authorization: Bearer {api_token} (if api_token is set)
-    |
-    | This configuration is reserved for future use if you need to add
-    | additional custom headers beyond the defaults.
-    |
-    */
-
+    'base_url' => env('VISMA_BASE_URL', 'https://integration.visma.net/API'),
 ];
