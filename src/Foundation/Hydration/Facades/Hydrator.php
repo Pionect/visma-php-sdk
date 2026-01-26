@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Facade;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
- * @method static Collection<int, Model> hydrateCollection(string $model, array<int, mixed> $data, array<int|string, mixed>|null $included = null)
- * @method static Model hydrate(string $model, array<string, mixed> $item, array<int|string, mixed>|null $included = null)
+ * @method static Collection<int, Model> hydrateCollection(string $model, array<int, mixed> $data)
+ * @method static Model hydrate(string $model, array<string, mixed> $item)
  */
 class Hydrator extends Facade
 {

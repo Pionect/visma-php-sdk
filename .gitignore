@@ -1,2 +1,5 @@
 /vendor/
 .idea
+CLAUDE.local.md
+openapi.json
+.phpunit.cache

@@ -325,7 +325,14 @@ foreach ($included as $resource) {
 
 ## Regenerating the SDK
 
-This SDK is automatically generated from the Visma API OpenAPI specification using a custom [JSON:API generator](https://github.com/Timatic/json-api-php-sdk-generator). To regenerate the SDK with the latest API changes:
+This SDK is generated from the Visma API OpenAPI specification. 
+Download the OpenApi specification from https://api.finance.visma.net/API-index/index.html
+To regenerate:
+
+```bash
+# Regenerate all DTOs and Requests
+./bin/generate-sdk path/to/openapi.json --output=. --force
+```
 
 ## Credits
 

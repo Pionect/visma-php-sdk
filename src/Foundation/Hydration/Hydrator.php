@@ -9,32 +9,22 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Relationship;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionNamedType;
 use ReflectionProperty;
 use Webmozart\Assert\Assert;
 
-use function is_null;
-
 class Hydrator
 {
     /**
      * @param  class-string<Model>|Model  $model
      * @param  array<string, mixed>  $item
-     * @param  array<int|string, mixed>|null  $included
      *
      * @throws ReflectionException
      */
-    public function hydrate(string|Model $model, array $item, ?array $included = null): Model
+    public function hydrate(string|Model $model, array $item): Model
     {
-        if (is_null($included)) {
-            $included = [];
-        }
-
-        $included = Arr::keyBy($included, fn ($includedItem) => $includedItem['id'].'-'.$includedItem['type']);
-
         if (is_string($model)) {
             $model = $this->getModelFromClassName($model);
         }
@@ -73,13 +63,10 @@ class Hydrator
             }
         };
 
-        $hydrator($model, 'id', $item['id']);
-
-        foreach ($item['attributes'] as $attribute => $value) {
-            $hydrator($model, $attribute, $value);
+        // Hydrate all properties directly from the item (plain JSON, no 'attributes' wrapper)
+        foreach ($item as $property => $value) {
+            $hydrator($model, $property, $value);
         }
-
-        $this->hydrateRelations($reflectionClass, $item, $included, $model);
 
         return $model;
     }
@@ -87,15 +74,14 @@ class Hydrator
     /**
      * @param  class-string<Model>  $model
      * @param  array<int, mixed>  $data
-     * @param  array<int|string, mixed>|null  $included
      * @return Collection<int, Model>
      */
-    public function hydrateCollection(string $model, array $data, ?array $included = null): Collection
+    public function hydrateCollection(string $model, array $data): Collection
     {
         $collection = new Collection;
 
         foreach ($data as $item) {
-            $collection->add($this->hydrate($model, $item, $included));
+            $collection->add($this->hydrate($model, $item));
         }
 
         return $collection;
@@ -119,59 +105,6 @@ class Hydrator
                 return $hasAttributes;
             }
         ));
-    }
-
-    /**
-     * @param  ReflectionClass<Model>  $reflectionClass
-     * @param  array<string, mixed>  $item
-     * @param  array<string, mixed>  $included
-     */
-    protected function hydrateRelations(ReflectionClass $reflectionClass, array $item, array $included, Model $model): void
-    {
-        $relationProperties = Arr::keyBy($this->filterProperties($reflectionClass, Relationship::class), 'name');
-
-        if (! array_key_exists('relationships', $item)) {
-            return;
-        }
-
-        foreach ($item['relationships'] as $relationshipName => $relationship) {
-            if (
-                ! array_key_exists($relationshipName, $relationProperties)
-                || ! array_key_exists('data', $relationship)
-                || $relationship['data'] === null
-            ) {
-                continue;
-            }
-
-            /** @var Relationship $relationAttribute */
-            $relationAttribute = $relationProperties[$relationshipName]
-                ->getAttributes(Relationship::class)[0]->newInstance();
-
-            $relationModel = $relationAttribute->model;
-
-            if ($relationAttribute->type === RelationType::Many) {
-                $hydratedRelation = new Collection;
-
-                foreach ($relationship['data'] as $relationItem) {
-                    $includedItem = $included[$relationItem['id'].'-'.$relationItem['type']] ?? null;
-
-                    if (! is_null($includedItem)) {
-                        $hydratedRelation->push(
-                            $this->hydrate($relationModel, $includedItem, $included)
-                        );
-                    }
-                }
-
-                $model->{$relationshipName} = $hydratedRelation;
-            } elseif ($relationAttribute->type === RelationType::One) {
-                $relationItem = $relationship['data'];
-                $includedItem = $included[$relationItem['id'].'-'.$relationItem['type']] ?? null;
-
-                if (! is_null($includedItem)) {
-                    $model->{$relationshipName} = $this->hydrate($relationModel, $includedItem, $included);
-                }
-            }
-        }
     }
 
     /**

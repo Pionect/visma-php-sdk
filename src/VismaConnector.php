@@ -2,8 +2,7 @@
 
 namespace Pionect\VismaSdk;
 
-use Pionect\VismaSdk\Foundation\Pagination\JsonApiPaginator;
-use Pionect\VismaSdk\Foundation\Responses\JsonApiResponse;
+use Pionect\VismaSdk\Foundation\Pagination\PlainJsonPaginator;
 use Saloon\Helpers\OAuth2\OAuthConfig;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
@@ -35,8 +34,8 @@ class VismaConnector extends Connector implements HasPagination
     protected function defaultHeaders(): array
     {
         return [
-            'Accept' => 'application/vnd.api+json',
-            'Content-Type' => 'application/vnd.api+json',
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
         ];
     }
 
@@ -57,13 +56,8 @@ class VismaConnector extends Connector implements HasPagination
             });
     }
 
-    public function resolveResponseClass(): string
+    public function paginate(Request $request): PlainJsonPaginator
     {
-        return JsonApiResponse::class;
-    }
-
-    public function paginate(Request $request): JsonApiPaginator
-    {
-        return new JsonApiPaginator($this, $request);
+        return new PlainJsonPaginator($this, $request);
     }
 }
