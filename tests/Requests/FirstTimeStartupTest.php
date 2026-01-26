@@ -7,33 +7,26 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resource', function () {
     Saloon::fake([
         FirstTimeStartupGetCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'firstTimeStartups',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'financials' => true,
-                        'message' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'firstTimeStartups',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'financials' => true,
-                        'message' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'financials' => true,
+                'message' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'financials' => true,
+                'message' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -53,7 +46,7 @@ it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resou
     $dtoCollection = $response->dto();
 
     expect($dtoCollection->first())
-        ->financials->toBe(true)
+        ->financials->toBeTrue()
         ->message->toBe('Mock value')
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');

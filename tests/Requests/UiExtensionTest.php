@@ -8,29 +8,22 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension resource', function () {
     Saloon::fake([
         UiExtensionGetAllUiExtensionsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'uiExtensions',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'screenId' => 'mock-id-123',
-                        'stepIds' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'uiExtensions',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'screenId' => 'mock-id-123',
-                        'stepIds' => [],
-                    ],
-                ],
+            0 => [
+                'screenId' => 'mock-id-123',
+                'stepIds' => [],
+            ],
+            1 => [
+                'screenId' => 'mock-id-123',
+                'stepIds' => [],
             ],
         ], 200),
     ]);
@@ -56,19 +49,13 @@ it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension 
 it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension resource', function () {
     Saloon::fake([
         UiExtensionGetAllUiExtensionsByownerIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'uiExtensions',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 'mock-id-123',
-                    'title' => 'Mock value',
-                    'url' => 'Mock value',
-                    'screenId' => 'mock-id-123',
-                    'stepId' => 'mock-id-123',
-                    'ownerName' => 'Mock value',
-                    'enabled' => true,
-                ],
-            ],
+            'internalId' => 'mock-id-123',
+            'title' => 'Mock value',
+            'url' => 'Mock value',
+            'screenId' => 'mock-id-123',
+            'stepId' => 'mock-id-123',
+            'ownerName' => 'Mock value',
+            'enabled' => true,
         ], 200),
     ]);
 
@@ -93,5 +80,5 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
         ->screenId->toBe('mock-id-123')
         ->stepId->toBe('mock-id-123')
         ->ownerName->toBe('Mock value')
-        ->enabled->toBe(true);
+        ->enabled->toBeTrue();
 });

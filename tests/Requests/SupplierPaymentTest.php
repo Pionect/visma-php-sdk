@@ -12,43 +12,40 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetBypaymentNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'supplierPayments',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'documentType' => 'Mock value',
-                    'refNbr' => 'Mock value',
-                    'status' => 'Mock value',
-                    'hold' => true,
-                    'applicationDate' => '2025-11-22T10:40:04.065Z',
-                    'applicationPeriod' => 'Mock value',
-                    'paymentRef' => 'Mock value',
-                    'supplier' => 'Mock value',
-                    'location' => 'Mock value',
-                    'paymentMethod' => 'Mock value',
-                    'cashAccount' => 'Mock value',
-                    'currency' => 'Mock value',
-                    'description' => 'Mock value',
-                    'paymentAmount' => 3.14,
-                    'financeCharges' => 3.14,
-                    'balance' => 3.14,
-                    'unappliedBalance' => 3.14,
-                    'appliedAmount' => 3.14,
-                    'released' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'branch' => 'Mock value',
-                    'paymentLines' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'documentType' => 'Mock value',
+            'refNbr' => 'Mock value',
+            'status' => 'Mock value',
+            'hold' => true,
+            'applicationDate' => '2025-11-22T10:40:04.065Z',
+            'applicationPeriod' => 'Mock value',
+            'paymentRef' => 'Mock value',
+            'supplier' => 'Mock value',
+            'location' => 'Mock value',
+            'paymentMethod' => 'Mock value',
+            'cashAccount' => 'Mock value',
+            'currency' => 'Mock value',
+            'description' => 'Mock value',
+            'paymentAmount' => 3.14,
+            'financeCharges' => 3.14,
+            'balance' => 3.14,
+            'unappliedBalance' => 3.14,
+            'appliedAmount' => 3.14,
+            'released' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'branch' => 'Mock value',
+            'paymentLines' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -68,7 +65,7 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
         ->documentType->toBe('Mock value')
         ->refNbr->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->applicationPeriod->toBe('Mock value')
         ->paymentRef->toBe('Mock value')
@@ -83,7 +80,7 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
         ->balance->toBe(3.14)
         ->unappliedBalance->toBe(3.14)
         ->appliedAmount->toBe(3.14)
-        ->released->toBe(true)
+        ->released->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branch->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -94,37 +91,31 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
 it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetByTypeBypaymentTypepaymentNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'supplierPayments',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'documentType' => 'Mock value',
-                    'refNbr' => 'Mock value',
-                    'status' => 'Mock value',
-                    'hold' => true,
-                    'applicationDate' => '2025-11-22T10:40:04.065Z',
-                    'applicationPeriod' => 'Mock value',
-                    'paymentRef' => 'Mock value',
-                    'supplier' => 'Mock value',
-                    'location' => 'Mock value',
-                    'paymentMethod' => 'Mock value',
-                    'cashAccount' => 'Mock value',
-                    'currency' => 'Mock value',
-                    'description' => 'Mock value',
-                    'paymentAmount' => 3.14,
-                    'financeCharges' => 3.14,
-                    'balance' => 3.14,
-                    'unappliedBalance' => 3.14,
-                    'appliedAmount' => 3.14,
-                    'released' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'branch' => 'Mock value',
-                    'paymentLines' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'documentType' => 'Mock value',
+            'refNbr' => 'Mock value',
+            'status' => 'Mock value',
+            'hold' => true,
+            'applicationDate' => '2025-11-22T10:40:04.065Z',
+            'applicationPeriod' => 'Mock value',
+            'paymentRef' => 'Mock value',
+            'supplier' => 'Mock value',
+            'location' => 'Mock value',
+            'paymentMethod' => 'Mock value',
+            'cashAccount' => 'Mock value',
+            'currency' => 'Mock value',
+            'description' => 'Mock value',
+            'paymentAmount' => 3.14,
+            'financeCharges' => 3.14,
+            'balance' => 3.14,
+            'unappliedBalance' => 3.14,
+            'appliedAmount' => 3.14,
+            'released' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'branch' => 'Mock value',
+            'paymentLines' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -145,7 +136,7 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
         ->documentType->toBe('Mock value')
         ->refNbr->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->applicationPeriod->toBe('Mock value')
         ->paymentRef->toBe('Mock value')
@@ -160,7 +151,7 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
         ->balance->toBe(3.14)
         ->unappliedBalance->toBe(3.14)
         ->appliedAmount->toBe(3.14)
-        ->released->toBe(true)
+        ->released->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branch->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -171,69 +162,59 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
 it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetAllPaymentsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'supplierPayments',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'documentType' => 'Mock value',
-                        'refNbr' => 'Mock value',
-                        'status' => 'Mock value',
-                        'hold' => true,
-                        'applicationDate' => '2025-11-22T10:40:04.065Z',
-                        'applicationPeriod' => 'Mock value',
-                        'paymentRef' => 'Mock value',
-                        'supplier' => 'Mock value',
-                        'location' => 'Mock value',
-                        'paymentMethod' => 'Mock value',
-                        'cashAccount' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'description' => 'Mock value',
-                        'paymentAmount' => 3.14,
-                        'financeCharges' => 3.14,
-                        'balance' => 3.14,
-                        'unappliedBalance' => 3.14,
-                        'appliedAmount' => 3.14,
-                        'released' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'branch' => 'Mock value',
-                        'paymentLines' => [],
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'supplierPayments',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'documentType' => 'Mock value',
-                        'refNbr' => 'Mock value',
-                        'status' => 'Mock value',
-                        'hold' => true,
-                        'applicationDate' => '2025-11-22T10:40:04.065Z',
-                        'applicationPeriod' => 'Mock value',
-                        'paymentRef' => 'Mock value',
-                        'supplier' => 'Mock value',
-                        'location' => 'Mock value',
-                        'paymentMethod' => 'Mock value',
-                        'cashAccount' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'description' => 'Mock value',
-                        'paymentAmount' => 3.14,
-                        'financeCharges' => 3.14,
-                        'balance' => 3.14,
-                        'unappliedBalance' => 3.14,
-                        'appliedAmount' => 3.14,
-                        'released' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'branch' => 'Mock value',
-                        'paymentLines' => [],
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'documentType' => 'Mock value',
+                'refNbr' => 'Mock value',
+                'status' => 'Mock value',
+                'hold' => true,
+                'applicationDate' => '2025-11-22T10:40:04.065Z',
+                'applicationPeriod' => 'Mock value',
+                'paymentRef' => 'Mock value',
+                'supplier' => 'Mock value',
+                'location' => 'Mock value',
+                'paymentMethod' => 'Mock value',
+                'cashAccount' => 'Mock value',
+                'currency' => 'Mock value',
+                'description' => 'Mock value',
+                'paymentAmount' => 3.14,
+                'financeCharges' => 3.14,
+                'balance' => 3.14,
+                'unappliedBalance' => 3.14,
+                'appliedAmount' => 3.14,
+                'released' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'branch' => 'Mock value',
+                'paymentLines' => [],
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'documentType' => 'Mock value',
+                'refNbr' => 'Mock value',
+                'status' => 'Mock value',
+                'hold' => true,
+                'applicationDate' => '2025-11-22T10:40:04.065Z',
+                'applicationPeriod' => 'Mock value',
+                'paymentRef' => 'Mock value',
+                'supplier' => 'Mock value',
+                'location' => 'Mock value',
+                'paymentMethod' => 'Mock value',
+                'cashAccount' => 'Mock value',
+                'currency' => 'Mock value',
+                'description' => 'Mock value',
+                'paymentAmount' => 3.14,
+                'financeCharges' => 3.14,
+                'balance' => 3.14,
+                'unappliedBalance' => 3.14,
+                'appliedAmount' => 3.14,
+                'released' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'branch' => 'Mock value',
+                'paymentLines' => [],
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -256,7 +237,7 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
         ->documentType->toBe('Mock value')
         ->refNbr->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->applicationPeriod->toBe('Mock value')
         ->paymentRef->toBe('Mock value')
@@ -271,7 +252,7 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
         ->balance->toBe(3.14)
         ->unappliedBalance->toBe(3.14)
         ->appliedAmount->toBe(3.14)
-        ->released->toBe(true)
+        ->released->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branch->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))

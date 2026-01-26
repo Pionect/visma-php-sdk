@@ -11,21 +11,18 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the dimensionGetDimensionBydimensionId method in the Dimension resource', function () {
     Saloon::fake([
         DimensionGetDimensionBydimensionIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'dimensions',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'length' => 42,
-                    'description' => 'Mock value',
-                    'segments' => [],
-                ],
-            ],
+            'length' => 42,
+            'description' => 'Mock value',
+            'segments' => [],
         ], 200),
     ]);
 
@@ -56,24 +53,18 @@ it('calls the dimensionGetDimensionBydimensionId method in the Dimension resourc
 it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension resource', function () {
     Saloon::fake([
         DimensionGetSegmentBydimensionIdsegmentIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'dimensions',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 'mock-id-123',
-                    'segmentId' => 42,
-                    'description' => 'Mock value',
-                    'length' => 42,
-                    'publicId' => 'mock-id-123',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'lastModified' => '2025-11-22T10:40:04.065Z',
-                    'validate' => true,
-                    'segmentValues' => [],
-                    'isAutoNumber' => true,
-                    'consolNumChar' => 42,
-                    'consolOrder' => 42,
-                ],
-            ],
+            'internalId' => 'mock-id-123',
+            'segmentId' => 42,
+            'description' => 'Mock value',
+            'length' => 42,
+            'publicId' => 'mock-id-123',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'lastModified' => '2025-11-22T10:40:04.065Z',
+            'validate' => true,
+            'segmentValues' => [],
+            'isAutoNumber' => true,
+            'consolNumChar' => 42,
+            'consolOrder' => 42,
         ], 200),
     ]);
 
@@ -98,8 +89,8 @@ it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension 
         ->publicId->toBe('mock-id-123')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->validate->toBe(true)
-        ->isAutoNumber->toBe(true)
+        ->validate->toBeTrue()
+        ->isAutoNumber->toBeTrue()
         ->consolNumChar->toBe(42)
         ->consolOrder->toBe(42);
 });
@@ -107,21 +98,15 @@ it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension 
 it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in the Dimension resource', function () {
     Saloon::fake([
         DimensionGetSegmentValueBydimensionIdsegmentIdvalueIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'dimensions',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 'mock-id-123',
-                    'segmentId' => 42,
-                    'valueId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'publicId' => 'mock-id-123',
-                    'active' => true,
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'lastModified' => '2025-11-22T10:40:04.065Z',
-                    'mappedSegValue' => 'Mock value',
-                ],
-            ],
+            'internalId' => 'mock-id-123',
+            'segmentId' => 42,
+            'valueId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'publicId' => 'mock-id-123',
+            'active' => true,
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'lastModified' => '2025-11-22T10:40:04.065Z',
+            'mappedSegValue' => 'Mock value',
         ], 200),
     ]);
 
@@ -145,7 +130,7 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in th
         ->valueId->toBe('mock-id-123')
         ->description->toBe('Mock value')
         ->publicId->toBe('mock-id-123')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->mappedSegValue->toBe('Mock value');
@@ -154,21 +139,15 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in th
 it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in the Dimension resource', function () {
     Saloon::fake([
         DimensionGetSegmentValueBydimensionIdsegmentIdpublicIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'dimensions',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 'mock-id-123',
-                    'segmentId' => 42,
-                    'valueId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'publicId' => 'mock-id-123',
-                    'active' => true,
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'lastModified' => '2025-11-22T10:40:04.065Z',
-                    'mappedSegValue' => 'Mock value',
-                ],
-            ],
+            'internalId' => 'mock-id-123',
+            'segmentId' => 42,
+            'valueId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'publicId' => 'mock-id-123',
+            'active' => true,
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'lastModified' => '2025-11-22T10:40:04.065Z',
+            'mappedSegValue' => 'Mock value',
         ], 200),
     ]);
 
@@ -192,7 +171,7 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in t
         ->valueId->toBe('mock-id-123')
         ->description->toBe('Mock value')
         ->publicId->toBe('mock-id-123')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->mappedSegValue->toBe('Mock value');

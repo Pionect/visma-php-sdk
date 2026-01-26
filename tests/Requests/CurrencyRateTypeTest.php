@@ -7,29 +7,22 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the currencyRateTypeGetAllCollection method in the CurrencyRateType resource', function () {
     Saloon::fake([
         CurrencyRateTypeGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'currencyRateTypes',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'daysEffective' => 42,
-                    ],
-                ],
-                1 => [
-                    'type' => 'currencyRateTypes',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'daysEffective' => 42,
-                    ],
-                ],
+            0 => [
+                'description' => 'Mock value',
+                'daysEffective' => 42,
+            ],
+            1 => [
+                'description' => 'Mock value',
+                'daysEffective' => 42,
             ],
         ], 200),
     ]);

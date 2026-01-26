@@ -9,25 +9,22 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the earningTypeGetEarningTypeBytypeCd method in the EarningType resource', function () {
     Saloon::fake([
         EarningTypeGetEarningTypeBytypeCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'earningTypes',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'code' => 'Mock value',
-                    'description' => 'Mock value',
-                    'isOvertime' => true,
-                    'isBillable' => true,
-                    'isActive' => true,
-                    'overtimeMultiplier' => 3.14,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'code' => 'Mock value',
+            'description' => 'Mock value',
+            'isOvertime' => true,
+            'isBillable' => true,
+            'isActive' => true,
+            'overtimeMultiplier' => 3.14,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 
@@ -46,9 +43,9 @@ it('calls the earningTypeGetEarningTypeBytypeCd method in the EarningType resour
     expect($dto)
         ->code->toBe('Mock value')
         ->description->toBe('Mock value')
-        ->isOvertime->toBe(true)
-        ->isBillable->toBe(true)
-        ->isActive->toBe(true)
+        ->isOvertime->toBeTrue()
+        ->isBillable->toBeTrue()
+        ->isActive->toBeTrue()
         ->overtimeMultiplier->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
@@ -56,33 +53,23 @@ it('calls the earningTypeGetEarningTypeBytypeCd method in the EarningType resour
 it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningType resource', function () {
     Saloon::fake([
         EarningTypeGetAllEarningTypeDtosCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'earningTypes',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'code' => 'Mock value',
-                        'description' => 'Mock value',
-                        'isOvertime' => true,
-                        'isBillable' => true,
-                        'isActive' => true,
-                        'overtimeMultiplier' => 3.14,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
-                1 => [
-                    'type' => 'earningTypes',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'code' => 'Mock value',
-                        'description' => 'Mock value',
-                        'isOvertime' => true,
-                        'isBillable' => true,
-                        'isActive' => true,
-                        'overtimeMultiplier' => 3.14,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
+            0 => [
+                'code' => 'Mock value',
+                'description' => 'Mock value',
+                'isOvertime' => true,
+                'isBillable' => true,
+                'isActive' => true,
+                'overtimeMultiplier' => 3.14,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            ],
+            1 => [
+                'code' => 'Mock value',
+                'description' => 'Mock value',
+                'isOvertime' => true,
+                'isBillable' => true,
+                'isActive' => true,
+                'overtimeMultiplier' => 3.14,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
     ]);
@@ -104,9 +91,9 @@ it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningTy
     expect($dtoCollection->first())
         ->code->toBe('Mock value')
         ->description->toBe('Mock value')
-        ->isOvertime->toBe(true)
-        ->isBillable->toBe(true)
-        ->isActive->toBe(true)
+        ->isOvertime->toBeTrue()
+        ->isBillable->toBeTrue()
+        ->isActive->toBeTrue()
         ->overtimeMultiplier->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

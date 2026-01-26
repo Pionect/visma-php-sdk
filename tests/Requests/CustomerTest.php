@@ -26,35 +26,28 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the customerGetCustomerClassesCollection method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerClassesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'customers',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'taxZoneId' => 'mock-id-123',
-                        'requiredTaxzoneId' => true,
-                        'paymentMethodId' => 'mock-id-123',
-                        'attributes' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'customers',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'taxZoneId' => 'mock-id-123',
-                        'requiredTaxzoneId' => true,
-                        'paymentMethodId' => 'mock-id-123',
-                        'attributes' => [],
-                    ],
-                ],
+            0 => [
+                'description' => 'Mock value',
+                'taxZoneId' => 'mock-id-123',
+                'requiredTaxzoneId' => true,
+                'paymentMethodId' => 'mock-id-123',
+                'attributes' => [],
+            ],
+            1 => [
+                'description' => 'Mock value',
+                'taxZoneId' => 'mock-id-123',
+                'requiredTaxzoneId' => true,
+                'paymentMethodId' => 'mock-id-123',
+                'attributes' => [],
             ],
         ], 200),
     ]);
@@ -76,24 +69,18 @@ it('calls the customerGetCustomerClassesCollection method in the Customer resour
     expect($dtoCollection->first())
         ->description->toBe('Mock value')
         ->taxZoneId->toBe('mock-id-123')
-        ->requiredTaxzoneId->toBe(true)
+        ->requiredTaxzoneId->toBeTrue()
         ->paymentMethodId->toBe('mock-id-123');
 });
 
 it('calls the customerGetSpecificCustomerClassBycustomerClassId method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetSpecificCustomerClassBycustomerClassIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'description' => 'Mock value',
-                    'taxZoneId' => 'mock-id-123',
-                    'requiredTaxzoneId' => true,
-                    'paymentMethodId' => 'mock-id-123',
-                    'attributes' => [],
-                ],
-            ],
+            'description' => 'Mock value',
+            'taxZoneId' => 'mock-id-123',
+            'requiredTaxzoneId' => true,
+            'paymentMethodId' => 'mock-id-123',
+            'attributes' => [],
         ], 200),
     ]);
 
@@ -112,28 +99,22 @@ it('calls the customerGetSpecificCustomerClassBycustomerClassId method in the Cu
     expect($dto)
         ->description->toBe('Mock value')
         ->taxZoneId->toBe('mock-id-123')
-        ->requiredTaxzoneId->toBe(true)
+        ->requiredTaxzoneId->toBeTrue()
         ->paymentMethodId->toBe('mock-id-123');
 });
 
 it('calls the customerGetCustomerBalanceBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerBalanceBycustomerCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'customer' => 'Mock value',
-                    'balance' => 3.14,
-                    'totalOrder' => 3.14,
-                    'totalLoan' => 3.14,
-                    'totalSalePeriod' => 3.14,
-                    'totalSaleYear' => 3.14,
-                    'totalDiscountPeriod' => 3.14,
-                    'totalDiscountYear' => 3.14,
-                    'lastModified' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'customer' => 'Mock value',
+            'balance' => 3.14,
+            'totalOrder' => 3.14,
+            'totalLoan' => 3.14,
+            'totalSalePeriod' => 3.14,
+            'totalSaleYear' => 3.14,
+            'totalDiscountPeriod' => 3.14,
+            'totalDiscountYear' => 3.14,
+            'lastModified' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 
@@ -164,23 +145,17 @@ it('calls the customerGetCustomerBalanceBycustomerCd method in the Customer reso
 it('calls the customerGetCustomerDirectDebitBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerDirectDebitBycustomerCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'mandateId' => 'mock-id-123',
-                    'mandateDescription' => 'Mock value',
-                    'dateOfSignature' => '2025-11-22T10:40:04.065Z',
-                    'isDefault' => true,
-                    'oneTime' => '2025-11-22T10:40:04.065Z',
-                    'bic' => 'Mock value',
-                    'iban' => 'Mock value',
-                    'lastCollectionDate' => '2025-11-22T10:40:04.065Z',
-                    'maxAmount' => 3.14,
-                    'expirationDate' => '2025-11-22T10:40:04.065Z',
-                    'branch' => 'Mock value',
-                ],
-            ],
+            'mandateId' => 'mock-id-123',
+            'mandateDescription' => 'Mock value',
+            'dateOfSignature' => '2025-11-22T10:40:04.065Z',
+            'isDefault' => true,
+            'oneTime' => '2025-11-22T10:40:04.065Z',
+            'bic' => 'Mock value',
+            'iban' => 'Mock value',
+            'lastCollectionDate' => '2025-11-22T10:40:04.065Z',
+            'maxAmount' => 3.14,
+            'expirationDate' => '2025-11-22T10:40:04.065Z',
+            'branch' => 'Mock value',
         ], 200),
     ]);
 
@@ -200,7 +175,7 @@ it('calls the customerGetCustomerDirectDebitBycustomerCd method in the Customer 
         ->mandateId->toBe('mock-id-123')
         ->mandateDescription->toBe('Mock value')
         ->dateOfSignature->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->isDefault->toBe(true)
+        ->isDefault->toBeTrue()
         ->oneTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->bic->toBe('Mock value')
         ->iban->toBe('Mock value')
@@ -213,87 +188,81 @@ it('calls the customerGetCustomerDirectDebitBycustomerCd method in the Customer 
 it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllOrderForCustomerBycustomerCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'projectCd' => 'Mock value',
-                    'printDescriptionOnInvoice' => true,
-                    'printNoteOnExternalDocuments' => true,
-                    'printNoteOnInternalDocuments' => true,
-                    'soBillingContact' => 'Mock value',
-                    'soBillingAddress' => 'Mock value',
-                    'customerVatzone' => 'Mock value',
-                    'invoiceSeparately' => true,
-                    'invoiceNbr' => 'Mock value',
-                    'invoiceDate' => '2025-11-22T10:40:04.065Z',
-                    'terms' => 'Mock value',
-                    'dueDate' => '2025-11-22T10:40:04.065Z',
-                    'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
-                    'postPeriod' => 'Mock value',
-                    'salesPerson' => 'Mock value',
-                    'commissionPercent' => 'Mock value',
-                    'commissionAmount' => 'Mock value',
-                    'commissionableAmount' => 'Mock value',
-                    'owner' => 'Mock value',
-                    'origOrderType' => 'Mock value',
-                    'origOrderNbr' => 'Mock value',
-                    'soShippingContact' => 'Mock value',
-                    'soShippingAddress' => 'Mock value',
-                    'schedShipment' => '2025-11-22T10:40:04.065Z',
-                    'shipSeparately' => true,
-                    'shipComplete' => 'Mock value',
-                    'cancelBy' => '2025-11-22T10:40:04.065Z',
-                    'canceled' => true,
-                    'preferredWarehouse' => 'Mock value',
-                    'shipVia' => 'Mock value',
-                    'fobPoint' => 'Mock value',
-                    'priority' => 42,
-                    'shippingTerms' => 'Mock value',
-                    'shippingZone' => 'Mock value',
-                    'residentialDelivery' => true,
-                    'saturdayDelivery' => true,
-                    'insurance' => true,
-                    'transactionType' => 'Mock value',
-                    'paymentMethod' => 'Mock value',
-                    'cashAccount' => 'Mock value',
-                    'paymentRef' => 'Mock value',
-                    'isRotRutDeductible' => true,
-                    'emailed' => true,
-                    'lines' => [],
-                    'shipments' => [],
-                    'orderType' => 'Mock value',
-                    'orderNo' => 'Mock value',
-                    'status' => 'Mock value',
-                    'hold' => true,
-                    'date' => '2025-11-22T10:40:04.065Z',
-                    'requestOn' => '2025-11-22T10:40:04.065Z',
-                    'customerOrder' => 'Mock value',
-                    'customerRefNo' => 'Mock value',
-                    'customer' => 'Mock value',
-                    'contactId' => 42,
-                    'location' => 'Mock value',
-                    'currency' => 'Mock value',
-                    'description' => 'Mock value',
-                    'orderTotal' => 3.14,
-                    'orderTotalInBaseCurrency' => 3.14,
-                    'vatTaxableTotal' => 3.14,
-                    'vatTaxableTotalInBaseCurrency' => 3.14,
-                    'vatExemptTotal' => 3.14,
-                    'vatExemptTotalInBaseCurrency' => 3.14,
-                    'taxTotal' => 3.14,
-                    'taxTotalInBaseCurrency' => 3.14,
-                    'exchangeRate' => 3.14,
-                    'discountTotal' => 3.14,
-                    'discountTotalInBaseCurrency' => 3.14,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'branchNumber' => 'Mock value',
-                    'note' => 'Mock value',
-                    'attachments' => [],
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'projectCd' => 'Mock value',
+            'printDescriptionOnInvoice' => true,
+            'printNoteOnExternalDocuments' => true,
+            'printNoteOnInternalDocuments' => true,
+            'soBillingContact' => 'Mock value',
+            'soBillingAddress' => 'Mock value',
+            'customerVatzone' => 'Mock value',
+            'invoiceSeparately' => true,
+            'invoiceNbr' => 'Mock value',
+            'invoiceDate' => '2025-11-22T10:40:04.065Z',
+            'terms' => 'Mock value',
+            'dueDate' => '2025-11-22T10:40:04.065Z',
+            'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
+            'postPeriod' => 'Mock value',
+            'salesPerson' => 'Mock value',
+            'commissionPercent' => 'Mock value',
+            'commissionAmount' => 'Mock value',
+            'commissionableAmount' => 'Mock value',
+            'owner' => 'Mock value',
+            'origOrderType' => 'Mock value',
+            'origOrderNbr' => 'Mock value',
+            'soShippingContact' => 'Mock value',
+            'soShippingAddress' => 'Mock value',
+            'schedShipment' => '2025-11-22T10:40:04.065Z',
+            'shipSeparately' => true,
+            'shipComplete' => 'Mock value',
+            'cancelBy' => '2025-11-22T10:40:04.065Z',
+            'canceled' => true,
+            'preferredWarehouse' => 'Mock value',
+            'shipVia' => 'Mock value',
+            'fobPoint' => 'Mock value',
+            'priority' => 42,
+            'shippingTerms' => 'Mock value',
+            'shippingZone' => 'Mock value',
+            'residentialDelivery' => true,
+            'saturdayDelivery' => true,
+            'insurance' => true,
+            'transactionType' => 'Mock value',
+            'paymentMethod' => 'Mock value',
+            'cashAccount' => 'Mock value',
+            'paymentRef' => 'Mock value',
+            'isRotRutDeductible' => true,
+            'emailed' => true,
+            'lines' => [],
+            'shipments' => [],
+            'orderType' => 'Mock value',
+            'orderNo' => 'Mock value',
+            'status' => 'Mock value',
+            'hold' => true,
+            'date' => '2025-11-22T10:40:04.065Z',
+            'requestOn' => '2025-11-22T10:40:04.065Z',
+            'customerOrder' => 'Mock value',
+            'customerRefNo' => 'Mock value',
+            'customer' => 'Mock value',
+            'contactId' => 42,
+            'location' => 'Mock value',
+            'currency' => 'Mock value',
+            'description' => 'Mock value',
+            'orderTotal' => 3.14,
+            'orderTotalInBaseCurrency' => 3.14,
+            'vatTaxableTotal' => 3.14,
+            'vatTaxableTotalInBaseCurrency' => 3.14,
+            'vatExemptTotal' => 3.14,
+            'vatExemptTotalInBaseCurrency' => 3.14,
+            'taxTotal' => 3.14,
+            'taxTotalInBaseCurrency' => 3.14,
+            'exchangeRate' => 3.14,
+            'discountTotal' => 3.14,
+            'discountTotalInBaseCurrency' => 3.14,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'branchNumber' => 'Mock value',
+            'note' => 'Mock value',
+            'attachments' => [],
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -322,13 +291,13 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
 
     expect($dto)
         ->projectCd->toBe('Mock value')
-        ->printDescriptionOnInvoice->toBe(true)
-        ->printNoteOnExternalDocuments->toBe(true)
-        ->printNoteOnInternalDocuments->toBe(true)
+        ->printDescriptionOnInvoice->toBeTrue()
+        ->printNoteOnExternalDocuments->toBeTrue()
+        ->printNoteOnInternalDocuments->toBeTrue()
         ->soBillingContact->toBe('Mock value')
         ->soBillingAddress->toBe('Mock value')
         ->customerVatzone->toBe('Mock value')
-        ->invoiceSeparately->toBe(true)
+        ->invoiceSeparately->toBeTrue()
         ->invoiceNbr->toBe('Mock value')
         ->invoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->terms->toBe('Mock value')
@@ -345,29 +314,29 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
         ->soShippingContact->toBe('Mock value')
         ->soShippingAddress->toBe('Mock value')
         ->schedShipment->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->shipSeparately->toBe(true)
+        ->shipSeparately->toBeTrue()
         ->shipComplete->toBe('Mock value')
         ->cancelBy->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->canceled->toBe(true)
+        ->canceled->toBeTrue()
         ->preferredWarehouse->toBe('Mock value')
         ->shipVia->toBe('Mock value')
         ->fobPoint->toBe('Mock value')
         ->priority->toBe(42)
         ->shippingTerms->toBe('Mock value')
         ->shippingZone->toBe('Mock value')
-        ->residentialDelivery->toBe(true)
-        ->saturdayDelivery->toBe(true)
-        ->insurance->toBe(true)
+        ->residentialDelivery->toBeTrue()
+        ->saturdayDelivery->toBeTrue()
+        ->insurance->toBeTrue()
         ->transactionType->toBe('Mock value')
         ->paymentMethod->toBe('Mock value')
         ->cashAccount->toBe('Mock value')
         ->paymentRef->toBe('Mock value')
-        ->isRotRutDeductible->toBe(true)
-        ->emailed->toBe(true)
+        ->isRotRutDeductible->toBeTrue()
+        ->emailed->toBeTrue()
         ->orderType->toBe('Mock value')
         ->orderNo->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->customerOrder->toBe('Mock value')
@@ -398,43 +367,37 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
 it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllSalesOrderBasicForCustomerBycustomerCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'lines' => [],
-                    'orderType' => 'Mock value',
-                    'orderNo' => 'Mock value',
-                    'status' => 'Mock value',
-                    'hold' => true,
-                    'date' => '2025-11-22T10:40:04.065Z',
-                    'requestOn' => '2025-11-22T10:40:04.065Z',
-                    'customerOrder' => 'Mock value',
-                    'customerRefNo' => 'Mock value',
-                    'customer' => 'Mock value',
-                    'contactId' => 42,
-                    'location' => 'Mock value',
-                    'currency' => 'Mock value',
-                    'description' => 'Mock value',
-                    'orderTotal' => 3.14,
-                    'orderTotalInBaseCurrency' => 3.14,
-                    'vatTaxableTotal' => 3.14,
-                    'vatTaxableTotalInBaseCurrency' => 3.14,
-                    'vatExemptTotal' => 3.14,
-                    'vatExemptTotalInBaseCurrency' => 3.14,
-                    'taxTotal' => 3.14,
-                    'taxTotalInBaseCurrency' => 3.14,
-                    'exchangeRate' => 3.14,
-                    'discountTotal' => 3.14,
-                    'discountTotalInBaseCurrency' => 3.14,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'branchNumber' => 'Mock value',
-                    'note' => 'Mock value',
-                    'attachments' => [],
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'lines' => [],
+            'orderType' => 'Mock value',
+            'orderNo' => 'Mock value',
+            'status' => 'Mock value',
+            'hold' => true,
+            'date' => '2025-11-22T10:40:04.065Z',
+            'requestOn' => '2025-11-22T10:40:04.065Z',
+            'customerOrder' => 'Mock value',
+            'customerRefNo' => 'Mock value',
+            'customer' => 'Mock value',
+            'contactId' => 42,
+            'location' => 'Mock value',
+            'currency' => 'Mock value',
+            'description' => 'Mock value',
+            'orderTotal' => 3.14,
+            'orderTotalInBaseCurrency' => 3.14,
+            'vatTaxableTotal' => 3.14,
+            'vatTaxableTotalInBaseCurrency' => 3.14,
+            'vatExemptTotal' => 3.14,
+            'vatExemptTotalInBaseCurrency' => 3.14,
+            'taxTotal' => 3.14,
+            'taxTotalInBaseCurrency' => 3.14,
+            'exchangeRate' => 3.14,
+            'discountTotal' => 3.14,
+            'discountTotalInBaseCurrency' => 3.14,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'branchNumber' => 'Mock value',
+            'note' => 'Mock value',
+            'attachments' => [],
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -465,7 +428,7 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the
         ->orderType->toBe('Mock value')
         ->orderNo->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->customerOrder->toBe('Mock value')
@@ -496,40 +459,34 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the
 it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllContactsForCustomerBycustomerCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'displayName' => 'Mock value',
-                    'active' => true,
-                    'title' => 'Mock value',
-                    'firstName' => 'Mock value',
-                    'lastName' => 'Mock value',
-                    'position' => 'Mock value',
-                    'businessAccount' => 'Mock value',
-                    'businessAccountType' => 'Mock value',
-                    'sameAsAccount' => true,
-                    'address' => 'Mock value',
-                    'email' => 'test@example.com',
-                    'web' => 'Mock value',
-                    'phone1' => 'Mock value',
-                    'phone2' => 'Mock value',
-                    'phone3' => 'Mock value',
-                    'fax' => 'Mock value',
-                    'contactMethod' => 'Mock value',
-                    'doNotCall' => true,
-                    'doNotFax' => true,
-                    'doNotEmail' => true,
-                    'doNotMail' => true,
-                    'noMassMail' => true,
-                    'noMarketing' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'contactId' => 42,
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'displayName' => 'Mock value',
+            'active' => true,
+            'title' => 'Mock value',
+            'firstName' => 'Mock value',
+            'lastName' => 'Mock value',
+            'position' => 'Mock value',
+            'businessAccount' => 'Mock value',
+            'businessAccountType' => 'Mock value',
+            'sameAsAccount' => true,
+            'address' => 'Mock value',
+            'email' => 'test@example.com',
+            'web' => 'Mock value',
+            'phone1' => 'Mock value',
+            'phone2' => 'Mock value',
+            'phone3' => 'Mock value',
+            'fax' => 'Mock value',
+            'contactMethod' => 'Mock value',
+            'doNotCall' => true,
+            'doNotFax' => true,
+            'doNotEmail' => true,
+            'doNotMail' => true,
+            'noMassMail' => true,
+            'noMarketing' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'contactId' => 42,
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -559,14 +516,14 @@ it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Custom
 
     expect($dto)
         ->displayName->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->title->toBe('Mock value')
         ->firstName->toBe('Mock value')
         ->lastName->toBe('Mock value')
         ->position->toBe('Mock value')
         ->businessAccount->toBe('Mock value')
         ->businessAccountType->toBe('Mock value')
-        ->sameAsAccount->toBe(true)
+        ->sameAsAccount->toBeTrue()
         ->address->toBe('Mock value')
         ->email->toBe('test@example.com')
         ->web->toBe('Mock value')
@@ -575,12 +532,12 @@ it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Custom
         ->phone3->toBe('Mock value')
         ->fax->toBe('Mock value')
         ->contactMethod->toBe('Mock value')
-        ->doNotCall->toBe(true)
-        ->doNotFax->toBe(true)
-        ->doNotEmail->toBe(true)
-        ->doNotMail->toBe(true)
-        ->noMassMail->toBe(true)
-        ->noMarketing->toBe(true)
+        ->doNotCall->toBeTrue()
+        ->doNotFax->toBeTrue()
+        ->doNotEmail->toBeTrue()
+        ->doNotMail->toBeTrue()
+        ->noMassMail->toBeTrue()
+        ->noMarketing->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->contactId->toBe(42)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -591,20 +548,14 @@ it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Custom
 it('calls the customerGetSalesPersonsForCustomerBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetSalesPersonsForCustomerBycustomerCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'salePersonId' => 'mock-id-123',
-                    'name' => 'Mock value',
-                    'locationId' => 'mock-id-123',
-                    'locationName' => 'Mock value',
-                    'commisionPct' => 3.14,
-                    'isDefault' => true,
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'salePersonId' => 'mock-id-123',
+            'name' => 'Mock value',
+            'locationId' => 'mock-id-123',
+            'locationName' => 'Mock value',
+            'commisionPct' => 3.14,
+            'isDefault' => true,
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -628,7 +579,7 @@ it('calls the customerGetSalesPersonsForCustomerBycustomerCd method in the Custo
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('Mock value')
         ->commisionPct->toBe(3.14)
-        ->isDefault->toBe(true)
+        ->isDefault->toBeTrue()
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
 });
@@ -636,37 +587,27 @@ it('calls the customerGetSalesPersonsForCustomerBycustomerCd method in the Custo
 it('calls the customerGetAllCustomerBalanceCollection method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllCustomerBalanceCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'customers',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'customer' => 'Mock value',
-                        'balance' => 3.14,
-                        'totalOrder' => 3.14,
-                        'totalLoan' => 3.14,
-                        'totalSalePeriod' => 3.14,
-                        'totalSaleYear' => 3.14,
-                        'totalDiscountPeriod' => 3.14,
-                        'totalDiscountYear' => 3.14,
-                        'lastModified' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
-                1 => [
-                    'type' => 'customers',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'customer' => 'Mock value',
-                        'balance' => 3.14,
-                        'totalOrder' => 3.14,
-                        'totalLoan' => 3.14,
-                        'totalSalePeriod' => 3.14,
-                        'totalSaleYear' => 3.14,
-                        'totalDiscountPeriod' => 3.14,
-                        'totalDiscountYear' => 3.14,
-                        'lastModified' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
+            0 => [
+                'customer' => 'Mock value',
+                'balance' => 3.14,
+                'totalOrder' => 3.14,
+                'totalLoan' => 3.14,
+                'totalSalePeriod' => 3.14,
+                'totalSaleYear' => 3.14,
+                'totalDiscountPeriod' => 3.14,
+                'totalDiscountYear' => 3.14,
+                'lastModified' => '2025-11-22T10:40:04.065Z',
+            ],
+            1 => [
+                'customer' => 'Mock value',
+                'balance' => 3.14,
+                'totalOrder' => 3.14,
+                'totalLoan' => 3.14,
+                'totalSalePeriod' => 3.14,
+                'totalSaleYear' => 3.14,
+                'totalDiscountPeriod' => 3.14,
+                'totalDiscountYear' => 3.14,
+                'lastModified' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
     ]);
@@ -700,13 +641,7 @@ it('calls the customerGetAllCustomerBalanceCollection method in the Customer res
 it('calls the customerGetCustomerNoteBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerNoteBycustomerCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'note' => 'Mock value',
-                ],
-            ],
+            'note' => 'Mock value',
         ], 200),
     ]);
 
@@ -729,59 +664,53 @@ it('calls the customerGetCustomerNoteBycustomerCd method in the Customer resourc
 it('calls the customerGetByinternalId method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetByinternalIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 42,
-                    'number' => 'Mock value',
-                    'name' => 'Mock value',
-                    'status' => 'Mock value',
-                    'mainAddress' => 'Mock value',
-                    'mainContact' => 'Mock value',
-                    'accountReference' => 'Mock value',
-                    'parentRecord' => 'Mock value',
-                    'customerClass' => 'Mock value',
-                    'creditTerms' => 'Mock value',
-                    'currencyId' => 'mock-id-123',
-                    'creditVerification' => 'Mock value',
-                    'creditLimit' => 3.14,
-                    'creditDaysPastDue' => 42,
-                    'invoiceAddress' => 'Mock value',
-                    'invoiceContact' => 'Mock value',
-                    'printInvoices' => true,
-                    'acceptAutoInvoices' => true,
-                    'sendInvoicesByEmail' => true,
-                    'sendDunningLettersViaEmail' => true,
-                    'printDunningLetters' => true,
-                    'printStatements' => true,
-                    'sendStatementsByEmail' => true,
-                    'printMultiCurrencyStatements' => true,
-                    'statementType' => 'Mock value',
-                    'deliveryAddress' => 'Mock value',
-                    'deliveryContact' => 'Mock value',
-                    'vatRegistrationId' => 'mock-id-123',
-                    'corporateId' => 'mock-id-123',
-                    'gln' => 'Mock value',
-                    'vatZone' => 'Mock value',
-                    'location' => 'Mock value',
-                    'attributes' => [],
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'directDebitLines' => [],
-                    'priceClass' => 'Mock value',
-                    'glAccounts' => 'Mock value',
-                    'invoiceToDefaultLocation' => true,
-                    'eInvoiceContract' => 'Mock value',
-                    'paymentMethods' => [],
-                    'defaultPaymentMethodId' => 'mock-id-123',
-                    'numberOfEmployees' => 42,
-                    'excludeDebtCollection' => true,
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'internalId' => 42,
+            'number' => 'Mock value',
+            'name' => 'Mock value',
+            'status' => 'Mock value',
+            'mainAddress' => 'Mock value',
+            'mainContact' => 'Mock value',
+            'accountReference' => 'Mock value',
+            'parentRecord' => 'Mock value',
+            'customerClass' => 'Mock value',
+            'creditTerms' => 'Mock value',
+            'currencyId' => 'mock-id-123',
+            'creditVerification' => 'Mock value',
+            'creditLimit' => 3.14,
+            'creditDaysPastDue' => 42,
+            'invoiceAddress' => 'Mock value',
+            'invoiceContact' => 'Mock value',
+            'printInvoices' => true,
+            'acceptAutoInvoices' => true,
+            'sendInvoicesByEmail' => true,
+            'sendDunningLettersViaEmail' => true,
+            'printDunningLetters' => true,
+            'printStatements' => true,
+            'sendStatementsByEmail' => true,
+            'printMultiCurrencyStatements' => true,
+            'statementType' => 'Mock value',
+            'deliveryAddress' => 'Mock value',
+            'deliveryContact' => 'Mock value',
+            'vatRegistrationId' => 'mock-id-123',
+            'corporateId' => 'mock-id-123',
+            'gln' => 'Mock value',
+            'vatZone' => 'Mock value',
+            'location' => 'Mock value',
+            'attributes' => [],
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'directDebitLines' => [],
+            'priceClass' => 'Mock value',
+            'glAccounts' => 'Mock value',
+            'invoiceToDefaultLocation' => true,
+            'eInvoiceContract' => 'Mock value',
+            'paymentMethods' => [],
+            'defaultPaymentMethodId' => 'mock-id-123',
+            'numberOfEmployees' => 42,
+            'excludeDebtCollection' => true,
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -814,14 +743,14 @@ it('calls the customerGetByinternalId method in the Customer resource', function
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->toBe('Mock value')
         ->invoiceContact->toBe('Mock value')
-        ->printInvoices->toBe(true)
-        ->acceptAutoInvoices->toBe(true)
-        ->sendInvoicesByEmail->toBe(true)
-        ->sendDunningLettersViaEmail->toBe(true)
-        ->printDunningLetters->toBe(true)
-        ->printStatements->toBe(true)
-        ->sendStatementsByEmail->toBe(true)
-        ->printMultiCurrencyStatements->toBe(true)
+        ->printInvoices->toBeTrue()
+        ->acceptAutoInvoices->toBeTrue()
+        ->sendInvoicesByEmail->toBeTrue()
+        ->sendDunningLettersViaEmail->toBeTrue()
+        ->printDunningLetters->toBeTrue()
+        ->printStatements->toBeTrue()
+        ->sendStatementsByEmail->toBeTrue()
+        ->printMultiCurrencyStatements->toBeTrue()
         ->statementType->toBe('Mock value')
         ->deliveryAddress->toBe('Mock value')
         ->deliveryContact->toBe('Mock value')
@@ -834,11 +763,11 @@ it('calls the customerGetByinternalId method in the Customer resource', function
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->priceClass->toBe('Mock value')
         ->glAccounts->toBe('Mock value')
-        ->invoiceToDefaultLocation->toBe(true)
+        ->invoiceToDefaultLocation->toBeTrue()
         ->eInvoiceContract->toBe('Mock value')
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
-        ->excludeDebtCollection->toBe(true)
+        ->excludeDebtCollection->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
@@ -847,59 +776,53 @@ it('calls the customerGetByinternalId method in the Customer resource', function
 it('calls the customerGetBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetBycustomerCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 42,
-                    'number' => 'Mock value',
-                    'name' => 'Mock value',
-                    'status' => 'Mock value',
-                    'mainAddress' => 'Mock value',
-                    'mainContact' => 'Mock value',
-                    'accountReference' => 'Mock value',
-                    'parentRecord' => 'Mock value',
-                    'customerClass' => 'Mock value',
-                    'creditTerms' => 'Mock value',
-                    'currencyId' => 'mock-id-123',
-                    'creditVerification' => 'Mock value',
-                    'creditLimit' => 3.14,
-                    'creditDaysPastDue' => 42,
-                    'invoiceAddress' => 'Mock value',
-                    'invoiceContact' => 'Mock value',
-                    'printInvoices' => true,
-                    'acceptAutoInvoices' => true,
-                    'sendInvoicesByEmail' => true,
-                    'sendDunningLettersViaEmail' => true,
-                    'printDunningLetters' => true,
-                    'printStatements' => true,
-                    'sendStatementsByEmail' => true,
-                    'printMultiCurrencyStatements' => true,
-                    'statementType' => 'Mock value',
-                    'deliveryAddress' => 'Mock value',
-                    'deliveryContact' => 'Mock value',
-                    'vatRegistrationId' => 'mock-id-123',
-                    'corporateId' => 'mock-id-123',
-                    'gln' => 'Mock value',
-                    'vatZone' => 'Mock value',
-                    'location' => 'Mock value',
-                    'attributes' => [],
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'directDebitLines' => [],
-                    'priceClass' => 'Mock value',
-                    'glAccounts' => 'Mock value',
-                    'invoiceToDefaultLocation' => true,
-                    'eInvoiceContract' => 'Mock value',
-                    'paymentMethods' => [],
-                    'defaultPaymentMethodId' => 'mock-id-123',
-                    'numberOfEmployees' => 42,
-                    'excludeDebtCollection' => true,
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'internalId' => 42,
+            'number' => 'Mock value',
+            'name' => 'Mock value',
+            'status' => 'Mock value',
+            'mainAddress' => 'Mock value',
+            'mainContact' => 'Mock value',
+            'accountReference' => 'Mock value',
+            'parentRecord' => 'Mock value',
+            'customerClass' => 'Mock value',
+            'creditTerms' => 'Mock value',
+            'currencyId' => 'mock-id-123',
+            'creditVerification' => 'Mock value',
+            'creditLimit' => 3.14,
+            'creditDaysPastDue' => 42,
+            'invoiceAddress' => 'Mock value',
+            'invoiceContact' => 'Mock value',
+            'printInvoices' => true,
+            'acceptAutoInvoices' => true,
+            'sendInvoicesByEmail' => true,
+            'sendDunningLettersViaEmail' => true,
+            'printDunningLetters' => true,
+            'printStatements' => true,
+            'sendStatementsByEmail' => true,
+            'printMultiCurrencyStatements' => true,
+            'statementType' => 'Mock value',
+            'deliveryAddress' => 'Mock value',
+            'deliveryContact' => 'Mock value',
+            'vatRegistrationId' => 'mock-id-123',
+            'corporateId' => 'mock-id-123',
+            'gln' => 'Mock value',
+            'vatZone' => 'Mock value',
+            'location' => 'Mock value',
+            'attributes' => [],
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'directDebitLines' => [],
+            'priceClass' => 'Mock value',
+            'glAccounts' => 'Mock value',
+            'invoiceToDefaultLocation' => true,
+            'eInvoiceContract' => 'Mock value',
+            'paymentMethods' => [],
+            'defaultPaymentMethodId' => 'mock-id-123',
+            'numberOfEmployees' => 42,
+            'excludeDebtCollection' => true,
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -932,14 +855,14 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->toBe('Mock value')
         ->invoiceContact->toBe('Mock value')
-        ->printInvoices->toBe(true)
-        ->acceptAutoInvoices->toBe(true)
-        ->sendInvoicesByEmail->toBe(true)
-        ->sendDunningLettersViaEmail->toBe(true)
-        ->printDunningLetters->toBe(true)
-        ->printStatements->toBe(true)
-        ->sendStatementsByEmail->toBe(true)
-        ->printMultiCurrencyStatements->toBe(true)
+        ->printInvoices->toBeTrue()
+        ->acceptAutoInvoices->toBeTrue()
+        ->sendInvoicesByEmail->toBeTrue()
+        ->sendDunningLettersViaEmail->toBeTrue()
+        ->printDunningLetters->toBeTrue()
+        ->printStatements->toBeTrue()
+        ->sendStatementsByEmail->toBeTrue()
+        ->printMultiCurrencyStatements->toBeTrue()
         ->statementType->toBe('Mock value')
         ->deliveryAddress->toBe('Mock value')
         ->deliveryContact->toBe('Mock value')
@@ -952,11 +875,11 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->priceClass->toBe('Mock value')
         ->glAccounts->toBe('Mock value')
-        ->invoiceToDefaultLocation->toBe(true)
+        ->invoiceToDefaultLocation->toBeTrue()
         ->eInvoiceContract->toBe('Mock value')
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
-        ->excludeDebtCollection->toBe(true)
+        ->excludeDebtCollection->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
@@ -965,113 +888,103 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
 it('calls the customerGetAllCollection method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'customers',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'number' => 'Mock value',
-                        'name' => 'Mock value',
-                        'status' => 'Mock value',
-                        'mainAddress' => 'Mock value',
-                        'mainContact' => 'Mock value',
-                        'accountReference' => 'Mock value',
-                        'parentRecord' => 'Mock value',
-                        'customerClass' => 'Mock value',
-                        'creditTerms' => 'Mock value',
-                        'currencyId' => 'mock-id-123',
-                        'creditVerification' => 'Mock value',
-                        'creditLimit' => 3.14,
-                        'creditDaysPastDue' => 42,
-                        'invoiceAddress' => 'Mock value',
-                        'invoiceContact' => 'Mock value',
-                        'printInvoices' => true,
-                        'acceptAutoInvoices' => true,
-                        'sendInvoicesByEmail' => true,
-                        'sendDunningLettersViaEmail' => true,
-                        'printDunningLetters' => true,
-                        'printStatements' => true,
-                        'sendStatementsByEmail' => true,
-                        'printMultiCurrencyStatements' => true,
-                        'statementType' => 'Mock value',
-                        'deliveryAddress' => 'Mock value',
-                        'deliveryContact' => 'Mock value',
-                        'vatRegistrationId' => 'mock-id-123',
-                        'corporateId' => 'mock-id-123',
-                        'gln' => 'Mock value',
-                        'vatZone' => 'Mock value',
-                        'location' => 'Mock value',
-                        'attributes' => [],
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'directDebitLines' => [],
-                        'priceClass' => 'Mock value',
-                        'glAccounts' => 'Mock value',
-                        'invoiceToDefaultLocation' => true,
-                        'eInvoiceContract' => 'Mock value',
-                        'paymentMethods' => [],
-                        'defaultPaymentMethodId' => 'mock-id-123',
-                        'numberOfEmployees' => 42,
-                        'excludeDebtCollection' => true,
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'customers',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'number' => 'Mock value',
-                        'name' => 'Mock value',
-                        'status' => 'Mock value',
-                        'mainAddress' => 'Mock value',
-                        'mainContact' => 'Mock value',
-                        'accountReference' => 'Mock value',
-                        'parentRecord' => 'Mock value',
-                        'customerClass' => 'Mock value',
-                        'creditTerms' => 'Mock value',
-                        'currencyId' => 'mock-id-123',
-                        'creditVerification' => 'Mock value',
-                        'creditLimit' => 3.14,
-                        'creditDaysPastDue' => 42,
-                        'invoiceAddress' => 'Mock value',
-                        'invoiceContact' => 'Mock value',
-                        'printInvoices' => true,
-                        'acceptAutoInvoices' => true,
-                        'sendInvoicesByEmail' => true,
-                        'sendDunningLettersViaEmail' => true,
-                        'printDunningLetters' => true,
-                        'printStatements' => true,
-                        'sendStatementsByEmail' => true,
-                        'printMultiCurrencyStatements' => true,
-                        'statementType' => 'Mock value',
-                        'deliveryAddress' => 'Mock value',
-                        'deliveryContact' => 'Mock value',
-                        'vatRegistrationId' => 'mock-id-123',
-                        'corporateId' => 'mock-id-123',
-                        'gln' => 'Mock value',
-                        'vatZone' => 'Mock value',
-                        'location' => 'Mock value',
-                        'attributes' => [],
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'directDebitLines' => [],
-                        'priceClass' => 'Mock value',
-                        'glAccounts' => 'Mock value',
-                        'invoiceToDefaultLocation' => true,
-                        'eInvoiceContract' => 'Mock value',
-                        'paymentMethods' => [],
-                        'defaultPaymentMethodId' => 'mock-id-123',
-                        'numberOfEmployees' => 42,
-                        'excludeDebtCollection' => true,
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'internalId' => 42,
+                'number' => 'Mock value',
+                'name' => 'Mock value',
+                'status' => 'Mock value',
+                'mainAddress' => 'Mock value',
+                'mainContact' => 'Mock value',
+                'accountReference' => 'Mock value',
+                'parentRecord' => 'Mock value',
+                'customerClass' => 'Mock value',
+                'creditTerms' => 'Mock value',
+                'currencyId' => 'mock-id-123',
+                'creditVerification' => 'Mock value',
+                'creditLimit' => 3.14,
+                'creditDaysPastDue' => 42,
+                'invoiceAddress' => 'Mock value',
+                'invoiceContact' => 'Mock value',
+                'printInvoices' => true,
+                'acceptAutoInvoices' => true,
+                'sendInvoicesByEmail' => true,
+                'sendDunningLettersViaEmail' => true,
+                'printDunningLetters' => true,
+                'printStatements' => true,
+                'sendStatementsByEmail' => true,
+                'printMultiCurrencyStatements' => true,
+                'statementType' => 'Mock value',
+                'deliveryAddress' => 'Mock value',
+                'deliveryContact' => 'Mock value',
+                'vatRegistrationId' => 'mock-id-123',
+                'corporateId' => 'mock-id-123',
+                'gln' => 'Mock value',
+                'vatZone' => 'Mock value',
+                'location' => 'Mock value',
+                'attributes' => [],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'directDebitLines' => [],
+                'priceClass' => 'Mock value',
+                'glAccounts' => 'Mock value',
+                'invoiceToDefaultLocation' => true,
+                'eInvoiceContract' => 'Mock value',
+                'paymentMethods' => [],
+                'defaultPaymentMethodId' => 'mock-id-123',
+                'numberOfEmployees' => 42,
+                'excludeDebtCollection' => true,
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'internalId' => 42,
+                'number' => 'Mock value',
+                'name' => 'Mock value',
+                'status' => 'Mock value',
+                'mainAddress' => 'Mock value',
+                'mainContact' => 'Mock value',
+                'accountReference' => 'Mock value',
+                'parentRecord' => 'Mock value',
+                'customerClass' => 'Mock value',
+                'creditTerms' => 'Mock value',
+                'currencyId' => 'mock-id-123',
+                'creditVerification' => 'Mock value',
+                'creditLimit' => 3.14,
+                'creditDaysPastDue' => 42,
+                'invoiceAddress' => 'Mock value',
+                'invoiceContact' => 'Mock value',
+                'printInvoices' => true,
+                'acceptAutoInvoices' => true,
+                'sendInvoicesByEmail' => true,
+                'sendDunningLettersViaEmail' => true,
+                'printDunningLetters' => true,
+                'printStatements' => true,
+                'sendStatementsByEmail' => true,
+                'printMultiCurrencyStatements' => true,
+                'statementType' => 'Mock value',
+                'deliveryAddress' => 'Mock value',
+                'deliveryContact' => 'Mock value',
+                'vatRegistrationId' => 'mock-id-123',
+                'corporateId' => 'mock-id-123',
+                'gln' => 'Mock value',
+                'vatZone' => 'Mock value',
+                'location' => 'Mock value',
+                'attributes' => [],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'directDebitLines' => [],
+                'priceClass' => 'Mock value',
+                'glAccounts' => 'Mock value',
+                'invoiceToDefaultLocation' => true,
+                'eInvoiceContract' => 'Mock value',
+                'paymentMethods' => [],
+                'defaultPaymentMethodId' => 'mock-id-123',
+                'numberOfEmployees' => 42,
+                'excludeDebtCollection' => true,
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -1107,14 +1020,14 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->toBe('Mock value')
         ->invoiceContact->toBe('Mock value')
-        ->printInvoices->toBe(true)
-        ->acceptAutoInvoices->toBe(true)
-        ->sendInvoicesByEmail->toBe(true)
-        ->sendDunningLettersViaEmail->toBe(true)
-        ->printDunningLetters->toBe(true)
-        ->printStatements->toBe(true)
-        ->sendStatementsByEmail->toBe(true)
-        ->printMultiCurrencyStatements->toBe(true)
+        ->printInvoices->toBeTrue()
+        ->acceptAutoInvoices->toBeTrue()
+        ->sendInvoicesByEmail->toBeTrue()
+        ->sendDunningLettersViaEmail->toBeTrue()
+        ->printDunningLetters->toBeTrue()
+        ->printStatements->toBeTrue()
+        ->sendStatementsByEmail->toBeTrue()
+        ->printMultiCurrencyStatements->toBeTrue()
         ->statementType->toBe('Mock value')
         ->deliveryAddress->toBe('Mock value')
         ->deliveryContact->toBe('Mock value')
@@ -1127,11 +1040,11 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->priceClass->toBe('Mock value')
         ->glAccounts->toBe('Mock value')
-        ->invoiceToDefaultLocation->toBe(true)
+        ->invoiceToDefaultLocation->toBeTrue()
         ->eInvoiceContract->toBe('Mock value')
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
-        ->excludeDebtCollection->toBe(true)
+        ->excludeDebtCollection->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
@@ -1140,89 +1053,83 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
 it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllInvoicesForCustomerBycustomerNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'creditTerms' => 'Mock value',
-                    'documentDueDate' => '2025-11-22T10:40:04.065Z',
-                    'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
-                    'externalReference' => 'Mock value',
-                    'isRotRutDeductible' => true,
-                    'exchangeRate' => 3.14,
-                    'dunningLetterDate' => '2025-11-22T10:40:04.065Z',
-                    'dunningLetterLevel' => 42,
-                    'contact' => 'Mock value',
-                    'attachments' => [],
-                    'taxDetails' => [],
-                    'invoiceLines' => [],
-                    'sendToAutoInvoice' => true,
-                    'roundingDiff' => 3.14,
-                    'customerVatZone' => 'Mock value',
-                    'startDate' => '2025-11-22T10:40:04.065Z',
-                    'endDate' => '2025-11-22T10:40:04.065Z',
-                    'accountingCostRef' => 'Mock value',
-                    'originatorDocRef' => 'Mock value',
-                    'contractDocRef' => 'Mock value',
-                    'childRecord' => 'Mock value',
-                    'directDebitMandate' => 'Mock value',
-                    'excludeDebtCollection' => true,
-                    'debtCollection' => 'Mock value',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'hold' => true,
-                    'discountTotal' => 3.14,
-                    'discountTotalInCurrency' => 3.14,
-                    'detailTotal' => 3.14,
-                    'detailTotalInCurrency' => 3.14,
-                    'vatTaxableTotal' => 3.14,
-                    'vatTaxableTotalInCurrency' => 3.14,
-                    'vatExemptTotal' => 3.14,
-                    'vatExemptTotalInCurrency' => 3.14,
-                    'salesPersonId' => 42,
-                    'salesPersonDescr' => 'Mock value',
-                    'salesPerson' => 'Mock value',
-                    'paymentReference' => 'Mock value',
-                    'invoiceAddress' => 'Mock value',
-                    'invoiceContact' => 'Mock value',
-                    'applications' => [],
-                    'dontPrint' => true,
-                    'dontEmail' => true,
-                    'revoked' => true,
-                    'customer' => 'Mock value',
-                    'documentType' => 'Mock value',
-                    'referenceNumber' => 'Mock value',
-                    'postPeriod' => 'Mock value',
-                    'financialPeriod' => 'Mock value',
-                    'closedFinancialPeriod' => 'Mock value',
-                    'documentDate' => '2025-11-22T10:40:04.065Z',
-                    'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
-                    'status' => 'Mock value',
-                    'currencyId' => 'mock-id-123',
-                    'amount' => 3.14,
-                    'amountInCurrency' => 3.14,
-                    'balance' => 3.14,
-                    'balanceInCurrency' => 3.14,
-                    'cashDiscount' => 3.14,
-                    'cashDiscountInCurrency' => 3.14,
-                    'paymentMethod' => 'Mock value',
-                    'customerRefNumber' => 'Mock value',
-                    'invoiceText' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'note' => 'Mock value',
-                    'vatTotal' => 3.14,
-                    'vatTotalInCurrency' => 3.14,
-                    'location' => 'Mock value',
-                    'branchNumber' => 'Mock value',
-                    'cashAccount' => 'Mock value',
-                    'project' => 'Mock value',
-                    'account' => 'Mock value',
-                    'subaccount' => 'Mock value',
-                    'customerProject' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'creditTerms' => 'Mock value',
+            'documentDueDate' => '2025-11-22T10:40:04.065Z',
+            'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
+            'externalReference' => 'Mock value',
+            'isRotRutDeductible' => true,
+            'exchangeRate' => 3.14,
+            'dunningLetterDate' => '2025-11-22T10:40:04.065Z',
+            'dunningLetterLevel' => 42,
+            'contact' => 'Mock value',
+            'attachments' => [],
+            'taxDetails' => [],
+            'invoiceLines' => [],
+            'sendToAutoInvoice' => true,
+            'roundingDiff' => 3.14,
+            'customerVatZone' => 'Mock value',
+            'startDate' => '2025-11-22T10:40:04.065Z',
+            'endDate' => '2025-11-22T10:40:04.065Z',
+            'accountingCostRef' => 'Mock value',
+            'originatorDocRef' => 'Mock value',
+            'contractDocRef' => 'Mock value',
+            'childRecord' => 'Mock value',
+            'directDebitMandate' => 'Mock value',
+            'excludeDebtCollection' => true,
+            'debtCollection' => 'Mock value',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'hold' => true,
+            'discountTotal' => 3.14,
+            'discountTotalInCurrency' => 3.14,
+            'detailTotal' => 3.14,
+            'detailTotalInCurrency' => 3.14,
+            'vatTaxableTotal' => 3.14,
+            'vatTaxableTotalInCurrency' => 3.14,
+            'vatExemptTotal' => 3.14,
+            'vatExemptTotalInCurrency' => 3.14,
+            'salesPersonId' => 42,
+            'salesPersonDescr' => 'Mock value',
+            'salesPerson' => 'Mock value',
+            'paymentReference' => 'Mock value',
+            'invoiceAddress' => 'Mock value',
+            'invoiceContact' => 'Mock value',
+            'applications' => [],
+            'dontPrint' => true,
+            'dontEmail' => true,
+            'revoked' => true,
+            'customer' => 'Mock value',
+            'documentType' => 'Mock value',
+            'referenceNumber' => 'Mock value',
+            'postPeriod' => 'Mock value',
+            'financialPeriod' => 'Mock value',
+            'closedFinancialPeriod' => 'Mock value',
+            'documentDate' => '2025-11-22T10:40:04.065Z',
+            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'status' => 'Mock value',
+            'currencyId' => 'mock-id-123',
+            'amount' => 3.14,
+            'amountInCurrency' => 3.14,
+            'balance' => 3.14,
+            'balanceInCurrency' => 3.14,
+            'cashDiscount' => 3.14,
+            'cashDiscountInCurrency' => 3.14,
+            'paymentMethod' => 'Mock value',
+            'customerRefNumber' => 'Mock value',
+            'invoiceText' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'note' => 'Mock value',
+            'vatTotal' => 3.14,
+            'vatTotalInCurrency' => 3.14,
+            'location' => 'Mock value',
+            'branchNumber' => 'Mock value',
+            'cashAccount' => 'Mock value',
+            'project' => 'Mock value',
+            'account' => 'Mock value',
+            'subaccount' => 'Mock value',
+            'customerProject' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -1275,12 +1182,12 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
         ->documentDueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->externalReference->toBe('Mock value')
-        ->isRotRutDeductible->toBe(true)
+        ->isRotRutDeductible->toBeTrue()
         ->exchangeRate->toBe(3.14)
         ->dunningLetterDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->dunningLetterLevel->toBe(42)
         ->contact->toBe('Mock value')
-        ->sendToAutoInvoice->toBe(true)
+        ->sendToAutoInvoice->toBeTrue()
         ->roundingDiff->toBe(3.14)
         ->customerVatZone->toBe('Mock value')
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -1290,10 +1197,10 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
         ->contractDocRef->toBe('Mock value')
         ->childRecord->toBe('Mock value')
         ->directDebitMandate->toBe('Mock value')
-        ->excludeDebtCollection->toBe(true)
+        ->excludeDebtCollection->toBeTrue()
         ->debtCollection->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->discountTotal->toBe(3.14)
         ->discountTotalInCurrency->toBe(3.14)
         ->detailTotal->toBe(3.14)
@@ -1308,9 +1215,9 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
         ->paymentReference->toBe('Mock value')
         ->invoiceAddress->toBe('Mock value')
         ->invoiceContact->toBe('Mock value')
-        ->dontPrint->toBe(true)
-        ->dontEmail->toBe(true)
-        ->revoked->toBe(true)
+        ->dontPrint->toBeTrue()
+        ->dontEmail->toBeTrue()
+        ->revoked->toBeTrue()
         ->customer->toBe('Mock value')
         ->documentType->toBe('Mock value')
         ->referenceNumber->toBe('Mock value')
@@ -1349,67 +1256,61 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
 it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllCashSalesForCustomerBycustomerNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'creditTerms' => 'Mock value',
-                    'cashSaleLines' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'hold' => true,
-                    'discountTotal' => 3.14,
-                    'discountTotalInCurrency' => 3.14,
-                    'detailTotal' => 3.14,
-                    'detailTotalInCurrency' => 3.14,
-                    'vatTaxableTotal' => 3.14,
-                    'vatTaxableTotalInCurrency' => 3.14,
-                    'vatExemptTotal' => 3.14,
-                    'vatExemptTotalInCurrency' => 3.14,
-                    'salesPersonId' => 42,
-                    'salesPersonDescr' => 'Mock value',
-                    'salesPerson' => 'Mock value',
-                    'paymentReference' => 'Mock value',
-                    'invoiceAddress' => 'Mock value',
-                    'invoiceContact' => 'Mock value',
-                    'applications' => [],
-                    'dontPrint' => true,
-                    'dontEmail' => true,
-                    'revoked' => true,
-                    'customer' => 'Mock value',
-                    'documentType' => 'Mock value',
-                    'referenceNumber' => 'Mock value',
-                    'postPeriod' => 'Mock value',
-                    'financialPeriod' => 'Mock value',
-                    'closedFinancialPeriod' => 'Mock value',
-                    'documentDate' => '2025-11-22T10:40:04.065Z',
-                    'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
-                    'status' => 'Mock value',
-                    'currencyId' => 'mock-id-123',
-                    'amount' => 3.14,
-                    'amountInCurrency' => 3.14,
-                    'balance' => 3.14,
-                    'balanceInCurrency' => 3.14,
-                    'cashDiscount' => 3.14,
-                    'cashDiscountInCurrency' => 3.14,
-                    'paymentMethod' => 'Mock value',
-                    'customerRefNumber' => 'Mock value',
-                    'invoiceText' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'note' => 'Mock value',
-                    'vatTotal' => 3.14,
-                    'vatTotalInCurrency' => 3.14,
-                    'location' => 'Mock value',
-                    'branchNumber' => 'Mock value',
-                    'cashAccount' => 'Mock value',
-                    'project' => 'Mock value',
-                    'account' => 'Mock value',
-                    'subaccount' => 'Mock value',
-                    'customerProject' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'creditTerms' => 'Mock value',
+            'cashSaleLines' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'hold' => true,
+            'discountTotal' => 3.14,
+            'discountTotalInCurrency' => 3.14,
+            'detailTotal' => 3.14,
+            'detailTotalInCurrency' => 3.14,
+            'vatTaxableTotal' => 3.14,
+            'vatTaxableTotalInCurrency' => 3.14,
+            'vatExemptTotal' => 3.14,
+            'vatExemptTotalInCurrency' => 3.14,
+            'salesPersonId' => 42,
+            'salesPersonDescr' => 'Mock value',
+            'salesPerson' => 'Mock value',
+            'paymentReference' => 'Mock value',
+            'invoiceAddress' => 'Mock value',
+            'invoiceContact' => 'Mock value',
+            'applications' => [],
+            'dontPrint' => true,
+            'dontEmail' => true,
+            'revoked' => true,
+            'customer' => 'Mock value',
+            'documentType' => 'Mock value',
+            'referenceNumber' => 'Mock value',
+            'postPeriod' => 'Mock value',
+            'financialPeriod' => 'Mock value',
+            'closedFinancialPeriod' => 'Mock value',
+            'documentDate' => '2025-11-22T10:40:04.065Z',
+            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'status' => 'Mock value',
+            'currencyId' => 'mock-id-123',
+            'amount' => 3.14,
+            'amountInCurrency' => 3.14,
+            'balance' => 3.14,
+            'balanceInCurrency' => 3.14,
+            'cashDiscount' => 3.14,
+            'cashDiscountInCurrency' => 3.14,
+            'paymentMethod' => 'Mock value',
+            'customerRefNumber' => 'Mock value',
+            'invoiceText' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'note' => 'Mock value',
+            'vatTotal' => 3.14,
+            'vatTotalInCurrency' => 3.14,
+            'location' => 'Mock value',
+            'branchNumber' => 'Mock value',
+            'cashAccount' => 'Mock value',
+            'project' => 'Mock value',
+            'account' => 'Mock value',
+            'subaccount' => 'Mock value',
+            'customerProject' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -1460,7 +1361,7 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the C
     expect($dto)
         ->creditTerms->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->discountTotal->toBe(3.14)
         ->discountTotalInCurrency->toBe(3.14)
         ->detailTotal->toBe(3.14)
@@ -1475,9 +1376,9 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the C
         ->paymentReference->toBe('Mock value')
         ->invoiceAddress->toBe('Mock value')
         ->invoiceContact->toBe('Mock value')
-        ->dontPrint->toBe(true)
-        ->dontEmail->toBe(true)
-        ->revoked->toBe(true)
+        ->dontPrint->toBeTrue()
+        ->dontEmail->toBeTrue()
+        ->revoked->toBeTrue()
         ->customer->toBe('Mock value')
         ->documentType->toBe('Mock value')
         ->referenceNumber->toBe('Mock value')
@@ -1516,47 +1417,41 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the C
 it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllDocumentsForCustomerBycustomerNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'documentDueDate' => '2025-11-22T10:40:04.065Z',
-                    'branch' => 'Mock value',
-                    'customer' => 'Mock value',
-                    'documentType' => 'Mock value',
-                    'referenceNumber' => 'Mock value',
-                    'postPeriod' => 'Mock value',
-                    'financialPeriod' => 'Mock value',
-                    'closedFinancialPeriod' => 'Mock value',
-                    'documentDate' => '2025-11-22T10:40:04.065Z',
-                    'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
-                    'status' => 'Mock value',
-                    'currencyId' => 'mock-id-123',
-                    'amount' => 3.14,
-                    'amountInCurrency' => 3.14,
-                    'balance' => 3.14,
-                    'balanceInCurrency' => 3.14,
-                    'cashDiscount' => 3.14,
-                    'cashDiscountInCurrency' => 3.14,
-                    'paymentMethod' => 'Mock value',
-                    'customerRefNumber' => 'Mock value',
-                    'invoiceText' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'note' => 'Mock value',
-                    'vatTotal' => 3.14,
-                    'vatTotalInCurrency' => 3.14,
-                    'location' => 'Mock value',
-                    'branchNumber' => 'Mock value',
-                    'cashAccount' => 'Mock value',
-                    'project' => 'Mock value',
-                    'account' => 'Mock value',
-                    'subaccount' => 'Mock value',
-                    'customerProject' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'documentDueDate' => '2025-11-22T10:40:04.065Z',
+            'branch' => 'Mock value',
+            'customer' => 'Mock value',
+            'documentType' => 'Mock value',
+            'referenceNumber' => 'Mock value',
+            'postPeriod' => 'Mock value',
+            'financialPeriod' => 'Mock value',
+            'closedFinancialPeriod' => 'Mock value',
+            'documentDate' => '2025-11-22T10:40:04.065Z',
+            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'status' => 'Mock value',
+            'currencyId' => 'mock-id-123',
+            'amount' => 3.14,
+            'amountInCurrency' => 3.14,
+            'balance' => 3.14,
+            'balanceInCurrency' => 3.14,
+            'cashDiscount' => 3.14,
+            'cashDiscountInCurrency' => 3.14,
+            'paymentMethod' => 'Mock value',
+            'customerRefNumber' => 'Mock value',
+            'invoiceText' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'note' => 'Mock value',
+            'vatTotal' => 3.14,
+            'vatTotalInCurrency' => 3.14,
+            'location' => 'Mock value',
+            'branchNumber' => 'Mock value',
+            'cashAccount' => 'Mock value',
+            'project' => 'Mock value',
+            'account' => 'Mock value',
+            'subaccount' => 'Mock value',
+            'customerProject' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 

@@ -10,25 +10,22 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodId method in the CustomerPaymentMethod resource', function () {
     Saloon::fake([
         CustomerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customerPaymentMethods',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'customer' => 'Mock value',
-                    'paymentMethod' => 'Mock value',
-                    'active' => true,
-                    'cashAccount' => 'Mock value',
-                    'cardOrAccountNo' => 'Mock value',
-                    'paymentMethodDetails' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'customer' => 'Mock value',
+            'paymentMethod' => 'Mock value',
+            'active' => true,
+            'cashAccount' => 'Mock value',
+            'cardOrAccountNo' => 'Mock value',
+            'paymentMethodDetails' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 
@@ -48,7 +45,7 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerP
     expect($dto)
         ->customer->toBe('Mock value')
         ->paymentMethod->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->cashAccount->toBe('Mock value')
         ->cardOrAccountNo->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
@@ -57,19 +54,13 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerP
 it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method in the CustomerPaymentMethod resource', function () {
     Saloon::fake([
         CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customerPaymentMethods',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'customer' => 'Mock value',
-                    'paymentMethod' => 'Mock value',
-                    'active' => true,
-                    'cashAccount' => 'Mock value',
-                    'cardOrAccountNo' => 'Mock value',
-                    'paymentMethodDetails' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'customer' => 'Mock value',
+            'paymentMethod' => 'Mock value',
+            'active' => true,
+            'cashAccount' => 'Mock value',
+            'cardOrAccountNo' => 'Mock value',
+            'paymentMethodDetails' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 
@@ -90,7 +81,7 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method 
     expect($dto)
         ->customer->toBe('Mock value')
         ->paymentMethod->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->cashAccount->toBe('Mock value')
         ->cardOrAccountNo->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
@@ -99,23 +90,13 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method 
 it('calls the customerPaymentMethodGetCustomerPaymentMethodsCollection method in the CustomerPaymentMethod resource', function () {
     Saloon::fake([
         CustomerPaymentMethodGetCustomerPaymentMethodsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'customerPaymentMethods',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'customerId' => 'mock-id-123',
-                        'paymentMethods' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'customerPaymentMethods',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'customerId' => 'mock-id-123',
-                        'paymentMethods' => [],
-                    ],
-                ],
+            0 => [
+                'customerId' => 'mock-id-123',
+                'paymentMethods' => [],
+            ],
+            1 => [
+                'customerId' => 'mock-id-123',
+                'paymentMethods' => [],
             ],
         ], 200),
     ]);

@@ -9,25 +9,22 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the departmentGetDepartmentBydepartmentId method in the Department resource', function () {
     Saloon::fake([
         DepartmentGetDepartmentBydepartmentIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'departments',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'departmentId' => 'mock-id-123',
-                    'publicId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'expenseAccount' => 'Mock value',
-                    'expenseSubaccount' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'departmentId' => 'mock-id-123',
+            'publicId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'expenseAccount' => 'Mock value',
+            'expenseSubaccount' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 
@@ -56,33 +53,23 @@ it('calls the departmentGetDepartmentBydepartmentId method in the Department res
 it('calls the departmentGetAllDepartmentDtosCollection method in the Department resource', function () {
     Saloon::fake([
         DepartmentGetAllDepartmentDtosCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'departments',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'departmentId' => 'mock-id-123',
-                        'publicId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'expenseAccount' => 'Mock value',
-                        'expenseSubaccount' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
-                1 => [
-                    'type' => 'departments',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'departmentId' => 'mock-id-123',
-                        'publicId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'expenseAccount' => 'Mock value',
-                        'expenseSubaccount' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
+            0 => [
+                'departmentId' => 'mock-id-123',
+                'publicId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'expenseAccount' => 'Mock value',
+                'expenseSubaccount' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+            ],
+            1 => [
+                'departmentId' => 'mock-id-123',
+                'publicId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'expenseAccount' => 'Mock value',
+                'expenseSubaccount' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
     ]);

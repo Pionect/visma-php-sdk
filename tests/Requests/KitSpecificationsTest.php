@@ -10,33 +10,26 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the kitSpecificationsGetAllCollection method in the KitSpecifications resource', function () {
     Saloon::fake([
         KitSpecificationsGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'kitSpecifications',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'pageNumber' => 42,
-                        'pageSize' => 42,
-                        'totalCount' => 42,
-                        'records' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'kitSpecifications',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'pageNumber' => 42,
-                        'pageSize' => 42,
-                        'totalCount' => 42,
-                        'records' => [],
-                    ],
-                ],
+            0 => [
+                'pageNumber' => 42,
+                'pageSize' => 42,
+                'totalCount' => 42,
+                'records' => [],
+            ],
+            1 => [
+                'pageNumber' => 42,
+                'pageSize' => 42,
+                'totalCount' => 42,
+                'records' => [],
             ],
         ], 200),
     ]);
@@ -64,25 +57,19 @@ it('calls the kitSpecificationsGetAllCollection method in the KitSpecifications 
 it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSpecifications resource', function () {
     Saloon::fake([
         KitSpecificationsGetBykitInventoryIdrevisionIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'kitSpecifications',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'kitInventoryId' => 'mock-id-123',
-                    'revision' => 'Mock value',
-                    'description' => 'Mock value',
-                    'isActive' => true,
-                    'allowComponentAddition' => true,
-                    'isNonStock' => true,
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'stockComponentLines' => [],
-                    'nonStockComponentLines' => [],
-                    'timestamp' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'kitInventoryId' => 'mock-id-123',
+            'revision' => 'Mock value',
+            'description' => 'Mock value',
+            'isActive' => true,
+            'allowComponentAddition' => true,
+            'isNonStock' => true,
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'stockComponentLines' => [],
+            'nonStockComponentLines' => [],
+            'timestamp' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -103,9 +90,9 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSp
         ->kitInventoryId->toBe('mock-id-123')
         ->revision->toBe('Mock value')
         ->description->toBe('Mock value')
-        ->isActive->toBe(true)
-        ->allowComponentAddition->toBe(true)
-        ->isNonStock->toBe(true)
+        ->isActive->toBeTrue()
+        ->allowComponentAddition->toBeTrue()
+        ->isNonStock->toBeTrue()
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timestamp->toBe('Mock value')
@@ -116,16 +103,10 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSp
 it('calls the kitSpecificationsGetBykitInventoryId method in the KitSpecifications resource', function () {
     Saloon::fake([
         KitSpecificationsGetBykitInventoryIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'kitSpecifications',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'pageNumber' => 42,
-                    'pageSize' => 42,
-                    'totalCount' => 42,
-                    'records' => [],
-                ],
-            ],
+            'pageNumber' => 42,
+            'pageSize' => 42,
+            'totalCount' => 42,
+            'records' => [],
         ], 200),
     ]);
 

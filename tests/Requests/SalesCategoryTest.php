@@ -10,23 +10,20 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory resource', function () {
     Saloon::fake([
         SalesCategoryGetCategoryBycategoryIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'salesCategories',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'categoryId' => 42,
-                    'description' => 'Mock value',
-                    'parentId' => 42,
-                    'sortOrder' => 42,
-                    'subCategories' => [],
-                ],
-            ],
+            'categoryId' => 42,
+            'description' => 'Mock value',
+            'parentId' => 42,
+            'sortOrder' => 42,
+            'subCategories' => [],
         ], 200),
     ]);
 
@@ -52,29 +49,19 @@ it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory r
 it('calls the salesCategoryGetCollection method in the SalesCategory resource', function () {
     Saloon::fake([
         SalesCategoryGetCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'salesCategories',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'categoryId' => 42,
-                        'description' => 'Mock value',
-                        'parentId' => 42,
-                        'sortOrder' => 42,
-                        'subCategories' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'salesCategories',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'categoryId' => 42,
-                        'description' => 'Mock value',
-                        'parentId' => 42,
-                        'sortOrder' => 42,
-                        'subCategories' => [],
-                    ],
-                ],
+            0 => [
+                'categoryId' => 42,
+                'description' => 'Mock value',
+                'parentId' => 42,
+                'sortOrder' => 42,
+                'subCategories' => [],
+            ],
+            1 => [
+                'categoryId' => 42,
+                'description' => 'Mock value',
+                'parentId' => 42,
+                'sortOrder' => 42,
+                'subCategories' => [],
             ],
         ], 200),
     ]);
@@ -103,57 +90,51 @@ it('calls the salesCategoryGetCollection method in the SalesCategory resource', 
 it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCategory resource', function () {
     Saloon::fake([
         SalesCategoryGetItemsForCategoryBycategoryIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'salesCategories',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'inventoryId' => 42,
-                    'inventoryNumber' => 'Mock value',
-                    'status' => 'Mock value',
-                    'description' => 'Mock value',
-                    'body' => 'Mock value',
-                    'itemClass' => 'Mock value',
-                    'postingClass' => 'Mock value',
-                    'vatCode' => 'Mock value',
-                    'lotSerialClass' => 'Mock value',
-                    'defaultPrice' => 3.14,
-                    'pendingCost' => 3.14,
-                    'pendingCostDate' => '2025-11-22T10:40:04.065Z',
-                    'currentCost' => 3.14,
-                    'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                    'lastCost' => 3.14,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'baseUnit' => 'Mock value',
-                    'salesUnit' => 'Mock value',
-                    'purchaseUnit' => 'Mock value',
-                    'stockItem' => true,
-                    'kitItem' => true,
-                    'accountInformation' => 'Mock value',
-                    'costPriceStatistics' => 'Mock value',
-                    'crossReferences' => [],
-                    'attachments' => [],
-                    'attributes' => [],
-                    'warehouseDetails' => [],
-                    'inventoryUnits' => [],
-                    'defaultWarehouse' => 'Mock value',
-                    'defaultIssueFrom' => 'Mock value',
-                    'defaultReceiptTo' => 'Mock value',
-                    'supplierDetails' => [],
-                    'salesCategories' => [],
-                    'packaging' => 'Mock value',
-                    'intrastat' => 'Mock value',
-                    'recommendedPrice' => 3.14,
-                    'priceManagerId' => 'mock-id-123',
-                    'priceManager' => 'Mock value',
-                    'priceClass' => 'Mock value',
-                    'priceWorkgroupId' => 42,
-                    'priceClassId' => 'mock-id-123',
-                    'note' => 'Mock value',
-                    'timestamp' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'inventoryId' => 42,
+            'inventoryNumber' => 'Mock value',
+            'status' => 'Mock value',
+            'description' => 'Mock value',
+            'body' => 'Mock value',
+            'itemClass' => 'Mock value',
+            'postingClass' => 'Mock value',
+            'vatCode' => 'Mock value',
+            'lotSerialClass' => 'Mock value',
+            'defaultPrice' => 3.14,
+            'pendingCost' => 3.14,
+            'pendingCostDate' => '2025-11-22T10:40:04.065Z',
+            'currentCost' => 3.14,
+            'effectiveDate' => '2025-11-22T10:40:04.065Z',
+            'lastCost' => 3.14,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'baseUnit' => 'Mock value',
+            'salesUnit' => 'Mock value',
+            'purchaseUnit' => 'Mock value',
+            'stockItem' => true,
+            'kitItem' => true,
+            'accountInformation' => 'Mock value',
+            'costPriceStatistics' => 'Mock value',
+            'crossReferences' => [],
+            'attachments' => [],
+            'attributes' => [],
+            'warehouseDetails' => [],
+            'inventoryUnits' => [],
+            'defaultWarehouse' => 'Mock value',
+            'defaultIssueFrom' => 'Mock value',
+            'defaultReceiptTo' => 'Mock value',
+            'supplierDetails' => [],
+            'salesCategories' => [],
+            'packaging' => 'Mock value',
+            'intrastat' => 'Mock value',
+            'recommendedPrice' => 3.14,
+            'priceManagerId' => 'mock-id-123',
+            'priceManager' => 'Mock value',
+            'priceClass' => 'Mock value',
+            'priceWorkgroupId' => 42,
+            'priceClassId' => 'mock-id-123',
+            'note' => 'Mock value',
+            'timestamp' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -189,8 +170,8 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
         ->baseUnit->toBe('Mock value')
         ->salesUnit->toBe('Mock value')
         ->purchaseUnit->toBe('Mock value')
-        ->stockItem->toBe(true)
-        ->kitItem->toBe(true)
+        ->stockItem->toBeTrue()
+        ->kitItem->toBeTrue()
         ->accountInformation->toBe('Mock value')
         ->costPriceStatistics->toBe('Mock value')
         ->defaultWarehouse->toBe('Mock value')

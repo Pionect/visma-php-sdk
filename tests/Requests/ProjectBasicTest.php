@@ -8,57 +8,50 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the projectBasicGetAllCollection method in the ProjectBasic resource', function () {
     Saloon::fake([
         ProjectBasicGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'projectBasics',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'projectId' => 'mock-id-123',
-                        'customer' => 'Mock value',
-                        'hold' => true,
-                        'status' => 'Mock value',
-                        'description' => 'Mock value',
-                        'startDate' => '2025-11-22T10:40:04.065Z',
-                        'endDate' => '2025-11-22T10:40:04.065Z',
-                        'autoAllocate' => true,
-                        'automaticReleaseAr' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'publicId' => 'mock-id-123',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'visibility' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'projectBasics',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'projectId' => 'mock-id-123',
-                        'customer' => 'Mock value',
-                        'hold' => true,
-                        'status' => 'Mock value',
-                        'description' => 'Mock value',
-                        'startDate' => '2025-11-22T10:40:04.065Z',
-                        'endDate' => '2025-11-22T10:40:04.065Z',
-                        'autoAllocate' => true,
-                        'automaticReleaseAr' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'publicId' => 'mock-id-123',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'visibility' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'internalId' => 42,
+                'projectId' => 'mock-id-123',
+                'customer' => 'Mock value',
+                'hold' => true,
+                'status' => 'Mock value',
+                'description' => 'Mock value',
+                'startDate' => '2025-11-22T10:40:04.065Z',
+                'endDate' => '2025-11-22T10:40:04.065Z',
+                'autoAllocate' => true,
+                'automaticReleaseAr' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'publicId' => 'mock-id-123',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'visibility' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'internalId' => 42,
+                'projectId' => 'mock-id-123',
+                'customer' => 'Mock value',
+                'hold' => true,
+                'status' => 'Mock value',
+                'description' => 'Mock value',
+                'startDate' => '2025-11-22T10:40:04.065Z',
+                'endDate' => '2025-11-22T10:40:04.065Z',
+                'autoAllocate' => true,
+                'automaticReleaseAr' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'publicId' => 'mock-id-123',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'visibility' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -81,13 +74,13 @@ it('calls the projectBasicGetAllCollection method in the ProjectBasic resource',
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->status->toBe('Mock value')
         ->description->toBe('Mock value')
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->autoAllocate->toBe(true)
-        ->automaticReleaseAr->toBe(true)
+        ->autoAllocate->toBeTrue()
+        ->automaticReleaseAr->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->publicId->toBe('mock-id-123')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))

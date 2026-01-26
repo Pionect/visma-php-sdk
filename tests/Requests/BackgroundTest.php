@@ -8,31 +8,28 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Background resource', function () {
     Saloon::fake([
         BackgroundGetBackgroundApiOperationByrequestIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'backgrounds',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'status' => 'Mock value',
-                    'statusCode' => 42,
-                    'receivedUtc' => '2025-11-22T10:40:04.065Z',
-                    'startedUtc' => '2025-11-22T10:40:04.065Z',
-                    'finishedUtc' => '2025-11-22T10:40:04.065Z',
-                    'webhookAddress' => 'Mock value',
-                    'errorMessage' => 'Mock value',
-                    'reference' => 'Mock value',
-                    'originalUri' => 'Mock value',
-                    'hasResponseContent' => true,
-                    'hasRequestContent' => true,
-                    'contentLocation' => 'Mock value',
-                    'responseHeaders' => (object) [],
-                ],
-            ],
+            'status' => 'Mock value',
+            'statusCode' => 42,
+            'receivedUtc' => '2025-11-22T10:40:04.065Z',
+            'startedUtc' => '2025-11-22T10:40:04.065Z',
+            'finishedUtc' => '2025-11-22T10:40:04.065Z',
+            'webhookAddress' => 'Mock value',
+            'errorMessage' => 'Mock value',
+            'reference' => 'Mock value',
+            'originalUri' => 'Mock value',
+            'hasResponseContent' => true,
+            'hasRequestContent' => true,
+            'contentLocation' => 'Mock value',
+            'responseHeaders' => (object) [],
         ], 200),
     ]);
 
@@ -57,8 +54,8 @@ it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Backg
         ->errorMessage->toBe('Mock value')
         ->reference->toBe('Mock value')
         ->originalUri->toBe('Mock value')
-        ->hasResponseContent->toBe(true)
-        ->hasRequestContent->toBe(true)
+        ->hasResponseContent->toBeTrue()
+        ->hasRequestContent->toBeTrue()
         ->contentLocation->toBe('Mock value')
         ->responseHeaders->toBeInstanceOf(stdClass::class);
 });

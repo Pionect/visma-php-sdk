@@ -7,33 +7,26 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the discountCodeGetDiscountCodesCollection method in the DiscountCode resource', function () {
     Saloon::fake([
         DiscountCodeGetDiscountCodesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'discountCodes',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'pageNumber' => 42,
-                        'pageSize' => 42,
-                        'totalCount' => 42,
-                        'records' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'discountCodes',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'pageNumber' => 42,
-                        'pageSize' => 42,
-                        'totalCount' => 42,
-                        'records' => [],
-                    ],
-                ],
+            0 => [
+                'pageNumber' => 42,
+                'pageSize' => 42,
+                'totalCount' => 42,
+                'records' => [],
+            ],
+            1 => [
+                'pageNumber' => 42,
+                'pageSize' => 42,
+                'totalCount' => 42,
+                'records' => [],
             ],
         ], 200),
     ]);

@@ -7,35 +7,28 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the unitOfMeasureGetAllUnitsOfMeasureCollection method in the UnitOfMeasure resource', function () {
     Saloon::fake([
         UnitOfMeasureGetAllUnitsOfMeasureCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'unitOfMeasures',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'fromUnit' => 'Mock value',
-                        'toUnit' => 'Mock value',
-                        'unitMultDiv' => 'Mock value',
-                        'unitRate' => 3.14,
-                        'supplementaryMeasureUnit' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'unitOfMeasures',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'fromUnit' => 'Mock value',
-                        'toUnit' => 'Mock value',
-                        'unitMultDiv' => 'Mock value',
-                        'unitRate' => 3.14,
-                        'supplementaryMeasureUnit' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'fromUnit' => 'Mock value',
+                'toUnit' => 'Mock value',
+                'unitMultDiv' => 'Mock value',
+                'unitRate' => 3.14,
+                'supplementaryMeasureUnit' => 'Mock value',
+            ],
+            1 => [
+                'fromUnit' => 'Mock value',
+                'toUnit' => 'Mock value',
+                'unitMultDiv' => 'Mock value',
+                'unitRate' => 3.14,
+                'supplementaryMeasureUnit' => 'Mock value',
             ],
         ], 200),
     ]);

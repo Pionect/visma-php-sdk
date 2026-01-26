@@ -8,31 +8,24 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the contractTemplateGetAllCollection method in the ContractTemplate resource', function () {
     Saloon::fake([
         ContractTemplateGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'contractTemplates',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'attributes' => [],
-                        'description' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'contractTemplates',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'attributes' => [],
-                        'description' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'attributes' => [],
+                'description' => 'Mock value',
+            ],
+            1 => [
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'attributes' => [],
+                'description' => 'Mock value',
             ],
         ], 200),
     ]);

@@ -10,34 +10,31 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the supplierLocationGetLocationBybAccountIdlocationId method in the SupplierLocation resource', function () {
     Saloon::fake([
         SupplierLocationGetLocationBybAccountIdlocationIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'supplierLocations',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'baccount' => 'Mock value',
-                    'locationId' => 'mock-id-123',
-                    'locationName' => 'Mock value',
-                    'active' => true,
-                    'address' => 'Mock value',
-                    'contact' => 'Mock value',
-                    'vatRegistrationId' => 'mock-id-123',
-                    'vatZone' => 'Mock value',
-                    'ediCode' => 'Mock value',
-                    'gln' => 'Mock value',
-                    'corporateId' => 'mock-id-123',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'supplierPaymentMethodDetails' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'baccount' => 'Mock value',
+            'locationId' => 'mock-id-123',
+            'locationName' => 'Mock value',
+            'active' => true,
+            'address' => 'Mock value',
+            'contact' => 'Mock value',
+            'vatRegistrationId' => 'mock-id-123',
+            'vatZone' => 'Mock value',
+            'ediCode' => 'Mock value',
+            'gln' => 'Mock value',
+            'corporateId' => 'mock-id-123',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'supplierPaymentMethodDetails' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -58,7 +55,7 @@ it('calls the supplierLocationGetLocationBybAccountIdlocationId method in the Su
         ->baccount->toBe('Mock value')
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->address->toBe('Mock value')
         ->contact->toBe('Mock value')
         ->vatRegistrationId->toBe('mock-id-123')
@@ -75,28 +72,22 @@ it('calls the supplierLocationGetLocationBybAccountIdlocationId method in the Su
 it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the SupplierLocation resource', function () {
     Saloon::fake([
         SupplierLocationGetLocationsForBaccountBybAccountIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'supplierLocations',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'baccount' => 'Mock value',
-                    'locationId' => 'mock-id-123',
-                    'locationName' => 'Mock value',
-                    'active' => true,
-                    'address' => 'Mock value',
-                    'contact' => 'Mock value',
-                    'vatRegistrationId' => 'mock-id-123',
-                    'vatZone' => 'Mock value',
-                    'ediCode' => 'Mock value',
-                    'gln' => 'Mock value',
-                    'corporateId' => 'mock-id-123',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'supplierPaymentMethodDetails' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'baccount' => 'Mock value',
+            'locationId' => 'mock-id-123',
+            'locationName' => 'Mock value',
+            'active' => true,
+            'address' => 'Mock value',
+            'contact' => 'Mock value',
+            'vatRegistrationId' => 'mock-id-123',
+            'vatZone' => 'Mock value',
+            'ediCode' => 'Mock value',
+            'gln' => 'Mock value',
+            'corporateId' => 'mock-id-123',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'supplierPaymentMethodDetails' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -122,7 +113,7 @@ it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the 
         ->baccount->toBe('Mock value')
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->address->toBe('Mock value')
         ->contact->toBe('Mock value')
         ->vatRegistrationId->toBe('mock-id-123')
@@ -139,51 +130,41 @@ it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the 
 it('calls the supplierLocationGetLocationsCollection method in the SupplierLocation resource', function () {
     Saloon::fake([
         SupplierLocationGetLocationsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'supplierLocations',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'baccount' => 'Mock value',
-                        'locationId' => 'mock-id-123',
-                        'locationName' => 'Mock value',
-                        'active' => true,
-                        'address' => 'Mock value',
-                        'contact' => 'Mock value',
-                        'vatRegistrationId' => 'mock-id-123',
-                        'vatZone' => 'Mock value',
-                        'ediCode' => 'Mock value',
-                        'gln' => 'Mock value',
-                        'corporateId' => 'mock-id-123',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'supplierPaymentMethodDetails' => [],
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'supplierLocations',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'baccount' => 'Mock value',
-                        'locationId' => 'mock-id-123',
-                        'locationName' => 'Mock value',
-                        'active' => true,
-                        'address' => 'Mock value',
-                        'contact' => 'Mock value',
-                        'vatRegistrationId' => 'mock-id-123',
-                        'vatZone' => 'Mock value',
-                        'ediCode' => 'Mock value',
-                        'gln' => 'Mock value',
-                        'corporateId' => 'mock-id-123',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'supplierPaymentMethodDetails' => [],
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'baccount' => 'Mock value',
+                'locationId' => 'mock-id-123',
+                'locationName' => 'Mock value',
+                'active' => true,
+                'address' => 'Mock value',
+                'contact' => 'Mock value',
+                'vatRegistrationId' => 'mock-id-123',
+                'vatZone' => 'Mock value',
+                'ediCode' => 'Mock value',
+                'gln' => 'Mock value',
+                'corporateId' => 'mock-id-123',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'supplierPaymentMethodDetails' => [],
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'baccount' => 'Mock value',
+                'locationId' => 'mock-id-123',
+                'locationName' => 'Mock value',
+                'active' => true,
+                'address' => 'Mock value',
+                'contact' => 'Mock value',
+                'vatRegistrationId' => 'mock-id-123',
+                'vatZone' => 'Mock value',
+                'ediCode' => 'Mock value',
+                'gln' => 'Mock value',
+                'corporateId' => 'mock-id-123',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'supplierPaymentMethodDetails' => [],
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -206,7 +187,7 @@ it('calls the supplierLocationGetLocationsCollection method in the SupplierLocat
         ->baccount->toBe('Mock value')
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->address->toBe('Mock value')
         ->contact->toBe('Mock value')
         ->vatRegistrationId->toBe('mock-id-123')

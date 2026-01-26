@@ -9,29 +9,26 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the attributeGetAttributeByattributeId method in the Attribute resource', function () {
     Saloon::fake([
         AttributeGetAttributeByattributeIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'attributes',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'attributeId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'controlType' => 'Mock value',
-                    'internal' => true,
-                    'entryMask' => 'Mock value',
-                    'regExp' => 'Mock value',
-                    'details' => [],
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'attributeId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'controlType' => 'Mock value',
+            'internal' => true,
+            'entryMask' => 'Mock value',
+            'regExp' => 'Mock value',
+            'details' => [],
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -51,7 +48,7 @@ it('calls the attributeGetAttributeByattributeId method in the Attribute resourc
         ->attributeId->toBe('mock-id-123')
         ->description->toBe('Mock value')
         ->controlType->toBe('Mock value')
-        ->internal->toBe(true)
+        ->internal->toBeTrue()
         ->entryMask->toBe('Mock value')
         ->regExp->toBe('Mock value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -63,41 +60,31 @@ it('calls the attributeGetAttributeByattributeId method in the Attribute resourc
 it('calls the attributeGetAttributesCollection method in the Attribute resource', function () {
     Saloon::fake([
         AttributeGetAttributesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'attributes',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'attributeId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'controlType' => 'Mock value',
-                        'internal' => true,
-                        'entryMask' => 'Mock value',
-                        'regExp' => 'Mock value',
-                        'details' => [],
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'attributes',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'attributeId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'controlType' => 'Mock value',
-                        'internal' => true,
-                        'entryMask' => 'Mock value',
-                        'regExp' => 'Mock value',
-                        'details' => [],
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'attributeId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'controlType' => 'Mock value',
+                'internal' => true,
+                'entryMask' => 'Mock value',
+                'regExp' => 'Mock value',
+                'details' => [],
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'attributeId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'controlType' => 'Mock value',
+                'internal' => true,
+                'entryMask' => 'Mock value',
+                'regExp' => 'Mock value',
+                'details' => [],
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -120,7 +107,7 @@ it('calls the attributeGetAttributesCollection method in the Attribute resource'
         ->attributeId->toBe('mock-id-123')
         ->description->toBe('Mock value')
         ->controlType->toBe('Mock value')
-        ->internal->toBe(true)
+        ->internal->toBeTrue()
         ->entryMask->toBe('Mock value')
         ->regExp->toBe('Mock value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))

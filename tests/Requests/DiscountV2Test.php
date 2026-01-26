@@ -8,77 +8,70 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource', function () {
     Saloon::fake([
         DiscountV2GetDiscountsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'discountV2s',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'discountCode' => 'Mock value',
-                        'series' => 'Mock value',
-                        'description' => 'Mock value',
-                        'discountBy' => 'Mock value',
-                        'breakBy' => 'Mock value',
-                        'promotional' => true,
-                        'active' => true,
-                        'prorateDiscount' => true,
-                        'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                        'expirationDate' => '2025-11-22T10:40:04.065Z',
-                        'lastUpdateDate' => '2025-11-22T10:40:04.065Z',
-                        'freeItem' => 42,
-                        'pendingFreeItem' => 42,
-                        'lastFreeItem' => 42,
-                        'lineCntr' => 42,
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'discountBreakpoints' => [],
-                        'customers' => [],
-                        'items' => [],
-                        'warehouses' => [],
-                        'customerPriceClasses' => [],
-                        'itemPriceClasses' => [],
-                        'branches' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'discountV2s',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'discountCode' => 'Mock value',
-                        'series' => 'Mock value',
-                        'description' => 'Mock value',
-                        'discountBy' => 'Mock value',
-                        'breakBy' => 'Mock value',
-                        'promotional' => true,
-                        'active' => true,
-                        'prorateDiscount' => true,
-                        'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                        'expirationDate' => '2025-11-22T10:40:04.065Z',
-                        'lastUpdateDate' => '2025-11-22T10:40:04.065Z',
-                        'freeItem' => 42,
-                        'pendingFreeItem' => 42,
-                        'lastFreeItem' => 42,
-                        'lineCntr' => 42,
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'discountBreakpoints' => [],
-                        'customers' => [],
-                        'items' => [],
-                        'warehouses' => [],
-                        'customerPriceClasses' => [],
-                        'itemPriceClasses' => [],
-                        'branches' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'discountCode' => 'Mock value',
+                'series' => 'Mock value',
+                'description' => 'Mock value',
+                'discountBy' => 'Mock value',
+                'breakBy' => 'Mock value',
+                'promotional' => true,
+                'active' => true,
+                'prorateDiscount' => true,
+                'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                'expirationDate' => '2025-11-22T10:40:04.065Z',
+                'lastUpdateDate' => '2025-11-22T10:40:04.065Z',
+                'freeItem' => 42,
+                'pendingFreeItem' => 42,
+                'lastFreeItem' => 42,
+                'lineCntr' => 42,
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'discountBreakpoints' => [],
+                'customers' => [],
+                'items' => [],
+                'warehouses' => [],
+                'customerPriceClasses' => [],
+                'itemPriceClasses' => [],
+                'branches' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'discountCode' => 'Mock value',
+                'series' => 'Mock value',
+                'description' => 'Mock value',
+                'discountBy' => 'Mock value',
+                'breakBy' => 'Mock value',
+                'promotional' => true,
+                'active' => true,
+                'prorateDiscount' => true,
+                'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                'expirationDate' => '2025-11-22T10:40:04.065Z',
+                'lastUpdateDate' => '2025-11-22T10:40:04.065Z',
+                'freeItem' => 42,
+                'pendingFreeItem' => 42,
+                'lastFreeItem' => 42,
+                'lineCntr' => 42,
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'discountBreakpoints' => [],
+                'customers' => [],
+                'items' => [],
+                'warehouses' => [],
+                'customerPriceClasses' => [],
+                'itemPriceClasses' => [],
+                'branches' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -103,9 +96,9 @@ it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource
         ->description->toBe('Mock value')
         ->discountBy->toBe('Mock value')
         ->breakBy->toBe('Mock value')
-        ->promotional->toBe(true)
-        ->active->toBe(true)
-        ->prorateDiscount->toBe(true)
+        ->promotional->toBeTrue()
+        ->active->toBeTrue()
+        ->prorateDiscount->toBeTrue()
         ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastUpdateDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))

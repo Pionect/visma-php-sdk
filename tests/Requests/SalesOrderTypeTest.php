@@ -8,26 +8,23 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrderType resource', function () {
     Saloon::fake([
         SalesOrderTypeGetSalesOrderTypeByorderTypeRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'salesOrderTypes',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'orderType' => 'Mock value',
-                    'active' => true,
-                    'description' => 'Mock value',
-                    'behavior' => 'Mock value',
-                    'defaultOperation' => 'Mock value',
-                    'customerDocumentType' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'orderType' => 'Mock value',
+            'active' => true,
+            'description' => 'Mock value',
+            'behavior' => 'Mock value',
+            'defaultOperation' => 'Mock value',
+            'customerDocumentType' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -45,7 +42,7 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrde
 
     expect($dto)
         ->orderType->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->description->toBe('Mock value')
         ->behavior->toBe('Mock value')
         ->defaultOperation->toBe('Mock value')
@@ -57,35 +54,25 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrde
 it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesOrderType resource', function () {
     Saloon::fake([
         SalesOrderTypeGetAllSalesOrderTypesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'salesOrderTypes',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'orderType' => 'Mock value',
-                        'active' => true,
-                        'description' => 'Mock value',
-                        'behavior' => 'Mock value',
-                        'defaultOperation' => 'Mock value',
-                        'customerDocumentType' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'salesOrderTypes',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'orderType' => 'Mock value',
-                        'active' => true,
-                        'description' => 'Mock value',
-                        'behavior' => 'Mock value',
-                        'defaultOperation' => 'Mock value',
-                        'customerDocumentType' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'orderType' => 'Mock value',
+                'active' => true,
+                'description' => 'Mock value',
+                'behavior' => 'Mock value',
+                'defaultOperation' => 'Mock value',
+                'customerDocumentType' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'orderType' => 'Mock value',
+                'active' => true,
+                'description' => 'Mock value',
+                'behavior' => 'Mock value',
+                'defaultOperation' => 'Mock value',
+                'customerDocumentType' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -106,7 +93,7 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesO
 
     expect($dtoCollection->first())
         ->orderType->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->description->toBe('Mock value')
         ->behavior->toBe('Mock value')
         ->defaultOperation->toBe('Mock value')

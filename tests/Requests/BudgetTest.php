@@ -8,49 +8,42 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the budgetGetAllCollection method in the Budget resource', function () {
     Saloon::fake([
         BudgetGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'budgets',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'financialYear' => 'Mock value',
-                        'released' => true,
-                        'releasedAmount' => 3.14,
-                        'account' => 'Mock value',
-                        'subaccount' => 'Mock value',
-                        'description' => 'Mock value',
-                        'amount' => 3.14,
-                        'distributedAmount' => 3.14,
-                        'periods' => [],
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'branchNumber' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
-                1 => [
-                    'type' => 'budgets',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'financialYear' => 'Mock value',
-                        'released' => true,
-                        'releasedAmount' => 3.14,
-                        'account' => 'Mock value',
-                        'subaccount' => 'Mock value',
-                        'description' => 'Mock value',
-                        'amount' => 3.14,
-                        'distributedAmount' => 3.14,
-                        'periods' => [],
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'branchNumber' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
+            0 => [
+                'financialYear' => 'Mock value',
+                'released' => true,
+                'releasedAmount' => 3.14,
+                'account' => 'Mock value',
+                'subaccount' => 'Mock value',
+                'description' => 'Mock value',
+                'amount' => 3.14,
+                'distributedAmount' => 3.14,
+                'periods' => [],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'branchNumber' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+            ],
+            1 => [
+                'financialYear' => 'Mock value',
+                'released' => true,
+                'releasedAmount' => 3.14,
+                'account' => 'Mock value',
+                'subaccount' => 'Mock value',
+                'description' => 'Mock value',
+                'amount' => 3.14,
+                'distributedAmount' => 3.14,
+                'periods' => [],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'branchNumber' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
     ]);
@@ -71,7 +64,7 @@ it('calls the budgetGetAllCollection method in the Budget resource', function ()
 
     expect($dtoCollection->first())
         ->financialYear->toBe('Mock value')
-        ->released->toBe(true)
+        ->released->toBeTrue()
         ->releasedAmount->toBe(3.14)
         ->account->toBe('Mock value')
         ->subaccount->toBe('Mock value')

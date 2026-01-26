@@ -13,59 +13,56 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the projectGetByprojectId method in the Project resource', function () {
     Saloon::fake([
         ProjectGetByprojectIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'projects',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 42,
-                    'projectId' => 'mock-id-123',
-                    'customer' => 'Mock value',
-                    'hold' => true,
-                    'status' => 'Mock value',
-                    'template' => 'Mock value',
-                    'description' => 'Mock value',
-                    'assets' => 3.14,
-                    'liability' => 3.14,
-                    'income' => 3.14,
-                    'expenses' => 3.14,
-                    'startDate' => '2025-11-22T10:40:04.065Z',
-                    'endDate' => '2025-11-22T10:40:04.065Z',
-                    'projectManager' => 'Mock value',
-                    'restrictEmployees' => true,
-                    'restrictEquipment' => true,
-                    'visibility' => 'Mock value',
-                    'defAccount' => 'Mock value',
-                    'defSub' => 'Mock value',
-                    'defAccrualAccount' => 'Mock value',
-                    'defAccrualSub' => 'Mock value',
-                    'billingPeriod' => 'Mock value',
-                    'nextBillingDate' => '2025-11-22T10:40:04.065Z',
-                    'lastBillingDate' => '2025-11-22T10:40:04.065Z',
-                    'customerLocation' => 'Mock value',
-                    'allocationRule' => 'Mock value',
-                    'billingRule' => 'Mock value',
-                    'branch' => 'Mock value',
-                    'rateTable' => 'Mock value',
-                    'autoAllocate' => true,
-                    'automaticReleaseAr' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'tasks' => [],
-                    'employees' => [],
-                    'publicId' => 'mock-id-123',
-                    'systemTemplate' => true,
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'attributes' => [],
-                    'note' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'internalId' => 42,
+            'projectId' => 'mock-id-123',
+            'customer' => 'Mock value',
+            'hold' => true,
+            'status' => 'Mock value',
+            'template' => 'Mock value',
+            'description' => 'Mock value',
+            'assets' => 3.14,
+            'liability' => 3.14,
+            'income' => 3.14,
+            'expenses' => 3.14,
+            'startDate' => '2025-11-22T10:40:04.065Z',
+            'endDate' => '2025-11-22T10:40:04.065Z',
+            'projectManager' => 'Mock value',
+            'restrictEmployees' => true,
+            'restrictEquipment' => true,
+            'visibility' => 'Mock value',
+            'defAccount' => 'Mock value',
+            'defSub' => 'Mock value',
+            'defAccrualAccount' => 'Mock value',
+            'defAccrualSub' => 'Mock value',
+            'billingPeriod' => 'Mock value',
+            'nextBillingDate' => '2025-11-22T10:40:04.065Z',
+            'lastBillingDate' => '2025-11-22T10:40:04.065Z',
+            'customerLocation' => 'Mock value',
+            'allocationRule' => 'Mock value',
+            'billingRule' => 'Mock value',
+            'branch' => 'Mock value',
+            'rateTable' => 'Mock value',
+            'autoAllocate' => true,
+            'automaticReleaseAr' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'tasks' => [],
+            'employees' => [],
+            'publicId' => 'mock-id-123',
+            'systemTemplate' => true,
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'attributes' => [],
+            'note' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -85,7 +82,7 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->status->toBe('Mock value')
         ->template->toBe('Mock value')
         ->description->toBe('Mock value')
@@ -96,8 +93,8 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->projectManager->toBe('Mock value')
-        ->restrictEmployees->toBe(true)
-        ->restrictEquipment->toBe(true)
+        ->restrictEmployees->toBeTrue()
+        ->restrictEquipment->toBeTrue()
         ->visibility->toBe('Mock value')
         ->defAccount->toBe('Mock value')
         ->defSub->toBe('Mock value')
@@ -111,11 +108,11 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
         ->billingRule->toBe('Mock value')
         ->branch->toBe('Mock value')
         ->rateTable->toBe('Mock value')
-        ->autoAllocate->toBe(true)
-        ->automaticReleaseAr->toBe(true)
+        ->autoAllocate->toBeTrue()
+        ->automaticReleaseAr->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->publicId->toBe('mock-id-123')
-        ->systemTemplate->toBe(true)
+        ->systemTemplate->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->note->toBe('Mock value')
         ->errorInfo->toBe('Mock value')
@@ -125,53 +122,47 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
 it('calls the projectGetByinternalId method in the Project resource', function () {
     Saloon::fake([
         ProjectGetByinternalIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'projects',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 42,
-                    'projectId' => 'mock-id-123',
-                    'customer' => 'Mock value',
-                    'hold' => true,
-                    'status' => 'Mock value',
-                    'template' => 'Mock value',
-                    'description' => 'Mock value',
-                    'assets' => 3.14,
-                    'liability' => 3.14,
-                    'income' => 3.14,
-                    'expenses' => 3.14,
-                    'startDate' => '2025-11-22T10:40:04.065Z',
-                    'endDate' => '2025-11-22T10:40:04.065Z',
-                    'projectManager' => 'Mock value',
-                    'restrictEmployees' => true,
-                    'restrictEquipment' => true,
-                    'visibility' => 'Mock value',
-                    'defAccount' => 'Mock value',
-                    'defSub' => 'Mock value',
-                    'defAccrualAccount' => 'Mock value',
-                    'defAccrualSub' => 'Mock value',
-                    'billingPeriod' => 'Mock value',
-                    'nextBillingDate' => '2025-11-22T10:40:04.065Z',
-                    'lastBillingDate' => '2025-11-22T10:40:04.065Z',
-                    'customerLocation' => 'Mock value',
-                    'allocationRule' => 'Mock value',
-                    'billingRule' => 'Mock value',
-                    'branch' => 'Mock value',
-                    'rateTable' => 'Mock value',
-                    'autoAllocate' => true,
-                    'automaticReleaseAr' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'tasks' => [],
-                    'employees' => [],
-                    'publicId' => 'mock-id-123',
-                    'systemTemplate' => true,
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'attributes' => [],
-                    'note' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'internalId' => 42,
+            'projectId' => 'mock-id-123',
+            'customer' => 'Mock value',
+            'hold' => true,
+            'status' => 'Mock value',
+            'template' => 'Mock value',
+            'description' => 'Mock value',
+            'assets' => 3.14,
+            'liability' => 3.14,
+            'income' => 3.14,
+            'expenses' => 3.14,
+            'startDate' => '2025-11-22T10:40:04.065Z',
+            'endDate' => '2025-11-22T10:40:04.065Z',
+            'projectManager' => 'Mock value',
+            'restrictEmployees' => true,
+            'restrictEquipment' => true,
+            'visibility' => 'Mock value',
+            'defAccount' => 'Mock value',
+            'defSub' => 'Mock value',
+            'defAccrualAccount' => 'Mock value',
+            'defAccrualSub' => 'Mock value',
+            'billingPeriod' => 'Mock value',
+            'nextBillingDate' => '2025-11-22T10:40:04.065Z',
+            'lastBillingDate' => '2025-11-22T10:40:04.065Z',
+            'customerLocation' => 'Mock value',
+            'allocationRule' => 'Mock value',
+            'billingRule' => 'Mock value',
+            'branch' => 'Mock value',
+            'rateTable' => 'Mock value',
+            'autoAllocate' => true,
+            'automaticReleaseAr' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'tasks' => [],
+            'employees' => [],
+            'publicId' => 'mock-id-123',
+            'systemTemplate' => true,
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'attributes' => [],
+            'note' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -191,7 +182,7 @@ it('calls the projectGetByinternalId method in the Project resource', function (
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->status->toBe('Mock value')
         ->template->toBe('Mock value')
         ->description->toBe('Mock value')
@@ -202,8 +193,8 @@ it('calls the projectGetByinternalId method in the Project resource', function (
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->projectManager->toBe('Mock value')
-        ->restrictEmployees->toBe(true)
-        ->restrictEquipment->toBe(true)
+        ->restrictEmployees->toBeTrue()
+        ->restrictEquipment->toBeTrue()
         ->visibility->toBe('Mock value')
         ->defAccount->toBe('Mock value')
         ->defSub->toBe('Mock value')
@@ -217,11 +208,11 @@ it('calls the projectGetByinternalId method in the Project resource', function (
         ->billingRule->toBe('Mock value')
         ->branch->toBe('Mock value')
         ->rateTable->toBe('Mock value')
-        ->autoAllocate->toBe(true)
-        ->automaticReleaseAr->toBe(true)
+        ->autoAllocate->toBeTrue()
+        ->automaticReleaseAr->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->publicId->toBe('mock-id-123')
-        ->systemTemplate->toBe(true)
+        ->systemTemplate->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->note->toBe('Mock value')
         ->errorInfo->toBe('Mock value')
@@ -231,101 +222,91 @@ it('calls the projectGetByinternalId method in the Project resource', function (
 it('calls the projectGetAllCollection method in the Project resource', function () {
     Saloon::fake([
         ProjectGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'projects',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'projectId' => 'mock-id-123',
-                        'customer' => 'Mock value',
-                        'hold' => true,
-                        'status' => 'Mock value',
-                        'template' => 'Mock value',
-                        'description' => 'Mock value',
-                        'assets' => 3.14,
-                        'liability' => 3.14,
-                        'income' => 3.14,
-                        'expenses' => 3.14,
-                        'startDate' => '2025-11-22T10:40:04.065Z',
-                        'endDate' => '2025-11-22T10:40:04.065Z',
-                        'projectManager' => 'Mock value',
-                        'restrictEmployees' => true,
-                        'restrictEquipment' => true,
-                        'visibility' => 'Mock value',
-                        'defAccount' => 'Mock value',
-                        'defSub' => 'Mock value',
-                        'defAccrualAccount' => 'Mock value',
-                        'defAccrualSub' => 'Mock value',
-                        'billingPeriod' => 'Mock value',
-                        'nextBillingDate' => '2025-11-22T10:40:04.065Z',
-                        'lastBillingDate' => '2025-11-22T10:40:04.065Z',
-                        'customerLocation' => 'Mock value',
-                        'allocationRule' => 'Mock value',
-                        'billingRule' => 'Mock value',
-                        'branch' => 'Mock value',
-                        'rateTable' => 'Mock value',
-                        'autoAllocate' => true,
-                        'automaticReleaseAr' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'tasks' => [],
-                        'employees' => [],
-                        'publicId' => 'mock-id-123',
-                        'systemTemplate' => true,
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'attributes' => [],
-                        'note' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'projects',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'projectId' => 'mock-id-123',
-                        'customer' => 'Mock value',
-                        'hold' => true,
-                        'status' => 'Mock value',
-                        'template' => 'Mock value',
-                        'description' => 'Mock value',
-                        'assets' => 3.14,
-                        'liability' => 3.14,
-                        'income' => 3.14,
-                        'expenses' => 3.14,
-                        'startDate' => '2025-11-22T10:40:04.065Z',
-                        'endDate' => '2025-11-22T10:40:04.065Z',
-                        'projectManager' => 'Mock value',
-                        'restrictEmployees' => true,
-                        'restrictEquipment' => true,
-                        'visibility' => 'Mock value',
-                        'defAccount' => 'Mock value',
-                        'defSub' => 'Mock value',
-                        'defAccrualAccount' => 'Mock value',
-                        'defAccrualSub' => 'Mock value',
-                        'billingPeriod' => 'Mock value',
-                        'nextBillingDate' => '2025-11-22T10:40:04.065Z',
-                        'lastBillingDate' => '2025-11-22T10:40:04.065Z',
-                        'customerLocation' => 'Mock value',
-                        'allocationRule' => 'Mock value',
-                        'billingRule' => 'Mock value',
-                        'branch' => 'Mock value',
-                        'rateTable' => 'Mock value',
-                        'autoAllocate' => true,
-                        'automaticReleaseAr' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'tasks' => [],
-                        'employees' => [],
-                        'publicId' => 'mock-id-123',
-                        'systemTemplate' => true,
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'attributes' => [],
-                        'note' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'internalId' => 42,
+                'projectId' => 'mock-id-123',
+                'customer' => 'Mock value',
+                'hold' => true,
+                'status' => 'Mock value',
+                'template' => 'Mock value',
+                'description' => 'Mock value',
+                'assets' => 3.14,
+                'liability' => 3.14,
+                'income' => 3.14,
+                'expenses' => 3.14,
+                'startDate' => '2025-11-22T10:40:04.065Z',
+                'endDate' => '2025-11-22T10:40:04.065Z',
+                'projectManager' => 'Mock value',
+                'restrictEmployees' => true,
+                'restrictEquipment' => true,
+                'visibility' => 'Mock value',
+                'defAccount' => 'Mock value',
+                'defSub' => 'Mock value',
+                'defAccrualAccount' => 'Mock value',
+                'defAccrualSub' => 'Mock value',
+                'billingPeriod' => 'Mock value',
+                'nextBillingDate' => '2025-11-22T10:40:04.065Z',
+                'lastBillingDate' => '2025-11-22T10:40:04.065Z',
+                'customerLocation' => 'Mock value',
+                'allocationRule' => 'Mock value',
+                'billingRule' => 'Mock value',
+                'branch' => 'Mock value',
+                'rateTable' => 'Mock value',
+                'autoAllocate' => true,
+                'automaticReleaseAr' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'tasks' => [],
+                'employees' => [],
+                'publicId' => 'mock-id-123',
+                'systemTemplate' => true,
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'attributes' => [],
+                'note' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'internalId' => 42,
+                'projectId' => 'mock-id-123',
+                'customer' => 'Mock value',
+                'hold' => true,
+                'status' => 'Mock value',
+                'template' => 'Mock value',
+                'description' => 'Mock value',
+                'assets' => 3.14,
+                'liability' => 3.14,
+                'income' => 3.14,
+                'expenses' => 3.14,
+                'startDate' => '2025-11-22T10:40:04.065Z',
+                'endDate' => '2025-11-22T10:40:04.065Z',
+                'projectManager' => 'Mock value',
+                'restrictEmployees' => true,
+                'restrictEquipment' => true,
+                'visibility' => 'Mock value',
+                'defAccount' => 'Mock value',
+                'defSub' => 'Mock value',
+                'defAccrualAccount' => 'Mock value',
+                'defAccrualSub' => 'Mock value',
+                'billingPeriod' => 'Mock value',
+                'nextBillingDate' => '2025-11-22T10:40:04.065Z',
+                'lastBillingDate' => '2025-11-22T10:40:04.065Z',
+                'customerLocation' => 'Mock value',
+                'allocationRule' => 'Mock value',
+                'billingRule' => 'Mock value',
+                'branch' => 'Mock value',
+                'rateTable' => 'Mock value',
+                'autoAllocate' => true,
+                'automaticReleaseAr' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'tasks' => [],
+                'employees' => [],
+                'publicId' => 'mock-id-123',
+                'systemTemplate' => true,
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'attributes' => [],
+                'note' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -348,7 +329,7 @@ it('calls the projectGetAllCollection method in the Project resource', function 
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->status->toBe('Mock value')
         ->template->toBe('Mock value')
         ->description->toBe('Mock value')
@@ -359,8 +340,8 @@ it('calls the projectGetAllCollection method in the Project resource', function 
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->projectManager->toBe('Mock value')
-        ->restrictEmployees->toBe(true)
-        ->restrictEquipment->toBe(true)
+        ->restrictEmployees->toBeTrue()
+        ->restrictEquipment->toBeTrue()
         ->visibility->toBe('Mock value')
         ->defAccount->toBe('Mock value')
         ->defSub->toBe('Mock value')
@@ -374,11 +355,11 @@ it('calls the projectGetAllCollection method in the Project resource', function 
         ->billingRule->toBe('Mock value')
         ->branch->toBe('Mock value')
         ->rateTable->toBe('Mock value')
-        ->autoAllocate->toBe(true)
-        ->automaticReleaseAr->toBe(true)
+        ->autoAllocate->toBeTrue()
+        ->automaticReleaseAr->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->publicId->toBe('mock-id-123')
-        ->systemTemplate->toBe(true)
+        ->systemTemplate->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->note->toBe('Mock value')
         ->errorInfo->toBe('Mock value')
@@ -388,65 +369,55 @@ it('calls the projectGetAllCollection method in the Project resource', function 
 it('calls the projectGetTasksCollection method in the Project resource', function () {
     Saloon::fake([
         ProjectGetTasksCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'projects',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'projectInternalId' => 42,
-                        'defAccount' => 'Mock value',
-                        'defSub' => 'Mock value',
-                        'defAccrualAccount' => 'Mock value',
-                        'defAccrualSub' => 'Mock value',
-                        'taxCategory' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'taskId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'plannedStart' => '2025-11-22T10:40:04.065Z',
-                        'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                        'startDate' => '2025-11-22T10:40:04.065Z',
-                        'endDate' => '2025-11-22T10:40:04.065Z',
-                        'branch' => 'Mock value',
-                        'rateTable' => 'Mock value',
-                        'status' => 'Mock value',
-                        'restrictEmployees' => true,
-                        'visibility' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'employees' => [],
-                        'attributes' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'projects',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'projectInternalId' => 42,
-                        'defAccount' => 'Mock value',
-                        'defSub' => 'Mock value',
-                        'defAccrualAccount' => 'Mock value',
-                        'defAccrualSub' => 'Mock value',
-                        'taxCategory' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'taskId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'plannedStart' => '2025-11-22T10:40:04.065Z',
-                        'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                        'startDate' => '2025-11-22T10:40:04.065Z',
-                        'endDate' => '2025-11-22T10:40:04.065Z',
-                        'branch' => 'Mock value',
-                        'rateTable' => 'Mock value',
-                        'status' => 'Mock value',
-                        'restrictEmployees' => true,
-                        'visibility' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'employees' => [],
-                        'attributes' => [],
-                    ],
-                ],
+            0 => [
+                'internalId' => 42,
+                'projectInternalId' => 42,
+                'defAccount' => 'Mock value',
+                'defSub' => 'Mock value',
+                'defAccrualAccount' => 'Mock value',
+                'defAccrualSub' => 'Mock value',
+                'taxCategory' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'taskId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'plannedStart' => '2025-11-22T10:40:04.065Z',
+                'plannedEnd' => '2025-11-22T10:40:04.065Z',
+                'startDate' => '2025-11-22T10:40:04.065Z',
+                'endDate' => '2025-11-22T10:40:04.065Z',
+                'branch' => 'Mock value',
+                'rateTable' => 'Mock value',
+                'status' => 'Mock value',
+                'restrictEmployees' => true,
+                'visibility' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'employees' => [],
+                'attributes' => [],
+            ],
+            1 => [
+                'internalId' => 42,
+                'projectInternalId' => 42,
+                'defAccount' => 'Mock value',
+                'defSub' => 'Mock value',
+                'defAccrualAccount' => 'Mock value',
+                'defAccrualSub' => 'Mock value',
+                'taxCategory' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'taskId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'plannedStart' => '2025-11-22T10:40:04.065Z',
+                'plannedEnd' => '2025-11-22T10:40:04.065Z',
+                'startDate' => '2025-11-22T10:40:04.065Z',
+                'endDate' => '2025-11-22T10:40:04.065Z',
+                'branch' => 'Mock value',
+                'rateTable' => 'Mock value',
+                'status' => 'Mock value',
+                'restrictEmployees' => true,
+                'visibility' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'employees' => [],
+                'attributes' => [],
             ],
         ], 200),
     ]);
@@ -484,7 +455,7 @@ it('calls the projectGetTasksCollection method in the Project resource', functio
         ->branch->toBe('Mock value')
         ->rateTable->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->restrictEmployees->toBe(true)
+        ->restrictEmployees->toBeTrue()
         ->visibility->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

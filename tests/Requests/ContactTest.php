@@ -9,46 +9,43 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the contactGetBycontactId method in the Contact resource', function () {
     Saloon::fake([
         ContactGetBycontactIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'contacts',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'displayName' => 'Mock value',
-                    'active' => true,
-                    'title' => 'Mock value',
-                    'firstName' => 'Mock value',
-                    'lastName' => 'Mock value',
-                    'position' => 'Mock value',
-                    'businessAccount' => 'Mock value',
-                    'businessAccountType' => 'Mock value',
-                    'sameAsAccount' => true,
-                    'address' => 'Mock value',
-                    'email' => 'test@example.com',
-                    'web' => 'Mock value',
-                    'phone1' => 'Mock value',
-                    'phone2' => 'Mock value',
-                    'phone3' => 'Mock value',
-                    'fax' => 'Mock value',
-                    'contactMethod' => 'Mock value',
-                    'doNotCall' => true,
-                    'doNotFax' => true,
-                    'doNotEmail' => true,
-                    'doNotMail' => true,
-                    'noMassMail' => true,
-                    'noMarketing' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'contactId' => 42,
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'displayName' => 'Mock value',
+            'active' => true,
+            'title' => 'Mock value',
+            'firstName' => 'Mock value',
+            'lastName' => 'Mock value',
+            'position' => 'Mock value',
+            'businessAccount' => 'Mock value',
+            'businessAccountType' => 'Mock value',
+            'sameAsAccount' => true,
+            'address' => 'Mock value',
+            'email' => 'test@example.com',
+            'web' => 'Mock value',
+            'phone1' => 'Mock value',
+            'phone2' => 'Mock value',
+            'phone3' => 'Mock value',
+            'fax' => 'Mock value',
+            'contactMethod' => 'Mock value',
+            'doNotCall' => true,
+            'doNotFax' => true,
+            'doNotEmail' => true,
+            'doNotMail' => true,
+            'noMassMail' => true,
+            'noMarketing' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'contactId' => 42,
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -66,14 +63,14 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
 
     expect($dto)
         ->displayName->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->title->toBe('Mock value')
         ->firstName->toBe('Mock value')
         ->lastName->toBe('Mock value')
         ->position->toBe('Mock value')
         ->businessAccount->toBe('Mock value')
         ->businessAccountType->toBe('Mock value')
-        ->sameAsAccount->toBe(true)
+        ->sameAsAccount->toBeTrue()
         ->address->toBe('Mock value')
         ->email->toBe('test@example.com')
         ->web->toBe('Mock value')
@@ -82,12 +79,12 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
         ->phone3->toBe('Mock value')
         ->fax->toBe('Mock value')
         ->contactMethod->toBe('Mock value')
-        ->doNotCall->toBe(true)
-        ->doNotFax->toBe(true)
-        ->doNotEmail->toBe(true)
-        ->doNotMail->toBe(true)
-        ->noMassMail->toBe(true)
-        ->noMarketing->toBe(true)
+        ->doNotCall->toBeTrue()
+        ->doNotFax->toBeTrue()
+        ->doNotEmail->toBeTrue()
+        ->doNotMail->toBeTrue()
+        ->noMassMail->toBeTrue()
+        ->noMarketing->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->contactId->toBe(42)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -98,75 +95,65 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
 it('calls the contactGetAllContactsCollection method in the Contact resource', function () {
     Saloon::fake([
         ContactGetAllContactsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'contacts',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'displayName' => 'Mock value',
-                        'active' => true,
-                        'title' => 'Mock value',
-                        'firstName' => 'Mock value',
-                        'lastName' => 'Mock value',
-                        'position' => 'Mock value',
-                        'businessAccount' => 'Mock value',
-                        'businessAccountType' => 'Mock value',
-                        'sameAsAccount' => true,
-                        'address' => 'Mock value',
-                        'email' => 'test@example.com',
-                        'web' => 'Mock value',
-                        'phone1' => 'Mock value',
-                        'phone2' => 'Mock value',
-                        'phone3' => 'Mock value',
-                        'fax' => 'Mock value',
-                        'contactMethod' => 'Mock value',
-                        'doNotCall' => true,
-                        'doNotFax' => true,
-                        'doNotEmail' => true,
-                        'doNotMail' => true,
-                        'noMassMail' => true,
-                        'noMarketing' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'contactId' => 42,
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'contacts',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'displayName' => 'Mock value',
-                        'active' => true,
-                        'title' => 'Mock value',
-                        'firstName' => 'Mock value',
-                        'lastName' => 'Mock value',
-                        'position' => 'Mock value',
-                        'businessAccount' => 'Mock value',
-                        'businessAccountType' => 'Mock value',
-                        'sameAsAccount' => true,
-                        'address' => 'Mock value',
-                        'email' => 'test@example.com',
-                        'web' => 'Mock value',
-                        'phone1' => 'Mock value',
-                        'phone2' => 'Mock value',
-                        'phone3' => 'Mock value',
-                        'fax' => 'Mock value',
-                        'contactMethod' => 'Mock value',
-                        'doNotCall' => true,
-                        'doNotFax' => true,
-                        'doNotEmail' => true,
-                        'doNotMail' => true,
-                        'noMassMail' => true,
-                        'noMarketing' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'contactId' => 42,
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'displayName' => 'Mock value',
+                'active' => true,
+                'title' => 'Mock value',
+                'firstName' => 'Mock value',
+                'lastName' => 'Mock value',
+                'position' => 'Mock value',
+                'businessAccount' => 'Mock value',
+                'businessAccountType' => 'Mock value',
+                'sameAsAccount' => true,
+                'address' => 'Mock value',
+                'email' => 'test@example.com',
+                'web' => 'Mock value',
+                'phone1' => 'Mock value',
+                'phone2' => 'Mock value',
+                'phone3' => 'Mock value',
+                'fax' => 'Mock value',
+                'contactMethod' => 'Mock value',
+                'doNotCall' => true,
+                'doNotFax' => true,
+                'doNotEmail' => true,
+                'doNotMail' => true,
+                'noMassMail' => true,
+                'noMarketing' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'contactId' => 42,
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'displayName' => 'Mock value',
+                'active' => true,
+                'title' => 'Mock value',
+                'firstName' => 'Mock value',
+                'lastName' => 'Mock value',
+                'position' => 'Mock value',
+                'businessAccount' => 'Mock value',
+                'businessAccountType' => 'Mock value',
+                'sameAsAccount' => true,
+                'address' => 'Mock value',
+                'email' => 'test@example.com',
+                'web' => 'Mock value',
+                'phone1' => 'Mock value',
+                'phone2' => 'Mock value',
+                'phone3' => 'Mock value',
+                'fax' => 'Mock value',
+                'contactMethod' => 'Mock value',
+                'doNotCall' => true,
+                'doNotFax' => true,
+                'doNotEmail' => true,
+                'doNotMail' => true,
+                'noMassMail' => true,
+                'noMarketing' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'contactId' => 42,
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -187,14 +174,14 @@ it('calls the contactGetAllContactsCollection method in the Contact resource', f
 
     expect($dtoCollection->first())
         ->displayName->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->title->toBe('Mock value')
         ->firstName->toBe('Mock value')
         ->lastName->toBe('Mock value')
         ->position->toBe('Mock value')
         ->businessAccount->toBe('Mock value')
         ->businessAccountType->toBe('Mock value')
-        ->sameAsAccount->toBe(true)
+        ->sameAsAccount->toBeTrue()
         ->address->toBe('Mock value')
         ->email->toBe('test@example.com')
         ->web->toBe('Mock value')
@@ -203,12 +190,12 @@ it('calls the contactGetAllContactsCollection method in the Contact resource', f
         ->phone3->toBe('Mock value')
         ->fax->toBe('Mock value')
         ->contactMethod->toBe('Mock value')
-        ->doNotCall->toBe(true)
-        ->doNotFax->toBe(true)
-        ->doNotEmail->toBe(true)
-        ->doNotMail->toBe(true)
-        ->noMassMail->toBe(true)
-        ->noMarketing->toBe(true)
+        ->doNotCall->toBeTrue()
+        ->doNotFax->toBeTrue()
+        ->doNotEmail->toBeTrue()
+        ->doNotMail->toBeTrue()
+        ->noMassMail->toBeTrue()
+        ->noMarketing->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->contactId->toBe(42)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))

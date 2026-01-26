@@ -8,27 +8,24 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the DeferralCode resource', function () {
     Saloon::fake([
         DeferralCodeGetDeferralCodeBydeferralCodeIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'deferralCodes',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'deferralCode' => 'Mock value',
-                    'description' => 'Mock value',
-                    'deferredRevenueFromItem' => true,
-                    'recognitionMethod' => 'Mock value',
-                    'codeType' => 'Mock value',
-                    'deferralAccount' => 'Mock value',
-                    'deferralSub' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'deferralCode' => 'Mock value',
+            'description' => 'Mock value',
+            'deferredRevenueFromItem' => true,
+            'recognitionMethod' => 'Mock value',
+            'codeType' => 'Mock value',
+            'deferralAccount' => 'Mock value',
+            'deferralSub' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -47,7 +44,7 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the Deferral
     expect($dto)
         ->deferralCode->toBe('Mock value')
         ->description->toBe('Mock value')
-        ->deferredRevenueFromItem->toBe(true)
+        ->deferredRevenueFromItem->toBeTrue()
         ->recognitionMethod->toBe('Mock value')
         ->codeType->toBe('Mock value')
         ->deferralAccount->toBe('Mock value')
@@ -59,37 +56,27 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the Deferral
 it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode resource', function () {
     Saloon::fake([
         DeferralCodeGetDeferralCodesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'deferralCodes',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'deferralCode' => 'Mock value',
-                        'description' => 'Mock value',
-                        'deferredRevenueFromItem' => true,
-                        'recognitionMethod' => 'Mock value',
-                        'codeType' => 'Mock value',
-                        'deferralAccount' => 'Mock value',
-                        'deferralSub' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'deferralCodes',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'deferralCode' => 'Mock value',
-                        'description' => 'Mock value',
-                        'deferredRevenueFromItem' => true,
-                        'recognitionMethod' => 'Mock value',
-                        'codeType' => 'Mock value',
-                        'deferralAccount' => 'Mock value',
-                        'deferralSub' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'deferralCode' => 'Mock value',
+                'description' => 'Mock value',
+                'deferredRevenueFromItem' => true,
+                'recognitionMethod' => 'Mock value',
+                'codeType' => 'Mock value',
+                'deferralAccount' => 'Mock value',
+                'deferralSub' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'deferralCode' => 'Mock value',
+                'description' => 'Mock value',
+                'deferredRevenueFromItem' => true,
+                'recognitionMethod' => 'Mock value',
+                'codeType' => 'Mock value',
+                'deferralAccount' => 'Mock value',
+                'deferralSub' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -111,7 +98,7 @@ it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode 
     expect($dtoCollection->first())
         ->deferralCode->toBe('Mock value')
         ->description->toBe('Mock value')
-        ->deferredRevenueFromItem->toBe(true)
+        ->deferredRevenueFromItem->toBeTrue()
         ->recognitionMethod->toBe('Mock value')
         ->codeType->toBe('Mock value')
         ->deferralAccount->toBe('Mock value')

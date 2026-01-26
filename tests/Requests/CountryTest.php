@@ -8,21 +8,18 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the countryGetCountryBycountryId method in the Country resource', function () {
     Saloon::fake([
         CountryGetCountryBycountryIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'countries',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'name' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'name' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -47,25 +44,15 @@ it('calls the countryGetCountryBycountryId method in the Country resource', func
 it('calls the countryGetCountriesCollection method in the Country resource', function () {
     Saloon::fake([
         CountryGetCountriesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'countries',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'name' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'countries',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'name' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'name' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'name' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);

@@ -8,23 +8,20 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the numberSequenceGetBynumberingId method in the NumberSequence resource', function () {
     Saloon::fake([
         NumberSequenceGetBynumberingIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'numberSequences',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'numberingId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'manualNumbering' => true,
-                    'newNumberSymbol' => 'Mock value',
-                    'sequence' => [],
-                ],
-            ],
+            'numberingId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'manualNumbering' => true,
+            'newNumberSymbol' => 'Mock value',
+            'sequence' => [],
         ], 200),
     ]);
 
@@ -43,36 +40,26 @@ it('calls the numberSequenceGetBynumberingId method in the NumberSequence resour
     expect($dto)
         ->numberingId->toBe('mock-id-123')
         ->description->toBe('Mock value')
-        ->manualNumbering->toBe(true)
+        ->manualNumbering->toBeTrue()
         ->newNumberSymbol->toBe('Mock value');
 });
 
 it('calls the numberSequenceGetAllCollection method in the NumberSequence resource', function () {
     Saloon::fake([
         NumberSequenceGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'numberSequences',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'numberingId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'manualNumbering' => true,
-                        'newNumberSymbol' => 'Mock value',
-                        'sequence' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'numberSequences',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'numberingId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'manualNumbering' => true,
-                        'newNumberSymbol' => 'Mock value',
-                        'sequence' => [],
-                    ],
-                ],
+            0 => [
+                'numberingId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'manualNumbering' => true,
+                'newNumberSymbol' => 'Mock value',
+                'sequence' => [],
+            ],
+            1 => [
+                'numberingId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'manualNumbering' => true,
+                'newNumberSymbol' => 'Mock value',
+                'sequence' => [],
             ],
         ], 200),
     ]);
@@ -94,6 +81,6 @@ it('calls the numberSequenceGetAllCollection method in the NumberSequence resour
     expect($dtoCollection->first())
         ->numberingId->toBe('mock-id-123')
         ->description->toBe('Mock value')
-        ->manualNumbering->toBe(true)
+        ->manualNumbering->toBeTrue()
         ->newNumberSymbol->toBe('Mock value');
 });

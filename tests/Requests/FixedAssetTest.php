@@ -9,35 +9,32 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', function () {
     Saloon::fake([
         FixedAssetGetByFixedAssetIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'fixedAssets',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'assetId' => 'mock-id-123',
-                    'recordType' => 'Mock value',
-                    'parentAssetId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'classId' => 'mock-id-123',
-                    'isTangible' => true,
-                    'quantity' => 3.14,
-                    'depreciable' => true,
-                    'usefulLife' => 3.14,
-                    'accounts' => 'Mock value',
-                    'details' => 'Mock value',
-                    'bookBalance' => 'Mock value',
-                    'location' => 'Mock value',
-                    'propertyTax' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'assetId' => 'mock-id-123',
+            'recordType' => 'Mock value',
+            'parentAssetId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'classId' => 'mock-id-123',
+            'isTangible' => true,
+            'quantity' => 3.14,
+            'depreciable' => true,
+            'usefulLife' => 3.14,
+            'accounts' => 'Mock value',
+            'details' => 'Mock value',
+            'bookBalance' => 'Mock value',
+            'location' => 'Mock value',
+            'propertyTax' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -60,9 +57,9 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
         ->parentAssetId->toBe('mock-id-123')
         ->description->toBe('Mock value')
         ->classId->toBe('mock-id-123')
-        ->isTangible->toBe(true)
+        ->isTangible->toBeTrue()
         ->quantity->toBe(3.14)
-        ->depreciable->toBe(true)
+        ->depreciable->toBeTrue()
         ->usefulLife->toBe(3.14)
         ->accounts->toBe('Mock value')
         ->details->toBe('Mock value')
@@ -77,53 +74,43 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
 it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', function () {
     Saloon::fake([
         FixedAssetGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'fixedAssets',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'assetId' => 'mock-id-123',
-                        'recordType' => 'Mock value',
-                        'parentAssetId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'classId' => 'mock-id-123',
-                        'isTangible' => true,
-                        'quantity' => 3.14,
-                        'depreciable' => true,
-                        'usefulLife' => 3.14,
-                        'accounts' => 'Mock value',
-                        'details' => 'Mock value',
-                        'bookBalance' => 'Mock value',
-                        'location' => 'Mock value',
-                        'propertyTax' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'fixedAssets',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'assetId' => 'mock-id-123',
-                        'recordType' => 'Mock value',
-                        'parentAssetId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'classId' => 'mock-id-123',
-                        'isTangible' => true,
-                        'quantity' => 3.14,
-                        'depreciable' => true,
-                        'usefulLife' => 3.14,
-                        'accounts' => 'Mock value',
-                        'details' => 'Mock value',
-                        'bookBalance' => 'Mock value',
-                        'location' => 'Mock value',
-                        'propertyTax' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'assetId' => 'mock-id-123',
+                'recordType' => 'Mock value',
+                'parentAssetId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'classId' => 'mock-id-123',
+                'isTangible' => true,
+                'quantity' => 3.14,
+                'depreciable' => true,
+                'usefulLife' => 3.14,
+                'accounts' => 'Mock value',
+                'details' => 'Mock value',
+                'bookBalance' => 'Mock value',
+                'location' => 'Mock value',
+                'propertyTax' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'assetId' => 'mock-id-123',
+                'recordType' => 'Mock value',
+                'parentAssetId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'classId' => 'mock-id-123',
+                'isTangible' => true,
+                'quantity' => 3.14,
+                'depreciable' => true,
+                'usefulLife' => 3.14,
+                'accounts' => 'Mock value',
+                'details' => 'Mock value',
+                'bookBalance' => 'Mock value',
+                'location' => 'Mock value',
+                'propertyTax' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -148,9 +135,9 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
         ->parentAssetId->toBe('mock-id-123')
         ->description->toBe('Mock value')
         ->classId->toBe('mock-id-123')
-        ->isTangible->toBe(true)
+        ->isTangible->toBeTrue()
         ->quantity->toBe(3.14)
-        ->depreciable->toBe(true)
+        ->depreciable->toBeTrue()
         ->usefulLife->toBe(3.14)
         ->accounts->toBe('Mock value')
         ->details->toBe('Mock value')

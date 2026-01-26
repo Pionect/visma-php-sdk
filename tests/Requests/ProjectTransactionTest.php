@@ -9,29 +9,26 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction resource', function () {
     Saloon::fake([
         ProjectTransactionGetByrefNbrRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'projectTransactions',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'refNbr' => 'Mock value',
-                    'description' => 'Mock value',
-                    'origDocNbr' => 'Mock value',
-                    'status' => 'Mock value',
-                    'module' => 'Mock value',
-                    'origDocType' => 'Mock value',
-                    'note' => 'Mock value',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'lines' => [],
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'refNbr' => 'Mock value',
+            'description' => 'Mock value',
+            'origDocNbr' => 'Mock value',
+            'status' => 'Mock value',
+            'module' => 'Mock value',
+            'origDocType' => 'Mock value',
+            'note' => 'Mock value',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'lines' => [],
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -63,41 +60,31 @@ it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction res
 it('calls the projectTransactionGetAllCollection method in the ProjectTransaction resource', function () {
     Saloon::fake([
         ProjectTransactionGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'projectTransactions',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'refNbr' => 'Mock value',
-                        'description' => 'Mock value',
-                        'origDocNbr' => 'Mock value',
-                        'status' => 'Mock value',
-                        'module' => 'Mock value',
-                        'origDocType' => 'Mock value',
-                        'note' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'lines' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'projectTransactions',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'refNbr' => 'Mock value',
-                        'description' => 'Mock value',
-                        'origDocNbr' => 'Mock value',
-                        'status' => 'Mock value',
-                        'module' => 'Mock value',
-                        'origDocType' => 'Mock value',
-                        'note' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'lines' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'refNbr' => 'Mock value',
+                'description' => 'Mock value',
+                'origDocNbr' => 'Mock value',
+                'status' => 'Mock value',
+                'module' => 'Mock value',
+                'origDocType' => 'Mock value',
+                'note' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'lines' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'refNbr' => 'Mock value',
+                'description' => 'Mock value',
+                'origDocNbr' => 'Mock value',
+                'status' => 'Mock value',
+                'module' => 'Mock value',
+                'origDocType' => 'Mock value',
+                'note' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'lines' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);

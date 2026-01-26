@@ -9,24 +9,21 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory resource', function () {
     Saloon::fake([
         VatCategoryGetVatCategoryBytaxCategoryIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'vatCategories',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'vatCategoryId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'active' => true,
-                    'excludeListedTaxes' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'vatCategoryLines' => [],
-                ],
-            ],
+            'vatCategoryId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'active' => true,
+            'excludeListedTaxes' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'vatCategoryLines' => [],
         ], 200),
     ]);
 
@@ -46,39 +43,29 @@ it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory
     expect($dto)
         ->vatCategoryId->toBe('mock-id-123')
         ->description->toBe('Mock value')
-        ->active->toBe(true)
-        ->excludeListedTaxes->toBe(true)
+        ->active->toBeTrue()
+        ->excludeListedTaxes->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory resource', function () {
     Saloon::fake([
         VatCategoryGetAllVatCategoriesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'vatCategories',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'vatCategoryId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'active' => true,
-                        'excludeListedTaxes' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'vatCategoryLines' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'vatCategories',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'vatCategoryId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'active' => true,
-                        'excludeListedTaxes' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'vatCategoryLines' => [],
-                    ],
-                ],
+            0 => [
+                'vatCategoryId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'active' => true,
+                'excludeListedTaxes' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'vatCategoryLines' => [],
+            ],
+            1 => [
+                'vatCategoryId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'active' => true,
+                'excludeListedTaxes' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'vatCategoryLines' => [],
             ],
         ], 200),
     ]);
@@ -100,7 +87,7 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
     expect($dtoCollection->first())
         ->vatCategoryId->toBe('mock-id-123')
         ->description->toBe('Mock value')
-        ->active->toBe(true)
-        ->excludeListedTaxes->toBe(true)
+        ->active->toBeTrue()
+        ->excludeListedTaxes->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

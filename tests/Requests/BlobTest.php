@@ -10,26 +10,23 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the blobGetByblobId method in the Blob resource', function () {
     Saloon::fake([
         BlobGetByblobIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'blobs',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'canRead' => true,
-                    'canSeek' => true,
-                    'canTimeout' => true,
-                    'canWrite' => true,
-                    'length' => 42,
-                    'position' => 42,
-                    'readTimeout' => 42,
-                    'writeTimeout' => 42,
-                ],
-            ],
+            'canRead' => true,
+            'canSeek' => true,
+            'canTimeout' => true,
+            'canWrite' => true,
+            'length' => 42,
+            'position' => 42,
+            'readTimeout' => 42,
+            'writeTimeout' => 42,
         ], 200),
     ]);
 
@@ -46,10 +43,10 @@ it('calls the blobGetByblobId method in the Blob resource', function () {
     $dto = $response->dto();
 
     expect($dto)
-        ->canRead->toBe(true)
-        ->canSeek->toBe(true)
-        ->canTimeout->toBe(true)
-        ->canWrite->toBe(true)
+        ->canRead->toBeTrue()
+        ->canSeek->toBeTrue()
+        ->canTimeout->toBeTrue()
+        ->canWrite->toBeTrue()
         ->length->toBe(42)
         ->position->toBe(42)
         ->readTimeout->toBe(42)
@@ -59,23 +56,13 @@ it('calls the blobGetByblobId method in the Blob resource', function () {
 it('calls the blobGetPresignedUrlCollection method in the Blob resource', function () {
     Saloon::fake([
         BlobGetPresignedUrlCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'blobs',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'preSignedUrl' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'blobs',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'preSignedUrl' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'preSignedUrl' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'preSignedUrl' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -102,20 +89,14 @@ it('calls the blobGetPresignedUrlCollection method in the Blob resource', functi
 it('calls the blobGetMetadataByblobId method in the Blob resource', function () {
     Saloon::fake([
         BlobGetMetadataByblobIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'blobs',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'blobId' => 'mock-id-123',
-                    'blobName' => 'Mock value',
-                    'contentType' => 'Mock value',
-                    'mD5hash' => 'Mock value',
-                    'fileChecksum' => 'Mock value',
-                    'size' => 42,
-                    'countryCode' => 'Mock value',
-                    'createdDateTimeUtc' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'blobId' => 'mock-id-123',
+            'blobName' => 'Mock value',
+            'contentType' => 'Mock value',
+            'mD5hash' => 'Mock value',
+            'fileChecksum' => 'Mock value',
+            'size' => 42,
+            'countryCode' => 'Mock value',
+            'createdDateTimeUtc' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 

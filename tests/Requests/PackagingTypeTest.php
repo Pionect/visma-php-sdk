@@ -9,31 +9,28 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the packagingTypeGetByboxId method in the PackagingType resource', function () {
     Saloon::fake([
         PackagingTypeGetByboxIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'packagingTypes',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'boxId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'boxWeight' => 3.14,
-                    'maxWeight' => 3.14,
-                    'weightUoM' => 'Mock value',
-                    'maxVolume' => 3.14,
-                    'volumeUoM' => 'Mock value',
-                    'length' => 42,
-                    'width' => 42,
-                    'height' => 42,
-                    'activeByDefault' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'boxId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'boxWeight' => 3.14,
+            'maxWeight' => 3.14,
+            'weightUoM' => 'Mock value',
+            'maxVolume' => 3.14,
+            'volumeUoM' => 'Mock value',
+            'length' => 42,
+            'width' => 42,
+            'height' => 42,
+            'activeByDefault' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -60,7 +57,7 @@ it('calls the packagingTypeGetByboxId method in the PackagingType resource', fun
         ->length->toBe(42)
         ->width->toBe(42)
         ->height->toBe(42)
-        ->activeByDefault->toBe(true)
+        ->activeByDefault->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->metadata->toBe('Mock value');
 });
@@ -68,45 +65,35 @@ it('calls the packagingTypeGetByboxId method in the PackagingType resource', fun
 it('calls the packagingTypeGetAllPackagingTypesCollection method in the PackagingType resource', function () {
     Saloon::fake([
         PackagingTypeGetAllPackagingTypesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'packagingTypes',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'boxId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'boxWeight' => 3.14,
-                        'maxWeight' => 3.14,
-                        'weightUoM' => 'Mock value',
-                        'maxVolume' => 3.14,
-                        'volumeUoM' => 'Mock value',
-                        'length' => 42,
-                        'width' => 42,
-                        'height' => 42,
-                        'activeByDefault' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'packagingTypes',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'boxId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'boxWeight' => 3.14,
-                        'maxWeight' => 3.14,
-                        'weightUoM' => 'Mock value',
-                        'maxVolume' => 3.14,
-                        'volumeUoM' => 'Mock value',
-                        'length' => 42,
-                        'width' => 42,
-                        'height' => 42,
-                        'activeByDefault' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'boxId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'boxWeight' => 3.14,
+                'maxWeight' => 3.14,
+                'weightUoM' => 'Mock value',
+                'maxVolume' => 3.14,
+                'volumeUoM' => 'Mock value',
+                'length' => 42,
+                'width' => 42,
+                'height' => 42,
+                'activeByDefault' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'boxId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'boxWeight' => 3.14,
+                'maxWeight' => 3.14,
+                'weightUoM' => 'Mock value',
+                'maxVolume' => 3.14,
+                'volumeUoM' => 'Mock value',
+                'length' => 42,
+                'width' => 42,
+                'height' => 42,
+                'activeByDefault' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -136,7 +123,7 @@ it('calls the packagingTypeGetAllPackagingTypesCollection method in the Packagin
         ->length->toBe(42)
         ->width->toBe(42)
         ->height->toBe(42)
-        ->activeByDefault->toBe(true)
+        ->activeByDefault->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->metadata->toBe('Mock value');
 });

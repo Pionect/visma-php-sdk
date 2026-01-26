@@ -8,45 +8,38 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the ledgerGetAllLedgersCollection method in the Ledger resource', function () {
     Saloon::fake([
         LedgerGetAllLedgersCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'ledgers',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'number' => 'Mock value',
-                        'description' => 'Mock value',
-                        'balanceType' => 'Mock value',
-                        'currencyId' => 'mock-id-123',
-                        'consolidationSource' => true,
-                        'consolBranch' => 'Mock value',
-                        'branchAccounting' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'postInterCompany' => true,
-                    ],
-                ],
-                1 => [
-                    'type' => 'ledgers',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'number' => 'Mock value',
-                        'description' => 'Mock value',
-                        'balanceType' => 'Mock value',
-                        'currencyId' => 'mock-id-123',
-                        'consolidationSource' => true,
-                        'consolBranch' => 'Mock value',
-                        'branchAccounting' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'postInterCompany' => true,
-                    ],
-                ],
+            0 => [
+                'internalId' => 42,
+                'number' => 'Mock value',
+                'description' => 'Mock value',
+                'balanceType' => 'Mock value',
+                'currencyId' => 'mock-id-123',
+                'consolidationSource' => true,
+                'consolBranch' => 'Mock value',
+                'branchAccounting' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'postInterCompany' => true,
+            ],
+            1 => [
+                'internalId' => 42,
+                'number' => 'Mock value',
+                'description' => 'Mock value',
+                'balanceType' => 'Mock value',
+                'currencyId' => 'mock-id-123',
+                'consolidationSource' => true,
+                'consolBranch' => 'Mock value',
+                'branchAccounting' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'postInterCompany' => true,
             ],
         ], 200),
     ]);
@@ -71,9 +64,9 @@ it('calls the ledgerGetAllLedgersCollection method in the Ledger resource', func
         ->description->toBe('Mock value')
         ->balanceType->toBe('Mock value')
         ->currencyId->toBe('mock-id-123')
-        ->consolidationSource->toBe(true)
+        ->consolidationSource->toBeTrue()
         ->consolBranch->toBe('Mock value')
-        ->branchAccounting->toBe(true)
+        ->branchAccounting->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postInterCompany->toBe(true);
+        ->postInterCompany->toBeTrue();
 });

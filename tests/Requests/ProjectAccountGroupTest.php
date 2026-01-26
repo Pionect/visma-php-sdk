@@ -8,37 +8,30 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the projectAccountGroupGetAllCollection method in the ProjectAccountGroup resource', function () {
     Saloon::fake([
         ProjectAccountGroupGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'projectAccountGroups',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'accountGroupId' => 'mock-id-123',
-                        'active' => true,
-                        'description' => 'Mock value',
-                        'attributes' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'projectAccountGroups',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'accountGroupId' => 'mock-id-123',
-                        'active' => true,
-                        'description' => 'Mock value',
-                        'attributes' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'accountGroupId' => 'mock-id-123',
+                'active' => true,
+                'description' => 'Mock value',
+                'attributes' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'accountGroupId' => 'mock-id-123',
+                'active' => true,
+                'description' => 'Mock value',
+                'attributes' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -59,7 +52,7 @@ it('calls the projectAccountGroupGetAllCollection method in the ProjectAccountGr
 
     expect($dtoCollection->first())
         ->accountGroupId->toBe('mock-id-123')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->description->toBe('Mock value')
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
@@ -68,18 +61,12 @@ it('calls the projectAccountGroupGetAllCollection method in the ProjectAccountGr
 it('calls the projectAccountGroupGetByaccountGroupId method in the ProjectAccountGroup resource', function () {
     Saloon::fake([
         ProjectAccountGroupGetByaccountGroupIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'projectAccountGroups',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'accountGroupId' => 'mock-id-123',
-                    'active' => true,
-                    'description' => 'Mock value',
-                    'attributes' => [],
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'accountGroupId' => 'mock-id-123',
+            'active' => true,
+            'description' => 'Mock value',
+            'attributes' => [],
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -97,7 +84,7 @@ it('calls the projectAccountGroupGetByaccountGroupId method in the ProjectAccoun
 
     expect($dto)
         ->accountGroupId->toBe('mock-id-123')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->description->toBe('Mock value')
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');

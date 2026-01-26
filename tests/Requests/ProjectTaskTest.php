@@ -9,41 +9,38 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource', function () {
     Saloon::fake([
         ProjectTaskGetTaskByinternalIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'projectTasks',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'internalId' => 42,
-                    'projectInternalId' => 42,
-                    'defAccount' => 'Mock value',
-                    'defSub' => 'Mock value',
-                    'defAccrualAccount' => 'Mock value',
-                    'defAccrualSub' => 'Mock value',
-                    'taxCategory' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'taskId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'plannedStart' => '2025-11-22T10:40:04.065Z',
-                    'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                    'startDate' => '2025-11-22T10:40:04.065Z',
-                    'endDate' => '2025-11-22T10:40:04.065Z',
-                    'branch' => 'Mock value',
-                    'rateTable' => 'Mock value',
-                    'status' => 'Mock value',
-                    'restrictEmployees' => true,
-                    'visibility' => 'Mock value',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'employees' => [],
-                    'attributes' => [],
-                ],
-            ],
+            'internalId' => 42,
+            'projectInternalId' => 42,
+            'defAccount' => 'Mock value',
+            'defSub' => 'Mock value',
+            'defAccrualAccount' => 'Mock value',
+            'defAccrualSub' => 'Mock value',
+            'taxCategory' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'taskId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'plannedStart' => '2025-11-22T10:40:04.065Z',
+            'plannedEnd' => '2025-11-22T10:40:04.065Z',
+            'startDate' => '2025-11-22T10:40:04.065Z',
+            'endDate' => '2025-11-22T10:40:04.065Z',
+            'branch' => 'Mock value',
+            'rateTable' => 'Mock value',
+            'status' => 'Mock value',
+            'restrictEmployees' => true,
+            'visibility' => 'Mock value',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'employees' => [],
+            'attributes' => [],
         ], 200),
     ]);
 
@@ -78,7 +75,7 @@ it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource'
         ->branch->toBe('Mock value')
         ->rateTable->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->restrictEmployees->toBe(true)
+        ->restrictEmployees->toBeTrue()
         ->visibility->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
@@ -86,65 +83,55 @@ it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource'
 it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resource', function () {
     Saloon::fake([
         ProjectTaskGetAllTasksCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'projectTasks',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'projectInternalId' => 42,
-                        'defAccount' => 'Mock value',
-                        'defSub' => 'Mock value',
-                        'defAccrualAccount' => 'Mock value',
-                        'defAccrualSub' => 'Mock value',
-                        'taxCategory' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'taskId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'plannedStart' => '2025-11-22T10:40:04.065Z',
-                        'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                        'startDate' => '2025-11-22T10:40:04.065Z',
-                        'endDate' => '2025-11-22T10:40:04.065Z',
-                        'branch' => 'Mock value',
-                        'rateTable' => 'Mock value',
-                        'status' => 'Mock value',
-                        'restrictEmployees' => true,
-                        'visibility' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'employees' => [],
-                        'attributes' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'projectTasks',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'internalId' => 42,
-                        'projectInternalId' => 42,
-                        'defAccount' => 'Mock value',
-                        'defSub' => 'Mock value',
-                        'defAccrualAccount' => 'Mock value',
-                        'defAccrualSub' => 'Mock value',
-                        'taxCategory' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'taskId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'plannedStart' => '2025-11-22T10:40:04.065Z',
-                        'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                        'startDate' => '2025-11-22T10:40:04.065Z',
-                        'endDate' => '2025-11-22T10:40:04.065Z',
-                        'branch' => 'Mock value',
-                        'rateTable' => 'Mock value',
-                        'status' => 'Mock value',
-                        'restrictEmployees' => true,
-                        'visibility' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'employees' => [],
-                        'attributes' => [],
-                    ],
-                ],
+            0 => [
+                'internalId' => 42,
+                'projectInternalId' => 42,
+                'defAccount' => 'Mock value',
+                'defSub' => 'Mock value',
+                'defAccrualAccount' => 'Mock value',
+                'defAccrualSub' => 'Mock value',
+                'taxCategory' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'taskId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'plannedStart' => '2025-11-22T10:40:04.065Z',
+                'plannedEnd' => '2025-11-22T10:40:04.065Z',
+                'startDate' => '2025-11-22T10:40:04.065Z',
+                'endDate' => '2025-11-22T10:40:04.065Z',
+                'branch' => 'Mock value',
+                'rateTable' => 'Mock value',
+                'status' => 'Mock value',
+                'restrictEmployees' => true,
+                'visibility' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'employees' => [],
+                'attributes' => [],
+            ],
+            1 => [
+                'internalId' => 42,
+                'projectInternalId' => 42,
+                'defAccount' => 'Mock value',
+                'defSub' => 'Mock value',
+                'defAccrualAccount' => 'Mock value',
+                'defAccrualSub' => 'Mock value',
+                'taxCategory' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'taskId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'plannedStart' => '2025-11-22T10:40:04.065Z',
+                'plannedEnd' => '2025-11-22T10:40:04.065Z',
+                'startDate' => '2025-11-22T10:40:04.065Z',
+                'endDate' => '2025-11-22T10:40:04.065Z',
+                'branch' => 'Mock value',
+                'rateTable' => 'Mock value',
+                'status' => 'Mock value',
+                'restrictEmployees' => true,
+                'visibility' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'employees' => [],
+                'attributes' => [],
             ],
         ], 200),
     ]);
@@ -182,7 +169,7 @@ it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resourc
         ->branch->toBe('Mock value')
         ->rateTable->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->restrictEmployees->toBe(true)
+        ->restrictEmployees->toBeTrue()
         ->visibility->toBe('Mock value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

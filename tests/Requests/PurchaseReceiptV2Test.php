@@ -9,56 +9,53 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumber method in the PurchaseReceiptV2 resource', function () {
     Saloon::fake([
         PurchaseReceiptV2GetPurchaseReceiptByreceiptNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'purchaseReceiptV2s',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'landedCost' => [],
-                    'note' => 'Mock value',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'receiptType' => 'Mock value',
-                    'receiptNbr' => 'Mock value',
-                    'hold' => true,
-                    'status' => 'Mock value',
-                    'date' => '2025-11-22T10:40:04.065Z',
-                    'postPeriod' => 'Mock value',
-                    'warehouse' => 'Mock value',
-                    'supplier' => 'Mock value',
-                    'location' => 'Mock value',
-                    'currency' => 'Mock value',
-                    'exchangeRate' => 3.14,
-                    'createBill' => true,
-                    'supplierRef' => 'Mock value',
-                    'totalQty' => 3.14,
-                    'controlQty' => 3.14,
-                    'vatExemptTotal' => 3.14,
-                    'vatTaxableTotal' => 3.14,
-                    'totalAmt' => 3.14,
-                    'controlTotal' => 3.14,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'branchNumber' => 'Mock value',
-                    'lines' => [],
-                    'dueDate' => '2025-11-22T10:40:04.065Z',
-                    'customStr1' => 'Mock value',
-                    'customStr2' => 'Mock value',
-                    'customStr3' => 'Mock value',
-                    'customStr4' => 'Mock value',
-                    'customStr5' => 'Mock value',
-                    'customDec1' => 3.14,
-                    'customDec2' => 3.14,
-                    'customInt1' => 42,
-                    'customInt2' => 42,
-                    'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'landedCost' => [],
+            'note' => 'Mock value',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'receiptType' => 'Mock value',
+            'receiptNbr' => 'Mock value',
+            'hold' => true,
+            'status' => 'Mock value',
+            'date' => '2025-11-22T10:40:04.065Z',
+            'postPeriod' => 'Mock value',
+            'warehouse' => 'Mock value',
+            'supplier' => 'Mock value',
+            'location' => 'Mock value',
+            'currency' => 'Mock value',
+            'exchangeRate' => 3.14,
+            'createBill' => true,
+            'supplierRef' => 'Mock value',
+            'totalQty' => 3.14,
+            'controlQty' => 3.14,
+            'vatExemptTotal' => 3.14,
+            'vatTaxableTotal' => 3.14,
+            'totalAmt' => 3.14,
+            'controlTotal' => 3.14,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'branchNumber' => 'Mock value',
+            'lines' => [],
+            'dueDate' => '2025-11-22T10:40:04.065Z',
+            'customStr1' => 'Mock value',
+            'customStr2' => 'Mock value',
+            'customStr3' => 'Mock value',
+            'customStr4' => 'Mock value',
+            'customStr5' => 'Mock value',
+            'customDec1' => 3.14,
+            'customDec2' => 3.14,
+            'customInt1' => 42,
+            'customInt2' => 42,
+            'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -80,7 +77,7 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumber method in the P
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->receiptType->toBe('Mock value')
         ->receiptNbr->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->status->toBe('Mock value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->postPeriod->toBe('Mock value')
@@ -89,7 +86,7 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumber method in the P
         ->location->toBe('Mock value')
         ->currency->toBe('Mock value')
         ->exchangeRate->toBe(3.14)
-        ->createBill->toBe(true)
+        ->createBill->toBeTrue()
         ->supplierRef->toBe('Mock value')
         ->totalQty->toBe(3.14)
         ->controlQty->toBe(3.14)
@@ -117,95 +114,85 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumber method in the P
 it('calls the purchaseReceiptV2getAllReceiptsCollection method in the PurchaseReceiptV2 resource', function () {
     Saloon::fake([
         PurchaseReceiptV2GetAllReceiptsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'purchaseReceiptV2s',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'landedCost' => [],
-                        'note' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'receiptType' => 'Mock value',
-                        'receiptNbr' => 'Mock value',
-                        'hold' => true,
-                        'status' => 'Mock value',
-                        'date' => '2025-11-22T10:40:04.065Z',
-                        'postPeriod' => 'Mock value',
-                        'warehouse' => 'Mock value',
-                        'supplier' => 'Mock value',
-                        'location' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'exchangeRate' => 3.14,
-                        'createBill' => true,
-                        'supplierRef' => 'Mock value',
-                        'totalQty' => 3.14,
-                        'controlQty' => 3.14,
-                        'vatExemptTotal' => 3.14,
-                        'vatTaxableTotal' => 3.14,
-                        'totalAmt' => 3.14,
-                        'controlTotal' => 3.14,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'branchNumber' => 'Mock value',
-                        'lines' => [],
-                        'dueDate' => '2025-11-22T10:40:04.065Z',
-                        'customStr1' => 'Mock value',
-                        'customStr2' => 'Mock value',
-                        'customStr3' => 'Mock value',
-                        'customStr4' => 'Mock value',
-                        'customStr5' => 'Mock value',
-                        'customDec1' => 3.14,
-                        'customDec2' => 3.14,
-                        'customInt1' => 42,
-                        'customInt2' => 42,
-                        'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'purchaseReceiptV2s',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'landedCost' => [],
-                        'note' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'receiptType' => 'Mock value',
-                        'receiptNbr' => 'Mock value',
-                        'hold' => true,
-                        'status' => 'Mock value',
-                        'date' => '2025-11-22T10:40:04.065Z',
-                        'postPeriod' => 'Mock value',
-                        'warehouse' => 'Mock value',
-                        'supplier' => 'Mock value',
-                        'location' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'exchangeRate' => 3.14,
-                        'createBill' => true,
-                        'supplierRef' => 'Mock value',
-                        'totalQty' => 3.14,
-                        'controlQty' => 3.14,
-                        'vatExemptTotal' => 3.14,
-                        'vatTaxableTotal' => 3.14,
-                        'totalAmt' => 3.14,
-                        'controlTotal' => 3.14,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'branchNumber' => 'Mock value',
-                        'lines' => [],
-                        'dueDate' => '2025-11-22T10:40:04.065Z',
-                        'customStr1' => 'Mock value',
-                        'customStr2' => 'Mock value',
-                        'customStr3' => 'Mock value',
-                        'customStr4' => 'Mock value',
-                        'customStr5' => 'Mock value',
-                        'customDec1' => 3.14,
-                        'customDec2' => 3.14,
-                        'customInt1' => 42,
-                        'customInt2' => 42,
-                        'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'landedCost' => [],
+                'note' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'receiptType' => 'Mock value',
+                'receiptNbr' => 'Mock value',
+                'hold' => true,
+                'status' => 'Mock value',
+                'date' => '2025-11-22T10:40:04.065Z',
+                'postPeriod' => 'Mock value',
+                'warehouse' => 'Mock value',
+                'supplier' => 'Mock value',
+                'location' => 'Mock value',
+                'currency' => 'Mock value',
+                'exchangeRate' => 3.14,
+                'createBill' => true,
+                'supplierRef' => 'Mock value',
+                'totalQty' => 3.14,
+                'controlQty' => 3.14,
+                'vatExemptTotal' => 3.14,
+                'vatTaxableTotal' => 3.14,
+                'totalAmt' => 3.14,
+                'controlTotal' => 3.14,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'branchNumber' => 'Mock value',
+                'lines' => [],
+                'dueDate' => '2025-11-22T10:40:04.065Z',
+                'customStr1' => 'Mock value',
+                'customStr2' => 'Mock value',
+                'customStr3' => 'Mock value',
+                'customStr4' => 'Mock value',
+                'customStr5' => 'Mock value',
+                'customDec1' => 3.14,
+                'customDec2' => 3.14,
+                'customInt1' => 42,
+                'customInt2' => 42,
+                'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'landedCost' => [],
+                'note' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'receiptType' => 'Mock value',
+                'receiptNbr' => 'Mock value',
+                'hold' => true,
+                'status' => 'Mock value',
+                'date' => '2025-11-22T10:40:04.065Z',
+                'postPeriod' => 'Mock value',
+                'warehouse' => 'Mock value',
+                'supplier' => 'Mock value',
+                'location' => 'Mock value',
+                'currency' => 'Mock value',
+                'exchangeRate' => 3.14,
+                'createBill' => true,
+                'supplierRef' => 'Mock value',
+                'totalQty' => 3.14,
+                'controlQty' => 3.14,
+                'vatExemptTotal' => 3.14,
+                'vatTaxableTotal' => 3.14,
+                'totalAmt' => 3.14,
+                'controlTotal' => 3.14,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'branchNumber' => 'Mock value',
+                'lines' => [],
+                'dueDate' => '2025-11-22T10:40:04.065Z',
+                'customStr1' => 'Mock value',
+                'customStr2' => 'Mock value',
+                'customStr3' => 'Mock value',
+                'customStr4' => 'Mock value',
+                'customStr5' => 'Mock value',
+                'customDec1' => 3.14,
+                'customDec2' => 3.14,
+                'customInt1' => 42,
+                'customInt2' => 42,
+                'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -229,7 +216,7 @@ it('calls the purchaseReceiptV2getAllReceiptsCollection method in the PurchaseRe
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->receiptType->toBe('Mock value')
         ->receiptNbr->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->status->toBe('Mock value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->postPeriod->toBe('Mock value')
@@ -238,7 +225,7 @@ it('calls the purchaseReceiptV2getAllReceiptsCollection method in the PurchaseRe
         ->location->toBe('Mock value')
         ->currency->toBe('Mock value')
         ->exchangeRate->toBe(3.14)
-        ->createBill->toBe(true)
+        ->createBill->toBeTrue()
         ->supplierRef->toBe('Mock value')
         ->totalQty->toBe(3.14)
         ->controlQty->toBe(3.14)

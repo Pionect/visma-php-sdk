@@ -8,53 +8,46 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCodeV2 resource', function () {
     Saloon::fake([
         DiscountCodeV2GetDiscountCodesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'discountCodeV2s',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'discountCode' => 'Mock value',
-                        'description' => 'Mock value',
-                        'discountType' => 'Mock value',
-                        'applicableTo' => 'Mock value',
-                        'applyToDeferredRevenue' => true,
-                        'manual' => true,
-                        'excludeFromDiscountableAmount' => true,
-                        'skipDocumentDiscounts' => true,
-                        'autoNumbering' => true,
-                        'lastNumber' => 'Mock value',
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'discountCodeV2s',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'discountCode' => 'Mock value',
-                        'description' => 'Mock value',
-                        'discountType' => 'Mock value',
-                        'applicableTo' => 'Mock value',
-                        'applyToDeferredRevenue' => true,
-                        'manual' => true,
-                        'excludeFromDiscountableAmount' => true,
-                        'skipDocumentDiscounts' => true,
-                        'autoNumbering' => true,
-                        'lastNumber' => 'Mock value',
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'discountCode' => 'Mock value',
+                'description' => 'Mock value',
+                'discountType' => 'Mock value',
+                'applicableTo' => 'Mock value',
+                'applyToDeferredRevenue' => true,
+                'manual' => true,
+                'excludeFromDiscountableAmount' => true,
+                'skipDocumentDiscounts' => true,
+                'autoNumbering' => true,
+                'lastNumber' => 'Mock value',
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'discountCode' => 'Mock value',
+                'description' => 'Mock value',
+                'discountType' => 'Mock value',
+                'applicableTo' => 'Mock value',
+                'applyToDeferredRevenue' => true,
+                'manual' => true,
+                'excludeFromDiscountableAmount' => true,
+                'skipDocumentDiscounts' => true,
+                'autoNumbering' => true,
+                'lastNumber' => 'Mock value',
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -78,11 +71,11 @@ it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCod
         ->description->toBe('Mock value')
         ->discountType->toBe('Mock value')
         ->applicableTo->toBe('Mock value')
-        ->applyToDeferredRevenue->toBe(true)
-        ->manual->toBe(true)
-        ->excludeFromDiscountableAmount->toBe(true)
-        ->skipDocumentDiscounts->toBe(true)
-        ->autoNumbering->toBe(true)
+        ->applyToDeferredRevenue->toBeTrue()
+        ->manual->toBeTrue()
+        ->excludeFromDiscountableAmount->toBeTrue()
+        ->skipDocumentDiscounts->toBeTrue()
+        ->autoNumbering->toBeTrue()
         ->lastNumber->toBe('Mock value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))

@@ -9,27 +9,24 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the subaccountGetSubaccountBysubAccountNumber method in the Subaccount resource', function () {
     Saloon::fake([
         SubaccountGetSubaccountBysubAccountNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'subaccounts',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'subaccountNumber' => 'Mock value',
-                    'subaccountId' => 42,
-                    'description' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'active' => true,
-                    'segments' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'subaccountNumber' => 'Mock value',
+            'subaccountId' => 42,
+            'description' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'active' => true,
+            'segments' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -50,7 +47,7 @@ it('calls the subaccountGetSubaccountBysubAccountNumber method in the Subaccount
         ->subaccountId->toBe(42)
         ->description->toBe('Mock value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
@@ -59,37 +56,27 @@ it('calls the subaccountGetSubaccountBysubAccountNumber method in the Subaccount
 it('calls the subaccountGetAllSubaccountsCollection method in the Subaccount resource', function () {
     Saloon::fake([
         SubaccountGetAllSubaccountsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'subaccounts',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'subaccountNumber' => 'Mock value',
-                        'subaccountId' => 42,
-                        'description' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'active' => true,
-                        'segments' => [],
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'subaccounts',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'subaccountNumber' => 'Mock value',
-                        'subaccountId' => 42,
-                        'description' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'active' => true,
-                        'segments' => [],
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'subaccountNumber' => 'Mock value',
+                'subaccountId' => 42,
+                'description' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'subaccountNumber' => 'Mock value',
+                'subaccountId' => 42,
+                'description' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -113,7 +100,7 @@ it('calls the subaccountGetAllSubaccountsCollection method in the Subaccount res
         ->subaccountId->toBe(42)
         ->description->toBe('Mock value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');

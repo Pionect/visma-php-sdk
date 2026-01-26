@@ -9,35 +9,32 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the fixedAssetTransactionGetByRefNo method in the FixedAssetTransaction resource', function () {
     Saloon::fake([
         FixedAssetTransactionGetByRefNoRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'fixedAssetTransactions',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'refNo' => 'Mock value',
-                    'lineNo' => 42,
-                    'branchId' => 'mock-id-123',
-                    'origin' => 'Mock value',
-                    'assetId' => 'mock-id-123',
-                    'transactionDescription' => 'Mock value',
-                    'bookId' => 'mock-id-123',
-                    'transactionType' => 'Mock value',
-                    'accounts' => 'Mock value',
-                    'transactionAmount' => 3.14,
-                    'batchNo' => 'Mock value',
-                    'transactionPeriodId' => 'mock-id-123',
-                    'transactionDate' => '2025-11-22T10:40:04.065Z',
-                    'register' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'refNo' => 'Mock value',
+            'lineNo' => 42,
+            'branchId' => 'mock-id-123',
+            'origin' => 'Mock value',
+            'assetId' => 'mock-id-123',
+            'transactionDescription' => 'Mock value',
+            'bookId' => 'mock-id-123',
+            'transactionType' => 'Mock value',
+            'accounts' => 'Mock value',
+            'transactionAmount' => 3.14,
+            'batchNo' => 'Mock value',
+            'transactionPeriodId' => 'mock-id-123',
+            'transactionDate' => '2025-11-22T10:40:04.065Z',
+            'register' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -76,53 +73,43 @@ it('calls the fixedAssetTransactionGetByRefNo method in the FixedAssetTransactio
 it('calls the fixedAssetTransactionGetAllCollection method in the FixedAssetTransaction resource', function () {
     Saloon::fake([
         FixedAssetTransactionGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'fixedAssetTransactions',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'refNo' => 'Mock value',
-                        'lineNo' => 42,
-                        'branchId' => 'mock-id-123',
-                        'origin' => 'Mock value',
-                        'assetId' => 'mock-id-123',
-                        'transactionDescription' => 'Mock value',
-                        'bookId' => 'mock-id-123',
-                        'transactionType' => 'Mock value',
-                        'accounts' => 'Mock value',
-                        'transactionAmount' => 3.14,
-                        'batchNo' => 'Mock value',
-                        'transactionPeriodId' => 'mock-id-123',
-                        'transactionDate' => '2025-11-22T10:40:04.065Z',
-                        'register' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'fixedAssetTransactions',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'refNo' => 'Mock value',
-                        'lineNo' => 42,
-                        'branchId' => 'mock-id-123',
-                        'origin' => 'Mock value',
-                        'assetId' => 'mock-id-123',
-                        'transactionDescription' => 'Mock value',
-                        'bookId' => 'mock-id-123',
-                        'transactionType' => 'Mock value',
-                        'accounts' => 'Mock value',
-                        'transactionAmount' => 3.14,
-                        'batchNo' => 'Mock value',
-                        'transactionPeriodId' => 'mock-id-123',
-                        'transactionDate' => '2025-11-22T10:40:04.065Z',
-                        'register' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'refNo' => 'Mock value',
+                'lineNo' => 42,
+                'branchId' => 'mock-id-123',
+                'origin' => 'Mock value',
+                'assetId' => 'mock-id-123',
+                'transactionDescription' => 'Mock value',
+                'bookId' => 'mock-id-123',
+                'transactionType' => 'Mock value',
+                'accounts' => 'Mock value',
+                'transactionAmount' => 3.14,
+                'batchNo' => 'Mock value',
+                'transactionPeriodId' => 'mock-id-123',
+                'transactionDate' => '2025-11-22T10:40:04.065Z',
+                'register' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'refNo' => 'Mock value',
+                'lineNo' => 42,
+                'branchId' => 'mock-id-123',
+                'origin' => 'Mock value',
+                'assetId' => 'mock-id-123',
+                'transactionDescription' => 'Mock value',
+                'bookId' => 'mock-id-123',
+                'transactionType' => 'Mock value',
+                'accounts' => 'Mock value',
+                'transactionAmount' => 3.14,
+                'batchNo' => 'Mock value',
+                'transactionPeriodId' => 'mock-id-123',
+                'transactionDate' => '2025-11-22T10:40:04.065Z',
+                'register' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);

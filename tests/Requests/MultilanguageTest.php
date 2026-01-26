@@ -9,21 +9,18 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIso method in the Multilanguage resource', function () {
     Saloon::fake([
         MultilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'multilanguages',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'languageIso' => 'Mock value',
-                    'translation' => 'Mock value',
-                    'isTranslated' => true,
-                ],
-            ],
+            'languageIso' => 'Mock value',
+            'translation' => 'Mock value',
+            'isTranslated' => true,
         ], 200),
     ]);
 
@@ -43,21 +40,15 @@ it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumber
     expect($dto)
         ->languageIso->toBe('Mock value')
         ->translation->toBe('Mock value')
-        ->isTranslated->toBe(true);
+        ->isTranslated->toBeTrue();
 });
 
 it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in the Multilanguage resource', function () {
     Saloon::fake([
         MultilanguageGetInventoryTranslationsByinventoryNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'multilanguages',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'languageIso' => 'Mock value',
-                    'translation' => 'Mock value',
-                    'isTranslated' => true,
-                ],
-            ],
+            'languageIso' => 'Mock value',
+            'translation' => 'Mock value',
+            'isTranslated' => true,
         ], 200),
     ]);
 
@@ -76,33 +67,23 @@ it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in t
     expect($dto)
         ->languageIso->toBe('Mock value')
         ->translation->toBe('Mock value')
-        ->isTranslated->toBe(true);
+        ->isTranslated->toBeTrue();
 });
 
 it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multilanguage resource', function () {
     Saloon::fake([
         MultilanguageGetAllActiveLanguagesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'multilanguages',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'isDefault' => true,
-                        'languageIso' => 'Mock value',
-                        'nativeName' => 'Mock value',
-                        'isActive' => true,
-                    ],
-                ],
-                1 => [
-                    'type' => 'multilanguages',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'isDefault' => true,
-                        'languageIso' => 'Mock value',
-                        'nativeName' => 'Mock value',
-                        'isActive' => true,
-                    ],
-                ],
+            0 => [
+                'isDefault' => true,
+                'languageIso' => 'Mock value',
+                'nativeName' => 'Mock value',
+                'isActive' => true,
+            ],
+            1 => [
+                'isDefault' => true,
+                'languageIso' => 'Mock value',
+                'nativeName' => 'Mock value',
+                'isActive' => true,
             ],
         ], 200),
     ]);
@@ -122,8 +103,8 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
     $dtoCollection = $response->dto();
 
     expect($dtoCollection->first())
-        ->isDefault->toBe(true)
+        ->isDefault->toBeTrue()
         ->languageIso->toBe('Mock value')
         ->nativeName->toBe('Mock value')
-        ->isActive->toBe(true);
+        ->isActive->toBeTrue();
 });

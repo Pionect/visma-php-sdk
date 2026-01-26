@@ -9,37 +9,34 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resource', function () {
     Saloon::fake([
         BranchGetSpecificBranchBybranchNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'branches',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'branchId' => 42,
-                    'number' => 'Mock value',
-                    'name' => 'Mock value',
-                    'organizationId' => 42,
-                    'isMainBranch' => true,
-                    'isActive' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'corporateId' => 'mock-id-123',
-                    'vatRegistrationId' => 'mock-id-123',
-                    'mainAddress' => 'Mock value',
-                    'mainContact' => 'Mock value',
-                    'deliveryAddress' => 'Mock value',
-                    'deliveryContact' => 'Mock value',
-                    'defaultCountry' => 'Mock value',
-                    'industryCode' => 'Mock value',
-                    'currency' => 'Mock value',
-                    'vatZone' => 'Mock value',
-                    'ledger' => 'Mock value',
-                    'bankSettings' => 'Mock value',
-                ],
-            ],
+            'branchId' => 42,
+            'number' => 'Mock value',
+            'name' => 'Mock value',
+            'organizationId' => 42,
+            'isMainBranch' => true,
+            'isActive' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'corporateId' => 'mock-id-123',
+            'vatRegistrationId' => 'mock-id-123',
+            'mainAddress' => 'Mock value',
+            'mainContact' => 'Mock value',
+            'deliveryAddress' => 'Mock value',
+            'deliveryContact' => 'Mock value',
+            'defaultCountry' => 'Mock value',
+            'industryCode' => 'Mock value',
+            'currency' => 'Mock value',
+            'vatZone' => 'Mock value',
+            'ledger' => 'Mock value',
+            'bankSettings' => 'Mock value',
         ], 200),
     ]);
 
@@ -70,8 +67,8 @@ it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resourc
         ->number->toBe('Mock value')
         ->name->toBe('Mock value')
         ->organizationId->toBe(42)
-        ->isMainBranch->toBe(true)
-        ->isActive->toBe(true)
+        ->isMainBranch->toBeTrue()
+        ->isActive->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->corporateId->toBe('mock-id-123')
         ->vatRegistrationId->toBe('mock-id-123')
@@ -90,57 +87,47 @@ it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resourc
 it('calls the branchGetAllBranchesCollection method in the Branch resource', function () {
     Saloon::fake([
         BranchGetAllBranchesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'branches',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'branchId' => 42,
-                        'number' => 'Mock value',
-                        'name' => 'Mock value',
-                        'organizationId' => 42,
-                        'isMainBranch' => true,
-                        'isActive' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'corporateId' => 'mock-id-123',
-                        'vatRegistrationId' => 'mock-id-123',
-                        'mainAddress' => 'Mock value',
-                        'mainContact' => 'Mock value',
-                        'deliveryAddress' => 'Mock value',
-                        'deliveryContact' => 'Mock value',
-                        'defaultCountry' => 'Mock value',
-                        'industryCode' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'vatZone' => 'Mock value',
-                        'ledger' => 'Mock value',
-                        'bankSettings' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'branches',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'branchId' => 42,
-                        'number' => 'Mock value',
-                        'name' => 'Mock value',
-                        'organizationId' => 42,
-                        'isMainBranch' => true,
-                        'isActive' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'corporateId' => 'mock-id-123',
-                        'vatRegistrationId' => 'mock-id-123',
-                        'mainAddress' => 'Mock value',
-                        'mainContact' => 'Mock value',
-                        'deliveryAddress' => 'Mock value',
-                        'deliveryContact' => 'Mock value',
-                        'defaultCountry' => 'Mock value',
-                        'industryCode' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'vatZone' => 'Mock value',
-                        'ledger' => 'Mock value',
-                        'bankSettings' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'branchId' => 42,
+                'number' => 'Mock value',
+                'name' => 'Mock value',
+                'organizationId' => 42,
+                'isMainBranch' => true,
+                'isActive' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'corporateId' => 'mock-id-123',
+                'vatRegistrationId' => 'mock-id-123',
+                'mainAddress' => 'Mock value',
+                'mainContact' => 'Mock value',
+                'deliveryAddress' => 'Mock value',
+                'deliveryContact' => 'Mock value',
+                'defaultCountry' => 'Mock value',
+                'industryCode' => 'Mock value',
+                'currency' => 'Mock value',
+                'vatZone' => 'Mock value',
+                'ledger' => 'Mock value',
+                'bankSettings' => 'Mock value',
+            ],
+            1 => [
+                'branchId' => 42,
+                'number' => 'Mock value',
+                'name' => 'Mock value',
+                'organizationId' => 42,
+                'isMainBranch' => true,
+                'isActive' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'corporateId' => 'mock-id-123',
+                'vatRegistrationId' => 'mock-id-123',
+                'mainAddress' => 'Mock value',
+                'mainContact' => 'Mock value',
+                'deliveryAddress' => 'Mock value',
+                'deliveryContact' => 'Mock value',
+                'defaultCountry' => 'Mock value',
+                'industryCode' => 'Mock value',
+                'currency' => 'Mock value',
+                'vatZone' => 'Mock value',
+                'ledger' => 'Mock value',
+                'bankSettings' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -164,8 +151,8 @@ it('calls the branchGetAllBranchesCollection method in the Branch resource', fun
         ->number->toBe('Mock value')
         ->name->toBe('Mock value')
         ->organizationId->toBe(42)
-        ->isMainBranch->toBe(true)
-        ->isActive->toBe(true)
+        ->isMainBranch->toBeTrue()
+        ->isActive->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->corporateId->toBe('mock-id-123')
         ->vatRegistrationId->toBe('mock-id-123')

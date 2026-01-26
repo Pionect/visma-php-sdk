@@ -12,29 +12,26 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the customerContractGetCustomerContractBycontractId method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractBycontractIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customerContracts',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'contractId' => 'mock-id-123',
-                    'contractTemplate' => 'Mock value',
-                    'status' => 'Mock value',
-                    'customer' => 'Mock value',
-                    'location' => 'Mock value',
-                    'description' => 'Mock value',
-                    'balance' => 3.14,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'summary' => 'Mock value',
-                    'details' => 'Mock value',
-                    'attributes' => [],
-                ],
-            ],
+            'contractId' => 'mock-id-123',
+            'contractTemplate' => 'Mock value',
+            'status' => 'Mock value',
+            'customer' => 'Mock value',
+            'location' => 'Mock value',
+            'description' => 'Mock value',
+            'balance' => 3.14,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'summary' => 'Mock value',
+            'details' => 'Mock value',
+            'attributes' => [],
         ], 200),
     ]);
 
@@ -66,41 +63,31 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
 it('calls the customerContractGetAllCollection method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'customerContracts',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'contractId' => 'mock-id-123',
-                        'contractTemplate' => 'Mock value',
-                        'status' => 'Mock value',
-                        'customer' => 'Mock value',
-                        'location' => 'Mock value',
-                        'description' => 'Mock value',
-                        'balance' => 3.14,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'summary' => 'Mock value',
-                        'details' => 'Mock value',
-                        'attributes' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'customerContracts',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'contractId' => 'mock-id-123',
-                        'contractTemplate' => 'Mock value',
-                        'status' => 'Mock value',
-                        'customer' => 'Mock value',
-                        'location' => 'Mock value',
-                        'description' => 'Mock value',
-                        'balance' => 3.14,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'summary' => 'Mock value',
-                        'details' => 'Mock value',
-                        'attributes' => [],
-                    ],
-                ],
+            0 => [
+                'contractId' => 'mock-id-123',
+                'contractTemplate' => 'Mock value',
+                'status' => 'Mock value',
+                'customer' => 'Mock value',
+                'location' => 'Mock value',
+                'description' => 'Mock value',
+                'balance' => 3.14,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'summary' => 'Mock value',
+                'details' => 'Mock value',
+                'attributes' => [],
+            ],
+            1 => [
+                'contractId' => 'mock-id-123',
+                'contractTemplate' => 'Mock value',
+                'status' => 'Mock value',
+                'customer' => 'Mock value',
+                'location' => 'Mock value',
+                'description' => 'Mock value',
+                'balance' => 3.14,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'summary' => 'Mock value',
+                'details' => 'Mock value',
+                'attributes' => [],
             ],
         ], 200),
     ]);
@@ -135,30 +122,24 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
 it('calls the customerContractGetCustomerContractSummaryBycontractId method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractSummaryBycontractIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customerContracts',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'setupDate' => '2025-11-22T10:40:04.065Z',
-                    'activationDate' => '2025-11-22T10:40:04.065Z',
-                    'expirationDate' => '2025-11-22T10:40:04.065Z',
-                    'terminationDate' => '2025-11-22T10:40:04.065Z',
-                    'massRenewal' => true,
-                    'renewalPoint' => 42,
-                    'gracePeriod' => 42,
-                    'currency' => 'Mock value',
-                    'invoicingScheduleStartsOn' => '2025-11-22T10:40:04.065Z',
-                    'invoicingPeriod' => 'Mock value',
-                    'lastInvoicingDate' => '2025-11-22T10:40:04.065Z',
-                    'nextInvoicingDate' => '2025-11-22T10:40:04.065Z',
-                    'invoiceTo' => 'Mock value',
-                    'invoiceAccount' => 'Mock value',
-                    'invoiceLocation' => 'Mock value',
-                    'owner' => 'Mock value',
-                    'salesPerson' => 'Mock value',
-                    'caseCountItem' => 'Mock value',
-                ],
-            ],
+            'setupDate' => '2025-11-22T10:40:04.065Z',
+            'activationDate' => '2025-11-22T10:40:04.065Z',
+            'expirationDate' => '2025-11-22T10:40:04.065Z',
+            'terminationDate' => '2025-11-22T10:40:04.065Z',
+            'massRenewal' => true,
+            'renewalPoint' => 42,
+            'gracePeriod' => 42,
+            'currency' => 'Mock value',
+            'invoicingScheduleStartsOn' => '2025-11-22T10:40:04.065Z',
+            'invoicingPeriod' => 'Mock value',
+            'lastInvoicingDate' => '2025-11-22T10:40:04.065Z',
+            'nextInvoicingDate' => '2025-11-22T10:40:04.065Z',
+            'invoiceTo' => 'Mock value',
+            'invoiceAccount' => 'Mock value',
+            'invoiceLocation' => 'Mock value',
+            'owner' => 'Mock value',
+            'salesPerson' => 'Mock value',
+            'caseCountItem' => 'Mock value',
         ], 200),
     ]);
 
@@ -179,7 +160,7 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
         ->activationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->terminationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->massRenewal->toBe(true)
+        ->massRenewal->toBeTrue()
         ->renewalPoint->toBe(42)
         ->gracePeriod->toBe(42)
         ->currency->toBe('Mock value')
@@ -198,22 +179,16 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
 it('calls the customerContractGetCustomerContractDetailsBycontractId method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractDetailsBycontractIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customerContracts',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'effectiveFrom' => '2025-11-22T10:40:04.065Z',
-                    'promoCode' => 'Mock value',
-                    'pendingSetup' => 3.14,
-                    'pendingRecurring' => 3.14,
-                    'pendingRenewal' => 3.14,
-                    'totalPending' => 3.14,
-                    'currentSetup' => 3.14,
-                    'currentRecurring' => 3.14,
-                    'currentRenewal' => 3.14,
-                    'lines' => [],
-                ],
-            ],
+            'effectiveFrom' => '2025-11-22T10:40:04.065Z',
+            'promoCode' => 'Mock value',
+            'pendingSetup' => 3.14,
+            'pendingRecurring' => 3.14,
+            'pendingRenewal' => 3.14,
+            'totalPending' => 3.14,
+            'currentSetup' => 3.14,
+            'currentRecurring' => 3.14,
+            'currentRenewal' => 3.14,
+            'lines' => [],
         ], 200),
     ]);
 
@@ -244,16 +219,10 @@ it('calls the customerContractGetCustomerContractDetailsBycontractId method in t
 it('calls the customerContractGetCustomerContractRecurringSummaryBycontractId method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractRecurringSummaryBycontractIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customerContracts',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'recurringTotal' => 3.14,
-                    'extraUsageTotal' => 3.14,
-                    'totalDue' => 3.14,
-                    'lines' => [],
-                ],
-            ],
+            'recurringTotal' => 3.14,
+            'extraUsageTotal' => 3.14,
+            'totalDue' => 3.14,
+            'lines' => [],
         ], 200),
     ]);
 

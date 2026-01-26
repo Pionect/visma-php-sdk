@@ -10,6 +10,7 @@ use Crescat\SaloonSdkGenerator\Data\TaggedOutputFile;
 use Crescat\SaloonSdkGenerator\Parsers\OpenApiParser;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonDtoGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonRequestGenerator;
+use Pionect\VismaSdk\Generator\Generators\PlainJsonTestGenerator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -18,7 +19,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Timatic\JsonApiSdk\Generators\JsonApiFactoryGenerator;
-use Timatic\JsonApiSdk\Generators\JsonApiPestTestGenerator;
 use Timatic\JsonApiSdk\Generators\JsonApiResourceGenerator;
 use Timatic\JsonApiSdk\Services\ComposerSetup;
 use Timatic\JsonApiSdk\Services\PintRunner;
@@ -106,7 +106,7 @@ class GenerateCommand extends Command
         // Configure post-processors
         $postProcessors = [];
 
-        $postProcessors[] = new JsonApiPestTestGenerator;
+        $postProcessors[] = new PlainJsonTestGenerator;
         $postProcessors[] = new JsonApiFactoryGenerator;
 
         // Generate code using Plain JSON generators

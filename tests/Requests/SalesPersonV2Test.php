@@ -9,29 +9,26 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the salesPersonV2getSalespersonBysalespersonCd method in the SalesPersonV2 resource', function () {
     Saloon::fake([
         SalesPersonV2GetSalespersonBysalespersonCdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'salesPersonV2s',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'salespersonId' => 'mock-id-123',
-                    'name' => 'Mock value',
-                    'isActive' => true,
-                    'commissionPct' => 3.14,
-                    'salesSub' => 'Mock value',
-                    'customers' => [],
-                    'commissionHistory' => [],
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'salespersonId' => 'mock-id-123',
+            'name' => 'Mock value',
+            'isActive' => true,
+            'commissionPct' => 3.14,
+            'salesSub' => 'Mock value',
+            'customers' => [],
+            'commissionHistory' => [],
+            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -50,7 +47,7 @@ it('calls the salesPersonV2getSalespersonBysalespersonCd method in the SalesPers
     expect($dto)
         ->salespersonId->toBe('mock-id-123')
         ->name->toBe('Mock value')
-        ->isActive->toBe(true)
+        ->isActive->toBeTrue()
         ->commissionPct->toBe(3.14)
         ->salesSub->toBe('Mock value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -62,41 +59,31 @@ it('calls the salesPersonV2getSalespersonBysalespersonCd method in the SalesPers
 it('calls the salesPersonV2getSalespersonsCollection method in the SalesPersonV2 resource', function () {
     Saloon::fake([
         SalesPersonV2GetSalespersonsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'salesPersonV2s',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'salespersonId' => 'mock-id-123',
-                        'name' => 'Mock value',
-                        'isActive' => true,
-                        'commissionPct' => 3.14,
-                        'salesSub' => 'Mock value',
-                        'customers' => [],
-                        'commissionHistory' => [],
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'salesPersonV2s',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'salespersonId' => 'mock-id-123',
-                        'name' => 'Mock value',
-                        'isActive' => true,
-                        'commissionPct' => 3.14,
-                        'salesSub' => 'Mock value',
-                        'customers' => [],
-                        'commissionHistory' => [],
-                        'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'salespersonId' => 'mock-id-123',
+                'name' => 'Mock value',
+                'isActive' => true,
+                'commissionPct' => 3.14,
+                'salesSub' => 'Mock value',
+                'customers' => [],
+                'commissionHistory' => [],
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'salespersonId' => 'mock-id-123',
+                'name' => 'Mock value',
+                'isActive' => true,
+                'commissionPct' => 3.14,
+                'salesSub' => 'Mock value',
+                'customers' => [],
+                'commissionHistory' => [],
+                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -118,7 +105,7 @@ it('calls the salesPersonV2getSalespersonsCollection method in the SalesPersonV2
     expect($dtoCollection->first())
         ->salespersonId->toBe('mock-id-123')
         ->name->toBe('Mock value')
-        ->isActive->toBe(true)
+        ->isActive->toBeTrue()
         ->commissionPct->toBe(3.14)
         ->salesSub->toBe('Mock value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))

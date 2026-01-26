@@ -9,50 +9,47 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransactionNumber method in the JournalTransactionV2 resource', function () {
     Saloon::fake([
         JournalTransactionV2GetSpecificJournalTransactionsByjournalTransactionNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'journalTransactionV2s',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'module' => 'Mock value',
-                    'batchNumber' => 'Mock value',
-                    'status' => 'Mock value',
-                    'hold' => true,
-                    'transactionDate' => '2025-11-22T10:40:04.065Z',
-                    'postPeriod' => 'Mock value',
-                    'financialPeriod' => 'Mock value',
-                    'ledger' => 'Mock value',
-                    'ledgerDescription' => 'Mock value',
-                    'currencyId' => 'mock-id-123',
-                    'exchangeRate' => 3.14,
-                    'autoReversing' => true,
-                    'reversingEntry' => true,
-                    'description' => 'Mock value',
-                    'originalBatchNumber' => 'Mock value',
-                    'debitTotal' => 3.14,
-                    'debitTotalInCurrency' => 3.14,
-                    'creditTotal' => 3.14,
-                    'creditTotalInCurrency' => 3.14,
-                    'controlTotal' => 3.14,
-                    'controlTotalInCurrency' => 3.14,
-                    'createVatTransaction' => true,
-                    'skipVatAmountValidation' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'transactionCode' => 'Mock value',
-                    'transactionCodeDescription' => 'Mock value',
-                    'branch' => 'Mock value',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'journalTransactionLines' => [],
-                    'attachments' => [],
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'module' => 'Mock value',
+            'batchNumber' => 'Mock value',
+            'status' => 'Mock value',
+            'hold' => true,
+            'transactionDate' => '2025-11-22T10:40:04.065Z',
+            'postPeriod' => 'Mock value',
+            'financialPeriod' => 'Mock value',
+            'ledger' => 'Mock value',
+            'ledgerDescription' => 'Mock value',
+            'currencyId' => 'mock-id-123',
+            'exchangeRate' => 3.14,
+            'autoReversing' => true,
+            'reversingEntry' => true,
+            'description' => 'Mock value',
+            'originalBatchNumber' => 'Mock value',
+            'debitTotal' => 3.14,
+            'debitTotalInCurrency' => 3.14,
+            'creditTotal' => 3.14,
+            'creditTotalInCurrency' => 3.14,
+            'controlTotal' => 3.14,
+            'controlTotalInCurrency' => 3.14,
+            'createVatTransaction' => true,
+            'skipVatAmountValidation' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'transactionCode' => 'Mock value',
+            'transactionCodeDescription' => 'Mock value',
+            'branch' => 'Mock value',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'journalTransactionLines' => [],
+            'attachments' => [],
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -72,7 +69,7 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
         ->module->toBe('Mock value')
         ->batchNumber->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->transactionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->postPeriod->toBe('Mock value')
         ->financialPeriod->toBe('Mock value')
@@ -80,8 +77,8 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
         ->ledgerDescription->toBe('Mock value')
         ->currencyId->toBe('mock-id-123')
         ->exchangeRate->toBe(3.14)
-        ->autoReversing->toBe(true)
-        ->reversingEntry->toBe(true)
+        ->autoReversing->toBeTrue()
+        ->reversingEntry->toBeTrue()
         ->description->toBe('Mock value')
         ->originalBatchNumber->toBe('Mock value')
         ->debitTotal->toBe(3.14)
@@ -90,8 +87,8 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
         ->creditTotalInCurrency->toBe(3.14)
         ->controlTotal->toBe(3.14)
         ->controlTotalInCurrency->toBe(3.14)
-        ->createVatTransaction->toBe(true)
-        ->skipVatAmountValidation->toBe(true)
+        ->createVatTransaction->toBeTrue()
+        ->skipVatAmountValidation->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->transactionCode->toBe('Mock value')
         ->transactionCodeDescription->toBe('Mock value')
@@ -104,83 +101,73 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
 it('calls the journalTransactionV2getAllJournalTransactionsCollection method in the JournalTransactionV2 resource', function () {
     Saloon::fake([
         JournalTransactionV2GetAllJournalTransactionsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'journalTransactionV2s',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'module' => 'Mock value',
-                        'batchNumber' => 'Mock value',
-                        'status' => 'Mock value',
-                        'hold' => true,
-                        'transactionDate' => '2025-11-22T10:40:04.065Z',
-                        'postPeriod' => 'Mock value',
-                        'financialPeriod' => 'Mock value',
-                        'ledger' => 'Mock value',
-                        'ledgerDescription' => 'Mock value',
-                        'currencyId' => 'mock-id-123',
-                        'exchangeRate' => 3.14,
-                        'autoReversing' => true,
-                        'reversingEntry' => true,
-                        'description' => 'Mock value',
-                        'originalBatchNumber' => 'Mock value',
-                        'debitTotal' => 3.14,
-                        'debitTotalInCurrency' => 3.14,
-                        'creditTotal' => 3.14,
-                        'creditTotalInCurrency' => 3.14,
-                        'controlTotal' => 3.14,
-                        'controlTotalInCurrency' => 3.14,
-                        'createVatTransaction' => true,
-                        'skipVatAmountValidation' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'transactionCode' => 'Mock value',
-                        'transactionCodeDescription' => 'Mock value',
-                        'branch' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'journalTransactionLines' => [],
-                        'attachments' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'journalTransactionV2s',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'module' => 'Mock value',
-                        'batchNumber' => 'Mock value',
-                        'status' => 'Mock value',
-                        'hold' => true,
-                        'transactionDate' => '2025-11-22T10:40:04.065Z',
-                        'postPeriod' => 'Mock value',
-                        'financialPeriod' => 'Mock value',
-                        'ledger' => 'Mock value',
-                        'ledgerDescription' => 'Mock value',
-                        'currencyId' => 'mock-id-123',
-                        'exchangeRate' => 3.14,
-                        'autoReversing' => true,
-                        'reversingEntry' => true,
-                        'description' => 'Mock value',
-                        'originalBatchNumber' => 'Mock value',
-                        'debitTotal' => 3.14,
-                        'debitTotalInCurrency' => 3.14,
-                        'creditTotal' => 3.14,
-                        'creditTotalInCurrency' => 3.14,
-                        'controlTotal' => 3.14,
-                        'controlTotalInCurrency' => 3.14,
-                        'createVatTransaction' => true,
-                        'skipVatAmountValidation' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'transactionCode' => 'Mock value',
-                        'transactionCodeDescription' => 'Mock value',
-                        'branch' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'journalTransactionLines' => [],
-                        'attachments' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'module' => 'Mock value',
+                'batchNumber' => 'Mock value',
+                'status' => 'Mock value',
+                'hold' => true,
+                'transactionDate' => '2025-11-22T10:40:04.065Z',
+                'postPeriod' => 'Mock value',
+                'financialPeriod' => 'Mock value',
+                'ledger' => 'Mock value',
+                'ledgerDescription' => 'Mock value',
+                'currencyId' => 'mock-id-123',
+                'exchangeRate' => 3.14,
+                'autoReversing' => true,
+                'reversingEntry' => true,
+                'description' => 'Mock value',
+                'originalBatchNumber' => 'Mock value',
+                'debitTotal' => 3.14,
+                'debitTotalInCurrency' => 3.14,
+                'creditTotal' => 3.14,
+                'creditTotalInCurrency' => 3.14,
+                'controlTotal' => 3.14,
+                'controlTotalInCurrency' => 3.14,
+                'createVatTransaction' => true,
+                'skipVatAmountValidation' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'transactionCode' => 'Mock value',
+                'transactionCodeDescription' => 'Mock value',
+                'branch' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'journalTransactionLines' => [],
+                'attachments' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'module' => 'Mock value',
+                'batchNumber' => 'Mock value',
+                'status' => 'Mock value',
+                'hold' => true,
+                'transactionDate' => '2025-11-22T10:40:04.065Z',
+                'postPeriod' => 'Mock value',
+                'financialPeriod' => 'Mock value',
+                'ledger' => 'Mock value',
+                'ledgerDescription' => 'Mock value',
+                'currencyId' => 'mock-id-123',
+                'exchangeRate' => 3.14,
+                'autoReversing' => true,
+                'reversingEntry' => true,
+                'description' => 'Mock value',
+                'originalBatchNumber' => 'Mock value',
+                'debitTotal' => 3.14,
+                'debitTotalInCurrency' => 3.14,
+                'creditTotal' => 3.14,
+                'creditTotalInCurrency' => 3.14,
+                'controlTotal' => 3.14,
+                'controlTotalInCurrency' => 3.14,
+                'createVatTransaction' => true,
+                'skipVatAmountValidation' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'transactionCode' => 'Mock value',
+                'transactionCodeDescription' => 'Mock value',
+                'branch' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'journalTransactionLines' => [],
+                'attachments' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -203,7 +190,7 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
         ->module->toBe('Mock value')
         ->batchNumber->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->transactionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->postPeriod->toBe('Mock value')
         ->financialPeriod->toBe('Mock value')
@@ -211,8 +198,8 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
         ->ledgerDescription->toBe('Mock value')
         ->currencyId->toBe('mock-id-123')
         ->exchangeRate->toBe(3.14)
-        ->autoReversing->toBe(true)
-        ->reversingEntry->toBe(true)
+        ->autoReversing->toBeTrue()
+        ->reversingEntry->toBeTrue()
         ->description->toBe('Mock value')
         ->originalBatchNumber->toBe('Mock value')
         ->debitTotal->toBe(3.14)
@@ -221,8 +208,8 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
         ->creditTotalInCurrency->toBe(3.14)
         ->controlTotal->toBe(3.14)
         ->controlTotalInCurrency->toBe(3.14)
-        ->createVatTransaction->toBe(true)
-        ->skipVatAmountValidation->toBe(true)
+        ->createVatTransaction->toBeTrue()
+        ->skipVatAmountValidation->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->transactionCode->toBe('Mock value')
         ->transactionCodeDescription->toBe('Mock value')

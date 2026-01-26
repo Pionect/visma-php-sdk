@@ -9,38 +9,35 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the organizationGetByOrganizationCdByorganizationNumber method in the Organization resource', function () {
     Saloon::fake([
         OrganizationGetByOrganizationCdByorganizationNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'organizations',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'organizationCd' => 'Mock value',
-                    'name' => 'Mock value',
-                    'organizationType' => 'Mock value',
-                    'fileTaxByBranches' => true,
-                    'baseCurrency' => 'Mock value',
-                    'mainAddress' => 'Mock value',
-                    'mainContact' => 'Mock value',
-                    'deliveryAddress' => 'Mock value',
-                    'deliveryContact' => 'Mock value',
-                    'corporateId' => 'mock-id-123',
-                    'vatRegistrationId' => 'mock-id-123',
-                    'defaultCountry' => 'Mock value',
-                    'industryCode' => 'Mock value',
-                    'currency' => 'Mock value',
-                    'vatZone' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'ledger' => 'Mock value',
-                    'bankSettings' => 'Mock value',
-                    'branches' => [],
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'organizationCd' => 'Mock value',
+            'name' => 'Mock value',
+            'organizationType' => 'Mock value',
+            'fileTaxByBranches' => true,
+            'baseCurrency' => 'Mock value',
+            'mainAddress' => 'Mock value',
+            'mainContact' => 'Mock value',
+            'deliveryAddress' => 'Mock value',
+            'deliveryContact' => 'Mock value',
+            'corporateId' => 'mock-id-123',
+            'vatRegistrationId' => 'mock-id-123',
+            'defaultCountry' => 'Mock value',
+            'industryCode' => 'Mock value',
+            'currency' => 'Mock value',
+            'vatZone' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'ledger' => 'Mock value',
+            'bankSettings' => 'Mock value',
+            'branches' => [],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 
@@ -65,7 +62,7 @@ it('calls the organizationGetByOrganizationCdByorganizationNumber method in the 
         ->organizationCd->toBe('Mock value')
         ->name->toBe('Mock value')
         ->organizationType->toBe('Mock value')
-        ->fileTaxByBranches->toBe(true)
+        ->fileTaxByBranches->toBeTrue()
         ->baseCurrency->toBe('Mock value')
         ->mainAddress->toBe('Mock value')
         ->mainContact->toBe('Mock value')
@@ -86,59 +83,49 @@ it('calls the organizationGetByOrganizationCdByorganizationNumber method in the 
 it('calls the organizationGetAllCollection method in the Organization resource', function () {
     Saloon::fake([
         OrganizationGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'organizations',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'organizationCd' => 'Mock value',
-                        'name' => 'Mock value',
-                        'organizationType' => 'Mock value',
-                        'fileTaxByBranches' => true,
-                        'baseCurrency' => 'Mock value',
-                        'mainAddress' => 'Mock value',
-                        'mainContact' => 'Mock value',
-                        'deliveryAddress' => 'Mock value',
-                        'deliveryContact' => 'Mock value',
-                        'corporateId' => 'mock-id-123',
-                        'vatRegistrationId' => 'mock-id-123',
-                        'defaultCountry' => 'Mock value',
-                        'industryCode' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'vatZone' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'ledger' => 'Mock value',
-                        'bankSettings' => 'Mock value',
-                        'branches' => [],
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
-                1 => [
-                    'type' => 'organizations',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'organizationCd' => 'Mock value',
-                        'name' => 'Mock value',
-                        'organizationType' => 'Mock value',
-                        'fileTaxByBranches' => true,
-                        'baseCurrency' => 'Mock value',
-                        'mainAddress' => 'Mock value',
-                        'mainContact' => 'Mock value',
-                        'deliveryAddress' => 'Mock value',
-                        'deliveryContact' => 'Mock value',
-                        'corporateId' => 'mock-id-123',
-                        'vatRegistrationId' => 'mock-id-123',
-                        'defaultCountry' => 'Mock value',
-                        'industryCode' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'vatZone' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'ledger' => 'Mock value',
-                        'bankSettings' => 'Mock value',
-                        'branches' => [],
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
+            0 => [
+                'organizationCd' => 'Mock value',
+                'name' => 'Mock value',
+                'organizationType' => 'Mock value',
+                'fileTaxByBranches' => true,
+                'baseCurrency' => 'Mock value',
+                'mainAddress' => 'Mock value',
+                'mainContact' => 'Mock value',
+                'deliveryAddress' => 'Mock value',
+                'deliveryContact' => 'Mock value',
+                'corporateId' => 'mock-id-123',
+                'vatRegistrationId' => 'mock-id-123',
+                'defaultCountry' => 'Mock value',
+                'industryCode' => 'Mock value',
+                'currency' => 'Mock value',
+                'vatZone' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'ledger' => 'Mock value',
+                'bankSettings' => 'Mock value',
+                'branches' => [],
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+            ],
+            1 => [
+                'organizationCd' => 'Mock value',
+                'name' => 'Mock value',
+                'organizationType' => 'Mock value',
+                'fileTaxByBranches' => true,
+                'baseCurrency' => 'Mock value',
+                'mainAddress' => 'Mock value',
+                'mainContact' => 'Mock value',
+                'deliveryAddress' => 'Mock value',
+                'deliveryContact' => 'Mock value',
+                'corporateId' => 'mock-id-123',
+                'vatRegistrationId' => 'mock-id-123',
+                'defaultCountry' => 'Mock value',
+                'industryCode' => 'Mock value',
+                'currency' => 'Mock value',
+                'vatZone' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'ledger' => 'Mock value',
+                'bankSettings' => 'Mock value',
+                'branches' => [],
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
     ]);
@@ -161,7 +148,7 @@ it('calls the organizationGetAllCollection method in the Organization resource',
         ->organizationCd->toBe('Mock value')
         ->name->toBe('Mock value')
         ->organizationType->toBe('Mock value')
-        ->fileTaxByBranches->toBe(true)
+        ->fileTaxByBranches->toBeTrue()
         ->baseCurrency->toBe('Mock value')
         ->mainAddress->toBe('Mock value')
         ->mainContact->toBe('Mock value')

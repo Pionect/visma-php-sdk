@@ -9,61 +9,54 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the CustomerSalesPrice resource', function () {
     Saloon::fake([
         CustomerSalesPriceGetCustomerSalesPricesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'customerSalesPrices',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'recordId' => 42,
-                        'priceType' => 'Mock value',
-                        'priceCode' => 'Mock value',
-                        'inventoryId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'uoM' => 'Mock value',
-                        'promotion' => true,
-                        'breakQty' => 3.14,
-                        'price' => 3.14,
-                        'currency' => 'Mock value',
-                        'vat' => 'Mock value',
-                        'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                        'expirationDate' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'warehouse' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'customerSalesPrices',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'recordId' => 42,
-                        'priceType' => 'Mock value',
-                        'priceCode' => 'Mock value',
-                        'inventoryId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'uoM' => 'Mock value',
-                        'promotion' => true,
-                        'breakQty' => 3.14,
-                        'price' => 3.14,
-                        'currency' => 'Mock value',
-                        'vat' => 'Mock value',
-                        'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                        'expirationDate' => '2025-11-22T10:40:04.065Z',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'warehouse' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'recordId' => 42,
+                'priceType' => 'Mock value',
+                'priceCode' => 'Mock value',
+                'inventoryId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'uoM' => 'Mock value',
+                'promotion' => true,
+                'breakQty' => 3.14,
+                'price' => 3.14,
+                'currency' => 'Mock value',
+                'vat' => 'Mock value',
+                'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                'expirationDate' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'warehouse' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'recordId' => 42,
+                'priceType' => 'Mock value',
+                'priceCode' => 'Mock value',
+                'inventoryId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'uoM' => 'Mock value',
+                'promotion' => true,
+                'breakQty' => 3.14,
+                'price' => 3.14,
+                'currency' => 'Mock value',
+                'vat' => 'Mock value',
+                'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                'expirationDate' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'warehouse' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -89,7 +82,7 @@ it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the C
         ->inventoryId->toBe('mock-id-123')
         ->description->toBe('Mock value')
         ->uoM->toBe('Mock value')
-        ->promotion->toBe(true)
+        ->promotion->toBeTrue()
         ->breakQty->toBe(3.14)
         ->price->toBe(3.14)
         ->currency->toBe('Mock value')
@@ -106,30 +99,24 @@ it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the C
 it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the CustomerSalesPrice resource', function () {
     Saloon::fake([
         CustomerSalesPriceGetCustomerSalesPriceByrecordIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'customerSalesPrices',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'recordId' => 42,
-                    'priceType' => 'Mock value',
-                    'priceCode' => 'Mock value',
-                    'inventoryId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'uoM' => 'Mock value',
-                    'promotion' => true,
-                    'breakQty' => 3.14,
-                    'price' => 3.14,
-                    'currency' => 'Mock value',
-                    'vat' => 'Mock value',
-                    'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                    'expirationDate' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'warehouse' => 'Mock value',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'recordId' => 42,
+            'priceType' => 'Mock value',
+            'priceCode' => 'Mock value',
+            'inventoryId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'uoM' => 'Mock value',
+            'promotion' => true,
+            'breakQty' => 3.14,
+            'price' => 3.14,
+            'currency' => 'Mock value',
+            'vat' => 'Mock value',
+            'effectiveDate' => '2025-11-22T10:40:04.065Z',
+            'expirationDate' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'warehouse' => 'Mock value',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -152,7 +139,7 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the Cu
         ->inventoryId->toBe('mock-id-123')
         ->description->toBe('Mock value')
         ->uoM->toBe('Mock value')
-        ->promotion->toBe(true)
+        ->promotion->toBeTrue()
         ->breakQty->toBe(3.14)
         ->price->toBe(3.14)
         ->currency->toBe('Mock value')

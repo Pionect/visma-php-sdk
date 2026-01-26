@@ -9,31 +9,28 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the lotSerialClassGetByid method in the LotSerialClass resource', function () {
     Saloon::fake([
         LotSerialClassGetByidRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'lotSerialClasses',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'description' => 'Mock value',
-                    'trackingMethod' => 'Mock value',
-                    'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
-                    'requiredForDropShip' => true,
-                    'assignmentMethod' => 'Mock value',
-                    'issueMethod' => 'Mock value',
-                    'autoIncrementalValueBetweenClasses' => true,
-                    'autoIncrementalValue' => 'Mock value',
-                    'autoGenerateNextNumber' => true,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'details' => [],
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'description' => 'Mock value',
+            'trackingMethod' => 'Mock value',
+            'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
+            'requiredForDropShip' => true,
+            'assignmentMethod' => 'Mock value',
+            'issueMethod' => 'Mock value',
+            'autoIncrementalValueBetweenClasses' => true,
+            'autoIncrementalValue' => 'Mock value',
+            'autoGenerateNextNumber' => true,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'details' => [],
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -53,12 +50,12 @@ it('calls the lotSerialClassGetByid method in the LotSerialClass resource', func
         ->description->toBe('Mock value')
         ->trackingMethod->toBe('Mock value')
         ->trackExpirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requiredForDropShip->toBe(true)
+        ->requiredForDropShip->toBeTrue()
         ->assignmentMethod->toBe('Mock value')
         ->issueMethod->toBe('Mock value')
-        ->autoIncrementalValueBetweenClasses->toBe(true)
+        ->autoIncrementalValueBetweenClasses->toBeTrue()
         ->autoIncrementalValue->toBe('Mock value')
-        ->autoGenerateNextNumber->toBe(true)
+        ->autoGenerateNextNumber->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
@@ -67,45 +64,35 @@ it('calls the lotSerialClassGetByid method in the LotSerialClass resource', func
 it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSerialClass resource', function () {
     Saloon::fake([
         LotSerialClassGetAllLotSerialClassCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'lotSerialClasses',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'trackingMethod' => 'Mock value',
-                        'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
-                        'requiredForDropShip' => true,
-                        'assignmentMethod' => 'Mock value',
-                        'issueMethod' => 'Mock value',
-                        'autoIncrementalValueBetweenClasses' => true,
-                        'autoIncrementalValue' => 'Mock value',
-                        'autoGenerateNextNumber' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'details' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'lotSerialClasses',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'trackingMethod' => 'Mock value',
-                        'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
-                        'requiredForDropShip' => true,
-                        'assignmentMethod' => 'Mock value',
-                        'issueMethod' => 'Mock value',
-                        'autoIncrementalValueBetweenClasses' => true,
-                        'autoIncrementalValue' => 'Mock value',
-                        'autoGenerateNextNumber' => true,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'details' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'description' => 'Mock value',
+                'trackingMethod' => 'Mock value',
+                'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
+                'requiredForDropShip' => true,
+                'assignmentMethod' => 'Mock value',
+                'issueMethod' => 'Mock value',
+                'autoIncrementalValueBetweenClasses' => true,
+                'autoIncrementalValue' => 'Mock value',
+                'autoGenerateNextNumber' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'details' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'description' => 'Mock value',
+                'trackingMethod' => 'Mock value',
+                'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
+                'requiredForDropShip' => true,
+                'assignmentMethod' => 'Mock value',
+                'issueMethod' => 'Mock value',
+                'autoIncrementalValueBetweenClasses' => true,
+                'autoIncrementalValue' => 'Mock value',
+                'autoGenerateNextNumber' => true,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'details' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -128,12 +115,12 @@ it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSeri
         ->description->toBe('Mock value')
         ->trackingMethod->toBe('Mock value')
         ->trackExpirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requiredForDropShip->toBe(true)
+        ->requiredForDropShip->toBeTrue()
         ->assignmentMethod->toBe('Mock value')
         ->issueMethod->toBe('Mock value')
-        ->autoIncrementalValueBetweenClasses->toBe(true)
+        ->autoIncrementalValueBetweenClasses->toBeTrue()
         ->autoIncrementalValue->toBe('Mock value')
-        ->autoGenerateNextNumber->toBe(true)
+        ->autoGenerateNextNumber->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');

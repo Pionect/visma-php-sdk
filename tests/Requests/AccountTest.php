@@ -9,7 +9,10 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the accountGetByaccountCd method in the Account resource', function () {
@@ -29,14 +32,14 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
             'cashAccount' => true,
             'publicCode1' => 'Mock value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'externalCode1info' => null,
-            'externalCode2info' => null,
-            'analisysCodeInfo' => null,
+            'externalCode1info' => 'Mock value',
+            'externalCode2info' => 'Mock value',
+            'analisysCodeInfo' => 'Mock value',
             'controlAccountModule' => 'Mock value',
             'allowManualEntry' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'Mock value',
-            'metadata' => null,
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -67,20 +70,20 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
         ->cashAccount->toBeTrue()
         ->publicCode1->toBe('Mock value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->externalCode1info->toBeNull()
-        ->externalCode2info->toBeNull()
-        ->analisysCodeInfo->toBeNull()
+        ->externalCode1info->toBe('Mock value')
+        ->externalCode2info->toBe('Mock value')
+        ->analisysCodeInfo->toBe('Mock value')
         ->controlAccountModule->toBe('Mock value')
         ->allowManualEntry->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
-        ->metadata->toBeNull();
+        ->metadata->toBe('Mock value');
 });
 
 it('calls the accountGetAllCollection method in the Account resource', function () {
     Saloon::fake([
         AccountGetAllCollectionRequest::class => MockResponse::make([
-            [
+            0 => [
                 'accountId' => 42,
                 'accountCd' => 'Mock value',
                 'accountGroupCd' => 'Mock value',
@@ -95,16 +98,16 @@ it('calls the accountGetAllCollection method in the Account resource', function 
                 'cashAccount' => true,
                 'publicCode1' => 'Mock value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'externalCode1info' => null,
-                'externalCode2info' => null,
-                'analisysCodeInfo' => null,
+                'externalCode1info' => 'Mock value',
+                'externalCode2info' => 'Mock value',
+                'analisysCodeInfo' => 'Mock value',
                 'controlAccountModule' => 'Mock value',
                 'allowManualEntry' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'Mock value',
-                'metadata' => null,
+                'metadata' => 'Mock value',
             ],
-            [
+            1 => [
                 'accountId' => 42,
                 'accountCd' => 'Mock value',
                 'accountGroupCd' => 'Mock value',
@@ -119,23 +122,27 @@ it('calls the accountGetAllCollection method in the Account resource', function 
                 'cashAccount' => true,
                 'publicCode1' => 'Mock value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'externalCode1info' => null,
-                'externalCode2info' => null,
-                'analisysCodeInfo' => null,
+                'externalCode1info' => 'Mock value',
+                'externalCode2info' => 'Mock value',
+                'analisysCodeInfo' => 'Mock value',
                 'controlAccountModule' => 'Mock value',
                 'allowManualEntry' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'Mock value',
-                'metadata' => null,
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
 
-    $request = new AccountGetAllCollectionRequest(active: true, includeAccountClassDescription: true, greaterThanValue: 'test string', publicCode: 'test string', externalCode1: 'test string', externalCode2: 'test string', analysisCode: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string');
+    $request = (new AccountGetAllCollectionRequest(active: true, includeAccountClassDescription: true, greaterThanValue: 'test string', publicCode: 'test string', externalCode1: 'test string', externalCode2: 'test string', analysisCode: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
     $response = $this->vismaConnector->send($request);
 
-    Saloon::assertSent(AccountGetAllCollectionRequest::class);
+    Saloon::assertSent(function (AccountGetAllCollectionRequest $request) {
+        $query = $request->query()->all();
+
+        return true;
+    });
 
     expect($response->status())->toBe(200);
 
@@ -156,12 +163,12 @@ it('calls the accountGetAllCollection method in the Account resource', function 
         ->cashAccount->toBeTrue()
         ->publicCode1->toBe('Mock value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->externalCode1info->toBeNull()
-        ->externalCode2info->toBeNull()
-        ->analisysCodeInfo->toBeNull()
+        ->externalCode1info->toBe('Mock value')
+        ->externalCode2info->toBe('Mock value')
+        ->analisysCodeInfo->toBe('Mock value')
         ->controlAccountModule->toBe('Mock value')
         ->allowManualEntry->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('Mock value')
-        ->metadata->toBeNull();
+        ->metadata->toBe('Mock value');
 });

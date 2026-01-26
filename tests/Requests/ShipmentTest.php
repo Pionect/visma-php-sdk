@@ -11,70 +11,67 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the shipmentGetByshipmentNbr method in the Shipment resource', function () {
     Saloon::fake([
         ShipmentGetByshipmentNbrRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'shipments',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'shipmentNumber' => 'Mock value',
-                    'shipmentType' => 'Mock value',
-                    'status' => 'Mock value',
-                    'hold' => true,
-                    'operation' => 'Mock value',
-                    'shipmentDate' => '2025-11-22T10:40:04.065Z',
-                    'customer' => 'Mock value',
-                    'location' => 'Mock value',
-                    'fromWarehouse' => 'Mock value',
-                    'toWarehouse' => 'Mock value',
-                    'currencyId' => 'mock-id-123',
-                    'owner' => 'Mock value',
-                    'shippedQuantity' => 3.14,
-                    'shippedWeight' => 3.14,
-                    'shippedVolume' => 3.14,
-                    'packages' => 42,
-                    'packagesWeight' => 3.14,
-                    'packagesVolume' => 3.14,
-                    'controlQuantity' => 3.14,
-                    'deliveryAddress' => 'Mock value',
-                    'deliveryContact' => 'Mock value',
-                    'shipVia' => 'Mock value',
-                    'fobPoint' => 'Mock value',
-                    'shippingTerms' => 'Mock value',
-                    'shippingZone' => 'Mock value',
-                    'residentialDelivery' => true,
-                    'saturdayDelivery' => true,
-                    'useCustomerAccount' => true,
-                    'insurance' => true,
-                    'freightCost' => 3.14,
-                    'freightAmt' => 3.14,
-                    'transactionType' => 'Mock value',
-                    'modeOfTrasport' => 'Mock value',
-                    'container' => true,
-                    'shipmentDetailLines' => [],
-                    'shipmentOrderLines' => [],
-                    'shipmentPackageLines' => [],
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'note' => 'Mock value',
-                    'customStr1' => 'Mock value',
-                    'customStr2' => 'Mock value',
-                    'customStr3' => 'Mock value',
-                    'customStr4' => 'Mock value',
-                    'customStr5' => 'Mock value',
-                    'customDec1' => 3.14,
-                    'customDec2' => 3.14,
-                    'customInt1' => 42,
-                    'customInt2' => 42,
-                    'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'shipmentNumber' => 'Mock value',
+            'shipmentType' => 'Mock value',
+            'status' => 'Mock value',
+            'hold' => true,
+            'operation' => 'Mock value',
+            'shipmentDate' => '2025-11-22T10:40:04.065Z',
+            'customer' => 'Mock value',
+            'location' => 'Mock value',
+            'fromWarehouse' => 'Mock value',
+            'toWarehouse' => 'Mock value',
+            'currencyId' => 'mock-id-123',
+            'owner' => 'Mock value',
+            'shippedQuantity' => 3.14,
+            'shippedWeight' => 3.14,
+            'shippedVolume' => 3.14,
+            'packages' => 42,
+            'packagesWeight' => 3.14,
+            'packagesVolume' => 3.14,
+            'controlQuantity' => 3.14,
+            'deliveryAddress' => 'Mock value',
+            'deliveryContact' => 'Mock value',
+            'shipVia' => 'Mock value',
+            'fobPoint' => 'Mock value',
+            'shippingTerms' => 'Mock value',
+            'shippingZone' => 'Mock value',
+            'residentialDelivery' => true,
+            'saturdayDelivery' => true,
+            'useCustomerAccount' => true,
+            'insurance' => true,
+            'freightCost' => 3.14,
+            'freightAmt' => 3.14,
+            'transactionType' => 'Mock value',
+            'modeOfTrasport' => 'Mock value',
+            'container' => true,
+            'shipmentDetailLines' => [],
+            'shipmentOrderLines' => [],
+            'shipmentPackageLines' => [],
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'note' => 'Mock value',
+            'customStr1' => 'Mock value',
+            'customStr2' => 'Mock value',
+            'customStr3' => 'Mock value',
+            'customStr4' => 'Mock value',
+            'customStr5' => 'Mock value',
+            'customDec1' => 3.14,
+            'customDec2' => 3.14,
+            'customInt1' => 42,
+            'customInt2' => 42,
+            'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -96,7 +93,7 @@ it('calls the shipmentGetByshipmentNbr method in the Shipment resource', functio
         ->shipmentNumber->toBe('Mock value')
         ->shipmentType->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->operation->toBe('Mock value')
         ->shipmentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->customer->toBe('Mock value')
@@ -118,15 +115,15 @@ it('calls the shipmentGetByshipmentNbr method in the Shipment resource', functio
         ->fobPoint->toBe('Mock value')
         ->shippingTerms->toBe('Mock value')
         ->shippingZone->toBe('Mock value')
-        ->residentialDelivery->toBe(true)
-        ->saturdayDelivery->toBe(true)
-        ->useCustomerAccount->toBe(true)
-        ->insurance->toBe(true)
+        ->residentialDelivery->toBeTrue()
+        ->saturdayDelivery->toBeTrue()
+        ->useCustomerAccount->toBeTrue()
+        ->insurance->toBeTrue()
         ->freightCost->toBe(3.14)
         ->freightAmt->toBe(3.14)
         ->transactionType->toBe('Mock value')
         ->modeOfTrasport->toBe('Mock value')
-        ->container->toBe(true)
+        ->container->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->note->toBe('Mock value')
         ->customStr1->toBe('Mock value')
@@ -146,123 +143,113 @@ it('calls the shipmentGetByshipmentNbr method in the Shipment resource', functio
 it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource', function () {
     Saloon::fake([
         ShipmentGetAllShipmentsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'shipments',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'shipmentNumber' => 'Mock value',
-                        'shipmentType' => 'Mock value',
-                        'status' => 'Mock value',
-                        'hold' => true,
-                        'operation' => 'Mock value',
-                        'shipmentDate' => '2025-11-22T10:40:04.065Z',
-                        'customer' => 'Mock value',
-                        'location' => 'Mock value',
-                        'fromWarehouse' => 'Mock value',
-                        'toWarehouse' => 'Mock value',
-                        'currencyId' => 'mock-id-123',
-                        'owner' => 'Mock value',
-                        'shippedQuantity' => 3.14,
-                        'shippedWeight' => 3.14,
-                        'shippedVolume' => 3.14,
-                        'packages' => 42,
-                        'packagesWeight' => 3.14,
-                        'packagesVolume' => 3.14,
-                        'controlQuantity' => 3.14,
-                        'deliveryAddress' => 'Mock value',
-                        'deliveryContact' => 'Mock value',
-                        'shipVia' => 'Mock value',
-                        'fobPoint' => 'Mock value',
-                        'shippingTerms' => 'Mock value',
-                        'shippingZone' => 'Mock value',
-                        'residentialDelivery' => true,
-                        'saturdayDelivery' => true,
-                        'useCustomerAccount' => true,
-                        'insurance' => true,
-                        'freightCost' => 3.14,
-                        'freightAmt' => 3.14,
-                        'transactionType' => 'Mock value',
-                        'modeOfTrasport' => 'Mock value',
-                        'container' => true,
-                        'shipmentDetailLines' => [],
-                        'shipmentOrderLines' => [],
-                        'shipmentPackageLines' => [],
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'note' => 'Mock value',
-                        'customStr1' => 'Mock value',
-                        'customStr2' => 'Mock value',
-                        'customStr3' => 'Mock value',
-                        'customStr4' => 'Mock value',
-                        'customStr5' => 'Mock value',
-                        'customDec1' => 3.14,
-                        'customDec2' => 3.14,
-                        'customInt1' => 42,
-                        'customInt2' => 42,
-                        'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'shipments',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                        'shipmentNumber' => 'Mock value',
-                        'shipmentType' => 'Mock value',
-                        'status' => 'Mock value',
-                        'hold' => true,
-                        'operation' => 'Mock value',
-                        'shipmentDate' => '2025-11-22T10:40:04.065Z',
-                        'customer' => 'Mock value',
-                        'location' => 'Mock value',
-                        'fromWarehouse' => 'Mock value',
-                        'toWarehouse' => 'Mock value',
-                        'currencyId' => 'mock-id-123',
-                        'owner' => 'Mock value',
-                        'shippedQuantity' => 3.14,
-                        'shippedWeight' => 3.14,
-                        'shippedVolume' => 3.14,
-                        'packages' => 42,
-                        'packagesWeight' => 3.14,
-                        'packagesVolume' => 3.14,
-                        'controlQuantity' => 3.14,
-                        'deliveryAddress' => 'Mock value',
-                        'deliveryContact' => 'Mock value',
-                        'shipVia' => 'Mock value',
-                        'fobPoint' => 'Mock value',
-                        'shippingTerms' => 'Mock value',
-                        'shippingZone' => 'Mock value',
-                        'residentialDelivery' => true,
-                        'saturdayDelivery' => true,
-                        'useCustomerAccount' => true,
-                        'insurance' => true,
-                        'freightCost' => 3.14,
-                        'freightAmt' => 3.14,
-                        'transactionType' => 'Mock value',
-                        'modeOfTrasport' => 'Mock value',
-                        'container' => true,
-                        'shipmentDetailLines' => [],
-                        'shipmentOrderLines' => [],
-                        'shipmentPackageLines' => [],
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'note' => 'Mock value',
-                        'customStr1' => 'Mock value',
-                        'customStr2' => 'Mock value',
-                        'customStr3' => 'Mock value',
-                        'customStr4' => 'Mock value',
-                        'customStr5' => 'Mock value',
-                        'customDec1' => 3.14,
-                        'customDec2' => 3.14,
-                        'customInt1' => 42,
-                        'customInt2' => 42,
-                        'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'shipmentNumber' => 'Mock value',
+                'shipmentType' => 'Mock value',
+                'status' => 'Mock value',
+                'hold' => true,
+                'operation' => 'Mock value',
+                'shipmentDate' => '2025-11-22T10:40:04.065Z',
+                'customer' => 'Mock value',
+                'location' => 'Mock value',
+                'fromWarehouse' => 'Mock value',
+                'toWarehouse' => 'Mock value',
+                'currencyId' => 'mock-id-123',
+                'owner' => 'Mock value',
+                'shippedQuantity' => 3.14,
+                'shippedWeight' => 3.14,
+                'shippedVolume' => 3.14,
+                'packages' => 42,
+                'packagesWeight' => 3.14,
+                'packagesVolume' => 3.14,
+                'controlQuantity' => 3.14,
+                'deliveryAddress' => 'Mock value',
+                'deliveryContact' => 'Mock value',
+                'shipVia' => 'Mock value',
+                'fobPoint' => 'Mock value',
+                'shippingTerms' => 'Mock value',
+                'shippingZone' => 'Mock value',
+                'residentialDelivery' => true,
+                'saturdayDelivery' => true,
+                'useCustomerAccount' => true,
+                'insurance' => true,
+                'freightCost' => 3.14,
+                'freightAmt' => 3.14,
+                'transactionType' => 'Mock value',
+                'modeOfTrasport' => 'Mock value',
+                'container' => true,
+                'shipmentDetailLines' => [],
+                'shipmentOrderLines' => [],
+                'shipmentPackageLines' => [],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'note' => 'Mock value',
+                'customStr1' => 'Mock value',
+                'customStr2' => 'Mock value',
+                'customStr3' => 'Mock value',
+                'customStr4' => 'Mock value',
+                'customStr5' => 'Mock value',
+                'customDec1' => 3.14,
+                'customDec2' => 3.14,
+                'customInt1' => 42,
+                'customInt2' => 42,
+                'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'shipmentNumber' => 'Mock value',
+                'shipmentType' => 'Mock value',
+                'status' => 'Mock value',
+                'hold' => true,
+                'operation' => 'Mock value',
+                'shipmentDate' => '2025-11-22T10:40:04.065Z',
+                'customer' => 'Mock value',
+                'location' => 'Mock value',
+                'fromWarehouse' => 'Mock value',
+                'toWarehouse' => 'Mock value',
+                'currencyId' => 'mock-id-123',
+                'owner' => 'Mock value',
+                'shippedQuantity' => 3.14,
+                'shippedWeight' => 3.14,
+                'shippedVolume' => 3.14,
+                'packages' => 42,
+                'packagesWeight' => 3.14,
+                'packagesVolume' => 3.14,
+                'controlQuantity' => 3.14,
+                'deliveryAddress' => 'Mock value',
+                'deliveryContact' => 'Mock value',
+                'shipVia' => 'Mock value',
+                'fobPoint' => 'Mock value',
+                'shippingTerms' => 'Mock value',
+                'shippingZone' => 'Mock value',
+                'residentialDelivery' => true,
+                'saturdayDelivery' => true,
+                'useCustomerAccount' => true,
+                'insurance' => true,
+                'freightCost' => 3.14,
+                'freightAmt' => 3.14,
+                'transactionType' => 'Mock value',
+                'modeOfTrasport' => 'Mock value',
+                'container' => true,
+                'shipmentDetailLines' => [],
+                'shipmentOrderLines' => [],
+                'shipmentPackageLines' => [],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'note' => 'Mock value',
+                'customStr1' => 'Mock value',
+                'customStr2' => 'Mock value',
+                'customStr3' => 'Mock value',
+                'customStr4' => 'Mock value',
+                'customStr5' => 'Mock value',
+                'customDec1' => 3.14,
+                'customDec2' => 3.14,
+                'customInt1' => 42,
+                'customInt2' => 42,
+                'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -286,7 +273,7 @@ it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource'
         ->shipmentNumber->toBe('Mock value')
         ->shipmentType->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->operation->toBe('Mock value')
         ->shipmentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->customer->toBe('Mock value')
@@ -308,15 +295,15 @@ it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource'
         ->fobPoint->toBe('Mock value')
         ->shippingTerms->toBe('Mock value')
         ->shippingZone->toBe('Mock value')
-        ->residentialDelivery->toBe(true)
-        ->saturdayDelivery->toBe(true)
-        ->useCustomerAccount->toBe(true)
-        ->insurance->toBe(true)
+        ->residentialDelivery->toBeTrue()
+        ->saturdayDelivery->toBeTrue()
+        ->useCustomerAccount->toBeTrue()
+        ->insurance->toBeTrue()
         ->freightCost->toBe(3.14)
         ->freightAmt->toBe(3.14)
         ->transactionType->toBe('Mock value')
         ->modeOfTrasport->toBe('Mock value')
-        ->container->toBe(true)
+        ->container->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->note->toBe('Mock value')
         ->customStr1->toBe('Mock value')

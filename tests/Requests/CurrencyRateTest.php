@@ -8,41 +8,34 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the currencyRateGetAllCollection method in the CurrencyRate resource', function () {
     Saloon::fake([
         CurrencyRateGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'currencyRates',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'fromCurrencyId' => 'mock-id-123',
-                        'toCurrencyId' => 'mock-id-123',
-                        'rateType' => 'Mock value',
-                        'rate' => 3.14,
-                        'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                        'multDiv' => 'Mock value',
-                        'rateReciprocal' => 3.14,
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
-                1 => [
-                    'type' => 'currencyRates',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'fromCurrencyId' => 'mock-id-123',
-                        'toCurrencyId' => 'mock-id-123',
-                        'rateType' => 'Mock value',
-                        'rate' => 3.14,
-                        'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                        'multDiv' => 'Mock value',
-                        'rateReciprocal' => 3.14,
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
+            0 => [
+                'fromCurrencyId' => 'mock-id-123',
+                'toCurrencyId' => 'mock-id-123',
+                'rateType' => 'Mock value',
+                'rate' => 3.14,
+                'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                'multDiv' => 'Mock value',
+                'rateReciprocal' => 3.14,
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+            ],
+            1 => [
+                'fromCurrencyId' => 'mock-id-123',
+                'toCurrencyId' => 'mock-id-123',
+                'rateType' => 'Mock value',
+                'rate' => 3.14,
+                'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                'multDiv' => 'Mock value',
+                'rateReciprocal' => 3.14,
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
     ]);

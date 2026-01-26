@@ -9,21 +9,18 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the contractUsageGetSpecificBycontractId method in the ContractUsage resource', function () {
     Saloon::fake([
         ContractUsageGetSpecificBycontractIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'contractUsages',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'contract' => 'Mock value',
-                    'transaction' => [],
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'contract' => 'Mock value',
+            'transaction' => [],
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 
@@ -47,25 +44,15 @@ it('calls the contractUsageGetSpecificBycontractId method in the ContractUsage r
 it('calls the contractUsageGetAllCollection method in the ContractUsage resource', function () {
     Saloon::fake([
         ContractUsageGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'contractUsages',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'contract' => 'Mock value',
-                        'transaction' => [],
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
-                1 => [
-                    'type' => 'contractUsages',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'contract' => 'Mock value',
-                        'transaction' => [],
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
+            0 => [
+                'contract' => 'Mock value',
+                'transaction' => [],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            ],
+            1 => [
+                'contract' => 'Mock value',
+                'transaction' => [],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
     ]);

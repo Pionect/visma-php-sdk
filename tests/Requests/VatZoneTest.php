@@ -8,23 +8,20 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the vatZoneGetVatZoneByvatZoneId method in the VatZone resource', function () {
     Saloon::fake([
         VatZoneGetVatZoneByvatZoneIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'vatZones',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'description' => 'Mock value',
-                    'defaultVatCategory' => 'Mock value',
-                    'defaultTaxCategory' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'description' => 'Mock value',
+            'defaultVatCategory' => 'Mock value',
+            'defaultTaxCategory' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -51,29 +48,19 @@ it('calls the vatZoneGetVatZoneByvatZoneId method in the VatZone resource', func
 it('calls the vatZoneGetVatZonesCollection method in the VatZone resource', function () {
     Saloon::fake([
         VatZoneGetVatZonesCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'vatZones',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'defaultVatCategory' => 'Mock value',
-                        'defaultTaxCategory' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'vatZones',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'defaultVatCategory' => 'Mock value',
-                        'defaultTaxCategory' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'description' => 'Mock value',
+                'defaultVatCategory' => 'Mock value',
+                'defaultTaxCategory' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'description' => 'Mock value',
+                'defaultVatCategory' => 'Mock value',
+                'defaultTaxCategory' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);

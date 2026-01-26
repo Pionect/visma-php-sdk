@@ -9,25 +9,22 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the cashAccountGetByaccountNumber method in the CashAccount resource', function () {
     Saloon::fake([
         CashAccountGetByaccountNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'cashAccounts',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'entryTypes' => [],
-                    'currency' => 'Mock value',
-                    'account' => 'Mock value',
-                    'subaccount' => 'Mock value',
-                    'number' => 'Mock value',
-                    'description' => 'Mock value',
-                ],
-            ],
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'entryTypes' => [],
+            'currency' => 'Mock value',
+            'account' => 'Mock value',
+            'subaccount' => 'Mock value',
+            'number' => 'Mock value',
+            'description' => 'Mock value',
         ], 200),
     ]);
 
@@ -55,33 +52,23 @@ it('calls the cashAccountGetByaccountNumber method in the CashAccount resource',
 it('calls the cashAccountGetAllCollection method in the CashAccount resource', function () {
     Saloon::fake([
         CashAccountGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'cashAccounts',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'entryTypes' => [],
-                        'currency' => 'Mock value',
-                        'account' => 'Mock value',
-                        'subaccount' => 'Mock value',
-                        'number' => 'Mock value',
-                        'description' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'cashAccounts',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'entryTypes' => [],
-                        'currency' => 'Mock value',
-                        'account' => 'Mock value',
-                        'subaccount' => 'Mock value',
-                        'number' => 'Mock value',
-                        'description' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'entryTypes' => [],
+                'currency' => 'Mock value',
+                'account' => 'Mock value',
+                'subaccount' => 'Mock value',
+                'number' => 'Mock value',
+                'description' => 'Mock value',
+            ],
+            1 => [
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'entryTypes' => [],
+                'currency' => 'Mock value',
+                'account' => 'Mock value',
+                'subaccount' => 'Mock value',
+                'number' => 'Mock value',
+                'description' => 'Mock value',
             ],
         ], 200),
     ]);

@@ -9,22 +9,19 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the carrierGetCarrierBycarrierName method in the Carrier resource', function () {
     Saloon::fake([
         CarrierGetCarrierBycarrierNameRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'carriers',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'carrierId' => 'mock-id-123',
-                    'carrierDescription' => 'Mock value',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'carrierId' => 'mock-id-123',
+            'carrierDescription' => 'Mock value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -50,27 +47,17 @@ it('calls the carrierGetCarrierBycarrierName method in the Carrier resource', fu
 it('calls the carrierGetAllCarriersCollection method in the Carrier resource', function () {
     Saloon::fake([
         CarrierGetAllCarriersCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'carriers',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'carrierId' => 'mock-id-123',
-                        'carrierDescription' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'carriers',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'carrierId' => 'mock-id-123',
-                        'carrierDescription' => 'Mock value',
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'carrierId' => 'mock-id-123',
+                'carrierDescription' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'carrierId' => 'mock-id-123',
+                'carrierDescription' => 'Mock value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);

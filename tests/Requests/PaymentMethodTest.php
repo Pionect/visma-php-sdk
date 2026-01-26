@@ -8,24 +8,21 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod resource', function () {
     Saloon::fake([
         PaymentMethodGetBypaymentMethodNumberRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'paymentMethods',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'paymentMethodId' => 'mock-id-123',
-                    'active' => true,
-                    'meansOfPayment' => 'Mock value',
-                    'description' => 'Mock value',
-                    'useInAp' => true,
-                    'details' => [],
-                ],
-            ],
+            'paymentMethodId' => 'mock-id-123',
+            'active' => true,
+            'meansOfPayment' => 'Mock value',
+            'description' => 'Mock value',
+            'useInAp' => true,
+            'details' => [],
         ], 200),
     ]);
 
@@ -43,40 +40,30 @@ it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod 
 
     expect($dto)
         ->paymentMethodId->toBe('mock-id-123')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->meansOfPayment->toBe('Mock value')
         ->description->toBe('Mock value')
-        ->useInAp->toBe(true);
+        ->useInAp->toBeTrue();
 });
 
 it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMethod resource', function () {
     Saloon::fake([
         PaymentMethodGetAllPaymentMethodCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'paymentMethods',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'paymentMethodId' => 'mock-id-123',
-                        'active' => true,
-                        'meansOfPayment' => 'Mock value',
-                        'description' => 'Mock value',
-                        'useInAp' => true,
-                        'details' => [],
-                    ],
-                ],
-                1 => [
-                    'type' => 'paymentMethods',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'paymentMethodId' => 'mock-id-123',
-                        'active' => true,
-                        'meansOfPayment' => 'Mock value',
-                        'description' => 'Mock value',
-                        'useInAp' => true,
-                        'details' => [],
-                    ],
-                ],
+            0 => [
+                'paymentMethodId' => 'mock-id-123',
+                'active' => true,
+                'meansOfPayment' => 'Mock value',
+                'description' => 'Mock value',
+                'useInAp' => true,
+                'details' => [],
+            ],
+            1 => [
+                'paymentMethodId' => 'mock-id-123',
+                'active' => true,
+                'meansOfPayment' => 'Mock value',
+                'description' => 'Mock value',
+                'useInAp' => true,
+                'details' => [],
             ],
         ], 200),
     ]);
@@ -97,8 +84,8 @@ it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMe
 
     expect($dtoCollection->first())
         ->paymentMethodId->toBe('mock-id-123')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->meansOfPayment->toBe('Mock value')
         ->description->toBe('Mock value')
-        ->useInAp->toBe(true);
+        ->useInAp->toBeTrue();
 });

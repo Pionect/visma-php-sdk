@@ -13,43 +13,40 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction resource', function () {
     Saloon::fake([
         CashTransactionGetByreferenceNbrRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'cashTransactions',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'tranType' => 'Mock value',
-                    'referenceNbr' => 'Mock value',
-                    'status' => 'Mock value',
-                    'hold' => true,
-                    'tranDate' => '2025-11-22T10:40:04.065Z',
-                    'finPeriod' => 'Mock value',
-                    'financialPeriod' => 'Mock value',
-                    'cashAccount' => 'Mock value',
-                    'currency' => 'Mock value',
-                    'entryType' => 'Mock value',
-                    'disbReceipt' => 'Mock value',
-                    'documentRef' => 'Mock value',
-                    'owner' => 'Mock value',
-                    'description' => 'Mock value',
-                    'amount' => 3.14,
-                    'vatTaxableTotal' => 3.14,
-                    'vatExemptTotal' => 3.14,
-                    'taxTotal' => 3.14,
-                    'controlTotal' => 3.14,
-                    'taxAmount' => 3.14,
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'transactionDetails' => [],
-                    'taxDetails' => [],
-                    'financialsDetail' => 'Mock value',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                ],
-            ],
+            'tranType' => 'Mock value',
+            'referenceNbr' => 'Mock value',
+            'status' => 'Mock value',
+            'hold' => true,
+            'tranDate' => '2025-11-22T10:40:04.065Z',
+            'finPeriod' => 'Mock value',
+            'financialPeriod' => 'Mock value',
+            'cashAccount' => 'Mock value',
+            'currency' => 'Mock value',
+            'entryType' => 'Mock value',
+            'disbReceipt' => 'Mock value',
+            'documentRef' => 'Mock value',
+            'owner' => 'Mock value',
+            'description' => 'Mock value',
+            'amount' => 3.14,
+            'vatTaxableTotal' => 3.14,
+            'vatExemptTotal' => 3.14,
+            'taxTotal' => 3.14,
+            'controlTotal' => 3.14,
+            'taxAmount' => 3.14,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'transactionDetails' => [],
+            'taxDetails' => [],
+            'financialsDetail' => 'Mock value',
+            'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
 
@@ -69,7 +66,7 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
         ->tranType->toBe('Mock value')
         ->referenceNbr->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->tranDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->finPeriod->toBe('Mock value')
         ->financialPeriod->toBe('Mock value')
@@ -94,69 +91,59 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
 it('calls the cashTransactionGetAllCollection method in the CashTransaction resource', function () {
     Saloon::fake([
         CashTransactionGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'cashTransactions',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'tranType' => 'Mock value',
-                        'referenceNbr' => 'Mock value',
-                        'status' => 'Mock value',
-                        'hold' => true,
-                        'tranDate' => '2025-11-22T10:40:04.065Z',
-                        'finPeriod' => 'Mock value',
-                        'financialPeriod' => 'Mock value',
-                        'cashAccount' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'entryType' => 'Mock value',
-                        'disbReceipt' => 'Mock value',
-                        'documentRef' => 'Mock value',
-                        'owner' => 'Mock value',
-                        'description' => 'Mock value',
-                        'amount' => 3.14,
-                        'vatTaxableTotal' => 3.14,
-                        'vatExemptTotal' => 3.14,
-                        'taxTotal' => 3.14,
-                        'controlTotal' => 3.14,
-                        'taxAmount' => 3.14,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'transactionDetails' => [],
-                        'taxDetails' => [],
-                        'financialsDetail' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
-                1 => [
-                    'type' => 'cashTransactions',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'tranType' => 'Mock value',
-                        'referenceNbr' => 'Mock value',
-                        'status' => 'Mock value',
-                        'hold' => true,
-                        'tranDate' => '2025-11-22T10:40:04.065Z',
-                        'finPeriod' => 'Mock value',
-                        'financialPeriod' => 'Mock value',
-                        'cashAccount' => 'Mock value',
-                        'currency' => 'Mock value',
-                        'entryType' => 'Mock value',
-                        'disbReceipt' => 'Mock value',
-                        'documentRef' => 'Mock value',
-                        'owner' => 'Mock value',
-                        'description' => 'Mock value',
-                        'amount' => 3.14,
-                        'vatTaxableTotal' => 3.14,
-                        'vatExemptTotal' => 3.14,
-                        'taxTotal' => 3.14,
-                        'controlTotal' => 3.14,
-                        'taxAmount' => 3.14,
-                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                        'transactionDetails' => [],
-                        'taxDetails' => [],
-                        'financialsDetail' => 'Mock value',
-                        'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    ],
-                ],
+            0 => [
+                'tranType' => 'Mock value',
+                'referenceNbr' => 'Mock value',
+                'status' => 'Mock value',
+                'hold' => true,
+                'tranDate' => '2025-11-22T10:40:04.065Z',
+                'finPeriod' => 'Mock value',
+                'financialPeriod' => 'Mock value',
+                'cashAccount' => 'Mock value',
+                'currency' => 'Mock value',
+                'entryType' => 'Mock value',
+                'disbReceipt' => 'Mock value',
+                'documentRef' => 'Mock value',
+                'owner' => 'Mock value',
+                'description' => 'Mock value',
+                'amount' => 3.14,
+                'vatTaxableTotal' => 3.14,
+                'vatExemptTotal' => 3.14,
+                'taxTotal' => 3.14,
+                'controlTotal' => 3.14,
+                'taxAmount' => 3.14,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'transactionDetails' => [],
+                'taxDetails' => [],
+                'financialsDetail' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
+            ],
+            1 => [
+                'tranType' => 'Mock value',
+                'referenceNbr' => 'Mock value',
+                'status' => 'Mock value',
+                'hold' => true,
+                'tranDate' => '2025-11-22T10:40:04.065Z',
+                'finPeriod' => 'Mock value',
+                'financialPeriod' => 'Mock value',
+                'cashAccount' => 'Mock value',
+                'currency' => 'Mock value',
+                'entryType' => 'Mock value',
+                'disbReceipt' => 'Mock value',
+                'documentRef' => 'Mock value',
+                'owner' => 'Mock value',
+                'description' => 'Mock value',
+                'amount' => 3.14,
+                'vatTaxableTotal' => 3.14,
+                'vatExemptTotal' => 3.14,
+                'taxTotal' => 3.14,
+                'controlTotal' => 3.14,
+                'taxAmount' => 3.14,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'transactionDetails' => [],
+                'taxDetails' => [],
+                'financialsDetail' => 'Mock value',
+                'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
     ]);
@@ -179,7 +166,7 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
         ->tranType->toBe('Mock value')
         ->referenceNbr->toBe('Mock value')
         ->status->toBe('Mock value')
-        ->hold->toBe(true)
+        ->hold->toBeTrue()
         ->tranDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->finPeriod->toBe('Mock value')
         ->financialPeriod->toBe('Mock value')

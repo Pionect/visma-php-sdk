@@ -8,24 +8,21 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the fixedAssetPropertyTaxGroupGetByPropertyTaxId method in the FixedAssetPropertyTaxGroup resource', function () {
     Saloon::fake([
         FixedAssetPropertyTaxGroupGetByPropertyTaxIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'fixedAssetPropertyTaxGroups',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'propertyTaxId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'active' => true,
-                    'details' => [],
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'propertyTaxId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'active' => true,
+            'details' => [],
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -44,7 +41,7 @@ it('calls the fixedAssetPropertyTaxGroupGetByPropertyTaxId method in the FixedAs
     expect($dto)
         ->propertyTaxId->toBe('mock-id-123')
         ->description->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
 });
@@ -52,31 +49,21 @@ it('calls the fixedAssetPropertyTaxGroupGetByPropertyTaxId method in the FixedAs
 it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAssetPropertyTaxGroup resource', function () {
     Saloon::fake([
         FixedAssetPropertyTaxGroupGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'fixedAssetPropertyTaxGroups',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'propertyTaxId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'active' => true,
-                        'details' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'fixedAssetPropertyTaxGroups',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'propertyTaxId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'active' => true,
-                        'details' => [],
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'propertyTaxId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'active' => true,
+                'details' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'propertyTaxId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'active' => true,
+                'details' => [],
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);
@@ -98,7 +85,7 @@ it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAsse
     expect($dtoCollection->first())
         ->propertyTaxId->toBe('mock-id-123')
         ->description->toBe('Mock value')
-        ->active->toBe(true)
+        ->active->toBeTrue()
         ->errorInfo->toBe('Mock value')
         ->metadata->toBe('Mock value');
 });

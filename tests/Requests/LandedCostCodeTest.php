@@ -8,34 +8,31 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the landedCostCodeGetAllLandedCostsBycode method in the LandedCostCode resource', function () {
     Saloon::fake([
         LandedCostCodeGetAllLandedCostsBycodeRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'landedCostCodes',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'landedCostCodeId' => 'mock-id-123',
-                    'description' => 'Mock value',
-                    'landedCostType' => 'Mock value',
-                    'applicationMethod' => 'Mock value',
-                    'allocationMethod' => 'Mock value',
-                    'supplierId' => 'mock-id-123',
-                    'supplierLocationId' => 'mock-id-123',
-                    'terms' => 'Mock value',
-                    'reasonCode' => 'Mock value',
-                    'landedCostAccrualAccount' => 'Mock value',
-                    'landedCostAccrualSubaccount' => 'Mock value',
-                    'vatCategory' => 'Mock value',
-                    'landedCostVarianceAccount' => 'Mock value',
-                    'landedCostVarianceSubaccount' => 'Mock value',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
-                ],
-            ],
+            'landedCostCodeId' => 'mock-id-123',
+            'description' => 'Mock value',
+            'landedCostType' => 'Mock value',
+            'applicationMethod' => 'Mock value',
+            'allocationMethod' => 'Mock value',
+            'supplierId' => 'mock-id-123',
+            'supplierLocationId' => 'mock-id-123',
+            'terms' => 'Mock value',
+            'reasonCode' => 'Mock value',
+            'landedCostAccrualAccount' => 'Mock value',
+            'landedCostAccrualSubaccount' => 'Mock value',
+            'vatCategory' => 'Mock value',
+            'landedCostVarianceAccount' => 'Mock value',
+            'landedCostVarianceSubaccount' => 'Mock value',
+            'errorInfo' => 'Mock value',
+            'metadata' => 'Mock value',
         ], 200),
     ]);
 
@@ -73,51 +70,41 @@ it('calls the landedCostCodeGetAllLandedCostsBycode method in the LandedCostCode
 it('calls the landedCostCodeGetAllLandedCostsCollection method in the LandedCostCode resource', function () {
     Saloon::fake([
         LandedCostCodeGetAllLandedCostsCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'landedCostCodes',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'landedCostCodeId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'landedCostType' => 'Mock value',
-                        'applicationMethod' => 'Mock value',
-                        'allocationMethod' => 'Mock value',
-                        'supplierId' => 'mock-id-123',
-                        'supplierLocationId' => 'mock-id-123',
-                        'terms' => 'Mock value',
-                        'reasonCode' => 'Mock value',
-                        'landedCostAccrualAccount' => 'Mock value',
-                        'landedCostAccrualSubaccount' => 'Mock value',
-                        'vatCategory' => 'Mock value',
-                        'landedCostVarianceAccount' => 'Mock value',
-                        'landedCostVarianceSubaccount' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
-                1 => [
-                    'type' => 'landedCostCodes',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'landedCostCodeId' => 'mock-id-123',
-                        'description' => 'Mock value',
-                        'landedCostType' => 'Mock value',
-                        'applicationMethod' => 'Mock value',
-                        'allocationMethod' => 'Mock value',
-                        'supplierId' => 'mock-id-123',
-                        'supplierLocationId' => 'mock-id-123',
-                        'terms' => 'Mock value',
-                        'reasonCode' => 'Mock value',
-                        'landedCostAccrualAccount' => 'Mock value',
-                        'landedCostAccrualSubaccount' => 'Mock value',
-                        'vatCategory' => 'Mock value',
-                        'landedCostVarianceAccount' => 'Mock value',
-                        'landedCostVarianceSubaccount' => 'Mock value',
-                        'errorInfo' => 'Mock value',
-                        'metadata' => 'Mock value',
-                    ],
-                ],
+            0 => [
+                'landedCostCodeId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'landedCostType' => 'Mock value',
+                'applicationMethod' => 'Mock value',
+                'allocationMethod' => 'Mock value',
+                'supplierId' => 'mock-id-123',
+                'supplierLocationId' => 'mock-id-123',
+                'terms' => 'Mock value',
+                'reasonCode' => 'Mock value',
+                'landedCostAccrualAccount' => 'Mock value',
+                'landedCostAccrualSubaccount' => 'Mock value',
+                'vatCategory' => 'Mock value',
+                'landedCostVarianceAccount' => 'Mock value',
+                'landedCostVarianceSubaccount' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
+            ],
+            1 => [
+                'landedCostCodeId' => 'mock-id-123',
+                'description' => 'Mock value',
+                'landedCostType' => 'Mock value',
+                'applicationMethod' => 'Mock value',
+                'allocationMethod' => 'Mock value',
+                'supplierId' => 'mock-id-123',
+                'supplierLocationId' => 'mock-id-123',
+                'terms' => 'Mock value',
+                'reasonCode' => 'Mock value',
+                'landedCostAccrualAccount' => 'Mock value',
+                'landedCostAccrualSubaccount' => 'Mock value',
+                'vatCategory' => 'Mock value',
+                'landedCostVarianceAccount' => 'Mock value',
+                'landedCostVarianceSubaccount' => 'Mock value',
+                'errorInfo' => 'Mock value',
+                'metadata' => 'Mock value',
             ],
         ], 200),
     ]);

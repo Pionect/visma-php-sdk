@@ -8,23 +8,20 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
+        clientId: 'replace',
+        clientSecret: 'replace'
+    );
 });
 
 it('calls the currencyGetSpecificCurrencyBycuryId method in the Currency resource', function () {
     Saloon::fake([
         CurrencyGetSpecificCurrencyBycuryIdRequest::class => MockResponse::make([
-            'data' => [
-                'type' => 'currencies',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'description' => 'Mock value',
-                    'symbol' => 'Mock value',
-                    'isBaseCurrency' => true,
-                    'decimalPrecision' => 42,
-                    'isUsedForAccounting' => true,
-                ],
-            ],
+            'description' => 'Mock value',
+            'symbol' => 'Mock value',
+            'isBaseCurrency' => true,
+            'decimalPrecision' => 42,
+            'isUsedForAccounting' => true,
         ], 200),
     ]);
 
@@ -43,37 +40,27 @@ it('calls the currencyGetSpecificCurrencyBycuryId method in the Currency resourc
     expect($dto)
         ->description->toBe('Mock value')
         ->symbol->toBe('Mock value')
-        ->isBaseCurrency->toBe(true)
+        ->isBaseCurrency->toBeTrue()
         ->decimalPrecision->toBe(42)
-        ->isUsedForAccounting->toBe(true);
+        ->isUsedForAccounting->toBeTrue();
 });
 
 it('calls the currencyGetAllCollection method in the Currency resource', function () {
     Saloon::fake([
         CurrencyGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [
-                0 => [
-                    'type' => 'currencies',
-                    'id' => 'mock-id-1',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'symbol' => 'Mock value',
-                        'isBaseCurrency' => true,
-                        'decimalPrecision' => 42,
-                        'isUsedForAccounting' => true,
-                    ],
-                ],
-                1 => [
-                    'type' => 'currencies',
-                    'id' => 'mock-id-2',
-                    'attributes' => [
-                        'description' => 'Mock value',
-                        'symbol' => 'Mock value',
-                        'isBaseCurrency' => true,
-                        'decimalPrecision' => 42,
-                        'isUsedForAccounting' => true,
-                    ],
-                ],
+            0 => [
+                'description' => 'Mock value',
+                'symbol' => 'Mock value',
+                'isBaseCurrency' => true,
+                'decimalPrecision' => 42,
+                'isUsedForAccounting' => true,
+            ],
+            1 => [
+                'description' => 'Mock value',
+                'symbol' => 'Mock value',
+                'isBaseCurrency' => true,
+                'decimalPrecision' => 42,
+                'isUsedForAccounting' => true,
             ],
         ], 200),
     ]);
@@ -95,7 +82,7 @@ it('calls the currencyGetAllCollection method in the Currency resource', functio
     expect($dtoCollection->first())
         ->description->toBe('Mock value')
         ->symbol->toBe('Mock value')
-        ->isBaseCurrency->toBe(true)
+        ->isBaseCurrency->toBeTrue()
         ->decimalPrecision->toBe(42)
-        ->isUsedForAccounting->toBe(true);
+        ->isUsedForAccounting->toBeTrue();
 });
