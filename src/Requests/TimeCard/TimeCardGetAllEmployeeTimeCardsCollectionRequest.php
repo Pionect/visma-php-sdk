@@ -22,8 +22,7 @@ class TimeCardGetAllEmployeeTimeCardsCollectionRequest extends Request implement
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 
@@ -78,6 +77,7 @@ class TimeCardGetAllEmployeeTimeCardsCollectionRequest extends Request implement
         protected ?string $orderBy = null,
         protected ?string $lastModifiedDateTime = null,
         protected ?string $lastModifiedDateTimeCondition = null,
+        protected ?string $employeeCd = null,
         protected ?string $erpApiBackground = null,
     ) {}
 
@@ -93,6 +93,7 @@ class TimeCardGetAllEmployeeTimeCardsCollectionRequest extends Request implement
             'orderBy' => $this->orderBy,
             'lastModifiedDateTime' => $this->lastModifiedDateTime,
             'lastModifiedDateTimeCondition' => $this->lastModifiedDateTimeCondition,
+            'employeeCd' => $this->employeeCd,
         ]);
     }
 

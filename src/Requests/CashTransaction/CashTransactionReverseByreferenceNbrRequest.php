@@ -33,8 +33,7 @@ class CashTransactionReverseByreferenceNbrRequest extends Request implements Has
     {
         return Hydrator::hydrate(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 
@@ -68,7 +67,11 @@ class CashTransactionReverseByreferenceNbrRequest extends Request implements Has
 
     protected function defaultBody(): array
     {
-        return $this->data ? ['data' => $this->data->toJsonApi()] : [];
+        if ($this->data instanceof Model) {
+            return $this->data->toArray();
+        }
+
+        return $this->data ?? [];
     }
 
     public function defaultHeaders(): array

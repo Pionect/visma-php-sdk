@@ -61,4 +61,7 @@ class EmployeeTimeCardQueryParameters extends Model
      */
     #[Property]
     public ?string $lastModifiedDateTimeCondition;
+
+    #[Property]
+    public ?string $employeeCd;
 }

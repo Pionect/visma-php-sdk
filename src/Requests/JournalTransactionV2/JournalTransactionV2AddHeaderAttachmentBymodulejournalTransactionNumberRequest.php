@@ -48,7 +48,11 @@ class JournalTransactionV2AddHeaderAttachmentBymodulejournalTransactionNumberReq
 
     protected function defaultBody(): array
     {
-        return $this->data ? ['data' => $this->data->toJsonApi()] : [];
+        if ($this->data instanceof Model) {
+            return $this->data->toArray();
+        }
+
+        return $this->data ?? [];
     }
 
     public function defaultHeaders(): array

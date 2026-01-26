@@ -10,6 +10,11 @@ class CustomerClassDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'description' => $this->faker->sentence(),
+            'taxZoneId' => $this->faker->uuid(),
+            'requiredTaxzoneId' => $this->faker->boolean(),
+            'paymentMethodId' => $this->faker->uuid(),
+            'attributes' => [],
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Factories;
 
+use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ContractTemplateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -10,6 +11,9 @@ class ContractTemplateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'attributes' => [],
+            'description' => $this->faker->sentence(),
         ];
     }
 

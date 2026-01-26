@@ -21,8 +21,7 @@ class CustomerContractGetCustomerContractDetailsBycontractIdRequest extends Requ
     {
         return Hydrator::hydrate(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

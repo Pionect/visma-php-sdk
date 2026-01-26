@@ -22,8 +22,7 @@ class EmployeeGetAllEmployeesCollectionRequest extends Request implements Pagina
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

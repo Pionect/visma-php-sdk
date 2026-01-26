@@ -22,8 +22,7 @@ class ProjectAccountGroupGetAllCollectionRequest extends Request implements Pagi
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

@@ -8,7 +8,7 @@ use Pionect\VismaSdk\Requests\Employee\EmployeeGetAllEmployeesCollectionRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeByemployeeCdRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeExpenseClaimsByemployeeCdRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeExpenseReceiptsByemployeeCdRequest;
-use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeTimeCardsByemployeeCdRequest;
+use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeTimeCardsCollectionRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
@@ -164,59 +164,79 @@ it('calls the employeeGetAllEmployeesCollection method in the Employee resource'
         ->metadata->toBe('Mock value');
 });
 
-it('calls the employeeGetEmployeeTimeCardsByemployeeCd method in the Employee resource', function () {
+it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee resource', function () {
     Saloon::fake([
-        EmployeeGetEmployeeTimeCardsByemployeeCdRequest::class => MockResponse::make([
+        EmployeeGetEmployeeTimeCardsCollectionRequest::class => MockResponse::make([
             'data' => [
-                'type' => 'employees',
-                'id' => 'mock-id-123',
-                'attributes' => [
-                    'refNbr' => 'Mock value',
-                    'status' => 'Mock value',
-                    'approvalStatus' => 'Mock value',
-                    'week' => 'Mock value',
-                    'employee' => 'Mock value',
-                    'origRefNbr' => 'Mock value',
-                    'timeSpent' => '2025-11-22T10:40:04.065Z',
-                    'invoiceable' => 42,
-                    'overtimeSpent' => 42,
-                    'invoiceableOvertime' => 42,
-                    'totalTimeSpent' => 42,
-                    'invoiceableTotalTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'summary' => [],
-                    'materials' => [],
-                    'approvalStatusText' => 'Mock value',
-                    'timeStamp' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'Mock value',
-                    'metadata' => 'Mock value',
+                0 => [
+                    'type' => 'employees',
+                    'id' => 'mock-id-1',
+                    'attributes' => [
+                        'refNbr' => 'Mock value',
+                        'status' => 'Mock value',
+                        'approvalStatus' => 'Mock value',
+                        'week' => 'Mock value',
+                        'employee' => 'Mock value',
+                        'origRefNbr' => 'Mock value',
+                        'timeSpent' => '2025-11-22T10:40:04.065Z',
+                        'invoiceable' => 42,
+                        'overtimeSpent' => 42,
+                        'invoiceableOvertime' => 42,
+                        'totalTimeSpent' => 42,
+                        'invoiceableTotalTime' => '2025-11-22T10:40:04.065Z',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                        'summary' => [],
+                        'materials' => [],
+                        'approvalStatusText' => 'Mock value',
+                        'timeStamp' => '2025-11-22T10:40:04.065Z',
+                        'errorInfo' => 'Mock value',
+                        'metadata' => 'Mock value',
+                    ],
+                ],
+                1 => [
+                    'type' => 'employees',
+                    'id' => 'mock-id-2',
+                    'attributes' => [
+                        'refNbr' => 'Mock value',
+                        'status' => 'Mock value',
+                        'approvalStatus' => 'Mock value',
+                        'week' => 'Mock value',
+                        'employee' => 'Mock value',
+                        'origRefNbr' => 'Mock value',
+                        'timeSpent' => '2025-11-22T10:40:04.065Z',
+                        'invoiceable' => 42,
+                        'overtimeSpent' => 42,
+                        'invoiceableOvertime' => 42,
+                        'totalTimeSpent' => 42,
+                        'invoiceableTotalTime' => '2025-11-22T10:40:04.065Z',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                        'summary' => [],
+                        'materials' => [],
+                        'approvalStatusText' => 'Mock value',
+                        'timeStamp' => '2025-11-22T10:40:04.065Z',
+                        'errorInfo' => 'Mock value',
+                        'metadata' => 'Mock value',
+                    ],
                 ],
             ],
         ], 200),
     ]);
 
-    $request = new EmployeeGetEmployeeTimeCardsByemployeeCdRequest(
-        employeeCdId: 'test string',
-        status: 'test string',
-        week: 'test string',
-        type: 'test string',
-        greaterThanValue: 'test string',
-        numberToRead: 123,
-        skipRecords: 123,
-        orderBy: 'test string',
-        lastModifiedDateTime: 'test string',
-        lastModifiedDateTimeCondition: 'test string',
-        erpApiBackground: 'test string'
-    );
+    $request = (new EmployeeGetEmployeeTimeCardsCollectionRequest(employeeCd: 'test string', status: 'test string', week: 'test string', type: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', employeeCd: 'test string'));
+
     $response = $this->vismaConnector->send($request);
 
-    Saloon::assertSent(EmployeeGetEmployeeTimeCardsByemployeeCdRequest::class);
+    Saloon::assertSent(function (EmployeeGetEmployeeTimeCardsCollectionRequest $request) {
+        $query = $request->query()->all();
+
+        return true;
+    });
 
     expect($response->status())->toBe(200);
 
-    $dto = $response->dto();
+    $dtoCollection = $response->dto();
 
-    expect($dto)
+    expect($dtoCollection->first())
         ->refNbr->toBe('Mock value')
         ->status->toBe('Mock value')
         ->approvalStatus->toBe('Mock value')

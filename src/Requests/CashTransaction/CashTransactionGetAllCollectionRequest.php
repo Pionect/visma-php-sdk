@@ -24,8 +24,7 @@ class CashTransactionGetAllCollectionRequest extends Request implements Paginata
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

@@ -22,8 +22,7 @@ class CurrencyGetAllCollectionRequest extends Request implements Paginatable
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

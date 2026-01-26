@@ -22,8 +22,7 @@ class GeneralLedgerTransactionsGetAllCollectionRequest extends Request implement
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

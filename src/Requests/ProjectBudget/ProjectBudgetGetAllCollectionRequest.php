@@ -22,8 +22,7 @@ class ProjectBudgetGetAllCollectionRequest extends Request implements Paginatabl
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

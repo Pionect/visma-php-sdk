@@ -10,6 +10,10 @@ class ItemClassInInventoryDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'attributes' => [],
+            'description' => $this->faker->sentence(),
+            'errorInfo' => $this->faker->word(),
+            'metadata' => $this->faker->word(),
         ];
     }
 

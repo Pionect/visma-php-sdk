@@ -22,8 +22,7 @@ class ContractTemplateGetAllCollectionRequest extends Request implements Paginat
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

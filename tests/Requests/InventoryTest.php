@@ -2,7 +2,9 @@
 
 // auto-generated
 
+use Carbon\Carbon;
 use Pionect\VismaSdk\Requests\Inventory\InventoryChangeInventoryNbrActionByinternalIdRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryGetAllCollectionRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetByinventoryIdRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetByinventoryNumberRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventoryCrossReferencesByinventoryNumberRequest;
@@ -10,6 +12,7 @@ use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventoryPoreceiptTakeBarCod
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventorySalesOrderBarCodesByorderNbrRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryGetItemClassesCollectionRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetItemPostClassesCollectionRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetSpecificItemClassByitemClassNumberRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryUpdateCostNonStockItemByinventoryCdRequest;
@@ -21,6 +24,54 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
+it('calls the inventoryGetItemClassesCollection method in the Inventory resource', function () {
+    Saloon::fake([
+        InventoryGetItemClassesCollectionRequest::class => MockResponse::make([
+            'data' => [
+                0 => [
+                    'type' => 'inventories',
+                    'id' => 'mock-id-1',
+                    'attributes' => [
+                        'attributes' => [],
+                        'description' => 'Mock value',
+                        'errorInfo' => 'Mock value',
+                        'metadata' => 'Mock value',
+                    ],
+                ],
+                1 => [
+                    'type' => 'inventories',
+                    'id' => 'mock-id-2',
+                    'attributes' => [
+                        'attributes' => [],
+                        'description' => 'Mock value',
+                        'errorInfo' => 'Mock value',
+                        'metadata' => 'Mock value',
+                    ],
+                ],
+            ],
+        ], 200),
+    ]);
+
+    $request = (new InventoryGetItemClassesCollectionRequest(pageNumber: 123, pageSize: 123));
+
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(function (InventoryGetItemClassesCollectionRequest $request) {
+        $query = $request->query()->all();
+
+        return true;
+    });
+
+    expect($response->status())->toBe(200);
+
+    $dtoCollection = $response->dto();
+
+    expect($dtoCollection->first())
+        ->description->toBe('Mock value')
+        ->errorInfo->toBe('Mock value')
+        ->metadata->toBe('Mock value');
+});
+
 it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetSpecificItemClassByitemClassNumberRequest::class => MockResponse::make([
@@ -28,7 +79,10 @@ it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inven
                 'type' => 'inventories',
                 'id' => 'mock-id-123',
                 'attributes' => [
-                    'name' => 'Mock value',
+                    'attributes' => [],
+                    'description' => 'Mock value',
+                    'errorInfo' => 'Mock value',
+                    'metadata' => 'Mock value',
                 ],
             ],
         ], 200),
@@ -47,7 +101,9 @@ it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inven
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value');
+        ->description->toBe('Mock value')
+        ->errorInfo->toBe('Mock value')
+        ->metadata->toBe('Mock value');
 });
 
 it('calls the inventoryGetItemPostClassesCollection method in the Inventory resource', function () {
@@ -100,7 +156,51 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
                 'type' => 'inventories',
                 'id' => 'mock-id-123',
                 'attributes' => [
-                    'name' => 'Mock value',
+                    'inventoryId' => 42,
+                    'inventoryNumber' => 'Mock value',
+                    'status' => 'Mock value',
+                    'description' => 'Mock value',
+                    'body' => 'Mock value',
+                    'itemClass' => 'Mock value',
+                    'postingClass' => 'Mock value',
+                    'vatCode' => 'Mock value',
+                    'lotSerialClass' => 'Mock value',
+                    'defaultPrice' => 3.14,
+                    'pendingCost' => 3.14,
+                    'pendingCostDate' => '2025-11-22T10:40:04.065Z',
+                    'currentCost' => 3.14,
+                    'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                    'lastCost' => 3.14,
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'baseUnit' => 'Mock value',
+                    'salesUnit' => 'Mock value',
+                    'purchaseUnit' => 'Mock value',
+                    'stockItem' => true,
+                    'kitItem' => true,
+                    'accountInformation' => 'Mock value',
+                    'costPriceStatistics' => 'Mock value',
+                    'crossReferences' => [],
+                    'attachments' => [],
+                    'attributes' => [],
+                    'warehouseDetails' => [],
+                    'inventoryUnits' => [],
+                    'defaultWarehouse' => 'Mock value',
+                    'defaultIssueFrom' => 'Mock value',
+                    'defaultReceiptTo' => 'Mock value',
+                    'supplierDetails' => [],
+                    'salesCategories' => [],
+                    'packaging' => 'Mock value',
+                    'intrastat' => 'Mock value',
+                    'recommendedPrice' => 3.14,
+                    'priceManagerId' => 'mock-id-123',
+                    'priceManager' => 'Mock value',
+                    'priceClass' => 'Mock value',
+                    'priceWorkgroupId' => 42,
+                    'priceClassId' => 'mock-id-123',
+                    'note' => 'Mock value',
+                    'timestamp' => 'Mock value',
+                    'errorInfo' => 'Mock value',
+                    'metadata' => 'Mock value',
                 ],
             ],
         ], 200),
@@ -119,7 +219,44 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value');
+        ->inventoryId->toBe(42)
+        ->inventoryNumber->toBe('Mock value')
+        ->status->toBe('Mock value')
+        ->description->toBe('Mock value')
+        ->body->toBe('Mock value')
+        ->itemClass->toBe('Mock value')
+        ->postingClass->toBe('Mock value')
+        ->vatCode->toBe('Mock value')
+        ->lotSerialClass->toBe('Mock value')
+        ->defaultPrice->toBe(3.14)
+        ->pendingCost->toBe(3.14)
+        ->pendingCostDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->currentCost->toBe(3.14)
+        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastCost->toBe(3.14)
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->baseUnit->toBe('Mock value')
+        ->salesUnit->toBe('Mock value')
+        ->purchaseUnit->toBe('Mock value')
+        ->stockItem->toBe(true)
+        ->kitItem->toBe(true)
+        ->accountInformation->toBe('Mock value')
+        ->costPriceStatistics->toBe('Mock value')
+        ->defaultWarehouse->toBe('Mock value')
+        ->defaultIssueFrom->toBe('Mock value')
+        ->defaultReceiptTo->toBe('Mock value')
+        ->packaging->toBe('Mock value')
+        ->intrastat->toBe('Mock value')
+        ->recommendedPrice->toBe(3.14)
+        ->priceManagerId->toBe('mock-id-123')
+        ->priceManager->toBe('Mock value')
+        ->priceClass->toBe('Mock value')
+        ->priceWorkgroupId->toBe(42)
+        ->priceClassId->toBe('mock-id-123')
+        ->note->toBe('Mock value')
+        ->timestamp->toBe('Mock value')
+        ->errorInfo->toBe('Mock value')
+        ->metadata->toBe('Mock value');
 });
 
 it('calls the inventoryGetByinventoryNumber method in the Inventory resource', function () {
@@ -129,7 +266,51 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
                 'type' => 'inventories',
                 'id' => 'mock-id-123',
                 'attributes' => [
-                    'name' => 'Mock value',
+                    'inventoryId' => 42,
+                    'inventoryNumber' => 'Mock value',
+                    'status' => 'Mock value',
+                    'description' => 'Mock value',
+                    'body' => 'Mock value',
+                    'itemClass' => 'Mock value',
+                    'postingClass' => 'Mock value',
+                    'vatCode' => 'Mock value',
+                    'lotSerialClass' => 'Mock value',
+                    'defaultPrice' => 3.14,
+                    'pendingCost' => 3.14,
+                    'pendingCostDate' => '2025-11-22T10:40:04.065Z',
+                    'currentCost' => 3.14,
+                    'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                    'lastCost' => 3.14,
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'baseUnit' => 'Mock value',
+                    'salesUnit' => 'Mock value',
+                    'purchaseUnit' => 'Mock value',
+                    'stockItem' => true,
+                    'kitItem' => true,
+                    'accountInformation' => 'Mock value',
+                    'costPriceStatistics' => 'Mock value',
+                    'crossReferences' => [],
+                    'attachments' => [],
+                    'attributes' => [],
+                    'warehouseDetails' => [],
+                    'inventoryUnits' => [],
+                    'defaultWarehouse' => 'Mock value',
+                    'defaultIssueFrom' => 'Mock value',
+                    'defaultReceiptTo' => 'Mock value',
+                    'supplierDetails' => [],
+                    'salesCategories' => [],
+                    'packaging' => 'Mock value',
+                    'intrastat' => 'Mock value',
+                    'recommendedPrice' => 3.14,
+                    'priceManagerId' => 'mock-id-123',
+                    'priceManager' => 'Mock value',
+                    'priceClass' => 'Mock value',
+                    'priceWorkgroupId' => 42,
+                    'priceClassId' => 'mock-id-123',
+                    'note' => 'Mock value',
+                    'timestamp' => 'Mock value',
+                    'errorInfo' => 'Mock value',
+                    'metadata' => 'Mock value',
                 ],
             ],
         ], 200),
@@ -148,7 +329,209 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value');
+        ->inventoryId->toBe(42)
+        ->inventoryNumber->toBe('Mock value')
+        ->status->toBe('Mock value')
+        ->description->toBe('Mock value')
+        ->body->toBe('Mock value')
+        ->itemClass->toBe('Mock value')
+        ->postingClass->toBe('Mock value')
+        ->vatCode->toBe('Mock value')
+        ->lotSerialClass->toBe('Mock value')
+        ->defaultPrice->toBe(3.14)
+        ->pendingCost->toBe(3.14)
+        ->pendingCostDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->currentCost->toBe(3.14)
+        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastCost->toBe(3.14)
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->baseUnit->toBe('Mock value')
+        ->salesUnit->toBe('Mock value')
+        ->purchaseUnit->toBe('Mock value')
+        ->stockItem->toBe(true)
+        ->kitItem->toBe(true)
+        ->accountInformation->toBe('Mock value')
+        ->costPriceStatistics->toBe('Mock value')
+        ->defaultWarehouse->toBe('Mock value')
+        ->defaultIssueFrom->toBe('Mock value')
+        ->defaultReceiptTo->toBe('Mock value')
+        ->packaging->toBe('Mock value')
+        ->intrastat->toBe('Mock value')
+        ->recommendedPrice->toBe(3.14)
+        ->priceManagerId->toBe('mock-id-123')
+        ->priceManager->toBe('Mock value')
+        ->priceClass->toBe('Mock value')
+        ->priceWorkgroupId->toBe(42)
+        ->priceClassId->toBe('mock-id-123')
+        ->note->toBe('Mock value')
+        ->timestamp->toBe('Mock value')
+        ->errorInfo->toBe('Mock value')
+        ->metadata->toBe('Mock value');
+});
+
+it('calls the inventoryGetAllCollection method in the Inventory resource', function () {
+    Saloon::fake([
+        InventoryGetAllCollectionRequest::class => MockResponse::make([
+            'data' => [
+                0 => [
+                    'type' => 'inventories',
+                    'id' => 'mock-id-1',
+                    'attributes' => [
+                        'inventoryId' => 42,
+                        'inventoryNumber' => 'Mock value',
+                        'status' => 'Mock value',
+                        'description' => 'Mock value',
+                        'body' => 'Mock value',
+                        'itemClass' => 'Mock value',
+                        'postingClass' => 'Mock value',
+                        'vatCode' => 'Mock value',
+                        'lotSerialClass' => 'Mock value',
+                        'defaultPrice' => 3.14,
+                        'pendingCost' => 3.14,
+                        'pendingCostDate' => '2025-11-22T10:40:04.065Z',
+                        'currentCost' => 3.14,
+                        'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                        'lastCost' => 3.14,
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                        'baseUnit' => 'Mock value',
+                        'salesUnit' => 'Mock value',
+                        'purchaseUnit' => 'Mock value',
+                        'stockItem' => true,
+                        'kitItem' => true,
+                        'accountInformation' => 'Mock value',
+                        'costPriceStatistics' => 'Mock value',
+                        'crossReferences' => [],
+                        'attachments' => [],
+                        'attributes' => [],
+                        'warehouseDetails' => [],
+                        'inventoryUnits' => [],
+                        'defaultWarehouse' => 'Mock value',
+                        'defaultIssueFrom' => 'Mock value',
+                        'defaultReceiptTo' => 'Mock value',
+                        'supplierDetails' => [],
+                        'salesCategories' => [],
+                        'packaging' => 'Mock value',
+                        'intrastat' => 'Mock value',
+                        'recommendedPrice' => 3.14,
+                        'priceManagerId' => 'mock-id-123',
+                        'priceManager' => 'Mock value',
+                        'priceClass' => 'Mock value',
+                        'priceWorkgroupId' => 42,
+                        'priceClassId' => 'mock-id-123',
+                        'note' => 'Mock value',
+                        'timestamp' => 'Mock value',
+                        'errorInfo' => 'Mock value',
+                        'metadata' => 'Mock value',
+                    ],
+                ],
+                1 => [
+                    'type' => 'inventories',
+                    'id' => 'mock-id-2',
+                    'attributes' => [
+                        'inventoryId' => 42,
+                        'inventoryNumber' => 'Mock value',
+                        'status' => 'Mock value',
+                        'description' => 'Mock value',
+                        'body' => 'Mock value',
+                        'itemClass' => 'Mock value',
+                        'postingClass' => 'Mock value',
+                        'vatCode' => 'Mock value',
+                        'lotSerialClass' => 'Mock value',
+                        'defaultPrice' => 3.14,
+                        'pendingCost' => 3.14,
+                        'pendingCostDate' => '2025-11-22T10:40:04.065Z',
+                        'currentCost' => 3.14,
+                        'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                        'lastCost' => 3.14,
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                        'baseUnit' => 'Mock value',
+                        'salesUnit' => 'Mock value',
+                        'purchaseUnit' => 'Mock value',
+                        'stockItem' => true,
+                        'kitItem' => true,
+                        'accountInformation' => 'Mock value',
+                        'costPriceStatistics' => 'Mock value',
+                        'crossReferences' => [],
+                        'attachments' => [],
+                        'attributes' => [],
+                        'warehouseDetails' => [],
+                        'inventoryUnits' => [],
+                        'defaultWarehouse' => 'Mock value',
+                        'defaultIssueFrom' => 'Mock value',
+                        'defaultReceiptTo' => 'Mock value',
+                        'supplierDetails' => [],
+                        'salesCategories' => [],
+                        'packaging' => 'Mock value',
+                        'intrastat' => 'Mock value',
+                        'recommendedPrice' => 3.14,
+                        'priceManagerId' => 'mock-id-123',
+                        'priceManager' => 'Mock value',
+                        'priceClass' => 'Mock value',
+                        'priceWorkgroupId' => 42,
+                        'priceClassId' => 'mock-id-123',
+                        'note' => 'Mock value',
+                        'timestamp' => 'Mock value',
+                        'errorInfo' => 'Mock value',
+                        'metadata' => 'Mock value',
+                    ],
+                ],
+            ],
+        ], 200),
+    ]);
+
+    $request = (new InventoryGetAllCollectionRequest(pageSize: 123, alternateId: 'test string', inventoryNumber: 'test string', salesCategory: 123, addCostPriceStatistics: true, attributes: 'test string', description: 'test string', availabilityLastModifiedDateTime: 'test string', availabilityLastModifiedDateTimeCondition: 'test string', inventoryTypes: [], expandCrossReference: true, expandAttachment: true, expandAttribute: true, expandWarehouseDetail: true, expandAccountInformation: true, expandInventoryUnits: true, expandSupplierDetails: true, expandSalesCategories: true, expandNote: true, attachmentLastModifiedDateTime: 'test string', attachmentLastModifiedDateTimeCondition: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123));
+
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(function (InventoryGetAllCollectionRequest $request) {
+        $query = $request->query()->all();
+
+        return true;
+    });
+
+    expect($response->status())->toBe(200);
+
+    $dtoCollection = $response->dto();
+
+    expect($dtoCollection->first())
+        ->inventoryId->toBe(42)
+        ->inventoryNumber->toBe('Mock value')
+        ->status->toBe('Mock value')
+        ->description->toBe('Mock value')
+        ->body->toBe('Mock value')
+        ->itemClass->toBe('Mock value')
+        ->postingClass->toBe('Mock value')
+        ->vatCode->toBe('Mock value')
+        ->lotSerialClass->toBe('Mock value')
+        ->defaultPrice->toBe(3.14)
+        ->pendingCost->toBe(3.14)
+        ->pendingCostDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->currentCost->toBe(3.14)
+        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastCost->toBe(3.14)
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->baseUnit->toBe('Mock value')
+        ->salesUnit->toBe('Mock value')
+        ->purchaseUnit->toBe('Mock value')
+        ->stockItem->toBe(true)
+        ->kitItem->toBe(true)
+        ->accountInformation->toBe('Mock value')
+        ->costPriceStatistics->toBe('Mock value')
+        ->defaultWarehouse->toBe('Mock value')
+        ->defaultIssueFrom->toBe('Mock value')
+        ->defaultReceiptTo->toBe('Mock value')
+        ->packaging->toBe('Mock value')
+        ->intrastat->toBe('Mock value')
+        ->recommendedPrice->toBe(3.14)
+        ->priceManagerId->toBe('mock-id-123')
+        ->priceManager->toBe('Mock value')
+        ->priceClass->toBe('Mock value')
+        ->priceWorkgroupId->toBe(42)
+        ->priceClassId->toBe('mock-id-123')
+        ->note->toBe('Mock value')
+        ->timestamp->toBe('Mock value')
+        ->errorInfo->toBe('Mock value')
+        ->metadata->toBe('Mock value');
 });
 
 it('calls the inventoryGetInventoryShipmentBarCodesByshipmentNbr method in the Inventory resource', function () {

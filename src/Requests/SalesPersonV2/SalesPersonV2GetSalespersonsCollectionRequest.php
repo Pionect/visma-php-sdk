@@ -22,8 +22,7 @@ class SalesPersonV2GetSalespersonsCollectionRequest extends Request implements P
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

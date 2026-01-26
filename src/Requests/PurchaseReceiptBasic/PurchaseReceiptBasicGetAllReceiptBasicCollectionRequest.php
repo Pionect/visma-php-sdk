@@ -22,8 +22,7 @@ class PurchaseReceiptBasicGetAllReceiptBasicCollectionRequest extends Request im
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

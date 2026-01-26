@@ -137,7 +137,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
         ], 200),
     ]);
 
-    $request = (new TimeCardGetAllEmployeeTimeCardsCollectionRequest(status: 'test string', week: 'test string', type: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = (new TimeCardGetAllEmployeeTimeCardsCollectionRequest(status: 'test string', week: 'test string', type: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', employeeCd: 'test string'));
 
     $response = $this->vismaConnector->send($request);
 

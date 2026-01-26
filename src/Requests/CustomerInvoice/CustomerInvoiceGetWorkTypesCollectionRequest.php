@@ -24,8 +24,7 @@ class CustomerInvoiceGetWorkTypesCollectionRequest extends Request implements Pa
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

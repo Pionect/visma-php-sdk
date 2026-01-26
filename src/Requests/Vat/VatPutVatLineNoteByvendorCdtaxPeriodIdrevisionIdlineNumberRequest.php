@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Vat;
 
+use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -18,6 +19,7 @@ class VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest extends 
     }
 
     /**
+     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -32,8 +34,18 @@ class VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest extends 
         protected string $taxPeriodIdId,
         protected int $revisionIdId,
         protected int $lineNumberId,
+        protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
+
+    protected function defaultBody(): array
+    {
+        if ($this->data instanceof Model) {
+            return $this->data->toArray();
+        }
+
+        return $this->data ?? [];
+    }
 
     public function defaultHeaders(): array
     {

@@ -22,8 +22,7 @@ class SalesOrderTypeGetAllSalesOrderTypesCollectionRequest extends Request imple
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

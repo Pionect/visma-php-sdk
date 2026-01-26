@@ -26,8 +26,7 @@ class DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest extends Reques
     {
         return Hydrator::hydrate(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 
@@ -52,12 +51,22 @@ class DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest extends Reques
         protected string $seriesId,
         protected string $filerDateId,
         protected Model|array|null $data = null,
+        protected string $filterDate,
         protected ?string $erpApiBackground = null,
     ) {}
 
     protected function defaultBody(): array
     {
-        return $this->data ? ['data' => $this->data->toJsonApi()] : [];
+        if ($this->data instanceof Model) {
+            return $this->data->toArray();
+        }
+
+        return $this->data ?? [];
+    }
+
+    public function defaultQuery(): array
+    {
+        return array_filter(['filterDate' => $this->filterDate]);
     }
 
     public function defaultHeaders(): array

@@ -3,6 +3,7 @@
 // auto-generated
 
 use Carbon\Carbon;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetAllCollectionRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetCustomerContractBycontractIdRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetCustomerContractDetailsBycontractIdRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetCustomerContractRecurringSummaryBycontractIdRequest;
@@ -21,7 +22,17 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
                 'type' => 'customerContracts',
                 'id' => 'mock-id-123',
                 'attributes' => [
-                    'name' => 'Mock value',
+                    'contractId' => 'mock-id-123',
+                    'contractTemplate' => 'Mock value',
+                    'status' => 'Mock value',
+                    'customer' => 'Mock value',
+                    'location' => 'Mock value',
+                    'description' => 'Mock value',
+                    'balance' => 3.14,
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'summary' => 'Mock value',
+                    'details' => 'Mock value',
+                    'attributes' => [],
                 ],
             ],
         ], 200),
@@ -40,7 +51,85 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value');
+        ->contractId->toBe('mock-id-123')
+        ->contractTemplate->toBe('Mock value')
+        ->status->toBe('Mock value')
+        ->customer->toBe('Mock value')
+        ->location->toBe('Mock value')
+        ->description->toBe('Mock value')
+        ->balance->toBe(3.14)
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->summary->toBe('Mock value')
+        ->details->toBe('Mock value');
+});
+
+it('calls the customerContractGetAllCollection method in the CustomerContract resource', function () {
+    Saloon::fake([
+        CustomerContractGetAllCollectionRequest::class => MockResponse::make([
+            'data' => [
+                0 => [
+                    'type' => 'customerContracts',
+                    'id' => 'mock-id-1',
+                    'attributes' => [
+                        'contractId' => 'mock-id-123',
+                        'contractTemplate' => 'Mock value',
+                        'status' => 'Mock value',
+                        'customer' => 'Mock value',
+                        'location' => 'Mock value',
+                        'description' => 'Mock value',
+                        'balance' => 3.14,
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                        'summary' => 'Mock value',
+                        'details' => 'Mock value',
+                        'attributes' => [],
+                    ],
+                ],
+                1 => [
+                    'type' => 'customerContracts',
+                    'id' => 'mock-id-2',
+                    'attributes' => [
+                        'contractId' => 'mock-id-123',
+                        'contractTemplate' => 'Mock value',
+                        'status' => 'Mock value',
+                        'customer' => 'Mock value',
+                        'location' => 'Mock value',
+                        'description' => 'Mock value',
+                        'balance' => 3.14,
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                        'summary' => 'Mock value',
+                        'details' => 'Mock value',
+                        'attributes' => [],
+                    ],
+                ],
+            ],
+        ], 200),
+    ]);
+
+    $request = (new CustomerContractGetAllCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', contractTemplate: 'test string', status: 'test string', customer: 'test string', expandSummary: true, expandDetails: true, attributes: 'test string', expandAttributes: true));
+
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(function (CustomerContractGetAllCollectionRequest $request) {
+        $query = $request->query()->all();
+
+        return true;
+    });
+
+    expect($response->status())->toBe(200);
+
+    $dtoCollection = $response->dto();
+
+    expect($dtoCollection->first())
+        ->contractId->toBe('mock-id-123')
+        ->contractTemplate->toBe('Mock value')
+        ->status->toBe('Mock value')
+        ->customer->toBe('Mock value')
+        ->location->toBe('Mock value')
+        ->description->toBe('Mock value')
+        ->balance->toBe(3.14)
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->summary->toBe('Mock value')
+        ->details->toBe('Mock value');
 });
 
 it('calls the customerContractGetCustomerContractSummaryBycontractId method in the CustomerContract resource', function () {

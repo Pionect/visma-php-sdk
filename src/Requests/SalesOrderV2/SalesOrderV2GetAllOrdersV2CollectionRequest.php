@@ -24,8 +24,7 @@ class SalesOrderV2GetAllOrdersV2CollectionRequest extends Request implements Pag
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

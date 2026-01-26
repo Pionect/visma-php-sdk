@@ -25,8 +25,7 @@ class SupplierInvoiceGetByinvoiceNumberRequest extends Request
     {
         return Hydrator::hydrate(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

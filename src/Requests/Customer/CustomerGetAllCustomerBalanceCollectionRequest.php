@@ -22,8 +22,7 @@ class CustomerGetAllCustomerBalanceCollectionRequest extends Request implements 
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 

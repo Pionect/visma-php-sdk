@@ -19,6 +19,7 @@ class EmployeeTimeCardQueryParametersFactory extends Factory
             'orderBy' => $this->faker->word(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
+            'employeeCd' => $this->faker->word(),
         ];
     }
 

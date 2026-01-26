@@ -28,8 +28,7 @@ class InventoryChangeInventoryNbrActionByinternalIdRequest extends Request imple
     {
         return Hydrator::hydrate(
             $this->model,
-            $response->json('data'),
-            $response->json('included')
+            $response->json()
         );
     }
 
@@ -58,7 +57,11 @@ class InventoryChangeInventoryNbrActionByinternalIdRequest extends Request imple
 
     protected function defaultBody(): array
     {
-        return $this->data ? ['data' => $this->data->toJsonApi()] : [];
+        if ($this->data instanceof Model) {
+            return $this->data->toArray();
+        }
+
+        return $this->data ?? [];
     }
 
     public function defaultHeaders(): array
