@@ -8,7 +8,6 @@ use Crescat\SaloonSdkGenerator\CodeGenerator;
 use Crescat\SaloonSdkGenerator\Data\Generator\Config;
 use Crescat\SaloonSdkGenerator\Data\TaggedOutputFile;
 use Crescat\SaloonSdkGenerator\Parsers\OpenApiParser;
-use Pionect\VismaSdk\Generator\Generators\PlainJsonConnectorGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonDtoGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonRequestGenerator;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -18,15 +17,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Timatic\JsonApiSdk\Generators\ConfigGenerator;
 use Timatic\JsonApiSdk\Generators\JsonApiFactoryGenerator;
 use Timatic\JsonApiSdk\Generators\JsonApiPestTestGenerator;
 use Timatic\JsonApiSdk\Generators\JsonApiResourceGenerator;
-use Timatic\JsonApiSdk\Generators\ServiceProviderGenerator;
-use Timatic\JsonApiSdk\Generators\TestSetupGenerator;
 use Timatic\JsonApiSdk\Services\ComposerSetup;
-use Timatic\JsonApiSdk\Services\ConfigValuesService;
-use Timatic\JsonApiSdk\Services\FoundationCopier;
 use Timatic\JsonApiSdk\Services\PintRunner;
 
 #[AsCommand(
@@ -46,53 +40,10 @@ class GenerateCommand extends Command
                 'Path to OpenAPI specification file (local file or URL)'
             )
             ->addOption(
-                'output',
-                'o',
-                InputOption::VALUE_REQUIRED,
-                'Output directory for generated SDK',
-                './output'
-            )
-            ->addOption(
-                'connector-name',
-                null,
-                InputOption::VALUE_REQUIRED,
-                'Name of the Connector class (e.g., "VismaConnector"). Config key is derived from this (e.g., "visma"). Required when using --foundation'
-            )
-            ->addOption(
-                'skip-tests',
-                null,
-                InputOption::VALUE_NONE,
-                'Skip generating Pest tests'
-            )
-            ->addOption(
-                'skip-factories',
-                null,
-                InputOption::VALUE_NONE,
-                'Skip generating Faker factories'
-            )
-            ->addOption(
-                'foundation',
-                null,
-                InputOption::VALUE_NONE,
-                'Generate Foundation support files'
-            )
-            ->addOption(
-                'base-url',
-                null,
-                InputOption::VALUE_REQUIRED,
-                'Default base URL for the API (optional)'
-            )
-            ->addOption(
                 'dry-run',
                 null,
                 InputOption::VALUE_NONE,
                 'Show what would be generated without writing files'
-            )
-            ->addOption(
-                'force',
-                null,
-                InputOption::VALUE_NONE,
-                'Overwrite existing files'
             );
     }
 
@@ -101,7 +52,7 @@ class GenerateCommand extends Command
         $this->io = new SymfonyStyle($input, $output);
 
         $specPath = $input->getArgument('spec');
-        $outputDir = $input->getOption('output');
+        $outputDir = '.';
         $composerPath = rtrim($outputDir, '/').'/composer.json';
 
         try {
@@ -112,35 +63,7 @@ class GenerateCommand extends Command
 
             return Command::FAILURE;
         }
-        $generateTests = ! $input->getOption('skip-tests');
-        $generateFactories = ! $input->getOption('skip-factories');
         $dryRun = $input->getOption('dry-run');
-        $force = $input->getOption('force');
-
-        $generateFoundation = $input->getOption('foundation');
-        $connectorNameOption = $input->getOption('connector-name');
-        $baseUrlOption = $input->getOption('base-url');
-
-        // Validate required options when --foundation is used
-        if ($generateFoundation && $connectorNameOption === null) {
-            $this->io->error('The --connector-name option is required when using --foundation');
-
-            return Command::FAILURE;
-        }
-
-        // Determine config key, base URL, and connector name
-        $configValuesService = new ConfigValuesService;
-        $configValues = $configValuesService->resolve($outputDir, $connectorNameOption, $baseUrlOption, $generateFoundation);
-
-        if ($configValues === null) {
-            $this->io->error('No existing SDK found in output directory. Use --foundation to generate a new SDK.');
-
-            return Command::FAILURE;
-        }
-
-        $configKey = $configValues['configKey'];
-        $baseUrl = $configValues['baseUrl'];
-        $connectorName = $configValues['connectorName'];
 
         $this->io->title('Plain JSON SDK Generator');
 
@@ -156,16 +79,11 @@ class GenerateCommand extends Command
             "Spec: {$specPath}",
             "Output: {$outputDir}",
             "Namespace (from composer.json): {$namespace}",
-            "Connector: {$connectorName}",
-            "Config key: {$configKey}",
-            'Tests: '.($generateTests ? 'Yes' : 'No'),
-            'Factories: '.($generateFactories ? 'Yes' : 'No'),
-            'Foundation: '.($generateFoundation ? 'Yes' : 'No'),
         ]);
 
         // Create config
         $config = new Config(
-            connectorName: $connectorName,
+            connectorName: 'VismaConnector',
             namespace: $namespace,
             resourceNamespaceSuffix: 'Resources',
             requestNamespaceSuffix: 'Requests',
@@ -188,10 +106,8 @@ class GenerateCommand extends Command
         // Configure post-processors
         $postProcessors = [];
 
-        if ($generateTests) {
-            $postProcessors[] = new JsonApiPestTestGenerator;
-            $postProcessors[] = new JsonApiFactoryGenerator;
-        }
+        $postProcessors[] = new JsonApiPestTestGenerator;
+        $postProcessors[] = new JsonApiFactoryGenerator;
 
         // Generate code using Plain JSON generators
         $this->io->section('Generating SDK');
@@ -201,7 +117,6 @@ class GenerateCommand extends Command
             requestGenerator: new PlainJsonRequestGenerator($config),
             resourceGenerator: new JsonApiResourceGenerator($config),
             dtoGenerator: new PlainJsonDtoGenerator($config),
-            connectorGenerator: new PlainJsonConnectorGenerator($config),
             postProcessors: $postProcessors,
         );
 
@@ -217,10 +132,10 @@ class GenerateCommand extends Command
         // Write files
         if ($dryRun) {
             $this->io->section('Dry Run - Files that would be generated:');
-            $this->listGeneratedFiles($this->io, $result, $outputDir, $configKey);
+            $this->listGeneratedFiles($this->io, $result, $outputDir);
         } else {
             $this->io->section('Writing Files');
-            $this->writeGeneratedFiles($this->io, $result, $outputDir, $force, $configKey, $connectorName, $baseUrl, $namespace, $generateFoundation, $dryRun, $composerSetup);
+            $this->writeGeneratedFiles($this->io, $result, $outputDir);
 
             // Run Pint to format generated files
             (new PintRunner)->run($outputDir, $this->io);
@@ -236,17 +151,9 @@ class GenerateCommand extends Command
         return str_starts_with($path, 'http://') || str_starts_with($path, 'https://');
     }
 
-    private function listGeneratedFiles(SymfonyStyle $io, $result, string $outputDir, string $configKey): void
+    private function listGeneratedFiles(SymfonyStyle $io, $result, string $outputDir): void
     {
         $files = [];
-
-        // Config file
-        $files[] = "{$outputDir}/config/{$configKey}.php";
-
-        // Collect all generated files
-        foreach ($result->connectorClass ?? [] as $name => $file) {
-            $files[] = "{$outputDir}/src/{$name}.php";
-        }
 
         foreach ($result->dtoClasses ?? [] as $name => $file) {
             $files[] = "{$outputDir}/src/Dto/{$name}.php";
@@ -271,82 +178,15 @@ class GenerateCommand extends Command
         SymfonyStyle $io,
         $result,
         string $outputDir,
-        bool $force,
-        string $configKey,
-        string $connectorName,
-        ?string $baseUrl,
-        string $namespace,
-        bool $generateFoundation,
-        bool $dryRun,
-        ComposerSetup $composerSetup
     ): void {
         $written = 0;
         $skipped = 0;
-
-        // Copy Foundation files only when explicitly requested
-        if ($generateFoundation) {
-            $foundationCopier = new FoundationCopier;
-            $foundationCount = $foundationCopier->copy($outputDir, $namespace);
-            $written += $foundationCount;
-
-            // Generate ServiceProvider
-            $serviceProviderGenerator = new ServiceProviderGenerator($namespace, $configKey, $connectorName);
-            $serviceProviderFile = $serviceProviderGenerator->generate();
-            $serviceProviderClassName = $serviceProviderGenerator->getClassName();
-            $serviceProviderPath = "{$outputDir}/src/Providers/{$serviceProviderClassName}.php";
-            if ($this->writeFile($serviceProviderPath, (string) $serviceProviderFile, $force)) {
-                $written++;
-            } else {
-                $skipped++;
-            }
-
-            // Generate test setup files (Pest.php and TestCase.php)
-            $testSetupGenerator = new TestSetupGenerator($namespace, $configKey, $connectorName, $baseUrl);
-
-            // Write Pest.php
-            $pestPhpPath = "{$outputDir}/tests/Pest.php";
-            if ($this->writeFile($pestPhpPath, $testSetupGenerator->generatePestPhp(), $force)) {
-                $written++;
-            } else {
-                $skipped++;
-            }
-
-            // Write TestCase.php
-            $testCaseFile = $testSetupGenerator->generateTestCase();
-            $testCasePath = "{$outputDir}/tests/TestCase.php";
-            if ($this->writeFile($testCasePath, (string) $testCaseFile, $force)) {
-                $written++;
-            } else {
-                $skipped++;
-            }
-
-            // After copying Foundation files, ensure composer.json exists and add required packages and settings
-            $io->section('Composer setup');
-            $composerSetup->setup($namespace, $io, $dryRun, $connectorName);
-
-            if ((new ConfigGenerator)->write($outputDir, $configKey, $baseUrl, $force)) {
-                $written++;
-            } else {
-                $skipped++;
-            }
-
-            // Write connector (single PhpFile, not array)
-            if ($generateFoundation && $result->connectorClass !== null) {
-                $className = $this->getClassNameFromPhpFile($result->connectorClass);
-                $path = "{$outputDir}/src/{$className}.php";
-                if ($this->writeFile($path, (string) $result->connectorClass, $force)) {
-                    $written++;
-                } else {
-                    $skipped++;
-                }
-            }
-        }
 
         // Write DTOs
         foreach ($result->dtoClasses ?? [] as $file) {
             $className = $this->getClassNameFromPhpFile($file);
             $path = "{$outputDir}/src/Dto/{$className}.php";
-            if ($this->writeFile($path, (string) $file, $force)) {
+            if ($this->writeFile($path, (string) $file)) {
                 $written++;
             } else {
                 $skipped++;
@@ -358,7 +198,7 @@ class GenerateCommand extends Command
             $className = $this->getClassNameFromPhpFile($file);
             $subDir = $this->getRequestSubdirectory($file);
             $path = "{$outputDir}/src/Requests/{$subDir}/{$className}.php";
-            if ($this->writeFile($path, (string) $file, $force)) {
+            if ($this->writeFile($path, (string) $file)) {
                 $written++;
             } else {
                 $skipped++;
@@ -371,7 +211,7 @@ class GenerateCommand extends Command
                 // Respect provided relative path for factories
                 $path = rtrim($outputDir, '/').'/'.ltrim($file->path, '/');
                 $content = is_string($file->file) ? $file->file : (string) $file->file;
-                if ($this->writeFile($path, $content, $force)) {
+                if ($this->writeFile($path, $content)) {
                     $written++;
                 } else {
                     $skipped++;
@@ -384,7 +224,7 @@ class GenerateCommand extends Command
                 // Default PhpFile additional files go into tests directory (backwards compatible)
                 $className = $this->getClassNameFromPhpFile($file);
                 $path = "{$outputDir}/tests/{$className}.php";
-                if ($this->writeFile($path, (string) $file, $force)) {
+                if ($this->writeFile($path, (string) $file)) {
                     $written++;
                 } else {
                     $skipped++;
@@ -419,12 +259,8 @@ class GenerateCommand extends Command
         return 'Misc';
     }
 
-    private function writeFile(string $path, string $content, bool $force): bool
+    private function writeFile(string $path, string $content): bool
     {
-        if (file_exists($path) && ! $force) {
-            return false;
-        }
-
         $dir = dirname($path);
         if (! is_dir($dir)) {
             mkdir($dir, 0755, true);

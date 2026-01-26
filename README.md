@@ -331,7 +331,7 @@ To regenerate:
 
 ```bash
 # Regenerate all DTOs and Requests
-./bin/generate-sdk path/to/openapi.json --output=. --force
+./bin/generate-sdk generate path/to/openapi.json 
 ```
 
 ## Credits
