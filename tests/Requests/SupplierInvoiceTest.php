@@ -13,10 +13,7 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the supplierInvoiceGetByinvoiceNumber method in the SupplierInvoice resource', function () {
@@ -24,13 +21,13 @@ it('calls the supplierInvoiceGetByinvoiceNumber method in the SupplierInvoice re
         SupplierInvoiceGetByinvoiceNumberRequest::class => MockResponse::make([
             'taxDetailLines' => [],
             'attachments' => [],
-            'approvalDetails' => 'Mock value',
+            'approvalDetails' => null,
             'invoiceLines' => [],
             'landedCosts' => [],
             'hold' => true,
             'exchangeRate' => 3.14,
-            'paymentRefNo' => 'Mock value',
-            'creditTerms' => 'Mock value',
+            'paymentRefNo' => 'String value',
+            'creditTerms' => null,
             'retainageApply' => true,
             'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
             'detailTotal' => 3.14,
@@ -43,49 +40,48 @@ it('calls the supplierInvoiceGetByinvoiceNumber method in the SupplierInvoice re
             'vatExemptTotalInCurrency' => 3.14,
             'withholdingTax' => 3.14,
             'withholdingTaxInCurrency' => 3.14,
-            'buyerReference' => 'Mock value',
+            'buyerReference' => 'String value',
             'roundingDiff' => 3.14,
             'roundingDiffInCurrency' => 3.14,
             'amount' => 3.14,
             'vatAmount' => 3.14,
-            'taxCalculationMode' => 'Mock value',
-            'supplierTaxZone' => 'Mock value',
+            'taxCalculationMode' => 'String value',
+            'supplierTaxZone' => null,
             'paySelected' => true,
             'curyRetainageTotal' => 3.14,
             'curyRetainageUnreleasedAmt' => 3.14,
             'documentVersionNumber' => 42,
-            'supplier' => 'Mock value',
-            'documentType' => 'Mock value',
-            'referenceNumber' => 'Mock value',
-            'postPeriod' => 'Mock value',
-            'financialPeriod' => 'Mock value',
+            'supplier' => null,
+            'documentType' => 'String value',
+            'referenceNumber' => 'String value',
+            'postPeriod' => 'String value',
+            'financialPeriod' => 'String value',
             'date' => '2025-11-22T10:40:04.065Z',
             'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
             'dueDate' => '2025-11-22T10:40:04.065Z',
-            'approvalStatus' => 'Mock value',
-            'status' => 'Mock value',
+            'approvalStatus' => 'String value',
+            'status' => 'String value',
             'currencyId' => 'mock-id-123',
             'balance' => 3.14,
             'balanceInCurrency' => 3.14,
             'cashDiscount' => 3.14,
             'cashDiscountInCurrency' => 3.14,
-            'paymentMethod' => 'Mock value',
-            'supplierReference' => 'Mock value',
-            'description' => 'Mock value',
+            'paymentMethod' => null,
+            'supplierReference' => 'String value',
+            'description' => 'String value',
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'note' => 'Mock value',
-            'closedFinancialPeriod' => 'Mock value',
-            'location' => 'Mock value',
+            'note' => 'String value',
+            'closedFinancialPeriod' => 'String value',
+            'location' => null,
             'vatTotal' => 3.14,
             'vatTotalInCurrency' => 3.14,
-            'branchNumber' => 'Mock value',
+            'branchNumber' => null,
             'payDate' => '2025-11-22T10:40:04.065Z',
-            'paymentMessage' => 'Mock value',
-            'cashAccount' => 'Mock value',
+            'paymentMessage' => 'String value',
+            'cashAccount' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -104,11 +100,11 @@ it('calls the supplierInvoiceGetByinvoiceNumber method in the SupplierInvoice re
     $dto = $response->dto();
 
     expect($dto)
-        ->approvalDetails->toBe('Mock value')
+        ->approvalDetails->toBeNull()
         ->hold->toBeTrue()
         ->exchangeRate->toBe(3.14)
-        ->paymentRefNo->toBe('Mock value')
-        ->creditTerms->toBe('Mock value')
+        ->paymentRefNo->toBe('String value')
+        ->creditTerms->toBeNull()
         ->retainageApply->toBeTrue()
         ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->detailTotal->toBe(3.14)
@@ -121,49 +117,48 @@ it('calls the supplierInvoiceGetByinvoiceNumber method in the SupplierInvoice re
         ->vatExemptTotalInCurrency->toBe(3.14)
         ->withholdingTax->toBe(3.14)
         ->withholdingTaxInCurrency->toBe(3.14)
-        ->buyerReference->toBe('Mock value')
+        ->buyerReference->toBe('String value')
         ->roundingDiff->toBe(3.14)
         ->roundingDiffInCurrency->toBe(3.14)
         ->amount->toBe(3.14)
         ->vatAmount->toBe(3.14)
-        ->taxCalculationMode->toBe('Mock value')
-        ->supplierTaxZone->toBe('Mock value')
+        ->taxCalculationMode->toBe('String value')
+        ->supplierTaxZone->toBeNull()
         ->paySelected->toBeTrue()
         ->curyRetainageTotal->toBe(3.14)
         ->curyRetainageUnreleasedAmt->toBe(3.14)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBe('Mock value')
-        ->documentType->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
+        ->supplier->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatus->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->approvalStatus->toBe('String value')
+        ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(3.14)
         ->balanceInCurrency->toBe(3.14)
         ->cashDiscount->toBe(3.14)
         ->cashDiscountInCurrency->toBe(3.14)
-        ->paymentMethod->toBe('Mock value')
-        ->supplierReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->paymentMethod->toBeNull()
+        ->supplierReference->toBe('String value')
+        ->description->toBe('String value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->closedFinancialPeriod->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->note->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
+        ->location->toBeNull()
         ->vatTotal->toBe(3.14)
         ->vatTotalInCurrency->toBe(3.14)
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->payDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->paymentMessage->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
+        ->paymentMessage->toBe('String value')
+        ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumber method in the SupplierInvoice resource', function () {
@@ -171,13 +166,13 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumber method in the 
         SupplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest::class => MockResponse::make([
             'taxDetailLines' => [],
             'attachments' => [],
-            'approvalDetails' => 'Mock value',
+            'approvalDetails' => null,
             'invoiceLines' => [],
             'landedCosts' => [],
             'hold' => true,
             'exchangeRate' => 3.14,
-            'paymentRefNo' => 'Mock value',
-            'creditTerms' => 'Mock value',
+            'paymentRefNo' => 'String value',
+            'creditTerms' => null,
             'retainageApply' => true,
             'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
             'detailTotal' => 3.14,
@@ -190,49 +185,48 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumber method in the 
             'vatExemptTotalInCurrency' => 3.14,
             'withholdingTax' => 3.14,
             'withholdingTaxInCurrency' => 3.14,
-            'buyerReference' => 'Mock value',
+            'buyerReference' => 'String value',
             'roundingDiff' => 3.14,
             'roundingDiffInCurrency' => 3.14,
             'amount' => 3.14,
             'vatAmount' => 3.14,
-            'taxCalculationMode' => 'Mock value',
-            'supplierTaxZone' => 'Mock value',
+            'taxCalculationMode' => 'String value',
+            'supplierTaxZone' => null,
             'paySelected' => true,
             'curyRetainageTotal' => 3.14,
             'curyRetainageUnreleasedAmt' => 3.14,
             'documentVersionNumber' => 42,
-            'supplier' => 'Mock value',
-            'documentType' => 'Mock value',
-            'referenceNumber' => 'Mock value',
-            'postPeriod' => 'Mock value',
-            'financialPeriod' => 'Mock value',
+            'supplier' => null,
+            'documentType' => 'String value',
+            'referenceNumber' => 'String value',
+            'postPeriod' => 'String value',
+            'financialPeriod' => 'String value',
             'date' => '2025-11-22T10:40:04.065Z',
             'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
             'dueDate' => '2025-11-22T10:40:04.065Z',
-            'approvalStatus' => 'Mock value',
-            'status' => 'Mock value',
+            'approvalStatus' => 'String value',
+            'status' => 'String value',
             'currencyId' => 'mock-id-123',
             'balance' => 3.14,
             'balanceInCurrency' => 3.14,
             'cashDiscount' => 3.14,
             'cashDiscountInCurrency' => 3.14,
-            'paymentMethod' => 'Mock value',
-            'supplierReference' => 'Mock value',
-            'description' => 'Mock value',
+            'paymentMethod' => null,
+            'supplierReference' => 'String value',
+            'description' => 'String value',
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'note' => 'Mock value',
-            'closedFinancialPeriod' => 'Mock value',
-            'location' => 'Mock value',
+            'note' => 'String value',
+            'closedFinancialPeriod' => 'String value',
+            'location' => null,
             'vatTotal' => 3.14,
             'vatTotalInCurrency' => 3.14,
-            'branchNumber' => 'Mock value',
+            'branchNumber' => null,
             'payDate' => '2025-11-22T10:40:04.065Z',
-            'paymentMessage' => 'Mock value',
-            'cashAccount' => 'Mock value',
+            'paymentMessage' => 'String value',
+            'cashAccount' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -252,11 +246,11 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumber method in the 
     $dto = $response->dto();
 
     expect($dto)
-        ->approvalDetails->toBe('Mock value')
+        ->approvalDetails->toBeNull()
         ->hold->toBeTrue()
         ->exchangeRate->toBe(3.14)
-        ->paymentRefNo->toBe('Mock value')
-        ->creditTerms->toBe('Mock value')
+        ->paymentRefNo->toBe('String value')
+        ->creditTerms->toBeNull()
         ->retainageApply->toBeTrue()
         ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->detailTotal->toBe(3.14)
@@ -269,49 +263,48 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumber method in the 
         ->vatExemptTotalInCurrency->toBe(3.14)
         ->withholdingTax->toBe(3.14)
         ->withholdingTaxInCurrency->toBe(3.14)
-        ->buyerReference->toBe('Mock value')
+        ->buyerReference->toBe('String value')
         ->roundingDiff->toBe(3.14)
         ->roundingDiffInCurrency->toBe(3.14)
         ->amount->toBe(3.14)
         ->vatAmount->toBe(3.14)
-        ->taxCalculationMode->toBe('Mock value')
-        ->supplierTaxZone->toBe('Mock value')
+        ->taxCalculationMode->toBe('String value')
+        ->supplierTaxZone->toBeNull()
         ->paySelected->toBeTrue()
         ->curyRetainageTotal->toBe(3.14)
         ->curyRetainageUnreleasedAmt->toBe(3.14)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBe('Mock value')
-        ->documentType->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
+        ->supplier->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatus->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->approvalStatus->toBe('String value')
+        ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(3.14)
         ->balanceInCurrency->toBe(3.14)
         ->cashDiscount->toBe(3.14)
         ->cashDiscountInCurrency->toBe(3.14)
-        ->paymentMethod->toBe('Mock value')
-        ->supplierReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->paymentMethod->toBeNull()
+        ->supplierReference->toBe('String value')
+        ->description->toBe('String value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->closedFinancialPeriod->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->note->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
+        ->location->toBeNull()
         ->vatTotal->toBe(3.14)
         ->vatTotalInCurrency->toBe(3.14)
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->payDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->paymentMessage->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
+        ->paymentMessage->toBe('String value')
+        ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvoice resource', function () {
@@ -320,13 +313,13 @@ it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvo
             0 => [
                 'taxDetailLines' => [],
                 'attachments' => [],
-                'approvalDetails' => 'Mock value',
+                'approvalDetails' => null,
                 'invoiceLines' => [],
                 'landedCosts' => [],
                 'hold' => true,
                 'exchangeRate' => 3.14,
-                'paymentRefNo' => 'Mock value',
-                'creditTerms' => 'Mock value',
+                'paymentRefNo' => 'String value',
+                'creditTerms' => null,
                 'retainageApply' => true,
                 'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
                 'detailTotal' => 3.14,
@@ -339,60 +332,63 @@ it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvo
                 'vatExemptTotalInCurrency' => 3.14,
                 'withholdingTax' => 3.14,
                 'withholdingTaxInCurrency' => 3.14,
-                'buyerReference' => 'Mock value',
+                'buyerReference' => 'String value',
                 'roundingDiff' => 3.14,
                 'roundingDiffInCurrency' => 3.14,
                 'amount' => 3.14,
                 'vatAmount' => 3.14,
-                'taxCalculationMode' => 'Mock value',
-                'supplierTaxZone' => 'Mock value',
+                'taxCalculationMode' => 'String value',
+                'supplierTaxZone' => null,
                 'paySelected' => true,
                 'curyRetainageTotal' => 3.14,
                 'curyRetainageUnreleasedAmt' => 3.14,
                 'documentVersionNumber' => 42,
-                'supplier' => 'Mock value',
-                'documentType' => 'Mock value',
-                'referenceNumber' => 'Mock value',
-                'postPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
+                'supplier' => null,
+                'documentType' => 'String value',
+                'referenceNumber' => 'String value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04.065Z',
                 'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
                 'dueDate' => '2025-11-22T10:40:04.065Z',
-                'approvalStatus' => 'Mock value',
-                'status' => 'Mock value',
+                'approvalStatus' => 'String value',
+                'status' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'balance' => 3.14,
                 'balanceInCurrency' => 3.14,
                 'cashDiscount' => 3.14,
                 'cashDiscountInCurrency' => 3.14,
-                'paymentMethod' => 'Mock value',
-                'supplierReference' => 'Mock value',
-                'description' => 'Mock value',
+                'paymentMethod' => null,
+                'supplierReference' => 'String value',
+                'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'note' => 'Mock value',
-                'closedFinancialPeriod' => 'Mock value',
-                'location' => 'Mock value',
+                'note' => 'String value',
+                'closedFinancialPeriod' => 'String value',
+                'location' => null,
                 'vatTotal' => 3.14,
                 'vatTotalInCurrency' => 3.14,
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'payDate' => '2025-11-22T10:40:04.065Z',
-                'paymentMessage' => 'Mock value',
-                'cashAccount' => 'Mock value',
+                'paymentMessage' => 'String value',
+                'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'taxDetailLines' => [],
                 'attachments' => [],
-                'approvalDetails' => 'Mock value',
+                'approvalDetails' => null,
                 'invoiceLines' => [],
                 'landedCosts' => [],
                 'hold' => true,
                 'exchangeRate' => 3.14,
-                'paymentRefNo' => 'Mock value',
-                'creditTerms' => 'Mock value',
+                'paymentRefNo' => 'String value',
+                'creditTerms' => null,
                 'retainageApply' => true,
                 'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
                 'detailTotal' => 3.14,
@@ -405,56 +401,59 @@ it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvo
                 'vatExemptTotalInCurrency' => 3.14,
                 'withholdingTax' => 3.14,
                 'withholdingTaxInCurrency' => 3.14,
-                'buyerReference' => 'Mock value',
+                'buyerReference' => 'String value',
                 'roundingDiff' => 3.14,
                 'roundingDiffInCurrency' => 3.14,
                 'amount' => 3.14,
                 'vatAmount' => 3.14,
-                'taxCalculationMode' => 'Mock value',
-                'supplierTaxZone' => 'Mock value',
+                'taxCalculationMode' => 'String value',
+                'supplierTaxZone' => null,
                 'paySelected' => true,
                 'curyRetainageTotal' => 3.14,
                 'curyRetainageUnreleasedAmt' => 3.14,
                 'documentVersionNumber' => 42,
-                'supplier' => 'Mock value',
-                'documentType' => 'Mock value',
-                'referenceNumber' => 'Mock value',
-                'postPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
+                'supplier' => null,
+                'documentType' => 'String value',
+                'referenceNumber' => 'String value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04.065Z',
                 'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
                 'dueDate' => '2025-11-22T10:40:04.065Z',
-                'approvalStatus' => 'Mock value',
-                'status' => 'Mock value',
+                'approvalStatus' => 'String value',
+                'status' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'balance' => 3.14,
                 'balanceInCurrency' => 3.14,
                 'cashDiscount' => 3.14,
                 'cashDiscountInCurrency' => 3.14,
-                'paymentMethod' => 'Mock value',
-                'supplierReference' => 'Mock value',
-                'description' => 'Mock value',
+                'paymentMethod' => null,
+                'supplierReference' => 'String value',
+                'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'note' => 'Mock value',
-                'closedFinancialPeriod' => 'Mock value',
-                'location' => 'Mock value',
+                'note' => 'String value',
+                'closedFinancialPeriod' => 'String value',
+                'location' => null,
                 'vatTotal' => 3.14,
                 'vatTotalInCurrency' => 3.14,
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'payDate' => '2025-11-22T10:40:04.065Z',
-                'paymentMessage' => 'Mock value',
-                'cashAccount' => 'Mock value',
+                'paymentMessage' => 'String value',
+                'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new SupplierInvoiceGetAllInvoicesCollectionRequest(supplier: 'test string', expandAttachment: true, expandLandedCosts: true, documentType: 'test string', released: 123, project: 'test string', expandApproval: true, expandNote: true, numberToRead: 123, skipRecords: 123, status: 'test string', expandLinePrebookAccounts: true, branch: 'test string', financialPeriod: 'test string', dueDate: 'test string', dueDateCondition: 'test string', docDate: 'test string', docDateCondition: 'test string', item: 'test string', balance: null, balanceCondition: 'test string', greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SupplierInvoiceGetAllInvoicesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -462,16 +461,14 @@ it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvo
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->approvalDetails->toBe('Mock value')
+        ->approvalDetails->toBeNull()
         ->hold->toBeTrue()
         ->exchangeRate->toBe(3.14)
-        ->paymentRefNo->toBe('Mock value')
-        ->creditTerms->toBe('Mock value')
+        ->paymentRefNo->toBe('String value')
+        ->creditTerms->toBeNull()
         ->retainageApply->toBeTrue()
         ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->detailTotal->toBe(3.14)
@@ -484,49 +481,48 @@ it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvo
         ->vatExemptTotalInCurrency->toBe(3.14)
         ->withholdingTax->toBe(3.14)
         ->withholdingTaxInCurrency->toBe(3.14)
-        ->buyerReference->toBe('Mock value')
+        ->buyerReference->toBe('String value')
         ->roundingDiff->toBe(3.14)
         ->roundingDiffInCurrency->toBe(3.14)
         ->amount->toBe(3.14)
         ->vatAmount->toBe(3.14)
-        ->taxCalculationMode->toBe('Mock value')
-        ->supplierTaxZone->toBe('Mock value')
+        ->taxCalculationMode->toBe('String value')
+        ->supplierTaxZone->toBeNull()
         ->paySelected->toBeTrue()
         ->curyRetainageTotal->toBe(3.14)
         ->curyRetainageUnreleasedAmt->toBe(3.14)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBe('Mock value')
-        ->documentType->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
+        ->supplier->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatus->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->approvalStatus->toBe('String value')
+        ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(3.14)
         ->balanceInCurrency->toBe(3.14)
         ->cashDiscount->toBe(3.14)
         ->cashDiscountInCurrency->toBe(3.14)
-        ->paymentMethod->toBe('Mock value')
-        ->supplierReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->paymentMethod->toBeNull()
+        ->supplierReference->toBe('String value')
+        ->description->toBe('String value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->closedFinancialPeriod->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->note->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
+        ->location->toBeNull()
         ->vatTotal->toBe(3.14)
         ->vatTotalInCurrency->toBe(3.14)
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->payDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->paymentMessage->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
+        ->paymentMessage->toBe('String value')
+        ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the SupplierInvoice resource', function () {
@@ -535,13 +531,13 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the Sup
             0 => [
                 'taxDetailLines' => [],
                 'attachments' => [],
-                'approvalDetails' => 'Mock value',
+                'approvalDetails' => null,
                 'invoiceLines' => [],
                 'landedCosts' => [],
                 'hold' => true,
                 'exchangeRate' => 3.14,
-                'paymentRefNo' => 'Mock value',
-                'creditTerms' => 'Mock value',
+                'paymentRefNo' => 'String value',
+                'creditTerms' => null,
                 'retainageApply' => true,
                 'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
                 'detailTotal' => 3.14,
@@ -554,60 +550,63 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the Sup
                 'vatExemptTotalInCurrency' => 3.14,
                 'withholdingTax' => 3.14,
                 'withholdingTaxInCurrency' => 3.14,
-                'buyerReference' => 'Mock value',
+                'buyerReference' => 'String value',
                 'roundingDiff' => 3.14,
                 'roundingDiffInCurrency' => 3.14,
                 'amount' => 3.14,
                 'vatAmount' => 3.14,
-                'taxCalculationMode' => 'Mock value',
-                'supplierTaxZone' => 'Mock value',
+                'taxCalculationMode' => 'String value',
+                'supplierTaxZone' => null,
                 'paySelected' => true,
                 'curyRetainageTotal' => 3.14,
                 'curyRetainageUnreleasedAmt' => 3.14,
                 'documentVersionNumber' => 42,
-                'supplier' => 'Mock value',
-                'documentType' => 'Mock value',
-                'referenceNumber' => 'Mock value',
-                'postPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
+                'supplier' => null,
+                'documentType' => 'String value',
+                'referenceNumber' => 'String value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04.065Z',
                 'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
                 'dueDate' => '2025-11-22T10:40:04.065Z',
-                'approvalStatus' => 'Mock value',
-                'status' => 'Mock value',
+                'approvalStatus' => 'String value',
+                'status' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'balance' => 3.14,
                 'balanceInCurrency' => 3.14,
                 'cashDiscount' => 3.14,
                 'cashDiscountInCurrency' => 3.14,
-                'paymentMethod' => 'Mock value',
-                'supplierReference' => 'Mock value',
-                'description' => 'Mock value',
+                'paymentMethod' => null,
+                'supplierReference' => 'String value',
+                'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'note' => 'Mock value',
-                'closedFinancialPeriod' => 'Mock value',
-                'location' => 'Mock value',
+                'note' => 'String value',
+                'closedFinancialPeriod' => 'String value',
+                'location' => null,
                 'vatTotal' => 3.14,
                 'vatTotalInCurrency' => 3.14,
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'payDate' => '2025-11-22T10:40:04.065Z',
-                'paymentMessage' => 'Mock value',
-                'cashAccount' => 'Mock value',
+                'paymentMessage' => 'String value',
+                'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'taxDetailLines' => [],
                 'attachments' => [],
-                'approvalDetails' => 'Mock value',
+                'approvalDetails' => null,
                 'invoiceLines' => [],
                 'landedCosts' => [],
                 'hold' => true,
                 'exchangeRate' => 3.14,
-                'paymentRefNo' => 'Mock value',
-                'creditTerms' => 'Mock value',
+                'paymentRefNo' => 'String value',
+                'creditTerms' => null,
                 'retainageApply' => true,
                 'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
                 'detailTotal' => 3.14,
@@ -620,56 +619,59 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the Sup
                 'vatExemptTotalInCurrency' => 3.14,
                 'withholdingTax' => 3.14,
                 'withholdingTaxInCurrency' => 3.14,
-                'buyerReference' => 'Mock value',
+                'buyerReference' => 'String value',
                 'roundingDiff' => 3.14,
                 'roundingDiffInCurrency' => 3.14,
                 'amount' => 3.14,
                 'vatAmount' => 3.14,
-                'taxCalculationMode' => 'Mock value',
-                'supplierTaxZone' => 'Mock value',
+                'taxCalculationMode' => 'String value',
+                'supplierTaxZone' => null,
                 'paySelected' => true,
                 'curyRetainageTotal' => 3.14,
                 'curyRetainageUnreleasedAmt' => 3.14,
                 'documentVersionNumber' => 42,
-                'supplier' => 'Mock value',
-                'documentType' => 'Mock value',
-                'referenceNumber' => 'Mock value',
-                'postPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
+                'supplier' => null,
+                'documentType' => 'String value',
+                'referenceNumber' => 'String value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04.065Z',
                 'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
                 'dueDate' => '2025-11-22T10:40:04.065Z',
-                'approvalStatus' => 'Mock value',
-                'status' => 'Mock value',
+                'approvalStatus' => 'String value',
+                'status' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'balance' => 3.14,
                 'balanceInCurrency' => 3.14,
                 'cashDiscount' => 3.14,
                 'cashDiscountInCurrency' => 3.14,
-                'paymentMethod' => 'Mock value',
-                'supplierReference' => 'Mock value',
-                'description' => 'Mock value',
+                'paymentMethod' => null,
+                'supplierReference' => 'String value',
+                'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'note' => 'Mock value',
-                'closedFinancialPeriod' => 'Mock value',
-                'location' => 'Mock value',
+                'note' => 'String value',
+                'closedFinancialPeriod' => 'String value',
+                'location' => null,
                 'vatTotal' => 3.14,
                 'vatTotalInCurrency' => 3.14,
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'payDate' => '2025-11-22T10:40:04.065Z',
-                'paymentMessage' => 'Mock value',
-                'cashAccount' => 'Mock value',
+                'paymentMessage' => 'String value',
+                'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new SupplierInvoiceGetByApprovalDocumentIdCollectionRequest(systemId: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SupplierInvoiceGetByApprovalDocumentIdCollectionRequest $request) {
         $query = $request->query()->all();
@@ -677,16 +679,14 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the Sup
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->approvalDetails->toBe('Mock value')
+        ->approvalDetails->toBeNull()
         ->hold->toBeTrue()
         ->exchangeRate->toBe(3.14)
-        ->paymentRefNo->toBe('Mock value')
-        ->creditTerms->toBe('Mock value')
+        ->paymentRefNo->toBe('String value')
+        ->creditTerms->toBeNull()
         ->retainageApply->toBeTrue()
         ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->detailTotal->toBe(3.14)
@@ -699,49 +699,48 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the Sup
         ->vatExemptTotalInCurrency->toBe(3.14)
         ->withholdingTax->toBe(3.14)
         ->withholdingTaxInCurrency->toBe(3.14)
-        ->buyerReference->toBe('Mock value')
+        ->buyerReference->toBe('String value')
         ->roundingDiff->toBe(3.14)
         ->roundingDiffInCurrency->toBe(3.14)
         ->amount->toBe(3.14)
         ->vatAmount->toBe(3.14)
-        ->taxCalculationMode->toBe('Mock value')
-        ->supplierTaxZone->toBe('Mock value')
+        ->taxCalculationMode->toBe('String value')
+        ->supplierTaxZone->toBeNull()
         ->paySelected->toBeTrue()
         ->curyRetainageTotal->toBe(3.14)
         ->curyRetainageUnreleasedAmt->toBe(3.14)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBe('Mock value')
-        ->documentType->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
+        ->supplier->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatus->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->approvalStatus->toBe('String value')
+        ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(3.14)
         ->balanceInCurrency->toBe(3.14)
         ->cashDiscount->toBe(3.14)
         ->cashDiscountInCurrency->toBe(3.14)
-        ->paymentMethod->toBe('Mock value')
-        ->supplierReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->paymentMethod->toBeNull()
+        ->supplierReference->toBe('String value')
+        ->description->toBe('String value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->closedFinancialPeriod->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->note->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
+        ->location->toBeNull()
         ->vatTotal->toBe(3.14)
         ->vatTotalInCurrency->toBe(3.14)
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->payDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->paymentMessage->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
+        ->paymentMessage->toBe('String value')
+        ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierInvoiceWriteoffInvoiceBydocumentTypeinvoiceNumber method in the SupplierInvoice resource', function () {

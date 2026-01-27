@@ -15,7 +15,6 @@ class FixedAssetPropertyTaxDtoFactory extends Factory
             'active' => $this->faker->boolean(),
             'details' => [],
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

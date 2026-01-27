@@ -7,21 +7,18 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the currencyRateTypeGetAllCollection method in the CurrencyRateType resource', function () {
     Saloon::fake([
         CurrencyRateTypeGetAllCollectionRequest::class => MockResponse::make([
             0 => [
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'daysEffective' => 42,
             ],
             1 => [
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'daysEffective' => 42,
             ],
         ], 200),
@@ -29,7 +26,7 @@ it('calls the currencyRateTypeGetAllCollection method in the CurrencyRateType re
 
     $request = (new CurrencyRateTypeGetAllCollectionRequest);
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (CurrencyRateTypeGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -37,11 +34,9 @@ it('calls the currencyRateTypeGetAllCollection method in the CurrencyRateType re
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->daysEffective->toBe(42);
 });

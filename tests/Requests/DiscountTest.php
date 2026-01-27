@@ -10,10 +10,7 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the discountGetDiscountsCollection method in the Discount resource', function () {
@@ -36,7 +33,7 @@ it('calls the discountGetDiscountsCollection method in the Discount resource', f
 
     $request = (new DiscountGetDiscountsCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', discountCode: 'test string', series: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (DiscountGetDiscountsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -44,9 +41,7 @@ it('calls the discountGetDiscountsCollection method in the Discount resource', f
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->pageNumber->toBe(42)

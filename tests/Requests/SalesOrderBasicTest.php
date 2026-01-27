@@ -12,29 +12,26 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resource', function () {
     Saloon::fake([
         SalesOrderBasicGetByorderNbrRequest::class => MockResponse::make([
             'lines' => [],
-            'orderType' => 'Mock value',
-            'orderNo' => 'Mock value',
-            'status' => 'Mock value',
+            'orderType' => 'String value',
+            'orderNo' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'date' => '2025-11-22T10:40:04.065Z',
             'requestOn' => '2025-11-22T10:40:04.065Z',
-            'customerOrder' => 'Mock value',
-            'customerRefNo' => 'Mock value',
-            'customer' => 'Mock value',
+            'customerOrder' => 'String value',
+            'customerRefNo' => 'String value',
+            'customer' => null,
             'contactId' => 42,
-            'location' => 'Mock value',
-            'currency' => 'Mock value',
-            'description' => 'Mock value',
+            'location' => null,
+            'currency' => 'String value',
+            'description' => 'String value',
             'orderTotal' => 3.14,
             'orderTotalInBaseCurrency' => 3.14,
             'vatTaxableTotal' => 3.14,
@@ -47,11 +44,10 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
             'discountTotal' => 3.14,
             'discountTotalInBaseCurrency' => 3.14,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'branchNumber' => 'Mock value',
-            'note' => 'Mock value',
+            'branchNumber' => null,
+            'note' => 'String value',
             'attachments' => [],
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -68,19 +64,19 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
     $dto = $response->dto();
 
     expect($dto)
-        ->orderType->toBe('Mock value')
-        ->orderNo->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->orderType->toBe('String value')
+        ->orderNo->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customerOrder->toBe('Mock value')
-        ->customerRefNo->toBe('Mock value')
-        ->customer->toBe('Mock value')
+        ->customerOrder->toBe('String value')
+        ->customerRefNo->toBe('String value')
+        ->customer->toBeNull()
         ->contactId->toBe(42)
-        ->location->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->location->toBeNull()
+        ->currency->toBe('String value')
+        ->description->toBe('String value')
         ->orderTotal->toBe(3.14)
         ->orderTotalInBaseCurrency->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
@@ -93,29 +89,28 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
         ->discountTotal->toBe(3.14)
         ->discountTotalInBaseCurrency->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->note->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->note->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the SalesOrderBasic resource', function () {
     Saloon::fake([
         SalesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest::class => MockResponse::make([
             'lines' => [],
-            'orderType' => 'Mock value',
-            'orderNo' => 'Mock value',
-            'status' => 'Mock value',
+            'orderType' => 'String value',
+            'orderNo' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'date' => '2025-11-22T10:40:04.065Z',
             'requestOn' => '2025-11-22T10:40:04.065Z',
-            'customerOrder' => 'Mock value',
-            'customerRefNo' => 'Mock value',
-            'customer' => 'Mock value',
+            'customerOrder' => 'String value',
+            'customerRefNo' => 'String value',
+            'customer' => null,
             'contactId' => 42,
-            'location' => 'Mock value',
-            'currency' => 'Mock value',
-            'description' => 'Mock value',
+            'location' => null,
+            'currency' => 'String value',
+            'description' => 'String value',
             'orderTotal' => 3.14,
             'orderTotalInBaseCurrency' => 3.14,
             'vatTaxableTotal' => 3.14,
@@ -128,11 +123,10 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
             'discountTotal' => 3.14,
             'discountTotalInBaseCurrency' => 3.14,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'branchNumber' => 'Mock value',
-            'note' => 'Mock value',
+            'branchNumber' => null,
+            'note' => 'String value',
             'attachments' => [],
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -150,19 +144,19 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
     $dto = $response->dto();
 
     expect($dto)
-        ->orderType->toBe('Mock value')
-        ->orderNo->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->orderType->toBe('String value')
+        ->orderNo->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customerOrder->toBe('Mock value')
-        ->customerRefNo->toBe('Mock value')
-        ->customer->toBe('Mock value')
+        ->customerOrder->toBe('String value')
+        ->customerRefNo->toBe('String value')
+        ->customer->toBeNull()
         ->contactId->toBe(42)
-        ->location->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->location->toBeNull()
+        ->currency->toBe('String value')
+        ->description->toBe('String value')
         ->orderTotal->toBe(3.14)
         ->orderTotalInBaseCurrency->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
@@ -175,10 +169,9 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
         ->discountTotal->toBe(3.14)
         ->discountTotalInBaseCurrency->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->note->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->note->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasic resource', function () {
@@ -186,19 +179,19 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
         SalesOrderBasicGetAllOrdersCollectionRequest::class => MockResponse::make([
             0 => [
                 'lines' => [],
-                'orderType' => 'Mock value',
-                'orderNo' => 'Mock value',
-                'status' => 'Mock value',
+                'orderType' => 'String value',
+                'orderNo' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04.065Z',
                 'requestOn' => '2025-11-22T10:40:04.065Z',
-                'customerOrder' => 'Mock value',
-                'customerRefNo' => 'Mock value',
-                'customer' => 'Mock value',
+                'customerOrder' => 'String value',
+                'customerRefNo' => 'String value',
+                'customer' => null,
                 'contactId' => 42,
-                'location' => 'Mock value',
-                'currency' => 'Mock value',
-                'description' => 'Mock value',
+                'location' => null,
+                'currency' => 'String value',
+                'description' => 'String value',
                 'orderTotal' => 3.14,
                 'orderTotalInBaseCurrency' => 3.14,
                 'vatTaxableTotal' => 3.14,
@@ -211,27 +204,30 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'discountTotal' => 3.14,
                 'discountTotalInBaseCurrency' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
-                'note' => 'Mock value',
+                'branchNumber' => null,
+                'note' => 'String value',
                 'attachments' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'lines' => [],
-                'orderType' => 'Mock value',
-                'orderNo' => 'Mock value',
-                'status' => 'Mock value',
+                'orderType' => 'String value',
+                'orderNo' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04.065Z',
                 'requestOn' => '2025-11-22T10:40:04.065Z',
-                'customerOrder' => 'Mock value',
-                'customerRefNo' => 'Mock value',
-                'customer' => 'Mock value',
+                'customerOrder' => 'String value',
+                'customerRefNo' => 'String value',
+                'customer' => null,
                 'contactId' => 42,
-                'location' => 'Mock value',
-                'currency' => 'Mock value',
-                'description' => 'Mock value',
+                'location' => null,
+                'currency' => 'String value',
+                'description' => 'String value',
                 'orderTotal' => 3.14,
                 'orderTotalInBaseCurrency' => 3.14,
                 'vatTaxableTotal' => 3.14,
@@ -244,18 +240,21 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'discountTotal' => 3.14,
                 'discountTotalInBaseCurrency' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
-                'note' => 'Mock value',
+                'branchNumber' => null,
+                'note' => 'String value',
                 'attachments' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new SalesOrderBasicGetAllOrdersCollectionRequest(orderType: 'test string', status: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', showNotes: true, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SalesOrderBasicGetAllOrdersCollectionRequest $request) {
         $query = $request->query()->all();
@@ -263,24 +262,22 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->orderType->toBe('Mock value')
-        ->orderNo->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->orderType->toBe('String value')
+        ->orderNo->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customerOrder->toBe('Mock value')
-        ->customerRefNo->toBe('Mock value')
-        ->customer->toBe('Mock value')
+        ->customerOrder->toBe('String value')
+        ->customerRefNo->toBe('String value')
+        ->customer->toBeNull()
         ->contactId->toBe(42)
-        ->location->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->location->toBeNull()
+        ->currency->toBe('String value')
+        ->description->toBe('String value')
         ->orderTotal->toBe(3.14)
         ->orderTotalInBaseCurrency->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
@@ -293,10 +290,9 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
         ->discountTotal->toBe(3.14)
         ->discountTotalInBaseCurrency->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->note->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->note->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumber method in the SalesOrderBasic resource', function () {

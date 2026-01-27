@@ -7,35 +7,32 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the unitOfMeasureGetAllUnitsOfMeasureCollection method in the UnitOfMeasure resource', function () {
     Saloon::fake([
         UnitOfMeasureGetAllUnitsOfMeasureCollectionRequest::class => MockResponse::make([
             0 => [
-                'fromUnit' => 'Mock value',
-                'toUnit' => 'Mock value',
-                'unitMultDiv' => 'Mock value',
+                'fromUnit' => 'String value',
+                'toUnit' => 'String value',
+                'unitMultDiv' => 'String value',
                 'unitRate' => 3.14,
-                'supplementaryMeasureUnit' => 'Mock value',
+                'supplementaryMeasureUnit' => 'String value',
             ],
             1 => [
-                'fromUnit' => 'Mock value',
-                'toUnit' => 'Mock value',
-                'unitMultDiv' => 'Mock value',
+                'fromUnit' => 'String value',
+                'toUnit' => 'String value',
+                'unitMultDiv' => 'String value',
                 'unitRate' => 3.14,
-                'supplementaryMeasureUnit' => 'Mock value',
+                'supplementaryMeasureUnit' => 'String value',
             ],
         ], 200),
     ]);
 
     $request = (new UnitOfMeasureGetAllUnitsOfMeasureCollectionRequest);
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (UnitOfMeasureGetAllUnitsOfMeasureCollectionRequest $request) {
         $query = $request->query()->all();
@@ -43,14 +40,12 @@ it('calls the unitOfMeasureGetAllUnitsOfMeasureCollection method in the UnitOfMe
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->fromUnit->toBe('Mock value')
-        ->toUnit->toBe('Mock value')
-        ->unitMultDiv->toBe('Mock value')
+        ->fromUnit->toBe('String value')
+        ->toUnit->toBe('String value')
+        ->unitMultDiv->toBe('String value')
         ->unitRate->toBe(3.14)
-        ->supplementaryMeasureUnit->toBe('Mock value');
+        ->supplementaryMeasureUnit->toBe('String value');
 });

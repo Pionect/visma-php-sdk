@@ -17,7 +17,6 @@ class CustSalesPersonsDtoFactory extends Factory
             'commisionPct' => $this->faker->randomFloat(2, 0, 1000),
             'isDefault' => $this->faker->boolean(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

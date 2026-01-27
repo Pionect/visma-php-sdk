@@ -42,7 +42,6 @@ class InventorySummaryDtoFactory extends Factory
             'estimatedUnitCost' => $this->faker->randomFloat(2, 0, 1000),
             'estimatedTotalCost' => $this->faker->randomFloat(2, 0, 1000),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

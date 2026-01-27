@@ -15,7 +15,6 @@ class ProjectAccountGroupDtoFactory extends Factory
             'description' => $this->faker->sentence(),
             'attributes' => [],
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

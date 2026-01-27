@@ -36,7 +36,6 @@ class DiscountDtoFactory extends Factory
             'itemPriceClasses' => [],
             'branches' => [],
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

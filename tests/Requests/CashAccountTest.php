@@ -9,10 +9,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the cashAccountGetByaccountNumber method in the CashAccount resource', function () {
@@ -20,11 +17,11 @@ it('calls the cashAccountGetByaccountNumber method in the CashAccount resource',
         CashAccountGetByaccountNumberRequest::class => MockResponse::make([
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'entryTypes' => [],
-            'currency' => 'Mock value',
-            'account' => 'Mock value',
-            'subaccount' => 'Mock value',
-            'number' => 'Mock value',
-            'description' => 'Mock value',
+            'currency' => 'String value',
+            'account' => null,
+            'subaccount' => null,
+            'number' => 'String value',
+            'description' => 'String value',
         ], 200),
     ]);
 
@@ -42,11 +39,11 @@ it('calls the cashAccountGetByaccountNumber method in the CashAccount resource',
 
     expect($dto)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->currency->toBe('Mock value')
-        ->account->toBe('Mock value')
-        ->subaccount->toBe('Mock value')
-        ->number->toBe('Mock value')
-        ->description->toBe('Mock value');
+        ->currency->toBe('String value')
+        ->account->toBeNull()
+        ->subaccount->toBeNull()
+        ->number->toBe('String value')
+        ->description->toBe('String value');
 });
 
 it('calls the cashAccountGetAllCollection method in the CashAccount resource', function () {
@@ -55,27 +52,27 @@ it('calls the cashAccountGetAllCollection method in the CashAccount resource', f
             0 => [
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'entryTypes' => [],
-                'currency' => 'Mock value',
-                'account' => 'Mock value',
-                'subaccount' => 'Mock value',
-                'number' => 'Mock value',
-                'description' => 'Mock value',
+                'currency' => 'String value',
+                'account' => null,
+                'subaccount' => null,
+                'number' => 'String value',
+                'description' => 'String value',
             ],
             1 => [
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'entryTypes' => [],
-                'currency' => 'Mock value',
-                'account' => 'Mock value',
-                'subaccount' => 'Mock value',
-                'number' => 'Mock value',
-                'description' => 'Mock value',
+                'currency' => 'String value',
+                'account' => null,
+                'subaccount' => null,
+                'number' => 'String value',
+                'description' => 'String value',
             ],
         ], 200),
     ]);
 
     $request = (new CashAccountGetAllCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (CashAccountGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -83,15 +80,13 @@ it('calls the cashAccountGetAllCollection method in the CashAccount resource', f
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->currency->toBe('Mock value')
-        ->account->toBe('Mock value')
-        ->subaccount->toBe('Mock value')
-        ->number->toBe('Mock value')
-        ->description->toBe('Mock value');
+        ->currency->toBe('String value')
+        ->account->toBeNull()
+        ->subaccount->toBeNull()
+        ->number->toBe('String value')
+        ->description->toBe('String value');
 });

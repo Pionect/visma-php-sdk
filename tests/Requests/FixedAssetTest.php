@@ -9,32 +9,28 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', function () {
     Saloon::fake([
         FixedAssetGetByFixedAssetIdRequest::class => MockResponse::make([
             'assetId' => 'mock-id-123',
-            'recordType' => 'Mock value',
+            'recordType' => 'String value',
             'parentAssetId' => 'mock-id-123',
-            'description' => 'Mock value',
+            'description' => 'String value',
             'classId' => 'mock-id-123',
             'isTangible' => true,
             'quantity' => 3.14,
             'depreciable' => true,
             'usefulLife' => 3.14,
-            'accounts' => 'Mock value',
-            'details' => 'Mock value',
-            'bookBalance' => 'Mock value',
-            'location' => 'Mock value',
-            'propertyTax' => 'Mock value',
+            'accounts' => null,
+            'details' => null,
+            'bookBalance' => null,
+            'location' => null,
+            'propertyTax' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -53,22 +49,21 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
 
     expect($dto)
         ->assetId->toBe('mock-id-123')
-        ->recordType->toBe('Mock value')
+        ->recordType->toBe('String value')
         ->parentAssetId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->classId->toBe('mock-id-123')
         ->isTangible->toBeTrue()
         ->quantity->toBe(3.14)
         ->depreciable->toBeTrue()
         ->usefulLife->toBe(3.14)
-        ->accounts->toBe('Mock value')
-        ->details->toBe('Mock value')
-        ->bookBalance->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->propertyTax->toBe('Mock value')
+        ->accounts->toBeNull()
+        ->details->toBeNull()
+        ->bookBalance->toBeNull()
+        ->location->toBeNull()
+        ->propertyTax->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', function () {
@@ -76,48 +71,54 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
         FixedAssetGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'assetId' => 'mock-id-123',
-                'recordType' => 'Mock value',
+                'recordType' => 'String value',
                 'parentAssetId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'classId' => 'mock-id-123',
                 'isTangible' => true,
                 'quantity' => 3.14,
                 'depreciable' => true,
                 'usefulLife' => 3.14,
-                'accounts' => 'Mock value',
-                'details' => 'Mock value',
-                'bookBalance' => 'Mock value',
-                'location' => 'Mock value',
-                'propertyTax' => 'Mock value',
+                'accounts' => null,
+                'details' => null,
+                'bookBalance' => null,
+                'location' => null,
+                'propertyTax' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'assetId' => 'mock-id-123',
-                'recordType' => 'Mock value',
+                'recordType' => 'String value',
                 'parentAssetId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'classId' => 'mock-id-123',
                 'isTangible' => true,
                 'quantity' => 3.14,
                 'depreciable' => true,
                 'usefulLife' => 3.14,
-                'accounts' => 'Mock value',
-                'details' => 'Mock value',
-                'bookBalance' => 'Mock value',
-                'location' => 'Mock value',
-                'propertyTax' => 'Mock value',
+                'accounts' => null,
+                'details' => null,
+                'bookBalance' => null,
+                'location' => null,
+                'propertyTax' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new FixedAssetGetAllCollectionRequest(assetId: 'test string', classId: 'test string', status: 'test string', fromDate: 'test string', toDate: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', expandAccounts: true, pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (FixedAssetGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -125,26 +126,23 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->assetId->toBe('mock-id-123')
-        ->recordType->toBe('Mock value')
+        ->recordType->toBe('String value')
         ->parentAssetId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->classId->toBe('mock-id-123')
         ->isTangible->toBeTrue()
         ->quantity->toBe(3.14)
         ->depreciable->toBeTrue()
         ->usefulLife->toBe(3.14)
-        ->accounts->toBe('Mock value')
-        ->details->toBe('Mock value')
-        ->bookBalance->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->propertyTax->toBe('Mock value')
+        ->accounts->toBeNull()
+        ->details->toBeNull()
+        ->bookBalance->toBeNull()
+        ->location->toBeNull()
+        ->propertyTax->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

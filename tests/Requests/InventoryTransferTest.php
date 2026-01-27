@@ -11,34 +11,30 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the inventoryTransferGetByinventoryTransferNumber method in the InventoryTransfer resource', function () {
     Saloon::fake([
         InventoryTransferGetByinventoryTransferNumberRequest::class => MockResponse::make([
-            'warehouse' => 'Mock value',
-            'toWarehouse' => 'Mock value',
+            'warehouse' => null,
+            'toWarehouse' => null,
             'transferLines' => [],
-            'referenceNumber' => 'Mock value',
-            'status' => 'Mock value',
+            'referenceNumber' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'date' => '2025-11-22T10:40:04.065Z',
-            'postPeriod' => 'Mock value',
-            'externalReference' => 'Mock value',
-            'description' => 'Mock value',
+            'postPeriod' => 'String value',
+            'externalReference' => 'String value',
+            'description' => 'String value',
             'totalQuantity' => 3.14,
             'controlQuantity' => 3.14,
-            'batchNumber' => 'Mock value',
+            'batchNumber' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'branchNumber' => 'Mock value',
+            'branchNumber' => null,
             'attachments' => [],
-            'timestamp' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'timestamp' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -55,76 +51,81 @@ it('calls the inventoryTransferGetByinventoryTransferNumber method in the Invent
     $dto = $response->dto();
 
     expect($dto)
-        ->warehouse->toBe('Mock value')
-        ->toWarehouse->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->warehouse->toBeNull()
+        ->toWarehouse->toBeNull()
+        ->referenceNumber->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->externalReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->externalReference->toBe('String value')
+        ->description->toBe('String value')
         ->totalQuantity->toBe(3.14)
         ->controlQuantity->toBe(3.14)
-        ->batchNumber->toBe('Mock value')
+        ->batchNumber->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->timestamp->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryTransferGetAllCollection method in the InventoryTransfer resource', function () {
     Saloon::fake([
         InventoryTransferGetAllCollectionRequest::class => MockResponse::make([
             0 => [
-                'warehouse' => 'Mock value',
-                'toWarehouse' => 'Mock value',
+                'warehouse' => null,
+                'toWarehouse' => null,
                 'transferLines' => [],
-                'referenceNumber' => 'Mock value',
-                'status' => 'Mock value',
+                'referenceNumber' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'externalReference' => 'Mock value',
-                'description' => 'Mock value',
+                'postPeriod' => 'String value',
+                'externalReference' => 'String value',
+                'description' => 'String value',
                 'totalQuantity' => 3.14,
                 'controlQuantity' => 3.14,
-                'batchNumber' => 'Mock value',
+                'batchNumber' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'attachments' => [],
-                'timestamp' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'timestamp' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'warehouse' => 'Mock value',
-                'toWarehouse' => 'Mock value',
+                'warehouse' => null,
+                'toWarehouse' => null,
                 'transferLines' => [],
-                'referenceNumber' => 'Mock value',
-                'status' => 'Mock value',
+                'referenceNumber' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'externalReference' => 'Mock value',
-                'description' => 'Mock value',
+                'postPeriod' => 'String value',
+                'externalReference' => 'String value',
+                'description' => 'String value',
                 'totalQuantity' => 3.14,
                 'controlQuantity' => 3.14,
-                'batchNumber' => 'Mock value',
+                'batchNumber' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'attachments' => [],
-                'timestamp' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'timestamp' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new InventoryTransferGetAllCollectionRequest(warehouse: 'test string', toWarehouse: 'test string', status: 'test string', date: 'test string', dateCondition: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (InventoryTransferGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -132,28 +133,25 @@ it('calls the inventoryTransferGetAllCollection method in the InventoryTransfer 
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->warehouse->toBe('Mock value')
-        ->toWarehouse->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->warehouse->toBeNull()
+        ->toWarehouse->toBeNull()
+        ->referenceNumber->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->externalReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->externalReference->toBe('String value')
+        ->description->toBe('String value')
         ->totalQuantity->toBe(3.14)
         ->controlQuantity->toBe(3.14)
-        ->batchNumber->toBe('Mock value')
+        ->batchNumber->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->timestamp->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryTransferReleaseDocumentBytransferNumber method in the InventoryTransfer resource', function () {

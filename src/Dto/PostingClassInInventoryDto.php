@@ -14,7 +14,4 @@ class PostingClassInInventoryDto extends Model
     /** The description. */
     #[Property]
     public ?string $description;
-
-    #[Property]
-    public ?\MetadataDto $metadata;
 }

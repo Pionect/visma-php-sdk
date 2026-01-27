@@ -13,7 +13,6 @@ class FirstTimeStartupDtoFactory extends Factory
             'financials' => $this->faker->boolean(),
             'message' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

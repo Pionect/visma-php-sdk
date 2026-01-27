@@ -7,10 +7,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource', function () {
@@ -20,9 +17,9 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
                 'projectId' => 'mock-id-123',
                 'projectTaskId' => 'mock-id-123',
                 'accountGroupId' => 'mock-id-123',
-                'inventoryNumber' => 'Mock value',
-                'description' => 'Mock value',
-                'uom' => 'Mock value',
+                'inventoryNumber' => 'String value',
+                'description' => 'String value',
+                'uom' => 'String value',
                 'rate' => 3.14,
                 'originalBudgetQty' => 3.14,
                 'originalBudgetAmount' => 3.14,
@@ -37,16 +34,19 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
                 'committedReceivedQty' => 3.14,
                 'committedInvoicedQty' => 3.14,
                 'committedInvoicedAmount' => 3.14,
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'projectId' => 'mock-id-123',
                 'projectTaskId' => 'mock-id-123',
                 'accountGroupId' => 'mock-id-123',
-                'inventoryNumber' => 'Mock value',
-                'description' => 'Mock value',
-                'uom' => 'Mock value',
+                'inventoryNumber' => 'String value',
+                'description' => 'String value',
+                'uom' => 'String value',
                 'rate' => 3.14,
                 'originalBudgetQty' => 3.14,
                 'originalBudgetAmount' => 3.14,
@@ -61,15 +61,18 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
                 'committedReceivedQty' => 3.14,
                 'committedInvoicedQty' => 3.14,
                 'committedInvoicedAmount' => 3.14,
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new ProjectBudgetGetAllCollectionRequest(project: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (ProjectBudgetGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -77,17 +80,15 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->projectId->toBe('mock-id-123')
         ->projectTaskId->toBe('mock-id-123')
         ->accountGroupId->toBe('mock-id-123')
-        ->inventoryNumber->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->uom->toBe('Mock value')
+        ->inventoryNumber->toBe('String value')
+        ->description->toBe('String value')
+        ->uom->toBe('String value')
         ->rate->toBe(3.14)
         ->originalBudgetQty->toBe(3.14)
         ->originalBudgetAmount->toBe(3.14)
@@ -102,6 +103,5 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
         ->committedReceivedQty->toBe(3.14)
         ->committedInvoicedQty->toBe(3.14)
         ->committedInvoicedAmount->toBe(3.14)
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

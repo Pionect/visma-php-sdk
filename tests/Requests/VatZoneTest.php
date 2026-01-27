@@ -8,20 +8,16 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the vatZoneGetVatZoneByvatZoneId method in the VatZone resource', function () {
     Saloon::fake([
         VatZoneGetVatZoneByvatZoneIdRequest::class => MockResponse::make([
-            'description' => 'Mock value',
-            'defaultVatCategory' => 'Mock value',
-            'defaultTaxCategory' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'description' => 'String value',
+            'defaultVatCategory' => 'String value',
+            'defaultTaxCategory' => null,
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -38,36 +34,41 @@ it('calls the vatZoneGetVatZoneByvatZoneId method in the VatZone resource', func
     $dto = $response->dto();
 
     expect($dto)
-        ->description->toBe('Mock value')
-        ->defaultVatCategory->toBe('Mock value')
-        ->defaultTaxCategory->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->description->toBe('String value')
+        ->defaultVatCategory->toBe('String value')
+        ->defaultTaxCategory->toBeNull()
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the vatZoneGetVatZonesCollection method in the VatZone resource', function () {
     Saloon::fake([
         VatZoneGetVatZonesCollectionRequest::class => MockResponse::make([
             0 => [
-                'description' => 'Mock value',
-                'defaultVatCategory' => 'Mock value',
-                'defaultTaxCategory' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => null,
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'description' => 'Mock value',
-                'defaultVatCategory' => 'Mock value',
-                'defaultTaxCategory' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => null,
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new VatZoneGetVatZonesCollectionRequest(pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (VatZoneGetVatZonesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -75,14 +76,11 @@ it('calls the vatZoneGetVatZonesCollection method in the VatZone resource', func
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->description->toBe('Mock value')
-        ->defaultVatCategory->toBe('Mock value')
-        ->defaultTaxCategory->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->description->toBe('String value')
+        ->defaultVatCategory->toBe('String value')
+        ->defaultTaxCategory->toBeNull()
+        ->errorInfo->toBe('String value');
 });

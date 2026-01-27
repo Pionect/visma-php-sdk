@@ -21,7 +21,6 @@ class KitSpecificationStockComponentsDtoFactory extends Factory
             'allowComponentSubstitution' => $this->faker->boolean(),
             'description' => $this->faker->sentence(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

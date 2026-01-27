@@ -13,7 +13,6 @@ class LotSerialClassDetailDtoFactory extends Factory
             'segmentNumber' => $this->faker->numberBetween(1, 100),
             'value' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

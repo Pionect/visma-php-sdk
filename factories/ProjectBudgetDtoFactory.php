@@ -31,7 +31,6 @@ class ProjectBudgetDtoFactory extends Factory
             'committedInvoicedQty' => $this->faker->randomFloat(2, 0, 1000),
             'committedInvoicedAmount' => $this->faker->randomFloat(2, 0, 1000),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

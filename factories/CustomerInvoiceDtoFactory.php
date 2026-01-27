@@ -87,7 +87,6 @@ class CustomerInvoiceDtoFactory extends Factory
             'subaccount' => $this->faker->word(),
             'customerProject' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

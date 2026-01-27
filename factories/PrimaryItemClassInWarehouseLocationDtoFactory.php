@@ -13,7 +13,6 @@ class PrimaryItemClassInWarehouseLocationDtoFactory extends Factory
             'attributes' => [],
             'description' => $this->faker->sentence(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

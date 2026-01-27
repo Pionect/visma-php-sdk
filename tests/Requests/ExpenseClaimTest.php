@@ -13,35 +13,31 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbr method in the ExpenseClaim resource', function () {
     Saloon::fake([
         ExpenseClaimGetExpenseClaimByexpenseClaimNbrRequest::class => MockResponse::make([
-            'refNbr' => 'Mock value',
-            'status' => 'Mock value',
-            'approvalStatus' => 'Mock value',
+            'refNbr' => 'String value',
+            'status' => 'String value',
+            'approvalStatus' => 'String value',
             'date' => '2025-11-22T10:40:04.065Z',
-            'description' => 'Mock value',
-            'claimedBy' => 'Mock value',
+            'description' => 'String value',
+            'claimedBy' => null,
             'claimTotal' => 3.14,
             'vatTaxableTotal' => 3.14,
             'vatExemptTotal' => 3.14,
-            'customer' => 'Mock value',
-            'currency' => 'Mock value',
+            'customer' => null,
+            'currency' => 'String value',
             'approvalDate' => '2025-11-22T10:40:04.065Z',
-            'department' => 'Mock value',
-            'location' => 'Mock value',
+            'department' => null,
+            'location' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'details' => [],
-            'approvalStatusText' => 'Mock value',
+            'approvalStatusText' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -58,80 +54,85 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbr method in the Expense
     $dto = $response->dto();
 
     expect($dto)
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->approvalStatus->toBe('Mock value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
+        ->approvalStatus->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('Mock value')
-        ->claimedBy->toBe('Mock value')
+        ->description->toBe('String value')
+        ->claimedBy->toBeNull()
         ->claimTotal->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
         ->vatExemptTotal->toBe(3.14)
-        ->customer->toBe('Mock value')
-        ->currency->toBe('Mock value')
+        ->customer->toBeNull()
+        ->currency->toBe('String value')
         ->approvalDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->department->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->department->toBeNull()
+        ->location->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatusText->toBe('Mock value')
+        ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource', function () {
     Saloon::fake([
         ExpenseClaimGetAllCollectionRequest::class => MockResponse::make([
             0 => [
-                'refNbr' => 'Mock value',
-                'status' => 'Mock value',
-                'approvalStatus' => 'Mock value',
+                'refNbr' => 'String value',
+                'status' => 'String value',
+                'approvalStatus' => 'String value',
                 'date' => '2025-11-22T10:40:04.065Z',
-                'description' => 'Mock value',
-                'claimedBy' => 'Mock value',
+                'description' => 'String value',
+                'claimedBy' => null,
                 'claimTotal' => 3.14,
                 'vatTaxableTotal' => 3.14,
                 'vatExemptTotal' => 3.14,
-                'customer' => 'Mock value',
-                'currency' => 'Mock value',
+                'customer' => null,
+                'currency' => 'String value',
                 'approvalDate' => '2025-11-22T10:40:04.065Z',
-                'department' => 'Mock value',
-                'location' => 'Mock value',
+                'department' => null,
+                'location' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'details' => [],
-                'approvalStatusText' => 'Mock value',
+                'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'refNbr' => 'Mock value',
-                'status' => 'Mock value',
-                'approvalStatus' => 'Mock value',
+                'refNbr' => 'String value',
+                'status' => 'String value',
+                'approvalStatus' => 'String value',
                 'date' => '2025-11-22T10:40:04.065Z',
-                'description' => 'Mock value',
-                'claimedBy' => 'Mock value',
+                'description' => 'String value',
+                'claimedBy' => null,
                 'claimTotal' => 3.14,
                 'vatTaxableTotal' => 3.14,
                 'vatExemptTotal' => 3.14,
-                'customer' => 'Mock value',
-                'currency' => 'Mock value',
+                'customer' => null,
+                'currency' => 'String value',
                 'approvalDate' => '2025-11-22T10:40:04.065Z',
-                'department' => 'Mock value',
-                'location' => 'Mock value',
+                'department' => null,
+                'location' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'details' => [],
-                'approvalStatusText' => 'Mock value',
+                'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new ExpenseClaimGetAllCollectionRequest(status: 'test string', date: 'test string', customer: 'test string', departmentId: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (ExpenseClaimGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -139,30 +140,27 @@ it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource',
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->approvalStatus->toBe('Mock value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
+        ->approvalStatus->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('Mock value')
-        ->claimedBy->toBe('Mock value')
+        ->description->toBe('String value')
+        ->claimedBy->toBeNull()
         ->claimTotal->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
         ->vatExemptTotal->toBe(3.14)
-        ->customer->toBe('Mock value')
-        ->currency->toBe('Mock value')
+        ->customer->toBeNull()
+        ->currency->toBe('String value')
         ->approvalDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->department->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->department->toBeNull()
+        ->location->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatusText->toBe('Mock value')
+        ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaim method in the ExpenseClaim resource', function () {

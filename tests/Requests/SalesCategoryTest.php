@@ -10,17 +10,14 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory resource', function () {
     Saloon::fake([
         SalesCategoryGetCategoryBycategoryIdRequest::class => MockResponse::make([
             'categoryId' => 42,
-            'description' => 'Mock value',
+            'description' => 'String value',
             'parentId' => 42,
             'sortOrder' => 42,
             'subCategories' => [],
@@ -41,7 +38,7 @@ it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory r
 
     expect($dto)
         ->categoryId->toBe(42)
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->parentId->toBe(42)
         ->sortOrder->toBe(42);
 });
@@ -51,14 +48,14 @@ it('calls the salesCategoryGetCollection method in the SalesCategory resource', 
         SalesCategoryGetCollectionRequest::class => MockResponse::make([
             0 => [
                 'categoryId' => 42,
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'parentId' => 42,
                 'sortOrder' => 42,
                 'subCategories' => [],
             ],
             1 => [
                 'categoryId' => 42,
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'parentId' => 42,
                 'sortOrder' => 42,
                 'subCategories' => [],
@@ -68,7 +65,7 @@ it('calls the salesCategoryGetCollection method in the SalesCategory resource', 
 
     $request = (new SalesCategoryGetCollectionRequest);
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SalesCategoryGetCollectionRequest $request) {
         $query = $request->query()->all();
@@ -76,13 +73,11 @@ it('calls the salesCategoryGetCollection method in the SalesCategory resource', 
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->categoryId->toBe(42)
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->parentId->toBe(42)
         ->sortOrder->toBe(42);
 });
@@ -91,14 +86,14 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
     Saloon::fake([
         SalesCategoryGetItemsForCategoryBycategoryIdRequest::class => MockResponse::make([
             'inventoryId' => 42,
-            'inventoryNumber' => 'Mock value',
-            'status' => 'Mock value',
-            'description' => 'Mock value',
-            'body' => 'Mock value',
-            'itemClass' => 'Mock value',
-            'postingClass' => 'Mock value',
-            'vatCode' => 'Mock value',
-            'lotSerialClass' => 'Mock value',
+            'inventoryNumber' => 'String value',
+            'status' => 'String value',
+            'description' => 'String value',
+            'body' => 'String value',
+            'itemClass' => null,
+            'postingClass' => null,
+            'vatCode' => null,
+            'lotSerialClass' => null,
             'defaultPrice' => 3.14,
             'pendingCost' => 3.14,
             'pendingCostDate' => '2025-11-22T10:40:04.065Z',
@@ -106,35 +101,34 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
             'effectiveDate' => '2025-11-22T10:40:04.065Z',
             'lastCost' => 3.14,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'baseUnit' => 'Mock value',
-            'salesUnit' => 'Mock value',
-            'purchaseUnit' => 'Mock value',
+            'baseUnit' => 'String value',
+            'salesUnit' => 'String value',
+            'purchaseUnit' => 'String value',
             'stockItem' => true,
             'kitItem' => true,
-            'accountInformation' => 'Mock value',
-            'costPriceStatistics' => 'Mock value',
+            'accountInformation' => null,
+            'costPriceStatistics' => null,
             'crossReferences' => [],
             'attachments' => [],
             'attributes' => [],
             'warehouseDetails' => [],
             'inventoryUnits' => [],
-            'defaultWarehouse' => 'Mock value',
-            'defaultIssueFrom' => 'Mock value',
-            'defaultReceiptTo' => 'Mock value',
+            'defaultWarehouse' => null,
+            'defaultIssueFrom' => null,
+            'defaultReceiptTo' => null,
             'supplierDetails' => [],
             'salesCategories' => [],
-            'packaging' => 'Mock value',
-            'intrastat' => 'Mock value',
+            'packaging' => null,
+            'intrastat' => null,
             'recommendedPrice' => 3.14,
             'priceManagerId' => 'mock-id-123',
-            'priceManager' => 'Mock value',
-            'priceClass' => 'Mock value',
+            'priceManager' => null,
+            'priceClass' => null,
             'priceWorkgroupId' => 42,
             'priceClassId' => 'mock-id-123',
-            'note' => 'Mock value',
-            'timestamp' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'note' => 'String value',
+            'timestamp' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -152,14 +146,14 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
 
     expect($dto)
         ->inventoryId->toBe(42)
-        ->inventoryNumber->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->body->toBe('Mock value')
-        ->itemClass->toBe('Mock value')
-        ->postingClass->toBe('Mock value')
-        ->vatCode->toBe('Mock value')
-        ->lotSerialClass->toBe('Mock value')
+        ->inventoryNumber->toBe('String value')
+        ->status->toBe('String value')
+        ->description->toBe('String value')
+        ->body->toBe('String value')
+        ->itemClass->toBeNull()
+        ->postingClass->toBeNull()
+        ->vatCode->toBeNull()
+        ->lotSerialClass->toBeNull()
         ->defaultPrice->toBe(3.14)
         ->pendingCost->toBe(3.14)
         ->pendingCostDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -167,26 +161,25 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
         ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastCost->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->baseUnit->toBe('Mock value')
-        ->salesUnit->toBe('Mock value')
-        ->purchaseUnit->toBe('Mock value')
+        ->baseUnit->toBe('String value')
+        ->salesUnit->toBe('String value')
+        ->purchaseUnit->toBe('String value')
         ->stockItem->toBeTrue()
         ->kitItem->toBeTrue()
-        ->accountInformation->toBe('Mock value')
-        ->costPriceStatistics->toBe('Mock value')
-        ->defaultWarehouse->toBe('Mock value')
-        ->defaultIssueFrom->toBe('Mock value')
-        ->defaultReceiptTo->toBe('Mock value')
-        ->packaging->toBe('Mock value')
-        ->intrastat->toBe('Mock value')
+        ->accountInformation->toBeNull()
+        ->costPriceStatistics->toBeNull()
+        ->defaultWarehouse->toBeNull()
+        ->defaultIssueFrom->toBeNull()
+        ->defaultReceiptTo->toBeNull()
+        ->packaging->toBeNull()
+        ->intrastat->toBeNull()
         ->recommendedPrice->toBe(3.14)
         ->priceManagerId->toBe('mock-id-123')
-        ->priceManager->toBe('Mock value')
-        ->priceClass->toBe('Mock value')
+        ->priceManager->toBeNull()
+        ->priceClass->toBeNull()
         ->priceWorkgroupId->toBe(42)
         ->priceClassId->toBe('mock-id-123')
-        ->note->toBe('Mock value')
-        ->timestamp->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->note->toBe('String value')
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

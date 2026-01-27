@@ -7,10 +7,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resource', function () {
@@ -18,22 +15,28 @@ it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resou
         FirstTimeStartupGetCollectionRequest::class => MockResponse::make([
             0 => [
                 'financials' => true,
-                'message' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'message' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'financials' => true,
-                'message' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'message' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new FirstTimeStartupGetCollectionRequest);
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (FirstTimeStartupGetCollectionRequest $request) {
         $query = $request->query()->all();
@@ -41,13 +44,10 @@ it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resou
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->financials->toBeTrue()
-        ->message->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->message->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

@@ -8,28 +8,24 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Background resource', function () {
     Saloon::fake([
         BackgroundGetBackgroundApiOperationByrequestIdRequest::class => MockResponse::make([
-            'status' => 'Mock value',
+            'status' => 'String value',
             'statusCode' => 42,
             'receivedUtc' => '2025-11-22T10:40:04.065Z',
             'startedUtc' => '2025-11-22T10:40:04.065Z',
             'finishedUtc' => '2025-11-22T10:40:04.065Z',
-            'webhookAddress' => 'Mock value',
-            'errorMessage' => 'Mock value',
-            'reference' => 'Mock value',
-            'originalUri' => 'Mock value',
+            'webhookAddress' => 'String value',
+            'errorMessage' => 'String value',
+            'reference' => 'String value',
+            'originalUri' => 'String value',
             'hasResponseContent' => true,
             'hasRequestContent' => true,
-            'contentLocation' => 'Mock value',
-            'responseHeaders' => (object) [],
+            'contentLocation' => 'String value',
         ], 200),
     ]);
 
@@ -45,17 +41,16 @@ it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Backg
     $dto = $response->dto();
 
     expect($dto)
-        ->status->toBe('Mock value')
+        ->status->toBe('String value')
         ->statusCode->toBe(42)
         ->receivedUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->startedUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->finishedUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->webhookAddress->toBe('Mock value')
-        ->errorMessage->toBe('Mock value')
-        ->reference->toBe('Mock value')
-        ->originalUri->toBe('Mock value')
+        ->webhookAddress->toBe('String value')
+        ->errorMessage->toBe('String value')
+        ->reference->toBe('String value')
+        ->originalUri->toBe('String value')
         ->hasResponseContent->toBeTrue()
         ->hasRequestContent->toBeTrue()
-        ->contentLocation->toBe('Mock value')
-        ->responseHeaders->toBeInstanceOf(stdClass::class);
+        ->contentLocation->toBe('String value');
 });

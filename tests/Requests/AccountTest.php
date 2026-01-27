@@ -9,37 +9,33 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the accountGetByaccountCd method in the Account resource', function () {
     Saloon::fake([
         AccountGetByaccountCdRequest::class => MockResponse::make([
             'accountId' => 42,
-            'accountCd' => 'Mock value',
-            'accountGroupCd' => 'Mock value',
-            'accountClass' => 'Mock value',
+            'accountCd' => 'String value',
+            'accountGroupCd' => 'String value',
+            'accountClass' => 'String value',
             'active' => true,
-            'description' => 'Mock value',
-            'accountClassDescription' => 'Mock value',
+            'description' => 'String value',
+            'accountClassDescription' => 'String value',
             'useDefaultSub' => true,
-            'postOption' => 'Mock value',
-            'currency' => 'Mock value',
-            'taxCategory' => 'Mock value',
+            'postOption' => 'String value',
+            'currency' => 'String value',
+            'taxCategory' => 'String value',
             'cashAccount' => true,
-            'publicCode1' => 'Mock value',
+            'publicCode1' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'externalCode1info' => 'Mock value',
-            'externalCode2info' => 'Mock value',
-            'analisysCodeInfo' => 'Mock value',
-            'controlAccountModule' => 'Mock value',
+            'externalCode1info' => null,
+            'externalCode2info' => null,
+            'analisysCodeInfo' => null,
+            'controlAccountModule' => 'String value',
             'allowManualEntry' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -57,27 +53,26 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
 
     expect($dto)
         ->accountId->toBe(42)
-        ->accountCd->toBe('Mock value')
-        ->accountGroupCd->toBe('Mock value')
-        ->accountClass->toBe('Mock value')
+        ->accountCd->toBe('String value')
+        ->accountGroupCd->toBe('String value')
+        ->accountClass->toBe('String value')
         ->active->toBeTrue()
-        ->description->toBe('Mock value')
-        ->accountClassDescription->toBe('Mock value')
+        ->description->toBe('String value')
+        ->accountClassDescription->toBe('String value')
         ->useDefaultSub->toBeTrue()
-        ->postOption->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->taxCategory->toBe('Mock value')
+        ->postOption->toBe('String value')
+        ->currency->toBe('String value')
+        ->taxCategory->toBe('String value')
         ->cashAccount->toBeTrue()
-        ->publicCode1->toBe('Mock value')
+        ->publicCode1->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->externalCode1info->toBe('Mock value')
-        ->externalCode2info->toBe('Mock value')
-        ->analisysCodeInfo->toBe('Mock value')
-        ->controlAccountModule->toBe('Mock value')
+        ->externalCode1info->toBeNull()
+        ->externalCode2info->toBeNull()
+        ->analisysCodeInfo->toBeNull()
+        ->controlAccountModule->toBe('String value')
         ->allowManualEntry->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the accountGetAllCollection method in the Account resource', function () {
@@ -85,58 +80,64 @@ it('calls the accountGetAllCollection method in the Account resource', function 
         AccountGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'accountId' => 42,
-                'accountCd' => 'Mock value',
-                'accountGroupCd' => 'Mock value',
-                'accountClass' => 'Mock value',
+                'accountCd' => 'String value',
+                'accountGroupCd' => 'String value',
+                'accountClass' => 'String value',
                 'active' => true,
-                'description' => 'Mock value',
-                'accountClassDescription' => 'Mock value',
+                'description' => 'String value',
+                'accountClassDescription' => 'String value',
                 'useDefaultSub' => true,
-                'postOption' => 'Mock value',
-                'currency' => 'Mock value',
-                'taxCategory' => 'Mock value',
+                'postOption' => 'String value',
+                'currency' => 'String value',
+                'taxCategory' => 'String value',
                 'cashAccount' => true,
-                'publicCode1' => 'Mock value',
+                'publicCode1' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'externalCode1info' => 'Mock value',
-                'externalCode2info' => 'Mock value',
-                'analisysCodeInfo' => 'Mock value',
-                'controlAccountModule' => 'Mock value',
+                'externalCode1info' => null,
+                'externalCode2info' => null,
+                'analisysCodeInfo' => null,
+                'controlAccountModule' => 'String value',
                 'allowManualEntry' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'accountId' => 42,
-                'accountCd' => 'Mock value',
-                'accountGroupCd' => 'Mock value',
-                'accountClass' => 'Mock value',
+                'accountCd' => 'String value',
+                'accountGroupCd' => 'String value',
+                'accountClass' => 'String value',
                 'active' => true,
-                'description' => 'Mock value',
-                'accountClassDescription' => 'Mock value',
+                'description' => 'String value',
+                'accountClassDescription' => 'String value',
                 'useDefaultSub' => true,
-                'postOption' => 'Mock value',
-                'currency' => 'Mock value',
-                'taxCategory' => 'Mock value',
+                'postOption' => 'String value',
+                'currency' => 'String value',
+                'taxCategory' => 'String value',
                 'cashAccount' => true,
-                'publicCode1' => 'Mock value',
+                'publicCode1' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'externalCode1info' => 'Mock value',
-                'externalCode2info' => 'Mock value',
-                'analisysCodeInfo' => 'Mock value',
-                'controlAccountModule' => 'Mock value',
+                'externalCode1info' => null,
+                'externalCode2info' => null,
+                'analisysCodeInfo' => null,
+                'controlAccountModule' => 'String value',
                 'allowManualEntry' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new AccountGetAllCollectionRequest(active: true, includeAccountClassDescription: true, greaterThanValue: 'test string', publicCode: 'test string', externalCode1: 'test string', externalCode2: 'test string', analysisCode: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (AccountGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -144,31 +145,28 @@ it('calls the accountGetAllCollection method in the Account resource', function 
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->accountId->toBe(42)
-        ->accountCd->toBe('Mock value')
-        ->accountGroupCd->toBe('Mock value')
-        ->accountClass->toBe('Mock value')
+        ->accountCd->toBe('String value')
+        ->accountGroupCd->toBe('String value')
+        ->accountClass->toBe('String value')
         ->active->toBeTrue()
-        ->description->toBe('Mock value')
-        ->accountClassDescription->toBe('Mock value')
+        ->description->toBe('String value')
+        ->accountClassDescription->toBe('String value')
         ->useDefaultSub->toBeTrue()
-        ->postOption->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->taxCategory->toBe('Mock value')
+        ->postOption->toBe('String value')
+        ->currency->toBe('String value')
+        ->taxCategory->toBe('String value')
         ->cashAccount->toBeTrue()
-        ->publicCode1->toBe('Mock value')
+        ->publicCode1->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->externalCode1info->toBe('Mock value')
-        ->externalCode2info->toBe('Mock value')
-        ->analisysCodeInfo->toBe('Mock value')
-        ->controlAccountModule->toBe('Mock value')
+        ->externalCode1info->toBeNull()
+        ->externalCode2info->toBeNull()
+        ->analisysCodeInfo->toBeNull()
+        ->controlAccountModule->toBe('String value')
         ->allowManualEntry->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

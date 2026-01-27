@@ -8,33 +8,29 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the warehouseGetBywarehouseId method in the Warehouse resource', function () {
     Saloon::fake([
         WarehouseGetBywarehouseIdRequest::class => MockResponse::make([
             'warehouseId' => 'mock-id-123',
-            'branch' => 'Mock value',
-            'replenishmentClass' => 'Mock value',
+            'branch' => null,
+            'replenishmentClass' => null,
             'active' => true,
             'lockSitePicountEntry' => true,
-            'description' => 'Mock value',
-            'locationEntry' => 'Mock value',
-            'avgDefaultCost' => 'Mock value',
-            'fifoDefaultCost' => 'Mock value',
-            'receiptLocation' => 'Mock value',
-            'shipLocation' => 'Mock value',
-            'returnLocation' => 'Mock value',
-            'dropShipLocation' => 'Mock value',
-            'contact' => 'Mock value',
-            'address' => 'Mock value',
+            'description' => 'String value',
+            'locationEntry' => 'String value',
+            'avgDefaultCost' => 'String value',
+            'fifoDefaultCost' => 'String value',
+            'receiptLocation' => null,
+            'shipLocation' => null,
+            'returnLocation' => null,
+            'dropShipLocation' => null,
+            'contact' => null,
+            'address' => null,
             'locations' => [],
-            'timestamp' => 'Mock value',
-            'metadata' => 'Mock value',
+            'timestamp' => 'String value',
         ], 200),
     ]);
 
@@ -52,22 +48,21 @@ it('calls the warehouseGetBywarehouseId method in the Warehouse resource', funct
 
     expect($dto)
         ->warehouseId->toBe('mock-id-123')
-        ->branch->toBe('Mock value')
-        ->replenishmentClass->toBe('Mock value')
+        ->branch->toBeNull()
+        ->replenishmentClass->toBeNull()
         ->active->toBeTrue()
         ->lockSitePicountEntry->toBeTrue()
-        ->description->toBe('Mock value')
-        ->locationEntry->toBe('Mock value')
-        ->avgDefaultCost->toBe('Mock value')
-        ->fifoDefaultCost->toBe('Mock value')
-        ->receiptLocation->toBe('Mock value')
-        ->shipLocation->toBe('Mock value')
-        ->returnLocation->toBe('Mock value')
-        ->dropShipLocation->toBe('Mock value')
-        ->contact->toBe('Mock value')
-        ->address->toBe('Mock value')
-        ->timestamp->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->description->toBe('String value')
+        ->locationEntry->toBe('String value')
+        ->avgDefaultCost->toBe('String value')
+        ->fifoDefaultCost->toBe('String value')
+        ->receiptLocation->toBeNull()
+        ->shipLocation->toBeNull()
+        ->returnLocation->toBeNull()
+        ->dropShipLocation->toBeNull()
+        ->contact->toBeNull()
+        ->address->toBeNull()
+        ->timestamp->toBe('String value');
 });
 
 it('calls the warehouseGetAllCollection method in the Warehouse resource', function () {
@@ -75,50 +70,56 @@ it('calls the warehouseGetAllCollection method in the Warehouse resource', funct
         WarehouseGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'warehouseId' => 'mock-id-123',
-                'branch' => 'Mock value',
-                'replenishmentClass' => 'Mock value',
+                'branch' => null,
+                'replenishmentClass' => null,
                 'active' => true,
                 'lockSitePicountEntry' => true,
-                'description' => 'Mock value',
-                'locationEntry' => 'Mock value',
-                'avgDefaultCost' => 'Mock value',
-                'fifoDefaultCost' => 'Mock value',
-                'receiptLocation' => 'Mock value',
-                'shipLocation' => 'Mock value',
-                'returnLocation' => 'Mock value',
-                'dropShipLocation' => 'Mock value',
-                'contact' => 'Mock value',
-                'address' => 'Mock value',
+                'description' => 'String value',
+                'locationEntry' => 'String value',
+                'avgDefaultCost' => 'String value',
+                'fifoDefaultCost' => 'String value',
+                'receiptLocation' => null,
+                'shipLocation' => null,
+                'returnLocation' => null,
+                'dropShipLocation' => null,
+                'contact' => null,
+                'address' => null,
                 'locations' => [],
-                'timestamp' => 'Mock value',
-                'metadata' => 'Mock value',
+                'timestamp' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'warehouseId' => 'mock-id-123',
-                'branch' => 'Mock value',
-                'replenishmentClass' => 'Mock value',
+                'branch' => null,
+                'replenishmentClass' => null,
                 'active' => true,
                 'lockSitePicountEntry' => true,
-                'description' => 'Mock value',
-                'locationEntry' => 'Mock value',
-                'avgDefaultCost' => 'Mock value',
-                'fifoDefaultCost' => 'Mock value',
-                'receiptLocation' => 'Mock value',
-                'shipLocation' => 'Mock value',
-                'returnLocation' => 'Mock value',
-                'dropShipLocation' => 'Mock value',
-                'contact' => 'Mock value',
-                'address' => 'Mock value',
+                'description' => 'String value',
+                'locationEntry' => 'String value',
+                'avgDefaultCost' => 'String value',
+                'fifoDefaultCost' => 'String value',
+                'receiptLocation' => null,
+                'shipLocation' => null,
+                'returnLocation' => null,
+                'dropShipLocation' => null,
+                'contact' => null,
+                'address' => null,
                 'locations' => [],
-                'timestamp' => 'Mock value',
-                'metadata' => 'Mock value',
+                'timestamp' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new WarehouseGetAllCollectionRequest(active: true, branch: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (WarehouseGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -126,26 +127,23 @@ it('calls the warehouseGetAllCollection method in the Warehouse resource', funct
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->warehouseId->toBe('mock-id-123')
-        ->branch->toBe('Mock value')
-        ->replenishmentClass->toBe('Mock value')
+        ->branch->toBeNull()
+        ->replenishmentClass->toBeNull()
         ->active->toBeTrue()
         ->lockSitePicountEntry->toBeTrue()
-        ->description->toBe('Mock value')
-        ->locationEntry->toBe('Mock value')
-        ->avgDefaultCost->toBe('Mock value')
-        ->fifoDefaultCost->toBe('Mock value')
-        ->receiptLocation->toBe('Mock value')
-        ->shipLocation->toBe('Mock value')
-        ->returnLocation->toBe('Mock value')
-        ->dropShipLocation->toBe('Mock value')
-        ->contact->toBe('Mock value')
-        ->address->toBe('Mock value')
-        ->timestamp->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->description->toBe('String value')
+        ->locationEntry->toBe('String value')
+        ->avgDefaultCost->toBe('String value')
+        ->fifoDefaultCost->toBe('String value')
+        ->receiptLocation->toBeNull()
+        ->shipLocation->toBeNull()
+        ->returnLocation->toBeNull()
+        ->dropShipLocation->toBeNull()
+        ->contact->toBeNull()
+        ->address->toBeNull()
+        ->timestamp->toBe('String value');
 });

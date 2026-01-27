@@ -16,10 +16,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the supplierGetAllSupplierClassesCollection method in the Supplier resource', function () {
@@ -28,23 +25,23 @@ it('calls the supplierGetAllSupplierClassesCollection method in the Supplier res
             0 => [
                 'attributes' => [],
                 'paymentMethodId' => 'mock-id-123',
-                'paymentMethodDescription' => 'Mock value',
+                'paymentMethodDescription' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'description' => 'Mock value',
+                'description' => 'String value',
             ],
             1 => [
                 'attributes' => [],
                 'paymentMethodId' => 'mock-id-123',
-                'paymentMethodDescription' => 'Mock value',
+                'paymentMethodDescription' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'description' => 'Mock value',
+                'description' => 'String value',
             ],
         ], 200),
     ]);
 
     $request = (new SupplierGetAllSupplierClassesCollectionRequest);
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SupplierGetAllSupplierClassesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -52,15 +49,13 @@ it('calls the supplierGetAllSupplierClassesCollection method in the Supplier res
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->paymentMethodId->toBe('mock-id-123')
-        ->paymentMethodDescription->toBe('Mock value')
+        ->paymentMethodDescription->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('Mock value');
+        ->description->toBe('String value');
 });
 
 it('calls the supplierGetSpecificSupplierClassBysupplierClassId method in the Supplier resource', function () {
@@ -68,9 +63,9 @@ it('calls the supplierGetSpecificSupplierClassBysupplierClassId method in the Su
         SupplierGetSpecificSupplierClassBysupplierClassIdRequest::class => MockResponse::make([
             'attributes' => [],
             'paymentMethodId' => 'mock-id-123',
-            'paymentMethodDescription' => 'Mock value',
+            'paymentMethodDescription' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'description' => 'Mock value',
+            'description' => 'String value',
         ], 200),
     ]);
 
@@ -88,32 +83,32 @@ it('calls the supplierGetSpecificSupplierClassBysupplierClassId method in the Su
 
     expect($dto)
         ->paymentMethodId->toBe('mock-id-123')
-        ->paymentMethodDescription->toBe('Mock value')
+        ->paymentMethodDescription->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('Mock value');
+        ->description->toBe('String value');
 });
 
 it('calls the supplierGetAllSupplierBalanceCollection method in the Supplier resource', function () {
     Saloon::fake([
         SupplierGetAllSupplierBalanceCollectionRequest::class => MockResponse::make([
             0 => [
-                'branchNumber' => 'Mock value',
-                'supplier' => 'Mock value',
+                'branchNumber' => 'String value',
+                'supplier' => null,
                 'balance' => 3.14,
-                'unreleasedPurchasesNotInApproval' => 'Mock value',
-                'totalSentForApproval' => 'Mock value',
-                'totalPurchaseInvoicePeriod' => 'Mock value',
-                'totalPurchaseInvoiceYear' => 'Mock value',
+                'unreleasedPurchasesNotInApproval' => null,
+                'totalSentForApproval' => null,
+                'totalPurchaseInvoicePeriod' => null,
+                'totalPurchaseInvoiceYear' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             ],
             1 => [
-                'branchNumber' => 'Mock value',
-                'supplier' => 'Mock value',
+                'branchNumber' => 'String value',
+                'supplier' => null,
                 'balance' => 3.14,
-                'unreleasedPurchasesNotInApproval' => 'Mock value',
-                'totalSentForApproval' => 'Mock value',
-                'totalPurchaseInvoicePeriod' => 'Mock value',
-                'totalPurchaseInvoiceYear' => 'Mock value',
+                'unreleasedPurchasesNotInApproval' => null,
+                'totalSentForApproval' => null,
+                'totalPurchaseInvoicePeriod' => null,
+                'totalPurchaseInvoiceYear' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
@@ -121,7 +116,7 @@ it('calls the supplierGetAllSupplierBalanceCollection method in the Supplier res
 
     $request = (new SupplierGetAllSupplierBalanceCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SupplierGetAllSupplierBalanceCollectionRequest $request) {
         $query = $request->query()->all();
@@ -129,18 +124,16 @@ it('calls the supplierGetAllSupplierBalanceCollection method in the Supplier res
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->branchNumber->toBe('Mock value')
-        ->supplier->toBe('Mock value')
+        ->branchNumber->toBe('String value')
+        ->supplier->toBeNull()
         ->balance->toBe(3.14)
-        ->unreleasedPurchasesNotInApproval->toBe('Mock value')
-        ->totalSentForApproval->toBe('Mock value')
-        ->totalPurchaseInvoicePeriod->toBe('Mock value')
-        ->totalPurchaseInvoiceYear->toBe('Mock value')
+        ->unreleasedPurchasesNotInApproval->toBeNull()
+        ->totalSentForApproval->toBeNull()
+        ->totalPurchaseInvoicePeriod->toBeNull()
+        ->totalPurchaseInvoiceYear->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
@@ -148,49 +141,48 @@ it('calls the supplierGetBysupplierCd method in the Supplier resource', function
     Saloon::fake([
         SupplierGetBysupplierCdRequest::class => MockResponse::make([
             'internalId' => 42,
-            'number' => 'Mock value',
-            'name' => 'Mock value',
-            'status' => 'Mock value',
-            'mainAddress' => 'Mock value',
-            'mainContact' => 'Mock value',
-            'accountReference' => 'Mock value',
-            'parentRecord' => 'Mock value',
-            'supplierClass' => 'Mock value',
-            'creditTerms' => 'Mock value',
-            'documentLanguage' => 'Mock value',
+            'number' => 'String value',
+            'name' => 'String value',
+            'status' => 'String value',
+            'mainAddress' => null,
+            'mainContact' => null,
+            'accountReference' => 'String value',
+            'parentRecord' => null,
+            'supplierClass' => null,
+            'creditTerms' => null,
+            'documentLanguage' => 'String value',
             'currencyId' => 'mock-id-123',
-            'remitAddress' => 'Mock value',
-            'remitContact' => 'Mock value',
-            'paymentMethod' => 'Mock value',
-            'cashAccount' => 'Mock value',
-            'chargeBearer' => 'Mock value',
-            'accountUsedForPayment' => 'Mock value',
-            'paymentBy' => 'Mock value',
+            'remitAddress' => null,
+            'remitContact' => null,
+            'paymentMethod' => null,
+            'cashAccount' => 'String value',
+            'chargeBearer' => 'String value',
+            'accountUsedForPayment' => 'String value',
+            'paymentBy' => 'String value',
             'paymentLeadTime' => '2025-11-22T10:40:04.065Z',
-            'paymentRefDisplayMask' => 'Mock value',
+            'paymentRefDisplayMask' => 'String value',
             'paySeparately' => true,
-            'supplierAddress' => 'Mock value',
-            'supplierContact' => 'Mock value',
-            'location' => 'Mock value',
+            'supplierAddress' => null,
+            'supplierContact' => null,
+            'location' => null,
             'vatRegistrationId' => 'mock-id-123',
             'corporateId' => 'mock-id-123',
-            'vatZone' => 'Mock value',
-            'glAccounts' => 'Mock value',
+            'vatZone' => null,
+            'glAccounts' => null,
             'attributes' => [],
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'supplierPaymentMethodDetails' => [],
             'retainageApply' => true,
             'retainageCashAccountId' => 'mock-id-123',
             'retainagePct' => 3.14,
-            'note' => 'Mock value',
+            'note' => 'String value',
             'numberOfEmployees' => 42,
-            'naceCode' => 'Mock value',
+            'naceCode' => 'String value',
             'landedCostSupplier' => true,
             'currencyOverride' => true,
             'currencyRateOverride' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -208,47 +200,46 @@ it('calls the supplierGetBysupplierCd method in the Supplier resource', function
 
     expect($dto)
         ->internalId->toBe(42)
-        ->number->toBe('Mock value')
-        ->name->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->mainAddress->toBe('Mock value')
-        ->mainContact->toBe('Mock value')
-        ->accountReference->toBe('Mock value')
-        ->parentRecord->toBe('Mock value')
-        ->supplierClass->toBe('Mock value')
-        ->creditTerms->toBe('Mock value')
-        ->documentLanguage->toBe('Mock value')
+        ->number->toBe('String value')
+        ->name->toBe('String value')
+        ->status->toBe('String value')
+        ->mainAddress->toBeNull()
+        ->mainContact->toBeNull()
+        ->accountReference->toBe('String value')
+        ->parentRecord->toBeNull()
+        ->supplierClass->toBeNull()
+        ->creditTerms->toBeNull()
+        ->documentLanguage->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->remitAddress->toBe('Mock value')
-        ->remitContact->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->chargeBearer->toBe('Mock value')
-        ->accountUsedForPayment->toBe('Mock value')
-        ->paymentBy->toBe('Mock value')
+        ->remitAddress->toBeNull()
+        ->remitContact->toBeNull()
+        ->paymentMethod->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->chargeBearer->toBe('String value')
+        ->accountUsedForPayment->toBe('String value')
+        ->paymentBy->toBe('String value')
         ->paymentLeadTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->paymentRefDisplayMask->toBe('Mock value')
+        ->paymentRefDisplayMask->toBe('String value')
         ->paySeparately->toBeTrue()
-        ->supplierAddress->toBe('Mock value')
-        ->supplierContact->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->supplierAddress->toBeNull()
+        ->supplierContact->toBeNull()
+        ->location->toBeNull()
         ->vatRegistrationId->toBe('mock-id-123')
         ->corporateId->toBe('mock-id-123')
-        ->vatZone->toBe('Mock value')
-        ->glAccounts->toBe('Mock value')
+        ->vatZone->toBeNull()
+        ->glAccounts->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->retainageApply->toBeTrue()
         ->retainageCashAccountId->toBe('mock-id-123')
         ->retainagePct->toBe(3.14)
-        ->note->toBe('Mock value')
+        ->note->toBe('String value')
         ->numberOfEmployees->toBe(42)
-        ->naceCode->toBe('Mock value')
+        ->naceCode->toBe('String value')
         ->landedCostSupplier->toBeTrue()
         ->currencyOverride->toBeTrue()
         ->currencyRateOverride->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierGetAllCollection method in the Supplier resource', function () {
@@ -256,102 +247,108 @@ it('calls the supplierGetAllCollection method in the Supplier resource', functio
         SupplierGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'internalId' => 42,
-                'number' => 'Mock value',
-                'name' => 'Mock value',
-                'status' => 'Mock value',
-                'mainAddress' => 'Mock value',
-                'mainContact' => 'Mock value',
-                'accountReference' => 'Mock value',
-                'parentRecord' => 'Mock value',
-                'supplierClass' => 'Mock value',
-                'creditTerms' => 'Mock value',
-                'documentLanguage' => 'Mock value',
+                'number' => 'String value',
+                'name' => 'String value',
+                'status' => 'String value',
+                'mainAddress' => null,
+                'mainContact' => null,
+                'accountReference' => 'String value',
+                'parentRecord' => null,
+                'supplierClass' => null,
+                'creditTerms' => null,
+                'documentLanguage' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'remitAddress' => 'Mock value',
-                'remitContact' => 'Mock value',
-                'paymentMethod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'chargeBearer' => 'Mock value',
-                'accountUsedForPayment' => 'Mock value',
-                'paymentBy' => 'Mock value',
+                'remitAddress' => null,
+                'remitContact' => null,
+                'paymentMethod' => null,
+                'cashAccount' => 'String value',
+                'chargeBearer' => 'String value',
+                'accountUsedForPayment' => 'String value',
+                'paymentBy' => 'String value',
                 'paymentLeadTime' => '2025-11-22T10:40:04.065Z',
-                'paymentRefDisplayMask' => 'Mock value',
+                'paymentRefDisplayMask' => 'String value',
                 'paySeparately' => true,
-                'supplierAddress' => 'Mock value',
-                'supplierContact' => 'Mock value',
-                'location' => 'Mock value',
+                'supplierAddress' => null,
+                'supplierContact' => null,
+                'location' => null,
                 'vatRegistrationId' => 'mock-id-123',
                 'corporateId' => 'mock-id-123',
-                'vatZone' => 'Mock value',
-                'glAccounts' => 'Mock value',
+                'vatZone' => null,
+                'glAccounts' => null,
                 'attributes' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'supplierPaymentMethodDetails' => [],
                 'retainageApply' => true,
                 'retainageCashAccountId' => 'mock-id-123',
                 'retainagePct' => 3.14,
-                'note' => 'Mock value',
+                'note' => 'String value',
                 'numberOfEmployees' => 42,
-                'naceCode' => 'Mock value',
+                'naceCode' => 'String value',
                 'landedCostSupplier' => true,
                 'currencyOverride' => true,
                 'currencyRateOverride' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'internalId' => 42,
-                'number' => 'Mock value',
-                'name' => 'Mock value',
-                'status' => 'Mock value',
-                'mainAddress' => 'Mock value',
-                'mainContact' => 'Mock value',
-                'accountReference' => 'Mock value',
-                'parentRecord' => 'Mock value',
-                'supplierClass' => 'Mock value',
-                'creditTerms' => 'Mock value',
-                'documentLanguage' => 'Mock value',
+                'number' => 'String value',
+                'name' => 'String value',
+                'status' => 'String value',
+                'mainAddress' => null,
+                'mainContact' => null,
+                'accountReference' => 'String value',
+                'parentRecord' => null,
+                'supplierClass' => null,
+                'creditTerms' => null,
+                'documentLanguage' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'remitAddress' => 'Mock value',
-                'remitContact' => 'Mock value',
-                'paymentMethod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'chargeBearer' => 'Mock value',
-                'accountUsedForPayment' => 'Mock value',
-                'paymentBy' => 'Mock value',
+                'remitAddress' => null,
+                'remitContact' => null,
+                'paymentMethod' => null,
+                'cashAccount' => 'String value',
+                'chargeBearer' => 'String value',
+                'accountUsedForPayment' => 'String value',
+                'paymentBy' => 'String value',
                 'paymentLeadTime' => '2025-11-22T10:40:04.065Z',
-                'paymentRefDisplayMask' => 'Mock value',
+                'paymentRefDisplayMask' => 'String value',
                 'paySeparately' => true,
-                'supplierAddress' => 'Mock value',
-                'supplierContact' => 'Mock value',
-                'location' => 'Mock value',
+                'supplierAddress' => null,
+                'supplierContact' => null,
+                'location' => null,
                 'vatRegistrationId' => 'mock-id-123',
                 'corporateId' => 'mock-id-123',
-                'vatZone' => 'Mock value',
-                'glAccounts' => 'Mock value',
+                'vatZone' => null,
+                'glAccounts' => null,
                 'attributes' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'supplierPaymentMethodDetails' => [],
                 'retainageApply' => true,
                 'retainageCashAccountId' => 'mock-id-123',
                 'retainagePct' => 3.14,
-                'note' => 'Mock value',
+                'note' => 'String value',
                 'numberOfEmployees' => 42,
-                'naceCode' => 'Mock value',
+                'naceCode' => 'String value',
                 'landedCostSupplier' => true,
                 'currencyOverride' => true,
                 'currencyRateOverride' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new SupplierGetAllCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', name: 'test string', status: 'test string', vatRegistrationId: 'test string', corporateId: 'test string', attributes: 'test string', expandAccountInformation: true, expandNote: true, pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SupplierGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -359,53 +356,50 @@ it('calls the supplierGetAllCollection method in the Supplier resource', functio
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->internalId->toBe(42)
-        ->number->toBe('Mock value')
-        ->name->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->mainAddress->toBe('Mock value')
-        ->mainContact->toBe('Mock value')
-        ->accountReference->toBe('Mock value')
-        ->parentRecord->toBe('Mock value')
-        ->supplierClass->toBe('Mock value')
-        ->creditTerms->toBe('Mock value')
-        ->documentLanguage->toBe('Mock value')
+        ->number->toBe('String value')
+        ->name->toBe('String value')
+        ->status->toBe('String value')
+        ->mainAddress->toBeNull()
+        ->mainContact->toBeNull()
+        ->accountReference->toBe('String value')
+        ->parentRecord->toBeNull()
+        ->supplierClass->toBeNull()
+        ->creditTerms->toBeNull()
+        ->documentLanguage->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->remitAddress->toBe('Mock value')
-        ->remitContact->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->chargeBearer->toBe('Mock value')
-        ->accountUsedForPayment->toBe('Mock value')
-        ->paymentBy->toBe('Mock value')
+        ->remitAddress->toBeNull()
+        ->remitContact->toBeNull()
+        ->paymentMethod->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->chargeBearer->toBe('String value')
+        ->accountUsedForPayment->toBe('String value')
+        ->paymentBy->toBe('String value')
         ->paymentLeadTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->paymentRefDisplayMask->toBe('Mock value')
+        ->paymentRefDisplayMask->toBe('String value')
         ->paySeparately->toBeTrue()
-        ->supplierAddress->toBe('Mock value')
-        ->supplierContact->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->supplierAddress->toBeNull()
+        ->supplierContact->toBeNull()
+        ->location->toBeNull()
         ->vatRegistrationId->toBe('mock-id-123')
         ->corporateId->toBe('mock-id-123')
-        ->vatZone->toBe('Mock value')
-        ->glAccounts->toBe('Mock value')
+        ->vatZone->toBeNull()
+        ->glAccounts->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->retainageApply->toBeTrue()
         ->retainageCashAccountId->toBe('mock-id-123')
         ->retainagePct->toBe(3.14)
-        ->note->toBe('Mock value')
+        ->note->toBe('String value')
         ->numberOfEmployees->toBe(42)
-        ->naceCode->toBe('Mock value')
+        ->naceCode->toBe('String value')
         ->landedCostSupplier->toBeTrue()
         ->currencyOverride->toBeTrue()
         ->currencyRateOverride->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierGetAllInvoicesForSupplierBysupplierNumber method in the Supplier resource', function () {
@@ -413,13 +407,13 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumber method in the Su
         SupplierGetAllInvoicesForSupplierBysupplierNumberRequest::class => MockResponse::make([
             'taxDetailLines' => [],
             'attachments' => [],
-            'approvalDetails' => 'Mock value',
+            'approvalDetails' => null,
             'invoiceLines' => [],
             'landedCosts' => [],
             'hold' => true,
             'exchangeRate' => 3.14,
-            'paymentRefNo' => 'Mock value',
-            'creditTerms' => 'Mock value',
+            'paymentRefNo' => 'String value',
+            'creditTerms' => null,
             'retainageApply' => true,
             'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
             'detailTotal' => 3.14,
@@ -432,49 +426,48 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumber method in the Su
             'vatExemptTotalInCurrency' => 3.14,
             'withholdingTax' => 3.14,
             'withholdingTaxInCurrency' => 3.14,
-            'buyerReference' => 'Mock value',
+            'buyerReference' => 'String value',
             'roundingDiff' => 3.14,
             'roundingDiffInCurrency' => 3.14,
             'amount' => 3.14,
             'vatAmount' => 3.14,
-            'taxCalculationMode' => 'Mock value',
-            'supplierTaxZone' => 'Mock value',
+            'taxCalculationMode' => 'String value',
+            'supplierTaxZone' => null,
             'paySelected' => true,
             'curyRetainageTotal' => 3.14,
             'curyRetainageUnreleasedAmt' => 3.14,
             'documentVersionNumber' => 42,
-            'supplier' => 'Mock value',
-            'documentType' => 'Mock value',
-            'referenceNumber' => 'Mock value',
-            'postPeriod' => 'Mock value',
-            'financialPeriod' => 'Mock value',
+            'supplier' => null,
+            'documentType' => 'String value',
+            'referenceNumber' => 'String value',
+            'postPeriod' => 'String value',
+            'financialPeriod' => 'String value',
             'date' => '2025-11-22T10:40:04.065Z',
             'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
             'dueDate' => '2025-11-22T10:40:04.065Z',
-            'approvalStatus' => 'Mock value',
-            'status' => 'Mock value',
+            'approvalStatus' => 'String value',
+            'status' => 'String value',
             'currencyId' => 'mock-id-123',
             'balance' => 3.14,
             'balanceInCurrency' => 3.14,
             'cashDiscount' => 3.14,
             'cashDiscountInCurrency' => 3.14,
-            'paymentMethod' => 'Mock value',
-            'supplierReference' => 'Mock value',
-            'description' => 'Mock value',
+            'paymentMethod' => null,
+            'supplierReference' => 'String value',
+            'description' => 'String value',
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'note' => 'Mock value',
-            'closedFinancialPeriod' => 'Mock value',
-            'location' => 'Mock value',
+            'note' => 'String value',
+            'closedFinancialPeriod' => 'String value',
+            'location' => null,
             'vatTotal' => 3.14,
             'vatTotalInCurrency' => 3.14,
-            'branchNumber' => 'Mock value',
+            'branchNumber' => null,
             'payDate' => '2025-11-22T10:40:04.065Z',
-            'paymentMessage' => 'Mock value',
-            'cashAccount' => 'Mock value',
+            'paymentMessage' => 'String value',
+            'cashAccount' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -518,11 +511,11 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumber method in the Su
     $dto = $response->dto();
 
     expect($dto)
-        ->approvalDetails->toBe('Mock value')
+        ->approvalDetails->toBeNull()
         ->hold->toBeTrue()
         ->exchangeRate->toBe(3.14)
-        ->paymentRefNo->toBe('Mock value')
-        ->creditTerms->toBe('Mock value')
+        ->paymentRefNo->toBe('String value')
+        ->creditTerms->toBeNull()
         ->retainageApply->toBeTrue()
         ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->detailTotal->toBe(3.14)
@@ -535,91 +528,89 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumber method in the Su
         ->vatExemptTotalInCurrency->toBe(3.14)
         ->withholdingTax->toBe(3.14)
         ->withholdingTaxInCurrency->toBe(3.14)
-        ->buyerReference->toBe('Mock value')
+        ->buyerReference->toBe('String value')
         ->roundingDiff->toBe(3.14)
         ->roundingDiffInCurrency->toBe(3.14)
         ->amount->toBe(3.14)
         ->vatAmount->toBe(3.14)
-        ->taxCalculationMode->toBe('Mock value')
-        ->supplierTaxZone->toBe('Mock value')
+        ->taxCalculationMode->toBe('String value')
+        ->supplierTaxZone->toBeNull()
         ->paySelected->toBeTrue()
         ->curyRetainageTotal->toBe(3.14)
         ->curyRetainageUnreleasedAmt->toBe(3.14)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBe('Mock value')
-        ->documentType->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
+        ->supplier->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatus->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->approvalStatus->toBe('String value')
+        ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(3.14)
         ->balanceInCurrency->toBe(3.14)
         ->cashDiscount->toBe(3.14)
         ->cashDiscountInCurrency->toBe(3.14)
-        ->paymentMethod->toBe('Mock value')
-        ->supplierReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->paymentMethod->toBeNull()
+        ->supplierReference->toBe('String value')
+        ->description->toBe('String value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->closedFinancialPeriod->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->note->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
+        ->location->toBeNull()
         ->vatTotal->toBe(3.14)
         ->vatTotalInCurrency->toBe(3.14)
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->payDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->paymentMessage->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
+        ->paymentMessage->toBe('String value')
+        ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierGetAllDocumentsForSupplierBysupplierNumber method in the Supplier resource', function () {
     Saloon::fake([
         SupplierGetAllDocumentsForSupplierBysupplierNumberRequest::class => MockResponse::make([
-            'account' => 'Mock value',
-            'subaccount' => 'Mock value',
+            'account' => null,
+            'subaccount' => null,
             'amount' => 3.14,
             'amountInCurrency' => 3.14,
-            'branch' => 'Mock value',
-            'supplier' => 'Mock value',
-            'documentType' => 'Mock value',
-            'referenceNumber' => 'Mock value',
-            'postPeriod' => 'Mock value',
-            'financialPeriod' => 'Mock value',
+            'branch' => null,
+            'supplier' => null,
+            'documentType' => 'String value',
+            'referenceNumber' => 'String value',
+            'postPeriod' => 'String value',
+            'financialPeriod' => 'String value',
             'date' => '2025-11-22T10:40:04.065Z',
             'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
             'dueDate' => '2025-11-22T10:40:04.065Z',
-            'approvalStatus' => 'Mock value',
-            'status' => 'Mock value',
+            'approvalStatus' => 'String value',
+            'status' => 'String value',
             'currencyId' => 'mock-id-123',
             'balance' => 3.14,
             'balanceInCurrency' => 3.14,
             'cashDiscount' => 3.14,
             'cashDiscountInCurrency' => 3.14,
-            'paymentMethod' => 'Mock value',
-            'supplierReference' => 'Mock value',
-            'description' => 'Mock value',
+            'paymentMethod' => null,
+            'supplierReference' => 'String value',
+            'description' => 'String value',
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'note' => 'Mock value',
-            'closedFinancialPeriod' => 'Mock value',
-            'location' => 'Mock value',
+            'note' => 'String value',
+            'closedFinancialPeriod' => 'String value',
+            'location' => null,
             'vatTotal' => 3.14,
             'vatTotalInCurrency' => 3.14,
-            'branchNumber' => 'Mock value',
+            'branchNumber' => null,
             'payDate' => '2025-11-22T10:40:04.065Z',
-            'paymentMessage' => 'Mock value',
-            'cashAccount' => 'Mock value',
+            'paymentMessage' => 'String value',
+            'cashAccount' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -661,55 +652,54 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumber method in the S
     $dto = $response->dto();
 
     expect($dto)
-        ->account->toBe('Mock value')
-        ->subaccount->toBe('Mock value')
+        ->account->toBeNull()
+        ->subaccount->toBeNull()
         ->amount->toBe(3.14)
         ->amountInCurrency->toBe(3.14)
-        ->branch->toBe('Mock value')
-        ->supplier->toBe('Mock value')
-        ->documentType->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
+        ->branch->toBeNull()
+        ->supplier->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatus->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->approvalStatus->toBe('String value')
+        ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(3.14)
         ->balanceInCurrency->toBe(3.14)
         ->cashDiscount->toBe(3.14)
         ->cashDiscountInCurrency->toBe(3.14)
-        ->paymentMethod->toBe('Mock value')
-        ->supplierReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->paymentMethod->toBeNull()
+        ->supplierReference->toBe('String value')
+        ->description->toBe('String value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->closedFinancialPeriod->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->note->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
+        ->location->toBeNull()
         ->vatTotal->toBe(3.14)
         ->vatTotalInCurrency->toBe(3.14)
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->payDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->paymentMessage->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
+        ->paymentMessage->toBe('String value')
+        ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierGetSupplierBalanceBysupplierCd method in the Supplier resource', function () {
     Saloon::fake([
         SupplierGetSupplierBalanceBysupplierCdRequest::class => MockResponse::make([
-            'branchNumber' => 'Mock value',
-            'supplier' => 'Mock value',
+            'branchNumber' => 'String value',
+            'supplier' => null,
             'balance' => 3.14,
-            'unreleasedPurchasesNotInApproval' => 'Mock value',
-            'totalSentForApproval' => 'Mock value',
-            'totalPurchaseInvoicePeriod' => 'Mock value',
-            'totalPurchaseInvoiceYear' => 'Mock value',
+            'unreleasedPurchasesNotInApproval' => null,
+            'totalSentForApproval' => null,
+            'totalPurchaseInvoicePeriod' => null,
+            'totalPurchaseInvoiceYear' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
@@ -727,36 +717,36 @@ it('calls the supplierGetSupplierBalanceBysupplierCd method in the Supplier reso
     $dto = $response->dto();
 
     expect($dto)
-        ->branchNumber->toBe('Mock value')
-        ->supplier->toBe('Mock value')
+        ->branchNumber->toBe('String value')
+        ->supplier->toBeNull()
         ->balance->toBe(3.14)
-        ->unreleasedPurchasesNotInApproval->toBe('Mock value')
-        ->totalSentForApproval->toBe('Mock value')
-        ->totalPurchaseInvoicePeriod->toBe('Mock value')
-        ->totalPurchaseInvoiceYear->toBe('Mock value')
+        ->unreleasedPurchasesNotInApproval->toBeNull()
+        ->totalSentForApproval->toBeNull()
+        ->totalPurchaseInvoicePeriod->toBeNull()
+        ->totalPurchaseInvoiceYear->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the supplierGetAllContactForSupplierBysupplierCd method in the Supplier resource', function () {
     Saloon::fake([
         SupplierGetAllContactForSupplierBysupplierCdRequest::class => MockResponse::make([
-            'displayName' => 'Mock value',
+            'displayName' => 'String value',
             'active' => true,
-            'title' => 'Mock value',
-            'firstName' => 'Mock value',
-            'lastName' => 'Mock value',
-            'position' => 'Mock value',
-            'businessAccount' => 'Mock value',
-            'businessAccountType' => 'Mock value',
+            'title' => 'String value',
+            'firstName' => 'String value',
+            'lastName' => 'String value',
+            'position' => 'String value',
+            'businessAccount' => 'String value',
+            'businessAccountType' => 'String value',
             'sameAsAccount' => true,
-            'address' => 'Mock value',
+            'address' => null,
             'email' => 'test@example.com',
-            'web' => 'Mock value',
-            'phone1' => 'Mock value',
-            'phone2' => 'Mock value',
-            'phone3' => 'Mock value',
-            'fax' => 'Mock value',
-            'contactMethod' => 'Mock value',
+            'web' => 'String value',
+            'phone1' => 'String value',
+            'phone2' => 'String value',
+            'phone3' => 'String value',
+            'fax' => 'String value',
+            'contactMethod' => 'String value',
             'doNotCall' => true,
             'doNotFax' => true,
             'doNotEmail' => true,
@@ -766,8 +756,7 @@ it('calls the supplierGetAllContactForSupplierBysupplierCd method in the Supplie
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'contactId' => 42,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -796,23 +785,23 @@ it('calls the supplierGetAllContactForSupplierBysupplierCd method in the Supplie
     $dto = $response->dto();
 
     expect($dto)
-        ->displayName->toBe('Mock value')
+        ->displayName->toBe('String value')
         ->active->toBeTrue()
-        ->title->toBe('Mock value')
-        ->firstName->toBe('Mock value')
-        ->lastName->toBe('Mock value')
-        ->position->toBe('Mock value')
-        ->businessAccount->toBe('Mock value')
-        ->businessAccountType->toBe('Mock value')
+        ->title->toBe('String value')
+        ->firstName->toBe('String value')
+        ->lastName->toBe('String value')
+        ->position->toBe('String value')
+        ->businessAccount->toBe('String value')
+        ->businessAccountType->toBe('String value')
         ->sameAsAccount->toBeTrue()
-        ->address->toBe('Mock value')
+        ->address->toBeNull()
         ->email->toBe('test@example.com')
-        ->web->toBe('Mock value')
-        ->phone1->toBe('Mock value')
-        ->phone2->toBe('Mock value')
-        ->phone3->toBe('Mock value')
-        ->fax->toBe('Mock value')
-        ->contactMethod->toBe('Mock value')
+        ->web->toBe('String value')
+        ->phone1->toBe('String value')
+        ->phone2->toBe('String value')
+        ->phone3->toBe('String value')
+        ->fax->toBe('String value')
+        ->contactMethod->toBe('String value')
         ->doNotCall->toBeTrue()
         ->doNotFax->toBeTrue()
         ->doNotEmail->toBeTrue()
@@ -822,6 +811,5 @@ it('calls the supplierGetAllContactForSupplierBysupplierCd method in the Supplie
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->contactId->toBe(42)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

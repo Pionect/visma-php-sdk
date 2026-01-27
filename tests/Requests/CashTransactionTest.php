@@ -13,29 +13,26 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction resource', function () {
     Saloon::fake([
         CashTransactionGetByreferenceNbrRequest::class => MockResponse::make([
-            'tranType' => 'Mock value',
-            'referenceNbr' => 'Mock value',
-            'status' => 'Mock value',
+            'tranType' => 'String value',
+            'referenceNbr' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'tranDate' => '2025-11-22T10:40:04.065Z',
-            'finPeriod' => 'Mock value',
-            'financialPeriod' => 'Mock value',
-            'cashAccount' => 'Mock value',
-            'currency' => 'Mock value',
-            'entryType' => 'Mock value',
-            'disbReceipt' => 'Mock value',
-            'documentRef' => 'Mock value',
-            'owner' => 'Mock value',
-            'description' => 'Mock value',
+            'finPeriod' => 'String value',
+            'financialPeriod' => 'String value',
+            'cashAccount' => null,
+            'currency' => 'String value',
+            'entryType' => null,
+            'disbReceipt' => 'String value',
+            'documentRef' => 'String value',
+            'owner' => null,
+            'description' => 'String value',
             'amount' => 3.14,
             'vatTaxableTotal' => 3.14,
             'vatExemptTotal' => 3.14,
@@ -45,7 +42,7 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'transactionDetails' => [],
             'taxDetails' => [],
-            'financialsDetail' => 'Mock value',
+            'financialsDetail' => null,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
@@ -63,20 +60,20 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
     $dto = $response->dto();
 
     expect($dto)
-        ->tranType->toBe('Mock value')
-        ->referenceNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->tranType->toBe('String value')
+        ->referenceNbr->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->tranDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->finPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->entryType->toBe('Mock value')
-        ->disbReceipt->toBe('Mock value')
-        ->documentRef->toBe('Mock value')
-        ->owner->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->finPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
+        ->cashAccount->toBeNull()
+        ->currency->toBe('String value')
+        ->entryType->toBeNull()
+        ->disbReceipt->toBe('String value')
+        ->documentRef->toBe('String value')
+        ->owner->toBeNull()
+        ->description->toBe('String value')
         ->amount->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
         ->vatExemptTotal->toBe(3.14)
@@ -84,7 +81,7 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
         ->controlTotal->toBe(3.14)
         ->taxAmount->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->financialsDetail->toBe('Mock value')
+        ->financialsDetail->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
@@ -92,20 +89,20 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
     Saloon::fake([
         CashTransactionGetAllCollectionRequest::class => MockResponse::make([
             0 => [
-                'tranType' => 'Mock value',
-                'referenceNbr' => 'Mock value',
-                'status' => 'Mock value',
+                'tranType' => 'String value',
+                'referenceNbr' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'tranDate' => '2025-11-22T10:40:04.065Z',
-                'finPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'currency' => 'Mock value',
-                'entryType' => 'Mock value',
-                'disbReceipt' => 'Mock value',
-                'documentRef' => 'Mock value',
-                'owner' => 'Mock value',
-                'description' => 'Mock value',
+                'finPeriod' => 'String value',
+                'financialPeriod' => 'String value',
+                'cashAccount' => null,
+                'currency' => 'String value',
+                'entryType' => null,
+                'disbReceipt' => 'String value',
+                'documentRef' => 'String value',
+                'owner' => null,
+                'description' => 'String value',
                 'amount' => 3.14,
                 'vatTaxableTotal' => 3.14,
                 'vatExemptTotal' => 3.14,
@@ -115,24 +112,24 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'transactionDetails' => [],
                 'taxDetails' => [],
-                'financialsDetail' => 'Mock value',
+                'financialsDetail' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
             1 => [
-                'tranType' => 'Mock value',
-                'referenceNbr' => 'Mock value',
-                'status' => 'Mock value',
+                'tranType' => 'String value',
+                'referenceNbr' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'tranDate' => '2025-11-22T10:40:04.065Z',
-                'finPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'currency' => 'Mock value',
-                'entryType' => 'Mock value',
-                'disbReceipt' => 'Mock value',
-                'documentRef' => 'Mock value',
-                'owner' => 'Mock value',
-                'description' => 'Mock value',
+                'finPeriod' => 'String value',
+                'financialPeriod' => 'String value',
+                'cashAccount' => null,
+                'currency' => 'String value',
+                'entryType' => null,
+                'disbReceipt' => 'String value',
+                'documentRef' => 'String value',
+                'owner' => null,
+                'description' => 'String value',
                 'amount' => 3.14,
                 'vatTaxableTotal' => 3.14,
                 'vatExemptTotal' => 3.14,
@@ -142,7 +139,7 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'transactionDetails' => [],
                 'taxDetails' => [],
-                'financialsDetail' => 'Mock value',
+                'financialsDetail' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
@@ -150,7 +147,7 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
 
     $request = (new CashTransactionGetAllCollectionRequest(numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (CashTransactionGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -158,25 +155,23 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->tranType->toBe('Mock value')
-        ->referenceNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->tranType->toBe('String value')
+        ->referenceNbr->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->tranDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->finPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->entryType->toBe('Mock value')
-        ->disbReceipt->toBe('Mock value')
-        ->documentRef->toBe('Mock value')
-        ->owner->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->finPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
+        ->cashAccount->toBeNull()
+        ->currency->toBe('String value')
+        ->entryType->toBeNull()
+        ->disbReceipt->toBe('String value')
+        ->documentRef->toBe('String value')
+        ->owner->toBeNull()
+        ->description->toBe('String value')
         ->amount->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
         ->vatExemptTotal->toBe(3.14)
@@ -184,7 +179,7 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
         ->controlTotal->toBe(3.14)
         ->taxAmount->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->financialsDetail->toBe('Mock value')
+        ->financialsDetail->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 

@@ -9,44 +9,40 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the customerPaymentGetBypaymentNumber method in the CustomerPayment resource', function () {
     Saloon::fake([
         CustomerPaymentGetBypaymentNumberRequest::class => MockResponse::make([
-            'refNbr' => 'Mock value',
-            'status' => 'Mock value',
+            'refNbr' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'applicationDate' => '2025-11-22T10:40:04.065Z',
-            'applicationPeriod' => 'Mock value',
-            'paymentRef' => 'Mock value',
-            'customer' => 'Mock value',
-            'location' => 'Mock value',
-            'paymentMethod' => 'Mock value',
-            'cashAccount' => 'Mock value',
-            'currency' => 'Mock value',
+            'applicationPeriod' => 'String value',
+            'paymentRef' => 'String value',
+            'customer' => null,
+            'location' => null,
+            'paymentMethod' => null,
+            'cashAccount' => 'String value',
+            'currency' => 'String value',
             'paymentAmount' => 3.14,
-            'invoiceText' => 'Mock value',
+            'invoiceText' => 'String value',
             'appliedToDocuments' => 3.14,
             'appliedToOrders' => 3.14,
             'availableBalance' => 3.14,
             'writeOffAmount' => 3.14,
             'financeCharges' => 3.14,
             'deductedCharges' => 3.14,
-            'branch' => 'Mock value',
+            'branch' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'paymentLines' => [],
             'ordersToApply' => [],
-            'financialDetails' => 'Mock value',
+            'financialDetails' => null,
             'paymentAmountInCurrency' => 3.14,
             'availableBalanceInCurrency' => 3.14,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -63,106 +59,111 @@ it('calls the customerPaymentGetBypaymentNumber method in the CustomerPayment re
     $dto = $response->dto();
 
     expect($dto)
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->applicationPeriod->toBe('Mock value')
-        ->paymentRef->toBe('Mock value')
-        ->customer->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->currency->toBe('Mock value')
+        ->applicationPeriod->toBe('String value')
+        ->paymentRef->toBe('String value')
+        ->customer->toBeNull()
+        ->location->toBeNull()
+        ->paymentMethod->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->currency->toBe('String value')
         ->paymentAmount->toBe(3.14)
-        ->invoiceText->toBe('Mock value')
+        ->invoiceText->toBe('String value')
         ->appliedToDocuments->toBe(3.14)
         ->appliedToOrders->toBe(3.14)
         ->availableBalance->toBe(3.14)
         ->writeOffAmount->toBe(3.14)
         ->financeCharges->toBe(3.14)
         ->deductedCharges->toBe(3.14)
-        ->branch->toBe('Mock value')
+        ->branch->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->financialDetails->toBe('Mock value')
+        ->financialDetails->toBeNull()
         ->paymentAmountInCurrency->toBe(3.14)
         ->availableBalanceInCurrency->toBe(3.14)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPayment resource', function () {
     Saloon::fake([
         CustomerPaymentGetAllPaymentsCollectionRequest::class => MockResponse::make([
             0 => [
-                'refNbr' => 'Mock value',
-                'status' => 'Mock value',
+                'refNbr' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'applicationDate' => '2025-11-22T10:40:04.065Z',
-                'applicationPeriod' => 'Mock value',
-                'paymentRef' => 'Mock value',
-                'customer' => 'Mock value',
-                'location' => 'Mock value',
-                'paymentMethod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'currency' => 'Mock value',
+                'applicationPeriod' => 'String value',
+                'paymentRef' => 'String value',
+                'customer' => null,
+                'location' => null,
+                'paymentMethod' => null,
+                'cashAccount' => 'String value',
+                'currency' => 'String value',
                 'paymentAmount' => 3.14,
-                'invoiceText' => 'Mock value',
+                'invoiceText' => 'String value',
                 'appliedToDocuments' => 3.14,
                 'appliedToOrders' => 3.14,
                 'availableBalance' => 3.14,
                 'writeOffAmount' => 3.14,
                 'financeCharges' => 3.14,
                 'deductedCharges' => 3.14,
-                'branch' => 'Mock value',
+                'branch' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'paymentLines' => [],
                 'ordersToApply' => [],
-                'financialDetails' => 'Mock value',
+                'financialDetails' => null,
                 'paymentAmountInCurrency' => 3.14,
                 'availableBalanceInCurrency' => 3.14,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'refNbr' => 'Mock value',
-                'status' => 'Mock value',
+                'refNbr' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'applicationDate' => '2025-11-22T10:40:04.065Z',
-                'applicationPeriod' => 'Mock value',
-                'paymentRef' => 'Mock value',
-                'customer' => 'Mock value',
-                'location' => 'Mock value',
-                'paymentMethod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'currency' => 'Mock value',
+                'applicationPeriod' => 'String value',
+                'paymentRef' => 'String value',
+                'customer' => null,
+                'location' => null,
+                'paymentMethod' => null,
+                'cashAccount' => 'String value',
+                'currency' => 'String value',
                 'paymentAmount' => 3.14,
-                'invoiceText' => 'Mock value',
+                'invoiceText' => 'String value',
                 'appliedToDocuments' => 3.14,
                 'appliedToOrders' => 3.14,
                 'availableBalance' => 3.14,
                 'writeOffAmount' => 3.14,
                 'financeCharges' => 3.14,
                 'deductedCharges' => 3.14,
-                'branch' => 'Mock value',
+                'branch' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'paymentLines' => [],
                 'ordersToApply' => [],
-                'financialDetails' => 'Mock value',
+                'financialDetails' => null,
                 'paymentAmountInCurrency' => 3.14,
                 'availableBalanceInCurrency' => 3.14,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new CustomerPaymentGetAllPaymentsCollectionRequest(paymentNbr: 'test string', paymentType: 'test string', customer: 'test string', greaterThanValue: 'test string', invoiceRefNbr: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', branch: 'test string', docDate: 'test string', docDateCondition: 'test string', financialPeriod: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (CustomerPaymentGetAllPaymentsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -170,36 +171,33 @@ it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPaym
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->applicationPeriod->toBe('Mock value')
-        ->paymentRef->toBe('Mock value')
-        ->customer->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->currency->toBe('Mock value')
+        ->applicationPeriod->toBe('String value')
+        ->paymentRef->toBe('String value')
+        ->customer->toBeNull()
+        ->location->toBeNull()
+        ->paymentMethod->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->currency->toBe('String value')
         ->paymentAmount->toBe(3.14)
-        ->invoiceText->toBe('Mock value')
+        ->invoiceText->toBe('String value')
         ->appliedToDocuments->toBe(3.14)
         ->appliedToOrders->toBe(3.14)
         ->availableBalance->toBe(3.14)
         ->writeOffAmount->toBe(3.14)
         ->financeCharges->toBe(3.14)
         ->deductedCharges->toBe(3.14)
-        ->branch->toBe('Mock value')
+        ->branch->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->financialDetails->toBe('Mock value')
+        ->financialDetails->toBeNull()
         ->paymentAmountInCurrency->toBe(3.14)
         ->availableBalanceInCurrency->toBe(3.14)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

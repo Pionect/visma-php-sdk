@@ -11,10 +11,7 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the inventoryReceiptGetByinventoryReceiptNumber method in the InventoryReceipt resource', function () {
@@ -22,24 +19,23 @@ it('calls the inventoryReceiptGetByinventoryReceiptNumber method in the Inventor
         InventoryReceiptGetByinventoryReceiptNumberRequest::class => MockResponse::make([
             'totalCost' => 3.14,
             'controlCost' => 3.14,
-            'transferNumber' => 'Mock value',
+            'transferNumber' => 'String value',
             'receiptLines' => [],
-            'referenceNumber' => 'Mock value',
-            'status' => 'Mock value',
+            'referenceNumber' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'date' => '2025-11-22T10:40:04.065Z',
-            'postPeriod' => 'Mock value',
-            'externalReference' => 'Mock value',
-            'description' => 'Mock value',
+            'postPeriod' => 'String value',
+            'externalReference' => 'String value',
+            'description' => 'String value',
             'totalQuantity' => 3.14,
             'controlQuantity' => 3.14,
-            'batchNumber' => 'Mock value',
+            'batchNumber' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'branchNumber' => 'Mock value',
+            'branchNumber' => null,
             'attachments' => [],
-            'timestamp' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'timestamp' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -58,22 +54,21 @@ it('calls the inventoryReceiptGetByinventoryReceiptNumber method in the Inventor
     expect($dto)
         ->totalCost->toBe(3.14)
         ->controlCost->toBe(3.14)
-        ->transferNumber->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->transferNumber->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->externalReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->externalReference->toBe('String value')
+        ->description->toBe('String value')
         ->totalQuantity->toBe(3.14)
         ->controlQuantity->toBe(3.14)
-        ->batchNumber->toBe('Mock value')
+        ->batchNumber->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->timestamp->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryReceiptGetAllCollection method in the InventoryReceipt resource', function () {
@@ -82,53 +77,59 @@ it('calls the inventoryReceiptGetAllCollection method in the InventoryReceipt re
             0 => [
                 'totalCost' => 3.14,
                 'controlCost' => 3.14,
-                'transferNumber' => 'Mock value',
+                'transferNumber' => 'String value',
                 'receiptLines' => [],
-                'referenceNumber' => 'Mock value',
-                'status' => 'Mock value',
+                'referenceNumber' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'externalReference' => 'Mock value',
-                'description' => 'Mock value',
+                'postPeriod' => 'String value',
+                'externalReference' => 'String value',
+                'description' => 'String value',
                 'totalQuantity' => 3.14,
                 'controlQuantity' => 3.14,
-                'batchNumber' => 'Mock value',
+                'batchNumber' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'attachments' => [],
-                'timestamp' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'timestamp' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'totalCost' => 3.14,
                 'controlCost' => 3.14,
-                'transferNumber' => 'Mock value',
+                'transferNumber' => 'String value',
                 'receiptLines' => [],
-                'referenceNumber' => 'Mock value',
-                'status' => 'Mock value',
+                'referenceNumber' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'externalReference' => 'Mock value',
-                'description' => 'Mock value',
+                'postPeriod' => 'String value',
+                'externalReference' => 'String value',
+                'description' => 'String value',
                 'totalQuantity' => 3.14,
                 'controlQuantity' => 3.14,
-                'batchNumber' => 'Mock value',
+                'batchNumber' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'attachments' => [],
-                'timestamp' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'timestamp' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new InventoryReceiptGetAllCollectionRequest(status: 'test string', date: 'test string', dateCondition: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (InventoryReceiptGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -136,29 +137,26 @@ it('calls the inventoryReceiptGetAllCollection method in the InventoryReceipt re
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->totalCost->toBe(3.14)
         ->controlCost->toBe(3.14)
-        ->transferNumber->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->transferNumber->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->externalReference->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->externalReference->toBe('String value')
+        ->description->toBe('String value')
         ->totalQuantity->toBe(3.14)
         ->controlQuantity->toBe(3.14)
-        ->batchNumber->toBe('Mock value')
+        ->batchNumber->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->timestamp->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryReceiptReleaseDocumentByinvoiceNumber method in the InventoryReceipt resource', function () {

@@ -9,26 +9,22 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction resource', function () {
     Saloon::fake([
         ProjectTransactionGetByrefNbrRequest::class => MockResponse::make([
-            'refNbr' => 'Mock value',
-            'description' => 'Mock value',
-            'origDocNbr' => 'Mock value',
-            'status' => 'Mock value',
-            'module' => 'Mock value',
-            'origDocType' => 'Mock value',
-            'note' => 'Mock value',
+            'refNbr' => 'String value',
+            'description' => 'String value',
+            'origDocNbr' => 'String value',
+            'status' => 'String value',
+            'module' => 'String value',
+            'origDocType' => 'String value',
+            'note' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'lines' => [],
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -45,53 +41,58 @@ it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction res
     $dto = $response->dto();
 
     expect($dto)
-        ->refNbr->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->origDocNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->module->toBe('Mock value')
-        ->origDocType->toBe('Mock value')
-        ->note->toBe('Mock value')
+        ->refNbr->toBe('String value')
+        ->description->toBe('String value')
+        ->origDocNbr->toBe('String value')
+        ->status->toBe('String value')
+        ->module->toBe('String value')
+        ->origDocType->toBe('String value')
+        ->note->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the projectTransactionGetAllCollection method in the ProjectTransaction resource', function () {
     Saloon::fake([
         ProjectTransactionGetAllCollectionRequest::class => MockResponse::make([
             0 => [
-                'refNbr' => 'Mock value',
-                'description' => 'Mock value',
-                'origDocNbr' => 'Mock value',
-                'status' => 'Mock value',
-                'module' => 'Mock value',
-                'origDocType' => 'Mock value',
-                'note' => 'Mock value',
+                'refNbr' => 'String value',
+                'description' => 'String value',
+                'origDocNbr' => 'String value',
+                'status' => 'String value',
+                'module' => 'String value',
+                'origDocType' => 'String value',
+                'note' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'lines' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'refNbr' => 'Mock value',
-                'description' => 'Mock value',
-                'origDocNbr' => 'Mock value',
-                'status' => 'Mock value',
-                'module' => 'Mock value',
-                'origDocType' => 'Mock value',
-                'note' => 'Mock value',
+                'refNbr' => 'String value',
+                'description' => 'String value',
+                'origDocNbr' => 'String value',
+                'status' => 'String value',
+                'module' => 'String value',
+                'origDocType' => 'String value',
+                'note' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'lines' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new ProjectTransactionGetAllCollectionRequest(module: 'test string', status: 'test string', project: 'test string', projectTask: 'test string', billable: true, branch: 'test string', date: 'test string', fromPeriod: 'test string', toPeriod: 'test string', numberToRead: 123, skipRecords: 123, expandNote: true, greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (ProjectTransactionGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -99,19 +100,16 @@ it('calls the projectTransactionGetAllCollection method in the ProjectTransactio
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->refNbr->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->origDocNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->module->toBe('Mock value')
-        ->origDocType->toBe('Mock value')
-        ->note->toBe('Mock value')
+        ->refNbr->toBe('String value')
+        ->description->toBe('String value')
+        ->origDocNbr->toBe('String value')
+        ->status->toBe('String value')
+        ->module->toBe('String value')
+        ->origDocType->toBe('String value')
+        ->note->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

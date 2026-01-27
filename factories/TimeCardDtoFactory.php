@@ -29,7 +29,6 @@ class TimeCardDtoFactory extends Factory
             'approvalStatusText' => $this->faker->word(),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

@@ -10,20 +10,17 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodId method in the CustomerPaymentMethod resource', function () {
     Saloon::fake([
         CustomerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodIdRequest::class => MockResponse::make([
-            'customer' => 'Mock value',
-            'paymentMethod' => 'Mock value',
+            'customer' => null,
+            'paymentMethod' => null,
             'active' => true,
-            'cashAccount' => 'Mock value',
-            'cardOrAccountNo' => 'Mock value',
+            'cashAccount' => null,
+            'cardOrAccountNo' => 'String value',
             'paymentMethodDetails' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
@@ -43,22 +40,22 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerP
     $dto = $response->dto();
 
     expect($dto)
-        ->customer->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
+        ->customer->toBeNull()
+        ->paymentMethod->toBeNull()
         ->active->toBeTrue()
-        ->cashAccount->toBe('Mock value')
-        ->cardOrAccountNo->toBe('Mock value')
+        ->cashAccount->toBeNull()
+        ->cardOrAccountNo->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method in the CustomerPaymentMethod resource', function () {
     Saloon::fake([
         CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest::class => MockResponse::make([
-            'customer' => 'Mock value',
-            'paymentMethod' => 'Mock value',
+            'customer' => null,
+            'paymentMethod' => null,
             'active' => true,
-            'cashAccount' => 'Mock value',
-            'cardOrAccountNo' => 'Mock value',
+            'cashAccount' => null,
+            'cardOrAccountNo' => 'String value',
             'paymentMethodDetails' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
@@ -79,11 +76,11 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method 
     $dto = $response->dto();
 
     expect($dto)
-        ->customer->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
+        ->customer->toBeNull()
+        ->paymentMethod->toBeNull()
         ->active->toBeTrue()
-        ->cashAccount->toBe('Mock value')
-        ->cardOrAccountNo->toBe('Mock value')
+        ->cashAccount->toBeNull()
+        ->cardOrAccountNo->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
@@ -103,7 +100,7 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsCollection method in
 
     $request = (new CustomerPaymentMethodGetCustomerPaymentMethodsCollectionRequest(pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (CustomerPaymentMethodGetCustomerPaymentMethodsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -111,9 +108,7 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsCollection method in
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->customerId->toBe('mock-id-123');

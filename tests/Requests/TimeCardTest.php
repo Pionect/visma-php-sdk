@@ -13,21 +13,18 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCard resource', function () {
     Saloon::fake([
         TimeCardGetEmployeeTimeCardByreferenceNumberRequest::class => MockResponse::make([
-            'refNbr' => 'Mock value',
-            'status' => 'Mock value',
-            'approvalStatus' => 'Mock value',
-            'week' => 'Mock value',
-            'employee' => 'Mock value',
-            'origRefNbr' => 'Mock value',
+            'refNbr' => 'String value',
+            'status' => 'String value',
+            'approvalStatus' => 'String value',
+            'week' => null,
+            'employee' => null,
+            'origRefNbr' => 'String value',
             'timeSpent' => '2025-11-22T10:40:04.065Z',
             'invoiceable' => 42,
             'overtimeSpent' => 42,
@@ -37,10 +34,9 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'summary' => [],
             'materials' => [],
-            'approvalStatusText' => 'Mock value',
+            'approvalStatusText' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -57,12 +53,12 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
     $dto = $response->dto();
 
     expect($dto)
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->approvalStatus->toBe('Mock value')
-        ->week->toBe('Mock value')
-        ->employee->toBe('Mock value')
-        ->origRefNbr->toBe('Mock value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
+        ->approvalStatus->toBe('String value')
+        ->week->toBeNull()
+        ->employee->toBeNull()
+        ->origRefNbr->toBe('String value')
         ->timeSpent->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->invoiceable->toBe(42)
         ->overtimeSpent->toBe(42)
@@ -70,22 +66,21 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
         ->totalTimeSpent->toBe(42)
         ->invoiceableTotalTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatusText->toBe('Mock value')
+        ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard resource', function () {
     Saloon::fake([
         TimeCardGetAllEmployeeTimeCardsCollectionRequest::class => MockResponse::make([
             0 => [
-                'refNbr' => 'Mock value',
-                'status' => 'Mock value',
-                'approvalStatus' => 'Mock value',
-                'week' => 'Mock value',
-                'employee' => 'Mock value',
-                'origRefNbr' => 'Mock value',
+                'refNbr' => 'String value',
+                'status' => 'String value',
+                'approvalStatus' => 'String value',
+                'week' => null,
+                'employee' => null,
+                'origRefNbr' => 'String value',
                 'timeSpent' => '2025-11-22T10:40:04.065Z',
                 'invoiceable' => 42,
                 'overtimeSpent' => 42,
@@ -95,18 +90,21 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'summary' => [],
                 'materials' => [],
-                'approvalStatusText' => 'Mock value',
+                'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'refNbr' => 'Mock value',
-                'status' => 'Mock value',
-                'approvalStatus' => 'Mock value',
-                'week' => 'Mock value',
-                'employee' => 'Mock value',
-                'origRefNbr' => 'Mock value',
+                'refNbr' => 'String value',
+                'status' => 'String value',
+                'approvalStatus' => 'String value',
+                'week' => null,
+                'employee' => null,
+                'origRefNbr' => 'String value',
                 'timeSpent' => '2025-11-22T10:40:04.065Z',
                 'invoiceable' => 42,
                 'overtimeSpent' => 42,
@@ -116,17 +114,20 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'summary' => [],
                 'materials' => [],
-                'approvalStatusText' => 'Mock value',
+                'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new TimeCardGetAllEmployeeTimeCardsCollectionRequest(status: 'test string', week: 'test string', type: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', employeeCd: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (TimeCardGetAllEmployeeTimeCardsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -134,17 +135,15 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->approvalStatus->toBe('Mock value')
-        ->week->toBe('Mock value')
-        ->employee->toBe('Mock value')
-        ->origRefNbr->toBe('Mock value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
+        ->approvalStatus->toBe('String value')
+        ->week->toBeNull()
+        ->employee->toBeNull()
+        ->origRefNbr->toBe('String value')
         ->timeSpent->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->invoiceable->toBe(42)
         ->overtimeSpent->toBe(42)
@@ -152,10 +151,9 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
         ->totalTimeSpent->toBe(42)
         ->invoiceableTotalTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->approvalStatusText->toBe('Mock value')
+        ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the timeCardSubmitTimeCardBytimeCardCd method in the TimeCard resource', function () {

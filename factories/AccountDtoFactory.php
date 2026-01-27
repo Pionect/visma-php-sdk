@@ -32,7 +32,6 @@ class AccountDtoFactory extends Factory
             'allowManualEntry' => $this->faker->boolean(),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

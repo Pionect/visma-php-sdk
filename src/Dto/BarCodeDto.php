@@ -12,7 +12,4 @@ class BarCodeDto extends Model
 
     #[Property]
     public ?string $inventoryNumber;
-
-    #[Property]
-    public ?\BarCodeMetadataDto $metadata;
 }

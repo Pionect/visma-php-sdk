@@ -12,7 +12,6 @@ class CountryInWarehouseAddressDtoFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

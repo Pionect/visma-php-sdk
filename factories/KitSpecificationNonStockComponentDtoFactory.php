@@ -19,7 +19,6 @@ class KitSpecificationNonStockComponentDtoFactory extends Factory
             'maxComponentQty' => $this->faker->randomFloat(2, 0, 1000),
             'description' => $this->faker->sentence(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

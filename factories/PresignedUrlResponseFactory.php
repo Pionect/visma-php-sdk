@@ -11,7 +11,6 @@ class PresignedUrlResponseFactory extends Factory
     {
         return [
             'preSignedUrl' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

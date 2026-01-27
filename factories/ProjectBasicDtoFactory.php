@@ -26,7 +26,6 @@ class ProjectBasicDtoFactory extends Factory
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'visibility' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

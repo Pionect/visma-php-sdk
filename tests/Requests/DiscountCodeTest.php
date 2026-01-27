@@ -7,10 +7,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the discountCodeGetDiscountCodesCollection method in the DiscountCode resource', function () {
@@ -33,7 +30,7 @@ it('calls the discountCodeGetDiscountCodesCollection method in the DiscountCode 
 
     $request = (new DiscountCodeGetDiscountCodesCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', discountCode: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (DiscountCodeGetDiscountCodesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -41,9 +38,7 @@ it('calls the discountCodeGetDiscountCodesCollection method in the DiscountCode 
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->pageNumber->toBe(42)

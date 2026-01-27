@@ -41,7 +41,6 @@ class SalesOrderBasicDtoFactory extends Factory
             'note' => $this->faker->word(),
             'attachments' => [],
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

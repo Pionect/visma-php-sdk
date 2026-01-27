@@ -51,7 +51,6 @@ class ProjectDtoFactory extends Factory
             'attributes' => [],
             'note' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

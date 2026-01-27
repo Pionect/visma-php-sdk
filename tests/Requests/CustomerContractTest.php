@@ -12,25 +12,22 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the customerContractGetCustomerContractBycontractId method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractBycontractIdRequest::class => MockResponse::make([
             'contractId' => 'mock-id-123',
-            'contractTemplate' => 'Mock value',
-            'status' => 'Mock value',
-            'customer' => 'Mock value',
-            'location' => 'Mock value',
-            'description' => 'Mock value',
+            'contractTemplate' => null,
+            'status' => 'String value',
+            'customer' => null,
+            'location' => null,
+            'description' => 'String value',
             'balance' => 3.14,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'summary' => 'Mock value',
-            'details' => 'Mock value',
+            'summary' => null,
+            'details' => null,
             'attributes' => [],
         ], 200),
     ]);
@@ -49,15 +46,15 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
 
     expect($dto)
         ->contractId->toBe('mock-id-123')
-        ->contractTemplate->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->customer->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->contractTemplate->toBeNull()
+        ->status->toBe('String value')
+        ->customer->toBeNull()
+        ->location->toBeNull()
+        ->description->toBe('String value')
         ->balance->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->summary->toBe('Mock value')
-        ->details->toBe('Mock value');
+        ->summary->toBeNull()
+        ->details->toBeNull();
 });
 
 it('calls the customerContractGetAllCollection method in the CustomerContract resource', function () {
@@ -65,28 +62,28 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
         CustomerContractGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'contractId' => 'mock-id-123',
-                'contractTemplate' => 'Mock value',
-                'status' => 'Mock value',
-                'customer' => 'Mock value',
-                'location' => 'Mock value',
-                'description' => 'Mock value',
+                'contractTemplate' => null,
+                'status' => 'String value',
+                'customer' => null,
+                'location' => null,
+                'description' => 'String value',
                 'balance' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'summary' => 'Mock value',
-                'details' => 'Mock value',
+                'summary' => null,
+                'details' => null,
                 'attributes' => [],
             ],
             1 => [
                 'contractId' => 'mock-id-123',
-                'contractTemplate' => 'Mock value',
-                'status' => 'Mock value',
-                'customer' => 'Mock value',
-                'location' => 'Mock value',
-                'description' => 'Mock value',
+                'contractTemplate' => null,
+                'status' => 'String value',
+                'customer' => null,
+                'location' => null,
+                'description' => 'String value',
                 'balance' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'summary' => 'Mock value',
-                'details' => 'Mock value',
+                'summary' => null,
+                'details' => null,
                 'attributes' => [],
             ],
         ], 200),
@@ -94,7 +91,7 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
 
     $request = (new CustomerContractGetAllCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', contractTemplate: 'test string', status: 'test string', customer: 'test string', expandSummary: true, expandDetails: true, attributes: 'test string', expandAttributes: true));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (CustomerContractGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -102,21 +99,19 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->contractId->toBe('mock-id-123')
-        ->contractTemplate->toBe('Mock value')
-        ->status->toBe('Mock value')
-        ->customer->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->contractTemplate->toBeNull()
+        ->status->toBe('String value')
+        ->customer->toBeNull()
+        ->location->toBeNull()
+        ->description->toBe('String value')
         ->balance->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->summary->toBe('Mock value')
-        ->details->toBe('Mock value');
+        ->summary->toBeNull()
+        ->details->toBeNull();
 });
 
 it('calls the customerContractGetCustomerContractSummaryBycontractId method in the CustomerContract resource', function () {
@@ -129,17 +124,17 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
             'massRenewal' => true,
             'renewalPoint' => 42,
             'gracePeriod' => 42,
-            'currency' => 'Mock value',
+            'currency' => 'String value',
             'invoicingScheduleStartsOn' => '2025-11-22T10:40:04.065Z',
-            'invoicingPeriod' => 'Mock value',
+            'invoicingPeriod' => 'String value',
             'lastInvoicingDate' => '2025-11-22T10:40:04.065Z',
             'nextInvoicingDate' => '2025-11-22T10:40:04.065Z',
-            'invoiceTo' => 'Mock value',
-            'invoiceAccount' => 'Mock value',
-            'invoiceLocation' => 'Mock value',
-            'owner' => 'Mock value',
-            'salesPerson' => 'Mock value',
-            'caseCountItem' => 'Mock value',
+            'invoiceTo' => 'String value',
+            'invoiceAccount' => null,
+            'invoiceLocation' => null,
+            'owner' => null,
+            'salesPerson' => null,
+            'caseCountItem' => null,
         ], 200),
     ]);
 
@@ -163,24 +158,24 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
         ->massRenewal->toBeTrue()
         ->renewalPoint->toBe(42)
         ->gracePeriod->toBe(42)
-        ->currency->toBe('Mock value')
+        ->currency->toBe('String value')
         ->invoicingScheduleStartsOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->invoicingPeriod->toBe('Mock value')
+        ->invoicingPeriod->toBe('String value')
         ->lastInvoicingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->nextInvoicingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->invoiceTo->toBe('Mock value')
-        ->invoiceAccount->toBe('Mock value')
-        ->invoiceLocation->toBe('Mock value')
-        ->owner->toBe('Mock value')
-        ->salesPerson->toBe('Mock value')
-        ->caseCountItem->toBe('Mock value');
+        ->invoiceTo->toBe('String value')
+        ->invoiceAccount->toBeNull()
+        ->invoiceLocation->toBeNull()
+        ->owner->toBeNull()
+        ->salesPerson->toBeNull()
+        ->caseCountItem->toBeNull();
 });
 
 it('calls the customerContractGetCustomerContractDetailsBycontractId method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractDetailsBycontractIdRequest::class => MockResponse::make([
             'effectiveFrom' => '2025-11-22T10:40:04.065Z',
-            'promoCode' => 'Mock value',
+            'promoCode' => null,
             'pendingSetup' => 3.14,
             'pendingRecurring' => 3.14,
             'pendingRenewal' => 3.14,
@@ -206,7 +201,7 @@ it('calls the customerContractGetCustomerContractDetailsBycontractId method in t
 
     expect($dto)
         ->effectiveFrom->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->promoCode->toBe('Mock value')
+        ->promoCode->toBeNull()
         ->pendingSetup->toBe(3.14)
         ->pendingRecurring->toBe(3.14)
         ->pendingRenewal->toBe(3.14)

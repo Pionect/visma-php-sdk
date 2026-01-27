@@ -14,7 +14,6 @@ class CarrierDtoFactory extends Factory
             'carrierId' => $this->faker->uuid(),
             'carrierDescription' => $this->faker->sentence(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'metadata' => $this->faker->word(),
         ];
     }
 

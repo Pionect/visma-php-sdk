@@ -8,23 +8,20 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in the GeneralLedgerBalanceV2 resource', function () {
     Saloon::fake([
         GeneralLedgerBalanceV2GetGeneralLedgerBalancesCollectionRequest::class => MockResponse::make([
             0 => [
-                'branch' => 'Mock value',
-                'ledger' => 'Mock value',
-                'balanceType' => 'Mock value',
-                'financialPeriod' => 'Mock value',
-                'account' => 'Mock value',
+                'branch' => null,
+                'ledger' => null,
+                'balanceType' => 'String value',
+                'financialPeriod' => 'String value',
+                'account' => null,
                 'subaccountId' => 'mock-id-123',
-                'subAccountCd' => 'Mock value',
+                'subAccountCd' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'periodToDateDebit' => 3.14,
                 'periodToDateCredit' => 3.14,
@@ -36,17 +33,20 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
                 'yearToDateBalanceInCurrency' => 3.14,
                 'yearClosed' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'branch' => 'Mock value',
-                'ledger' => 'Mock value',
-                'balanceType' => 'Mock value',
-                'financialPeriod' => 'Mock value',
-                'account' => 'Mock value',
+                'branch' => null,
+                'ledger' => null,
+                'balanceType' => 'String value',
+                'financialPeriod' => 'String value',
+                'account' => null,
                 'subaccountId' => 'mock-id-123',
-                'subAccountCd' => 'Mock value',
+                'subAccountCd' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'periodToDateDebit' => 3.14,
                 'periodToDateCredit' => 3.14,
@@ -58,15 +58,18 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
                 'yearToDateBalanceInCurrency' => 3.14,
                 'yearClosed' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new GeneralLedgerBalanceV2GetGeneralLedgerBalancesCollectionRequest(periodId: 'test string', account: 'test string', ledger: 'test string', branch: 'test string', balanceType: 'test string', toggleBalanceSigns: true, lastModifiedDateTime: 'test string', excludeYtdaccount: true, pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (GeneralLedgerBalanceV2GetGeneralLedgerBalancesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -74,18 +77,16 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->branch->toBe('Mock value')
-        ->ledger->toBe('Mock value')
-        ->balanceType->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
-        ->account->toBe('Mock value')
+        ->branch->toBeNull()
+        ->ledger->toBeNull()
+        ->balanceType->toBe('String value')
+        ->financialPeriod->toBe('String value')
+        ->account->toBeNull()
         ->subaccountId->toBe('mock-id-123')
-        ->subAccountCd->toBe('Mock value')
+        ->subAccountCd->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->periodToDateDebit->toBe(3.14)
         ->periodToDateCredit->toBe(3.14)
@@ -97,6 +98,5 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
         ->yearToDateBalanceInCurrency->toBe(3.14)
         ->yearClosed->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

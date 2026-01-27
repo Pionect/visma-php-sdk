@@ -8,21 +8,17 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the fixedAssetPropertyTaxGroupGetByPropertyTaxId method in the FixedAssetPropertyTaxGroup resource', function () {
     Saloon::fake([
         FixedAssetPropertyTaxGroupGetByPropertyTaxIdRequest::class => MockResponse::make([
             'propertyTaxId' => 'mock-id-123',
-            'description' => 'Mock value',
+            'description' => 'String value',
             'active' => true,
             'details' => [],
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -40,10 +36,9 @@ it('calls the fixedAssetPropertyTaxGroupGetByPropertyTaxId method in the FixedAs
 
     expect($dto)
         ->propertyTaxId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->active->toBeTrue()
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAssetPropertyTaxGroup resource', function () {
@@ -51,26 +46,32 @@ it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAsse
         FixedAssetPropertyTaxGroupGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'propertyTaxId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'active' => true,
                 'details' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'propertyTaxId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'active' => true,
                 'details' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new FixedAssetPropertyTaxGroupGetAllCollectionRequest(propertyTaxId: 'test string', active: true, pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (FixedAssetPropertyTaxGroupGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -78,14 +79,11 @@ it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAsse
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->propertyTaxId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->active->toBeTrue()
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

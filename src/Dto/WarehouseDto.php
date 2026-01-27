@@ -69,7 +69,4 @@ class WarehouseDto extends Model
     /** Timestamp of the warehouse record */
     #[Property]
     public ?string $timestamp;
-
-    #[Property]
-    public ?\MetadataDto $metadata;
 }

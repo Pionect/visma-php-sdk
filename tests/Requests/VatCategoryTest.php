@@ -9,17 +9,14 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory resource', function () {
     Saloon::fake([
         VatCategoryGetVatCategoryBytaxCategoryIdRequest::class => MockResponse::make([
             'vatCategoryId' => 'mock-id-123',
-            'description' => 'Mock value',
+            'description' => 'String value',
             'active' => true,
             'excludeListedTaxes' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
@@ -42,7 +39,7 @@ it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory
 
     expect($dto)
         ->vatCategoryId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->active->toBeTrue()
         ->excludeListedTaxes->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
@@ -53,7 +50,7 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
         VatCategoryGetAllVatCategoriesCollectionRequest::class => MockResponse::make([
             0 => [
                 'vatCategoryId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'active' => true,
                 'excludeListedTaxes' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
@@ -61,7 +58,7 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
             ],
             1 => [
                 'vatCategoryId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'active' => true,
                 'excludeListedTaxes' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
@@ -72,7 +69,7 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
 
     $request = (new VatCategoryGetAllVatCategoriesCollectionRequest(vendorCd: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (VatCategoryGetAllVatCategoriesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -80,13 +77,11 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->vatCategoryId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->active->toBeTrue()
         ->excludeListedTaxes->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));

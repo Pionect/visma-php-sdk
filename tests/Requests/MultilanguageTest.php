@@ -9,17 +9,14 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIso method in the Multilanguage resource', function () {
     Saloon::fake([
         MultilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class => MockResponse::make([
-            'languageIso' => 'Mock value',
-            'translation' => 'Mock value',
+            'languageIso' => 'String value',
+            'translation' => 'String value',
             'isTranslated' => true,
         ], 200),
     ]);
@@ -38,16 +35,16 @@ it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumber
     $dto = $response->dto();
 
     expect($dto)
-        ->languageIso->toBe('Mock value')
-        ->translation->toBe('Mock value')
+        ->languageIso->toBe('String value')
+        ->translation->toBe('String value')
         ->isTranslated->toBeTrue();
 });
 
 it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in the Multilanguage resource', function () {
     Saloon::fake([
         MultilanguageGetInventoryTranslationsByinventoryNumberRequest::class => MockResponse::make([
-            'languageIso' => 'Mock value',
-            'translation' => 'Mock value',
+            'languageIso' => 'String value',
+            'translation' => 'String value',
             'isTranslated' => true,
         ], 200),
     ]);
@@ -65,8 +62,8 @@ it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in t
     $dto = $response->dto();
 
     expect($dto)
-        ->languageIso->toBe('Mock value')
-        ->translation->toBe('Mock value')
+        ->languageIso->toBe('String value')
+        ->translation->toBe('String value')
         ->isTranslated->toBeTrue();
 });
 
@@ -75,14 +72,14 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
         MultilanguageGetAllActiveLanguagesCollectionRequest::class => MockResponse::make([
             0 => [
                 'isDefault' => true,
-                'languageIso' => 'Mock value',
-                'nativeName' => 'Mock value',
+                'languageIso' => 'String value',
+                'nativeName' => 'String value',
                 'isActive' => true,
             ],
             1 => [
                 'isDefault' => true,
-                'languageIso' => 'Mock value',
-                'nativeName' => 'Mock value',
+                'languageIso' => 'String value',
+                'nativeName' => 'String value',
                 'isActive' => true,
             ],
         ], 200),
@@ -90,7 +87,7 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
 
     $request = (new MultilanguageGetAllActiveLanguagesCollectionRequest);
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (MultilanguageGetAllActiveLanguagesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -98,13 +95,11 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->isDefault->toBeTrue()
-        ->languageIso->toBe('Mock value')
-        ->nativeName->toBe('Mock value')
+        ->languageIso->toBe('String value')
+        ->nativeName->toBe('String value')
         ->isActive->toBeTrue();
 });

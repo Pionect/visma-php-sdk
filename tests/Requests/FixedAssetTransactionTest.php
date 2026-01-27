@@ -9,32 +9,28 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the fixedAssetTransactionGetByRefNo method in the FixedAssetTransaction resource', function () {
     Saloon::fake([
         FixedAssetTransactionGetByRefNoRequest::class => MockResponse::make([
-            'refNo' => 'Mock value',
+            'refNo' => 'String value',
             'lineNo' => 42,
             'branchId' => 'mock-id-123',
-            'origin' => 'Mock value',
+            'origin' => 'String value',
             'assetId' => 'mock-id-123',
-            'transactionDescription' => 'Mock value',
+            'transactionDescription' => 'String value',
             'bookId' => 'mock-id-123',
-            'transactionType' => 'Mock value',
-            'accounts' => 'Mock value',
+            'transactionType' => 'String value',
+            'accounts' => null,
             'transactionAmount' => 3.14,
-            'batchNo' => 'Mock value',
+            'batchNo' => 'String value',
             'transactionPeriodId' => 'mock-id-123',
             'transactionDate' => '2025-11-22T10:40:04.065Z',
-            'register' => 'Mock value',
+            'register' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -51,72 +47,77 @@ it('calls the fixedAssetTransactionGetByRefNo method in the FixedAssetTransactio
     $dto = $response->dto();
 
     expect($dto)
-        ->refNo->toBe('Mock value')
+        ->refNo->toBe('String value')
         ->lineNo->toBe(42)
         ->branchId->toBe('mock-id-123')
-        ->origin->toBe('Mock value')
+        ->origin->toBe('String value')
         ->assetId->toBe('mock-id-123')
-        ->transactionDescription->toBe('Mock value')
+        ->transactionDescription->toBe('String value')
         ->bookId->toBe('mock-id-123')
-        ->transactionType->toBe('Mock value')
-        ->accounts->toBe('Mock value')
+        ->transactionType->toBe('String value')
+        ->accounts->toBeNull()
         ->transactionAmount->toBe(3.14)
-        ->batchNo->toBe('Mock value')
+        ->batchNo->toBe('String value')
         ->transactionPeriodId->toBe('mock-id-123')
         ->transactionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->register->toBe('Mock value')
+        ->register->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the fixedAssetTransactionGetAllCollection method in the FixedAssetTransaction resource', function () {
     Saloon::fake([
         FixedAssetTransactionGetAllCollectionRequest::class => MockResponse::make([
             0 => [
-                'refNo' => 'Mock value',
+                'refNo' => 'String value',
                 'lineNo' => 42,
                 'branchId' => 'mock-id-123',
-                'origin' => 'Mock value',
+                'origin' => 'String value',
                 'assetId' => 'mock-id-123',
-                'transactionDescription' => 'Mock value',
+                'transactionDescription' => 'String value',
                 'bookId' => 'mock-id-123',
-                'transactionType' => 'Mock value',
-                'accounts' => 'Mock value',
+                'transactionType' => 'String value',
+                'accounts' => null,
                 'transactionAmount' => 3.14,
-                'batchNo' => 'Mock value',
+                'batchNo' => 'String value',
                 'transactionPeriodId' => 'mock-id-123',
                 'transactionDate' => '2025-11-22T10:40:04.065Z',
-                'register' => 'Mock value',
+                'register' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'refNo' => 'Mock value',
+                'refNo' => 'String value',
                 'lineNo' => 42,
                 'branchId' => 'mock-id-123',
-                'origin' => 'Mock value',
+                'origin' => 'String value',
                 'assetId' => 'mock-id-123',
-                'transactionDescription' => 'Mock value',
+                'transactionDescription' => 'String value',
                 'bookId' => 'mock-id-123',
-                'transactionType' => 'Mock value',
-                'accounts' => 'Mock value',
+                'transactionType' => 'String value',
+                'accounts' => null,
                 'transactionAmount' => 3.14,
-                'batchNo' => 'Mock value',
+                'batchNo' => 'String value',
                 'transactionPeriodId' => 'mock-id-123',
                 'transactionDate' => '2025-11-22T10:40:04.065Z',
-                'register' => 'Mock value',
+                'register' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new FixedAssetTransactionGetAllCollectionRequest(refNo: 'test string', assetId: 'test string', bookId: 'test string', fromPeriod: 'test string', toPeriod: 'test string', accountId: 'test string', subAccountId: 'test string', status: 'test string', transactionType: 'test string', transactionFromDate: 'test string', transactionToDate: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (FixedAssetTransactionGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -124,26 +125,23 @@ it('calls the fixedAssetTransactionGetAllCollection method in the FixedAssetTran
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->refNo->toBe('Mock value')
+        ->refNo->toBe('String value')
         ->lineNo->toBe(42)
         ->branchId->toBe('mock-id-123')
-        ->origin->toBe('Mock value')
+        ->origin->toBe('String value')
         ->assetId->toBe('mock-id-123')
-        ->transactionDescription->toBe('Mock value')
+        ->transactionDescription->toBe('String value')
         ->bookId->toBe('mock-id-123')
-        ->transactionType->toBe('Mock value')
-        ->accounts->toBe('Mock value')
+        ->transactionType->toBe('String value')
+        ->accounts->toBeNull()
         ->transactionAmount->toBe(3.14)
-        ->batchNo->toBe('Mock value')
+        ->batchNo->toBe('String value')
         ->transactionPeriodId->toBe('mock-id-123')
         ->transactionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->register->toBe('Mock value')
+        ->register->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

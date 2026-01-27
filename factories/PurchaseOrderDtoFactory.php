@@ -77,7 +77,6 @@ class PurchaseOrderDtoFactory extends Factory
             'customDateTimeUtc1' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

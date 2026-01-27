@@ -11,7 +11,6 @@ class PostingClassInInventoryDtoFactory extends Factory
     {
         return [
             'description' => $this->faker->sentence(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

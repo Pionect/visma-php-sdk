@@ -12,7 +12,6 @@ class BarCodeDtoFactory extends Factory
         return [
             'barCode' => $this->faker->word(),
             'inventoryNumber' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

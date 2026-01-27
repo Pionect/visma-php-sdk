@@ -42,7 +42,6 @@ class JournalTransactionDtoFactory extends Factory
             'journalTransactionLines' => [],
             'attachments' => [],
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

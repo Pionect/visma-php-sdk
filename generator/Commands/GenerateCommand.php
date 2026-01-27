@@ -8,6 +8,7 @@ use Crescat\SaloonSdkGenerator\CodeGenerator;
 use Crescat\SaloonSdkGenerator\Data\Generator\Config;
 use Crescat\SaloonSdkGenerator\Data\TaggedOutputFile;
 use Crescat\SaloonSdkGenerator\Parsers\OpenApiParser;
+use Pionect\VismaSdk\Generator\Generators\PlainJsonConnectorGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonDtoGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonRequestGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonTestGenerator;
@@ -117,6 +118,7 @@ class GenerateCommand extends Command
             requestGenerator: new PlainJsonRequestGenerator($config),
             resourceGenerator: new JsonApiResourceGenerator($config),
             dtoGenerator: new PlainJsonDtoGenerator($config),
+            connectorGenerator: new PlainJsonConnectorGenerator($config),
             postProcessors: $postProcessors,
         );
 

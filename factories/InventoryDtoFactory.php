@@ -55,7 +55,6 @@ class InventoryDtoFactory extends Factory
             'note' => $this->faker->word(),
             'timestamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

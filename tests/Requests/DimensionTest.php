@@ -11,17 +11,14 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the dimensionGetDimensionBydimensionId method in the Dimension resource', function () {
     Saloon::fake([
         DimensionGetDimensionBydimensionIdRequest::class => MockResponse::make([
             'length' => 42,
-            'description' => 'Mock value',
+            'description' => 'String value',
             'segments' => [],
         ], 200),
     ]);
@@ -47,7 +44,7 @@ it('calls the dimensionGetDimensionBydimensionId method in the Dimension resourc
 
     expect($dto)
         ->length->toBe(42)
-        ->description->toBe('Mock value');
+        ->description->toBe('String value');
 });
 
 it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension resource', function () {
@@ -55,7 +52,7 @@ it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension 
         DimensionGetSegmentBydimensionIdsegmentIdRequest::class => MockResponse::make([
             'internalId' => 'mock-id-123',
             'segmentId' => 42,
-            'description' => 'Mock value',
+            'description' => 'String value',
             'length' => 42,
             'publicId' => 'mock-id-123',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
@@ -84,7 +81,7 @@ it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension 
     expect($dto)
         ->internalId->toBe('mock-id-123')
         ->segmentId->toBe(42)
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->length->toBe(42)
         ->publicId->toBe('mock-id-123')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
@@ -101,12 +98,12 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in th
             'internalId' => 'mock-id-123',
             'segmentId' => 42,
             'valueId' => 'mock-id-123',
-            'description' => 'Mock value',
+            'description' => 'String value',
             'publicId' => 'mock-id-123',
             'active' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'lastModified' => '2025-11-22T10:40:04.065Z',
-            'mappedSegValue' => 'Mock value',
+            'mappedSegValue' => 'String value',
         ], 200),
     ]);
 
@@ -128,12 +125,12 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in th
         ->internalId->toBe('mock-id-123')
         ->segmentId->toBe(42)
         ->valueId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->publicId->toBe('mock-id-123')
         ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->mappedSegValue->toBe('Mock value');
+        ->mappedSegValue->toBe('String value');
 });
 
 it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in the Dimension resource', function () {
@@ -142,12 +139,12 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in t
             'internalId' => 'mock-id-123',
             'segmentId' => 42,
             'valueId' => 'mock-id-123',
-            'description' => 'Mock value',
+            'description' => 'String value',
             'publicId' => 'mock-id-123',
             'active' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'lastModified' => '2025-11-22T10:40:04.065Z',
-            'mappedSegValue' => 'Mock value',
+            'mappedSegValue' => 'String value',
         ], 200),
     ]);
 
@@ -169,10 +166,10 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in t
         ->internalId->toBe('mock-id-123')
         ->segmentId->toBe(42)
         ->valueId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->publicId->toBe('mock-id-123')
         ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->mappedSegValue->toBe('Mock value');
+        ->mappedSegValue->toBe('String value');
 });

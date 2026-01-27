@@ -9,10 +9,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the vatGetVatByvatId method in the Vat resource', function () {
@@ -20,7 +17,7 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
         VatGetVatByvatIdRequest::class => MockResponse::make([
             'vatCategoryId' => 'mock-id-123',
             'vatId' => 'mock-id-123',
-            'description' => 'Mock value',
+            'description' => 'String value',
             'deductibleVat' => true,
             'reverseVat' => true,
             'statisticalVat' => true,
@@ -28,16 +25,16 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
             'includeinVatExemptTotal' => true,
             'includeinVatTotal' => true,
             'enterFromVatInvoice' => true,
-            'calculateOn' => 'Mock value',
-            'cashDiscount' => 'Mock value',
-            'vatAgencyId' => 'Mock value',
+            'calculateOn' => 'String value',
+            'cashDiscount' => 'String value',
+            'vatAgencyId' => null,
             'notValidAfter' => '2025-11-22T10:40:04.065Z',
-            'euReportCode' => 'Mock value',
-            'documentText' => 'Mock value',
-            'defaultNonStockItem' => 'Mock value',
-            'vismaXmlVatType' => 'Mock value',
+            'euReportCode' => 'String value',
+            'documentText' => 'String value',
+            'defaultNonStockItem' => null,
+            'vismaXmlVatType' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'glAccounts' => 'Mock value',
+            'glAccounts' => null,
             'schedules' => [],
             'categories' => [],
             'zones' => [],
@@ -59,7 +56,7 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
     expect($dto)
         ->vatCategoryId->toBe('mock-id-123')
         ->vatId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->deductibleVat->toBeTrue()
         ->reverseVat->toBeTrue()
         ->statisticalVat->toBeTrue()
@@ -67,16 +64,16 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
         ->includeinVatExemptTotal->toBeTrue()
         ->includeinVatTotal->toBeTrue()
         ->enterFromVatInvoice->toBeTrue()
-        ->calculateOn->toBe('Mock value')
-        ->cashDiscount->toBe('Mock value')
-        ->vatAgencyId->toBe('Mock value')
+        ->calculateOn->toBe('String value')
+        ->cashDiscount->toBe('String value')
+        ->vatAgencyId->toBeNull()
         ->notValidAfter->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->euReportCode->toBe('Mock value')
-        ->documentText->toBe('Mock value')
-        ->defaultNonStockItem->toBe('Mock value')
-        ->vismaXmlVatType->toBe('Mock value')
+        ->euReportCode->toBe('String value')
+        ->documentText->toBe('String value')
+        ->defaultNonStockItem->toBeNull()
+        ->vismaXmlVatType->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->glAccounts->toBe('Mock value');
+        ->glAccounts->toBeNull();
 });
 
 it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
@@ -85,7 +82,7 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
             0 => [
                 'vatCategoryId' => 'mock-id-123',
                 'vatId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'deductibleVat' => true,
                 'reverseVat' => true,
                 'statisticalVat' => true,
@@ -93,16 +90,16 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
                 'includeinVatExemptTotal' => true,
                 'includeinVatTotal' => true,
                 'enterFromVatInvoice' => true,
-                'calculateOn' => 'Mock value',
-                'cashDiscount' => 'Mock value',
-                'vatAgencyId' => 'Mock value',
+                'calculateOn' => 'String value',
+                'cashDiscount' => 'String value',
+                'vatAgencyId' => null,
                 'notValidAfter' => '2025-11-22T10:40:04.065Z',
-                'euReportCode' => 'Mock value',
-                'documentText' => 'Mock value',
-                'defaultNonStockItem' => 'Mock value',
-                'vismaXmlVatType' => 'Mock value',
+                'euReportCode' => 'String value',
+                'documentText' => 'String value',
+                'defaultNonStockItem' => null,
+                'vismaXmlVatType' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'glAccounts' => 'Mock value',
+                'glAccounts' => null,
                 'schedules' => [],
                 'categories' => [],
                 'zones' => [],
@@ -110,7 +107,7 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
             1 => [
                 'vatCategoryId' => 'mock-id-123',
                 'vatId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'deductibleVat' => true,
                 'reverseVat' => true,
                 'statisticalVat' => true,
@@ -118,16 +115,16 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
                 'includeinVatExemptTotal' => true,
                 'includeinVatTotal' => true,
                 'enterFromVatInvoice' => true,
-                'calculateOn' => 'Mock value',
-                'cashDiscount' => 'Mock value',
-                'vatAgencyId' => 'Mock value',
+                'calculateOn' => 'String value',
+                'cashDiscount' => 'String value',
+                'vatAgencyId' => null,
                 'notValidAfter' => '2025-11-22T10:40:04.065Z',
-                'euReportCode' => 'Mock value',
-                'documentText' => 'Mock value',
-                'defaultNonStockItem' => 'Mock value',
-                'vismaXmlVatType' => 'Mock value',
+                'euReportCode' => 'String value',
+                'documentText' => 'String value',
+                'defaultNonStockItem' => null,
+                'vismaXmlVatType' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'glAccounts' => 'Mock value',
+                'glAccounts' => null,
                 'schedules' => [],
                 'categories' => [],
                 'zones' => [],
@@ -137,7 +134,7 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
 
     $request = (new VatGetAllVatsCollectionRequest(numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (VatGetAllVatsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -145,14 +142,12 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->vatCategoryId->toBe('mock-id-123')
         ->vatId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->deductibleVat->toBeTrue()
         ->reverseVat->toBeTrue()
         ->statisticalVat->toBeTrue()
@@ -160,14 +155,14 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
         ->includeinVatExemptTotal->toBeTrue()
         ->includeinVatTotal->toBeTrue()
         ->enterFromVatInvoice->toBeTrue()
-        ->calculateOn->toBe('Mock value')
-        ->cashDiscount->toBe('Mock value')
-        ->vatAgencyId->toBe('Mock value')
+        ->calculateOn->toBe('String value')
+        ->cashDiscount->toBe('String value')
+        ->vatAgencyId->toBeNull()
         ->notValidAfter->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->euReportCode->toBe('Mock value')
-        ->documentText->toBe('Mock value')
-        ->defaultNonStockItem->toBe('Mock value')
-        ->vismaXmlVatType->toBe('Mock value')
+        ->euReportCode->toBe('String value')
+        ->documentText->toBe('String value')
+        ->defaultNonStockItem->toBeNull()
+        ->vismaXmlVatType->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->glAccounts->toBe('Mock value');
+        ->glAccounts->toBeNull();
 });

@@ -8,19 +8,16 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the numberSequenceGetBynumberingId method in the NumberSequence resource', function () {
     Saloon::fake([
         NumberSequenceGetBynumberingIdRequest::class => MockResponse::make([
             'numberingId' => 'mock-id-123',
-            'description' => 'Mock value',
+            'description' => 'String value',
             'manualNumbering' => true,
-            'newNumberSymbol' => 'Mock value',
+            'newNumberSymbol' => 'String value',
             'sequence' => [],
         ], 200),
     ]);
@@ -39,9 +36,9 @@ it('calls the numberSequenceGetBynumberingId method in the NumberSequence resour
 
     expect($dto)
         ->numberingId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->manualNumbering->toBeTrue()
-        ->newNumberSymbol->toBe('Mock value');
+        ->newNumberSymbol->toBe('String value');
 });
 
 it('calls the numberSequenceGetAllCollection method in the NumberSequence resource', function () {
@@ -49,16 +46,16 @@ it('calls the numberSequenceGetAllCollection method in the NumberSequence resour
         NumberSequenceGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'numberingId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'manualNumbering' => true,
-                'newNumberSymbol' => 'Mock value',
+                'newNumberSymbol' => 'String value',
                 'sequence' => [],
             ],
             1 => [
                 'numberingId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'manualNumbering' => true,
-                'newNumberSymbol' => 'Mock value',
+                'newNumberSymbol' => 'String value',
                 'sequence' => [],
             ],
         ], 200),
@@ -66,7 +63,7 @@ it('calls the numberSequenceGetAllCollection method in the NumberSequence resour
 
     $request = (new NumberSequenceGetAllCollectionRequest);
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (NumberSequenceGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -74,13 +71,11 @@ it('calls the numberSequenceGetAllCollection method in the NumberSequence resour
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->numberingId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->manualNumbering->toBeTrue()
-        ->newNumberSymbol->toBe('Mock value');
+        ->newNumberSymbol->toBe('String value');
 });

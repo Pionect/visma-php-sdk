@@ -24,7 +24,6 @@ class DiscountCodeDtoFactory extends Factory
             'createdDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

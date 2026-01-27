@@ -26,7 +26,6 @@ class LocationDtoFactory extends Factory
             'peppolScheme' => $this->faker->word(),
             'internalId' => $this->faker->numberBetween(1, 1000),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

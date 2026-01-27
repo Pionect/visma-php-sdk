@@ -14,7 +14,6 @@ class VatZoneInCustomerDtoFactory extends Factory
             'defaultVatCategory' => $this->faker->word(),
             'defaultTaxCategory' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

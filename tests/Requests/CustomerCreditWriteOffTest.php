@@ -9,10 +9,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the CustomerCreditWriteOff resource', function () {
@@ -20,17 +17,17 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the Cust
         CustomerCreditWriteOffGetBycreditWriteOffNumberRequest::class => MockResponse::make([
             'hold' => true,
             'roundingDiff' => 3.14,
-            'customerVatZone' => 'Mock value',
+            'customerVatZone' => null,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'customer' => 'Mock value',
-            'documentType' => 'Mock value',
-            'referenceNumber' => 'Mock value',
-            'postPeriod' => 'Mock value',
-            'financialPeriod' => 'Mock value',
-            'closedFinancialPeriod' => 'Mock value',
+            'customer' => null,
+            'documentType' => 'String value',
+            'referenceNumber' => 'String value',
+            'postPeriod' => 'String value',
+            'financialPeriod' => 'String value',
+            'closedFinancialPeriod' => 'String value',
             'documentDate' => '2025-11-22T10:40:04.065Z',
             'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
-            'status' => 'Mock value',
+            'status' => 'String value',
             'currencyId' => 'mock-id-123',
             'amount' => 3.14,
             'amountInCurrency' => 3.14,
@@ -38,23 +35,22 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the Cust
             'balanceInCurrency' => 3.14,
             'cashDiscount' => 3.14,
             'cashDiscountInCurrency' => 3.14,
-            'paymentMethod' => 'Mock value',
-            'customerRefNumber' => 'Mock value',
-            'invoiceText' => 'Mock value',
+            'paymentMethod' => null,
+            'customerRefNumber' => 'String value',
+            'invoiceText' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
-            'note' => 'Mock value',
+            'note' => 'String value',
             'vatTotal' => 3.14,
             'vatTotalInCurrency' => 3.14,
-            'location' => 'Mock value',
-            'branchNumber' => 'Mock value',
-            'cashAccount' => 'Mock value',
-            'project' => 'Mock value',
-            'account' => 'Mock value',
-            'subaccount' => 'Mock value',
-            'customerProject' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'location' => null,
+            'branchNumber' => null,
+            'cashAccount' => 'String value',
+            'project' => null,
+            'account' => null,
+            'subaccount' => null,
+            'customerProject' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -73,17 +69,17 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the Cust
     expect($dto)
         ->hold->toBeTrue()
         ->roundingDiff->toBe(3.14)
-        ->customerVatZone->toBe('Mock value')
+        ->customerVatZone->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customer->toBe('Mock value')
-        ->documentType->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
-        ->closedFinancialPeriod->toBe('Mock value')
+        ->customer->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->status->toBe('Mock value')
+        ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(3.14)
         ->amountInCurrency->toBe(3.14)
@@ -91,23 +87,22 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the Cust
         ->balanceInCurrency->toBe(3.14)
         ->cashDiscount->toBe(3.14)
         ->cashDiscountInCurrency->toBe(3.14)
-        ->paymentMethod->toBe('Mock value')
-        ->customerRefNumber->toBe('Mock value')
-        ->invoiceText->toBe('Mock value')
+        ->paymentMethod->toBeNull()
+        ->customerRefNumber->toBe('String value')
+        ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
+        ->note->toBe('String value')
         ->vatTotal->toBe(3.14)
         ->vatTotalInCurrency->toBe(3.14)
-        ->location->toBe('Mock value')
-        ->branchNumber->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->project->toBe('Mock value')
-        ->account->toBe('Mock value')
-        ->subaccount->toBe('Mock value')
-        ->customerProject->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->location->toBeNull()
+        ->branchNumber->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->project->toBeNull()
+        ->account->toBeNull()
+        ->subaccount->toBeNull()
+        ->customerProject->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCreditWriteOff resource', function () {
@@ -116,17 +111,17 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
             0 => [
                 'hold' => true,
                 'roundingDiff' => 3.14,
-                'customerVatZone' => 'Mock value',
+                'customerVatZone' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'customer' => 'Mock value',
-                'documentType' => 'Mock value',
-                'referenceNumber' => 'Mock value',
-                'postPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
-                'closedFinancialPeriod' => 'Mock value',
+                'customer' => null,
+                'documentType' => 'String value',
+                'referenceNumber' => 'String value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
+                'closedFinancialPeriod' => 'String value',
                 'documentDate' => '2025-11-22T10:40:04.065Z',
                 'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
-                'status' => 'Mock value',
+                'status' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'amount' => 3.14,
                 'amountInCurrency' => 3.14,
@@ -134,38 +129,41 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
                 'balanceInCurrency' => 3.14,
                 'cashDiscount' => 3.14,
                 'cashDiscountInCurrency' => 3.14,
-                'paymentMethod' => 'Mock value',
-                'customerRefNumber' => 'Mock value',
-                'invoiceText' => 'Mock value',
+                'paymentMethod' => null,
+                'customerRefNumber' => 'String value',
+                'invoiceText' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                'note' => 'Mock value',
+                'note' => 'String value',
                 'vatTotal' => 3.14,
                 'vatTotalInCurrency' => 3.14,
-                'location' => 'Mock value',
-                'branchNumber' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'project' => 'Mock value',
-                'account' => 'Mock value',
-                'subaccount' => 'Mock value',
-                'customerProject' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'location' => null,
+                'branchNumber' => null,
+                'cashAccount' => 'String value',
+                'project' => null,
+                'account' => null,
+                'subaccount' => null,
+                'customerProject' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'hold' => true,
                 'roundingDiff' => 3.14,
-                'customerVatZone' => 'Mock value',
+                'customerVatZone' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'customer' => 'Mock value',
-                'documentType' => 'Mock value',
-                'referenceNumber' => 'Mock value',
-                'postPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
-                'closedFinancialPeriod' => 'Mock value',
+                'customer' => null,
+                'documentType' => 'String value',
+                'referenceNumber' => 'String value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
+                'closedFinancialPeriod' => 'String value',
                 'documentDate' => '2025-11-22T10:40:04.065Z',
                 'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
-                'status' => 'Mock value',
+                'status' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'amount' => 3.14,
                 'amountInCurrency' => 3.14,
@@ -173,30 +171,33 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
                 'balanceInCurrency' => 3.14,
                 'cashDiscount' => 3.14,
                 'cashDiscountInCurrency' => 3.14,
-                'paymentMethod' => 'Mock value',
-                'customerRefNumber' => 'Mock value',
-                'invoiceText' => 'Mock value',
+                'paymentMethod' => null,
+                'customerRefNumber' => 'String value',
+                'invoiceText' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                'note' => 'Mock value',
+                'note' => 'String value',
                 'vatTotal' => 3.14,
                 'vatTotalInCurrency' => 3.14,
-                'location' => 'Mock value',
-                'branchNumber' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'project' => 'Mock value',
-                'account' => 'Mock value',
-                'subaccount' => 'Mock value',
-                'customerProject' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'location' => null,
+                'branchNumber' => null,
+                'cashAccount' => 'String value',
+                'project' => null,
+                'account' => null,
+                'subaccount' => null,
+                'customerProject' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new CustomerCreditWriteOffGetAllCollectionRequest(documentType: 'test string', released: 123, dunningLevel: 123, closedFinancialPeriod: 'test string', dunningLetterDateTime: 'test string', dunningLetterDateTimeCondition: 'test string', project: 'test string', expandApplications: true, expandDunningInformation: true, expandAttachments: true, expandTaxDetails: true, expandInvoiceAddress: true, financialPeriod: 'test string', documentDueDate: 'test string', documentDueDateCondition: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, externalReference: 'test string', paymentReference: 'test string', customerRefNumber: 'test string', customer: 'test string', branch: 'test string', documentDate: 'test string', documentDateCondition: 'test string', greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (CustomerCreditWriteOffGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -204,24 +205,22 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->hold->toBeTrue()
         ->roundingDiff->toBe(3.14)
-        ->customerVatZone->toBe('Mock value')
+        ->customerVatZone->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customer->toBe('Mock value')
-        ->documentType->toBe('Mock value')
-        ->referenceNumber->toBe('Mock value')
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
-        ->closedFinancialPeriod->toBe('Mock value')
+        ->customer->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->status->toBe('Mock value')
+        ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(3.14)
         ->amountInCurrency->toBe(3.14)
@@ -229,21 +228,20 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
         ->balanceInCurrency->toBe(3.14)
         ->cashDiscount->toBe(3.14)
         ->cashDiscountInCurrency->toBe(3.14)
-        ->paymentMethod->toBe('Mock value')
-        ->customerRefNumber->toBe('Mock value')
-        ->invoiceText->toBe('Mock value')
+        ->paymentMethod->toBeNull()
+        ->customerRefNumber->toBe('String value')
+        ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
+        ->note->toBe('String value')
         ->vatTotal->toBe(3.14)
         ->vatTotalInCurrency->toBe(3.14)
-        ->location->toBe('Mock value')
-        ->branchNumber->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->project->toBe('Mock value')
-        ->account->toBe('Mock value')
-        ->subaccount->toBe('Mock value')
-        ->customerProject->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->location->toBeNull()
+        ->branchNumber->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->project->toBeNull()
+        ->account->toBeNull()
+        ->subaccount->toBeNull()
+        ->customerProject->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

@@ -9,7 +9,4 @@ class PresignedUrlResponse extends Model
 {
     #[Property]
     public ?string $preSignedUrl;
-
-    #[Property]
-    public ?\BlobMetadata $metadata;
 }

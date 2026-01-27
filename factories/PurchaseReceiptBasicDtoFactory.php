@@ -46,7 +46,6 @@ class PurchaseReceiptBasicDtoFactory extends Factory
             'customInt2' => $this->faker->numberBetween(1, 100),
             'customDateTimeUtc1' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

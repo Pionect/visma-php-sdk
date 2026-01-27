@@ -15,73 +15,70 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the salesOrderV2getByorderNbr method in the SalesOrderV2 resource', function () {
     Saloon::fake([
         SalesOrderV2GetByorderNbrRequest::class => MockResponse::make([
-            'projectCd' => 'Mock value',
+            'projectCd' => 'String value',
             'printDescriptionOnInvoice' => true,
             'printNoteOnExternalDocuments' => true,
             'printNoteOnInternalDocuments' => true,
-            'soBillingContact' => 'Mock value',
-            'soBillingAddress' => 'Mock value',
-            'customerVatzone' => 'Mock value',
+            'soBillingContact' => null,
+            'soBillingAddress' => null,
+            'customerVatzone' => null,
             'invoiceSeparately' => true,
-            'invoiceNbr' => 'Mock value',
+            'invoiceNbr' => 'String value',
             'invoiceDate' => '2025-11-22T10:40:04.065Z',
-            'terms' => 'Mock value',
+            'terms' => null,
             'dueDate' => '2025-11-22T10:40:04.065Z',
             'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
-            'postPeriod' => 'Mock value',
-            'salesPerson' => 'Mock value',
-            'commissionPercent' => 'Mock value',
-            'commissionAmount' => 'Mock value',
-            'commissionableAmount' => 'Mock value',
-            'owner' => 'Mock value',
-            'origOrderType' => 'Mock value',
-            'origOrderNbr' => 'Mock value',
-            'soShippingContact' => 'Mock value',
-            'soShippingAddress' => 'Mock value',
+            'postPeriod' => 'String value',
+            'salesPerson' => null,
+            'commissionPercent' => 'String value',
+            'commissionAmount' => 'String value',
+            'commissionableAmount' => 'String value',
+            'owner' => null,
+            'origOrderType' => 'String value',
+            'origOrderNbr' => 'String value',
+            'soShippingContact' => null,
+            'soShippingAddress' => null,
             'schedShipment' => '2025-11-22T10:40:04.065Z',
             'shipSeparately' => true,
-            'shipComplete' => 'Mock value',
+            'shipComplete' => 'String value',
             'cancelBy' => '2025-11-22T10:40:04.065Z',
             'canceled' => true,
-            'preferredWarehouse' => 'Mock value',
-            'shipVia' => 'Mock value',
-            'fobPoint' => 'Mock value',
+            'preferredWarehouse' => null,
+            'shipVia' => null,
+            'fobPoint' => null,
             'priority' => 42,
-            'shippingTerms' => 'Mock value',
-            'shippingZone' => 'Mock value',
+            'shippingTerms' => null,
+            'shippingZone' => null,
             'residentialDelivery' => true,
             'saturdayDelivery' => true,
             'insurance' => true,
-            'transactionType' => 'Mock value',
-            'paymentMethod' => 'Mock value',
-            'cashAccount' => 'Mock value',
-            'paymentRef' => 'Mock value',
+            'transactionType' => null,
+            'paymentMethod' => null,
+            'cashAccount' => 'String value',
+            'paymentRef' => 'String value',
             'isRotRutDeductible' => true,
             'emailed' => true,
             'lines' => [],
             'shipments' => [],
-            'orderType' => 'Mock value',
-            'orderNo' => 'Mock value',
-            'status' => 'Mock value',
+            'orderType' => 'String value',
+            'orderNo' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'date' => '2025-11-22T10:40:04.065Z',
             'requestOn' => '2025-11-22T10:40:04.065Z',
-            'customerOrder' => 'Mock value',
-            'customerRefNo' => 'Mock value',
-            'customer' => 'Mock value',
+            'customerOrder' => 'String value',
+            'customerRefNo' => 'String value',
+            'customer' => null,
             'contactId' => 42,
-            'location' => 'Mock value',
-            'currency' => 'Mock value',
-            'description' => 'Mock value',
+            'location' => null,
+            'currency' => 'String value',
+            'description' => 'String value',
             'orderTotal' => 3.14,
             'orderTotalInBaseCurrency' => 3.14,
             'vatTaxableTotal' => 3.14,
@@ -94,11 +91,10 @@ it('calls the salesOrderV2getByorderNbr method in the SalesOrderV2 resource', fu
             'discountTotal' => 3.14,
             'discountTotalInBaseCurrency' => 3.14,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'branchNumber' => 'Mock value',
-            'note' => 'Mock value',
+            'branchNumber' => null,
+            'note' => 'String value',
             'attachments' => [],
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -115,62 +111,62 @@ it('calls the salesOrderV2getByorderNbr method in the SalesOrderV2 resource', fu
     $dto = $response->dto();
 
     expect($dto)
-        ->projectCd->toBe('Mock value')
+        ->projectCd->toBe('String value')
         ->printDescriptionOnInvoice->toBeTrue()
         ->printNoteOnExternalDocuments->toBeTrue()
         ->printNoteOnInternalDocuments->toBeTrue()
-        ->soBillingContact->toBe('Mock value')
-        ->soBillingAddress->toBe('Mock value')
-        ->customerVatzone->toBe('Mock value')
+        ->soBillingContact->toBeNull()
+        ->soBillingAddress->toBeNull()
+        ->customerVatzone->toBeNull()
         ->invoiceSeparately->toBeTrue()
-        ->invoiceNbr->toBe('Mock value')
+        ->invoiceNbr->toBe('String value')
         ->invoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->terms->toBe('Mock value')
+        ->terms->toBeNull()
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->salesPerson->toBe('Mock value')
-        ->commissionPercent->toBe('Mock value')
-        ->commissionAmount->toBe('Mock value')
-        ->commissionableAmount->toBe('Mock value')
-        ->owner->toBe('Mock value')
-        ->origOrderType->toBe('Mock value')
-        ->origOrderNbr->toBe('Mock value')
-        ->soShippingContact->toBe('Mock value')
-        ->soShippingAddress->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->salesPerson->toBeNull()
+        ->commissionPercent->toBe('String value')
+        ->commissionAmount->toBe('String value')
+        ->commissionableAmount->toBe('String value')
+        ->owner->toBeNull()
+        ->origOrderType->toBe('String value')
+        ->origOrderNbr->toBe('String value')
+        ->soShippingContact->toBeNull()
+        ->soShippingAddress->toBeNull()
         ->schedShipment->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->shipSeparately->toBeTrue()
-        ->shipComplete->toBe('Mock value')
+        ->shipComplete->toBe('String value')
         ->cancelBy->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->canceled->toBeTrue()
-        ->preferredWarehouse->toBe('Mock value')
-        ->shipVia->toBe('Mock value')
-        ->fobPoint->toBe('Mock value')
+        ->preferredWarehouse->toBeNull()
+        ->shipVia->toBeNull()
+        ->fobPoint->toBeNull()
         ->priority->toBe(42)
-        ->shippingTerms->toBe('Mock value')
-        ->shippingZone->toBe('Mock value')
+        ->shippingTerms->toBeNull()
+        ->shippingZone->toBeNull()
         ->residentialDelivery->toBeTrue()
         ->saturdayDelivery->toBeTrue()
         ->insurance->toBeTrue()
-        ->transactionType->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->paymentRef->toBe('Mock value')
+        ->transactionType->toBeNull()
+        ->paymentMethod->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->paymentRef->toBe('String value')
         ->isRotRutDeductible->toBeTrue()
         ->emailed->toBeTrue()
-        ->orderType->toBe('Mock value')
-        ->orderNo->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->orderType->toBe('String value')
+        ->orderNo->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customerOrder->toBe('Mock value')
-        ->customerRefNo->toBe('Mock value')
-        ->customer->toBe('Mock value')
+        ->customerOrder->toBe('String value')
+        ->customerRefNo->toBe('String value')
+        ->customer->toBeNull()
         ->contactId->toBe(42)
-        ->location->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->location->toBeNull()
+        ->currency->toBe('String value')
+        ->description->toBe('String value')
         ->orderTotal->toBe(3.14)
         ->orderTotalInBaseCurrency->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
@@ -183,74 +179,73 @@ it('calls the salesOrderV2getByorderNbr method in the SalesOrderV2 resource', fu
         ->discountTotal->toBe(3.14)
         ->discountTotalInBaseCurrency->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->note->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->note->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 resource', function () {
     Saloon::fake([
         SalesOrderV2GetAllOrdersV2CollectionRequest::class => MockResponse::make([
             0 => [
-                'projectCd' => 'Mock value',
+                'projectCd' => 'String value',
                 'printDescriptionOnInvoice' => true,
                 'printNoteOnExternalDocuments' => true,
                 'printNoteOnInternalDocuments' => true,
-                'soBillingContact' => 'Mock value',
-                'soBillingAddress' => 'Mock value',
-                'customerVatzone' => 'Mock value',
+                'soBillingContact' => null,
+                'soBillingAddress' => null,
+                'customerVatzone' => null,
                 'invoiceSeparately' => true,
-                'invoiceNbr' => 'Mock value',
+                'invoiceNbr' => 'String value',
                 'invoiceDate' => '2025-11-22T10:40:04.065Z',
-                'terms' => 'Mock value',
+                'terms' => null,
                 'dueDate' => '2025-11-22T10:40:04.065Z',
                 'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'salesPerson' => 'Mock value',
-                'commissionPercent' => 'Mock value',
-                'commissionAmount' => 'Mock value',
-                'commissionableAmount' => 'Mock value',
-                'owner' => 'Mock value',
-                'origOrderType' => 'Mock value',
-                'origOrderNbr' => 'Mock value',
-                'soShippingContact' => 'Mock value',
-                'soShippingAddress' => 'Mock value',
+                'postPeriod' => 'String value',
+                'salesPerson' => null,
+                'commissionPercent' => 'String value',
+                'commissionAmount' => 'String value',
+                'commissionableAmount' => 'String value',
+                'owner' => null,
+                'origOrderType' => 'String value',
+                'origOrderNbr' => 'String value',
+                'soShippingContact' => null,
+                'soShippingAddress' => null,
                 'schedShipment' => '2025-11-22T10:40:04.065Z',
                 'shipSeparately' => true,
-                'shipComplete' => 'Mock value',
+                'shipComplete' => 'String value',
                 'cancelBy' => '2025-11-22T10:40:04.065Z',
                 'canceled' => true,
-                'preferredWarehouse' => 'Mock value',
-                'shipVia' => 'Mock value',
-                'fobPoint' => 'Mock value',
+                'preferredWarehouse' => null,
+                'shipVia' => null,
+                'fobPoint' => null,
                 'priority' => 42,
-                'shippingTerms' => 'Mock value',
-                'shippingZone' => 'Mock value',
+                'shippingTerms' => null,
+                'shippingZone' => null,
                 'residentialDelivery' => true,
                 'saturdayDelivery' => true,
                 'insurance' => true,
-                'transactionType' => 'Mock value',
-                'paymentMethod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'paymentRef' => 'Mock value',
+                'transactionType' => null,
+                'paymentMethod' => null,
+                'cashAccount' => 'String value',
+                'paymentRef' => 'String value',
                 'isRotRutDeductible' => true,
                 'emailed' => true,
                 'lines' => [],
                 'shipments' => [],
-                'orderType' => 'Mock value',
-                'orderNo' => 'Mock value',
-                'status' => 'Mock value',
+                'orderType' => 'String value',
+                'orderNo' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04.065Z',
                 'requestOn' => '2025-11-22T10:40:04.065Z',
-                'customerOrder' => 'Mock value',
-                'customerRefNo' => 'Mock value',
-                'customer' => 'Mock value',
+                'customerOrder' => 'String value',
+                'customerRefNo' => 'String value',
+                'customer' => null,
                 'contactId' => 42,
-                'location' => 'Mock value',
-                'currency' => 'Mock value',
-                'description' => 'Mock value',
+                'location' => null,
+                'currency' => 'String value',
+                'description' => 'String value',
                 'orderTotal' => 3.14,
                 'orderTotalInBaseCurrency' => 3.14,
                 'vatTaxableTotal' => 3.14,
@@ -263,71 +258,74 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
                 'discountTotal' => 3.14,
                 'discountTotalInBaseCurrency' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
-                'note' => 'Mock value',
+                'branchNumber' => null,
+                'note' => 'String value',
                 'attachments' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'projectCd' => 'Mock value',
+                'projectCd' => 'String value',
                 'printDescriptionOnInvoice' => true,
                 'printNoteOnExternalDocuments' => true,
                 'printNoteOnInternalDocuments' => true,
-                'soBillingContact' => 'Mock value',
-                'soBillingAddress' => 'Mock value',
-                'customerVatzone' => 'Mock value',
+                'soBillingContact' => null,
+                'soBillingAddress' => null,
+                'customerVatzone' => null,
                 'invoiceSeparately' => true,
-                'invoiceNbr' => 'Mock value',
+                'invoiceNbr' => 'String value',
                 'invoiceDate' => '2025-11-22T10:40:04.065Z',
-                'terms' => 'Mock value',
+                'terms' => null,
                 'dueDate' => '2025-11-22T10:40:04.065Z',
                 'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'salesPerson' => 'Mock value',
-                'commissionPercent' => 'Mock value',
-                'commissionAmount' => 'Mock value',
-                'commissionableAmount' => 'Mock value',
-                'owner' => 'Mock value',
-                'origOrderType' => 'Mock value',
-                'origOrderNbr' => 'Mock value',
-                'soShippingContact' => 'Mock value',
-                'soShippingAddress' => 'Mock value',
+                'postPeriod' => 'String value',
+                'salesPerson' => null,
+                'commissionPercent' => 'String value',
+                'commissionAmount' => 'String value',
+                'commissionableAmount' => 'String value',
+                'owner' => null,
+                'origOrderType' => 'String value',
+                'origOrderNbr' => 'String value',
+                'soShippingContact' => null,
+                'soShippingAddress' => null,
                 'schedShipment' => '2025-11-22T10:40:04.065Z',
                 'shipSeparately' => true,
-                'shipComplete' => 'Mock value',
+                'shipComplete' => 'String value',
                 'cancelBy' => '2025-11-22T10:40:04.065Z',
                 'canceled' => true,
-                'preferredWarehouse' => 'Mock value',
-                'shipVia' => 'Mock value',
-                'fobPoint' => 'Mock value',
+                'preferredWarehouse' => null,
+                'shipVia' => null,
+                'fobPoint' => null,
                 'priority' => 42,
-                'shippingTerms' => 'Mock value',
-                'shippingZone' => 'Mock value',
+                'shippingTerms' => null,
+                'shippingZone' => null,
                 'residentialDelivery' => true,
                 'saturdayDelivery' => true,
                 'insurance' => true,
-                'transactionType' => 'Mock value',
-                'paymentMethod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'paymentRef' => 'Mock value',
+                'transactionType' => null,
+                'paymentMethod' => null,
+                'cashAccount' => 'String value',
+                'paymentRef' => 'String value',
                 'isRotRutDeductible' => true,
                 'emailed' => true,
                 'lines' => [],
                 'shipments' => [],
-                'orderType' => 'Mock value',
-                'orderNo' => 'Mock value',
-                'status' => 'Mock value',
+                'orderType' => 'String value',
+                'orderNo' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04.065Z',
                 'requestOn' => '2025-11-22T10:40:04.065Z',
-                'customerOrder' => 'Mock value',
-                'customerRefNo' => 'Mock value',
-                'customer' => 'Mock value',
+                'customerOrder' => 'String value',
+                'customerRefNo' => 'String value',
+                'customer' => null,
                 'contactId' => 42,
-                'location' => 'Mock value',
-                'currency' => 'Mock value',
-                'description' => 'Mock value',
+                'location' => null,
+                'currency' => 'String value',
+                'description' => 'String value',
                 'orderTotal' => 3.14,
                 'orderTotalInBaseCurrency' => 3.14,
                 'vatTaxableTotal' => 3.14,
@@ -340,18 +338,21 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
                 'discountTotal' => 3.14,
                 'discountTotalInBaseCurrency' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
-                'note' => 'Mock value',
+                'branchNumber' => null,
+                'note' => 'String value',
                 'attachments' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new SalesOrderV2GetAllOrdersV2CollectionRequest(orderType: 'test string', status: 'test string', greaterThanValue: 'test string', showNotes: true, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SalesOrderV2GetAllOrdersV2CollectionRequest $request) {
         $query = $request->query()->all();
@@ -359,67 +360,65 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->projectCd->toBe('Mock value')
+        ->projectCd->toBe('String value')
         ->printDescriptionOnInvoice->toBeTrue()
         ->printNoteOnExternalDocuments->toBeTrue()
         ->printNoteOnInternalDocuments->toBeTrue()
-        ->soBillingContact->toBe('Mock value')
-        ->soBillingAddress->toBe('Mock value')
-        ->customerVatzone->toBe('Mock value')
+        ->soBillingContact->toBeNull()
+        ->soBillingAddress->toBeNull()
+        ->customerVatzone->toBeNull()
         ->invoiceSeparately->toBeTrue()
-        ->invoiceNbr->toBe('Mock value')
+        ->invoiceNbr->toBe('String value')
         ->invoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->terms->toBe('Mock value')
+        ->terms->toBeNull()
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->salesPerson->toBe('Mock value')
-        ->commissionPercent->toBe('Mock value')
-        ->commissionAmount->toBe('Mock value')
-        ->commissionableAmount->toBe('Mock value')
-        ->owner->toBe('Mock value')
-        ->origOrderType->toBe('Mock value')
-        ->origOrderNbr->toBe('Mock value')
-        ->soShippingContact->toBe('Mock value')
-        ->soShippingAddress->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->salesPerson->toBeNull()
+        ->commissionPercent->toBe('String value')
+        ->commissionAmount->toBe('String value')
+        ->commissionableAmount->toBe('String value')
+        ->owner->toBeNull()
+        ->origOrderType->toBe('String value')
+        ->origOrderNbr->toBe('String value')
+        ->soShippingContact->toBeNull()
+        ->soShippingAddress->toBeNull()
         ->schedShipment->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->shipSeparately->toBeTrue()
-        ->shipComplete->toBe('Mock value')
+        ->shipComplete->toBe('String value')
         ->cancelBy->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->canceled->toBeTrue()
-        ->preferredWarehouse->toBe('Mock value')
-        ->shipVia->toBe('Mock value')
-        ->fobPoint->toBe('Mock value')
+        ->preferredWarehouse->toBeNull()
+        ->shipVia->toBeNull()
+        ->fobPoint->toBeNull()
         ->priority->toBe(42)
-        ->shippingTerms->toBe('Mock value')
-        ->shippingZone->toBe('Mock value')
+        ->shippingTerms->toBeNull()
+        ->shippingZone->toBeNull()
         ->residentialDelivery->toBeTrue()
         ->saturdayDelivery->toBeTrue()
         ->insurance->toBeTrue()
-        ->transactionType->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->paymentRef->toBe('Mock value')
+        ->transactionType->toBeNull()
+        ->paymentMethod->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->paymentRef->toBe('String value')
         ->isRotRutDeductible->toBeTrue()
         ->emailed->toBeTrue()
-        ->orderType->toBe('Mock value')
-        ->orderNo->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->orderType->toBe('String value')
+        ->orderNo->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customerOrder->toBe('Mock value')
-        ->customerRefNo->toBe('Mock value')
-        ->customer->toBe('Mock value')
+        ->customerOrder->toBe('String value')
+        ->customerRefNo->toBe('String value')
+        ->customer->toBeNull()
         ->contactId->toBe(42)
-        ->location->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->location->toBeNull()
+        ->currency->toBe('String value')
+        ->description->toBe('String value')
         ->orderTotal->toBe(3.14)
         ->orderTotalInBaseCurrency->toBe(3.14)
         ->vatTaxableTotal->toBe(3.14)
@@ -432,10 +431,9 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
         ->discountTotal->toBe(3.14)
         ->discountTotalInBaseCurrency->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
-        ->note->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->branchNumber->toBeNull()
+        ->note->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderV2createShipmentActionBysaleOrderNumber method in the SalesOrderV2 resource', function () {

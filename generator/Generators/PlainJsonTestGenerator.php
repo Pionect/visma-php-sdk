@@ -8,6 +8,8 @@ use Crescat\SaloonSdkGenerator\Data\Generator\Endpoint;
 use Pionect\VismaSdk\Generator\Generators\Traits\PlainJsonDtoAssertions;
 use Timatic\JsonApiSdk\Generators\JsonApiPestTestGenerator;
 use Timatic\JsonApiSdk\Generators\TestGenerators\CollectionRequestTestGenerator;
+use Timatic\JsonApiSdk\Generators\TestGenerators\DeleteRequestTestGenerator;
+use Timatic\JsonApiSdk\Generators\TestGenerators\MutationRequestTestGenerator;
 use Timatic\JsonApiSdk\Generators\TestGenerators\SingularGetRequestTestGenerator;
 
 /**
@@ -36,8 +38,11 @@ class PlainJsonTestGenerator extends JsonApiPestTestGenerator
         $this->collectionTestGenerator = new PlainJsonCollectionTestGenerator($specification, $generatedCode, $namespace);
         $this->singularGetTestGenerator = new PlainJsonSingularGetTestGenerator($specification, $generatedCode, $namespace);
 
+        $this->mutationTestGenerator = new MutationRequestTestGenerator($specification, $generatedCode, $namespace);
+        $this->deleteTestGenerator = new DeleteRequestTestGenerator($specification, $generatedCode, $namespace);
+
         // Continue with parent processing
-        return parent::process($config, $specification, $generatedCode);
+        return $this->generatePestTests();
     }
 }
 
@@ -55,6 +60,14 @@ class PlainJsonCollectionTestGenerator extends CollectionRequestTestGenerator
     {
         $dtoClassName = $this->getDtoClassName($endpoint);
         $attributes = $this->generateMockAttributesFromDto($dtoClassName);
+
+        unset($attributes['responseHeaders']);
+
+        $response = $this->specification->components->schemas[$endpoint->response['schema']];
+
+        if (array_key_exists('metadata', $response->properties)) {
+            $attributes['metadata'] = ['totalCount' => 2, 'maxPageSize' => 100];
+        }
 
         if (empty($attributes) || $attributes === ['name' => 'Mock value']) {
             throw new \RuntimeException("DTO '{$dtoClassName}' has no properties - skipping test generation");
@@ -122,34 +135,9 @@ class PlainJsonSingularGetTestGenerator extends SingularGetRequestTestGenerator
         $dtoClassName = $this->getDtoClassName($endpoint);
         $attributes = $this->generateMockAttributesFromDto($dtoClassName);
 
+        unset($attributes['responseHeaders']);
+
         // Return plain JSON object (no JSON:API wrapper)
         return $attributes;
-    }
-
-    /**
-     * Replace stub variables with singular GET-specific content
-     */
-    public function replaceStubVariables(string $functionStub, Endpoint $endpoint): string
-    {
-        $mockData = $this->generateMockData($endpoint);
-        $mockResponseBody = $this->formatArrayAsPhp($mockData);
-
-        $functionStub = str_replace(
-            '{{ mockResponse }}',
-            "MockResponse::make($mockResponseBody, 200)",
-            $functionStub
-        );
-
-        // Generate DTO assertions based on mock data
-        $dtoAssertions = $this->generateDtoAssertions($mockData);
-
-        if (str_starts_with(trim($dtoAssertions), '//')) {
-            $pattern = '/(.*\$response->status\(\)\)->toBe\(200\);.*?)(\n\s*\$dto = \$response->dto\(\);.*?{{ dtoAssertions }};)/s';
-            $functionStub = preg_replace($pattern, '$1', $functionStub);
-        } else {
-            $functionStub = str_replace('{{ dtoAssertions }}', $dtoAssertions, $functionStub);
-        }
-
-        return $functionStub;
     }
 }

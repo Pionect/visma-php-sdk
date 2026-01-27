@@ -18,7 +18,6 @@ class DeferralCodeDtoFactory extends Factory
             'deferralAccount' => $this->faker->word(),
             'deferralSub' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

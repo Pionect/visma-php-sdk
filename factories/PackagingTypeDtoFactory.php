@@ -23,7 +23,6 @@ class PackagingTypeDtoFactory extends Factory
             'height' => $this->faker->numberBetween(1, 100),
             'activeByDefault' => $this->faker->boolean(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'metadata' => $this->faker->word(),
         ];
     }
 

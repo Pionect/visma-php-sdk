@@ -7,18 +7,15 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in the InventorySummary resource', function () {
     Saloon::fake([
         InventorySummaryGetAllInventorySummaryByinventoryNumberRequest::class => MockResponse::make([
-            'inventory' => 'Mock value',
-            'warehouse' => 'Mock value',
-            'location' => 'Mock value',
+            'inventory' => null,
+            'warehouse' => null,
+            'location' => null,
             'available' => 3.14,
             'availableForShipment' => 3.14,
             'notAvailable' => 3.14,
@@ -44,11 +41,10 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in 
             'dropShipForSo' => 3.14,
             'dropShipForSoprepared' => 3.14,
             'dropShipForSoreceipts' => 3.14,
-            'baseUnit' => 'Mock value',
+            'baseUnit' => 'String value',
             'estimatedUnitCost' => 3.14,
             'estimatedTotalCost' => 3.14,
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -67,9 +63,9 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in 
     $dto = $response->dto();
 
     expect($dto)
-        ->inventory->toBe('Mock value')
-        ->warehouse->toBe('Mock value')
-        ->location->toBe('Mock value')
+        ->inventory->toBeNull()
+        ->warehouse->toBeNull()
+        ->location->toBeNull()
         ->available->toBe(3.14)
         ->availableForShipment->toBe(3.14)
         ->notAvailable->toBe(3.14)
@@ -95,9 +91,8 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in 
         ->dropShipForSo->toBe(3.14)
         ->dropShipForSoprepared->toBe(3.14)
         ->dropShipForSoreceipts->toBe(3.14)
-        ->baseUnit->toBe('Mock value')
+        ->baseUnit->toBe('String value')
         ->estimatedUnitCost->toBe(3.14)
         ->estimatedTotalCost->toBe(3.14)
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

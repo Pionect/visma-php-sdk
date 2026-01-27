@@ -8,53 +8,56 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCodeV2 resource', function () {
     Saloon::fake([
         DiscountCodeV2GetDiscountCodesCollectionRequest::class => MockResponse::make([
             0 => [
-                'discountCode' => 'Mock value',
-                'description' => 'Mock value',
-                'discountType' => 'Mock value',
-                'applicableTo' => 'Mock value',
+                'discountCode' => 'String value',
+                'description' => 'String value',
+                'discountType' => 'String value',
+                'applicableTo' => 'String value',
                 'applyToDeferredRevenue' => true,
                 'manual' => true,
                 'excludeFromDiscountableAmount' => true,
                 'skipDocumentDiscounts' => true,
                 'autoNumbering' => true,
-                'lastNumber' => 'Mock value',
+                'lastNumber' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'discountCode' => 'Mock value',
-                'description' => 'Mock value',
-                'discountType' => 'Mock value',
-                'applicableTo' => 'Mock value',
+                'discountCode' => 'String value',
+                'description' => 'String value',
+                'discountType' => 'String value',
+                'applicableTo' => 'String value',
                 'applyToDeferredRevenue' => true,
                 'manual' => true,
                 'excludeFromDiscountableAmount' => true,
                 'skipDocumentDiscounts' => true,
                 'autoNumbering' => true,
-                'lastNumber' => 'Mock value',
+                'lastNumber' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new DiscountCodeV2GetDiscountCodesCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', discountCode: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (DiscountCodeV2GetDiscountCodesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -62,23 +65,20 @@ it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCod
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->discountCode->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->discountType->toBe('Mock value')
-        ->applicableTo->toBe('Mock value')
+        ->discountCode->toBe('String value')
+        ->description->toBe('String value')
+        ->discountType->toBe('String value')
+        ->applicableTo->toBe('String value')
         ->applyToDeferredRevenue->toBeTrue()
         ->manual->toBeTrue()
         ->excludeFromDiscountableAmount->toBeTrue()
         ->skipDocumentDiscounts->toBeTrue()
         ->autoNumbering->toBeTrue()
-        ->lastNumber->toBe('Mock value')
+        ->lastNumber->toBe('String value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

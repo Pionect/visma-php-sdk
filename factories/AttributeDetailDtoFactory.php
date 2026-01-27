@@ -15,7 +15,6 @@ class AttributeDetailDtoFactory extends Factory
             'sortOrder' => $this->faker->numberBetween(1, 100),
             'disabled' => $this->faker->boolean(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

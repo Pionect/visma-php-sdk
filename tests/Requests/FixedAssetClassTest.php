@@ -8,33 +8,29 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource', function () {
     Saloon::fake([
         FixedAssetClassGetByClassIdRequest::class => MockResponse::make([
             'classId' => 'mock-id-123',
-            'recordType' => 'Mock value',
-            'description' => 'Mock value',
+            'recordType' => 'String value',
+            'description' => 'String value',
             'active' => true,
             'assetTypeId' => 'mock-id-123',
             'isTangible' => true,
             'depreciable' => true,
             'usefulLife' => 3.14,
             'acceleratedDepreciation' => true,
-            'bookSettings' => 'Mock value',
-            'accounts' => 'Mock value',
-            'subAccountMask' => 'Mock value',
-            'accumulatedDepreciationSubAccountMask' => 'Mock value',
-            'depreciatedExpenseSubAccountMask' => 'Mock value',
-            'proceedSubAccountMask' => 'Mock value',
-            'gainLossSubAccountMask' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'bookSettings' => null,
+            'accounts' => null,
+            'subAccountMask' => 'String value',
+            'accumulatedDepreciationSubAccountMask' => 'String value',
+            'depreciatedExpenseSubAccountMask' => 'String value',
+            'proceedSubAccountMask' => 'String value',
+            'gainLossSubAccountMask' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -52,23 +48,22 @@ it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource
 
     expect($dto)
         ->classId->toBe('mock-id-123')
-        ->recordType->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->recordType->toBe('String value')
+        ->description->toBe('String value')
         ->active->toBeTrue()
         ->assetTypeId->toBe('mock-id-123')
         ->isTangible->toBeTrue()
         ->depreciable->toBeTrue()
         ->usefulLife->toBe(3.14)
         ->acceleratedDepreciation->toBeTrue()
-        ->bookSettings->toBe('Mock value')
-        ->accounts->toBe('Mock value')
-        ->subAccountMask->toBe('Mock value')
-        ->accumulatedDepreciationSubAccountMask->toBe('Mock value')
-        ->depreciatedExpenseSubAccountMask->toBe('Mock value')
-        ->proceedSubAccountMask->toBe('Mock value')
-        ->gainLossSubAccountMask->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->bookSettings->toBeNull()
+        ->accounts->toBeNull()
+        ->subAccountMask->toBe('String value')
+        ->accumulatedDepreciationSubAccountMask->toBe('String value')
+        ->depreciatedExpenseSubAccountMask->toBe('String value')
+        ->proceedSubAccountMask->toBe('String value')
+        ->gainLossSubAccountMask->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass resource', function () {
@@ -76,50 +71,56 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
         FixedAssetClassGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'classId' => 'mock-id-123',
-                'recordType' => 'Mock value',
-                'description' => 'Mock value',
+                'recordType' => 'String value',
+                'description' => 'String value',
                 'active' => true,
                 'assetTypeId' => 'mock-id-123',
                 'isTangible' => true,
                 'depreciable' => true,
                 'usefulLife' => 3.14,
                 'acceleratedDepreciation' => true,
-                'bookSettings' => 'Mock value',
-                'accounts' => 'Mock value',
-                'subAccountMask' => 'Mock value',
-                'accumulatedDepreciationSubAccountMask' => 'Mock value',
-                'depreciatedExpenseSubAccountMask' => 'Mock value',
-                'proceedSubAccountMask' => 'Mock value',
-                'gainLossSubAccountMask' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'bookSettings' => null,
+                'accounts' => null,
+                'subAccountMask' => 'String value',
+                'accumulatedDepreciationSubAccountMask' => 'String value',
+                'depreciatedExpenseSubAccountMask' => 'String value',
+                'proceedSubAccountMask' => 'String value',
+                'gainLossSubAccountMask' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'classId' => 'mock-id-123',
-                'recordType' => 'Mock value',
-                'description' => 'Mock value',
+                'recordType' => 'String value',
+                'description' => 'String value',
                 'active' => true,
                 'assetTypeId' => 'mock-id-123',
                 'isTangible' => true,
                 'depreciable' => true,
                 'usefulLife' => 3.14,
                 'acceleratedDepreciation' => true,
-                'bookSettings' => 'Mock value',
-                'accounts' => 'Mock value',
-                'subAccountMask' => 'Mock value',
-                'accumulatedDepreciationSubAccountMask' => 'Mock value',
-                'depreciatedExpenseSubAccountMask' => 'Mock value',
-                'proceedSubAccountMask' => 'Mock value',
-                'gainLossSubAccountMask' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'bookSettings' => null,
+                'accounts' => null,
+                'subAccountMask' => 'String value',
+                'accumulatedDepreciationSubAccountMask' => 'String value',
+                'depreciatedExpenseSubAccountMask' => 'String value',
+                'proceedSubAccountMask' => 'String value',
+                'gainLossSubAccountMask' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new FixedAssetClassGetAllCollectionRequest(classId: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (FixedAssetClassGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -127,27 +128,24 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->classId->toBe('mock-id-123')
-        ->recordType->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->recordType->toBe('String value')
+        ->description->toBe('String value')
         ->active->toBeTrue()
         ->assetTypeId->toBe('mock-id-123')
         ->isTangible->toBeTrue()
         ->depreciable->toBeTrue()
         ->usefulLife->toBe(3.14)
         ->acceleratedDepreciation->toBeTrue()
-        ->bookSettings->toBe('Mock value')
-        ->accounts->toBe('Mock value')
-        ->subAccountMask->toBe('Mock value')
-        ->accumulatedDepreciationSubAccountMask->toBe('Mock value')
-        ->depreciatedExpenseSubAccountMask->toBe('Mock value')
-        ->proceedSubAccountMask->toBe('Mock value')
-        ->gainLossSubAccountMask->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->bookSettings->toBeNull()
+        ->accounts->toBeNull()
+        ->subAccountMask->toBe('String value')
+        ->accumulatedDepreciationSubAccountMask->toBe('String value')
+        ->depreciatedExpenseSubAccountMask->toBe('String value')
+        ->proceedSubAccountMask->toBe('String value')
+        ->gainLossSubAccountMask->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

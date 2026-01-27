@@ -8,10 +8,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod resource', function () {
@@ -19,8 +16,8 @@ it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod 
         PaymentMethodGetBypaymentMethodNumberRequest::class => MockResponse::make([
             'paymentMethodId' => 'mock-id-123',
             'active' => true,
-            'meansOfPayment' => 'Mock value',
-            'description' => 'Mock value',
+            'meansOfPayment' => 'String value',
+            'description' => 'String value',
             'useInAp' => true,
             'details' => [],
         ], 200),
@@ -41,8 +38,8 @@ it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod 
     expect($dto)
         ->paymentMethodId->toBe('mock-id-123')
         ->active->toBeTrue()
-        ->meansOfPayment->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->meansOfPayment->toBe('String value')
+        ->description->toBe('String value')
         ->useInAp->toBeTrue();
 });
 
@@ -52,16 +49,16 @@ it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMe
             0 => [
                 'paymentMethodId' => 'mock-id-123',
                 'active' => true,
-                'meansOfPayment' => 'Mock value',
-                'description' => 'Mock value',
+                'meansOfPayment' => 'String value',
+                'description' => 'String value',
                 'useInAp' => true,
                 'details' => [],
             ],
             1 => [
                 'paymentMethodId' => 'mock-id-123',
                 'active' => true,
-                'meansOfPayment' => 'Mock value',
-                'description' => 'Mock value',
+                'meansOfPayment' => 'String value',
+                'description' => 'String value',
                 'useInAp' => true,
                 'details' => [],
             ],
@@ -70,7 +67,7 @@ it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMe
 
     $request = (new PaymentMethodGetAllPaymentMethodCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (PaymentMethodGetAllPaymentMethodCollectionRequest $request) {
         $query = $request->query()->all();
@@ -78,14 +75,12 @@ it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMe
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->paymentMethodId->toBe('mock-id-123')
         ->active->toBeTrue()
-        ->meansOfPayment->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->meansOfPayment->toBe('String value')
+        ->description->toBe('String value')
         ->useInAp->toBeTrue();
 });

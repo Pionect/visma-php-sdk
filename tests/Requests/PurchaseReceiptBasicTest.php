@@ -11,29 +11,26 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumber method in the PurchaseReceiptBasic resource', function () {
     Saloon::fake([
         PurchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumberRequest::class => MockResponse::make([
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'receiptType' => 'Mock value',
-            'receiptNbr' => 'Mock value',
+            'receiptType' => 'String value',
+            'receiptNbr' => 'String value',
             'hold' => true,
-            'status' => 'Mock value',
+            'status' => 'String value',
             'date' => '2025-11-22T10:40:04.065Z',
-            'postPeriod' => 'Mock value',
-            'warehouse' => 'Mock value',
-            'supplier' => 'Mock value',
-            'location' => 'Mock value',
-            'currency' => 'Mock value',
+            'postPeriod' => 'String value',
+            'warehouse' => null,
+            'supplier' => null,
+            'location' => null,
+            'currency' => 'String value',
             'exchangeRate' => 3.14,
             'createBill' => true,
-            'supplierRef' => 'Mock value',
+            'supplierRef' => 'String value',
             'totalQty' => 3.14,
             'controlQty' => 3.14,
             'vatExemptTotal' => 3.14,
@@ -41,21 +38,20 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumber method 
             'totalAmt' => 3.14,
             'controlTotal' => 3.14,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'branchNumber' => 'Mock value',
+            'branchNumber' => null,
             'lines' => [],
             'dueDate' => '2025-11-22T10:40:04.065Z',
-            'customStr1' => 'Mock value',
-            'customStr2' => 'Mock value',
-            'customStr3' => 'Mock value',
-            'customStr4' => 'Mock value',
-            'customStr5' => 'Mock value',
+            'customStr1' => 'String value',
+            'customStr2' => 'String value',
+            'customStr3' => 'String value',
+            'customStr4' => 'String value',
+            'customStr5' => 'String value',
             'customDec1' => 3.14,
             'customDec2' => 3.14,
             'customInt1' => 42,
             'customInt2' => 42,
             'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -74,19 +70,19 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumber method 
 
     expect($dto)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->receiptType->toBe('Mock value')
-        ->receiptNbr->toBe('Mock value')
+        ->receiptType->toBe('String value')
+        ->receiptNbr->toBe('String value')
         ->hold->toBeTrue()
-        ->status->toBe('Mock value')
+        ->status->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->warehouse->toBe('Mock value')
-        ->supplier->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->currency->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->warehouse->toBeNull()
+        ->supplier->toBeNull()
+        ->location->toBeNull()
+        ->currency->toBe('String value')
         ->exchangeRate->toBe(3.14)
         ->createBill->toBeTrue()
-        ->supplierRef->toBe('Mock value')
+        ->supplierRef->toBe('String value')
         ->totalQty->toBe(3.14)
         ->controlQty->toBe(3.14)
         ->vatExemptTotal->toBe(3.14)
@@ -94,20 +90,19 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumber method 
         ->totalAmt->toBe(3.14)
         ->controlTotal->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customStr1->toBe('Mock value')
-        ->customStr2->toBe('Mock value')
-        ->customStr3->toBe('Mock value')
-        ->customStr4->toBe('Mock value')
-        ->customStr5->toBe('Mock value')
+        ->customStr1->toBe('String value')
+        ->customStr2->toBe('String value')
+        ->customStr3->toBe('String value')
+        ->customStr4->toBe('String value')
+        ->customStr5->toBe('String value')
         ->customDec1->toBe(3.14)
         ->customDec2->toBe(3.14)
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the PurchaseReceiptBasic resource', function () {
@@ -115,19 +110,19 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
         PurchaseReceiptBasicGetAllReceiptBasicCollectionRequest::class => MockResponse::make([
             0 => [
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'receiptType' => 'Mock value',
-                'receiptNbr' => 'Mock value',
+                'receiptType' => 'String value',
+                'receiptNbr' => 'String value',
                 'hold' => true,
-                'status' => 'Mock value',
+                'status' => 'String value',
                 'date' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'warehouse' => 'Mock value',
-                'supplier' => 'Mock value',
-                'location' => 'Mock value',
-                'currency' => 'Mock value',
+                'postPeriod' => 'String value',
+                'warehouse' => null,
+                'supplier' => null,
+                'location' => null,
+                'currency' => 'String value',
                 'exchangeRate' => 3.14,
                 'createBill' => true,
-                'supplierRef' => 'Mock value',
+                'supplierRef' => 'String value',
                 'totalQty' => 3.14,
                 'controlQty' => 3.14,
                 'vatExemptTotal' => 3.14,
@@ -135,37 +130,40 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
                 'totalAmt' => 3.14,
                 'controlTotal' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'lines' => [],
                 'dueDate' => '2025-11-22T10:40:04.065Z',
-                'customStr1' => 'Mock value',
-                'customStr2' => 'Mock value',
-                'customStr3' => 'Mock value',
-                'customStr4' => 'Mock value',
-                'customStr5' => 'Mock value',
+                'customStr1' => 'String value',
+                'customStr2' => 'String value',
+                'customStr3' => 'String value',
+                'customStr4' => 'String value',
+                'customStr5' => 'String value',
                 'customDec1' => 3.14,
                 'customDec2' => 3.14,
                 'customInt1' => 42,
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'receiptType' => 'Mock value',
-                'receiptNbr' => 'Mock value',
+                'receiptType' => 'String value',
+                'receiptNbr' => 'String value',
                 'hold' => true,
-                'status' => 'Mock value',
+                'status' => 'String value',
                 'date' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'warehouse' => 'Mock value',
-                'supplier' => 'Mock value',
-                'location' => 'Mock value',
-                'currency' => 'Mock value',
+                'postPeriod' => 'String value',
+                'warehouse' => null,
+                'supplier' => null,
+                'location' => null,
+                'currency' => 'String value',
                 'exchangeRate' => 3.14,
                 'createBill' => true,
-                'supplierRef' => 'Mock value',
+                'supplierRef' => 'String value',
                 'totalQty' => 3.14,
                 'controlQty' => 3.14,
                 'vatExemptTotal' => 3.14,
@@ -173,28 +171,31 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
                 'totalAmt' => 3.14,
                 'controlTotal' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'lines' => [],
                 'dueDate' => '2025-11-22T10:40:04.065Z',
-                'customStr1' => 'Mock value',
-                'customStr2' => 'Mock value',
-                'customStr3' => 'Mock value',
-                'customStr4' => 'Mock value',
-                'customStr5' => 'Mock value',
+                'customStr1' => 'String value',
+                'customStr2' => 'String value',
+                'customStr3' => 'String value',
+                'customStr4' => 'String value',
+                'customStr5' => 'String value',
                 'customDec1' => 3.14,
                 'customDec2' => 3.14,
                 'customInt1' => 42,
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new PurchaseReceiptBasicGetAllReceiptBasicCollectionRequest(receiptType: 'test string', status: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', supplier: 'test string', poOrderNbr: 'test string', branch: 'test string', finPeriod: 'test string', receiptDate: 'test string', receiptDateCondition: 'test string', dueDate: 'test string', dueDateCondition: 'test string', includeCustomFreeFields: true, pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (PurchaseReceiptBasicGetAllReceiptBasicCollectionRequest $request) {
         $query = $request->query()->all();
@@ -202,25 +203,23 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->receiptType->toBe('Mock value')
-        ->receiptNbr->toBe('Mock value')
+        ->receiptType->toBe('String value')
+        ->receiptNbr->toBe('String value')
         ->hold->toBeTrue()
-        ->status->toBe('Mock value')
+        ->status->toBe('String value')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->warehouse->toBe('Mock value')
-        ->supplier->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->currency->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->warehouse->toBeNull()
+        ->supplier->toBeNull()
+        ->location->toBeNull()
+        ->currency->toBe('String value')
         ->exchangeRate->toBe(3.14)
         ->createBill->toBeTrue()
-        ->supplierRef->toBe('Mock value')
+        ->supplierRef->toBe('String value')
         ->totalQty->toBe(3.14)
         ->controlQty->toBe(3.14)
         ->vatExemptTotal->toBe(3.14)
@@ -228,20 +227,19 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
         ->totalAmt->toBe(3.14)
         ->controlTotal->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customStr1->toBe('Mock value')
-        ->customStr2->toBe('Mock value')
-        ->customStr3->toBe('Mock value')
-        ->customStr4->toBe('Mock value')
-        ->customStr5->toBe('Mock value')
+        ->customStr1->toBe('String value')
+        ->customStr2->toBe('String value')
+        ->customStr3->toBe('String value')
+        ->customStr4->toBe('String value')
+        ->customStr5->toBe('String value')
         ->customDec1->toBe(3.14)
         ->customDec2->toBe(3.14)
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the purchaseReceiptBasicReleaseInvoiceByreceiptNumber method in the PurchaseReceiptBasic resource', function () {

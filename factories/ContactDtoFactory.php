@@ -38,7 +38,6 @@ class ContactDtoFactory extends Factory
             'contactId' => $this->faker->numberBetween(1, 1000),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

@@ -9,17 +9,14 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the earningTypeGetEarningTypeBytypeCd method in the EarningType resource', function () {
     Saloon::fake([
         EarningTypeGetEarningTypeBytypeCdRequest::class => MockResponse::make([
-            'code' => 'Mock value',
-            'description' => 'Mock value',
+            'code' => 'String value',
+            'description' => 'String value',
             'isOvertime' => true,
             'isBillable' => true,
             'isActive' => true,
@@ -41,8 +38,8 @@ it('calls the earningTypeGetEarningTypeBytypeCd method in the EarningType resour
     $dto = $response->dto();
 
     expect($dto)
-        ->code->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->code->toBe('String value')
+        ->description->toBe('String value')
         ->isOvertime->toBeTrue()
         ->isBillable->toBeTrue()
         ->isActive->toBeTrue()
@@ -54,8 +51,8 @@ it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningTy
     Saloon::fake([
         EarningTypeGetAllEarningTypeDtosCollectionRequest::class => MockResponse::make([
             0 => [
-                'code' => 'Mock value',
-                'description' => 'Mock value',
+                'code' => 'String value',
+                'description' => 'String value',
                 'isOvertime' => true,
                 'isBillable' => true,
                 'isActive' => true,
@@ -63,8 +60,8 @@ it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningTy
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             ],
             1 => [
-                'code' => 'Mock value',
-                'description' => 'Mock value',
+                'code' => 'String value',
+                'description' => 'String value',
                 'isOvertime' => true,
                 'isBillable' => true,
                 'isActive' => true,
@@ -76,7 +73,7 @@ it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningTy
 
     $request = (new EarningTypeGetAllEarningTypeDtosCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (EarningTypeGetAllEarningTypeDtosCollectionRequest $request) {
         $query = $request->query()->all();
@@ -84,13 +81,11 @@ it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningTy
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->code->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->code->toBe('String value')
+        ->description->toBe('String value')
         ->isOvertime->toBeTrue()
         ->isBillable->toBeTrue()
         ->isActive->toBeTrue()

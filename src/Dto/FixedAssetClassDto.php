@@ -74,7 +74,4 @@ class FixedAssetClassDto extends Model
 
     #[Property]
     public ?string $errorInfo;
-
-    #[Property]
-    public ?\MetadataDto $metadata;
 }

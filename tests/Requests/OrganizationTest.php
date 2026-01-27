@@ -9,33 +9,30 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the organizationGetByOrganizationCdByorganizationNumber method in the Organization resource', function () {
     Saloon::fake([
         OrganizationGetByOrganizationCdByorganizationNumberRequest::class => MockResponse::make([
-            'organizationCd' => 'Mock value',
-            'name' => 'Mock value',
-            'organizationType' => 'Mock value',
+            'organizationCd' => 'String value',
+            'name' => 'String value',
+            'organizationType' => 'String value',
             'fileTaxByBranches' => true,
-            'baseCurrency' => 'Mock value',
-            'mainAddress' => 'Mock value',
-            'mainContact' => 'Mock value',
-            'deliveryAddress' => 'Mock value',
-            'deliveryContact' => 'Mock value',
+            'baseCurrency' => 'String value',
+            'mainAddress' => null,
+            'mainContact' => null,
+            'deliveryAddress' => null,
+            'deliveryContact' => null,
             'corporateId' => 'mock-id-123',
             'vatRegistrationId' => 'mock-id-123',
-            'defaultCountry' => 'Mock value',
-            'industryCode' => 'Mock value',
-            'currency' => 'Mock value',
-            'vatZone' => 'Mock value',
+            'defaultCountry' => null,
+            'industryCode' => null,
+            'currency' => null,
+            'vatZone' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'ledger' => 'Mock value',
-            'bankSettings' => 'Mock value',
+            'ledger' => null,
+            'bankSettings' => null,
             'branches' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
@@ -59,24 +56,24 @@ it('calls the organizationGetByOrganizationCdByorganizationNumber method in the 
     $dto = $response->dto();
 
     expect($dto)
-        ->organizationCd->toBe('Mock value')
-        ->name->toBe('Mock value')
-        ->organizationType->toBe('Mock value')
+        ->organizationCd->toBe('String value')
+        ->name->toBe('String value')
+        ->organizationType->toBe('String value')
         ->fileTaxByBranches->toBeTrue()
-        ->baseCurrency->toBe('Mock value')
-        ->mainAddress->toBe('Mock value')
-        ->mainContact->toBe('Mock value')
-        ->deliveryAddress->toBe('Mock value')
-        ->deliveryContact->toBe('Mock value')
+        ->baseCurrency->toBe('String value')
+        ->mainAddress->toBeNull()
+        ->mainContact->toBeNull()
+        ->deliveryAddress->toBeNull()
+        ->deliveryContact->toBeNull()
         ->corporateId->toBe('mock-id-123')
         ->vatRegistrationId->toBe('mock-id-123')
-        ->defaultCountry->toBe('Mock value')
-        ->industryCode->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->vatZone->toBe('Mock value')
+        ->defaultCountry->toBeNull()
+        ->industryCode->toBeNull()
+        ->currency->toBeNull()
+        ->vatZone->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->ledger->toBe('Mock value')
-        ->bankSettings->toBe('Mock value')
+        ->ledger->toBeNull()
+        ->bankSettings->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
@@ -84,46 +81,46 @@ it('calls the organizationGetAllCollection method in the Organization resource',
     Saloon::fake([
         OrganizationGetAllCollectionRequest::class => MockResponse::make([
             0 => [
-                'organizationCd' => 'Mock value',
-                'name' => 'Mock value',
-                'organizationType' => 'Mock value',
+                'organizationCd' => 'String value',
+                'name' => 'String value',
+                'organizationType' => 'String value',
                 'fileTaxByBranches' => true,
-                'baseCurrency' => 'Mock value',
-                'mainAddress' => 'Mock value',
-                'mainContact' => 'Mock value',
-                'deliveryAddress' => 'Mock value',
-                'deliveryContact' => 'Mock value',
+                'baseCurrency' => 'String value',
+                'mainAddress' => null,
+                'mainContact' => null,
+                'deliveryAddress' => null,
+                'deliveryContact' => null,
                 'corporateId' => 'mock-id-123',
                 'vatRegistrationId' => 'mock-id-123',
-                'defaultCountry' => 'Mock value',
-                'industryCode' => 'Mock value',
-                'currency' => 'Mock value',
-                'vatZone' => 'Mock value',
+                'defaultCountry' => null,
+                'industryCode' => null,
+                'currency' => null,
+                'vatZone' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'ledger' => 'Mock value',
-                'bankSettings' => 'Mock value',
+                'ledger' => null,
+                'bankSettings' => null,
                 'branches' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
             1 => [
-                'organizationCd' => 'Mock value',
-                'name' => 'Mock value',
-                'organizationType' => 'Mock value',
+                'organizationCd' => 'String value',
+                'name' => 'String value',
+                'organizationType' => 'String value',
                 'fileTaxByBranches' => true,
-                'baseCurrency' => 'Mock value',
-                'mainAddress' => 'Mock value',
-                'mainContact' => 'Mock value',
-                'deliveryAddress' => 'Mock value',
-                'deliveryContact' => 'Mock value',
+                'baseCurrency' => 'String value',
+                'mainAddress' => null,
+                'mainContact' => null,
+                'deliveryAddress' => null,
+                'deliveryContact' => null,
                 'corporateId' => 'mock-id-123',
                 'vatRegistrationId' => 'mock-id-123',
-                'defaultCountry' => 'Mock value',
-                'industryCode' => 'Mock value',
-                'currency' => 'Mock value',
-                'vatZone' => 'Mock value',
+                'defaultCountry' => null,
+                'industryCode' => null,
+                'currency' => null,
+                'vatZone' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'ledger' => 'Mock value',
-                'bankSettings' => 'Mock value',
+                'ledger' => null,
+                'bankSettings' => null,
                 'branches' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
@@ -132,7 +129,7 @@ it('calls the organizationGetAllCollection method in the Organization resource',
 
     $request = (new OrganizationGetAllCollectionRequest(expandBranches: true, expandBankSettings: true, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', greaterThanValue: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (OrganizationGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -140,28 +137,26 @@ it('calls the organizationGetAllCollection method in the Organization resource',
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->organizationCd->toBe('Mock value')
-        ->name->toBe('Mock value')
-        ->organizationType->toBe('Mock value')
+        ->organizationCd->toBe('String value')
+        ->name->toBe('String value')
+        ->organizationType->toBe('String value')
         ->fileTaxByBranches->toBeTrue()
-        ->baseCurrency->toBe('Mock value')
-        ->mainAddress->toBe('Mock value')
-        ->mainContact->toBe('Mock value')
-        ->deliveryAddress->toBe('Mock value')
-        ->deliveryContact->toBe('Mock value')
+        ->baseCurrency->toBe('String value')
+        ->mainAddress->toBeNull()
+        ->mainContact->toBeNull()
+        ->deliveryAddress->toBeNull()
+        ->deliveryContact->toBeNull()
         ->corporateId->toBe('mock-id-123')
         ->vatRegistrationId->toBe('mock-id-123')
-        ->defaultCountry->toBe('Mock value')
-        ->industryCode->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->vatZone->toBe('Mock value')
+        ->defaultCountry->toBeNull()
+        ->industryCode->toBeNull()
+        ->currency->toBeNull()
+        ->vatZone->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->ledger->toBe('Mock value')
-        ->bankSettings->toBe('Mock value')
+        ->ledger->toBeNull()
+        ->bankSettings->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

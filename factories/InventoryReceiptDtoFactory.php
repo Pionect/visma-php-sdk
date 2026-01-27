@@ -30,7 +30,6 @@ class InventoryReceiptDtoFactory extends Factory
             'attachments' => [],
             'timestamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

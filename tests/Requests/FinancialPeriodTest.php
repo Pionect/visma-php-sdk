@@ -9,10 +9,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the financialPeriodGetAllCollection method in the FinancialPeriod resource', function () {
@@ -20,10 +17,10 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
         FinancialPeriodGetAllCollectionRequest::class => MockResponse::make([
             0 => [
                 'year' => 42,
-                'period' => 'Mock value',
+                'period' => 'String value',
                 'startDate' => '2025-11-22T10:40:04.065Z',
                 'endDate' => '2025-11-22T10:40:04.065Z',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'active' => true,
                 'closedInSupplierLedger' => true,
                 'closedInCustomerLedger' => true,
@@ -34,10 +31,10 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
             ],
             1 => [
                 'year' => 42,
-                'period' => 'Mock value',
+                'period' => 'String value',
                 'startDate' => '2025-11-22T10:40:04.065Z',
                 'endDate' => '2025-11-22T10:40:04.065Z',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'active' => true,
                 'closedInSupplierLedger' => true,
                 'closedInCustomerLedger' => true,
@@ -51,7 +48,7 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
 
     $request = (new FinancialPeriodGetAllCollectionRequest(greaterThanValue: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (FinancialPeriodGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -59,16 +56,14 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->year->toBe(42)
-        ->period->toBe('Mock value')
+        ->period->toBe('String value')
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->active->toBeTrue()
         ->closedInSupplierLedger->toBeTrue()
         ->closedInCustomerLedger->toBeTrue()
@@ -82,10 +77,10 @@ it('calls the financialPeriodGetByfinancialPeriodId method in the FinancialPerio
     Saloon::fake([
         FinancialPeriodGetByfinancialPeriodIdRequest::class => MockResponse::make([
             'year' => 42,
-            'period' => 'Mock value',
+            'period' => 'String value',
             'startDate' => '2025-11-22T10:40:04.065Z',
             'endDate' => '2025-11-22T10:40:04.065Z',
-            'description' => 'Mock value',
+            'description' => 'String value',
             'active' => true,
             'closedInSupplierLedger' => true,
             'closedInCustomerLedger' => true,
@@ -110,10 +105,10 @@ it('calls the financialPeriodGetByfinancialPeriodId method in the FinancialPerio
 
     expect($dto)
         ->year->toBe(42)
-        ->period->toBe('Mock value')
+        ->period->toBe('String value')
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->active->toBeTrue()
         ->closedInSupplierLedger->toBeTrue()
         ->closedInCustomerLedger->toBeTrue()

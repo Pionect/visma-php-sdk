@@ -10,31 +10,27 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the supplierLocationGetLocationBybAccountIdlocationId method in the SupplierLocation resource', function () {
     Saloon::fake([
         SupplierLocationGetLocationBybAccountIdlocationIdRequest::class => MockResponse::make([
-            'baccount' => 'Mock value',
+            'baccount' => null,
             'locationId' => 'mock-id-123',
-            'locationName' => 'Mock value',
+            'locationName' => 'String value',
             'active' => true,
-            'address' => 'Mock value',
-            'contact' => 'Mock value',
+            'address' => null,
+            'contact' => null,
             'vatRegistrationId' => 'mock-id-123',
-            'vatZone' => 'Mock value',
-            'ediCode' => 'Mock value',
-            'gln' => 'Mock value',
+            'vatZone' => null,
+            'ediCode' => 'String value',
+            'gln' => 'String value',
             'corporateId' => 'mock-id-123',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'supplierPaymentMethodDetails' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -52,42 +48,40 @@ it('calls the supplierLocationGetLocationBybAccountIdlocationId method in the Su
     $dto = $response->dto();
 
     expect($dto)
-        ->baccount->toBe('Mock value')
+        ->baccount->toBeNull()
         ->locationId->toBe('mock-id-123')
-        ->locationName->toBe('Mock value')
+        ->locationName->toBe('String value')
         ->active->toBeTrue()
-        ->address->toBe('Mock value')
-        ->contact->toBe('Mock value')
+        ->address->toBeNull()
+        ->contact->toBeNull()
         ->vatRegistrationId->toBe('mock-id-123')
-        ->vatZone->toBe('Mock value')
-        ->ediCode->toBe('Mock value')
-        ->gln->toBe('Mock value')
+        ->vatZone->toBeNull()
+        ->ediCode->toBe('String value')
+        ->gln->toBe('String value')
         ->corporateId->toBe('mock-id-123')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the SupplierLocation resource', function () {
     Saloon::fake([
         SupplierLocationGetLocationsForBaccountBybAccountIdRequest::class => MockResponse::make([
-            'baccount' => 'Mock value',
+            'baccount' => null,
             'locationId' => 'mock-id-123',
-            'locationName' => 'Mock value',
+            'locationName' => 'String value',
             'active' => true,
-            'address' => 'Mock value',
-            'contact' => 'Mock value',
+            'address' => null,
+            'contact' => null,
             'vatRegistrationId' => 'mock-id-123',
-            'vatZone' => 'Mock value',
-            'ediCode' => 'Mock value',
-            'gln' => 'Mock value',
+            'vatZone' => null,
+            'ediCode' => 'String value',
+            'gln' => 'String value',
             'corporateId' => 'mock-id-123',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'supplierPaymentMethodDetails' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -110,68 +104,73 @@ it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the 
     $dto = $response->dto();
 
     expect($dto)
-        ->baccount->toBe('Mock value')
+        ->baccount->toBeNull()
         ->locationId->toBe('mock-id-123')
-        ->locationName->toBe('Mock value')
+        ->locationName->toBe('String value')
         ->active->toBeTrue()
-        ->address->toBe('Mock value')
-        ->contact->toBe('Mock value')
+        ->address->toBeNull()
+        ->contact->toBeNull()
         ->vatRegistrationId->toBe('mock-id-123')
-        ->vatZone->toBe('Mock value')
-        ->ediCode->toBe('Mock value')
-        ->gln->toBe('Mock value')
+        ->vatZone->toBeNull()
+        ->ediCode->toBe('String value')
+        ->gln->toBe('String value')
         ->corporateId->toBe('mock-id-123')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierLocationGetLocationsCollection method in the SupplierLocation resource', function () {
     Saloon::fake([
         SupplierLocationGetLocationsCollectionRequest::class => MockResponse::make([
             0 => [
-                'baccount' => 'Mock value',
+                'baccount' => null,
                 'locationId' => 'mock-id-123',
-                'locationName' => 'Mock value',
+                'locationName' => 'String value',
                 'active' => true,
-                'address' => 'Mock value',
-                'contact' => 'Mock value',
+                'address' => null,
+                'contact' => null,
                 'vatRegistrationId' => 'mock-id-123',
-                'vatZone' => 'Mock value',
-                'ediCode' => 'Mock value',
-                'gln' => 'Mock value',
+                'vatZone' => null,
+                'ediCode' => 'String value',
+                'gln' => 'String value',
                 'corporateId' => 'mock-id-123',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'supplierPaymentMethodDetails' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'baccount' => 'Mock value',
+                'baccount' => null,
                 'locationId' => 'mock-id-123',
-                'locationName' => 'Mock value',
+                'locationName' => 'String value',
                 'active' => true,
-                'address' => 'Mock value',
-                'contact' => 'Mock value',
+                'address' => null,
+                'contact' => null,
                 'vatRegistrationId' => 'mock-id-123',
-                'vatZone' => 'Mock value',
-                'ediCode' => 'Mock value',
-                'gln' => 'Mock value',
+                'vatZone' => null,
+                'ediCode' => 'String value',
+                'gln' => 'String value',
                 'corporateId' => 'mock-id-123',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'supplierPaymentMethodDetails' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new SupplierLocationGetLocationsCollectionRequest(locationId: 'test string', gln: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SupplierLocationGetLocationsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -179,24 +178,21 @@ it('calls the supplierLocationGetLocationsCollection method in the SupplierLocat
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->baccount->toBe('Mock value')
+        ->baccount->toBeNull()
         ->locationId->toBe('mock-id-123')
-        ->locationName->toBe('Mock value')
+        ->locationName->toBe('String value')
         ->active->toBeTrue()
-        ->address->toBe('Mock value')
-        ->contact->toBe('Mock value')
+        ->address->toBeNull()
+        ->contact->toBeNull()
         ->vatRegistrationId->toBe('mock-id-123')
-        ->vatZone->toBe('Mock value')
-        ->ediCode->toBe('Mock value')
-        ->gln->toBe('Mock value')
+        ->vatZone->toBeNull()
+        ->ediCode->toBe('String value')
+        ->gln->toBe('String value')
         ->corporateId->toBe('mock-id-123')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

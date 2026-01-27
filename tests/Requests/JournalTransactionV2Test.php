@@ -9,30 +9,27 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransactionNumber method in the JournalTransactionV2 resource', function () {
     Saloon::fake([
         JournalTransactionV2GetSpecificJournalTransactionsByjournalTransactionNumberRequest::class => MockResponse::make([
-            'module' => 'Mock value',
-            'batchNumber' => 'Mock value',
-            'status' => 'Mock value',
+            'module' => 'String value',
+            'batchNumber' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'transactionDate' => '2025-11-22T10:40:04.065Z',
-            'postPeriod' => 'Mock value',
-            'financialPeriod' => 'Mock value',
-            'ledger' => 'Mock value',
-            'ledgerDescription' => 'Mock value',
+            'postPeriod' => 'String value',
+            'financialPeriod' => 'String value',
+            'ledger' => 'String value',
+            'ledgerDescription' => 'String value',
             'currencyId' => 'mock-id-123',
             'exchangeRate' => 3.14,
             'autoReversing' => true,
             'reversingEntry' => true,
-            'description' => 'Mock value',
-            'originalBatchNumber' => 'Mock value',
+            'description' => 'String value',
+            'originalBatchNumber' => 'String value',
             'debitTotal' => 3.14,
             'debitTotalInCurrency' => 3.14,
             'creditTotal' => 3.14,
@@ -42,14 +39,13 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
             'createVatTransaction' => true,
             'skipVatAmountValidation' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'transactionCode' => 'Mock value',
-            'transactionCodeDescription' => 'Mock value',
-            'branch' => 'Mock value',
+            'transactionCode' => 'String value',
+            'transactionCodeDescription' => 'String value',
+            'branch' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'journalTransactionLines' => [],
             'attachments' => [],
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -66,21 +62,21 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
     $dto = $response->dto();
 
     expect($dto)
-        ->module->toBe('Mock value')
-        ->batchNumber->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->module->toBe('String value')
+        ->batchNumber->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->transactionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
-        ->ledger->toBe('Mock value')
-        ->ledgerDescription->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
+        ->ledger->toBe('String value')
+        ->ledgerDescription->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->exchangeRate->toBe(3.14)
         ->autoReversing->toBeTrue()
         ->reversingEntry->toBeTrue()
-        ->description->toBe('Mock value')
-        ->originalBatchNumber->toBe('Mock value')
+        ->description->toBe('String value')
+        ->originalBatchNumber->toBe('String value')
         ->debitTotal->toBe(3.14)
         ->debitTotalInCurrency->toBe(3.14)
         ->creditTotal->toBe(3.14)
@@ -90,33 +86,32 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
         ->createVatTransaction->toBeTrue()
         ->skipVatAmountValidation->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->transactionCode->toBe('Mock value')
-        ->transactionCodeDescription->toBe('Mock value')
-        ->branch->toBe('Mock value')
+        ->transactionCode->toBe('String value')
+        ->transactionCodeDescription->toBe('String value')
+        ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the journalTransactionV2getAllJournalTransactionsCollection method in the JournalTransactionV2 resource', function () {
     Saloon::fake([
         JournalTransactionV2GetAllJournalTransactionsCollectionRequest::class => MockResponse::make([
             0 => [
-                'module' => 'Mock value',
-                'batchNumber' => 'Mock value',
-                'status' => 'Mock value',
+                'module' => 'String value',
+                'batchNumber' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'transactionDate' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
-                'ledger' => 'Mock value',
-                'ledgerDescription' => 'Mock value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
+                'ledger' => 'String value',
+                'ledgerDescription' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'exchangeRate' => 3.14,
                 'autoReversing' => true,
                 'reversingEntry' => true,
-                'description' => 'Mock value',
-                'originalBatchNumber' => 'Mock value',
+                'description' => 'String value',
+                'originalBatchNumber' => 'String value',
                 'debitTotal' => 3.14,
                 'debitTotalInCurrency' => 3.14,
                 'creditTotal' => 3.14,
@@ -126,31 +121,34 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
                 'createVatTransaction' => true,
                 'skipVatAmountValidation' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'transactionCode' => 'Mock value',
-                'transactionCodeDescription' => 'Mock value',
-                'branch' => 'Mock value',
+                'transactionCode' => 'String value',
+                'transactionCodeDescription' => 'String value',
+                'branch' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'journalTransactionLines' => [],
                 'attachments' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'module' => 'Mock value',
-                'batchNumber' => 'Mock value',
-                'status' => 'Mock value',
+                'module' => 'String value',
+                'batchNumber' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'transactionDate' => '2025-11-22T10:40:04.065Z',
-                'postPeriod' => 'Mock value',
-                'financialPeriod' => 'Mock value',
-                'ledger' => 'Mock value',
-                'ledgerDescription' => 'Mock value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
+                'ledger' => 'String value',
+                'ledgerDescription' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'exchangeRate' => 3.14,
                 'autoReversing' => true,
                 'reversingEntry' => true,
-                'description' => 'Mock value',
-                'originalBatchNumber' => 'Mock value',
+                'description' => 'String value',
+                'originalBatchNumber' => 'String value',
                 'debitTotal' => 3.14,
                 'debitTotalInCurrency' => 3.14,
                 'creditTotal' => 3.14,
@@ -160,21 +158,24 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
                 'createVatTransaction' => true,
                 'skipVatAmountValidation' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'transactionCode' => 'Mock value',
-                'transactionCodeDescription' => 'Mock value',
-                'branch' => 'Mock value',
+                'transactionCode' => 'String value',
+                'transactionCodeDescription' => 'String value',
+                'branch' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'journalTransactionLines' => [],
                 'attachments' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new JournalTransactionV2GetAllJournalTransactionsCollectionRequest(periodId: 'test string', lastModifiedDateTime: 'test string', module: 'test string', status: 'test string', expandAttachments: true, branch: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (JournalTransactionV2GetAllJournalTransactionsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -182,26 +183,24 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->module->toBe('Mock value')
-        ->batchNumber->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->module->toBe('String value')
+        ->batchNumber->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->transactionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
-        ->financialPeriod->toBe('Mock value')
-        ->ledger->toBe('Mock value')
-        ->ledgerDescription->toBe('Mock value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
+        ->ledger->toBe('String value')
+        ->ledgerDescription->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->exchangeRate->toBe(3.14)
         ->autoReversing->toBeTrue()
         ->reversingEntry->toBeTrue()
-        ->description->toBe('Mock value')
-        ->originalBatchNumber->toBe('Mock value')
+        ->description->toBe('String value')
+        ->originalBatchNumber->toBe('String value')
         ->debitTotal->toBe(3.14)
         ->debitTotalInCurrency->toBe(3.14)
         ->creditTotal->toBe(3.14)
@@ -211,10 +210,9 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
         ->createVatTransaction->toBeTrue()
         ->skipVatAmountValidation->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->transactionCode->toBe('Mock value')
-        ->transactionCodeDescription->toBe('Mock value')
-        ->branch->toBe('Mock value')
+        ->transactionCode->toBe('String value')
+        ->transactionCodeDescription->toBe('String value')
+        ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

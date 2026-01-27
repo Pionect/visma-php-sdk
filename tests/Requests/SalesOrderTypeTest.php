@@ -8,23 +8,19 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrderType resource', function () {
     Saloon::fake([
         SalesOrderTypeGetSalesOrderTypeByorderTypeRequest::class => MockResponse::make([
-            'orderType' => 'Mock value',
+            'orderType' => 'String value',
             'active' => true,
-            'description' => 'Mock value',
-            'behavior' => 'Mock value',
-            'defaultOperation' => 'Mock value',
-            'customerDocumentType' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'description' => 'String value',
+            'behavior' => 'String value',
+            'defaultOperation' => 'String value',
+            'customerDocumentType' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -41,45 +37,50 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrde
     $dto = $response->dto();
 
     expect($dto)
-        ->orderType->toBe('Mock value')
+        ->orderType->toBe('String value')
         ->active->toBeTrue()
-        ->description->toBe('Mock value')
-        ->behavior->toBe('Mock value')
-        ->defaultOperation->toBe('Mock value')
-        ->customerDocumentType->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->description->toBe('String value')
+        ->behavior->toBe('String value')
+        ->defaultOperation->toBe('String value')
+        ->customerDocumentType->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesOrderType resource', function () {
     Saloon::fake([
         SalesOrderTypeGetAllSalesOrderTypesCollectionRequest::class => MockResponse::make([
             0 => [
-                'orderType' => 'Mock value',
+                'orderType' => 'String value',
                 'active' => true,
-                'description' => 'Mock value',
-                'behavior' => 'Mock value',
-                'defaultOperation' => 'Mock value',
-                'customerDocumentType' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'description' => 'String value',
+                'behavior' => 'String value',
+                'defaultOperation' => 'String value',
+                'customerDocumentType' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'orderType' => 'Mock value',
+                'orderType' => 'String value',
                 'active' => true,
-                'description' => 'Mock value',
-                'behavior' => 'Mock value',
-                'defaultOperation' => 'Mock value',
-                'customerDocumentType' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'description' => 'String value',
+                'behavior' => 'String value',
+                'defaultOperation' => 'String value',
+                'customerDocumentType' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new SalesOrderTypeGetAllSalesOrderTypesCollectionRequest(orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SalesOrderTypeGetAllSalesOrderTypesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -87,17 +88,14 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesO
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->orderType->toBe('Mock value')
+        ->orderType->toBe('String value')
         ->active->toBeTrue()
-        ->description->toBe('Mock value')
-        ->behavior->toBe('Mock value')
-        ->defaultOperation->toBe('Mock value')
-        ->customerDocumentType->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->description->toBe('String value')
+        ->behavior->toBe('String value')
+        ->defaultOperation->toBe('String value')
+        ->customerDocumentType->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

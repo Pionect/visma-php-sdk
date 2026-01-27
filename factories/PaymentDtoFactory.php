@@ -39,7 +39,6 @@ class PaymentDtoFactory extends Factory
             'availableBalanceInCurrency' => $this->faker->randomFloat(2, 0, 1000),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

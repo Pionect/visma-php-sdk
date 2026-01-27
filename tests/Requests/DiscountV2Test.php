@@ -8,21 +8,18 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource', function () {
     Saloon::fake([
         DiscountV2GetDiscountsCollectionRequest::class => MockResponse::make([
             0 => [
-                'discountCode' => 'Mock value',
-                'series' => 'Mock value',
-                'description' => 'Mock value',
-                'discountBy' => 'Mock value',
-                'breakBy' => 'Mock value',
+                'discountCode' => 'String value',
+                'series' => 'String value',
+                'description' => 'String value',
+                'discountBy' => 'String value',
+                'breakBy' => 'String value',
                 'promotional' => true,
                 'active' => true,
                 'prorateDiscount' => true,
@@ -42,15 +39,18 @@ it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource
                 'customerPriceClasses' => [],
                 'itemPriceClasses' => [],
                 'branches' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'discountCode' => 'Mock value',
-                'series' => 'Mock value',
-                'description' => 'Mock value',
-                'discountBy' => 'Mock value',
-                'breakBy' => 'Mock value',
+                'discountCode' => 'String value',
+                'series' => 'String value',
+                'description' => 'String value',
+                'discountBy' => 'String value',
+                'breakBy' => 'String value',
                 'promotional' => true,
                 'active' => true,
                 'prorateDiscount' => true,
@@ -70,15 +70,18 @@ it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource
                 'customerPriceClasses' => [],
                 'itemPriceClasses' => [],
                 'branches' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new DiscountV2GetDiscountsCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', discountCode: 'test string', series: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (DiscountV2GetDiscountsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -86,16 +89,14 @@ it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->discountCode->toBe('Mock value')
-        ->series->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->discountBy->toBe('Mock value')
-        ->breakBy->toBe('Mock value')
+        ->discountCode->toBe('String value')
+        ->series->toBe('String value')
+        ->description->toBe('String value')
+        ->discountBy->toBe('String value')
+        ->breakBy->toBe('String value')
         ->promotional->toBeTrue()
         ->active->toBeTrue()
         ->prorateDiscount->toBeTrue()
@@ -108,6 +109,5 @@ it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource
         ->lineCntr->toBe(42)
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

@@ -8,18 +8,14 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the countryGetCountryBycountryId method in the Country resource', function () {
     Saloon::fake([
         CountryGetCountryBycountryIdRequest::class => MockResponse::make([
-            'name' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'name' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -36,30 +32,35 @@ it('calls the countryGetCountryBycountryId method in the Country resource', func
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->name->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the countryGetCountriesCollection method in the Country resource', function () {
     Saloon::fake([
         CountryGetCountriesCollectionRequest::class => MockResponse::make([
             0 => [
-                'name' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'name' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'name' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'name' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new CountryGetCountriesCollectionRequest(pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (CountryGetCountriesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -67,12 +68,9 @@ it('calls the countryGetCountriesCollection method in the Country resource', fun
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->name->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->name->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

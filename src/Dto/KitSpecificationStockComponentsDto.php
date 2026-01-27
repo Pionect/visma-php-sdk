@@ -39,7 +39,4 @@ class KitSpecificationStockComponentsDto extends Model
 
     #[Property]
     public ?string $errorInfo;
-
-    #[Property]
-    public ?\MetadataDto $metadata;
 }

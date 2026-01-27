@@ -9,10 +9,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the kitAssemblyGetKitAssembliesCollection method in the KitAssembly resource', function () {
@@ -35,7 +32,7 @@ it('calls the kitAssemblyGetKitAssembliesCollection method in the KitAssembly re
 
     $request = (new KitAssemblyGetKitAssembliesCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', type: 'test string', refNo: 'test string', status: 'test string', expandStockComponents: true, expandNonStockComponents: true, expandKitAllocations: true, pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (KitAssemblyGetKitAssembliesCollectionRequest $request) {
         $query = $request->query()->all();
@@ -43,9 +40,7 @@ it('calls the kitAssemblyGetKitAssembliesCollection method in the KitAssembly re
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->pageNumber->toBe(42)
@@ -56,28 +51,27 @@ it('calls the kitAssemblyGetKitAssembliesCollection method in the KitAssembly re
 it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly resource', function () {
     Saloon::fake([
         KitAssemblyGetKitAssemblyBytyperefNoRequest::class => MockResponse::make([
-            'refNo' => 'Mock value',
-            'status' => 'Mock value',
+            'refNo' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'date' => '2025-11-22T10:40:04.065Z',
-            'postPeriod' => 'Mock value',
+            'postPeriod' => 'String value',
             'itemId' => 'mock-id-123',
-            'revision' => 'Mock value',
-            'reasonCode' => 'Mock value',
-            'description' => 'Mock value',
-            'warehouse' => 'Mock value',
-            'location' => 'Mock value',
-            'uoM' => 'Mock value',
+            'revision' => 'String value',
+            'reasonCode' => 'String value',
+            'description' => 'String value',
+            'warehouse' => 'String value',
+            'location' => 'String value',
+            'uoM' => 'String value',
             'quantity' => 3.14,
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'salesOrderLink' => 'Mock value',
+            'salesOrderLink' => 'String value',
             'stockComponentLines' => [],
             'nonStockComponentLines' => [],
             'kitAllocations' => [],
-            'timestamp' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'timestamp' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -95,23 +89,22 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
     $dto = $response->dto();
 
     expect($dto)
-        ->refNo->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->refNo->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('Mock value')
+        ->postPeriod->toBe('String value')
         ->itemId->toBe('mock-id-123')
-        ->revision->toBe('Mock value')
-        ->reasonCode->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->warehouse->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->uoM->toBe('Mock value')
+        ->revision->toBe('String value')
+        ->reasonCode->toBe('String value')
+        ->description->toBe('String value')
+        ->warehouse->toBe('String value')
+        ->location->toBe('String value')
+        ->uoM->toBe('String value')
         ->quantity->toBe(3.14)
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->salesOrderLink->toBe('Mock value')
-        ->timestamp->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->salesOrderLink->toBe('String value')
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

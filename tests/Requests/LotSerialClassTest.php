@@ -9,28 +9,24 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the lotSerialClassGetByid method in the LotSerialClass resource', function () {
     Saloon::fake([
         LotSerialClassGetByidRequest::class => MockResponse::make([
-            'description' => 'Mock value',
-            'trackingMethod' => 'Mock value',
+            'description' => 'String value',
+            'trackingMethod' => 'String value',
             'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
             'requiredForDropShip' => true,
-            'assignmentMethod' => 'Mock value',
-            'issueMethod' => 'Mock value',
+            'assignmentMethod' => 'String value',
+            'issueMethod' => 'String value',
             'autoIncrementalValueBetweenClasses' => true,
-            'autoIncrementalValue' => 'Mock value',
+            'autoIncrementalValue' => 'String value',
             'autoGenerateNextNumber' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'details' => [],
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -47,59 +43,64 @@ it('calls the lotSerialClassGetByid method in the LotSerialClass resource', func
     $dto = $response->dto();
 
     expect($dto)
-        ->description->toBe('Mock value')
-        ->trackingMethod->toBe('Mock value')
+        ->description->toBe('String value')
+        ->trackingMethod->toBe('String value')
         ->trackExpirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requiredForDropShip->toBeTrue()
-        ->assignmentMethod->toBe('Mock value')
-        ->issueMethod->toBe('Mock value')
+        ->assignmentMethod->toBe('String value')
+        ->issueMethod->toBe('String value')
         ->autoIncrementalValueBetweenClasses->toBeTrue()
-        ->autoIncrementalValue->toBe('Mock value')
+        ->autoIncrementalValue->toBe('String value')
         ->autoGenerateNextNumber->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSerialClass resource', function () {
     Saloon::fake([
         LotSerialClassGetAllLotSerialClassCollectionRequest::class => MockResponse::make([
             0 => [
-                'description' => 'Mock value',
-                'trackingMethod' => 'Mock value',
+                'description' => 'String value',
+                'trackingMethod' => 'String value',
                 'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
                 'requiredForDropShip' => true,
-                'assignmentMethod' => 'Mock value',
-                'issueMethod' => 'Mock value',
+                'assignmentMethod' => 'String value',
+                'issueMethod' => 'String value',
                 'autoIncrementalValueBetweenClasses' => true,
-                'autoIncrementalValue' => 'Mock value',
+                'autoIncrementalValue' => 'String value',
                 'autoGenerateNextNumber' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'details' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'description' => 'Mock value',
-                'trackingMethod' => 'Mock value',
+                'description' => 'String value',
+                'trackingMethod' => 'String value',
                 'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
                 'requiredForDropShip' => true,
-                'assignmentMethod' => 'Mock value',
-                'issueMethod' => 'Mock value',
+                'assignmentMethod' => 'String value',
+                'issueMethod' => 'String value',
                 'autoIncrementalValueBetweenClasses' => true,
-                'autoIncrementalValue' => 'Mock value',
+                'autoIncrementalValue' => 'String value',
                 'autoGenerateNextNumber' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'details' => [],
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new LotSerialClassGetAllLotSerialClassCollectionRequest(description: 'test string', trackingMethod: 'test string', trackExpirationDate: true, requiredForDropShip: true, assignmentMethod: 'test string', issueMethod: 'test string', autoIncrementalValueBetweenClasses: true, autoIncrementalValue: 'test string', autoGenerateNextNumber: true, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (LotSerialClassGetAllLotSerialClassCollectionRequest $request) {
         $query = $request->query()->all();
@@ -107,21 +108,18 @@ it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSeri
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->description->toBe('Mock value')
-        ->trackingMethod->toBe('Mock value')
+        ->description->toBe('String value')
+        ->trackingMethod->toBe('String value')
         ->trackExpirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->requiredForDropShip->toBeTrue()
-        ->assignmentMethod->toBe('Mock value')
-        ->issueMethod->toBe('Mock value')
+        ->assignmentMethod->toBe('String value')
+        ->issueMethod->toBe('String value')
         ->autoIncrementalValueBetweenClasses->toBeTrue()
-        ->autoIncrementalValue->toBe('Mock value')
+        ->autoIncrementalValue->toBe('String value')
         ->autoGenerateNextNumber->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });

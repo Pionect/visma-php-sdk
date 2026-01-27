@@ -7,16 +7,13 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the supplierAccountGetBysupplierId method in the SupplierAccount resource', function () {
     Saloon::fake([
         SupplierAccountGetBysupplierIdRequest::class => MockResponse::make([
-            'supplierAccount' => 'Mock value',
+            'supplierAccount' => null,
             'supplierItemAccounts' => [],
         ], 200),
     ]);
@@ -37,5 +34,5 @@ it('calls the supplierAccountGetBysupplierId method in the SupplierAccount resou
     $dto = $response->dto();
 
     expect($dto)
-        ->supplierAccount->toBe('Mock value');
+        ->supplierAccount->toBeNull();
 });

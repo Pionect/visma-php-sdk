@@ -10,10 +10,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the blobGetByblobId method in the Blob resource', function () {
@@ -57,19 +54,25 @@ it('calls the blobGetPresignedUrlCollection method in the Blob resource', functi
     Saloon::fake([
         BlobGetPresignedUrlCollectionRequest::class => MockResponse::make([
             0 => [
-                'preSignedUrl' => 'Mock value',
-                'metadata' => 'Mock value',
+                'preSignedUrl' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'preSignedUrl' => 'Mock value',
-                'metadata' => 'Mock value',
+                'preSignedUrl' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new BlobGetPresignedUrlCollectionRequest(blobId: 'test string', includeMetadata: true));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (BlobGetPresignedUrlCollectionRequest $request) {
         $query = $request->query()->all();
@@ -77,25 +80,22 @@ it('calls the blobGetPresignedUrlCollection method in the Blob resource', functi
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->preSignedUrl->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->preSignedUrl->toBe('String value');
 });
 
 it('calls the blobGetMetadataByblobId method in the Blob resource', function () {
     Saloon::fake([
         BlobGetMetadataByblobIdRequest::class => MockResponse::make([
             'blobId' => 'mock-id-123',
-            'blobName' => 'Mock value',
-            'contentType' => 'Mock value',
-            'mD5hash' => 'Mock value',
-            'fileChecksum' => 'Mock value',
+            'blobName' => 'String value',
+            'contentType' => 'String value',
+            'mD5hash' => 'String value',
+            'fileChecksum' => 'String value',
             'size' => 42,
-            'countryCode' => 'Mock value',
+            'countryCode' => 'String value',
             'createdDateTimeUtc' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
@@ -114,11 +114,11 @@ it('calls the blobGetMetadataByblobId method in the Blob resource', function () 
 
     expect($dto)
         ->blobId->toBe('mock-id-123')
-        ->blobName->toBe('Mock value')
-        ->contentType->toBe('Mock value')
-        ->mD5hash->toBe('Mock value')
-        ->fileChecksum->toBe('Mock value')
+        ->blobName->toBe('String value')
+        ->contentType->toBe('String value')
+        ->mD5hash->toBe('String value')
+        ->fileChecksum->toBe('String value')
         ->size->toBe(42)
-        ->countryCode->toBe('Mock value')
+        ->countryCode->toBe('String value')
         ->createdDateTimeUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

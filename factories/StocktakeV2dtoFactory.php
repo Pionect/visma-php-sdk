@@ -23,7 +23,6 @@ class StocktakeV2dtoFactory extends Factory
             'lines' => [],
             'timestamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

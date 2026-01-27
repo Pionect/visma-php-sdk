@@ -22,7 +22,6 @@ class KitAssemblyNonStockComponentDtoFactory extends Factory
             'minComponentQty' => $this->faker->randomFloat(2, 0, 1000),
             'maxComponentQty' => $this->faker->randomFloat(2, 0, 1000),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

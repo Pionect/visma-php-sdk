@@ -25,7 +25,6 @@ class LandedCostCodeDtoFactory extends Factory
             'landedCostVarianceAccount' => $this->faker->word(),
             'landedCostVarianceSubaccount' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

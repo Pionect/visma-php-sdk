@@ -13,10 +13,7 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the projectGetByprojectId method in the Project resource', function () {
@@ -24,33 +21,33 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
         ProjectGetByprojectIdRequest::class => MockResponse::make([
             'internalId' => 42,
             'projectId' => 'mock-id-123',
-            'customer' => 'Mock value',
+            'customer' => null,
             'hold' => true,
-            'status' => 'Mock value',
-            'template' => 'Mock value',
-            'description' => 'Mock value',
+            'status' => 'String value',
+            'template' => null,
+            'description' => 'String value',
             'assets' => 3.14,
             'liability' => 3.14,
             'income' => 3.14,
             'expenses' => 3.14,
             'startDate' => '2025-11-22T10:40:04.065Z',
             'endDate' => '2025-11-22T10:40:04.065Z',
-            'projectManager' => 'Mock value',
+            'projectManager' => null,
             'restrictEmployees' => true,
             'restrictEquipment' => true,
-            'visibility' => 'Mock value',
-            'defAccount' => 'Mock value',
-            'defSub' => 'Mock value',
-            'defAccrualAccount' => 'Mock value',
-            'defAccrualSub' => 'Mock value',
-            'billingPeriod' => 'Mock value',
+            'visibility' => null,
+            'defAccount' => null,
+            'defSub' => null,
+            'defAccrualAccount' => null,
+            'defAccrualSub' => null,
+            'billingPeriod' => 'String value',
             'nextBillingDate' => '2025-11-22T10:40:04.065Z',
             'lastBillingDate' => '2025-11-22T10:40:04.065Z',
-            'customerLocation' => 'Mock value',
-            'allocationRule' => 'Mock value',
-            'billingRule' => 'Mock value',
-            'branch' => 'Mock value',
-            'rateTable' => 'Mock value',
+            'customerLocation' => null,
+            'allocationRule' => null,
+            'billingRule' => null,
+            'branch' => null,
+            'rateTable' => null,
             'autoAllocate' => true,
             'automaticReleaseAr' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
@@ -60,9 +57,8 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
             'systemTemplate' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'attributes' => [],
-            'note' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'note' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -81,42 +77,41 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
     expect($dto)
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
-        ->customer->toBe('Mock value')
+        ->customer->toBeNull()
         ->hold->toBeTrue()
-        ->status->toBe('Mock value')
-        ->template->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->status->toBe('String value')
+        ->template->toBeNull()
+        ->description->toBe('String value')
         ->assets->toBe(3.14)
         ->liability->toBe(3.14)
         ->income->toBe(3.14)
         ->expenses->toBe(3.14)
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->projectManager->toBe('Mock value')
+        ->projectManager->toBeNull()
         ->restrictEmployees->toBeTrue()
         ->restrictEquipment->toBeTrue()
-        ->visibility->toBe('Mock value')
-        ->defAccount->toBe('Mock value')
-        ->defSub->toBe('Mock value')
-        ->defAccrualAccount->toBe('Mock value')
-        ->defAccrualSub->toBe('Mock value')
-        ->billingPeriod->toBe('Mock value')
+        ->visibility->toBeNull()
+        ->defAccount->toBeNull()
+        ->defSub->toBeNull()
+        ->defAccrualAccount->toBeNull()
+        ->defAccrualSub->toBeNull()
+        ->billingPeriod->toBe('String value')
         ->nextBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customerLocation->toBe('Mock value')
-        ->allocationRule->toBe('Mock value')
-        ->billingRule->toBe('Mock value')
-        ->branch->toBe('Mock value')
-        ->rateTable->toBe('Mock value')
+        ->customerLocation->toBeNull()
+        ->allocationRule->toBeNull()
+        ->billingRule->toBeNull()
+        ->branch->toBeNull()
+        ->rateTable->toBeNull()
         ->autoAllocate->toBeTrue()
         ->automaticReleaseAr->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->publicId->toBe('mock-id-123')
         ->systemTemplate->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->note->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the projectGetByinternalId method in the Project resource', function () {
@@ -124,33 +119,33 @@ it('calls the projectGetByinternalId method in the Project resource', function (
         ProjectGetByinternalIdRequest::class => MockResponse::make([
             'internalId' => 42,
             'projectId' => 'mock-id-123',
-            'customer' => 'Mock value',
+            'customer' => null,
             'hold' => true,
-            'status' => 'Mock value',
-            'template' => 'Mock value',
-            'description' => 'Mock value',
+            'status' => 'String value',
+            'template' => null,
+            'description' => 'String value',
             'assets' => 3.14,
             'liability' => 3.14,
             'income' => 3.14,
             'expenses' => 3.14,
             'startDate' => '2025-11-22T10:40:04.065Z',
             'endDate' => '2025-11-22T10:40:04.065Z',
-            'projectManager' => 'Mock value',
+            'projectManager' => null,
             'restrictEmployees' => true,
             'restrictEquipment' => true,
-            'visibility' => 'Mock value',
-            'defAccount' => 'Mock value',
-            'defSub' => 'Mock value',
-            'defAccrualAccount' => 'Mock value',
-            'defAccrualSub' => 'Mock value',
-            'billingPeriod' => 'Mock value',
+            'visibility' => null,
+            'defAccount' => null,
+            'defSub' => null,
+            'defAccrualAccount' => null,
+            'defAccrualSub' => null,
+            'billingPeriod' => 'String value',
             'nextBillingDate' => '2025-11-22T10:40:04.065Z',
             'lastBillingDate' => '2025-11-22T10:40:04.065Z',
-            'customerLocation' => 'Mock value',
-            'allocationRule' => 'Mock value',
-            'billingRule' => 'Mock value',
-            'branch' => 'Mock value',
-            'rateTable' => 'Mock value',
+            'customerLocation' => null,
+            'allocationRule' => null,
+            'billingRule' => null,
+            'branch' => null,
+            'rateTable' => null,
             'autoAllocate' => true,
             'automaticReleaseAr' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
@@ -160,9 +155,8 @@ it('calls the projectGetByinternalId method in the Project resource', function (
             'systemTemplate' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'attributes' => [],
-            'note' => 'Mock value',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'note' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -181,42 +175,41 @@ it('calls the projectGetByinternalId method in the Project resource', function (
     expect($dto)
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
-        ->customer->toBe('Mock value')
+        ->customer->toBeNull()
         ->hold->toBeTrue()
-        ->status->toBe('Mock value')
-        ->template->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->status->toBe('String value')
+        ->template->toBeNull()
+        ->description->toBe('String value')
         ->assets->toBe(3.14)
         ->liability->toBe(3.14)
         ->income->toBe(3.14)
         ->expenses->toBe(3.14)
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->projectManager->toBe('Mock value')
+        ->projectManager->toBeNull()
         ->restrictEmployees->toBeTrue()
         ->restrictEquipment->toBeTrue()
-        ->visibility->toBe('Mock value')
-        ->defAccount->toBe('Mock value')
-        ->defSub->toBe('Mock value')
-        ->defAccrualAccount->toBe('Mock value')
-        ->defAccrualSub->toBe('Mock value')
-        ->billingPeriod->toBe('Mock value')
+        ->visibility->toBeNull()
+        ->defAccount->toBeNull()
+        ->defSub->toBeNull()
+        ->defAccrualAccount->toBeNull()
+        ->defAccrualSub->toBeNull()
+        ->billingPeriod->toBe('String value')
         ->nextBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customerLocation->toBe('Mock value')
-        ->allocationRule->toBe('Mock value')
-        ->billingRule->toBe('Mock value')
-        ->branch->toBe('Mock value')
-        ->rateTable->toBe('Mock value')
+        ->customerLocation->toBeNull()
+        ->allocationRule->toBeNull()
+        ->billingRule->toBeNull()
+        ->branch->toBeNull()
+        ->rateTable->toBeNull()
         ->autoAllocate->toBeTrue()
         ->automaticReleaseAr->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->publicId->toBe('mock-id-123')
         ->systemTemplate->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->note->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the projectGetAllCollection method in the Project resource', function () {
@@ -225,33 +218,33 @@ it('calls the projectGetAllCollection method in the Project resource', function 
             0 => [
                 'internalId' => 42,
                 'projectId' => 'mock-id-123',
-                'customer' => 'Mock value',
+                'customer' => null,
                 'hold' => true,
-                'status' => 'Mock value',
-                'template' => 'Mock value',
-                'description' => 'Mock value',
+                'status' => 'String value',
+                'template' => null,
+                'description' => 'String value',
                 'assets' => 3.14,
                 'liability' => 3.14,
                 'income' => 3.14,
                 'expenses' => 3.14,
                 'startDate' => '2025-11-22T10:40:04.065Z',
                 'endDate' => '2025-11-22T10:40:04.065Z',
-                'projectManager' => 'Mock value',
+                'projectManager' => null,
                 'restrictEmployees' => true,
                 'restrictEquipment' => true,
-                'visibility' => 'Mock value',
-                'defAccount' => 'Mock value',
-                'defSub' => 'Mock value',
-                'defAccrualAccount' => 'Mock value',
-                'defAccrualSub' => 'Mock value',
-                'billingPeriod' => 'Mock value',
+                'visibility' => null,
+                'defAccount' => null,
+                'defSub' => null,
+                'defAccrualAccount' => null,
+                'defAccrualSub' => null,
+                'billingPeriod' => 'String value',
                 'nextBillingDate' => '2025-11-22T10:40:04.065Z',
                 'lastBillingDate' => '2025-11-22T10:40:04.065Z',
-                'customerLocation' => 'Mock value',
-                'allocationRule' => 'Mock value',
-                'billingRule' => 'Mock value',
-                'branch' => 'Mock value',
-                'rateTable' => 'Mock value',
+                'customerLocation' => null,
+                'allocationRule' => null,
+                'billingRule' => null,
+                'branch' => null,
+                'rateTable' => null,
                 'autoAllocate' => true,
                 'automaticReleaseAr' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
@@ -261,40 +254,43 @@ it('calls the projectGetAllCollection method in the Project resource', function 
                 'systemTemplate' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'attributes' => [],
-                'note' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'note' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
                 'internalId' => 42,
                 'projectId' => 'mock-id-123',
-                'customer' => 'Mock value',
+                'customer' => null,
                 'hold' => true,
-                'status' => 'Mock value',
-                'template' => 'Mock value',
-                'description' => 'Mock value',
+                'status' => 'String value',
+                'template' => null,
+                'description' => 'String value',
                 'assets' => 3.14,
                 'liability' => 3.14,
                 'income' => 3.14,
                 'expenses' => 3.14,
                 'startDate' => '2025-11-22T10:40:04.065Z',
                 'endDate' => '2025-11-22T10:40:04.065Z',
-                'projectManager' => 'Mock value',
+                'projectManager' => null,
                 'restrictEmployees' => true,
                 'restrictEquipment' => true,
-                'visibility' => 'Mock value',
-                'defAccount' => 'Mock value',
-                'defSub' => 'Mock value',
-                'defAccrualAccount' => 'Mock value',
-                'defAccrualSub' => 'Mock value',
-                'billingPeriod' => 'Mock value',
+                'visibility' => null,
+                'defAccount' => null,
+                'defSub' => null,
+                'defAccrualAccount' => null,
+                'defAccrualSub' => null,
+                'billingPeriod' => 'String value',
                 'nextBillingDate' => '2025-11-22T10:40:04.065Z',
                 'lastBillingDate' => '2025-11-22T10:40:04.065Z',
-                'customerLocation' => 'Mock value',
-                'allocationRule' => 'Mock value',
-                'billingRule' => 'Mock value',
-                'branch' => 'Mock value',
-                'rateTable' => 'Mock value',
+                'customerLocation' => null,
+                'allocationRule' => null,
+                'billingRule' => null,
+                'branch' => null,
+                'rateTable' => null,
                 'autoAllocate' => true,
                 'automaticReleaseAr' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
@@ -304,16 +300,19 @@ it('calls the projectGetAllCollection method in the Project resource', function 
                 'systemTemplate' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'attributes' => [],
-                'note' => 'Mock value',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'note' => 'String value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new ProjectGetAllCollectionRequest(status: 'test string', systemTemplate: true, visibleInAp: true, startDate: 'test string', expandAttribute: true, attributes: 'test string', taskStatus: 'test string', taskVisibleInAp: true, taskVisibleInAr: true, taskVisibleInCa: true, taskVisibleInCr: true, taskVisibleInEa: true, taskVisibleInGl: true, taskVisibleInIn: true, taskVisibleInPo: true, taskVisibleInSo: true, taskVisibleInTa: true, nonProject: true, publicId: 'test string', restrictedEmployee: 'test string', restrictedUser: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', branch: 'test string', onHold: true, pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (ProjectGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -321,49 +320,46 @@ it('calls the projectGetAllCollection method in the Project resource', function 
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
-        ->customer->toBe('Mock value')
+        ->customer->toBeNull()
         ->hold->toBeTrue()
-        ->status->toBe('Mock value')
-        ->template->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->status->toBe('String value')
+        ->template->toBeNull()
+        ->description->toBe('String value')
         ->assets->toBe(3.14)
         ->liability->toBe(3.14)
         ->income->toBe(3.14)
         ->expenses->toBe(3.14)
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->projectManager->toBe('Mock value')
+        ->projectManager->toBeNull()
         ->restrictEmployees->toBeTrue()
         ->restrictEquipment->toBeTrue()
-        ->visibility->toBe('Mock value')
-        ->defAccount->toBe('Mock value')
-        ->defSub->toBe('Mock value')
-        ->defAccrualAccount->toBe('Mock value')
-        ->defAccrualSub->toBe('Mock value')
-        ->billingPeriod->toBe('Mock value')
+        ->visibility->toBeNull()
+        ->defAccount->toBeNull()
+        ->defSub->toBeNull()
+        ->defAccrualAccount->toBeNull()
+        ->defAccrualSub->toBeNull()
+        ->billingPeriod->toBe('String value')
         ->nextBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->customerLocation->toBe('Mock value')
-        ->allocationRule->toBe('Mock value')
-        ->billingRule->toBe('Mock value')
-        ->branch->toBe('Mock value')
-        ->rateTable->toBe('Mock value')
+        ->customerLocation->toBeNull()
+        ->allocationRule->toBeNull()
+        ->billingRule->toBeNull()
+        ->branch->toBeNull()
+        ->rateTable->toBeNull()
         ->autoAllocate->toBeTrue()
         ->automaticReleaseAr->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->publicId->toBe('mock-id-123')
         ->systemTemplate->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->note->toBe('Mock value')
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->note->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the projectGetTasksCollection method in the Project resource', function () {
@@ -372,24 +368,24 @@ it('calls the projectGetTasksCollection method in the Project resource', functio
             0 => [
                 'internalId' => 42,
                 'projectInternalId' => 42,
-                'defAccount' => 'Mock value',
-                'defSub' => 'Mock value',
-                'defAccrualAccount' => 'Mock value',
-                'defAccrualSub' => 'Mock value',
-                'taxCategory' => 'Mock value',
+                'defAccount' => null,
+                'defSub' => null,
+                'defAccrualAccount' => null,
+                'defAccrualSub' => null,
+                'taxCategory' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'taskId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'plannedStart' => '2025-11-22T10:40:04.065Z',
                 'plannedEnd' => '2025-11-22T10:40:04.065Z',
                 'startDate' => '2025-11-22T10:40:04.065Z',
                 'endDate' => '2025-11-22T10:40:04.065Z',
-                'branch' => 'Mock value',
-                'rateTable' => 'Mock value',
-                'status' => 'Mock value',
+                'branch' => null,
+                'rateTable' => null,
+                'status' => 'String value',
                 'restrictEmployees' => true,
-                'visibility' => 'Mock value',
+                'visibility' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'employees' => [],
                 'attributes' => [],
@@ -397,24 +393,24 @@ it('calls the projectGetTasksCollection method in the Project resource', functio
             1 => [
                 'internalId' => 42,
                 'projectInternalId' => 42,
-                'defAccount' => 'Mock value',
-                'defSub' => 'Mock value',
-                'defAccrualAccount' => 'Mock value',
-                'defAccrualSub' => 'Mock value',
-                'taxCategory' => 'Mock value',
+                'defAccount' => null,
+                'defSub' => null,
+                'defAccrualAccount' => null,
+                'defAccrualSub' => null,
+                'taxCategory' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'taskId' => 'mock-id-123',
-                'description' => 'Mock value',
+                'description' => 'String value',
                 'plannedStart' => '2025-11-22T10:40:04.065Z',
                 'plannedEnd' => '2025-11-22T10:40:04.065Z',
                 'startDate' => '2025-11-22T10:40:04.065Z',
                 'endDate' => '2025-11-22T10:40:04.065Z',
-                'branch' => 'Mock value',
-                'rateTable' => 'Mock value',
-                'status' => 'Mock value',
+                'branch' => null,
+                'rateTable' => null,
+                'status' => 'String value',
                 'restrictEmployees' => true,
-                'visibility' => 'Mock value',
+                'visibility' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'employees' => [],
                 'attributes' => [],
@@ -424,7 +420,7 @@ it('calls the projectGetTasksCollection method in the Project resource', functio
 
     $request = (new ProjectGetTasksCollectionRequest(projectId: 'test string', publicId: 'test string', projectInternalId: 123, description: 'test string', taskCd: 'test string', taskCdDesc: 'test string', status: 'test string', expandAttribute: true, visibleInAp: true, visibleInAr: true, visibleInCa: true, visibleInCr: true, visibleInEa: true, visibleInGl: true, visibleInIn: true, visibleInPo: true, visibleInSo: true, visibleInTa: true, restrictedEmployee: 'test string', restrictedUser: 123, greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (ProjectGetTasksCollectionRequest $request) {
         $query = $request->query()->all();
@@ -432,31 +428,29 @@ it('calls the projectGetTasksCollection method in the Project resource', functio
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->internalId->toBe(42)
         ->projectInternalId->toBe(42)
-        ->defAccount->toBe('Mock value')
-        ->defSub->toBe('Mock value')
-        ->defAccrualAccount->toBe('Mock value')
-        ->defAccrualSub->toBe('Mock value')
-        ->taxCategory->toBe('Mock value')
+        ->defAccount->toBeNull()
+        ->defSub->toBeNull()
+        ->defAccrualAccount->toBeNull()
+        ->defAccrualSub->toBeNull()
+        ->taxCategory->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->taskId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
+        ->description->toBe('String value')
         ->plannedStart->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->plannedEnd->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branch->toBe('Mock value')
-        ->rateTable->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->branch->toBeNull()
+        ->rateTable->toBeNull()
+        ->status->toBe('String value')
         ->restrictEmployees->toBeTrue()
-        ->visibility->toBe('Mock value')
+        ->visibility->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 

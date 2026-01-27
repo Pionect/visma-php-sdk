@@ -11,10 +11,7 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the expenseReceiptGetByreceiptNumber method in the ExpenseReceipt resource', function () {
@@ -24,31 +21,31 @@ it('calls the expenseReceiptGetByreceiptNumber method in the ExpenseReceipt reso
             'receiptId' => 'mock-id-123',
             'date' => '2025-11-22T10:40:04.065Z',
             'taxTotal' => 3.14,
-            'currency' => 'Mock value',
-            'refNbr' => 'Mock value',
-            'inventory' => 'Mock value',
-            'description' => 'Mock value',
-            'uom' => 'Mock value',
+            'currency' => null,
+            'refNbr' => 'String value',
+            'inventory' => null,
+            'description' => 'String value',
+            'uom' => 'String value',
             'quantity' => 3.14,
             'unitCost' => 3.14,
             'totalAmount' => 3.14,
             'employeePart' => 3.14,
             'claimAmount' => 3.14,
-            'status' => 'Mock value',
-            'claimedBy' => 'Mock value',
-            'branch' => 'Mock value',
-            'expenseClaim' => 'Mock value',
+            'status' => 'String value',
+            'claimedBy' => null,
+            'branch' => null,
+            'expenseClaim' => null,
             'invoiceable' => true,
-            'project' => 'Mock value',
-            'projectTask' => 'Mock value',
-            'customer' => 'Mock value',
-            'location' => 'Mock value',
-            'expenseAccount' => 'Mock value',
-            'expenseSub' => 'Mock value',
-            'salesAccount' => 'Mock value',
-            'salesSub' => 'Mock value',
-            'taxCategory' => 'Mock value',
-            'image' => 'Mock value',
+            'project' => null,
+            'projectTask' => null,
+            'customer' => null,
+            'location' => null,
+            'expenseAccount' => null,
+            'expenseSub' => null,
+            'salesAccount' => null,
+            'salesSub' => null,
+            'taxCategory' => null,
+            'image' => null,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
     ]);
@@ -70,31 +67,31 @@ it('calls the expenseReceiptGetByreceiptNumber method in the ExpenseReceipt reso
         ->receiptId->toBe('mock-id-123')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->taxTotal->toBe(3.14)
-        ->currency->toBe('Mock value')
-        ->refNbr->toBe('Mock value')
-        ->inventory->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->uom->toBe('Mock value')
+        ->currency->toBeNull()
+        ->refNbr->toBe('String value')
+        ->inventory->toBeNull()
+        ->description->toBe('String value')
+        ->uom->toBe('String value')
         ->quantity->toBe(3.14)
         ->unitCost->toBe(3.14)
         ->totalAmount->toBe(3.14)
         ->employeePart->toBe(3.14)
         ->claimAmount->toBe(3.14)
-        ->status->toBe('Mock value')
-        ->claimedBy->toBe('Mock value')
-        ->branch->toBe('Mock value')
-        ->expenseClaim->toBe('Mock value')
+        ->status->toBe('String value')
+        ->claimedBy->toBeNull()
+        ->branch->toBeNull()
+        ->expenseClaim->toBeNull()
         ->invoiceable->toBeTrue()
-        ->project->toBe('Mock value')
-        ->projectTask->toBe('Mock value')
-        ->customer->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->expenseAccount->toBe('Mock value')
-        ->expenseSub->toBe('Mock value')
-        ->salesAccount->toBe('Mock value')
-        ->salesSub->toBe('Mock value')
-        ->taxCategory->toBe('Mock value')
-        ->image->toBe('Mock value')
+        ->project->toBeNull()
+        ->projectTask->toBeNull()
+        ->customer->toBeNull()
+        ->location->toBeNull()
+        ->expenseAccount->toBeNull()
+        ->expenseSub->toBeNull()
+        ->salesAccount->toBeNull()
+        ->salesSub->toBeNull()
+        ->taxCategory->toBeNull()
+        ->image->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
@@ -106,31 +103,31 @@ it('calls the expenseReceiptGetAllCollection method in the ExpenseReceipt resour
                 'receiptId' => 'mock-id-123',
                 'date' => '2025-11-22T10:40:04.065Z',
                 'taxTotal' => 3.14,
-                'currency' => 'Mock value',
-                'refNbr' => 'Mock value',
-                'inventory' => 'Mock value',
-                'description' => 'Mock value',
-                'uom' => 'Mock value',
+                'currency' => null,
+                'refNbr' => 'String value',
+                'inventory' => null,
+                'description' => 'String value',
+                'uom' => 'String value',
                 'quantity' => 3.14,
                 'unitCost' => 3.14,
                 'totalAmount' => 3.14,
                 'employeePart' => 3.14,
                 'claimAmount' => 3.14,
-                'status' => 'Mock value',
-                'claimedBy' => 'Mock value',
-                'branch' => 'Mock value',
-                'expenseClaim' => 'Mock value',
+                'status' => 'String value',
+                'claimedBy' => null,
+                'branch' => null,
+                'expenseClaim' => null,
                 'invoiceable' => true,
-                'project' => 'Mock value',
-                'projectTask' => 'Mock value',
-                'customer' => 'Mock value',
-                'location' => 'Mock value',
-                'expenseAccount' => 'Mock value',
-                'expenseSub' => 'Mock value',
-                'salesAccount' => 'Mock value',
-                'salesSub' => 'Mock value',
-                'taxCategory' => 'Mock value',
-                'image' => 'Mock value',
+                'project' => null,
+                'projectTask' => null,
+                'customer' => null,
+                'location' => null,
+                'expenseAccount' => null,
+                'expenseSub' => null,
+                'salesAccount' => null,
+                'salesSub' => null,
+                'taxCategory' => null,
+                'image' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
             1 => [
@@ -138,31 +135,31 @@ it('calls the expenseReceiptGetAllCollection method in the ExpenseReceipt resour
                 'receiptId' => 'mock-id-123',
                 'date' => '2025-11-22T10:40:04.065Z',
                 'taxTotal' => 3.14,
-                'currency' => 'Mock value',
-                'refNbr' => 'Mock value',
-                'inventory' => 'Mock value',
-                'description' => 'Mock value',
-                'uom' => 'Mock value',
+                'currency' => null,
+                'refNbr' => 'String value',
+                'inventory' => null,
+                'description' => 'String value',
+                'uom' => 'String value',
                 'quantity' => 3.14,
                 'unitCost' => 3.14,
                 'totalAmount' => 3.14,
                 'employeePart' => 3.14,
                 'claimAmount' => 3.14,
-                'status' => 'Mock value',
-                'claimedBy' => 'Mock value',
-                'branch' => 'Mock value',
-                'expenseClaim' => 'Mock value',
+                'status' => 'String value',
+                'claimedBy' => null,
+                'branch' => null,
+                'expenseClaim' => null,
                 'invoiceable' => true,
-                'project' => 'Mock value',
-                'projectTask' => 'Mock value',
-                'customer' => 'Mock value',
-                'location' => 'Mock value',
-                'expenseAccount' => 'Mock value',
-                'expenseSub' => 'Mock value',
-                'salesAccount' => 'Mock value',
-                'salesSub' => 'Mock value',
-                'taxCategory' => 'Mock value',
-                'image' => 'Mock value',
+                'project' => null,
+                'projectTask' => null,
+                'customer' => null,
+                'location' => null,
+                'expenseAccount' => null,
+                'expenseSub' => null,
+                'salesAccount' => null,
+                'salesSub' => null,
+                'taxCategory' => null,
+                'image' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
@@ -170,7 +167,7 @@ it('calls the expenseReceiptGetAllCollection method in the ExpenseReceipt resour
 
     $request = (new ExpenseReceiptGetAllCollectionRequest(date: 'test string', dateCondition: 'test string', inventory: 'test string', project: 'test string', claimedBy: 'test string', projectTask: 'test string', invoiceable: true, status: 'test string', customer: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (ExpenseReceiptGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -178,40 +175,38 @@ it('calls the expenseReceiptGetAllCollection method in the ExpenseReceipt resour
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->internalId->toBe(42)
         ->receiptId->toBe('mock-id-123')
         ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->taxTotal->toBe(3.14)
-        ->currency->toBe('Mock value')
-        ->refNbr->toBe('Mock value')
-        ->inventory->toBe('Mock value')
-        ->description->toBe('Mock value')
-        ->uom->toBe('Mock value')
+        ->currency->toBeNull()
+        ->refNbr->toBe('String value')
+        ->inventory->toBeNull()
+        ->description->toBe('String value')
+        ->uom->toBe('String value')
         ->quantity->toBe(3.14)
         ->unitCost->toBe(3.14)
         ->totalAmount->toBe(3.14)
         ->employeePart->toBe(3.14)
         ->claimAmount->toBe(3.14)
-        ->status->toBe('Mock value')
-        ->claimedBy->toBe('Mock value')
-        ->branch->toBe('Mock value')
-        ->expenseClaim->toBe('Mock value')
+        ->status->toBe('String value')
+        ->claimedBy->toBeNull()
+        ->branch->toBeNull()
+        ->expenseClaim->toBeNull()
         ->invoiceable->toBeTrue()
-        ->project->toBe('Mock value')
-        ->projectTask->toBe('Mock value')
-        ->customer->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->expenseAccount->toBe('Mock value')
-        ->expenseSub->toBe('Mock value')
-        ->salesAccount->toBe('Mock value')
-        ->salesSub->toBe('Mock value')
-        ->taxCategory->toBe('Mock value')
-        ->image->toBe('Mock value')
+        ->project->toBeNull()
+        ->projectTask->toBeNull()
+        ->customer->toBeNull()
+        ->location->toBeNull()
+        ->expenseAccount->toBeNull()
+        ->expenseSub->toBeNull()
+        ->salesAccount->toBeNull()
+        ->salesSub->toBeNull()
+        ->taxCategory->toBeNull()
+        ->image->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 

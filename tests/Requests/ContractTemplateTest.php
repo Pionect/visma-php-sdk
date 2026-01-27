@@ -8,10 +8,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the contractTemplateGetAllCollection method in the ContractTemplate resource', function () {
@@ -20,19 +17,19 @@ it('calls the contractTemplateGetAllCollection method in the ContractTemplate re
             0 => [
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'attributes' => [],
-                'description' => 'Mock value',
+                'description' => 'String value',
             ],
             1 => [
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'attributes' => [],
-                'description' => 'Mock value',
+                'description' => 'String value',
             ],
         ], 200),
     ]);
 
     $request = (new ContractTemplateGetAllCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', expandAttributes: true));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (ContractTemplateGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -40,11 +37,9 @@ it('calls the contractTemplateGetAllCollection method in the ContractTemplate re
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('Mock value');
+        ->description->toBe('String value');
 });

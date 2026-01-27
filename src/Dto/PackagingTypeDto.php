@@ -59,7 +59,4 @@ class PackagingTypeDto extends Model
     #[Property]
     #[DateTime]
     public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    #[Property]
-    public ?\MetadataDto $metadata;
 }

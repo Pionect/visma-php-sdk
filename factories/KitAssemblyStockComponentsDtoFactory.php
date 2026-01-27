@@ -26,7 +26,6 @@ class KitAssemblyStockComponentsDtoFactory extends Factory
             'disassemblyCoeff' => $this->faker->randomFloat(2, 0, 1000),
             'allocations' => [],
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

@@ -46,7 +46,6 @@ class ProjectTransactionLineDtoFactory extends Factory
             'location' => $this->faker->word(),
             'note' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

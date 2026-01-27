@@ -27,7 +27,6 @@ class FixedAssetClassDtoFactory extends Factory
             'proceedSubAccountMask' => $this->faker->word(),
             'gainLossSubAccountMask' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 

@@ -12,28 +12,25 @@ use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetBypaymentNumberRequest::class => MockResponse::make([
-            'documentType' => 'Mock value',
-            'refNbr' => 'Mock value',
-            'status' => 'Mock value',
+            'documentType' => 'String value',
+            'refNbr' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'applicationDate' => '2025-11-22T10:40:04.065Z',
-            'applicationPeriod' => 'Mock value',
-            'paymentRef' => 'Mock value',
-            'supplier' => 'Mock value',
-            'location' => 'Mock value',
-            'paymentMethod' => 'Mock value',
-            'cashAccount' => 'Mock value',
-            'currency' => 'Mock value',
-            'description' => 'Mock value',
+            'applicationPeriod' => 'String value',
+            'paymentRef' => 'String value',
+            'supplier' => null,
+            'location' => null,
+            'paymentMethod' => 'String value',
+            'cashAccount' => 'String value',
+            'currency' => null,
+            'description' => 'String value',
             'paymentAmount' => 3.14,
             'financeCharges' => 3.14,
             'balance' => 3.14,
@@ -41,11 +38,10 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
             'appliedAmount' => 3.14,
             'released' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'branch' => 'Mock value',
+            'branch' => 'String value',
             'paymentLines' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -62,19 +58,19 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
     $dto = $response->dto();
 
     expect($dto)
-        ->documentType->toBe('Mock value')
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->documentType->toBe('String value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->applicationPeriod->toBe('Mock value')
-        ->paymentRef->toBe('Mock value')
-        ->supplier->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->applicationPeriod->toBe('String value')
+        ->paymentRef->toBe('String value')
+        ->supplier->toBeNull()
+        ->location->toBeNull()
+        ->paymentMethod->toBe('String value')
+        ->cashAccount->toBe('String value')
+        ->currency->toBeNull()
+        ->description->toBe('String value')
         ->paymentAmount->toBe(3.14)
         ->financeCharges->toBe(3.14)
         ->balance->toBe(3.14)
@@ -82,28 +78,27 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
         ->appliedAmount->toBe(3.14)
         ->released->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branch->toBe('Mock value')
+        ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetByTypeBypaymentTypepaymentNumberRequest::class => MockResponse::make([
-            'documentType' => 'Mock value',
-            'refNbr' => 'Mock value',
-            'status' => 'Mock value',
+            'documentType' => 'String value',
+            'refNbr' => 'String value',
+            'status' => 'String value',
             'hold' => true,
             'applicationDate' => '2025-11-22T10:40:04.065Z',
-            'applicationPeriod' => 'Mock value',
-            'paymentRef' => 'Mock value',
-            'supplier' => 'Mock value',
-            'location' => 'Mock value',
-            'paymentMethod' => 'Mock value',
-            'cashAccount' => 'Mock value',
-            'currency' => 'Mock value',
-            'description' => 'Mock value',
+            'applicationPeriod' => 'String value',
+            'paymentRef' => 'String value',
+            'supplier' => null,
+            'location' => null,
+            'paymentMethod' => 'String value',
+            'cashAccount' => 'String value',
+            'currency' => null,
+            'description' => 'String value',
             'paymentAmount' => 3.14,
             'financeCharges' => 3.14,
             'balance' => 3.14,
@@ -111,11 +106,10 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
             'appliedAmount' => 3.14,
             'released' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'branch' => 'Mock value',
+            'branch' => 'String value',
             'paymentLines' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'errorInfo' => 'Mock value',
-            'metadata' => 'Mock value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -133,19 +127,19 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
     $dto = $response->dto();
 
     expect($dto)
-        ->documentType->toBe('Mock value')
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->documentType->toBe('String value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->applicationPeriod->toBe('Mock value')
-        ->paymentRef->toBe('Mock value')
-        ->supplier->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->applicationPeriod->toBe('String value')
+        ->paymentRef->toBe('String value')
+        ->supplier->toBeNull()
+        ->location->toBeNull()
+        ->paymentMethod->toBe('String value')
+        ->cashAccount->toBe('String value')
+        ->currency->toBeNull()
+        ->description->toBe('String value')
         ->paymentAmount->toBe(3.14)
         ->financeCharges->toBe(3.14)
         ->balance->toBe(3.14)
@@ -153,29 +147,28 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
         ->appliedAmount->toBe(3.14)
         ->released->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branch->toBe('Mock value')
+        ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetAllPaymentsCollectionRequest::class => MockResponse::make([
             0 => [
-                'documentType' => 'Mock value',
-                'refNbr' => 'Mock value',
-                'status' => 'Mock value',
+                'documentType' => 'String value',
+                'refNbr' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'applicationDate' => '2025-11-22T10:40:04.065Z',
-                'applicationPeriod' => 'Mock value',
-                'paymentRef' => 'Mock value',
-                'supplier' => 'Mock value',
-                'location' => 'Mock value',
-                'paymentMethod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'currency' => 'Mock value',
-                'description' => 'Mock value',
+                'applicationPeriod' => 'String value',
+                'paymentRef' => 'String value',
+                'supplier' => null,
+                'location' => null,
+                'paymentMethod' => 'String value',
+                'cashAccount' => 'String value',
+                'currency' => null,
+                'description' => 'String value',
                 'paymentAmount' => 3.14,
                 'financeCharges' => 3.14,
                 'balance' => 3.14,
@@ -183,26 +176,29 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
                 'appliedAmount' => 3.14,
                 'released' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branch' => 'Mock value',
+                'branch' => 'String value',
                 'paymentLines' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
             1 => [
-                'documentType' => 'Mock value',
-                'refNbr' => 'Mock value',
-                'status' => 'Mock value',
+                'documentType' => 'String value',
+                'refNbr' => 'String value',
+                'status' => 'String value',
                 'hold' => true,
                 'applicationDate' => '2025-11-22T10:40:04.065Z',
-                'applicationPeriod' => 'Mock value',
-                'paymentRef' => 'Mock value',
-                'supplier' => 'Mock value',
-                'location' => 'Mock value',
-                'paymentMethod' => 'Mock value',
-                'cashAccount' => 'Mock value',
-                'currency' => 'Mock value',
-                'description' => 'Mock value',
+                'applicationPeriod' => 'String value',
+                'paymentRef' => 'String value',
+                'supplier' => null,
+                'location' => null,
+                'paymentMethod' => 'String value',
+                'cashAccount' => 'String value',
+                'currency' => null,
+                'description' => 'String value',
                 'paymentAmount' => 3.14,
                 'financeCharges' => 3.14,
                 'balance' => 3.14,
@@ -210,18 +206,21 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
                 'appliedAmount' => 3.14,
                 'released' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branch' => 'Mock value',
+                'branch' => 'String value',
                 'paymentLines' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'errorInfo' => 'Mock value',
-                'metadata' => 'Mock value',
+                'errorInfo' => 'String value',
+                'metadata' => [
+                    'totalCount' => 2,
+                    'maxPageSize' => 100,
+                ],
             ],
         ], 200),
     ]);
 
     $request = (new SupplierPaymentGetAllPaymentsCollectionRequest(invoiceRefNbr: 'test string', paymentType: 'test string', greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', supplier: 'test string', branch: 'test string', docDate: 'test string', docDateCondition: 'test string', dueDate: 'test string', dueDateCondition: 'test string', financialPeriod: 'test string', balance: null, balanceCondition: 'test string', status: 'test string', pageNumber: 123, pageSize: 123));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (SupplierPaymentGetAllPaymentsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -229,24 +228,22 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->documentType->toBe('Mock value')
-        ->refNbr->toBe('Mock value')
-        ->status->toBe('Mock value')
+        ->documentType->toBe('String value')
+        ->refNbr->toBe('String value')
+        ->status->toBe('String value')
         ->hold->toBeTrue()
         ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->applicationPeriod->toBe('Mock value')
-        ->paymentRef->toBe('Mock value')
-        ->supplier->toBe('Mock value')
-        ->location->toBe('Mock value')
-        ->paymentMethod->toBe('Mock value')
-        ->cashAccount->toBe('Mock value')
-        ->currency->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->applicationPeriod->toBe('String value')
+        ->paymentRef->toBe('String value')
+        ->supplier->toBeNull()
+        ->location->toBeNull()
+        ->paymentMethod->toBe('String value')
+        ->cashAccount->toBe('String value')
+        ->currency->toBeNull()
+        ->description->toBe('String value')
         ->paymentAmount->toBe(3.14)
         ->financeCharges->toBe(3.14)
         ->balance->toBe(3.14)
@@ -254,10 +251,9 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
         ->appliedAmount->toBe(3.14)
         ->released->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branch->toBe('Mock value')
+        ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('Mock value')
-        ->metadata->toBe('Mock value');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierPaymentWriteoffPaymentBypaymentTypepaymentNumber method in the SupplierPayment resource', function () {

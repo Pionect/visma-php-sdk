@@ -9,10 +9,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the departmentGetDepartmentBydepartmentId method in the Department resource', function () {
@@ -20,9 +17,9 @@ it('calls the departmentGetDepartmentBydepartmentId method in the Department res
         DepartmentGetDepartmentBydepartmentIdRequest::class => MockResponse::make([
             'departmentId' => 'mock-id-123',
             'publicId' => 'mock-id-123',
-            'description' => 'Mock value',
-            'expenseAccount' => 'Mock value',
-            'expenseSubaccount' => 'Mock value',
+            'description' => 'String value',
+            'expenseAccount' => null,
+            'expenseSubaccount' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
         ], 200),
@@ -43,9 +40,9 @@ it('calls the departmentGetDepartmentBydepartmentId method in the Department res
     expect($dto)
         ->departmentId->toBe('mock-id-123')
         ->publicId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
-        ->expenseAccount->toBe('Mock value')
-        ->expenseSubaccount->toBe('Mock value')
+        ->description->toBe('String value')
+        ->expenseAccount->toBeNull()
+        ->expenseSubaccount->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
@@ -56,18 +53,18 @@ it('calls the departmentGetAllDepartmentDtosCollection method in the Department 
             0 => [
                 'departmentId' => 'mock-id-123',
                 'publicId' => 'mock-id-123',
-                'description' => 'Mock value',
-                'expenseAccount' => 'Mock value',
-                'expenseSubaccount' => 'Mock value',
+                'description' => 'String value',
+                'expenseAccount' => null,
+                'expenseSubaccount' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
             1 => [
                 'departmentId' => 'mock-id-123',
                 'publicId' => 'mock-id-123',
-                'description' => 'Mock value',
-                'expenseAccount' => 'Mock value',
-                'expenseSubaccount' => 'Mock value',
+                'description' => 'String value',
+                'expenseAccount' => null,
+                'expenseSubaccount' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
@@ -76,7 +73,7 @@ it('calls the departmentGetAllDepartmentDtosCollection method in the Department 
 
     $request = (new DepartmentGetAllDepartmentDtosCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (DepartmentGetAllDepartmentDtosCollectionRequest $request) {
         $query = $request->query()->all();
@@ -84,16 +81,14 @@ it('calls the departmentGetAllDepartmentDtosCollection method in the Department 
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->departmentId->toBe('mock-id-123')
         ->publicId->toBe('mock-id-123')
-        ->description->toBe('Mock value')
-        ->expenseAccount->toBe('Mock value')
-        ->expenseSubaccount->toBe('Mock value')
+        ->description->toBe('String value')
+        ->expenseAccount->toBeNull()
+        ->expenseSubaccount->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

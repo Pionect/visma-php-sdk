@@ -18,7 +18,11 @@ class PlainJsonDtoGenerator extends JsonApiDtoGenerator
     protected function extractJsonApiProperties(Schema $schema): array
     {
         // For plain JSON, properties are directly on the schema
-        return $schema->properties ?? [];
+        $properties = $schema->properties ?? [];
+
+        unset($properties['metadata']);
+
+        return $properties;
     }
 
     /**

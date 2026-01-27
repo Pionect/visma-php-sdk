@@ -8,10 +8,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension resource', function () {
@@ -30,7 +27,7 @@ it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension 
 
     $request = (new UiExtensionGetAllUiExtensionsCollectionRequest);
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (UiExtensionGetAllUiExtensionsCollectionRequest $request) {
         $query = $request->query()->all();
@@ -38,9 +35,7 @@ it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension 
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
         ->screenId->toBe('mock-id-123');
@@ -50,11 +45,11 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
     Saloon::fake([
         UiExtensionGetAllUiExtensionsByownerIdRequest::class => MockResponse::make([
             'internalId' => 'mock-id-123',
-            'title' => 'Mock value',
-            'url' => 'Mock value',
+            'title' => 'String value',
+            'url' => 'String value',
             'screenId' => 'mock-id-123',
             'stepId' => 'mock-id-123',
-            'ownerName' => 'Mock value',
+            'ownerName' => 'String value',
             'enabled' => true,
         ], 200),
     ]);
@@ -75,10 +70,10 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
 
     expect($dto)
         ->internalId->toBe('mock-id-123')
-        ->title->toBe('Mock value')
-        ->url->toBe('Mock value')
+        ->title->toBe('String value')
+        ->url->toBe('String value')
         ->screenId->toBe('mock-id-123')
         ->stepId->toBe('mock-id-123')
-        ->ownerName->toBe('Mock value')
+        ->ownerName->toBe('String value')
         ->enabled->toBeTrue();
 });

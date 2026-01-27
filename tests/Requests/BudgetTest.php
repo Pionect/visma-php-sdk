@@ -8,41 +8,38 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
-    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector(
-        clientId: 'replace',
-        clientSecret: 'replace'
-    );
+    $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
 it('calls the budgetGetAllCollection method in the Budget resource', function () {
     Saloon::fake([
         BudgetGetAllCollectionRequest::class => MockResponse::make([
             0 => [
-                'financialYear' => 'Mock value',
+                'financialYear' => 'String value',
                 'released' => true,
                 'releasedAmount' => 3.14,
-                'account' => 'Mock value',
-                'subaccount' => 'Mock value',
-                'description' => 'Mock value',
+                'account' => null,
+                'subaccount' => null,
+                'description' => 'String value',
                 'amount' => 3.14,
                 'distributedAmount' => 3.14,
                 'periods' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
             1 => [
-                'financialYear' => 'Mock value',
+                'financialYear' => 'String value',
                 'released' => true,
                 'releasedAmount' => 3.14,
-                'account' => 'Mock value',
-                'subaccount' => 'Mock value',
-                'description' => 'Mock value',
+                'account' => null,
+                'subaccount' => null,
+                'description' => 'String value',
                 'amount' => 3.14,
                 'distributedAmount' => 3.14,
                 'periods' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'branchNumber' => 'Mock value',
+                'branchNumber' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
             ],
         ], 200),
@@ -50,7 +47,7 @@ it('calls the budgetGetAllCollection method in the Budget resource', function ()
 
     $request = (new BudgetGetAllCollectionRequest(isReleased: true, greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', branch: 'test string', ledger: 'test string', financialYear: 'test string', subaccount: 'test string'));
 
-    $response = $this->vismaConnector->send($request);
+    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 
     Saloon::assertSent(function (BudgetGetAllCollectionRequest $request) {
         $query = $request->query()->all();
@@ -58,20 +55,18 @@ it('calls the budgetGetAllCollection method in the Budget resource', function ()
         return true;
     });
 
-    expect($response->status())->toBe(200);
-
-    $dtoCollection = $response->dto();
+    expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->financialYear->toBe('Mock value')
+        ->financialYear->toBe('String value')
         ->released->toBeTrue()
         ->releasedAmount->toBe(3.14)
-        ->account->toBe('Mock value')
-        ->subaccount->toBe('Mock value')
-        ->description->toBe('Mock value')
+        ->account->toBeNull()
+        ->subaccount->toBeNull()
+        ->description->toBe('String value')
         ->amount->toBe(3.14)
         ->distributedAmount->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branchNumber->toBe('Mock value')
+        ->branchNumber->toBeNull()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

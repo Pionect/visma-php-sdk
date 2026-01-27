@@ -27,7 +27,6 @@ class WarehouseDtoFactory extends Factory
             'address' => $this->faker->word(),
             'locations' => [],
             'timestamp' => $this->faker->word(),
-            'metadata' => $this->faker->word(),
         ];
     }
 
