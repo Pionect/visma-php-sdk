@@ -38,7 +38,7 @@ class PlainJsonTestGenerator extends JsonApiPestTestGenerator
         $this->collectionTestGenerator = new PlainJsonCollectionTestGenerator($specification, $generatedCode, $namespace);
         $this->singularGetTestGenerator = new PlainJsonSingularGetTestGenerator($specification, $generatedCode, $namespace);
 
-        $this->mutationTestGenerator = new MutationRequestTestGenerator($specification, $generatedCode, $namespace);
+        $this->mutationTestGenerator = new PlainJsonMutationTestGenerator($specification, $generatedCode, $namespace);
         $this->deleteTestGenerator = new DeleteRequestTestGenerator($specification, $generatedCode, $namespace);
 
         // Continue with parent processing
@@ -171,5 +171,39 @@ class PlainJsonSingularGetTestGenerator extends SingularGetRequestTestGenerator
 
         // Return plain JSON object (no JSON:API wrapper)
         return $attributes;
+    }
+}
+
+/**
+ * Plain JSON Mutation Test Generator
+ * Overrides body validation to check plain JSON structure instead of JSON:API
+ */
+class PlainJsonMutationTestGenerator extends MutationRequestTestGenerator
+{
+    /**
+     * Generate body validation code for plain JSON (no data/type/attributes wrapper)
+     */
+    protected function generateBodyValidation(Endpoint $endpoint): string
+    {
+        $attributeValidations = $this->generateAttributeValidationsFromDto($endpoint);
+
+        $lines = [];
+
+        $lines[] = '    $mockClient->assertSent(function (Request $request) {';
+
+        if ($attributeValidations) {
+            $lines[] = '        expect($request->body()->all())';
+            $lines[] = $attributeValidations;
+            $lines[] = '        ;';
+        } else {
+            // No attributes to validate
+            $lines[] = '        expect($request->body()->all())->toBeArray();';
+        }
+
+        $lines[] = '';
+        $lines[] = '        return true;';
+        $lines[] = '    });';
+
+        return implode("\n", $lines);
     }
 }

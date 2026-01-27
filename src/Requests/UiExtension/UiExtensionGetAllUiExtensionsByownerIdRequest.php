@@ -27,7 +27,7 @@ class UiExtensionGetAllUiExtensionsByownerIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/uiExtension/{$this->ownerIdId}";
+        return "/v1/uiExtension/{$this->ownerId}";
     }
 
     /**
@@ -41,7 +41,7 @@ class UiExtensionGetAllUiExtensionsByownerIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $ownerIdId,
+        protected string $ownerId,
         protected ?string $screenId = null,
         protected ?string $type = null,
         protected ?string $erpApiBackground = null,

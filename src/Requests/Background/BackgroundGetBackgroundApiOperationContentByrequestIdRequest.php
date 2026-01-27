@@ -14,10 +14,10 @@ class BackgroundGetBackgroundApiOperationContentByrequestIdRequest extends Reque
 
     public function resolveEndpoint(): string
     {
-        return "/v1/background/{$this->requestIdId}/content";
+        return "/v1/background/{$this->requestId}/content";
     }
 
     public function __construct(
-        protected string $requestIdId,
+        protected string $requestId,
     ) {}
 }

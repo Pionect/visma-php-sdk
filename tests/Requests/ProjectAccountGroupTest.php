@@ -74,7 +74,7 @@ it('calls the projectAccountGroupGetByaccountGroupId method in the ProjectAccoun
     ]);
 
     $request = new ProjectAccountGroupGetByaccountGroupIdRequest(
-        accountGroupIdId: 'test string',
+        accountGroupId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

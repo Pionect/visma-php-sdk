@@ -72,8 +72,8 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSp
     ]);
 
     $request = new KitSpecificationsGetBykitInventoryIdrevisionIdRequest(
-        kitInventoryIdId: 'test string',
-        revisionIdId: 'test string',
+        kitInventoryId: 'test string',
+        revisionId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -110,7 +110,7 @@ it('calls the kitSpecificationsGetBykitInventoryId method in the KitSpecificatio
     ]);
 
     $request = new KitSpecificationsGetBykitInventoryIdRequest(
-        kitInventoryIdId: 'test string',
+        kitInventoryId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

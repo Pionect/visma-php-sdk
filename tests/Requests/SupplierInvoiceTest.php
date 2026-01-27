@@ -770,11 +770,7 @@ it('calls the supplierInvoiceWriteoffInvoiceBydocumentTypeinvoiceNumber method i
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('supplierInvoices')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
-            ->stateLocation->toBe('test value')
-            );
+            ->stateLocation->toBe('test value');
 
         return true;
     });

@@ -27,11 +27,11 @@ class FixedAssetGetByFixedAssetIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/fixedAsset/{$this->fixedAssetIdId}";
+        return "/v1/fixedAsset/{$this->fixedAssetId}";
     }
 
     /**
-     * @param  string  $fixedAssetIdid  Identifies the fixed asset
+     * @param  string  $fixedAssetId  Identifies the fixed asset
      * @param  null|bool  $expandAccounts  Set to True to include accounts and subaccounts. Default value is False
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -43,7 +43,7 @@ class FixedAssetGetByFixedAssetIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $fixedAssetIdid,
+        protected string $fixedAssetId,
         protected ?bool $expandAccounts = null,
         protected ?string $erpApiBackground = null,
     ) {}

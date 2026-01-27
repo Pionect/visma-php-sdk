@@ -27,7 +27,7 @@ class ProjectAccountGroupGetByaccountGroupIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/projectaccountgroup/{$this->accountGroupIdId}";
+        return "/v1/projectaccountgroup/{$this->accountGroupId}";
     }
 
     /**
@@ -41,7 +41,7 @@ class ProjectAccountGroupGetByaccountGroupIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $accountGroupIdId,
+        protected string $accountGroupId,
         protected ?string $erpApiBackground = null,
     ) {}
 

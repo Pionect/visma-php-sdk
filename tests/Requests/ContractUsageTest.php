@@ -23,7 +23,7 @@ it('calls the contractUsageGetSpecificBycontractId method in the ContractUsage r
     ]);
 
     $request = new ContractUsageGetSpecificBycontractIdRequest(
-        contractIdId: 'test string',
+        contractId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

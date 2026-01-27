@@ -193,7 +193,7 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
     ]);
 
     $request = new InventoryGetByinventoryIdRequest(
-        inventoryIdId: 123,
+        inventoryId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -678,13 +678,9 @@ it('calls the inventoryUpdateCostNonStockItemByinventoryCd method in the Invento
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('inventories')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -709,13 +705,9 @@ it('calls the inventoryChangeInventoryNbrActionByinternalId method in the Invent
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('inventories')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });

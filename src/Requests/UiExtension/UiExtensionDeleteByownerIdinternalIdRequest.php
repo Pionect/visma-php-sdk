@@ -16,7 +16,7 @@ class UiExtensionDeleteByownerIdinternalIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/uiExtension/{$this->ownerIdId}/{$this->internalIdId}";
+        return "/v1/uiExtension/{$this->ownerId}/{$this->internalId}";
     }
 
     /**
@@ -30,8 +30,8 @@ class UiExtensionDeleteByownerIdinternalIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $ownerIdId,
-        protected string $internalIdId,
+        protected string $ownerId,
+        protected string $internalId,
         protected ?string $erpApiBackground = null,
     ) {}
 

@@ -322,14 +322,10 @@ it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumber method in the
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('salesOrderBasics')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->referenceNumber->toBe('test value')
             ->shipmentDto->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            );
+            ->actionResult->toBe('test value');
 
         return true;
     });

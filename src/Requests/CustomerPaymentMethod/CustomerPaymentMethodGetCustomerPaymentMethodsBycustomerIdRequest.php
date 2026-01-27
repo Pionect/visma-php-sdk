@@ -27,11 +27,11 @@ class CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest extends 
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerpaymentmethod/{$this->customerIdId}";
+        return "/v1/customerpaymentmethod/{$this->customerId}";
     }
 
     /**
-     * @param  string  $customerIdId  Identifies the Customer
+     * @param  string  $customerId  Identifies the Customer
      * @param  null|int  $pageNumber  Pagination parameter. Page number.
      * @param  null|int  $pageSize  Pagination parameter. Number of items to be collected.
      *                              Please use a page size lower or equal to the allowed max page size which is returned as part of the metadata information.
@@ -46,7 +46,7 @@ class CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest extends 
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $customerIdId,
+        protected string $customerId,
         protected ?int $pageNumber = null,
         protected ?int $pageSize = null,
         protected ?string $erpApiBackground = null,

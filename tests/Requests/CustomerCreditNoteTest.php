@@ -424,13 +424,9 @@ it('calls the customerCreditNoteReleaseDocumentBycreditNoteNumber method in the 
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('customerCreditNotes')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });

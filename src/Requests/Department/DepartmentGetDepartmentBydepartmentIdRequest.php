@@ -31,11 +31,11 @@ class DepartmentGetDepartmentBydepartmentIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/department/{$this->departmentIdId}";
+        return "/v1/department/{$this->departmentId}";
     }
 
     /**
-     * @param  string  $departmentIdId  Identifies the department
+     * @param  string  $departmentId  Identifies the department
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -46,7 +46,7 @@ class DepartmentGetDepartmentBydepartmentIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $departmentIdId,
+        protected string $departmentId,
         protected ?string $erpApiBackground = null,
     ) {}
 

@@ -185,13 +185,9 @@ it('calls the timeCardSubmitTimeCardBytimeCardCd method in the TimeCard resource
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('timeCards')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -216,13 +212,9 @@ it('calls the timeCardSendTimeCardToApprovalBytimeCardCd method in the TimeCard 
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('timeCards')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -247,13 +239,9 @@ it('calls the timeCardPutTimeCardOnHoldBytimeCardCd method in the TimeCard resou
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('timeCards')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });

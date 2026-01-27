@@ -27,11 +27,11 @@ class SupplierAccountGetBysupplierIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/supplieraccount/{$this->supplierIdId}";
+        return "/v1/supplieraccount/{$this->supplierId}";
     }
 
     /**
-     * @param  string  $supplierIdId  The id of the supplier
+     * @param  string  $supplierId  The id of the supplier
      * @param  null|array  $supplierItemId  The list of supplier itemIds to search the expense account for. If the list empty, then the general expense account for the specific supplier is returned
      * @param  null|string  $vatRegistrationId  The vat registration id of the supplier
      * @param  null|bool  $linesNonTaxable  Indicates if all lines are taxable or not. Default is false
@@ -45,7 +45,7 @@ class SupplierAccountGetBysupplierIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $supplierIdId,
+        protected string $supplierId,
         protected ?array $supplierItemId = null,
         protected ?string $vatRegistrationId = null,
         protected ?bool $linesNonTaxable = null,

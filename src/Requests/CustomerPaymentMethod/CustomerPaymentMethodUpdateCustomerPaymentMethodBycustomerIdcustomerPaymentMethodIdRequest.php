@@ -21,12 +21,12 @@ class CustomerPaymentMethodUpdateCustomerPaymentMethodBycustomerIdcustomerPaymen
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerpaymentmethod/{$this->customerIdId}/{$this->customerPaymentMethodIdId}";
+        return "/v1/customerpaymentmethod/{$this->customerId}/{$this->customerPaymentMethodId}";
     }
 
     /**
-     * @param  string  $customerIdId  Identifies the Customer
-     * @param  string  $customerPaymentMethodIdId  Identifies the Customer payment method to update
+     * @param  string  $customerId  Identifies the Customer
+     * @param  string  $customerPaymentMethodId  Identifies the Customer payment method to update
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -42,8 +42,8 @@ class CustomerPaymentMethodUpdateCustomerPaymentMethodBycustomerIdcustomerPaymen
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $customerIdId,
-        protected string $customerPaymentMethodIdId,
+        protected string $customerId,
+        protected string $customerPaymentMethodId,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

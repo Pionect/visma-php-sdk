@@ -187,13 +187,9 @@ it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaim method in the Expe
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('expenseClaims')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -218,13 +214,9 @@ it('calls the expenseClaimSubmitExpenseClaimByexpenseClaim method in the Expense
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('expenseClaims')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -249,13 +241,9 @@ it('calls the expenseClaimSendExpenseClaimToApprovalByexpenseClaim method in the
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('expenseClaims')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });

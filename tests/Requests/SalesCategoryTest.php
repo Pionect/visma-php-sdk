@@ -26,7 +26,7 @@ it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory r
     ]);
 
     $request = new SalesCategoryGetCategoryBycategoryIdRequest(
-        categoryIdId: 123,
+        categoryId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -140,7 +140,7 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
     ]);
 
     $request = new SalesCategoryGetItemsForCategoryBycategoryIdRequest(
-        categoryIdId: 123,
+        categoryId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

@@ -15,7 +15,7 @@ class InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealter
 
     public function resolveEndpoint(): string
     {
-        return "/v1/inventory/{$this->inventoryNumberId}/crossReferences/{$this->alternateTypeId}/{$this->alternateIdId}";
+        return "/v1/inventory/{$this->inventoryNumberId}/crossReferences/{$this->alternateTypeId}/{$this->alternateId}";
     }
 
     /**
@@ -32,7 +32,7 @@ class InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealter
     public function __construct(
         protected string $inventoryNumberId,
         protected string $alternateTypeId,
-        protected string $alternateIdId,
+        protected string $alternateId,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

@@ -21,7 +21,7 @@ it('calls the countryGetCountryBycountryId method in the Country resource', func
     ]);
 
     $request = new CountryGetCountryBycountryIdRequest(
-        countryIdId: 'test string',
+        countryId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

@@ -36,7 +36,7 @@ it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource
     ]);
 
     $request = new FixedAssetClassGetByClassIdRequest(
-        classIdId: 'test string',
+        classId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

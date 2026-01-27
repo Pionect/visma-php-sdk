@@ -31,7 +31,7 @@ it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Backg
     ]);
 
     $request = new BackgroundGetBackgroundApiOperationByrequestIdRequest(
-        requestIdId: 'test string'
+        requestId: 'test string'
     );
     $response = $this->vismaConnector->send($request);
 

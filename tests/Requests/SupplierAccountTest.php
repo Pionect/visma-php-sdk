@@ -20,7 +20,7 @@ it('calls the supplierAccountGetBysupplierId method in the SupplierAccount resou
     ]);
 
     $request = new SupplierAccountGetBysupplierIdRequest(
-        supplierIdId: 'test string',
+        supplierId: 'test string',
         supplierItemId: [],
         vatRegistrationId: 'test string',
         linesNonTaxable: true,

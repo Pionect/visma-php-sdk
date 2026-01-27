@@ -21,12 +21,12 @@ class DimensionUpdateSegmentBydimensionIdsegmentIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/dimension/{$this->dimensionIdId}/{$this->segmentIdId}";
+        return "/v1/dimension/{$this->dimensionId}/{$this->segmentId}";
     }
 
     /**
-     * @param  string  $dimensionIdId  Identifies the Dimension for which the Segment is defined
-     * @param  int  $segmentIdId  Identifies the Segment
+     * @param  string  $dimensionId  Identifies the Dimension for which the Segment is defined
+     * @param  int  $segmentId  Identifies the Segment
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -42,8 +42,8 @@ class DimensionUpdateSegmentBydimensionIdsegmentIdRequest extends Request
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $dimensionIdId,
-        protected int $segmentIdId,
+        protected string $dimensionId,
+        protected int $segmentId,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

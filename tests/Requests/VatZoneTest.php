@@ -23,7 +23,7 @@ it('calls the vatZoneGetVatZoneByvatZoneId method in the VatZone resource', func
     ]);
 
     $request = new VatZoneGetVatZoneByvatZoneIdRequest(
-        vatZoneIdId: 'test string',
+        vatZoneId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

@@ -43,7 +43,7 @@ it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource'
     ]);
 
     $request = new ProjectTaskGetTaskByinternalIdRequest(
-        internalIdId: 123,
+        internalId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

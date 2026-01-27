@@ -24,7 +24,7 @@ it('calls the currencyGetSpecificCurrencyBycuryId method in the Currency resourc
     ]);
 
     $request = new CurrencyGetSpecificCurrencyBycuryIdRequest(
-        curyIdId: 'test string',
+        curyId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

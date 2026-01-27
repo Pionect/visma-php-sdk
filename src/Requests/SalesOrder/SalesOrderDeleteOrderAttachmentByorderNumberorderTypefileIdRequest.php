@@ -16,13 +16,13 @@ class SalesOrderDeleteOrderAttachmentByorderNumberorderTypefileIdRequest extends
 
     public function resolveEndpoint(): string
     {
-        return "/v1/salesorder/{$this->orderTypeId}/{$this->orderNumberId}/attachment/{$this->fileIdId}";
+        return "/v1/salesorder/{$this->orderTypeId}/{$this->orderNumberId}/attachment/{$this->fileId}";
     }
 
     /**
      * @param  string  $orderNumberId  Identifies the sales order
      * @param  string  $orderTypeId  Identifies the sales order type
-     * @param  string  $fileIdId  Specifies the id of the file
+     * @param  string  $fileId  Specifies the id of the file
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -35,7 +35,7 @@ class SalesOrderDeleteOrderAttachmentByorderNumberorderTypefileIdRequest extends
     public function __construct(
         protected string $orderNumberId,
         protected string $orderTypeId,
-        protected string $fileIdId,
+        protected string $fileId,
         protected ?string $erpApiBackground = null,
     ) {}
 

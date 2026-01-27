@@ -30,7 +30,7 @@ it('calls the attributeGetAttributeByattributeId method in the Attribute resourc
     ]);
 
     $request = new AttributeGetAttributeByattributeIdRequest(
-        attributeIdId: 'test string',
+        attributeId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

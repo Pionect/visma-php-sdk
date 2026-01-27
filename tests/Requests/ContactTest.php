@@ -47,7 +47,7 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
     ]);
 
     $request = new ContactGetBycontactIdRequest(
-        contactIdId: 123,
+        contactId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

@@ -17,12 +17,12 @@ class LocationUpdateBybAccountIdlocationIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/location/{$this->bAccountIdId}/{$this->locationIdId}";
+        return "/v1/location/{$this->bAccountId}/{$this->locationId}";
     }
 
     /**
-     * @param  string  $bAccountIdId  Identifies the BAccount
-     * @param  string  $locationIdId  Identifies the Location
+     * @param  string  $bAccountId  Identifies the BAccount
+     * @param  string  $locationId  Identifies the Location
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -34,8 +34,8 @@ class LocationUpdateBybAccountIdlocationIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $bAccountIdId,
-        protected string $locationIdId,
+        protected string $bAccountId,
+        protected string $locationId,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

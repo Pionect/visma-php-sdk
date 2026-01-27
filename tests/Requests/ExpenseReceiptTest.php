@@ -232,11 +232,7 @@ it('calls the expenseReceiptCreateAttachmentByreceiptNumber method in the Expens
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('expenseReceipts')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
-            ->stateLocation->toBe('test value')
-            );
+            ->stateLocation->toBe('test value');
 
         return true;
     });

@@ -37,7 +37,7 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
     ]);
 
     $request = new FixedAssetGetByFixedAssetIdRequest(
-        fixedAssetIdId: 'test string',
+        fixedAssetId: 'test string',
         expandAccounts: true,
         erpApiBackground: 'test string'
     );

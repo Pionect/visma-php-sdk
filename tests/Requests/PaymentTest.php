@@ -234,13 +234,9 @@ it('calls the paymentReleasePaymentBypaymentNumber method in the Payment resourc
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('payments')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -266,14 +262,10 @@ it('calls the paymentVoidPaymentBypaymentNumber method in the Payment resource',
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('payments')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->type->toBe('test value')
             ->refNbr->toBe('test value')
             ->voidPayment->toBe('test value')
-            ->actionId->toBe('action_id-123')
-            );
+            ->actionId->toBe('action_id-123');
 
         return true;
     });

@@ -27,13 +27,13 @@ class DimensionGetSegmentValueBydimensionIdsegmentIdvalueIdRequest extends Reque
 
     public function resolveEndpoint(): string
     {
-        return "/v1/dimension/{$this->dimensionIdId}/{$this->segmentIdId}/{$this->valueIdId}";
+        return "/v1/dimension/{$this->dimensionId}/{$this->segmentId}/{$this->valueId}";
     }
 
     /**
-     * @param  string  $dimensionIdId  Identifies the Dimension
-     * @param  int  $segmentIdId  Identifies the Segment
-     * @param  string  $valueIdId  Identifies the SegmentValue by Id. Must be Base64 encoded.
+     * @param  string  $dimensionId  Identifies the Dimension
+     * @param  int  $segmentId  Identifies the Segment
+     * @param  string  $valueId  Identifies the SegmentValue by Id. Must be Base64 encoded.
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -44,9 +44,9 @@ class DimensionGetSegmentValueBydimensionIdsegmentIdvalueIdRequest extends Reque
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $dimensionIdId,
-        protected int $segmentIdId,
-        protected string $valueIdId,
+        protected string $dimensionId,
+        protected int $segmentId,
+        protected string $valueId,
         protected ?string $erpApiBackground = null,
     ) {}
 

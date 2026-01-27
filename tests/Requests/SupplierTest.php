@@ -74,7 +74,7 @@ it('calls the supplierGetSpecificSupplierClassBysupplierClassId method in the Su
     ]);
 
     $request = new SupplierGetSpecificSupplierClassBysupplierClassIdRequest(
-        supplierClassIdId: 'test string',
+        supplierClassId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

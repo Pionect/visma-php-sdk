@@ -27,7 +27,7 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the Deferral
     ]);
 
     $request = new DeferralCodeGetDeferralCodeBydeferralCodeIdRequest(
-        deferralCodeIdId: 'test string',
+        deferralCodeId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

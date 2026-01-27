@@ -15,13 +15,13 @@ class VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/vat/{$this->vendorCdId}/{$this->taxPeriodIdId}/{$this->revisionIdId}";
+        return "/v1/vat/{$this->vendorCdId}/{$this->taxPeriodId}/{$this->revisionId}";
     }
 
     /**
      * @param  string  $vendorCdId  Identifies the tax agency.
-     * @param  string  $taxPeriodIdId  Identifies the tax period.
-     * @param  int  $revisionIdId  Identifies the tax revision.
+     * @param  string  $taxPeriodId  Identifies the tax period.
+     * @param  int  $revisionId  Identifies the tax revision.
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -34,8 +34,8 @@ class VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest extends Request
      */
     public function __construct(
         protected string $vendorCdId,
-        protected string $taxPeriodIdId,
-        protected int $revisionIdId,
+        protected string $taxPeriodId,
+        protected int $revisionId,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

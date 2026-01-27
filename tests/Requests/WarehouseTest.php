@@ -36,7 +36,7 @@ it('calls the warehouseGetBywarehouseId method in the Warehouse resource', funct
     ]);
 
     $request = new WarehouseGetBywarehouseIdRequest(
-        warehouseIdId: 'test string',
+        warehouseId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

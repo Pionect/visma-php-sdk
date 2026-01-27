@@ -64,7 +64,7 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
     ]);
 
     $request = new ProjectGetByprojectIdRequest(
-        projectIdId: 'test string',
+        projectId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -164,7 +164,7 @@ it('calls the projectGetByinternalId method in the Project resource', function (
     ]);
 
     $request = new ProjectGetByinternalIdRequest(
-        internalIdId: 123,
+        internalId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -483,13 +483,9 @@ it('calls the projectChangeProjectIdactionByinternalId method in the Project res
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('projects')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });

@@ -25,7 +25,7 @@ it('calls the dimensionGetDimensionBydimensionId method in the Dimension resourc
     ]);
 
     $request = new DimensionGetDimensionBydimensionIdRequest(
-        dimensionIdId: 'test string',
+        dimensionId: 'test string',
         greaterThanValue: 'test string',
         numberToRead: 123,
         skipRecords: 123,
@@ -69,8 +69,8 @@ it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension 
     ]);
 
     $request = new DimensionGetSegmentBydimensionIdsegmentIdRequest(
-        dimensionIdId: 'test string',
-        segmentIdId: 123,
+        dimensionId: 'test string',
+        segmentId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -113,9 +113,9 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in th
     ]);
 
     $request = new DimensionGetSegmentValueBydimensionIdsegmentIdvalueIdRequest(
-        dimensionIdId: 'test string',
-        segmentIdId: 123,
-        valueIdId: 'test string',
+        dimensionId: 'test string',
+        segmentId: 123,
+        valueId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -156,9 +156,9 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in t
     ]);
 
     $request = new DimensionGetSegmentValueBydimensionIdsegmentIdpublicIdRequest(
-        dimensionIdId: 'test string',
-        segmentIdId: 123,
-        publicIdId: 'test string',
+        dimensionId: 'test string',
+        segmentId: 123,
+        publicId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

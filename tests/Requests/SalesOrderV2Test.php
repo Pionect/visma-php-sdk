@@ -461,14 +461,10 @@ it('calls the salesOrderV2createShipmentActionBysaleOrderNumber method in the Sa
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('salesOrderV2s')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->referenceNumber->toBe('test value')
             ->shipmentDto->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            );
+            ->actionResult->toBe('test value');
 
         return true;
     });
@@ -494,14 +490,10 @@ it('calls the salesOrderV2prepareInvoiceActionByorderTypeorderNumber method in t
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('salesOrderV2s')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->referenceNumber->toBe('test value')
             ->customerInvoiceDto->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            );
+            ->actionResult->toBe('test value');
 
         return true;
     });
@@ -526,13 +518,9 @@ it('calls the salesOrderV2sendEmailActionByorderTypeorderNumber method in the Sa
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('salesOrderV2s')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -557,13 +545,9 @@ it('calls the salesOrderV2cancelSalesOrderBysaleOrderNumber method in the SalesO
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('salesOrderV2s')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -588,13 +572,9 @@ it('calls the salesOrderV2reopenSalesOrderBysalesOrderNumber method in the Sales
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('salesOrderV2s')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });

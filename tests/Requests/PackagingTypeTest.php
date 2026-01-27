@@ -32,7 +32,7 @@ it('calls the packagingTypeGetByboxId method in the PackagingType resource', fun
     ]);
 
     $request = new PackagingTypeGetByboxIdRequest(
-        boxIdId: 'test string',
+        boxId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

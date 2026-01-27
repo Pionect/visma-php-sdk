@@ -207,13 +207,9 @@ it('calls the cashTransactionReleaseByreferenceNbr method in the CashTransaction
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('cashTransactions')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -239,14 +235,10 @@ it('calls the cashTransactionReverseByreferenceNbr method in the CashTransaction
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('cashTransactions')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->referenceNbr->toBe('test value')
             ->cashTransaction->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            );
+            ->actionResult->toBe('test value');
 
         return true;
     });
@@ -269,11 +261,7 @@ it('calls the cashTransactionCreateAttachmentByreferenceNbr method in the CashTr
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('cashTransactions')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
-            ->stateLocation->toBe('test value')
-            );
+            ->stateLocation->toBe('test value');
 
         return true;
     });

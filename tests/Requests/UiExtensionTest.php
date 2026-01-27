@@ -60,7 +60,7 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
     ]);
 
     $request = new UiExtensionGetAllUiExtensionsByownerIdRequest(
-        ownerIdId: 'test string',
+        ownerId: 'test string',
         screenId: 'test string',
         type: 'test string',
         erpApiBackground: 'test string'

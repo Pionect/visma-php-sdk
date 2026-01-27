@@ -28,8 +28,8 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerP
     ]);
 
     $request = new CustomerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodIdRequest(
-        customerIdId: 'test string',
-        customerPaymentMethodIdId: 'test string',
+        customerId: 'test string',
+        customerPaymentMethodId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -65,7 +65,7 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method 
     ]);
 
     $request = new CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest(
-        customerIdId: 'test string',
+        customerId: 'test string',
         pageNumber: 123,
         pageSize: 123,
         erpApiBackground: 'test string'

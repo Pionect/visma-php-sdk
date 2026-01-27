@@ -24,7 +24,7 @@ it('calls the fixedAssetPropertyTaxGroupGetByPropertyTaxId method in the FixedAs
     ]);
 
     $request = new FixedAssetPropertyTaxGroupGetByPropertyTaxIdRequest(
-        propertyTaxIdId: 'test string',
+        propertyTaxId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

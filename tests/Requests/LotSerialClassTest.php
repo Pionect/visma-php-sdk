@@ -32,7 +32,7 @@ it('calls the lotSerialClassGetByid method in the LotSerialClass resource', func
     ]);
 
     $request = new LotSerialClassGetByidRequest(
-        idId: 'test string',
+        id: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

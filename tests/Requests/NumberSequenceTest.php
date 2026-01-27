@@ -24,7 +24,7 @@ it('calls the numberSequenceGetBynumberingId method in the NumberSequence resour
     ]);
 
     $request = new NumberSequenceGetBynumberingIdRequest(
-        numberingIdId: 'test string',
+        numberingId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

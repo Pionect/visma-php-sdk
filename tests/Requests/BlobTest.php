@@ -29,7 +29,7 @@ it('calls the blobGetByblobId method in the Blob resource', function () {
     ]);
 
     $request = new BlobGetByblobIdRequest(
-        blobIdId: 'test string',
+        blobId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -107,7 +107,7 @@ it('calls the blobGetMetadataByblobId method in the Blob resource', function () 
     ]);
 
     $request = new BlobGetMetadataByblobIdRequest(
-        blobIdId: 'test string',
+        blobId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

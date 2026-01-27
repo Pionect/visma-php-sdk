@@ -29,11 +29,11 @@ class LocationGetLocationsForBaccountBybAccountIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/location/{$this->bAccountIdId}";
+        return "/v1/location/{$this->bAccountId}";
     }
 
     /**
-     * @param  string  $bAccountIdId  Identifies the BAccount
+     * @param  string  $bAccountId  Identifies the BAccount
      * @param  null|int  $numberToRead  This field has been deprecated and will be removed in future versions. Use pagenumber and pagesize for pagination purposes. Pagenumber and pagesize does not work with NumberToRead and SkipRecords.
      * @param  null|int  $skipRecords  This field has been deprecated and will be removed in future versions. Use pagenumber and pagesize for pagination purposes. Pagenumber and pagesize does not work with NumberToRead and SkipRecords.
      * @param  null|string  $greaterThanValue  Greater than value. The item which is the object for this, varies from API to API.
@@ -72,7 +72,7 @@ class LocationGetLocationsForBaccountBybAccountIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $bAccountIdId,
+        protected string $bAccountId,
         protected ?string $locationId = null,
         protected ?string $gln = null,
         protected ?int $numberToRead = null,

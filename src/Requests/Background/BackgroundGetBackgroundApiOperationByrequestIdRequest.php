@@ -27,10 +27,10 @@ class BackgroundGetBackgroundApiOperationByrequestIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/background/{$this->requestIdId}";
+        return "/v1/background/{$this->requestId}";
     }
 
     public function __construct(
-        protected string $requestIdId,
+        protected string $requestId,
     ) {}
 }

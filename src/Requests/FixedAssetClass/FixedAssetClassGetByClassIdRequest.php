@@ -27,7 +27,7 @@ class FixedAssetClassGetByClassIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/fixedAssetClass/{$this->classIdId}";
+        return "/v1/fixedAssetClass/{$this->classId}";
     }
 
     /**
@@ -41,7 +41,7 @@ class FixedAssetClassGetByClassIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $classIdid,
+        protected string $classId,
         protected ?string $erpApiBackground = null,
     ) {}
 

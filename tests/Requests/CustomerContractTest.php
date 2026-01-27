@@ -34,7 +34,7 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
     ]);
 
     $request = new CustomerContractGetCustomerContractBycontractIdRequest(
-        contractIdId: 'test string',
+        contractId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -145,7 +145,7 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
     ]);
 
     $request = new CustomerContractGetCustomerContractSummaryBycontractIdRequest(
-        contractIdId: 'test string',
+        contractId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -196,7 +196,7 @@ it('calls the customerContractGetCustomerContractDetailsBycontractId method in t
     ]);
 
     $request = new CustomerContractGetCustomerContractDetailsBycontractIdRequest(
-        contractIdId: 'test string',
+        contractId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -232,7 +232,7 @@ it('calls the customerContractGetCustomerContractRecurringSummaryBycontractId me
     ]);
 
     $request = new CustomerContractGetCustomerContractRecurringSummaryBycontractIdRequest(
-        contractIdId: 'test string',
+        contractId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

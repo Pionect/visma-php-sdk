@@ -96,7 +96,7 @@ it('calls the financialPeriodGetByfinancialPeriodId method in the FinancialPerio
     ]);
 
     $request = new FinancialPeriodGetByfinancialPeriodIdRequest(
-        financialPeriodIdId: 'test string',
+        financialPeriodId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

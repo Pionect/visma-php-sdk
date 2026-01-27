@@ -15,7 +15,7 @@ class VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest extends 
 
     public function resolveEndpoint(): string
     {
-        return "/v1/vat/{$this->vendorCdId}/{$this->taxPeriodIdId}/{$this->revisionIdId}/{$this->lineNumberId}";
+        return "/v1/vat/{$this->vendorCdId}/{$this->taxPeriodId}/{$this->revisionId}/{$this->lineNumberId}";
     }
 
     /**
@@ -31,8 +31,8 @@ class VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest extends 
      */
     public function __construct(
         protected string $vendorCdId,
-        protected string $taxPeriodIdId,
-        protected int $revisionIdId,
+        protected string $taxPeriodId,
+        protected int $revisionId,
         protected int $lineNumberId,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,

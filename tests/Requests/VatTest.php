@@ -44,7 +44,7 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
     ]);
 
     $request = new VatGetVatByvatIdRequest(
-        vatIdId: 'test string',
+        vatId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

@@ -21,11 +21,11 @@ class CustomerContractSetupContractBycontractIdRequest extends Request implement
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerContract/{$this->contractIdId}/action/setupContract";
+        return "/v1/customerContract/{$this->contractId}/action/setupContract";
     }
 
     /**
-     * @param  string  $contractIdId  Reference number of the customer contract to be set up
+     * @param  string  $contractId  Reference number of the customer contract to be set up
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $setupDate  Optional Setup Date
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
@@ -38,7 +38,7 @@ class CustomerContractSetupContractBycontractIdRequest extends Request implement
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $contractIdId,
+        protected string $contractId,
         protected Model|array|null $data = null,
         protected ?string $setupDate = null,
         protected ?string $erpApiBackground = null,

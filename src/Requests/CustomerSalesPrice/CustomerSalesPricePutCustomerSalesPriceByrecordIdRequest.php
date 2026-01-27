@@ -21,7 +21,7 @@ class CustomerSalesPricePutCustomerSalesPriceByrecordIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerSalesPrice/{$this->recordIdId}";
+        return "/v1/customerSalesPrice/{$this->recordId}";
     }
 
     /**
@@ -40,7 +40,7 @@ class CustomerSalesPricePutCustomerSalesPriceByrecordIdRequest extends Request
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected int $recordIdId,
+        protected int $recordId,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

@@ -84,7 +84,7 @@ it('calls the customerGetSpecificCustomerClassBycustomerClassId method in the Cu
     ]);
 
     $request = new CustomerGetSpecificCustomerClassBycustomerClassIdRequest(
-        customerClassIdId: 'test string',
+        customerClassId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -722,7 +722,7 @@ it('calls the customerGetByinternalId method in the Customer resource', function
     ]);
 
     $request = new CustomerGetByinternalIdRequest(
-        internalIdId: 123,
+        internalId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -1569,13 +1569,9 @@ it('calls the customerCreateDunningLetterActionBycustomer method in the Customer
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('customers')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -1600,13 +1596,9 @@ it('calls the customerChangeCustomerNrActionByinternalId method in the Customer 
 
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
-            ->toHaveKey('data')
-            ->data->type->toBe('customers')
-            ->data->attributes->scoped(fn ($attributes) => $attributes
             ->actionId->toBe('action_id-123')
             ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value')
-            );
+            ->errorInfo->toBe('test value');
 
         return true;
     });

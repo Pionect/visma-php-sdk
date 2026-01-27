@@ -27,7 +27,7 @@ it('calls the departmentGetDepartmentBydepartmentId method in the Department res
     ]);
 
     $request = new DepartmentGetDepartmentBydepartmentIdRequest(
-        departmentIdId: 'test string',
+        departmentId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

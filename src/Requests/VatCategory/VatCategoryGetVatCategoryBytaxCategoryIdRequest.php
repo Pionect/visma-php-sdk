@@ -27,11 +27,11 @@ class VatCategoryGetVatCategoryBytaxCategoryIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/vatCategory/{$this->taxCategoryIdId}";
+        return "/v1/vatCategory/{$this->taxCategoryId}";
     }
 
     /**
-     * @param  string  $taxCategoryIdId  Identifies the VatCategory
+     * @param  string  $taxCategoryId  Identifies the VatCategory
      * @param  null|string  $vendorCd  Optional vendor number (tax agency) parameter
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -43,7 +43,7 @@ class VatCategoryGetVatCategoryBytaxCategoryIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $taxCategoryIdId,
+        protected string $taxCategoryId,
         protected ?string $vendorCd = null,
         protected ?string $erpApiBackground = null,
     ) {}

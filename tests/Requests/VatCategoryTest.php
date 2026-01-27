@@ -26,7 +26,7 @@ it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory
     ]);
 
     $request = new VatCategoryGetVatCategoryBytaxCategoryIdRequest(
-        taxCategoryIdId: 'test string',
+        taxCategoryId: 'test string',
         vendorCd: 'test string',
         erpApiBackground: 'test string'
     );

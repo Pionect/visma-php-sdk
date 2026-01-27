@@ -124,7 +124,7 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the Cu
     ]);
 
     $request = new CustomerSalesPriceGetCustomerSalesPriceByrecordIdRequest(
-        recordIdId: 123,
+        recordId: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);

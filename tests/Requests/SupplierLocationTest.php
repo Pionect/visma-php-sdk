@@ -36,8 +36,8 @@ it('calls the supplierLocationGetLocationBybAccountIdlocationId method in the Su
     ]);
 
     $request = new SupplierLocationGetLocationBybAccountIdlocationIdRequest(
-        bAccountIdId: 'test string',
-        locationIdId: 'test string',
+        bAccountId: 'test string',
+        locationId: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -89,7 +89,7 @@ it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the 
     ]);
 
     $request = new SupplierLocationGetLocationsForBaccountBybAccountIdRequest(
-        bAccountIdId: 'test string',
+        bAccountId: 'test string',
         locationId: 'test string',
         gln: 'test string',
         lastModifiedDateTime: 'test string',
