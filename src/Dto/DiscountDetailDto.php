@@ -23,6 +23,10 @@ class DiscountDetailDto extends Model
     #[Property]
     public ?string $sequanceId;
 
+    /** The table &gt; Type &gt; The type of discount applied to the document (Group or Document). */
+    #[Property]
+    public ?string $type;
+
     /** The table &gt; Manual discount &gt; A check box that indicates (if selected) that the supplier discount shown in this row has been applied manually . */
     #[Property]
     public ?bool $manualDiscount;

@@ -88,6 +88,7 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
             'inventoryId' => 42,
             'inventoryNumber' => 'String value',
             'status' => 'String value',
+            'type' => 'String value',
             'description' => 'String value',
             'body' => 'String value',
             'itemClass' => null,
@@ -148,6 +149,7 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
         ->status->toBe('String value')
+        ->type->toBe('String value')
         ->description->toBe('String value')
         ->body->toBe('String value')
         ->itemClass->toBeNull()

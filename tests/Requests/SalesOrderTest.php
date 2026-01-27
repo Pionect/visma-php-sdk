@@ -355,6 +355,7 @@ it('calls the salesOrderGetRotrutbyorderTypeorderNbr method in the SalesOrder re
     Saloon::fake([
         SalesOrderGetRotrutbyorderTypeorderNbrRequest::class => MockResponse::make([
             'distributedAutomaticaly' => true,
+            'type' => 'String value',
             'appartment' => 'String value',
             'estate' => 'String value',
             'organizationNbr' => 'String value',
@@ -377,6 +378,7 @@ it('calls the salesOrderGetRotrutbyorderTypeorderNbr method in the SalesOrder re
 
     expect($dto)
         ->distributedAutomaticaly->toBeTrue()
+        ->type->toBe('String value')
         ->appartment->toBe('String value')
         ->estate->toBe('String value')
         ->organizationNbr->toBe('String value');

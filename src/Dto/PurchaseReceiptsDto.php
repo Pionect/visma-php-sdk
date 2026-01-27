@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class PurchaseReceiptsDto extends Model
 {
+    /** The top part &gt; Type &gt; The type of the document, which can be Receipt, Return, or Transfer receipt. */
+    #[Property]
+    public ?string $type;
+
     /** The top part &gt; Receipt no. &gt; The unique reference number of the purchase receipt, transfer receipt, or return, which the system automatically assigns according to its number series. */
     #[Property]
     public ?string $receiptNumber;

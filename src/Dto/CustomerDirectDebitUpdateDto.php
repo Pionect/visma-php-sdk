@@ -12,6 +12,9 @@ class CustomerDirectDebitUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
+    public ?string $id;
+
+    #[Property]
     public ?\DtoValueOfString $mandateId;
 
     #[Property]

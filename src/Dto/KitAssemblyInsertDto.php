@@ -10,6 +10,10 @@ class KitAssemblyInsertDto extends Model
     #[Property]
     public ?\KitAssemblyLinkInsertDto $kitAssemblyLink;
 
+    /** Type, possible values: P - Production, D - Disassembly */
+    #[Property]
+    public ?string $type;
+
     #[Property]
     public ?string $refNo;
 

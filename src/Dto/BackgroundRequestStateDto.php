@@ -9,6 +9,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class BackgroundRequestStateDto extends Model
 {
     /**
+     * Identifies a started background API operation
+     */
+    #[Property]
+    public ?string $id;
+
+    /**
      * Current status of a background API operation. Possible values are 'Started', 'Finished' and 'Failed'.
      */
     #[Property]

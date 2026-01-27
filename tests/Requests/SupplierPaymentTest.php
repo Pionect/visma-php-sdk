@@ -18,6 +18,7 @@ beforeEach(function () {
 it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetBypaymentNumberRequest::class => MockResponse::make([
+            'type' => 'String value',
             'documentType' => 'String value',
             'refNbr' => 'String value',
             'status' => 'String value',
@@ -58,6 +59,7 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
     $dto = $response->dto();
 
     expect($dto)
+        ->type->toBe('String value')
         ->documentType->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
@@ -86,6 +88,7 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
 it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetByTypeBypaymentTypepaymentNumberRequest::class => MockResponse::make([
+            'type' => 'String value',
             'documentType' => 'String value',
             'refNbr' => 'String value',
             'status' => 'String value',
@@ -127,6 +130,7 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
     $dto = $response->dto();
 
     expect($dto)
+        ->type->toBe('String value')
         ->documentType->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
@@ -156,6 +160,7 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
     Saloon::fake([
         SupplierPaymentGetAllPaymentsCollectionRequest::class => MockResponse::make([
             0 => [
+                'type' => 'String value',
                 'documentType' => 'String value',
                 'refNbr' => 'String value',
                 'status' => 'String value',
@@ -186,6 +191,7 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
                 ],
             ],
             1 => [
+                'type' => 'String value',
                 'documentType' => 'String value',
                 'refNbr' => 'String value',
                 'status' => 'String value',
@@ -231,6 +237,7 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
+        ->type->toBe('String value')
         ->documentType->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')

@@ -25,6 +25,10 @@ class SupplierClassDto extends Model
     #[DateTime]
     public ?\Carbon\Carbon $timeStamp;
 
+    /** Click on the magnifier. &gt; The identifier. */
+    #[Property]
+    public ?string $id;
+
     /** Click on the magnifier. &gt; The description. */
     #[Property]
     public ?string $description;

@@ -62,6 +62,9 @@ class FixedAssetDto extends Model
     #[Property]
     public ?\propertyTaxInFixedAssetDto $propertyTax;
 
+    #[Property]
+    public ?\typeInFixedAssetDto $type;
+
     /** A system generated date/time that indicates the last change for this fixed asset */
     #[Property]
     #[DateTime]

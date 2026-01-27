@@ -9,6 +9,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class SupplierPaymentUpdateDto extends Model
 {
     #[Property]
+    public ?\typeInSupplierPaymentUpdateDto $type;
+
+    #[Property]
     public ?\DtoValueOfString $referenceNumber;
 
     #[Property]

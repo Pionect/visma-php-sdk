@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class AccountNumberDescriptionDto extends Model
 {
+    #[Property]
+    public ?string $type;
+
     /** ExternalCode1 is deprecated, please use ExternalCode1Info instead. */
     #[Property]
     public ?string $externalCode1;

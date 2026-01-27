@@ -47,6 +47,9 @@ class ProjectBudgetDto extends Model
     public ?float $actualAmount;
 
     #[Property]
+    public ?string $type;
+
+    #[Property]
     public ?float $committedQty;
 
     #[Property]

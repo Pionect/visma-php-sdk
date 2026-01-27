@@ -10,6 +10,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class AccountInCustomerCreditNoteDto extends Model
 {
+    /** Account &gt; The account number. */
+    #[Property]
+    public ?string $type;
+
     /** Account class &gt; The identifier of the account class. */
     #[Property]
     public ?string $externalCode1;

@@ -8,5 +8,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class VoidPaymentActionDto extends Model
 {
     #[Property]
+    public ?string $type;
+
+    #[Property]
     public ?bool $returnVoidPayment;
 }

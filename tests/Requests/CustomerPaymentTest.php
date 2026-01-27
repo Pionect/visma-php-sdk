@@ -15,6 +15,7 @@ beforeEach(function () {
 it('calls the customerPaymentGetBypaymentNumber method in the CustomerPayment resource', function () {
     Saloon::fake([
         CustomerPaymentGetBypaymentNumberRequest::class => MockResponse::make([
+            'type' => 'String value',
             'refNbr' => 'String value',
             'status' => 'String value',
             'hold' => true,
@@ -59,6 +60,7 @@ it('calls the customerPaymentGetBypaymentNumber method in the CustomerPayment re
     $dto = $response->dto();
 
     expect($dto)
+        ->type->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->hold->toBeTrue()
@@ -91,6 +93,7 @@ it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPaym
     Saloon::fake([
         CustomerPaymentGetAllPaymentsCollectionRequest::class => MockResponse::make([
             0 => [
+                'type' => 'String value',
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
@@ -125,6 +128,7 @@ it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPaym
                 ],
             ],
             1 => [
+                'type' => 'String value',
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
@@ -174,6 +178,7 @@ it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPaym
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
+        ->type->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->hold->toBeTrue()

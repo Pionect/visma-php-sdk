@@ -51,6 +51,7 @@ it('calls the kitAssemblyGetKitAssembliesCollection method in the KitAssembly re
 it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly resource', function () {
     Saloon::fake([
         KitAssemblyGetKitAssemblyBytyperefNoRequest::class => MockResponse::make([
+            'type' => 'String value',
             'refNo' => 'String value',
             'status' => 'String value',
             'hold' => true,
@@ -89,6 +90,7 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
     $dto = $response->dto();
 
     expect($dto)
+        ->type->toBe('String value')
         ->refNo->toBe('String value')
         ->status->toBe('String value')
         ->hold->toBeTrue()

@@ -14,6 +14,9 @@ class InventoryUpdateDto extends Model
     public ?\DtoValueOfInventoryStatus $status;
 
     #[Property]
+    public ?\DtoValueOfInventoryType $type;
+
+    #[Property]
     public ?\DtoValueOfString $description;
 
     #[Property]

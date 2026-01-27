@@ -38,6 +38,10 @@ class ContractUsageLineDto extends Model
     #[DateTime]
     public ?\Carbon\Carbon $date;
 
+    /** Transaction history tab &gt; Type &gt; The type of the customer ledger document. */
+    #[Property]
+    public ?string $type;
+
     /** Transaction history tab &gt; Ref. no. &gt; The reference number of the document/invoice. */
     #[Property]
     public ?string $referenceNbr;

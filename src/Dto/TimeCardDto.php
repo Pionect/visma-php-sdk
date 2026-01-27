@@ -26,6 +26,10 @@ class TimeCardDto extends Model
     #[Property]
     public ?\employeeInTimeCardDto $employee;
 
+    /** The top part &gt; Type &gt; The type of the time card. The following options are available:• Normal: Regular time card• Correction: Corrective time card, which is a time card that updates a released time card */
+    #[Property]
+    public ?string $type;
+
     /** The top part &gt; Orig. ref. no. &gt; The reference number of the time card being corrected. This box is filled in only when Correction is specified in the Type box */
     #[Property]
     public ?string $origRefNbr;

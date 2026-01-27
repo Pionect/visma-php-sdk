@@ -19,6 +19,10 @@ class PackageDetailLineDto extends Model
     #[Property]
     public ?string $boxId;
 
+    /** Packages tab &gt; Type &gt; The type of package: Auto or Manual. */
+    #[Property]
+    public ?string $type;
+
     /** Packages tab &gt; Description &gt; The description of the item or description of the box contents. */
     #[Property]
     public ?string $description;

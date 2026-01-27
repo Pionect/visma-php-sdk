@@ -17,6 +17,9 @@ class UiExtensionDto extends Model
     public ?string $url;
 
     #[Property]
+    public ?string $type;
+
+    #[Property]
     public ?string $screenId;
 
     #[Property]

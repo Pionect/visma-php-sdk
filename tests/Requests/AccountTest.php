@@ -19,6 +19,7 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
             'accountCd' => 'String value',
             'accountGroupCd' => 'String value',
             'accountClass' => 'String value',
+            'type' => 'String value',
             'active' => true,
             'description' => 'String value',
             'accountClassDescription' => 'String value',
@@ -56,6 +57,7 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
         ->accountCd->toBe('String value')
         ->accountGroupCd->toBe('String value')
         ->accountClass->toBe('String value')
+        ->type->toBe('String value')
         ->active->toBeTrue()
         ->description->toBe('String value')
         ->accountClassDescription->toBe('String value')
@@ -83,6 +85,7 @@ it('calls the accountGetAllCollection method in the Account resource', function 
                 'accountCd' => 'String value',
                 'accountGroupCd' => 'String value',
                 'accountClass' => 'String value',
+                'type' => 'String value',
                 'active' => true,
                 'description' => 'String value',
                 'accountClassDescription' => 'String value',
@@ -110,6 +113,7 @@ it('calls the accountGetAllCollection method in the Account resource', function 
                 'accountCd' => 'String value',
                 'accountGroupCd' => 'String value',
                 'accountClass' => 'String value',
+                'type' => 'String value',
                 'active' => true,
                 'description' => 'String value',
                 'accountClassDescription' => 'String value',
@@ -152,6 +156,7 @@ it('calls the accountGetAllCollection method in the Account resource', function 
         ->accountCd->toBe('String value')
         ->accountGroupCd->toBe('String value')
         ->accountClass->toBe('String value')
+        ->type->toBe('String value')
         ->active->toBeTrue()
         ->description->toBe('String value')
         ->accountClassDescription->toBe('String value')

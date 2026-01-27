@@ -16,6 +16,10 @@ class EmployeeTimeCardQueryParameters extends Model
     #[Property]
     public ?string $week;
 
+    /** Identifies the type of the time card (Normal, Corrected, NormalCorrected) */
+    #[Property]
+    public ?string $type;
+
     /** Greater-than value. The item which is the object for this, varies from API to API. */
     #[Property]
     public ?string $greaterThanValue;

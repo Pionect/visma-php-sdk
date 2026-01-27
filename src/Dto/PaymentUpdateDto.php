@@ -12,6 +12,9 @@ class PaymentUpdateDto extends Model
     public ?\referenceNumberInPaymentUpdateDto $referenceNumber;
 
     #[Property]
+    public ?\typeInPaymentUpdateDto $type;
+
+    #[Property]
     public ?\holdInPaymentUpdateDto $hold;
 
     #[Property]

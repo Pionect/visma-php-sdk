@@ -11,6 +11,9 @@ class RotRutUpdateDto extends Model
     public ?\DtoValueOfNullableOfBoolean $distributedAutomaticaly;
 
     #[Property]
+    public ?\DtoValueOfNullableOfRutRotTypes $type;
+
+    #[Property]
     public ?\DtoValueOfString $appartment;
 
     #[Property]

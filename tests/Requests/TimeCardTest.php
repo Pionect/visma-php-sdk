@@ -24,6 +24,7 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
             'approvalStatus' => 'String value',
             'week' => null,
             'employee' => null,
+            'type' => 'String value',
             'origRefNbr' => 'String value',
             'timeSpent' => '2025-11-22T10:40:04.065Z',
             'invoiceable' => 42,
@@ -58,6 +59,7 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
         ->approvalStatus->toBe('String value')
         ->week->toBeNull()
         ->employee->toBeNull()
+        ->type->toBe('String value')
         ->origRefNbr->toBe('String value')
         ->timeSpent->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->invoiceable->toBe(42)
@@ -80,6 +82,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
                 'approvalStatus' => 'String value',
                 'week' => null,
                 'employee' => null,
+                'type' => 'String value',
                 'origRefNbr' => 'String value',
                 'timeSpent' => '2025-11-22T10:40:04.065Z',
                 'invoiceable' => 42,
@@ -104,6 +107,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
                 'approvalStatus' => 'String value',
                 'week' => null,
                 'employee' => null,
+                'type' => 'String value',
                 'origRefNbr' => 'String value',
                 'timeSpent' => '2025-11-22T10:40:04.065Z',
                 'invoiceable' => 42,
@@ -143,6 +147,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
         ->approvalStatus->toBe('String value')
         ->week->toBeNull()
         ->employee->toBeNull()
+        ->type->toBe('String value')
         ->origRefNbr->toBe('String value')
         ->timeSpent->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->invoiceable->toBe(42)

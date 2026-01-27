@@ -24,6 +24,10 @@ class AccountDto extends Model
     #[Property]
     public ?string $accountClass;
 
+    /** The table &gt; Type &gt; The type of account: Asset, Liability, Income, or Expense. */
+    #[Property]
+    public ?string $type;
+
     /** The table &gt; Active &gt; A check box that indicates that the account is active. */
     #[Property]
     public ?bool $active;

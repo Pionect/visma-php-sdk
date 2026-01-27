@@ -29,6 +29,7 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
             'bookBalance' => null,
             'location' => null,
             'propertyTax' => null,
+            'type' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
         ], 200),
@@ -62,6 +63,7 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
         ->bookBalance->toBeNull()
         ->location->toBeNull()
         ->propertyTax->toBeNull()
+        ->type->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('String value');
 });
@@ -84,6 +86,7 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
                 'bookBalance' => null,
                 'location' => null,
                 'propertyTax' => null,
+                'type' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
                 'metadata' => [
@@ -106,6 +109,7 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
                 'bookBalance' => null,
                 'location' => null,
                 'propertyTax' => null,
+                'type' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
                 'metadata' => [
@@ -143,6 +147,7 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
         ->bookBalance->toBeNull()
         ->location->toBeNull()
         ->propertyTax->toBeNull()
+        ->type->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->errorInfo->toBe('String value');
 });

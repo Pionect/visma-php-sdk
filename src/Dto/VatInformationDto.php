@@ -20,6 +20,10 @@ class VatInformationDto extends Model
     #[Property]
     public ?string $description;
 
+    /** VAT settings tab &gt; VAT type &gt; The type of VAT. */
+    #[Property]
+    public ?string $type;
+
     /** VAT settings tab &gt; Partially deductible VAT &gt; A check box that indicates (if selected) that this is a deductible value-added VAT. */
     #[Property]
     public ?bool $deductibleVat;

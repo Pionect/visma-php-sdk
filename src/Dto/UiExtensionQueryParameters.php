@@ -9,4 +9,7 @@ class UiExtensionQueryParameters extends Model
 {
     #[Property]
     public ?string $screenId;
+
+    #[Property]
+    public ?string $type;
 }

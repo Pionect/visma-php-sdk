@@ -19,6 +19,10 @@ class VatCategoryLineDto extends Model
     #[Property]
     public ?string $description;
 
+    /** VAT type &gt; The type of VAT, which defines how it is processed. */
+    #[Property]
+    public ?string $type;
+
     /** Calculate on &gt; The way the VAT amount is calculated, which can be one of the following options: Extract from item amount, Document amount, Document and VAT amount. */
     #[Property]
     public ?string $calculateOn;

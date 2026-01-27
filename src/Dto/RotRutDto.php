@@ -20,6 +20,9 @@ class RotRutDto extends Model
     public ?bool $distributedAutomaticaly;
 
     #[Property]
+    public ?string $type;
+
+    #[Property]
     public ?float $totalDeductableAmount;
 
     #[Property]

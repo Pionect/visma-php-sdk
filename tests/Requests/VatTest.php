@@ -18,6 +18,7 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
             'vatCategoryId' => 'mock-id-123',
             'vatId' => 'mock-id-123',
             'description' => 'String value',
+            'type' => 'String value',
             'deductibleVat' => true,
             'reverseVat' => true,
             'statisticalVat' => true,
@@ -57,6 +58,7 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
         ->vatCategoryId->toBe('mock-id-123')
         ->vatId->toBe('mock-id-123')
         ->description->toBe('String value')
+        ->type->toBe('String value')
         ->deductibleVat->toBeTrue()
         ->reverseVat->toBeTrue()
         ->statisticalVat->toBeTrue()
@@ -83,6 +85,7 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
                 'vatCategoryId' => 'mock-id-123',
                 'vatId' => 'mock-id-123',
                 'description' => 'String value',
+                'type' => 'String value',
                 'deductibleVat' => true,
                 'reverseVat' => true,
                 'statisticalVat' => true,
@@ -108,6 +111,7 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
                 'vatCategoryId' => 'mock-id-123',
                 'vatId' => 'mock-id-123',
                 'description' => 'String value',
+                'type' => 'String value',
                 'deductibleVat' => true,
                 'reverseVat' => true,
                 'statisticalVat' => true,
@@ -148,6 +152,7 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
         ->vatCategoryId->toBe('mock-id-123')
         ->vatId->toBe('mock-id-123')
         ->description->toBe('String value')
+        ->type->toBe('String value')
         ->deductibleVat->toBeTrue()
         ->reverseVat->toBeTrue()
         ->statisticalVat->toBeTrue()

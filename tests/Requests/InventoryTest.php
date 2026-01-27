@@ -28,6 +28,7 @@ it('calls the inventoryGetItemClassesCollection method in the Inventory resource
     Saloon::fake([
         InventoryGetItemClassesCollectionRequest::class => MockResponse::make([
             0 => [
+                'type' => 'String value',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
@@ -37,6 +38,7 @@ it('calls the inventoryGetItemClassesCollection method in the Inventory resource
                 ],
             ],
             1 => [
+                'type' => 'String value',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
@@ -61,6 +63,7 @@ it('calls the inventoryGetItemClassesCollection method in the Inventory resource
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
+        ->type->toBe('String value')
         ->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -68,6 +71,7 @@ it('calls the inventoryGetItemClassesCollection method in the Inventory resource
 it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetSpecificItemClassByitemClassNumberRequest::class => MockResponse::make([
+            'type' => 'String value',
             'attributes' => [],
             'description' => 'String value',
             'errorInfo' => 'String value',
@@ -87,6 +91,7 @@ it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inven
     $dto = $response->dto();
 
     expect($dto)
+        ->type->toBe('String value')
         ->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -133,6 +138,7 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
             'inventoryId' => 42,
             'inventoryNumber' => 'String value',
             'status' => 'String value',
+            'type' => 'String value',
             'description' => 'String value',
             'body' => 'String value',
             'itemClass' => null,
@@ -193,6 +199,7 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
         ->status->toBe('String value')
+        ->type->toBe('String value')
         ->description->toBe('String value')
         ->body->toBe('String value')
         ->itemClass->toBeNull()
@@ -235,6 +242,7 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
             'inventoryId' => 42,
             'inventoryNumber' => 'String value',
             'status' => 'String value',
+            'type' => 'String value',
             'description' => 'String value',
             'body' => 'String value',
             'itemClass' => null,
@@ -295,6 +303,7 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
         ->status->toBe('String value')
+        ->type->toBe('String value')
         ->description->toBe('String value')
         ->body->toBe('String value')
         ->itemClass->toBeNull()
@@ -338,6 +347,7 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'inventoryId' => 42,
                 'inventoryNumber' => 'String value',
                 'status' => 'String value',
+                'type' => 'String value',
                 'description' => 'String value',
                 'body' => 'String value',
                 'itemClass' => null,
@@ -388,6 +398,7 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'inventoryId' => 42,
                 'inventoryNumber' => 'String value',
                 'status' => 'String value',
+                'type' => 'String value',
                 'description' => 'String value',
                 'body' => 'String value',
                 'itemClass' => null,
@@ -453,6 +464,7 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
         ->status->toBe('String value')
+        ->type->toBe('String value')
         ->description->toBe('String value')
         ->body->toBe('String value')
         ->itemClass->toBeNull()

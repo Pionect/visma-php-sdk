@@ -225,6 +225,7 @@ it('calls the customerInvoiceGetRotRutByrefNbr method in the CustomerInvoice res
             'docType' => 'String value',
             'refNbr' => 'String value',
             'distributedAutomaticaly' => true,
+            'type' => 'String value',
             'totalDeductableAmount' => 3.14,
             'otherCost' => 3.14,
             'materialCost' => 3.14,
@@ -253,6 +254,7 @@ it('calls the customerInvoiceGetRotRutByrefNbr method in the CustomerInvoice res
         ->docType->toBe('String value')
         ->refNbr->toBe('String value')
         ->distributedAutomaticaly->toBeTrue()
+        ->type->toBe('String value')
         ->totalDeductableAmount->toBe(3.14)
         ->otherCost->toBe(3.14)
         ->materialCost->toBe(3.14)

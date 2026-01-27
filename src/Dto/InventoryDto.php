@@ -20,6 +20,10 @@ class InventoryDto extends Model
     #[Property]
     public ?string $status;
 
+    /** General information tab &gt; Item defaults section &gt; Type &gt; The type of stock item. */
+    #[Property]
+    public ?string $type;
+
     /** The top part &gt; Description *&gt; A brief description of the stock item. */
     #[Property]
     public ?string $description;

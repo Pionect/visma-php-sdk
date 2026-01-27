@@ -12,7 +12,14 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class PrimaryItemClassInWarehouseLocationDto extends Model
 {
     #[Property]
+    public ?string $type;
+
+    #[Property]
     public ?array $attributes;
+
+    /** The identifier. */
+    #[Property]
+    public ?string $id;
 
     /** The description. */
     #[Property]

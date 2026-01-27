@@ -41,6 +41,9 @@ class AccountUpdateDto extends Model
     public ?\DtoValueOfString $publicCode1;
 
     #[Property]
+    public ?\DtoValueOfAccountTypes $type;
+
+    #[Property]
     public ?\DtoValueOfBoolean $useDefaultSub;
 
     #[Property]

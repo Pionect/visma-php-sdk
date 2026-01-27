@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class KitAssemblyUpdateDto extends Model
 {
+    /** Type, possible values: P - Production, D - Disassembly */
+    #[Property]
+    public ?string $type;
+
     #[Property]
     public ?string $refNo;
 

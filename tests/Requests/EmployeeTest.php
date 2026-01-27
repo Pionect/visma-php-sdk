@@ -158,6 +158,7 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
                 'approvalStatus' => 'String value',
                 'week' => null,
                 'employee' => null,
+                'type' => 'String value',
                 'origRefNbr' => 'String value',
                 'timeSpent' => '2025-11-22T10:40:04.065Z',
                 'invoiceable' => 42,
@@ -182,6 +183,7 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
                 'approvalStatus' => 'String value',
                 'week' => null,
                 'employee' => null,
+                'type' => 'String value',
                 'origRefNbr' => 'String value',
                 'timeSpent' => '2025-11-22T10:40:04.065Z',
                 'invoiceable' => 42,
@@ -221,6 +223,7 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
         ->approvalStatus->toBe('String value')
         ->week->toBeNull()
         ->employee->toBeNull()
+        ->type->toBe('String value')
         ->origRefNbr->toBe('String value')
         ->timeSpent->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->invoiceable->toBe(42)

@@ -47,6 +47,7 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
             'internalId' => 'mock-id-123',
             'title' => 'String value',
             'url' => 'String value',
+            'type' => 'String value',
             'screenId' => 'mock-id-123',
             'stepId' => 'mock-id-123',
             'ownerName' => 'String value',
@@ -72,6 +73,7 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
         ->internalId->toBe('mock-id-123')
         ->title->toBe('String value')
         ->url->toBe('String value')
+        ->type->toBe('String value')
         ->screenId->toBe('mock-id-123')
         ->stepId->toBe('mock-id-123')
         ->ownerName->toBe('String value')

@@ -11,6 +11,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ExpenseAccountImportInSupplierGlAccountsDto extends Model
 {
+    #[Property]
+    public ?string $type;
+
     /** Number of item */
     #[Property]
     public ?string $number;

@@ -18,6 +18,7 @@ beforeEach(function () {
 it('calls the paymentGetBypaymentNumber method in the Payment resource', function () {
     Saloon::fake([
         PaymentGetBypaymentNumberRequest::class => MockResponse::make([
+            'type' => 'String value',
             'refNbr' => 'String value',
             'status' => 'String value',
             'hold' => true,
@@ -62,6 +63,7 @@ it('calls the paymentGetBypaymentNumber method in the Payment resource', functio
     $dto = $response->dto();
 
     expect($dto)
+        ->type->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->hold->toBeTrue()
@@ -94,6 +96,7 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
     Saloon::fake([
         PaymentGetAllPaymentsCollectionRequest::class => MockResponse::make([
             0 => [
+                'type' => 'String value',
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
@@ -128,6 +131,7 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
                 ],
             ],
             1 => [
+                'type' => 'String value',
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
@@ -177,6 +181,7 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
+        ->type->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->hold->toBeTrue()
@@ -243,10 +248,10 @@ it('calls the paymentVoidPaymentBypaymentNumber method in the Payment resource',
 
     // Create DTO with sample data
     $dto = \Pionect\VismaSdk\Dto\VoidPaymentActionResultDto::factory()->state([
+        'type' => 'test value',
         'refNbr' => 'test value',
         'voidPayment' => 'test value',
         'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
     ])->make();
 
     $request = new PaymentVoidPaymentBypaymentNumberRequest(paymentNumberId: 'payment_number_id-123', data: $dto);
@@ -259,10 +264,10 @@ it('calls the paymentVoidPaymentBypaymentNumber method in the Payment resource',
             ->toHaveKey('data')
             ->data->type->toBe('payments')
             ->data->attributes->scoped(fn ($attributes) => $attributes
+            ->type->toBe('test value')
             ->refNbr->toBe('test value')
             ->voidPayment->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
             );
 
         return true;

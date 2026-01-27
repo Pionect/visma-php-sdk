@@ -24,7 +24,8 @@
         "nesbot/carbon": "^2.0 || ^3.0",
         "saloonphp/laravel-plugin": "^3.0",
         "saloonphp/pagination-plugin": "^2.0",
-        "saloonphp/saloon": "^3.0"
+        "saloonphp/saloon": "^3.0",
+        "spatie/laravel-data": "^4.0"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.48",

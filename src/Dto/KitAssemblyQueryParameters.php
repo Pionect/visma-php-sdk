@@ -26,6 +26,9 @@ class KitAssemblyQueryParameters extends Model
     public ?string $createdDateTimeCondition;
 
     #[Property]
+    public ?string $type;
+
+    #[Property]
     public ?string $refNo;
 
     /** Filter by Kit Assembly Status. Possible values: H (Hold), B (Balanced), R (Released) */

@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class SupplierPaymentDto extends Model
 {
+    /** The top part &gt; Type &gt;The type of supplier ledger payment document. The following types are available: Payment, PUrchase credit note, Prepayment, Supplier refund, Voided payment. */
+    #[Property]
+    public ?string $type;
+
     /** The top part &gt; Voucher no. &gt; The unique identifier of the supplier ledger document. */
     #[Property]
     public ?string $documentType;

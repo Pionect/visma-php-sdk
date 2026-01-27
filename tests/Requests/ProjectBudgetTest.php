@@ -27,6 +27,7 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
                 'revisedBudgetAmount' => 3.14,
                 'actualQty' => 3.14,
                 'actualAmount' => 3.14,
+                'type' => 'String value',
                 'committedQty' => 3.14,
                 'committedAmount' => 3.14,
                 'committedOpenQty' => 3.14,
@@ -54,6 +55,7 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
                 'revisedBudgetAmount' => 3.14,
                 'actualQty' => 3.14,
                 'actualAmount' => 3.14,
+                'type' => 'String value',
                 'committedQty' => 3.14,
                 'committedAmount' => 3.14,
                 'committedOpenQty' => 3.14,
@@ -96,6 +98,7 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
         ->revisedBudgetAmount->toBe(3.14)
         ->actualQty->toBe(3.14)
         ->actualAmount->toBe(3.14)
+        ->type->toBe('String value')
         ->committedQty->toBe(3.14)
         ->committedAmount->toBe(3.14)
         ->committedOpenQty->toBe(3.14)

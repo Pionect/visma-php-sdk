@@ -11,6 +11,9 @@ class RotRutBasicDto extends Model
     public ?bool $distributedAutomaticaly;
 
     #[Property]
+    public ?string $type;
+
+    #[Property]
     public ?string $appartment;
 
     #[Property]

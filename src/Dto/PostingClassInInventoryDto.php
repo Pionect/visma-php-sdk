@@ -11,6 +11,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PostingClassInInventoryDto extends Model
 {
+    /** The identifier. */
+    #[Property]
+    public ?string $id;
+
     /** The description. */
     #[Property]
     public ?string $description;

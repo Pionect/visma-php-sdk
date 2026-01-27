@@ -45,6 +45,12 @@ class GenerateCommand extends Command
                 null,
                 InputOption::VALUE_NONE,
                 'Show what would be generated without writing files'
+            )
+            ->addOption(
+                'skip-pint',
+                null,
+                InputOption::VALUE_NONE,
+                'Don\'t run Pint to format generated files'
             );
     }
 
@@ -139,8 +145,12 @@ class GenerateCommand extends Command
             $this->io->section('Writing Files');
             $this->writeGeneratedFiles($this->io, $result, $outputDir);
 
-            // Run Pint to format generated files
-            (new PintRunner)->run($outputDir, $this->io);
+            $skipPint = $input->getOption('skip-pint');
+
+            if (! $skipPint) {
+                // Run Pint to format generated files
+                (new PintRunner)->run($outputDir, $this->io);
+            }
 
             $this->io->success("SDK generated successfully in {$outputDir}");
         }
