@@ -11,6 +11,27 @@ use Timatic\JsonApiSdk\Generators\JsonApiDtoGenerator;
 class PlainJsonDtoGenerator extends JsonApiDtoGenerator
 {
     /**
+     * Generate DTO classes, skipping DtoValueOf wrapper classes.
+     */
+    public function generate(ApiSpecification $specification): PhpFile|array
+    {
+        $this->specification = $specification;
+
+        if ($specification->components) {
+            foreach ($specification->components->schemas as $className => $schema) {
+                // Skip DtoValueOf wrapper classes entirely
+                if (str_starts_with($className, 'DtoValueOf')) {
+                    continue;
+                }
+
+                $this->generateModelClass(NameHelper::safeClassName($className), $schema);
+            }
+        }
+
+        return $this->generated;
+    }
+
+    /**
      * Extract properties directly from schema (no JSON:API attributes wrapper).
      *
      * @return Schema[]
