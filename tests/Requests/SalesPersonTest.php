@@ -25,6 +25,7 @@ it('calls the salesPersonGetSalespersonBysalespersonCd method in the SalesPerson
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -48,7 +49,8 @@ it('calls the salesPersonGetSalespersonBysalespersonCd method in the SalesPerson
         ->salesSub->toBeNull()
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesPersonGetSalespersonsCollection method in the SalesPerson resource', function () {
@@ -59,12 +61,14 @@ it('calls the salesPersonGetSalespersonsCollection method in the SalesPerson res
                 'pageSize' => 42,
                 'totalCount' => 42,
                 'records' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'pageNumber' => 42,
                 'pageSize' => 42,
                 'totalCount' => 42,
                 'records' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -84,5 +88,6 @@ it('calls the salesPersonGetSalespersonsCollection method in the SalesPerson res
     expect($dtoCollection->first())
         ->pageNumber->toBe(42)
         ->pageSize->toBe(42)
-        ->totalCount->toBe(42);
+        ->totalCount->toBe(42)
+        ->id->toBe('mock-id-123');
 });

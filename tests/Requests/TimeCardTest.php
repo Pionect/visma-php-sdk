@@ -38,6 +38,7 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
             'approvalStatusText' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -70,7 +71,8 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard resource', function () {
@@ -96,6 +98,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -121,6 +124,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -158,7 +162,8 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the timeCardSubmitTimeCardBytimeCardCd method in the TimeCard resource', function () {

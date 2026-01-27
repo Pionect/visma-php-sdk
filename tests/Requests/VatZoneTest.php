@@ -18,6 +18,7 @@ it('calls the vatZoneGetVatZoneByvatZoneId method in the VatZone resource', func
             'defaultVatCategory' => 'String value',
             'defaultTaxCategory' => null,
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -37,7 +38,8 @@ it('calls the vatZoneGetVatZoneByvatZoneId method in the VatZone resource', func
         ->description->toBe('String value')
         ->defaultVatCategory->toBe('String value')
         ->defaultTaxCategory->toBeNull()
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the vatZoneGetVatZonesCollection method in the VatZone resource', function () {
@@ -48,6 +50,7 @@ it('calls the vatZoneGetVatZonesCollection method in the VatZone resource', func
                 'defaultVatCategory' => 'String value',
                 'defaultTaxCategory' => null,
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -58,6 +61,7 @@ it('calls the vatZoneGetVatZonesCollection method in the VatZone resource', func
                 'defaultVatCategory' => 'String value',
                 'defaultTaxCategory' => null,
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -82,5 +86,6 @@ it('calls the vatZoneGetVatZonesCollection method in the VatZone resource', func
         ->description->toBe('String value')
         ->defaultVatCategory->toBe('String value')
         ->defaultTaxCategory->toBeNull()
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

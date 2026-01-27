@@ -26,6 +26,7 @@ it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Backg
             'hasResponseContent' => true,
             'hasRequestContent' => true,
             'contentLocation' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -52,5 +53,6 @@ it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Backg
         ->originalUri->toBe('String value')
         ->hasResponseContent->toBeTrue()
         ->hasRequestContent->toBeTrue()
-        ->contentLocation->toBe('String value');
+        ->contentLocation->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

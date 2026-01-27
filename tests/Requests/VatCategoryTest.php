@@ -21,6 +21,7 @@ it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory
             'excludeListedTaxes' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'vatCategoryLines' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -42,7 +43,8 @@ it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory
         ->description->toBe('String value')
         ->active->toBeTrue()
         ->excludeListedTaxes->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory resource', function () {
@@ -55,6 +57,7 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
                 'excludeListedTaxes' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'vatCategoryLines' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'vatCategoryId' => 'mock-id-123',
@@ -63,6 +66,7 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
                 'excludeListedTaxes' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'vatCategoryLines' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -84,5 +88,6 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
         ->description->toBe('String value')
         ->active->toBeTrue()
         ->excludeListedTaxes->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });

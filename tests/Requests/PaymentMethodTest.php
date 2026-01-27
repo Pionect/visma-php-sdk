@@ -20,6 +20,7 @@ it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod 
             'description' => 'String value',
             'useInAp' => true,
             'details' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -40,7 +41,8 @@ it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod 
         ->active->toBeTrue()
         ->meansOfPayment->toBe('String value')
         ->description->toBe('String value')
-        ->useInAp->toBeTrue();
+        ->useInAp->toBeTrue()
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMethod resource', function () {
@@ -53,6 +55,7 @@ it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMe
                 'description' => 'String value',
                 'useInAp' => true,
                 'details' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'paymentMethodId' => 'mock-id-123',
@@ -61,6 +64,7 @@ it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMe
                 'description' => 'String value',
                 'useInAp' => true,
                 'details' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -82,5 +86,6 @@ it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMe
         ->active->toBeTrue()
         ->meansOfPayment->toBe('String value')
         ->description->toBe('String value')
-        ->useInAp->toBeTrue();
+        ->useInAp->toBeTrue()
+        ->id->toBe('mock-id-123');
 });

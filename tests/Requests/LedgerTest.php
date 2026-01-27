@@ -25,6 +25,7 @@ it('calls the ledgerGetAllLedgersCollection method in the Ledger resource', func
                 'branchAccounting' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'postInterCompany' => true,
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'internalId' => 42,
@@ -37,6 +38,7 @@ it('calls the ledgerGetAllLedgersCollection method in the Ledger resource', func
                 'branchAccounting' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'postInterCompany' => true,
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -63,5 +65,6 @@ it('calls the ledgerGetAllLedgersCollection method in the Ledger resource', func
         ->consolBranch->toBeNull()
         ->branchAccounting->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postInterCompany->toBeTrue();
+        ->postInterCompany->toBeTrue()
+        ->id->toBe('mock-id-123');
 });

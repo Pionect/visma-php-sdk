@@ -25,6 +25,7 @@ it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction res
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'lines' => [],
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -49,7 +50,8 @@ it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction res
         ->origDocType->toBe('String value')
         ->note->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the projectTransactionGetAllCollection method in the ProjectTransaction resource', function () {
@@ -66,6 +68,7 @@ it('calls the projectTransactionGetAllCollection method in the ProjectTransactio
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'lines' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -82,6 +85,7 @@ it('calls the projectTransactionGetAllCollection method in the ProjectTransactio
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'lines' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -111,5 +115,6 @@ it('calls the projectTransactionGetAllCollection method in the ProjectTransactio
         ->origDocType->toBe('String value')
         ->note->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

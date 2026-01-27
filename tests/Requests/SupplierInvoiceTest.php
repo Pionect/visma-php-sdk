@@ -82,6 +82,7 @@ it('calls the supplierInvoiceGetByinvoiceNumber method in the SupplierInvoice re
             'cashAccount' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -158,7 +159,8 @@ it('calls the supplierInvoiceGetByinvoiceNumber method in the SupplierInvoice re
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumber method in the SupplierInvoice resource', function () {
@@ -227,6 +229,7 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumber method in the 
             'cashAccount' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -304,7 +307,8 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumber method in the 
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvoice resource', function () {
@@ -374,6 +378,7 @@ it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvo
                 'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -443,6 +448,7 @@ it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvo
                 'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -522,7 +528,8 @@ it('calls the supplierInvoiceGetAllInvoicesCollection method in the SupplierInvo
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the SupplierInvoice resource', function () {
@@ -592,6 +599,7 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the Sup
                 'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -661,6 +669,7 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the Sup
                 'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -740,7 +749,8 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdCollection method in the Sup
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierInvoiceWriteoffInvoiceBydocumentTypeinvoiceNumber method in the SupplierInvoice resource', function () {

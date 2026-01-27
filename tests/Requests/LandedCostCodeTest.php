@@ -29,6 +29,7 @@ it('calls the landedCostCodeGetAllLandedCostsBycode method in the LandedCostCode
             'landedCostVarianceAccount' => 'String value',
             'landedCostVarianceSubaccount' => 'String value',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -59,7 +60,8 @@ it('calls the landedCostCodeGetAllLandedCostsBycode method in the LandedCostCode
         ->vatCategory->toBe('String value')
         ->landedCostVarianceAccount->toBe('String value')
         ->landedCostVarianceSubaccount->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the landedCostCodeGetAllLandedCostsCollection method in the LandedCostCode resource', function () {
@@ -81,6 +83,7 @@ it('calls the landedCostCodeGetAllLandedCostsCollection method in the LandedCost
                 'landedCostVarianceAccount' => 'String value',
                 'landedCostVarianceSubaccount' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -102,6 +105,7 @@ it('calls the landedCostCodeGetAllLandedCostsCollection method in the LandedCost
                 'landedCostVarianceAccount' => 'String value',
                 'landedCostVarianceSubaccount' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -137,5 +141,6 @@ it('calls the landedCostCodeGetAllLandedCostsCollection method in the LandedCost
         ->vatCategory->toBe('String value')
         ->landedCostVarianceAccount->toBe('String value')
         ->landedCostVarianceSubaccount->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

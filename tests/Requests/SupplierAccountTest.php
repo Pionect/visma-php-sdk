@@ -15,6 +15,7 @@ it('calls the supplierAccountGetBysupplierId method in the SupplierAccount resou
         SupplierAccountGetBysupplierIdRequest::class => MockResponse::make([
             'supplierAccount' => null,
             'supplierItemAccounts' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -34,5 +35,6 @@ it('calls the supplierAccountGetBysupplierId method in the SupplierAccount resou
     $dto = $response->dto();
 
     expect($dto)
-        ->supplierAccount->toBeNull();
+        ->supplierAccount->toBeNull()
+        ->id->toBe('mock-id-123');
 });

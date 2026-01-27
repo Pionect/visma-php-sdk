@@ -84,6 +84,7 @@ it('calls the customerDebitNoteGetBydebitNoteNumber method in the CustomerDebitN
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -162,7 +163,8 @@ it('calls the customerDebitNoteGetBydebitNoteNumber method in the CustomerDebitN
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerDebitNoteGetAllCollection method in the CustomerDebitNote resource', function () {
@@ -236,6 +238,7 @@ it('calls the customerDebitNoteGetAllCollection method in the CustomerDebitNote 
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -309,6 +312,7 @@ it('calls the customerDebitNoteGetAllCollection method in the CustomerDebitNote 
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -392,7 +396,8 @@ it('calls the customerDebitNoteGetAllCollection method in the CustomerDebitNote 
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerDebitNoteReleaseDocumentBydebitNoteNumber method in the CustomerDebitNote resource', function () {

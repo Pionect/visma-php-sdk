@@ -16,10 +16,12 @@ it('calls the currencyRateTypeGetAllCollection method in the CurrencyRateType re
             0 => [
                 'description' => 'String value',
                 'daysEffective' => 42,
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'description' => 'String value',
                 'daysEffective' => 42,
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -38,5 +40,6 @@ it('calls the currencyRateTypeGetAllCollection method in the CurrencyRateType re
 
     expect($dtoCollection->first())
         ->description->toBe('String value')
-        ->daysEffective->toBe(42);
+        ->daysEffective->toBe(42)
+        ->id->toBe('mock-id-123');
 });

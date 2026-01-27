@@ -34,6 +34,7 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
                 'yearClosed' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -59,6 +60,7 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
                 'yearClosed' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -98,5 +100,6 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
         ->yearToDateBalanceInCurrency->toBe(3.14)
         ->yearClosed->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

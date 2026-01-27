@@ -95,6 +95,7 @@ it('calls the salesOrderV2getByorderNbr method in the SalesOrderV2 resource', fu
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -181,7 +182,8 @@ it('calls the salesOrderV2getByorderNbr method in the SalesOrderV2 resource', fu
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 resource', function () {
@@ -262,6 +264,7 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -342,6 +345,7 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -433,7 +437,8 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderV2createShipmentActionBysaleOrderNumber method in the SalesOrderV2 resource', function () {

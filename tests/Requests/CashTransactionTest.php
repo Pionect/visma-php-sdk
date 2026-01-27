@@ -44,6 +44,7 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
             'taxDetails' => [],
             'financialsDetail' => null,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -82,7 +83,8 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
         ->taxAmount->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->financialsDetail->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the cashTransactionGetAllCollection method in the CashTransaction resource', function () {
@@ -114,6 +116,7 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
                 'taxDetails' => [],
                 'financialsDetail' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'tranType' => 'String value',
@@ -141,6 +144,7 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
                 'taxDetails' => [],
                 'financialsDetail' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -180,7 +184,8 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
         ->taxAmount->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->financialsDetail->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the cashTransactionReleaseByreferenceNbr method in the CashTransaction resource', function () {

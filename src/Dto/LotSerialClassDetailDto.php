@@ -7,10 +7,6 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class LotSerialClassDetailDto extends Model
 {
-    /** The Id of the Lot Serial Class */
-    #[Property]
-    public ?string $id;
-
     /** Segment number for the Lot Serial segment */
     #[Property]
     public ?int $segmentNumber;

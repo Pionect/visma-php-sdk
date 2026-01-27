@@ -21,6 +21,7 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrde
             'defaultOperation' => 'String value',
             'customerDocumentType' => 'String value',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -43,7 +44,8 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrde
         ->behavior->toBe('String value')
         ->defaultOperation->toBe('String value')
         ->customerDocumentType->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesOrderType resource', function () {
@@ -57,6 +59,7 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesO
                 'defaultOperation' => 'String value',
                 'customerDocumentType' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -70,6 +73,7 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesO
                 'defaultOperation' => 'String value',
                 'customerDocumentType' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -97,5 +101,6 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesO
         ->behavior->toBe('String value')
         ->defaultOperation->toBe('String value')
         ->customerDocumentType->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

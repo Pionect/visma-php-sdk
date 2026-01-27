@@ -30,6 +30,7 @@ it('calls the projectBasicGetAllCollection method in the ProjectBasic resource',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'visibility' => null,
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -51,6 +52,7 @@ it('calls the projectBasicGetAllCollection method in the ProjectBasic resource',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'visibility' => null,
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -86,5 +88,6 @@ it('calls the projectBasicGetAllCollection method in the ProjectBasic resource',
         ->publicId->toBe('mock-id-123')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->visibility->toBeNull()
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

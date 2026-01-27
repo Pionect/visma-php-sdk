@@ -54,6 +54,22 @@ class PlainJsonCollectionTestGenerator extends CollectionRequestTestGenerator
     use PlainJsonDtoAssertions;
 
     /**
+     * Override to include 'id' field in mock data (required by Model base class)
+     * The parent's getPropertiesToSkipInTests doesn't help because 'id' isn't
+     * a property in the DTO class (it's in the base Model class).
+     */
+    protected function generateMockAttributesFromDto(string $dtoClassName): array
+    {
+        $attributes = parent::generateMockAttributesFromDto($dtoClassName);
+
+        // Always include id field (required by Model base class)
+        // Use fixed value to ensure assertions match mock data
+        $attributes['id'] = 'mock-id-123';
+
+        return $attributes;
+    }
+
+    /**
      * Generate mock data for collection response - plain JSON array format
      */
     public function generateMockData(Endpoint $endpoint): array
@@ -126,6 +142,22 @@ class PlainJsonCollectionTestGenerator extends CollectionRequestTestGenerator
 class PlainJsonSingularGetTestGenerator extends SingularGetRequestTestGenerator
 {
     use PlainJsonDtoAssertions;
+
+    /**
+     * Override to include 'id' field in mock data (required by Model base class)
+     * The parent's getPropertiesToSkipInTests doesn't help because 'id' isn't
+     * a property in the DTO class (it's in the base Model class).
+     */
+    protected function generateMockAttributesFromDto(string $dtoClassName): array
+    {
+        $attributes = parent::generateMockAttributesFromDto($dtoClassName);
+
+        // Always include id field (required by Model base class)
+        // Use fixed value to ensure assertions match mock data
+        $attributes['id'] = 'mock-id-123';
+
+        return $attributes;
+    }
 
     /**
      * Generate mock data for singular GET response - plain JSON object format

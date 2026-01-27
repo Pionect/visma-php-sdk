@@ -81,6 +81,7 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumber method in the PurchaseO
             'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -159,7 +160,8 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumber method in the PurchaseO
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the purchaseOrderGetAllOrderCollection method in the PurchaseOrder resource', function () {
@@ -232,6 +234,7 @@ it('calls the purchaseOrderGetAllOrderCollection method in the PurchaseOrder res
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -304,6 +307,7 @@ it('calls the purchaseOrderGetAllOrderCollection method in the PurchaseOrder res
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -386,5 +390,6 @@ it('calls the purchaseOrderGetAllOrderCollection method in the PurchaseOrder res
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

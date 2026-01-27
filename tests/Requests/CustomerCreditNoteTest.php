@@ -85,6 +85,7 @@ it('calls the customerCreditNoteGetBycreditNoteNumber method in the CustomerCred
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -164,7 +165,8 @@ it('calls the customerCreditNoteGetBycreditNoteNumber method in the CustomerCred
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerCreditNoteGetAllCollection method in the CustomerCreditNote resource', function () {
@@ -239,6 +241,7 @@ it('calls the customerCreditNoteGetAllCollection method in the CustomerCreditNot
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -313,6 +316,7 @@ it('calls the customerCreditNoteGetAllCollection method in the CustomerCreditNot
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -397,7 +401,8 @@ it('calls the customerCreditNoteGetAllCollection method in the CustomerCreditNot
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerCreditNoteReleaseDocumentBycreditNoteNumber method in the CustomerCreditNote resource', function () {

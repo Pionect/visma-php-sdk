@@ -17,10 +17,12 @@ it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension 
             0 => [
                 'screenId' => 'mock-id-123',
                 'stepIds' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'screenId' => 'mock-id-123',
                 'stepIds' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -38,7 +40,8 @@ it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension 
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->screenId->toBe('mock-id-123');
+        ->screenId->toBe('mock-id-123')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension resource', function () {
@@ -52,6 +55,7 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
             'stepId' => 'mock-id-123',
             'ownerName' => 'String value',
             'enabled' => true,
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -77,5 +81,6 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
         ->screenId->toBe('mock-id-123')
         ->stepId->toBe('mock-id-123')
         ->ownerName->toBe('String value')
-        ->enabled->toBeTrue();
+        ->enabled->toBeTrue()
+        ->id->toBe('mock-id-123');
 });

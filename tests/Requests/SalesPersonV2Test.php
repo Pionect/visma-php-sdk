@@ -25,6 +25,7 @@ it('calls the salesPersonV2getSalespersonBysalespersonCd method in the SalesPers
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -48,7 +49,8 @@ it('calls the salesPersonV2getSalespersonBysalespersonCd method in the SalesPers
         ->salesSub->toBeNull()
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesPersonV2getSalespersonsCollection method in the SalesPersonV2 resource', function () {
@@ -65,6 +67,7 @@ it('calls the salesPersonV2getSalespersonsCollection method in the SalesPersonV2
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -81,6 +84,7 @@ it('calls the salesPersonV2getSalespersonsCollection method in the SalesPersonV2
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -109,5 +113,6 @@ it('calls the salesPersonV2getSalespersonsCollection method in the SalesPersonV2
         ->salesSub->toBeNull()
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

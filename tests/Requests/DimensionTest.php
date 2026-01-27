@@ -20,6 +20,7 @@ it('calls the dimensionGetDimensionBydimensionId method in the Dimension resourc
             'length' => 42,
             'description' => 'String value',
             'segments' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -44,7 +45,8 @@ it('calls the dimensionGetDimensionBydimensionId method in the Dimension resourc
 
     expect($dto)
         ->length->toBe(42)
-        ->description->toBe('String value');
+        ->description->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension resource', function () {
@@ -62,6 +64,7 @@ it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension 
             'isAutoNumber' => true,
             'consolNumChar' => 42,
             'consolOrder' => 42,
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -89,7 +92,8 @@ it('calls the dimensionGetSegmentBydimensionIdsegmentId method in the Dimension 
         ->validate->toBeTrue()
         ->isAutoNumber->toBeTrue()
         ->consolNumChar->toBe(42)
-        ->consolOrder->toBe(42);
+        ->consolOrder->toBe(42)
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in the Dimension resource', function () {
@@ -104,6 +108,7 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in th
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'lastModified' => '2025-11-22T10:40:04.065Z',
             'mappedSegValue' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -130,7 +135,8 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdvalueId method in th
         ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->mappedSegValue->toBe('String value');
+        ->mappedSegValue->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in the Dimension resource', function () {
@@ -145,6 +151,7 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in t
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'lastModified' => '2025-11-22T10:40:04.065Z',
             'mappedSegValue' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -171,5 +178,6 @@ it('calls the dimensionGetSegmentValueBydimensionIdsegmentIdpublicId method in t
         ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->mappedSegValue->toBe('String value');
+        ->mappedSegValue->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

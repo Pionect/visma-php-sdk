@@ -38,6 +38,7 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbr method in the Expense
             'approvalStatusText' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -71,7 +72,8 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbr method in the Expense
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource', function () {
@@ -97,6 +99,7 @@ it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource',
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -122,6 +125,7 @@ it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource',
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -160,7 +164,8 @@ it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource',
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaim method in the ExpenseClaim resource', function () {

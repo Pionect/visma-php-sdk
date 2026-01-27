@@ -69,6 +69,7 @@ it('calls the cashSaleGetBydocumentNumber method in the CashSale resource', func
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -136,7 +137,8 @@ it('calls the cashSaleGetBydocumentNumber method in the CashSale resource', func
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource', function () {
@@ -197,6 +199,7 @@ it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource'
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -257,6 +260,7 @@ it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource'
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -329,5 +333,6 @@ it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource'
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

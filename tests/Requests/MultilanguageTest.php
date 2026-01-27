@@ -18,6 +18,7 @@ it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumber
             'languageIso' => 'String value',
             'translation' => 'String value',
             'isTranslated' => true,
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -37,7 +38,8 @@ it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumber
     expect($dto)
         ->languageIso->toBe('String value')
         ->translation->toBe('String value')
-        ->isTranslated->toBeTrue();
+        ->isTranslated->toBeTrue()
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in the Multilanguage resource', function () {
@@ -46,6 +48,7 @@ it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in t
             'languageIso' => 'String value',
             'translation' => 'String value',
             'isTranslated' => true,
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -64,7 +67,8 @@ it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in t
     expect($dto)
         ->languageIso->toBe('String value')
         ->translation->toBe('String value')
-        ->isTranslated->toBeTrue();
+        ->isTranslated->toBeTrue()
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multilanguage resource', function () {
@@ -75,12 +79,14 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
                 'languageIso' => 'String value',
                 'nativeName' => 'String value',
                 'isActive' => true,
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'isDefault' => true,
                 'languageIso' => 'String value',
                 'nativeName' => 'String value',
                 'isActive' => true,
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -101,5 +107,6 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
         ->isDefault->toBeTrue()
         ->languageIso->toBe('String value')
         ->nativeName->toBe('String value')
-        ->isActive->toBeTrue();
+        ->isActive->toBeTrue()
+        ->id->toBe('mock-id-123');
 });

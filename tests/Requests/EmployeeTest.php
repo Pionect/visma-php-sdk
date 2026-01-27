@@ -36,6 +36,7 @@ it('calls the employeeGetEmployeeByemployeeCd method in the Employee resource', 
             'workGroupDescription' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -66,7 +67,8 @@ it('calls the employeeGetEmployeeByemployeeCd method in the Employee resource', 
         ->calendarId->toBe('mock-id-123')
         ->employeeLogin->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the employeeGetAllEmployeesCollection method in the Employee resource', function () {
@@ -89,6 +91,7 @@ it('calls the employeeGetAllEmployeesCollection method in the Employee resource'
                 'workGroupDescription' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -111,6 +114,7 @@ it('calls the employeeGetAllEmployeesCollection method in the Employee resource'
                 'workGroupDescription' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -146,7 +150,8 @@ it('calls the employeeGetAllEmployeesCollection method in the Employee resource'
         ->calendarId->toBe('mock-id-123')
         ->employeeLogin->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee resource', function () {
@@ -172,6 +177,7 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -197,6 +203,7 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -234,7 +241,8 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the employeeGetEmployeeExpenseClaimsByemployeeCd method in the Employee resource', function () {
@@ -259,6 +267,7 @@ it('calls the employeeGetEmployeeExpenseClaimsByemployeeCd method in the Employe
             'approvalStatusText' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -304,7 +313,8 @@ it('calls the employeeGetEmployeeExpenseClaimsByemployeeCd method in the Employe
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCd method in the Employee resource', function () {
@@ -340,6 +350,7 @@ it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCd method in the Emplo
             'taxCategory' => null,
             'image' => null,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -394,7 +405,8 @@ it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCd method in the Emplo
         ->salesSub->toBeNull()
         ->taxCategory->toBeNull()
         ->image->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the employeeChangeEmployeeNrActionByinternalId method in the Employee resource', function () {

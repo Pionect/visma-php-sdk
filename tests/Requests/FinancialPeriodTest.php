@@ -28,6 +28,7 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
                 'closedInGeneralLedger' => true,
                 'closedInCashManagement' => true,
                 'closedInFixedAssets' => true,
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'year' => 42,
@@ -42,6 +43,7 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
                 'closedInGeneralLedger' => true,
                 'closedInCashManagement' => true,
                 'closedInFixedAssets' => true,
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -70,7 +72,8 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
         ->closedInInventoryManagement->toBeTrue()
         ->closedInGeneralLedger->toBeTrue()
         ->closedInCashManagement->toBeTrue()
-        ->closedInFixedAssets->toBeTrue();
+        ->closedInFixedAssets->toBeTrue()
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the financialPeriodGetByfinancialPeriodId method in the FinancialPeriod resource', function () {
@@ -88,6 +91,7 @@ it('calls the financialPeriodGetByfinancialPeriodId method in the FinancialPerio
             'closedInGeneralLedger' => true,
             'closedInCashManagement' => true,
             'closedInFixedAssets' => true,
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -115,5 +119,6 @@ it('calls the financialPeriodGetByfinancialPeriodId method in the FinancialPerio
         ->closedInInventoryManagement->toBeTrue()
         ->closedInGeneralLedger->toBeTrue()
         ->closedInCashManagement->toBeTrue()
-        ->closedInFixedAssets->toBeTrue();
+        ->closedInFixedAssets->toBeTrue()
+        ->id->toBe('mock-id-123');
 });

@@ -39,6 +39,7 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
             'schedules' => [],
             'categories' => [],
             'zones' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -75,7 +76,8 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
         ->defaultNonStockItem->toBeNull()
         ->vismaXmlVatType->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->glAccounts->toBeNull();
+        ->glAccounts->toBeNull()
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
@@ -106,6 +108,7 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
                 'schedules' => [],
                 'categories' => [],
                 'zones' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'vatCategoryId' => 'mock-id-123',
@@ -132,6 +135,7 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
                 'schedules' => [],
                 'categories' => [],
                 'zones' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -169,5 +173,6 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
         ->defaultNonStockItem->toBeNull()
         ->vismaXmlVatType->toBe('String value')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->glAccounts->toBeNull();
+        ->glAccounts->toBeNull()
+        ->id->toBe('mock-id-123');
 });

@@ -18,12 +18,14 @@ it('calls the discountCodeGetDiscountCodesCollection method in the DiscountCode 
                 'pageSize' => 42,
                 'totalCount' => 42,
                 'records' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'pageNumber' => 42,
                 'pageSize' => 42,
                 'totalCount' => 42,
                 'records' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -43,5 +45,6 @@ it('calls the discountCodeGetDiscountCodesCollection method in the DiscountCode 
     expect($dtoCollection->first())
         ->pageNumber->toBe(42)
         ->pageSize->toBe(42)
-        ->totalCount->toBe(42);
+        ->totalCount->toBe(42)
+        ->id->toBe('mock-id-123');
 });

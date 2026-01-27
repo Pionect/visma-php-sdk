@@ -28,6 +28,7 @@ it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCod
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -47,6 +48,7 @@ it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCod
                 'createdDateTime' => '2025-11-22T10:40:04.065Z',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -80,5 +82,6 @@ it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCod
         ->lastNumber->toBe('String value')
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

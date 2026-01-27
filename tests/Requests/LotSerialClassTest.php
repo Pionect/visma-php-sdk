@@ -27,6 +27,7 @@ it('calls the lotSerialClassGetByid method in the LotSerialClass resource', func
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'details' => [],
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -53,7 +54,8 @@ it('calls the lotSerialClassGetByid method in the LotSerialClass resource', func
         ->autoIncrementalValue->toBe('String value')
         ->autoGenerateNextNumber->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSerialClass resource', function () {
@@ -72,6 +74,7 @@ it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSeri
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'details' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -90,6 +93,7 @@ it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSeri
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'details' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -121,5 +125,6 @@ it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSeri
         ->autoIncrementalValue->toBe('String value')
         ->autoGenerateNextNumber->toBeTrue()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

@@ -32,6 +32,7 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
             'type' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -65,7 +66,8 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
         ->propertyTax->toBeNull()
         ->type->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', function () {
@@ -89,6 +91,7 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
                 'type' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -112,6 +115,7 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
                 'type' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -149,5 +153,6 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
         ->propertyTax->toBeNull()
         ->type->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

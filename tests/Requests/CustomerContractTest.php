@@ -29,6 +29,7 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
             'summary' => null,
             'details' => null,
             'attributes' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -54,7 +55,8 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
         ->balance->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->summary->toBeNull()
-        ->details->toBeNull();
+        ->details->toBeNull()
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerContractGetAllCollection method in the CustomerContract resource', function () {
@@ -72,6 +74,7 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
                 'summary' => null,
                 'details' => null,
                 'attributes' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'contractId' => 'mock-id-123',
@@ -85,6 +88,7 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
                 'summary' => null,
                 'details' => null,
                 'attributes' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -111,7 +115,8 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
         ->balance->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->summary->toBeNull()
-        ->details->toBeNull();
+        ->details->toBeNull()
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerContractGetCustomerContractSummaryBycontractId method in the CustomerContract resource', function () {
@@ -135,6 +140,7 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
             'owner' => null,
             'salesPerson' => null,
             'caseCountItem' => null,
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -168,7 +174,8 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
         ->invoiceLocation->toBeNull()
         ->owner->toBeNull()
         ->salesPerson->toBeNull()
-        ->caseCountItem->toBeNull();
+        ->caseCountItem->toBeNull()
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerContractGetCustomerContractDetailsBycontractId method in the CustomerContract resource', function () {
@@ -184,6 +191,7 @@ it('calls the customerContractGetCustomerContractDetailsBycontractId method in t
             'currentRecurring' => 3.14,
             'currentRenewal' => 3.14,
             'lines' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -208,7 +216,8 @@ it('calls the customerContractGetCustomerContractDetailsBycontractId method in t
         ->totalPending->toBe(3.14)
         ->currentSetup->toBe(3.14)
         ->currentRecurring->toBe(3.14)
-        ->currentRenewal->toBe(3.14);
+        ->currentRenewal->toBe(3.14)
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerContractGetCustomerContractRecurringSummaryBycontractId method in the CustomerContract resource', function () {
@@ -218,6 +227,7 @@ it('calls the customerContractGetCustomerContractRecurringSummaryBycontractId me
             'extraUsageTotal' => 3.14,
             'totalDue' => 3.14,
             'lines' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -236,5 +246,6 @@ it('calls the customerContractGetCustomerContractRecurringSummaryBycontractId me
     expect($dto)
         ->recurringTotal->toBe(3.14)
         ->extraUsageTotal->toBe(3.14)
-        ->totalDue->toBe(3.14);
+        ->totalDue->toBe(3.14)
+        ->id->toBe('mock-id-123');
 });

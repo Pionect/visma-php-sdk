@@ -7,10 +7,6 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class VatZoneDto extends Model
 {
-    /** Click the magnifier. The identifier for the VAT zone of the supplier, which is specified in the  AP303000 window. */
-    #[Property]
-    public ?string $id;
-
     /** Click the magnifier. The description for the VAT zone of the supplier, which is specified in the  AP303000 window. */
     #[Property]
     public ?string $description;

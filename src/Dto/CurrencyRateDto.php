@@ -8,10 +8,6 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class CurrencyRateDto extends Model
 {
-    /** Currency rate Id. */
-    #[Property]
-    public ?int $id;
-
     /** From Currency Id. */
     #[Property]
     public ?string $fromCurrencyId;

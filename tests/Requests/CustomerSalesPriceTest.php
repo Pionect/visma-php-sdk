@@ -33,6 +33,7 @@ it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the C
                 'warehouse' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -56,6 +57,7 @@ it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the C
                 'warehouse' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -93,7 +95,8 @@ it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the C
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->warehouse->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the CustomerSalesPrice resource', function () {
@@ -116,6 +119,7 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the Cu
             'warehouse' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -148,5 +152,6 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the Cu
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->warehouse->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

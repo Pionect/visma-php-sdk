@@ -47,6 +47,7 @@ it('calls the expenseReceiptGetByreceiptNumber method in the ExpenseReceipt reso
             'taxCategory' => null,
             'image' => null,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -92,7 +93,8 @@ it('calls the expenseReceiptGetByreceiptNumber method in the ExpenseReceipt reso
         ->salesSub->toBeNull()
         ->taxCategory->toBeNull()
         ->image->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the expenseReceiptGetAllCollection method in the ExpenseReceipt resource', function () {
@@ -129,6 +131,7 @@ it('calls the expenseReceiptGetAllCollection method in the ExpenseReceipt resour
                 'taxCategory' => null,
                 'image' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'internalId' => 42,
@@ -161,6 +164,7 @@ it('calls the expenseReceiptGetAllCollection method in the ExpenseReceipt resour
                 'taxCategory' => null,
                 'image' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -207,7 +211,8 @@ it('calls the expenseReceiptGetAllCollection method in the ExpenseReceipt resour
         ->salesSub->toBeNull()
         ->taxCategory->toBeNull()
         ->image->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the expenseReceiptCreateAttachmentByreceiptNumber method in the ExpenseReceipt resource', function () {

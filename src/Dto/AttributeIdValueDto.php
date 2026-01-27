@@ -7,9 +7,6 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class AttributeIdValueDto extends Model
 {
-    #[Property]
-    public ?string $id;
-
     /** Value &gt; The value of the attribute. */
     #[Property]
     public ?string $value;

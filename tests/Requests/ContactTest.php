@@ -42,6 +42,7 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
             'contactId' => 42,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -84,7 +85,8 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->contactId->toBe(42)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the contactGetAllContactsCollection method in the Contact resource', function () {
@@ -118,6 +120,7 @@ it('calls the contactGetAllContactsCollection method in the Contact resource', f
                 'contactId' => 42,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -151,6 +154,7 @@ it('calls the contactGetAllContactsCollection method in the Contact resource', f
                 'contactId' => 42,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -198,5 +202,6 @@ it('calls the contactGetAllContactsCollection method in the Contact resource', f
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->contactId->toBe(42)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

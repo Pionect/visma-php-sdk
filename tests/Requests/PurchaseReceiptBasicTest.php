@@ -52,6 +52,7 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumber method 
             'customInt2' => 42,
             'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -102,7 +103,8 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumber method 
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the PurchaseReceiptBasic resource', function () {
@@ -144,6 +146,7 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -185,6 +188,7 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -239,7 +243,8 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the purchaseReceiptBasicReleaseInvoiceByreceiptNumber method in the PurchaseReceiptBasic resource', function () {

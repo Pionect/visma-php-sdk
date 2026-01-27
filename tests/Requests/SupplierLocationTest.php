@@ -31,6 +31,7 @@ it('calls the supplierLocationGetLocationBybAccountIdlocationId method in the Su
             'supplierPaymentMethodDetails' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -61,7 +62,8 @@ it('calls the supplierLocationGetLocationBybAccountIdlocationId method in the Su
         ->corporateId->toBe('mock-id-123')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the SupplierLocation resource', function () {
@@ -82,6 +84,7 @@ it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the 
             'supplierPaymentMethodDetails' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -117,7 +120,8 @@ it('calls the supplierLocationGetLocationsForBaccountBybAccountId method in the 
         ->corporateId->toBe('mock-id-123')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierLocationGetLocationsCollection method in the SupplierLocation resource', function () {
@@ -139,6 +143,7 @@ it('calls the supplierLocationGetLocationsCollection method in the SupplierLocat
                 'supplierPaymentMethodDetails' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -160,6 +165,7 @@ it('calls the supplierLocationGetLocationsCollection method in the SupplierLocat
                 'supplierPaymentMethodDetails' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -194,5 +200,6 @@ it('calls the supplierLocationGetLocationsCollection method in the SupplierLocat
         ->corporateId->toBe('mock-id-123')
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

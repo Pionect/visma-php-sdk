@@ -11,10 +11,6 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ModeOfTrasportInShipmentDto extends Model
 {
-    /** Click on the magnifier. &gt; The identifier. */
-    #[Property]
-    public ?int $id;
-
     /** Click on the magnifier. &gt; The description. */
     #[Property]
     public ?string $description;

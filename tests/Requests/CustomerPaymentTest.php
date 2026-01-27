@@ -44,6 +44,7 @@ it('calls the customerPaymentGetBypaymentNumber method in the CustomerPayment re
             'availableBalanceInCurrency' => 3.14,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -86,7 +87,8 @@ it('calls the customerPaymentGetBypaymentNumber method in the CustomerPayment re
         ->paymentAmountInCurrency->toBe(3.14)
         ->availableBalanceInCurrency->toBe(3.14)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPayment resource', function () {
@@ -122,6 +124,7 @@ it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPaym
                 'availableBalanceInCurrency' => 3.14,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -157,6 +160,7 @@ it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPaym
                 'availableBalanceInCurrency' => 3.14,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -204,5 +208,6 @@ it('calls the customerPaymentGetAllPaymentsCollection method in the CustomerPaym
         ->paymentAmountInCurrency->toBe(3.14)
         ->availableBalanceInCurrency->toBe(3.14)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

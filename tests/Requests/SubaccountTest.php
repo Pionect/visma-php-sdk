@@ -23,6 +23,7 @@ it('calls the subaccountGetSubaccountBysubAccountNumber method in the Subaccount
             'segments' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -45,7 +46,8 @@ it('calls the subaccountGetSubaccountBysubAccountNumber method in the Subaccount
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the subaccountGetAllSubaccountsCollection method in the Subaccount resource', function () {
@@ -60,6 +62,7 @@ it('calls the subaccountGetAllSubaccountsCollection method in the Subaccount res
                 'segments' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -74,6 +77,7 @@ it('calls the subaccountGetAllSubaccountsCollection method in the Subaccount res
                 'segments' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -101,5 +105,6 @@ it('calls the subaccountGetAllSubaccountsCollection method in the Subaccount res
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->active->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

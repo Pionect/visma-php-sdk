@@ -12,8 +12,5 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class PriceManagerInInventoryDto extends Model
 {
     #[Property]
-    public ?string $id;
-
-    #[Property]
     public ?string $name;
 }

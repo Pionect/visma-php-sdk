@@ -38,6 +38,7 @@ it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource'
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'employees' => [],
             'attributes' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -74,7 +75,8 @@ it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource'
         ->status->toBe('String value')
         ->restrictEmployees->toBeTrue()
         ->visibility->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resource', function () {
@@ -104,6 +106,7 @@ it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resourc
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'employees' => [],
                 'attributes' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'internalId' => 42,
@@ -129,6 +132,7 @@ it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resourc
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'employees' => [],
                 'attributes' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -166,5 +170,6 @@ it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resourc
         ->status->toBe('String value')
         ->restrictEmployees->toBeTrue()
         ->visibility->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });

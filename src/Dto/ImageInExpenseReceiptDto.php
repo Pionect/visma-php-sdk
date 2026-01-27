@@ -14,10 +14,6 @@ class ImageInExpenseReceiptDto extends Model
     #[Property]
     public ?string $name;
 
-    /** The ID of the attachment */
-    #[Property]
-    public ?string $id;
-
     /** The version of the attachment. */
     #[Property]
     public ?int $revision;

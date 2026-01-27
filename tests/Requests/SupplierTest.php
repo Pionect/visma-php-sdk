@@ -28,6 +28,7 @@ it('calls the supplierGetAllSupplierClassesCollection method in the Supplier res
                 'paymentMethodDescription' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'description' => 'String value',
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'attributes' => [],
@@ -35,6 +36,7 @@ it('calls the supplierGetAllSupplierClassesCollection method in the Supplier res
                 'paymentMethodDescription' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'description' => 'String value',
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -55,7 +57,8 @@ it('calls the supplierGetAllSupplierClassesCollection method in the Supplier res
         ->paymentMethodId->toBe('mock-id-123')
         ->paymentMethodDescription->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('String value');
+        ->description->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierGetSpecificSupplierClassBysupplierClassId method in the Supplier resource', function () {
@@ -66,6 +69,7 @@ it('calls the supplierGetSpecificSupplierClassBysupplierClassId method in the Su
             'paymentMethodDescription' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'description' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -85,7 +89,8 @@ it('calls the supplierGetSpecificSupplierClassBysupplierClassId method in the Su
         ->paymentMethodId->toBe('mock-id-123')
         ->paymentMethodDescription->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('String value');
+        ->description->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierGetAllSupplierBalanceCollection method in the Supplier resource', function () {
@@ -100,6 +105,7 @@ it('calls the supplierGetAllSupplierBalanceCollection method in the Supplier res
                 'totalPurchaseInvoicePeriod' => null,
                 'totalPurchaseInvoiceYear' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'branchNumber' => 'String value',
@@ -110,6 +116,7 @@ it('calls the supplierGetAllSupplierBalanceCollection method in the Supplier res
                 'totalPurchaseInvoicePeriod' => null,
                 'totalPurchaseInvoiceYear' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -134,7 +141,8 @@ it('calls the supplierGetAllSupplierBalanceCollection method in the Supplier res
         ->totalSentForApproval->toBeNull()
         ->totalPurchaseInvoicePeriod->toBeNull()
         ->totalPurchaseInvoiceYear->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierGetBysupplierCd method in the Supplier resource', function () {
@@ -183,6 +191,7 @@ it('calls the supplierGetBysupplierCd method in the Supplier resource', function
             'currencyRateOverride' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -239,7 +248,8 @@ it('calls the supplierGetBysupplierCd method in the Supplier resource', function
         ->currencyOverride->toBeTrue()
         ->currencyRateOverride->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierGetAllCollection method in the Supplier resource', function () {
@@ -289,6 +299,7 @@ it('calls the supplierGetAllCollection method in the Supplier resource', functio
                 'currencyRateOverride' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -338,6 +349,7 @@ it('calls the supplierGetAllCollection method in the Supplier resource', functio
                 'currencyRateOverride' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -399,7 +411,8 @@ it('calls the supplierGetAllCollection method in the Supplier resource', functio
         ->currencyOverride->toBeTrue()
         ->currencyRateOverride->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierGetAllInvoicesForSupplierBysupplierNumber method in the Supplier resource', function () {
@@ -468,6 +481,7 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumber method in the Su
             'cashAccount' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -569,7 +583,8 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumber method in the Su
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierGetAllDocumentsForSupplierBysupplierNumber method in the Supplier resource', function () {
@@ -611,6 +626,7 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumber method in the S
             'cashAccount' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -687,7 +703,8 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumber method in the S
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierGetSupplierBalanceBysupplierCd method in the Supplier resource', function () {
@@ -701,6 +718,7 @@ it('calls the supplierGetSupplierBalanceBysupplierCd method in the Supplier reso
             'totalPurchaseInvoicePeriod' => null,
             'totalPurchaseInvoiceYear' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -724,7 +742,8 @@ it('calls the supplierGetSupplierBalanceBysupplierCd method in the Supplier reso
         ->totalSentForApproval->toBeNull()
         ->totalPurchaseInvoicePeriod->toBeNull()
         ->totalPurchaseInvoiceYear->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the supplierGetAllContactForSupplierBysupplierCd method in the Supplier resource', function () {
@@ -757,6 +776,7 @@ it('calls the supplierGetAllContactForSupplierBysupplierCd method in the Supplie
             'contactId' => 42,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -811,5 +831,6 @@ it('calls the supplierGetAllContactForSupplierBysupplierCd method in the Supplie
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->contactId->toBe(42)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

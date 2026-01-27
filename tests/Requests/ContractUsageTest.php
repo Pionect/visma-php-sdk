@@ -18,6 +18,7 @@ it('calls the contractUsageGetSpecificBycontractId method in the ContractUsage r
             'contract' => 'String value',
             'transaction' => [],
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -35,7 +36,8 @@ it('calls the contractUsageGetSpecificBycontractId method in the ContractUsage r
 
     expect($dto)
         ->contract->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the contractUsageGetAllCollection method in the ContractUsage resource', function () {
@@ -45,11 +47,13 @@ it('calls the contractUsageGetAllCollection method in the ContractUsage resource
                 'contract' => 'String value',
                 'transaction' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'contract' => 'String value',
                 'transaction' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -68,5 +72,6 @@ it('calls the contractUsageGetAllCollection method in the ContractUsage resource
 
     expect($dtoCollection->first())
         ->contract->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });

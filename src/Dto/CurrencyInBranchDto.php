@@ -11,10 +11,6 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CurrencyInBranchDto extends Model
 {
-    /** Currency Id. */
-    #[Property]
-    public ?string $id;
-
     /** Currency description. */
     #[Property]
     public ?string $description;

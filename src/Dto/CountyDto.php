@@ -7,10 +7,6 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class CountyDto extends Model
 {
-    /** Click the magnifier &gt; The identifier */
-    #[Property]
-    public ?string $id;
-
     /** Click the magnifier &gt; The displayed name */
     #[Property]
     public ?string $name;

@@ -19,6 +19,7 @@ it('calls the numberSequenceGetBynumberingId method in the NumberSequence resour
             'manualNumbering' => true,
             'newNumberSymbol' => 'String value',
             'sequence' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -38,7 +39,8 @@ it('calls the numberSequenceGetBynumberingId method in the NumberSequence resour
         ->numberingId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->manualNumbering->toBeTrue()
-        ->newNumberSymbol->toBe('String value');
+        ->newNumberSymbol->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the numberSequenceGetAllCollection method in the NumberSequence resource', function () {
@@ -50,6 +52,7 @@ it('calls the numberSequenceGetAllCollection method in the NumberSequence resour
                 'manualNumbering' => true,
                 'newNumberSymbol' => 'String value',
                 'sequence' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'numberingId' => 'mock-id-123',
@@ -57,6 +60,7 @@ it('calls the numberSequenceGetAllCollection method in the NumberSequence resour
                 'manualNumbering' => true,
                 'newNumberSymbol' => 'String value',
                 'sequence' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -77,5 +81,6 @@ it('calls the numberSequenceGetAllCollection method in the NumberSequence resour
         ->numberingId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->manualNumbering->toBeTrue()
-        ->newNumberSymbol->toBe('String value');
+        ->newNumberSymbol->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

@@ -51,6 +51,7 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the Cust
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -102,7 +103,8 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the Cust
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCreditWriteOff resource', function () {
@@ -145,6 +147,7 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -187,6 +190,7 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -243,5 +247,6 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

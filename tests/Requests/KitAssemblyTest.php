@@ -20,12 +20,14 @@ it('calls the kitAssemblyGetKitAssembliesCollection method in the KitAssembly re
                 'pageSize' => 42,
                 'totalCount' => 42,
                 'records' => [],
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'pageNumber' => 42,
                 'pageSize' => 42,
                 'totalCount' => 42,
                 'records' => [],
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -45,7 +47,8 @@ it('calls the kitAssemblyGetKitAssembliesCollection method in the KitAssembly re
     expect($dtoCollection->first())
         ->pageNumber->toBe(42)
         ->pageSize->toBe(42)
-        ->totalCount->toBe(42);
+        ->totalCount->toBe(42)
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly resource', function () {
@@ -73,6 +76,7 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
             'kitAllocations' => [],
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -108,5 +112,6 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->salesOrderLink->toBe('String value')
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

@@ -10,10 +10,6 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class DirectDebitMandateDto extends Model
 {
-    /** Mandate Guid as stored in the database. */
-    #[Property]
-    public ?string $id;
-
     /** The id shown on Billing Address tab */
     #[Property]
     public ?string $mandateId;

@@ -48,6 +48,7 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -91,7 +92,8 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the SalesOrderBasic resource', function () {
@@ -127,6 +129,7 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -171,7 +174,8 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasic resource', function () {
@@ -208,6 +212,7 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -244,6 +249,7 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -292,7 +298,8 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumber method in the SalesOrderBasic resource', function () {

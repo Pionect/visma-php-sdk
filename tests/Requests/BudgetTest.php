@@ -27,6 +27,7 @@ it('calls the budgetGetAllCollection method in the Budget resource', function ()
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'branchNumber' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
             1 => [
                 'financialYear' => 'String value',
@@ -41,6 +42,7 @@ it('calls the budgetGetAllCollection method in the Budget resource', function ()
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'branchNumber' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -68,5 +70,6 @@ it('calls the budgetGetAllCollection method in the Budget resource', function ()
         ->distributedAmount->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });

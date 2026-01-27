@@ -56,6 +56,7 @@ it('calls the purchaseReceiptGetPurchaseReceiptBasicByreceiptNumber method in th
             'customInt2' => 42,
             'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -106,7 +107,8 @@ it('calls the purchaseReceiptGetPurchaseReceiptBasicByreceiptNumber method in th
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the purchaseReceiptGetAllReceiptBasicCollection method in the PurchaseReceipt resource', function () {
@@ -150,6 +152,7 @@ it('calls the purchaseReceiptGetAllReceiptBasicCollection method in the Purchase
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -193,6 +196,7 @@ it('calls the purchaseReceiptGetAllReceiptBasicCollection method in the Purchase
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -248,7 +252,8 @@ it('calls the purchaseReceiptGetAllReceiptBasicCollection method in the Purchase
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the purchaseReceiptReleaseReceiptByreceiptNumber method in the PurchaseReceipt resource', function () {

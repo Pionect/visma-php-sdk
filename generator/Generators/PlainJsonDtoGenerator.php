@@ -91,6 +91,16 @@ class PlainJsonDtoGenerator extends JsonApiDtoGenerator
     }
 
     /**
+     * Override to NOT skip 'type' field for plain JSON APIs.
+     * For plain JSON, 'type' is often a domain property (e.g., account type),
+     * not a JSON:API resource type identifier.
+     */
+    protected function getPropertiesToSkip(): array
+    {
+        return ['id']; // Only skip id, not type
+    }
+
+    /**
      * Extract properties directly from schema (no JSON:API attributes wrapper).
      *
      * @return Schema[]

@@ -27,6 +27,7 @@ it('calls the packagingTypeGetByboxId method in the PackagingType resource', fun
             'height' => 42,
             'activeByDefault' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -54,7 +55,8 @@ it('calls the packagingTypeGetByboxId method in the PackagingType resource', fun
         ->width->toBe(42)
         ->height->toBe(42)
         ->activeByDefault->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the packagingTypeGetAllPackagingTypesCollection method in the PackagingType resource', function () {
@@ -73,6 +75,7 @@ it('calls the packagingTypeGetAllPackagingTypesCollection method in the Packagin
                 'height' => 42,
                 'activeByDefault' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -91,6 +94,7 @@ it('calls the packagingTypeGetAllPackagingTypesCollection method in the Packagin
                 'height' => 42,
                 'activeByDefault' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -123,5 +127,6 @@ it('calls the packagingTypeGetAllPackagingTypesCollection method in the Packagin
         ->width->toBe(42)
         ->height->toBe(42)
         ->activeByDefault->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->id->toBe('mock-id-123');
 });

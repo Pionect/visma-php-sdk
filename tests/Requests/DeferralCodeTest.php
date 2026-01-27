@@ -22,6 +22,7 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the Deferral
             'deferralAccount' => null,
             'deferralSub' => null,
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -45,7 +46,8 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the Deferral
         ->codeType->toBe('String value')
         ->deferralAccount->toBeNull()
         ->deferralSub->toBeNull()
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode resource', function () {
@@ -60,6 +62,7 @@ it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode 
                 'deferralAccount' => null,
                 'deferralSub' => null,
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -74,6 +77,7 @@ it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode 
                 'deferralAccount' => null,
                 'deferralSub' => null,
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -102,5 +106,6 @@ it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode 
         ->codeType->toBe('String value')
         ->deferralAccount->toBeNull()
         ->deferralSub->toBeNull()
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

@@ -45,6 +45,7 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in 
             'estimatedUnitCost' => 3.14,
             'estimatedTotalCost' => 3.14,
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -94,5 +95,6 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in 
         ->baseUnit->toBe('String value')
         ->estimatedUnitCost->toBe(3.14)
         ->estimatedTotalCost->toBe(3.14)
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });

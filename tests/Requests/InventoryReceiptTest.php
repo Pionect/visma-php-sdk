@@ -36,6 +36,7 @@ it('calls the inventoryReceiptGetByinventoryReceiptNumber method in the Inventor
             'attachments' => [],
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -68,7 +69,8 @@ it('calls the inventoryReceiptGetByinventoryReceiptNumber method in the Inventor
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the inventoryReceiptGetAllCollection method in the InventoryReceipt resource', function () {
@@ -94,6 +96,7 @@ it('calls the inventoryReceiptGetAllCollection method in the InventoryReceipt re
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -119,6 +122,7 @@ it('calls the inventoryReceiptGetAllCollection method in the InventoryReceipt re
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -156,7 +160,8 @@ it('calls the inventoryReceiptGetAllCollection method in the InventoryReceipt re
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the inventoryReceiptReleaseDocumentByinvoiceNumber method in the InventoryReceipt resource', function () {

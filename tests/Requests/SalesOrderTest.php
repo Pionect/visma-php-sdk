@@ -95,6 +95,7 @@ it('calls the salesOrderGetByorderNbr method in the SalesOrder resource', functi
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -181,7 +182,8 @@ it('calls the salesOrderGetByorderNbr method in the SalesOrder resource', functi
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderGetOrderByTypeByorderTypeorderNbr method in the SalesOrder resource', function () {
@@ -261,6 +263,7 @@ it('calls the salesOrderGetOrderByTypeByorderTypeorderNbr method in the SalesOrd
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -348,7 +351,8 @@ it('calls the salesOrderGetOrderByTypeByorderTypeorderNbr method in the SalesOrd
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderGetRotrutbyorderTypeorderNbr method in the SalesOrder resource', function () {
@@ -360,6 +364,7 @@ it('calls the salesOrderGetRotrutbyorderTypeorderNbr method in the SalesOrder re
             'estate' => 'String value',
             'organizationNbr' => 'String value',
             'distribution' => [],
+            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -381,7 +386,8 @@ it('calls the salesOrderGetRotrutbyorderTypeorderNbr method in the SalesOrder re
         ->type->toBe('String value')
         ->appartment->toBe('String value')
         ->estate->toBe('String value')
-        ->organizationNbr->toBe('String value');
+        ->organizationNbr->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderGetAllOrdersCollection method in the SalesOrder resource', function () {
@@ -462,6 +468,7 @@ it('calls the salesOrderGetAllOrdersCollection method in the SalesOrder resource
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -542,6 +549,7 @@ it('calls the salesOrderGetAllOrdersCollection method in the SalesOrder resource
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
+                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -633,7 +641,8 @@ it('calls the salesOrderGetAllOrdersCollection method in the SalesOrder resource
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value');
+        ->errorInfo->toBe('String value')
+        ->id->toBe('mock-id-123');
 });
 
 it('calls the salesOrderCreateShipmentActionBysaleOrderNumber method in the SalesOrder resource', function () {

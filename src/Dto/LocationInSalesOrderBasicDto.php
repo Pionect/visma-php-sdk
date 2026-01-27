@@ -16,10 +16,6 @@ class LocationInSalesOrderBasicDto extends Model
     #[Property]
     public ?string $countryId;
 
-    /** Click the magnifier &gt; The identifier */
-    #[Property]
-    public ?string $id;
-
     /** Click the magnifier &gt; The displayed name */
     #[Property]
     public ?string $name;
