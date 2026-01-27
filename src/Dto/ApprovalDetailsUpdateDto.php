@@ -4,12 +4,15 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class ApprovalDetailsUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $attachmentId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $attachmentId;
 
     #[Property]
-    public ?\DtoValueOfString $comment;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $comment;
 }

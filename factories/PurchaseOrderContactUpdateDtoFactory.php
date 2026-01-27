@@ -10,7 +10,7 @@ class PurchaseOrderContactUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'overrideContact' => $this->faker->word(),
+            'overrideContact' => $this->faker->boolean(),
             'name' => $this->faker->name(),
             'attention' => $this->faker->word(),
             'email' => $this->faker->safeEmail(),

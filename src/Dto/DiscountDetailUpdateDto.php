@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represent a Discount Detail for Purchase Order in Purchase Order Controller. Used to pass
@@ -15,14 +16,18 @@ class DiscountDetailUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfNullableOfInt32 $lineNbr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $lineNbr;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $skipDiscount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $skipDiscount;
 
     #[Property]
-    public ?\DtoValueOfString $discountCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $discountCode;
 
     #[Property]
-    public ?\DtoValueOfString $sequanceId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $sequanceId;
 }

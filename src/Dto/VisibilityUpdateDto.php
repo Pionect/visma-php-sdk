@@ -4,36 +4,47 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class VisibilityUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInGl;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInGl;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInAp;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInAp;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInAr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInAr;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInSo;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInSo;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInPo;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInPo;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInEa;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInEa;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInTa;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInTa;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInIn;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInIn;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInCa;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInCa;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $visibleInCr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $visibleInCr;
 }

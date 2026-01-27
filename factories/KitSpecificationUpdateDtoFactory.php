@@ -11,12 +11,12 @@ class KitSpecificationUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'kitInventoryId' => $this->faker->word(),
-            'revisionId' => $this->faker->word(),
+            'kitInventoryId' => $this->faker->uuid(),
+            'revisionId' => $this->faker->uuid(),
             'descr' => $this->faker->word(),
-            'isActive' => $this->faker->word(),
-            'allowCompAddition' => $this->faker->word(),
-            'isNonStock' => $this->faker->word(),
+            'isActive' => $this->faker->boolean(),
+            'allowCompAddition' => $this->faker->boolean(),
+            'isNonStock' => $this->faker->boolean(),
             'stockComponentLines' => [],
             'nonStockComponentLines' => [],
         ];

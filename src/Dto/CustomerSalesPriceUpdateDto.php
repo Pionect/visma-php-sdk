@@ -5,44 +5,57 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class CustomerSalesPriceUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfNullableOfPriceTypesForUpdate $priceType;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $priceType;
 
     #[Property]
-    public ?\DtoValueOfString $priceCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $priceCode;
 
     #[Property]
-    public ?\DtoValueOfString $inventoryId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $inventoryId;
 
     #[Property]
-    public ?\DtoValueOfString $uoM;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $uoM;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $promotion;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $promotion;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $breakQty;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $breakQty;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $price;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $price;
 
     #[Property]
-    public ?\DtoValueOfString $currency;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $currency;
 
     #[Property]
-    public ?\DtoValueOfString $vat;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $vat;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $effectiveDate;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $expirationDate;
 
     #[Property]
-    public ?\DtoValueOfString $warehouse;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $warehouse;
 }

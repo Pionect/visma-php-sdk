@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Purchase Receipt Line in PurchaseReceiptBasicContraoller. Used for adding
@@ -97,7 +98,8 @@ class PurchaseReceiptLineBasicUpdateDto extends Model
     public ?\Carbon\Carbon $expirationDate;
 
     #[Property]
-    public ?\DtoValueOfString $lotSerialNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $lotSerialNumber;
 
     #[Property]
     public ?\poOrderTypeInPurchaseReceiptLineBasicUpdateDto $poOrderType;

@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class ShipmentDetailLineUpdateDto extends Model
 {
@@ -12,35 +13,44 @@ class ShipmentDetailLineUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfInt32 $lineNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $lineNumber;
 
     #[Property]
-    public ?\DtoValueOfString $warehouse;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $warehouse;
 
     #[Property]
-    public ?\DtoValueOfString $location;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $location;
 
     #[Property]
-    public ?\DtoValueOfString $uom;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $uom;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $shippedQty;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $shippedQty;
 
     #[Property]
-    public ?\DtoValueOfString $lotSerialNbr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $lotSerialNbr;
 
     #[Property]
     #[DateTime]
     public ?\Carbon\Carbon $expirationDate;
 
     #[Property]
-    public ?\DtoValueOfString $reasonCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $reasonCode;
 
     #[Property]
-    public ?\DtoValueOfString $description;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $description;
 
     #[Property]
-    public ?\DtoValueOfString $note;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $note;
 
     #[Property]
     public ?array $allocations;

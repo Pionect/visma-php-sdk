@@ -12,11 +12,11 @@ class ShipmentDetailLineAddDtoFactory extends Factory
         return [
             'operation' => $this->faker->word(),
             'inventoryNumber' => $this->faker->word(),
-            'lineNumber' => $this->faker->word(),
+            'lineNumber' => $this->faker->numberBetween(1, 100),
             'warehouse' => $this->faker->word(),
             'location' => $this->faker->word(),
             'uom' => $this->faker->word(),
-            'shippedQty' => $this->faker->word(),
+            'shippedQty' => $this->faker->randomFloat(2, 0, 1000),
             'customStr1' => $this->faker->word(),
             'customStr2' => $this->faker->word(),
             'customStr3' => $this->faker->word(),

@@ -13,7 +13,7 @@ class SubAccountUpdateDtoFactory extends Factory
             'subaccountNumber' => $this->faker->word(),
             'subaccountId' => $this->faker->word(),
             'description' => $this->faker->sentence(),
-            'active' => $this->faker->word(),
+            'active' => $this->faker->boolean(),
         ];
     }
 

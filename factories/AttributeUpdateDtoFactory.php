@@ -10,9 +10,9 @@ class AttributeUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'attributeId' => $this->faker->word(),
+            'attributeId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
-            'internal' => $this->faker->word(),
+            'internal' => $this->faker->boolean(),
             'controlType' => $this->faker->word(),
             'entryMask' => $this->faker->word(),
             'regExp' => $this->faker->word(),

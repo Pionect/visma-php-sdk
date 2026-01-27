@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class ProjectEmployeeUpdateDto extends Model
 {
@@ -11,5 +12,6 @@ class ProjectEmployeeUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfString $employeeId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $employeeId;
 }

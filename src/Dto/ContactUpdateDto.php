@@ -4,69 +4,91 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class ContactUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfBoolean $active;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $active;
 
     #[Property]
-    public ?\DtoValueOfEmployeeTitles $title;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $title;
 
     #[Property]
-    public ?\DtoValueOfString $firstName;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $firstName;
 
     #[Property]
-    public ?\DtoValueOfString $lastName;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $lastName;
 
     #[Property]
-    public ?\DtoValueOfString $position;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $position;
 
     #[Property]
-    public ?\DtoValueOfString $businessAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $businessAccount;
 
     #[Property]
-    public ?\DtoValueOfBoolean $sameAsAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $sameAsAccount;
 
     #[Property]
-    public ?\DtoValueOfAddressUpdateDto $address;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\AddressUpdateDto $address;
 
     #[Property]
-    public ?\DtoValueOfString $email;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $email;
 
     #[Property]
-    public ?\DtoValueOfString $web;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $web;
 
     #[Property]
-    public ?\DtoValueOfString $phone1;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $phone1;
 
     #[Property]
-    public ?\DtoValueOfString $phone2;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $phone2;
 
     #[Property]
-    public ?\DtoValueOfString $phone3;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $phone3;
 
     #[Property]
-    public ?\DtoValueOfString $fax;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $fax;
 
     #[Property]
-    public ?\DtoValueOfContactMethods $contactMethod;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $contactMethod;
 
     #[Property]
-    public ?\DtoValueOfBoolean $doNotCall;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $doNotCall;
 
     #[Property]
-    public ?\DtoValueOfBoolean $doNotFax;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $doNotFax;
 
     #[Property]
-    public ?\DtoValueOfBoolean $doNotEmail;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $doNotEmail;
 
     #[Property]
-    public ?\DtoValueOfBoolean $doNotMail;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $doNotMail;
 
     #[Property]
-    public ?\DtoValueOfBoolean $noMassMail;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $noMassMail;
 
     #[Property]
-    public ?\DtoValueOfBoolean $noMarketing;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $noMarketing;
 }

@@ -10,8 +10,8 @@ class InventoryTransferUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'warehouseId' => $this->faker->word(),
-            'toWarehouseId' => $this->faker->word(),
+            'warehouseId' => $this->faker->uuid(),
+            'toWarehouseId' => $this->faker->uuid(),
             'transferLines' => [],
             'referenceNumber' => $this->faker->word(),
             'hold' => $this->faker->word(),

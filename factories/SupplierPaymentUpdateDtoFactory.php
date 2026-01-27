@@ -12,7 +12,7 @@ class SupplierPaymentUpdateDtoFactory extends Factory
     {
         return [
             'referenceNumber' => $this->faker->word(),
-            'hold' => $this->faker->word(),
+            'hold' => $this->faker->boolean(),
             'applicationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'applicationPeriod' => $this->faker->word(),
             'paymentRef' => $this->faker->word(),
@@ -22,10 +22,10 @@ class SupplierPaymentUpdateDtoFactory extends Factory
             'cashAccount' => $this->faker->word(),
             'currency' => $this->faker->word(),
             'description' => $this->faker->sentence(),
-            'paymentAmount' => $this->faker->word(),
+            'paymentAmount' => $this->faker->randomFloat(2, 0, 1000),
             'branch' => $this->faker->word(),
             'paymentLines' => [],
-            'overrideNumberSeries' => $this->faker->word(),
+            'overrideNumberSeries' => $this->faker->boolean(),
         ];
     }
 

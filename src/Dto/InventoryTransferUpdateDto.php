@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a inventory issue in InventoryIssueController. Used by getting data.
@@ -11,10 +12,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryTransferUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $warehouseId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $warehouseId;
 
     #[Property]
-    public ?\DtoValueOfString $toWarehouseId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $toWarehouseId;
 
     /** The inventory issue lines */
     #[Property]

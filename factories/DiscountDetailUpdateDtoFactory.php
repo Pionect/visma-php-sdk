@@ -11,10 +11,10 @@ class DiscountDetailUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'lineNbr' => $this->faker->word(),
-            'skipDiscount' => $this->faker->word(),
+            'lineNbr' => $this->faker->numberBetween(1, 100),
+            'skipDiscount' => $this->faker->boolean(),
             'discountCode' => $this->faker->word(),
-            'sequanceId' => $this->faker->word(),
+            'sequanceId' => $this->faker->uuid(),
         ];
     }
 

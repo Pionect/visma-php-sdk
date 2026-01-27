@@ -13,7 +13,7 @@ class PaymentLineBaseUpdateDtoFactory extends Factory
             'operation' => $this->faker->word(),
             'documentType' => $this->faker->word(),
             'refNbr' => $this->faker->word(),
-            'amountPaid' => $this->faker->word(),
+            'amountPaid' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 

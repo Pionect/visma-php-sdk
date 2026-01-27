@@ -15,8 +15,8 @@ class FinanceChargesUpdateDtoFactory extends Factory
             'offsetAccount' => $this->faker->word(),
             'offsetSubAccount' => $this->faker->word(),
             'description' => $this->faker->sentence(),
-            'amount' => $this->faker->word(),
-            'lineNbr' => $this->faker->word(),
+            'amount' => $this->faker->randomFloat(2, 0, 1000),
+            'lineNbr' => $this->faker->numberBetween(1, 100),
         ];
     }
 

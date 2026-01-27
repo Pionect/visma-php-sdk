@@ -4,30 +4,38 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class PaymentLinesUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfDecimal $cashDiscountTaken;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $cashDiscountTaken;
 
     #[Property]
-    public ?\DtoValueOfDecimal $balanceWriteOff;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $balanceWriteOff;
 
     #[Property]
-    public ?\DtoValueOfString $writeOffReasonCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $writeOffReasonCode;
 
     #[Property]
-    public ?\DtoValueOfDecimal $crossRate;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $crossRate;
 
     #[Property]
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfCustomerDocumentTypes $documentType;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $documentType;
 
     #[Property]
-    public ?\DtoValueOfString $refNbr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $refNbr;
 
     #[Property]
-    public ?\DtoValueOfDecimal $amountPaid;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $amountPaid;
 }

@@ -11,7 +11,7 @@ class AccountUpdateDtoFactory extends Factory
     {
         return [
             'accountCd' => $this->faker->word(),
-            'active' => $this->faker->word(),
+            'active' => $this->faker->boolean(),
             'accountClass' => $this->faker->word(),
             'analysisCode' => $this->faker->word(),
             'currency' => $this->faker->word(),
@@ -21,7 +21,7 @@ class AccountUpdateDtoFactory extends Factory
             'accountGroupCd' => $this->faker->word(),
             'postOption' => $this->faker->word(),
             'publicCode1' => $this->faker->word(),
-            'useDefaultSub' => $this->faker->word(),
+            'useDefaultSub' => $this->faker->boolean(),
             'taxCategory' => $this->faker->word(),
         ];
     }

@@ -15,7 +15,7 @@ class AddressInEmployeeUpdateDtoFactory extends Factory
             'addressLine3' => $this->faker->word(),
             'postalCode' => $this->faker->word(),
             'city' => $this->faker->word(),
-            'countryId' => $this->faker->word(),
+            'countryId' => $this->faker->uuid(),
             'county' => $this->faker->word(),
         ];
     }

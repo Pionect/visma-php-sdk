@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represent a Purchase Order in Purchase Order Controller. Used to pass data to server for
@@ -15,28 +16,37 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class PurchaseOrderBasicUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfNullableOfPurchaseOrderType $orderType;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $orderType;
 
     #[Property]
-    public ?\DtoValueOfString $orderNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $orderNumber;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $hold;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $hold;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDateTime $date;
+    #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\Carbon\Carbon $date;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDateTime $promisedOn;
+    #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\Carbon\Carbon $promisedOn;
 
     #[Property]
-    public ?\DtoValueOfString $description;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $description;
 
     #[Property]
     public ?\supplierInPurchaseOrderBasicUpdateDto $supplier;
 
     #[Property]
-    public ?\DtoValueOfString $location;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $location;
 
     #[Property]
     public ?\glnInPurchaseOrderBasicUpdateDto $gln;
@@ -45,22 +55,28 @@ class PurchaseOrderBasicUpdateDto extends Model
     public ?\vatRegistrationIdInPurchaseOrderBasicUpdateDto $vatRegistrationId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfGuid $owner;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $owner;
 
     #[Property]
-    public ?\DtoValueOfString $currency;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $currency;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $exchangeRate;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $exchangeRate;
 
     #[Property]
-    public ?\DtoValueOfString $supplierRef;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $supplierRef;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $controlTotal;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $controlTotal;
 
     #[Property]
-    public ?\DtoValueOfString $branch;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $branch;
 
     #[Property]
     public ?array $lines;
@@ -69,10 +85,12 @@ class PurchaseOrderBasicUpdateDto extends Model
     public ?bool $changeDatesOnLines;
 
     #[Property]
-    public ?\DtoValueOfString $note;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $note;
 
     #[Property]
-    public ?\DtoValueOfBoolean $overrideNumberSeries;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $overrideNumberSeries;
 
     #[Property]
     public ?\customStr1InPurchaseOrderBasicUpdateDto $customStr1;

@@ -5,70 +5,90 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class InventoryIssueLineUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $warehouseId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $warehouseId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $unitCost;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $unitCost;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $extCost;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $extCost;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $unitPrice;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $unitPrice;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $extPrice;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $extPrice;
 
     #[Property]
-    public ?\DtoValueOfNullableOfInventoryTransactionType $tranType;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $tranType;
 
     #[Property]
-    public ?\DtoValueOfString $lotSerialNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $lotSerialNumber;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $expirationDate;
 
     #[Property]
     public ?array $allocations;
 
     #[Property]
-    public ?\DtoValueOfString $costCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $costCode;
 
     #[Property]
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfInt32 $lineNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $lineNumber;
 
     #[Property]
-    public ?\DtoValueOfString $inventoryNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $inventoryNumber;
 
     #[Property]
-    public ?\DtoValueOfString $locationId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $locationId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $quantity;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $quantity;
 
     #[Property]
-    public ?\DtoValueOfString $uom;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $uom;
 
     #[Property]
-    public ?\DtoValueOfString $reasonCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $reasonCode;
 
     #[Property]
-    public ?\DtoValueOfString $projectId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $projectId;
 
     #[Property]
-    public ?\DtoValueOfString $projectTaskId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $projectTaskId;
 
     #[Property]
-    public ?\DtoValueOfString $description;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $description;
 
     #[Property]
-    public ?\DtoValueOfString $branchNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $branchNumber;
 }

@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * Lot/serial allocations for stock components in kit assemblies.
@@ -17,18 +18,23 @@ class InventoryReceiptLineAllocationsUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfInt32 $lineNbr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $lineNbr;
 
     #[Property]
-    public ?\DtoValueOfString $location;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $location;
 
     #[Property]
-    public ?\DtoValueOfString $lotSerialNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $lotSerialNumber;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $quantity;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $quantity;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $expirationDate;
 }

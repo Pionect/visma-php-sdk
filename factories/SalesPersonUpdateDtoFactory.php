@@ -10,10 +10,10 @@ class SalesPersonUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'salespersonId' => $this->faker->word(),
+            'salespersonId' => $this->faker->uuid(),
             'name' => $this->faker->name(),
-            'isActive' => $this->faker->word(),
-            'commissionPct' => $this->faker->word(),
+            'isActive' => $this->faker->boolean(),
+            'commissionPct' => $this->faker->randomFloat(2, 0, 1000),
             'salesSub' => $this->faker->word(),
             'customers' => [],
         ];

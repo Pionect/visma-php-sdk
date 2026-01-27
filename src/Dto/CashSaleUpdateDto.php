@@ -5,14 +5,17 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class CashSaleUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $paymentMethodId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $paymentMethodId;
 
     #[Property]
-    public ?\DtoValueOfString $creditTermsId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $creditTermsId;
 
     #[Property]
     public ?\paymentReferenceInCashSaleUpdateDto $paymentReference;
@@ -21,27 +24,34 @@ class CashSaleUpdateDto extends Model
     public ?array $cashSaleLines;
 
     #[Property]
-    public ?\DtoValueOfString $referenceNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $referenceNumber;
 
     #[Property]
-    public ?\DtoValueOfString $customerNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $customerNumber;
 
     #[Property]
-    public ?\DtoValueOfString $childCustomerNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $childCustomerNumber;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $consolidateInvoices;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $consolidateInvoices;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $documentDate;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $origInvoiceDate;
 
     #[Property]
-    public ?\DtoValueOfBoolean $hold;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $hold;
 
     #[Property]
     public ?\postPeriodInCashSaleUpdateDto $postPeriod;
@@ -50,10 +60,12 @@ class CashSaleUpdateDto extends Model
     public ?\financialPeriodInCashSaleUpdateDto $financialPeriod;
 
     #[Property]
-    public ?\DtoValueOfString $invoiceText;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $invoiceText;
 
     #[Property]
-    public ?\DtoValueOfString $locationId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $locationId;
 
     #[Property]
     public ?\salesPersonIDInCashSaleUpdateDto $salesPersonId;
@@ -62,17 +74,22 @@ class CashSaleUpdateDto extends Model
     public ?\salespersonInCashSaleUpdateDto $salesperson;
 
     #[Property]
-    public ?\DtoValueOfString $note;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $note;
 
     #[Property]
-    public ?\DtoValueOfString $branchNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $branchNumber;
 
     #[Property]
-    public ?\DtoValueOfString $cashAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $cashAccount;
 
     #[Property]
-    public ?\DtoValueOfBoolean $dontPrint;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $dontPrint;
 
     #[Property]
-    public ?\DtoValueOfBoolean $dontEmail;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $dontEmail;
 }

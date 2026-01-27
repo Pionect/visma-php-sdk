@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class InventoryCrossReferenceUpdateDto extends Model
 {
@@ -11,14 +12,18 @@ class InventoryCrossReferenceUpdateDto extends Model
     public ?\alternateTypeInInventoryCrossReferenceUpdateDto $alternateType;
 
     #[Property]
-    public ?\DtoValueOfString $bAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $bAccount;
 
     #[Property]
-    public ?\DtoValueOfString $alternateId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $alternateId;
 
     #[Property]
-    public ?\DtoValueOfString $description;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $description;
 
     #[Property]
-    public ?\DtoValueOfString $uom;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $uom;
 }

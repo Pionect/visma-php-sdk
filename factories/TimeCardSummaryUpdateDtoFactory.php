@@ -11,7 +11,7 @@ class TimeCardSummaryUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'lineNumber' => $this->faker->word(),
+            'lineNumber' => $this->faker->numberBetween(1, 100),
             'earningType' => $this->faker->word(),
             'project' => $this->faker->word(),
             'projectTask' => $this->faker->word(),

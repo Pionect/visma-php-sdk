@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a journal transaction in JournalTransactionController. Used for
@@ -13,13 +14,16 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class JournalTransactionUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $batchNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $batchNumber;
 
     #[Property]
-    public ?\DtoValueOfBoolean $hold;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $hold;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $transactionDate;
 
     #[Property]
@@ -29,37 +33,48 @@ class JournalTransactionUpdateDto extends Model
     public ?\financialPeriodInJournalTransactionUpdateDto $financialPeriod;
 
     #[Property]
-    public ?\DtoValueOfString $ledger;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $ledger;
 
     #[Property]
-    public ?\DtoValueOfString $currencyId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $currencyId;
 
     #[Property]
-    public ?\DtoValueOfDecimal $exchangeRate;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $exchangeRate;
 
     #[Property]
-    public ?\DtoValueOfBoolean $autoReversing;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $autoReversing;
 
     #[Property]
-    public ?\DtoValueOfString $description;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $description;
 
     #[Property]
-    public ?\DtoValueOfDecimal $controlTotalInCurrency;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $controlTotalInCurrency;
 
     #[Property]
-    public ?\DtoValueOfBoolean $createVatTransaction;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $createVatTransaction;
 
     #[Property]
-    public ?\DtoValueOfBoolean $skipVatAmountValidation;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $skipVatAmountValidation;
 
     #[Property]
-    public ?\DtoValueOfString $transactionCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $transactionCode;
 
     #[Property]
-    public ?\DtoValueOfString $branch;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $branch;
 
     #[Property]
-    public ?\DtoValueOfBoolean $overrideNumberSeries;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $overrideNumberSeries;
 
     #[Property]
     public ?array $journalTransactionLines;

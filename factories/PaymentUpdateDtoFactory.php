@@ -24,7 +24,7 @@ class PaymentUpdateDtoFactory extends Factory
             'paymentAmount' => $this->faker->word(),
             'invoiceText' => $this->faker->word(),
             'branch' => $this->faker->word(),
-            'overrideNumberSeries' => $this->faker->word(),
+            'overrideNumberSeries' => $this->faker->boolean(),
             'ordersToApply' => [],
             'financeCharges' => [],
             'paymentLines' => [],

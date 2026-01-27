@@ -10,7 +10,7 @@ class ShipmentUpdateDeleteLineDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'deleteSoline' => $this->faker->word(),
+            'deleteSoline' => $this->faker->boolean(),
         ];
     }
 

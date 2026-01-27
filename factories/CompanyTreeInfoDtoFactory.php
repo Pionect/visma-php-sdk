@@ -11,9 +11,9 @@ class CompanyTreeInfoDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'active' => $this->faker->word(),
-            'owner' => $this->faker->word(),
-            'workGroupId' => $this->faker->word(),
+            'active' => $this->faker->boolean(),
+            'owner' => $this->faker->boolean(),
+            'workGroupId' => $this->faker->uuid(),
         ];
     }
 

@@ -4,27 +4,35 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class ContactInfoUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $name;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $name;
 
     #[Property]
-    public ?\DtoValueOfString $attention;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $attention;
 
     #[Property]
-    public ?\DtoValueOfString $email;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $email;
 
     #[Property]
-    public ?\DtoValueOfString $web;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $web;
 
     #[Property]
-    public ?\DtoValueOfString $phone1;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $phone1;
 
     #[Property]
-    public ?\DtoValueOfString $phone2;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $phone2;
 
     #[Property]
-    public ?\DtoValueOfString $fax;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $fax;
 }

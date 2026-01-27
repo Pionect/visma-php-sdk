@@ -13,7 +13,7 @@ class DtoSegmentValueUpdateDtoBaseFactory extends Factory
             'operation' => $this->faker->word(),
             'value' => $this->faker->word(),
             'description' => $this->faker->sentence(),
-            'active' => $this->faker->word(),
+            'active' => $this->faker->boolean(),
         ];
     }
 

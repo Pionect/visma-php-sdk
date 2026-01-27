@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class CompanyTreeInfoDto extends Model
 {
@@ -11,11 +12,14 @@ class CompanyTreeInfoDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfBoolean $active;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $active;
 
     #[Property]
-    public ?\DtoValueOfBoolean $owner;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $owner;
 
     #[Property]
-    public ?\DtoValueOfString $workGroupId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $workGroupId;
 }

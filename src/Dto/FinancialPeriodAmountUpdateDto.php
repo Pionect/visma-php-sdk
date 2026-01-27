@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class FinancialPeriodAmountUpdateDto extends Model
 {
@@ -11,8 +12,10 @@ class FinancialPeriodAmountUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfString $periodId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $periodId;
 
     #[Property]
-    public ?\DtoValueOfDecimal $amount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $amount;
 }

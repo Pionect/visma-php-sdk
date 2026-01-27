@@ -4,12 +4,15 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class EinvoiceContractUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $fInvoiceContractId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $fInvoiceContractId;
 
     #[Property]
-    public ?\DtoValueOfString $fInvoiceIntermediatorId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $fInvoiceIntermediatorId;
 }

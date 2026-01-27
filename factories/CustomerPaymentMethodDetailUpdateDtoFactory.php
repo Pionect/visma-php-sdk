@@ -10,7 +10,7 @@ class CustomerPaymentMethodDetailUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'detailId' => $this->faker->word(),
+            'detailId' => $this->faker->uuid(),
             'value' => $this->faker->word(),
         ];
     }

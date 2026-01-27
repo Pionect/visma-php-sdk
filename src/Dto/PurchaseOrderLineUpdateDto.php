@@ -2,8 +2,10 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represent a Purchase Order Line in Purchase Order Controller. Used to pass data to server
@@ -15,88 +17,117 @@ class PurchaseOrderLineUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfNullableOfInt32 $lineNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $lineNumber;
 
     #[Property]
-    public ?\DtoValueOfString $branch;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $branch;
 
     #[Property]
-    public ?\DtoValueOfString $inventory;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $inventory;
 
     #[Property]
-    public ?\DtoValueOfNullableOfPoLineType $lineType;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $lineType;
 
     #[Property]
-    public ?\DtoValueOfString $warehouse;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $warehouse;
 
     #[Property]
-    public ?\DtoValueOfString $lineDescription;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $lineDescription;
 
     #[Property]
-    public ?\DtoValueOfString $uom;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $uom;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $orderQty;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $orderQty;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $unitCost;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $unitCost;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $extCost;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $extCost;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $discountAmount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $discountAmount;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $discountPercent;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $discountPercent;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $manualDiscount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $manualDiscount;
 
     #[Property]
-    public ?\DtoValueOfString $discountCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $discountCode;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $amount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $amount;
 
     #[Property]
-    public ?\DtoValueOfString $alternateId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $alternateId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $minReceipt;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $minReceipt;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $maxReceipt;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $maxReceipt;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $completeOn;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $completeOn;
 
     #[Property]
-    public ?\DtoValueOfNullableOfPurchaseOrderReceiptAction $receiptAction;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $receiptAction;
 
     #[Property]
-    public ?\DtoValueOfString $taxCategory;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $taxCategory;
 
     #[Property]
-    public ?\DtoValueOfString $account;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $account;
 
     #[Property]
     public ?array $sub;
 
     #[Property]
-    public ?\DtoValueOfString $project;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $project;
 
     #[Property]
-    public ?\DtoValueOfString $projectTask;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $projectTask;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDateTime $requested;
+    #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\Carbon\Carbon $requested;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDateTime $promised;
+    #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\Carbon\Carbon $promised;
 
     #[Property]
-    public ?\DtoValueOfString $note;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $note;
 
     #[Property]
     public ?\customStr1InPurchaseOrderLineUpdateDto $customStr1;
@@ -129,5 +160,6 @@ class PurchaseOrderLineUpdateDto extends Model
     public ?\customDateTimeUTC1InPurchaseOrderLineUpdateDto $customDateTimeUtc1;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $completed;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $completed;
 }

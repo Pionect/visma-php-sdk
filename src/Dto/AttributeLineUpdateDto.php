@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class AttributeLineUpdateDto extends Model
 {
@@ -11,5 +12,6 @@ class AttributeLineUpdateDto extends Model
     public ?\attributeIdInAttributeLineUpdateDto $attributeId;
 
     #[Property]
-    public ?\DtoValueOfString $attributeValue;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $attributeValue;
 }

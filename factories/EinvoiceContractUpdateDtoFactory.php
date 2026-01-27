@@ -10,8 +10,8 @@ class EinvoiceContractUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'fInvoiceContractId' => $this->faker->word(),
-            'fInvoiceIntermediatorId' => $this->faker->word(),
+            'fInvoiceContractId' => $this->faker->uuid(),
+            'fInvoiceIntermediatorId' => $this->faker->uuid(),
         ];
     }
 

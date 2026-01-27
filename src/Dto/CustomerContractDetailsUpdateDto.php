@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class CustomerContractDetailsUpdateDto extends Model
 {
@@ -11,23 +12,30 @@ class CustomerContractDetailsUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfInt32 $contractDetailId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $contractDetailId;
 
     #[Property]
-    public ?\DtoValueOfString $itemCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $itemCode;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $included;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $included;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $setupPrice;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $setupPrice;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $recurringPrice;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $recurringPrice;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $extraUsagePrice;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $extraUsagePrice;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $renewalPrice;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $renewalPrice;
 }

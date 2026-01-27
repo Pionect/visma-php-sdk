@@ -12,20 +12,20 @@ class SupplierDetailsDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'active' => $this->faker->word(),
-            'default' => $this->faker->word(),
-            'supplierId' => $this->faker->word(),
+            'active' => $this->faker->boolean(),
+            'default' => $this->faker->boolean(),
+            'supplierId' => $this->faker->uuid(),
             'location' => $this->faker->word(),
             'purchaseUnit' => $this->faker->word(),
-            'supplierItemId' => $this->faker->word(),
-            'override' => $this->faker->word(),
+            'supplierItemId' => $this->faker->uuid(),
+            'override' => $this->faker->boolean(),
             'shipmentLeadTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'minOrderFreq' => $this->faker->word(),
-            'minOrderQty' => $this->faker->word(),
-            'maxOrderQty' => $this->faker->word(),
-            'lotSize' => $this->faker->word(),
-            'eoq' => $this->faker->word(),
-            'currencyId' => $this->faker->word(),
+            'minOrderFreq' => $this->faker->numberBetween(1, 100),
+            'minOrderQty' => $this->faker->randomFloat(2, 0, 1000),
+            'maxOrderQty' => $this->faker->randomFloat(2, 0, 1000),
+            'lotSize' => $this->faker->randomFloat(2, 0, 1000),
+            'eoq' => $this->faker->randomFloat(2, 0, 1000),
+            'currencyId' => $this->faker->uuid(),
         ];
     }
 

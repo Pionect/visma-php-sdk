@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Location in LocationController. Used to create and update Location.
@@ -17,35 +18,46 @@ class SupplierLocationUpdateDto extends Model
     public ?\locationIdInSupplierLocationUpdateDto $locationId;
 
     #[Property]
-    public ?\DtoValueOfString $locationName;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $locationName;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $active;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $active;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $addressIsSameAsMain;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $addressIsSameAsMain;
 
     #[Property]
-    public ?\DtoValueOfAddressUpdateDto $address;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\AddressUpdateDto $address;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $contactIsSameAsMain;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $contactIsSameAsMain;
 
     #[Property]
-    public ?\DtoValueOfContactInfoUpdateDto $contact;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\ContactInfoUpdateDto $contact;
 
     #[Property]
-    public ?\DtoValueOfString $vatRegistrationId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $vatRegistrationId;
 
     #[Property]
-    public ?\DtoValueOfString $vatZone;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $vatZone;
 
     #[Property]
-    public ?\DtoValueOfString $ediCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $ediCode;
 
     #[Property]
-    public ?\DtoValueOfString $gln;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $gln;
 
     #[Property]
-    public ?\DtoValueOfString $corporateId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $corporateId;
 }

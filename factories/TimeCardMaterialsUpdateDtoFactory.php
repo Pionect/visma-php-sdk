@@ -11,7 +11,7 @@ class TimeCardMaterialsUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'lineNumber' => $this->faker->word(),
+            'lineNumber' => $this->faker->numberBetween(1, 100),
             'itemId' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'uoM' => $this->faker->word(),

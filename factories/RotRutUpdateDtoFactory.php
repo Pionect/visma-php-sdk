@@ -10,7 +10,7 @@ class RotRutUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'distributedAutomaticaly' => $this->faker->word(),
+            'distributedAutomaticaly' => $this->faker->boolean(),
             'appartment' => $this->faker->word(),
             'estate' => $this->faker->word(),
             'organizationNbr' => $this->faker->word(),

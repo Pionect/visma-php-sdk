@@ -11,8 +11,8 @@ class FinancialPeriodAmountUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'periodId' => $this->faker->word(),
-            'amount' => $this->faker->word(),
+            'periodId' => $this->faker->uuid(),
+            'amount' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 

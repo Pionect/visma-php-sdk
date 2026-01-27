@@ -10,16 +10,16 @@ class VisibilityUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'visibleInGl' => $this->faker->word(),
-            'visibleInAp' => $this->faker->word(),
-            'visibleInAr' => $this->faker->word(),
-            'visibleInSo' => $this->faker->word(),
-            'visibleInPo' => $this->faker->word(),
-            'visibleInEa' => $this->faker->word(),
-            'visibleInTa' => $this->faker->word(),
-            'visibleInIn' => $this->faker->word(),
-            'visibleInCa' => $this->faker->word(),
-            'visibleInCr' => $this->faker->word(),
+            'visibleInGl' => $this->faker->boolean(),
+            'visibleInAp' => $this->faker->boolean(),
+            'visibleInAr' => $this->faker->boolean(),
+            'visibleInSo' => $this->faker->boolean(),
+            'visibleInPo' => $this->faker->boolean(),
+            'visibleInEa' => $this->faker->boolean(),
+            'visibleInTa' => $this->faker->boolean(),
+            'visibleInIn' => $this->faker->boolean(),
+            'visibleInCa' => $this->faker->boolean(),
+            'visibleInCr' => $this->faker->boolean(),
         ];
     }
 

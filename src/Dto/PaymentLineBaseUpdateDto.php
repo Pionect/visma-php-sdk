@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class PaymentLineBaseUpdateDto extends Model
 {
@@ -11,11 +12,14 @@ class PaymentLineBaseUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfCustomerDocumentTypes $documentType;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $documentType;
 
     #[Property]
-    public ?\DtoValueOfString $refNbr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $refNbr;
 
     #[Property]
-    public ?\DtoValueOfDecimal $amountPaid;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $amountPaid;
 }

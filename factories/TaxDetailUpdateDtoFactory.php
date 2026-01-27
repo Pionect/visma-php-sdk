@@ -10,9 +10,9 @@ class TaxDetailUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'taxId' => $this->faker->word(),
-            'taxableAmount' => $this->faker->word(),
-            'vatAmount' => $this->faker->word(),
+            'taxId' => $this->faker->uuid(),
+            'taxableAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'vatAmount' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 

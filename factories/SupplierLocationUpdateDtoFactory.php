@@ -13,16 +13,16 @@ class SupplierLocationUpdateDtoFactory extends Factory
             'baccountId' => $this->faker->word(),
             'locationId' => $this->faker->word(),
             'locationName' => $this->faker->company(),
-            'active' => $this->faker->word(),
-            'addressIsSameAsMain' => $this->faker->word(),
+            'active' => $this->faker->boolean(),
+            'addressIsSameAsMain' => $this->faker->boolean(),
             'address' => $this->faker->word(),
-            'contactIsSameAsMain' => $this->faker->word(),
+            'contactIsSameAsMain' => $this->faker->boolean(),
             'contact' => $this->faker->word(),
-            'vatRegistrationId' => $this->faker->word(),
+            'vatRegistrationId' => $this->faker->uuid(),
             'vatZone' => $this->faker->word(),
             'ediCode' => $this->faker->word(),
             'gln' => $this->faker->word(),
-            'corporateId' => $this->faker->word(),
+            'corporateId' => $this->faker->uuid(),
         ];
     }
 

@@ -11,19 +11,19 @@ class InventoryTransferLineUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'toLocationId' => $this->faker->word(),
+            'toLocationId' => $this->faker->uuid(),
             'lotSerialNumber' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'allocations' => [],
             'operation' => $this->faker->word(),
-            'lineNumber' => $this->faker->word(),
+            'lineNumber' => $this->faker->numberBetween(1, 100),
             'inventoryNumber' => $this->faker->word(),
-            'locationId' => $this->faker->word(),
-            'quantity' => $this->faker->word(),
+            'locationId' => $this->faker->uuid(),
+            'quantity' => $this->faker->randomFloat(2, 0, 1000),
             'uom' => $this->faker->word(),
             'reasonCode' => $this->faker->word(),
-            'projectId' => $this->faker->word(),
-            'projectTaskId' => $this->faker->word(),
+            'projectId' => $this->faker->uuid(),
+            'projectTaskId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
             'branchNumber' => $this->faker->word(),
         ];

@@ -11,28 +11,28 @@ class CashSaleUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'paymentMethodId' => $this->faker->word(),
-            'creditTermsId' => $this->faker->word(),
+            'paymentMethodId' => $this->faker->uuid(),
+            'creditTermsId' => $this->faker->uuid(),
             'paymentReference' => $this->faker->word(),
             'cashSaleLines' => [],
             'referenceNumber' => $this->faker->word(),
             'customerNumber' => $this->faker->word(),
             'childCustomerNumber' => $this->faker->word(),
-            'consolidateInvoices' => $this->faker->word(),
+            'consolidateInvoices' => $this->faker->boolean(),
             'documentDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'origInvoiceDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'hold' => $this->faker->word(),
+            'hold' => $this->faker->boolean(),
             'postPeriod' => $this->faker->word(),
             'financialPeriod' => $this->faker->word(),
             'invoiceText' => $this->faker->word(),
-            'locationId' => $this->faker->word(),
+            'locationId' => $this->faker->uuid(),
             'salesPersonId' => $this->faker->word(),
             'salesperson' => $this->faker->word(),
             'note' => $this->faker->word(),
             'branchNumber' => $this->faker->word(),
             'cashAccount' => $this->faker->word(),
-            'dontPrint' => $this->faker->word(),
-            'dontEmail' => $this->faker->safeEmail(),
+            'dontPrint' => $this->faker->boolean(),
+            'dontEmail' => $this->faker->boolean(),
         ];
     }
 

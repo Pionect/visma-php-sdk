@@ -10,8 +10,8 @@ class CustomerPaymentMethodUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'active' => $this->faker->word(),
-            'cashAccountId' => $this->faker->word(),
+            'active' => $this->faker->boolean(),
+            'cashAccountId' => $this->faker->uuid(),
             'paymentMethodDetails' => [],
         ];
     }

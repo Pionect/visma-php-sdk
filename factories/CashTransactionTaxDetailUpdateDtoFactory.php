@@ -10,10 +10,10 @@ class CashTransactionTaxDetailUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'vatId' => $this->faker->word(),
-            'taxableAmount' => $this->faker->word(),
-            'vatAmount' => $this->faker->word(),
-            'expenseAmount' => $this->faker->word(),
+            'vatId' => $this->faker->uuid(),
+            'taxableAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'vatAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'expenseAmount' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 

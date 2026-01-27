@@ -4,27 +4,35 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class SupplierGlAccountsUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $supplierAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $supplierAccount;
 
     #[Property]
-    public ?\DtoValueOfString $supplierSubaccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $supplierSubaccount;
 
     #[Property]
-    public ?\DtoValueOfString $expenseAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $expenseAccount;
 
     #[Property]
-    public ?\DtoValueOfString $expenseAccountNonTax;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $expenseAccountNonTax;
 
     #[Property]
-    public ?\DtoValueOfString $expenseEuaccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $expenseEuaccount;
 
     #[Property]
-    public ?\DtoValueOfString $expenseAccountImport;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $expenseAccountImport;
 
     #[Property]
-    public ?\DtoValueOfString $expenseSubaccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $expenseSubaccount;
 }

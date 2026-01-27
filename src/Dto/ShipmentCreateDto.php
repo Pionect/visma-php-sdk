@@ -5,120 +5,158 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class ShipmentCreateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfNullableOfShipmentTypes $shipmentType;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $shipmentType;
 
     #[Property]
-    public ?\DtoValueOfNullableOfShipmentOperations $operation;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $operation;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $shipmentDate;
 
     #[Property]
-    public ?\DtoValueOfString $location;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $location;
 
     #[Property]
-    public ?\DtoValueOfString $customer;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $customer;
 
     #[Property]
-    public ?\DtoValueOfString $owner;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $owner;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $hold;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $hold;
 
     #[Property]
-    public ?\DtoValueOfString $fromWarehouse;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $fromWarehouse;
 
     #[Property]
-    public ?\DtoValueOfString $toWarehouse;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $toWarehouse;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $controlQuantity;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $controlQuantity;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $overrideContact;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $overrideContact;
 
     #[Property]
-    public ?\DtoValueOfString $businessName;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $businessName;
 
     #[Property]
-    public ?\DtoValueOfString $attention;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $attention;
 
     #[Property]
-    public ?\DtoValueOfString $phone1;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $phone1;
 
     #[Property]
-    public ?\DtoValueOfString $email;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $email;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $overrideAddress;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $overrideAddress;
 
     #[Property]
-    public ?\DtoValueOfString $addressLine1;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $addressLine1;
 
     #[Property]
-    public ?\DtoValueOfString $addressLine2;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $addressLine2;
 
     #[Property]
-    public ?\DtoValueOfString $addressLine3;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $addressLine3;
 
     #[Property]
-    public ?\DtoValueOfString $city;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $city;
 
     #[Property]
-    public ?\DtoValueOfString $country;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $country;
 
     #[Property]
-    public ?\DtoValueOfString $county;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $county;
 
     #[Property]
-    public ?\DtoValueOfString $postalCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $postalCode;
 
     #[Property]
-    public ?\DtoValueOfString $shipVia;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $shipVia;
 
     #[Property]
-    public ?\DtoValueOfString $fobPoint;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $fobPoint;
 
     #[Property]
-    public ?\DtoValueOfString $shippingTerms;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $shippingTerms;
 
     #[Property]
-    public ?\DtoValueOfString $shippingZone;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $shippingZone;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $residentialDelivery;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $residentialDelivery;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $saturdayDelivery;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $saturdayDelivery;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $useCustomerAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $useCustomerAccount;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $insurance;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $insurance;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $freightAmt;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $freightAmt;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $freightCost;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $freightCost;
 
     #[Property]
-    public ?\DtoValueOfNullableOfInt32 $transactionType;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $transactionType;
 
     #[Property]
-    public ?\DtoValueOfNullableOfTransportationModes $modeOfTrasport;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $modeOfTrasport;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $container;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $container;
 
     #[Property]
-    public ?\DtoValueOfString $note;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $note;
 
     #[Property]
     public ?array $shipmentDetailLines;

@@ -4,50 +4,60 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class CustomerGlAccountsUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $customerLedgerAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $customerLedgerAccount;
 
     #[Property]
     public ?array $customerLedgerSubaccount;
 
     #[Property]
-    public ?\DtoValueOfString $salesAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesAccount;
 
     #[Property]
-    public ?\DtoValueOfString $salesNonTaxableAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesNonTaxableAccount;
 
     #[Property]
-    public ?\DtoValueOfString $salesEuAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesEuAccount;
 
     #[Property]
-    public ?\DtoValueOfString $salesExportAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesExportAccount;
 
     #[Property]
     public ?array $salesSubaccount;
 
     #[Property]
-    public ?\DtoValueOfString $discountAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $discountAccount;
 
     #[Property]
     public ?array $discountSubaccount;
 
     #[Property]
-    public ?\DtoValueOfString $freightAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $freightAccount;
 
     #[Property]
     public ?array $freightSubaccount;
 
     #[Property]
-    public ?\DtoValueOfString $cashDiscountAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $cashDiscountAccount;
 
     #[Property]
     public ?array $cashDiscountSubaccount;
 
     #[Property]
-    public ?\DtoValueOfString $prepaymentAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $prepaymentAccount;
 
     #[Property]
     public ?array $prepaymentSubaccount;

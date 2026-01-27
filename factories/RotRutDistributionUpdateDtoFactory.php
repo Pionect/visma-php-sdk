@@ -11,10 +11,10 @@ class RotRutDistributionUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'lineNbr' => $this->faker->word(),
-            'personalId' => $this->faker->word(),
-            'amount' => $this->faker->word(),
-            'extra' => $this->faker->word(),
+            'lineNbr' => $this->faker->numberBetween(1, 100),
+            'personalId' => $this->faker->uuid(),
+            'amount' => $this->faker->randomFloat(2, 0, 1000),
+            'extra' => $this->faker->boolean(),
         ];
     }
 

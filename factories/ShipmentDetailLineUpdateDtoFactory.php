@@ -12,11 +12,11 @@ class ShipmentDetailLineUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'lineNumber' => $this->faker->word(),
+            'lineNumber' => $this->faker->numberBetween(1, 100),
             'warehouse' => $this->faker->word(),
             'location' => $this->faker->word(),
             'uom' => $this->faker->word(),
-            'shippedQty' => $this->faker->word(),
+            'shippedQty' => $this->faker->randomFloat(2, 0, 1000),
             'lotSerialNbr' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'reasonCode' => $this->faker->word(),

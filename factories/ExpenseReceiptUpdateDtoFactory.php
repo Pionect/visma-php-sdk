@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Factories;
 
+use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExpenseReceiptUpdateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -10,20 +11,20 @@ class ExpenseReceiptUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'date' => $this->faker->word(),
+            'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'currency' => $this->faker->word(),
             'refNbr' => $this->faker->word(),
             'inventory' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'uom' => $this->faker->word(),
-            'quantity' => $this->faker->word(),
-            'unitCost' => $this->faker->word(),
-            'totalAmount' => $this->faker->word(),
-            'employeePart' => $this->faker->word(),
+            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'unitCost' => $this->faker->randomFloat(2, 0, 1000),
+            'totalAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'employeePart' => $this->faker->randomFloat(2, 0, 1000),
             'claimedBy' => $this->faker->word(),
             'branch' => $this->faker->word(),
             'expenseClaim' => $this->faker->word(),
-            'invoiceable' => $this->faker->word(),
+            'invoiceable' => $this->faker->boolean(),
             'project' => $this->faker->word(),
             'projectTask' => $this->faker->word(),
             'customer' => $this->faker->word(),

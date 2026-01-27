@@ -11,13 +11,13 @@ class CustomerContractDetailsUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'contractDetailId' => $this->faker->word(),
+            'contractDetailId' => $this->faker->numberBetween(1, 1000),
             'itemCode' => $this->faker->word(),
-            'included' => $this->faker->word(),
-            'setupPrice' => $this->faker->word(),
-            'recurringPrice' => $this->faker->word(),
-            'extraUsagePrice' => $this->faker->word(),
-            'renewalPrice' => $this->faker->word(),
+            'included' => $this->faker->randomFloat(2, 0, 1000),
+            'setupPrice' => $this->faker->randomFloat(2, 0, 1000),
+            'recurringPrice' => $this->faker->randomFloat(2, 0, 1000),
+            'extraUsagePrice' => $this->faker->randomFloat(2, 0, 1000),
+            'renewalPrice' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 

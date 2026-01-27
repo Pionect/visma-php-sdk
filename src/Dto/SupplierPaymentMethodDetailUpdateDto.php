@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Payment Method Detail in SupplierController. Used to update
@@ -15,5 +16,6 @@ class SupplierPaymentMethodDetailUpdateDto extends Model
     public ?string $paymentMethodDetailDescription;
 
     #[Property]
-    public ?\DtoValueOfString $paymentMethodDetailValue;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $paymentMethodDetailValue;
 }

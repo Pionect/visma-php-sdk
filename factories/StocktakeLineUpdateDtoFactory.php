@@ -12,10 +12,10 @@ class StocktakeLineUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'lineNbr' => $this->faker->word(),
-            'physicalQuantity' => $this->faker->word(),
-            'inventoryId' => $this->faker->word(),
-            'locationId' => $this->faker->word(),
+            'lineNbr' => $this->faker->numberBetween(1, 100),
+            'physicalQuantity' => $this->faker->randomFloat(2, 0, 1000),
+            'inventoryId' => $this->faker->uuid(),
+            'locationId' => $this->faker->uuid(),
             'reasonCode' => $this->faker->word(),
             'lotSerialNumber' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

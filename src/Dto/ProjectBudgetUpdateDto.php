@@ -4,39 +4,51 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class ProjectBudgetUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $projectId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $projectId;
 
     #[Property]
-    public ?\DtoValueOfString $projectTaskId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $projectTaskId;
 
     #[Property]
-    public ?\DtoValueOfString $accountGroupId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $accountGroupId;
 
     #[Property]
-    public ?\DtoValueOfString $inventoryNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $inventoryNumber;
 
     #[Property]
-    public ?\DtoValueOfString $description;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $description;
 
     #[Property]
-    public ?\DtoValueOfString $uom;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $uom;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $rate;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $rate;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $originalBudgetQty;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $originalBudgetQty;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $originalBudgetAmount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $originalBudgetAmount;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $revisedBudgetQty;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $revisedBudgetQty;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $revisedBudgetAmount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $revisedBudgetAmount;
 }

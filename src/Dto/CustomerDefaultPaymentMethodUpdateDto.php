@@ -4,12 +4,15 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class CustomerDefaultPaymentMethodUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $paymentMethodId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $paymentMethodId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $isDefault;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $isDefault;
 }

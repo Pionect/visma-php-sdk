@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * General information tab &gt; Address info section &gt;
@@ -11,23 +12,30 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class AddressInEmployeeUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $addressLine1;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $addressLine1;
 
     #[Property]
-    public ?\DtoValueOfString $addressLine2;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $addressLine2;
 
     #[Property]
-    public ?\DtoValueOfString $addressLine3;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $addressLine3;
 
     #[Property]
-    public ?\DtoValueOfString $postalCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $postalCode;
 
     #[Property]
-    public ?\DtoValueOfString $city;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $city;
 
     #[Property]
-    public ?\DtoValueOfString $countryId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $countryId;
 
     #[Property]
-    public ?\DtoValueOfString $county;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $county;
 }

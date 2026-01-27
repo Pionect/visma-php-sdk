@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class DiscountBreakpointUpdateDto extends Model
 {
@@ -12,30 +13,39 @@ class DiscountBreakpointUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfInt32 $lineNbr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $lineNbr;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $pendingBreakAmount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $pendingBreakAmount;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $pendingDate;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $pendingDiscountPercent;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $pendingDiscountPercent;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $pendingDiscountAmount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $pendingDiscountAmount;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $pendingBreakQuantity;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $pendingBreakQuantity;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $breakAmount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $breakAmount;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $discountAmount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $discountAmount;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $discountPercent;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $discountPercent;
 }

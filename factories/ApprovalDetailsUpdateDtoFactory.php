@@ -10,7 +10,7 @@ class ApprovalDetailsUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'attachmentId' => $this->faker->word(),
+            'attachmentId' => $this->faker->uuid(),
             'comment' => $this->faker->word(),
         ];
     }

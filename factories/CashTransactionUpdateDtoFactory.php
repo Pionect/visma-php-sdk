@@ -12,7 +12,7 @@ class CashTransactionUpdateDtoFactory extends Factory
     {
         return [
             'referenceNumber' => $this->faker->word(),
-            'hold' => $this->faker->word(),
+            'hold' => $this->faker->boolean(),
             'tranDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'finanacialPeriod' => $this->faker->word(),
             'financialPeriod' => $this->faker->word(),
@@ -20,11 +20,11 @@ class CashTransactionUpdateDtoFactory extends Factory
             'cashAccount' => $this->faker->word(),
             'entryType' => $this->faker->word(),
             'documentRef' => $this->faker->word(),
-            'controlTotal' => $this->faker->word(),
-            'vatAmount' => $this->faker->word(),
+            'controlTotal' => $this->faker->randomFloat(2, 0, 1000),
+            'vatAmount' => $this->faker->randomFloat(2, 0, 1000),
             'vatZone' => $this->faker->word(),
             'taxCalculationMode' => $this->faker->word(),
-            'overrideNumberSeries' => $this->faker->word(),
+            'overrideNumberSeries' => $this->faker->boolean(),
             'cashTransactionDetails' => [],
             'cashTransactionTaxDetails' => [],
         ];

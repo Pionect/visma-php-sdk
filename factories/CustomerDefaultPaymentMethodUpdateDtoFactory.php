@@ -10,8 +10,8 @@ class CustomerDefaultPaymentMethodUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'paymentMethodId' => $this->faker->word(),
-            'isDefault' => $this->faker->word(),
+            'paymentMethodId' => $this->faker->uuid(),
+            'isDefault' => $this->faker->boolean(),
         ];
     }
 

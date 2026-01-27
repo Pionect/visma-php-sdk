@@ -11,10 +11,10 @@ class AddPoreceiptLineDtoFactory extends Factory
     {
         return [
             'poReceiptNumber' => $this->faker->word(),
-            'poReceiptLineNumber' => $this->faker->word(),
-            'quantity' => $this->faker->word(),
-            'unitCostInCurrency' => $this->faker->word(),
-            'costInCurrency' => $this->faker->word(),
+            'poReceiptLineNumber' => $this->faker->numberBetween(1, 100),
+            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'unitCostInCurrency' => $this->faker->randomFloat(2, 0, 1000),
+            'costInCurrency' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 

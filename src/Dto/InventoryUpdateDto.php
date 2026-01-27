@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class InventoryUpdateDto extends Model
 {
@@ -11,16 +12,20 @@ class InventoryUpdateDto extends Model
     public ?\inventoryNumberInInventoryUpdateDto $inventoryNumber;
 
     #[Property]
-    public ?\DtoValueOfInventoryStatus $status;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $status;
 
     #[Property]
-    public ?\DtoValueOfInventoryType $type;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $type;
 
     #[Property]
-    public ?\DtoValueOfString $description;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $description;
 
     #[Property]
-    public ?\DtoValueOfString $body;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $body;
 
     #[Property]
     public ?\itemClassInInventoryUpdateDto $itemClass;
@@ -35,13 +40,16 @@ class InventoryUpdateDto extends Model
     public ?\defaultPriceInInventoryUpdateDto $defaultPrice;
 
     #[Property]
-    public ?\DtoValueOfString $baseUnit;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $baseUnit;
 
     #[Property]
-    public ?\DtoValueOfString $salesUnit;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesUnit;
 
     #[Property]
-    public ?\DtoValueOfString $purchaseUnit;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $purchaseUnit;
 
     #[Property]
     public ?\expenseAccrualAccountInInventoryUpdateDto $expenseAccrualAccount;
@@ -56,13 +64,16 @@ class InventoryUpdateDto extends Model
     public ?\cogsAccountInInventoryUpdateDto $cogsAccount;
 
     #[Property]
-    public ?\DtoValueOfString $expenseNonTaxableAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $expenseNonTaxableAccount;
 
     #[Property]
-    public ?\DtoValueOfString $expenseEuAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $expenseEuAccount;
 
     #[Property]
-    public ?\DtoValueOfString $expenseImportAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $expenseImportAccount;
 
     /** Only used for Non-stock items */
     #[Property]
@@ -73,16 +84,20 @@ class InventoryUpdateDto extends Model
     public ?array $cogsSubaccount;
 
     #[Property]
-    public ?\DtoValueOfString $salesAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesAccount;
 
     #[Property]
-    public ?\DtoValueOfString $salesNonTaxableAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesNonTaxableAccount;
 
     #[Property]
-    public ?\DtoValueOfString $salesEuAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesEuAccount;
 
     #[Property]
-    public ?\DtoValueOfString $salesExportAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $salesExportAccount;
 
     #[Property]
     public ?array $salesSubaccount;
@@ -112,8 +127,10 @@ class InventoryUpdateDto extends Model
     public ?\defaultReceiptToInInventoryUpdateDto $defaultReceiptTo;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $kitItem;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $kitItem;
 
     #[Property]
-    public ?\DtoValueOfString $note;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $note;
 }

@@ -4,23 +4,29 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class RotRutUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $distributedAutomaticaly;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $distributedAutomaticaly;
 
     #[Property]
-    public ?\DtoValueOfNullableOfRutRotTypes $type;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $type;
 
     #[Property]
-    public ?\DtoValueOfString $appartment;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $appartment;
 
     #[Property]
-    public ?\DtoValueOfString $estate;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $estate;
 
     #[Property]
-    public ?\DtoValueOfString $organizationNbr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $organizationNbr;
 
     #[Property]
     public ?array $distribution;

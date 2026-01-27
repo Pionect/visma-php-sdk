@@ -12,14 +12,14 @@ class TaskUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'taskId' => $this->faker->word(),
+            'taskId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
-            'plannedStart' => $this->faker->word(),
-            'plannedEnd' => $this->faker->word(),
+            'plannedStart' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'plannedEnd' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'rateTable' => $this->faker->word(),
+            'rateTable' => number_format($this->faker->randomFloat(2, 50, 150), 2, '.', ''),
             'status' => $this->faker->word(),
-            'restrictEmployees' => $this->faker->word(),
+            'restrictEmployees' => $this->faker->boolean(),
             'employees' => [],
         ];
     }

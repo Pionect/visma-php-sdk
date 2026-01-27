@@ -4,11 +4,13 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class EmployeeUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $employeeClass;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $employeeClass;
 
     #[Property]
     public ?\statusInEmployeeUpdateDto $status;
@@ -23,10 +25,12 @@ class EmployeeUpdateDto extends Model
     public ?\addressInEmployeeUpdateDto $address;
 
     #[Property]
-    public ?\DtoValueOfString $branch;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $branch;
 
     #[Property]
-    public ?\DtoValueOfString $calendar;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $calendar;
 
     #[Property]
     public ?array $companyTreeInfo;

@@ -43,7 +43,7 @@ class InventoryUpdateDtoFactory extends Factory
             'defaultWarehouse' => $this->faker->word(),
             'defaultIssueFrom' => $this->faker->word(),
             'defaultReceiptTo' => $this->faker->word(),
-            'kitItem' => $this->faker->word(),
+            'kitItem' => $this->faker->boolean(),
             'note' => $this->faker->word(),
         ];
     }

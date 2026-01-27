@@ -11,9 +11,9 @@ class CustSalesPeopleUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'customerId' => $this->faker->word(),
-            'locationId' => $this->faker->word(),
-            'commissionPct' => $this->faker->word(),
+            'customerId' => $this->faker->uuid(),
+            'locationId' => $this->faker->uuid(),
+            'commissionPct' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 

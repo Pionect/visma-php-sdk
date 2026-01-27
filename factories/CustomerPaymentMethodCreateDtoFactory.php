@@ -10,10 +10,10 @@ class CustomerPaymentMethodCreateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'customerId' => $this->faker->word(),
-            'paymentMethodId' => $this->faker->word(),
-            'active' => $this->faker->word(),
-            'cashAccountId' => $this->faker->word(),
+            'customerId' => $this->faker->uuid(),
+            'paymentMethodId' => $this->faker->uuid(),
+            'active' => $this->faker->boolean(),
+            'cashAccountId' => $this->faker->uuid(),
             'paymentMethodDetails' => [],
         ];
     }

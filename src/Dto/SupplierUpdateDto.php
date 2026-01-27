@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a supplier in SupplierController. Used to create and update supplier.
@@ -12,98 +13,128 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class SupplierUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $number;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $number;
 
     #[Property]
-    public ?\DtoValueOfString $name;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $name;
 
     #[Property]
-    public ?\DtoValueOfSupplierStatus $status;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $status;
 
     #[Property]
-    public ?\DtoValueOfString $accountReference;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $accountReference;
 
     #[Property]
-    public ?\DtoValueOfNullableOfInt32 $numberOfEmployees;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $numberOfEmployees;
 
     #[Property]
-    public ?\DtoValueOfString $parentRecordNumber;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $parentRecordNumber;
 
     #[Property]
-    public ?\DtoValueOfString $supplierClassId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $supplierClassId;
 
     #[Property]
     public ?bool $overrideWithClassValues;
 
     #[Property]
-    public ?\DtoValueOfString $creditTermsId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $creditTermsId;
 
     #[Property]
-    public ?\DtoValueOfString $documentLanguage;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $documentLanguage;
 
     #[Property]
-    public ?\DtoValueOfString $currencyId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $currencyId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $currencyOverride;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $currencyOverride;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $currencyRateOverride;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $currencyRateOverride;
 
     #[Property]
-    public ?\DtoValueOfString $paymentMethodId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $paymentMethodId;
 
     #[Property]
-    public ?\DtoValueOfString $cashAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $cashAccount;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $paymentLeadTime;
 
     #[Property]
-    public ?\DtoValueOfString $paymentRefDisplayMask;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $paymentRefDisplayMask;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $paySeparately;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $paySeparately;
 
     #[Property]
-    public ?\DtoValueOfString $vatRegistrationId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $vatRegistrationId;
 
     #[Property]
-    public ?\DtoValueOfString $corporateId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $corporateId;
 
     #[Property]
-    public ?\DtoValueOfString $vatZoneId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $vatZoneId;
 
     #[Property]
-    public ?\DtoValueOfSupplierChargeBearer $chargeBearer;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $chargeBearer;
 
     #[Property]
-    public ?\DtoValueOfAccountUsedForPayment $accountUsedForPayment;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $accountUsedForPayment;
 
     #[Property]
-    public ?\DtoValueOfPaymentBy $paymentBy;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $paymentBy;
 
     #[Property]
-    public ?\DtoValueOfAddressUpdateDto $mainAddress;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\AddressUpdateDto $mainAddress;
 
     #[Property]
-    public ?\DtoValueOfContactInfoUpdateDto $mainContact;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\ContactInfoUpdateDto $mainContact;
 
     #[Property]
-    public ?\DtoValueOfAddressUpdateDto $remitAddress;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\AddressUpdateDto $remitAddress;
 
     #[Property]
-    public ?\DtoValueOfContactInfoUpdateDto $remitContact;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\ContactInfoUpdateDto $remitContact;
 
     #[Property]
-    public ?\DtoValueOfAddressUpdateDto $supplierAddress;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\AddressUpdateDto $supplierAddress;
 
     #[Property]
-    public ?\DtoValueOfContactInfoUpdateDto $supplierContact;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\ContactInfoUpdateDto $supplierContact;
 
     #[Property]
-    public ?\DtoValueOfSupplierGlAccountsUpdateDto $glAccounts;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\SupplierGlAccountsUpdateDto $glAccounts;
 
     #[Property]
     public ?array $supplierPaymentMethodDetails;
@@ -112,23 +143,30 @@ class SupplierUpdateDto extends Model
     public ?array $attributeLines;
 
     #[Property]
-    public ?\DtoValueOfString $retainageCashAccountId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $retainageCashAccountId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $retainageApply;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $retainageApply;
 
     #[Property]
-    public ?\DtoValueOfNullableOfDecimal $retainagePct;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?float $retainagePct;
 
     #[Property]
-    public ?\DtoValueOfString $note;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $note;
 
     #[Property]
-    public ?\DtoValueOfBoolean $overrideNumberSeries;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $overrideNumberSeries;
 
     #[Property]
-    public ?\DtoValueOfString $naceCode;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $naceCode;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $landedCostSupplier;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $landedCostSupplier;
 }

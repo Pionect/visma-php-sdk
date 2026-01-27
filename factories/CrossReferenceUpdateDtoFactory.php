@@ -13,7 +13,7 @@ class CrossReferenceUpdateDtoFactory extends Factory
             'operation' => $this->faker->word(),
             'alternateType' => $this->faker->word(),
             'bAccount' => $this->faker->word(),
-            'alternateId' => $this->faker->word(),
+            'alternateId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
             'uom' => $this->faker->word(),
         ];

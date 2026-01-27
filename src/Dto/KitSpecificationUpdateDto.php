@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class KitSpecificationUpdateDto extends Model
 {
@@ -11,22 +12,28 @@ class KitSpecificationUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\DtoValueOfString $kitInventoryId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $kitInventoryId;
 
     #[Property]
-    public ?\DtoValueOfString $revisionId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $revisionId;
 
     #[Property]
-    public ?\DtoValueOfString $descr;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $descr;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $isActive;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $isActive;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $allowCompAddition;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $allowCompAddition;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $isNonStock;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $isNonStock;
 
     #[Property]
     public ?array $stockComponentLines;

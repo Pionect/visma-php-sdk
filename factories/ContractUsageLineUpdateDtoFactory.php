@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Factories;
 
+use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ContractUsageLineUpdateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -11,13 +12,13 @@ class ContractUsageLineUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'transactionNumber' => $this->faker->word(),
+            'transactionNumber' => $this->faker->numberBetween(1, 100),
             'branch' => $this->faker->word(),
             'inventory' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'uom' => $this->faker->word(),
-            'quantity' => $this->faker->word(),
-            'date' => $this->faker->word(),
+            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }
 

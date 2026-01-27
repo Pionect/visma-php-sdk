@@ -5,36 +5,47 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class ProjectTaskUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $taskId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $taskId;
 
     #[Property]
-    public ?\DtoValueOfString $description;
-
-    #[Property]
-    public ?\DtoValueOfNullableOfDateTime $plannedStart;
-
-    #[Property]
-    public ?\DtoValueOfNullableOfDateTime $plannedEnd;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $description;
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\Carbon\Carbon $plannedStart;
+
+    #[Property]
+    #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?\Carbon\Carbon $plannedEnd;
+
+    #[Property]
+    #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $startDate;
 
     #[Property]
-    public ?\DtoValueOfString $rateTable;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $rateTable;
 
     #[Property]
-    public ?\DtoValueOfNullableOfProjTaskStatus $status;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $status;
 
     #[Property]
     public ?\VisibilityUpdateDto $visibility;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $restrictEmployees;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $restrictEmployees;
 
     #[Property]
     public ?array $employees;

@@ -11,7 +11,7 @@ class ProjectEmployeeUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'employeeId' => $this->faker->word(),
+            'employeeId' => $this->faker->uuid(),
         ];
     }
 

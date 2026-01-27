@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represent a Project in Project Controller. Used to pass data to server for creating or
@@ -13,35 +14,43 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class ProjectUpdateDto extends Model
 {
     #[Property]
-    public ?\DtoValueOfString $projectId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $projectId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfInt32 $internalId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $internalId;
 
     #[Property]
-    public ?\DtoValueOfString $customer;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $customer;
 
     #[Property]
     public ?\descriptionInProjectUpdateDto $description;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $hold;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $hold;
 
     #[Property]
-    public ?\DtoValueOfString $template;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $template;
 
     #[Property]
-    public ?\DtoValueOfNullableOfProjectStatus $status;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $status;
 
     #[Property]
-    public ?\DtoValueOfString $defAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $defAccount;
 
     /** Mandatory field when Project Template is not specified. */
     #[Property]
     public ?array $defSub;
 
     #[Property]
-    public ?\DtoValueOfString $defAccrualAccount;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $defAccrualAccount;
 
     #[Property]
     public ?array $defAccrualSub;
@@ -52,43 +61,55 @@ class ProjectUpdateDto extends Model
 
     #[Property]
     #[DateTime]
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $endDate;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBillingPeriod $billingPeriod;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $billingPeriod;
 
     #[Property]
-    public ?\DtoValueOfString $allocationRule;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $allocationRule;
 
     #[Property]
-    public ?\DtoValueOfString $billingRule;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $billingRule;
 
     #[Property]
     public ?\branchInProjectUpdateDto $branch;
 
     #[Property]
-    public ?\DtoValueOfString $rateTable;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $rateTable;
 
     #[Property]
-    public ?\DtoValueOfString $projectManger;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $projectManger;
 
     #[Property]
-    public ?\DtoValueOfNullableOfInt32 $projectManagerInternalId;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?int $projectManagerInternalId;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $autoAllocate;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $autoAllocate;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $automaticReleaseArDoc;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $automaticReleaseArDoc;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $restricEmployees;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $restricEmployees;
 
     #[Property]
-    public ?\DtoValueOfNullableOfBoolean $restricEquipment;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?bool $restricEquipment;
 
     #[Property]
-    public ?\DtoValueOfString $customerLocation;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $customerLocation;
 
     #[Property]
     public ?\VisibilityUpdateDto $visibility;
@@ -100,5 +121,6 @@ class ProjectUpdateDto extends Model
     public ?array $employees;
 
     #[Property]
-    public ?\DtoValueOfString $note;
+    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    public ?string $note;
 }
