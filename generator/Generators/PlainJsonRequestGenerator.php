@@ -127,24 +127,22 @@ class PlainJsonRequestGenerator extends JsonApiRequestGenerator
         if ($this->isCollectionRequest($endpoint)) {
             // Collection: use hydrateCollection
             $method->addBody('return Hydrator::hydrateCollection(');
-            $method->addBody('    $this->model,');
-
-            // For BasePaginationDto format, extract records from the response
-            if ($isBasePagination) {
-                $method->addBody('    $response->json(\'records\')');
-            } else {
-                // Standard plain JSON format
-                $method->addBody('    $response->json()');
-            }
-
-            $method->addBody(');');
         } else {
             // Single resource: use hydrate
             $method->addBody('return Hydrator::hydrate(');
-            $method->addBody('    $this->model,');
-            $method->addBody('    $response->json()');
-            $method->addBody(');');
         }
+
+        $method->addBody('    $this->model,');
+
+        // For BasePaginationDto format, extract records from the response
+        if ($isBasePagination) {
+            $method->addBody('    $response->json(\'records\')');
+        } else {
+            // Standard plain JSON format
+            $method->addBody('    $response->json()');
+        }
+
+        $method->addBody(');');
     }
 
     /**
