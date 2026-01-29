@@ -13,6 +13,7 @@ class UiExtensionDtoFactory extends Factory
             'internalId' => $this->faker->uuid(),
             'title' => $this->faker->sentence(),
             'url' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'screenId' => $this->faker->uuid(),
             'stepId' => $this->faker->uuid(),
             'ownerName' => $this->faker->company(),

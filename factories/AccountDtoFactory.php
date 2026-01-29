@@ -15,6 +15,7 @@ class AccountDtoFactory extends Factory
             'accountCd' => $this->faker->word(),
             'accountGroupCd' => $this->faker->word(),
             'accountClass' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'active' => $this->faker->boolean(),
             'description' => $this->faker->sentence(),
             'accountClassDescription' => $this->faker->sentence(),

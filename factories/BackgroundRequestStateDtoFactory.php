@@ -11,6 +11,7 @@ class BackgroundRequestStateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'status' => $this->faker->word(),
             'statusCode' => $this->faker->numberBetween(1, 100),
             'receivedUtc' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

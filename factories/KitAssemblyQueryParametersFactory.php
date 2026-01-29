@@ -15,6 +15,7 @@ class KitAssemblyQueryParametersFactory extends Factory
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'createdDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'createdDateTimeCondition' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'refNo' => $this->faker->word(),
             'status' => $this->faker->word(),
             'expandStockComponents' => $this->faker->boolean(),

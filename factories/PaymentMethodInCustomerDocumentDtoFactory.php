@@ -10,6 +10,7 @@ class PaymentMethodInCustomerDocumentDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
         ];
     }

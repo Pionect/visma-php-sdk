@@ -11,6 +11,7 @@ class RotRutBasicDtoFactory extends Factory
     {
         return [
             'distributedAutomaticaly' => $this->faker->boolean(),
+            'type' => $this->faker->word(),
             'appartment' => $this->faker->word(),
             'estate' => $this->faker->word(),
             'organizationNbr' => $this->faker->word(),

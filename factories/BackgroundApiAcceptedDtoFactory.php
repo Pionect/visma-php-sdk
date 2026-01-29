@@ -10,6 +10,7 @@ class BackgroundApiAcceptedDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'stateLocation' => $this->faker->word(),
         ];
     }

@@ -25,6 +25,7 @@ class FixedAssetDtoFactory extends Factory
             'bookBalance' => $this->faker->word(),
             'location' => $this->faker->word(),
             'propertyTax' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
         ];

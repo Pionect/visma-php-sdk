@@ -14,6 +14,7 @@ class DiscountDetailDtoFactory extends Factory
             'skipDiscount' => $this->faker->boolean(),
             'discountCode' => $this->faker->word(),
             'sequanceId' => $this->faker->uuid(),
+            'type' => $this->faker->word(),
             'manualDiscount' => $this->faker->boolean(),
             'discountableAmt' => $this->faker->randomFloat(2, 0, 1000),
             'discountableQty' => $this->faker->randomFloat(2, 0, 1000),

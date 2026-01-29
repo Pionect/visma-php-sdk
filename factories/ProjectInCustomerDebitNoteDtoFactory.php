@@ -11,6 +11,7 @@ class ProjectInCustomerDebitNoteDtoFactory extends Factory
     {
         return [
             'internalId' => $this->faker->numberBetween(1, 1000),
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
         ];
     }

@@ -12,6 +12,7 @@ class InventoryUpdateDtoFactory extends Factory
         return [
             'inventoryNumber' => $this->faker->word(),
             'status' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'body' => $this->faker->word(),
             'itemClass' => $this->faker->word(),

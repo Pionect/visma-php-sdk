@@ -11,6 +11,7 @@ class KitAssemblyDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'type' => $this->faker->word(),
             'refNo' => $this->faker->word(),
             'status' => $this->faker->word(),
             'hold' => $this->faker->boolean(),

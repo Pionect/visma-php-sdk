@@ -11,6 +11,7 @@ class CustomerDirectDebitDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'mandateId' => $this->faker->uuid(),
             'mandateDescription' => $this->faker->sentence(),
             'dateOfSignature' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

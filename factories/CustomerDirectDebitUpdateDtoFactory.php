@@ -12,6 +12,7 @@ class CustomerDirectDebitUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
+            'id' => $this->faker->word(),
             'mandateId' => $this->faker->uuid(),
             'mandateDescription' => $this->faker->sentence(),
             'dateOfSignature' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

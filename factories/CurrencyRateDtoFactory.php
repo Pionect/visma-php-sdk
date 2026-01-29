@@ -11,6 +11,7 @@ class CurrencyRateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->numberBetween(1, 100),
             'fromCurrencyId' => $this->faker->uuid(),
             'toCurrencyId' => $this->faker->uuid(),
             'rateType' => number_format($this->faker->randomFloat(2, 50, 150), 2, '.', ''),

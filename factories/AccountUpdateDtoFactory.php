@@ -21,6 +21,7 @@ class AccountUpdateDtoFactory extends Factory
             'accountGroupCd' => $this->faker->word(),
             'postOption' => $this->faker->word(),
             'publicCode1' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'useDefaultSub' => $this->faker->boolean(),
             'taxCategory' => $this->faker->word(),
         ];

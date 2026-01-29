@@ -10,6 +10,7 @@ class ModeOfTransportDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->numberBetween(1, 100),
             'description' => $this->faker->sentence(),
         ];
     }

@@ -10,7 +10,9 @@ class LotSerialClassDetailDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'segmentNumber' => $this->faker->numberBetween(1, 100),
+            'type' => $this->faker->word(),
             'value' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
         ];

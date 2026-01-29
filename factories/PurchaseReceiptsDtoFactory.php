@@ -10,6 +10,7 @@ class PurchaseReceiptsDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'type' => $this->faker->word(),
             'receiptNumber' => $this->faker->word(),
             'status' => $this->faker->word(),
             'supplierName' => $this->faker->company(),

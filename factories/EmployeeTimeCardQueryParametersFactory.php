@@ -13,6 +13,7 @@ class EmployeeTimeCardQueryParametersFactory extends Factory
         return [
             'status' => $this->faker->word(),
             'week' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'greaterThanValue' => $this->faker->word(),
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),

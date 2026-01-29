@@ -10,6 +10,7 @@ class BranchCurrencyDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'symbol' => $this->faker->word(),
         ];

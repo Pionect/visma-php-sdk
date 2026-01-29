@@ -14,6 +14,7 @@ class VatInformationDtoFactory extends Factory
             'vatCategoryId' => $this->faker->uuid(),
             'vatId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
+            'type' => $this->faker->word(),
             'deductibleVat' => $this->faker->boolean(),
             'reverseVat' => $this->faker->boolean(),
             'statisticalVat' => $this->faker->boolean(),

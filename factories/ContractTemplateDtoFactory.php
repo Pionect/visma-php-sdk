@@ -13,6 +13,7 @@ class ContractTemplateDtoFactory extends Factory
         return [
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'attributes' => [],
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
         ];
     }

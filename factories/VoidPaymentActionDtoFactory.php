@@ -10,6 +10,7 @@ class VoidPaymentActionDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'type' => $this->faker->word(),
             'returnVoidPayment' => $this->faker->boolean(),
         ];
     }

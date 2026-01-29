@@ -11,6 +11,7 @@ class KitAssemblyUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'type' => $this->faker->word(),
             'refNo' => $this->faker->word(),
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

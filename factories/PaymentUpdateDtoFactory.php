@@ -12,6 +12,7 @@ class PaymentUpdateDtoFactory extends Factory
     {
         return [
             'referenceNumber' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'hold' => $this->faker->word(),
             'applicationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'applicationPeriod' => $this->faker->word(),

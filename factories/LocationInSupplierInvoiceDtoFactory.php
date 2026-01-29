@@ -11,6 +11,7 @@ class LocationInSupplierInvoiceDtoFactory extends Factory
     {
         return [
             'countryId' => $this->faker->uuid(),
+            'id' => $this->faker->word(),
             'name' => $this->faker->name(),
         ];
     }

@@ -13,6 +13,7 @@ class PackageDetailLineDtoFactory extends Factory
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'confirmed' => $this->faker->boolean(),
             'boxId' => $this->faker->uuid(),
+            'type' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'weight' => $this->faker->randomFloat(2, 0, 1000),
             'uom' => $this->faker->word(),

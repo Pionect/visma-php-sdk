@@ -11,6 +11,7 @@ class AllocationRuleIdDescriptionDtoFactory extends Factory
     {
         return [
             'active' => $this->faker->boolean(),
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
         ];
     }

@@ -10,6 +10,7 @@ class DirectDebitMandateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'mandateId' => $this->faker->uuid(),
             'mandateDescription' => $this->faker->sentence(),
         ];

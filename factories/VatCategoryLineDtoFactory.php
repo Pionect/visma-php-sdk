@@ -13,6 +13,7 @@ class VatCategoryLineDtoFactory extends Factory
             'vatId' => $this->faker->uuid(),
             'vendorCd' => $this->faker->word(),
             'description' => $this->faker->sentence(),
+            'type' => $this->faker->word(),
             'calculateOn' => $this->faker->word(),
             'cashDiscount' => $this->faker->word(),
             'vatRates' => [],

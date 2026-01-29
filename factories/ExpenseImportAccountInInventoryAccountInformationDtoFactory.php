@@ -10,6 +10,7 @@ class ExpenseImportAccountInInventoryAccountInformationDtoFactory extends Factor
     protected function definition(): array
     {
         return [
+            'type' => $this->faker->word(),
             'number' => $this->faker->word(),
             'description' => $this->faker->sentence(),
         ];

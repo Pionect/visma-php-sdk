@@ -14,6 +14,7 @@ class InventoryDtoFactory extends Factory
             'inventoryId' => $this->faker->numberBetween(1, 1000),
             'inventoryNumber' => $this->faker->word(),
             'status' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'body' => $this->faker->word(),
             'itemClass' => $this->faker->word(),

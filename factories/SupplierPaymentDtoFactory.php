@@ -11,6 +11,7 @@ class SupplierPaymentDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'type' => $this->faker->word(),
             'documentType' => $this->faker->word(),
             'refNbr' => $this->faker->word(),
             'status' => $this->faker->word(),

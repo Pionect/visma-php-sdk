@@ -10,6 +10,7 @@ class CurrencyRateTypeDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'daysEffective' => $this->faker->numberBetween(1, 100),
         ];

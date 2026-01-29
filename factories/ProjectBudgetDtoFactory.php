@@ -23,6 +23,7 @@ class ProjectBudgetDtoFactory extends Factory
             'revisedBudgetAmount' => $this->faker->randomFloat(2, 0, 1000),
             'actualQty' => $this->faker->randomFloat(2, 0, 1000),
             'actualAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'type' => $this->faker->word(),
             'committedQty' => $this->faker->randomFloat(2, 0, 1000),
             'committedAmount' => $this->faker->randomFloat(2, 0, 1000),
             'committedOpenQty' => $this->faker->randomFloat(2, 0, 1000),

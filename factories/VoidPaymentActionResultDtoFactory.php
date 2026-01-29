@@ -10,6 +10,7 @@ class VoidPaymentActionResultDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'type' => $this->faker->word(),
             'refNbr' => $this->faker->word(),
             'voidPayment' => $this->faker->word(),
             'actionId' => $this->faker->uuid(),

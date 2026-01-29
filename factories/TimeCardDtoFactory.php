@@ -16,6 +16,7 @@ class TimeCardDtoFactory extends Factory
             'approvalStatus' => $this->faker->word(),
             'week' => $this->faker->word(),
             'employee' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'origRefNbr' => $this->faker->word(),
             'timeSpent' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'invoiceable' => $this->faker->numberBetween(1, 100),

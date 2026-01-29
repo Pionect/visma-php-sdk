@@ -10,6 +10,7 @@ class CountryInWarehouseAddressDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'name' => $this->faker->name(),
             'errorInfo' => $this->faker->word(),
         ];

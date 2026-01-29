@@ -12,6 +12,7 @@ class KitAssemblyInsertDtoFactory extends Factory
     {
         return [
             'kitAssemblyLink' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'refNo' => $this->faker->word(),
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

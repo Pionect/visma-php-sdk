@@ -13,6 +13,7 @@ class RotRutDtoFactory extends Factory
             'docType' => $this->faker->word(),
             'refNbr' => $this->faker->word(),
             'distributedAutomaticaly' => $this->faker->boolean(),
+            'type' => $this->faker->word(),
             'totalDeductableAmount' => $this->faker->randomFloat(2, 0, 1000),
             'otherCost' => $this->faker->randomFloat(2, 0, 1000),
             'materialCost' => $this->faker->randomFloat(2, 0, 1000),

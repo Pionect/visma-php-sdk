@@ -11,6 +11,7 @@ class UiExtensionQueryParametersFactory extends Factory
     {
         return [
             'screenId' => $this->faker->uuid(),
+            'type' => $this->faker->word(),
         ];
     }
 

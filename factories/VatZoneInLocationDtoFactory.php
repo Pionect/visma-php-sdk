@@ -10,6 +10,7 @@ class VatZoneInLocationDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'defaultVatCategory' => $this->faker->word(),
             'defaultTaxCategory' => $this->faker->word(),

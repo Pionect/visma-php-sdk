@@ -12,6 +12,7 @@ class UiExtensionUpdateDtoFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'url' => $this->faker->word(),
+            'type' => $this->faker->word(),
             'screenId' => $this->faker->uuid(),
             'stepId' => $this->faker->uuid(),
             'ownerId' => $this->faker->uuid(),

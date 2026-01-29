@@ -15,6 +15,7 @@ class SupplierClassDtoFactory extends Factory
             'paymentMethodId' => $this->faker->uuid(),
             'paymentMethodDescription' => $this->faker->sentence(),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
         ];
     }

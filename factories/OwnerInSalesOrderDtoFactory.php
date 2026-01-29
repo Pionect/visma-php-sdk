@@ -10,6 +10,7 @@ class OwnerInSalesOrderDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'employeeId' => $this->faker->uuid(),
             'name' => $this->faker->name(),
         ];

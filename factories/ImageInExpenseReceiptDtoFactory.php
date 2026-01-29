@@ -11,6 +11,7 @@ class ImageInExpenseReceiptDtoFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'id' => $this->faker->word(),
             'revision' => $this->faker->numberBetween(1, 100),
         ];
     }

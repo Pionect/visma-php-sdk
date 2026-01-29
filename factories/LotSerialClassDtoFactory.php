@@ -11,6 +11,7 @@ class LotSerialClassDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'trackingMethod' => $this->faker->word(),
             'trackExpirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

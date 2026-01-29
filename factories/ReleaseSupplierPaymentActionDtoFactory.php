@@ -10,6 +10,7 @@ class ReleaseSupplierPaymentActionDtoFactory extends Factory
     protected function definition(): array
     {
         return [
+            'type' => $this->faker->word(),
         ];
     }
 
