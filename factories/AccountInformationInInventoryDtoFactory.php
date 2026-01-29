@@ -10,20 +10,20 @@ class AccountInformationInInventoryDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'expenseAccrualAccount' => $this->faker->word(),
-            'inventoryAccount' => $this->faker->word(),
-            'expenseAccount' => $this->faker->word(),
-            'cogsAccount' => $this->faker->word(),
-            'expenseNonTaxableAccount' => $this->faker->word(),
-            'expenseEuAccount' => $this->faker->word(),
-            'expenseImportAccount' => $this->faker->word(),
-            'expenseSubaccount' => $this->faker->word(),
-            'cogsSubaccount' => $this->faker->word(),
-            'salesAccount' => $this->faker->word(),
-            'salesNonTaxableAccount' => $this->faker->word(),
-            'salesEuAccount' => $this->faker->word(),
-            'salesExportAccount' => $this->faker->word(),
-            'salesSubaccount' => $this->faker->word(),
+            'expenseAccrualAccount' => ExpenseAccrualAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'inventoryAccount' => InventoryAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'expenseAccount' => ExpenseAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'cogsAccount' => CogsAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'expenseNonTaxableAccount' => ExpenseNonTaxableAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'expenseEuAccount' => ExpenseEuAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'expenseImportAccount' => ExpenseImportAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'expenseSubaccount' => ExpenseSubaccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'cogsSubaccount' => CogsSubaccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'salesAccount' => SalesAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'salesNonTaxableAccount' => SalesNonTaxableAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'salesEuAccount' => SalesEuAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'salesExportAccount' => SalesExportAccountInInventoryAccountInformationDtoFactory::new()->make(),
+            'salesSubaccount' => SalesSubaccountInInventoryAccountInformationDtoFactory::new()->make(),
         ];
     }
 

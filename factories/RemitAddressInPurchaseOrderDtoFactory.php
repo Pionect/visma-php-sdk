@@ -17,8 +17,8 @@ class RemitAddressInPurchaseOrderDtoFactory extends Factory
             'addressLine3' => $this->faker->word(),
             'postalCode' => $this->faker->word(),
             'city' => $this->faker->word(),
-            'country' => $this->faker->word(),
-            'county' => $this->faker->word(),
+            'country' => CountryInPurchaseOrderAddressDtoFactory::new()->make(),
+            'county' => CountyInPurchaseOrderAddressDtoFactory::new()->make(),
         ];
     }
 

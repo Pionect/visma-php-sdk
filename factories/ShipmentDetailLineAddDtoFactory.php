@@ -26,7 +26,7 @@ class ShipmentDetailLineAddDtoFactory extends Factory
             'customDec2' => CustomDec2InShipmentDetailLineAddDtoFactory::new()->make(),
             'customInt1' => CustomInt1InShipmentDetailLineAddDtoFactory::new()->make(),
             'customInt2' => CustomInt2InShipmentDetailLineAddDtoFactory::new()->make(),
-            'customDateTimeUtc1' => $this->faker->word(),
+            'customDateTimeUtc1' => CustomDateTimeUTC1InShipmentDetailLineAddDtoFactory::new()->make(),
         ];
     }
 

@@ -26,7 +26,7 @@ class CashSaleUpdateDtoFactory extends Factory
             'financialPeriod' => FinancialPeriodInCashSaleUpdateDtoFactory::new()->make(),
             'invoiceText' => $this->faker->word(),
             'locationId' => $this->faker->uuid(),
-            'salesPersonId' => $this->faker->word(),
+            'salesPersonId' => SalesPersonIDInCashSaleUpdateDtoFactory::new()->make(),
             'salesperson' => SalespersonInCashSaleUpdateDtoFactory::new()->make(),
             'note' => $this->faker->word(),
             'branchNumber' => $this->faker->word(),

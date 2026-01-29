@@ -11,7 +11,7 @@ class SupplierBalanceV2dtoFactory extends Factory
     {
         return [
             'branch' => $this->faker->word(),
-            'supplier' => $this->faker->word(),
+            'supplier' => SupplierInSupplierBalanceV2DtoFactory::new()->make(),
             'beginBalance' => $this->faker->randomFloat(2, 0, 1000),
             'purchases' => $this->faker->randomFloat(2, 0, 1000),
             'paymentsAndPrepayments' => $this->faker->randomFloat(2, 0, 1000),

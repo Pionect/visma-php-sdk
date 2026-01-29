@@ -49,7 +49,7 @@ class PurchaseOrderLineUpdateDtoFactory extends Factory
             'customDec2' => CustomDec2InPurchaseOrderLineUpdateDtoFactory::new()->make(),
             'customInt1' => CustomInt1InPurchaseOrderLineUpdateDtoFactory::new()->make(),
             'customInt2' => CustomInt2InPurchaseOrderLineUpdateDtoFactory::new()->make(),
-            'customDateTimeUtc1' => $this->faker->word(),
+            'customDateTimeUtc1' => CustomDateTimeUTC1InPurchaseOrderLineUpdateDtoFactory::new()->make(),
             'completed' => $this->faker->boolean(),
         ];
     }

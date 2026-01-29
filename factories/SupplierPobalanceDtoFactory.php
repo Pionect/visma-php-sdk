@@ -11,7 +11,7 @@ class SupplierPobalanceDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'supplier' => $this->faker->word(),
+            'supplier' => SupplierInSupplierPOBalanceDtoFactory::new()->make(),
             'totalPoonHoldOrderTotal' => $this->faker->randomFloat(2, 0, 1000),
             'totalPoonHoldLineTotal' => $this->faker->randomFloat(2, 0, 1000),
             'totalOpenPoorderTotal' => $this->faker->randomFloat(2, 0, 1000),

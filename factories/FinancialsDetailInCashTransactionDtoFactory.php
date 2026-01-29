@@ -12,10 +12,10 @@ class FinancialsDetailInCashTransactionDtoFactory extends Factory
     {
         return [
             'batchNumber' => $this->faker->word(),
-            'branch' => $this->faker->word(),
+            'branch' => BranchInFinancialsDetailDtoFactory::new()->make(),
             'cleared' => $this->faker->boolean(),
             'clearDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'taxZone' => $this->faker->word(),
+            'taxZone' => TaxZoneInFinancialsDetailDtoFactory::new()->make(),
             'taxCalcMode' => $this->faker->word(),
         ];
     }

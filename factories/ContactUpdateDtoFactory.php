@@ -17,7 +17,7 @@ class ContactUpdateDtoFactory extends Factory
             'position' => $this->faker->word(),
             'businessAccount' => $this->faker->word(),
             'sameAsAccount' => $this->faker->boolean(),
-            'address' => $this->faker->word(),
+            'address' => AddressUpdateDtoFactory::new()->make(),
             'email' => $this->faker->safeEmail(),
             'web' => $this->faker->word(),
             'phone1' => $this->faker->word(),

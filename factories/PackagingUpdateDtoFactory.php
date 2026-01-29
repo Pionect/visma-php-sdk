@@ -11,9 +11,9 @@ class PackagingUpdateDtoFactory extends Factory
     {
         return [
             'baseItemWeight' => BaseItemWeightInPackagingUpdateDtoFactory::new()->make(),
-            'weightUom' => $this->faker->word(),
+            'weightUom' => WeightUOMInPackagingUpdateDtoFactory::new()->make(),
             'baseItemVolume' => BaseItemVolumeInPackagingUpdateDtoFactory::new()->make(),
-            'volumeUom' => $this->faker->word(),
+            'volumeUom' => VolumeUOMInPackagingUpdateDtoFactory::new()->make(),
         ];
     }
 

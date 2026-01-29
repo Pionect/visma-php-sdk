@@ -57,7 +57,7 @@ class PurchaseReceiptLineUpdateDtoFactory extends Factory
             'customDec2' => CustomDec2InPurchaseReceiptLineUpdateDtoFactory::new()->make(),
             'customInt1' => CustomInt1InPurchaseReceiptLineUpdateDtoFactory::new()->make(),
             'customInt2' => CustomInt2InPurchaseReceiptLineUpdateDtoFactory::new()->make(),
-            'customDateTimeUtc1' => $this->faker->word(),
+            'customDateTimeUtc1' => CustomDateTimeUTC1InPurchaseReceiptLineUpdateDtoFactory::new()->make(),
         ];
     }
 

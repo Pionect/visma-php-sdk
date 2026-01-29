@@ -10,21 +10,21 @@ class GlAccountsInCustomerDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'customerLedgerAccount' => $this->faker->word(),
-            'customerLedgerSubaccount' => $this->faker->word(),
-            'salesAccount' => $this->faker->word(),
-            'salesNonTaxableAccount' => $this->faker->word(),
-            'salesEuAccount' => $this->faker->word(),
-            'salesExportAccount' => $this->faker->word(),
-            'salesSubaccount' => $this->faker->word(),
-            'discountAccount' => $this->faker->word(),
-            'discountSubaccount' => $this->faker->word(),
-            'freightAccount' => $this->faker->word(),
-            'freightSubaccount' => $this->faker->word(),
-            'cashDiscountAccount' => $this->faker->word(),
-            'cashDiscountSubaccount' => $this->faker->word(),
-            'prepaymentAccount' => $this->faker->word(),
-            'prepaymentSubaccount' => $this->faker->word(),
+            'customerLedgerAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'customerLedgerSubaccount' => SubAccountDtoFactory::new()->make(),
+            'salesAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'salesNonTaxableAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'salesEuAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'salesExportAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'salesSubaccount' => SubAccountDtoFactory::new()->make(),
+            'discountAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'discountSubaccount' => SubAccountDtoFactory::new()->make(),
+            'freightAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'freightSubaccount' => SubAccountDtoFactory::new()->make(),
+            'cashDiscountAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'cashDiscountSubaccount' => SubAccountDtoFactory::new()->make(),
+            'prepaymentAccount' => AccountNumberTypeDescriptionDtoFactory::new()->make(),
+            'prepaymentSubaccount' => SubAccountDtoFactory::new()->make(),
         ];
     }
 

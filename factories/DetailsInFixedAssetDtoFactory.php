@@ -23,8 +23,8 @@ class DetailsInFixedAssetDtoFactory extends Factory
             'saleAmount' => $this->faker->randomFloat(2, 0, 1000),
             'billNumber' => $this->faker->word(),
             'serialNumber' => $this->faker->word(),
-            'disposalMethod' => $this->faker->word(),
-            'leaseAndRentInfo' => $this->faker->word(),
+            'disposalMethod' => DisposalMethodInDetailsDtoFactory::new()->make(),
+            'leaseAndRentInfo' => LeaseAndRentInfoInDetailsDtoFactory::new()->make(),
         ];
     }
 

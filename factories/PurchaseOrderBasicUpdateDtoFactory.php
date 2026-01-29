@@ -40,7 +40,7 @@ class PurchaseOrderBasicUpdateDtoFactory extends Factory
             'customDec2' => CustomDec2InPurchaseOrderBasicUpdateDtoFactory::new()->make(),
             'customInt1' => CustomInt1InPurchaseOrderBasicUpdateDtoFactory::new()->make(),
             'customInt2' => CustomInt2InPurchaseOrderBasicUpdateDtoFactory::new()->make(),
-            'customDateTimeUtc1' => $this->faker->word(),
+            'customDateTimeUtc1' => CustomDateTimeUTC1InPurchaseOrderBasicUpdateDtoFactory::new()->make(),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

@@ -10,8 +10,8 @@ class CustomerBalanceV2dtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'branchNumber' => $this->faker->word(),
-            'customer' => $this->faker->word(),
+            'branchNumber' => BranchNumberInCustomerBalanceV2DtoFactory::new()->make(),
+            'customer' => CustomerInCustomerBalanceV2DtoFactory::new()->make(),
             'beginBalance' => $this->faker->randomFloat(2, 0, 1000),
             'sales' => $this->faker->randomFloat(2, 0, 1000),
             'paymentsAndPrepayments' => $this->faker->randomFloat(2, 0, 1000),

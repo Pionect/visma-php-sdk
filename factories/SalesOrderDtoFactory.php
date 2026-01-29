@@ -17,7 +17,7 @@ class SalesOrderDtoFactory extends Factory
             'printNoteOnInternalDocuments' => $this->faker->boolean(),
             'soBillingContact' => SoBillingContactInSalesOrderDtoFactory::new()->make(),
             'soBillingAddress' => SoBillingAddressInSalesOrderDtoFactory::new()->make(),
-            'customerVatzone' => $this->faker->word(),
+            'customerVatzone' => CustomerVATZoneInSalesOrderDtoFactory::new()->make(),
             'invoiceSeparately' => $this->faker->boolean(),
             'invoiceNbr' => $this->faker->word(),
             'invoiceDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

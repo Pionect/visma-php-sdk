@@ -27,7 +27,7 @@ class CreditNoteUpdateDtoFactory extends Factory
             'financialPeriod' => FinancialPeriodInCreditNoteUpdateDtoFactory::new()->make(),
             'invoiceText' => $this->faker->word(),
             'locationId' => $this->faker->uuid(),
-            'salesPersonId' => $this->faker->word(),
+            'salesPersonId' => SalesPersonIDInCreditNoteUpdateDtoFactory::new()->make(),
             'salesperson' => SalespersonInCreditNoteUpdateDtoFactory::new()->make(),
             'note' => $this->faker->word(),
             'branchNumber' => $this->faker->word(),

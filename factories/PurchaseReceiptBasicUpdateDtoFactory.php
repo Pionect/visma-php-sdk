@@ -36,7 +36,7 @@ class PurchaseReceiptBasicUpdateDtoFactory extends Factory
             'customDec2' => CustomDec2InPurchaseReceiptBasicUpdateDtoFactory::new()->make(),
             'customInt1' => CustomInt1InPurchaseReceiptBasicUpdateDtoFactory::new()->make(),
             'customInt2' => CustomInt2InPurchaseReceiptBasicUpdateDtoFactory::new()->make(),
-            'customDateTimeUtc1' => $this->faker->word(),
+            'customDateTimeUtc1' => CustomDateTimeUTC1InPurchaseReceiptBasicUpdateDtoFactory::new()->make(),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

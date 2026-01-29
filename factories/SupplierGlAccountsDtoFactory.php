@@ -14,7 +14,7 @@ class SupplierGlAccountsDtoFactory extends Factory
             'supplierSubaccount' => SupplierSubaccountInSupplierGlAccountsDtoFactory::new()->make(),
             'expenseAccount' => ExpenseAccountInSupplierGlAccountsDtoFactory::new()->make(),
             'expenseAccountNonTax' => ExpenseAccountNonTaxInSupplierGlAccountsDtoFactory::new()->make(),
-            'expenseEuaccount' => $this->faker->word(),
+            'expenseEuaccount' => ExpenseEUAccountInSupplierGlAccountsDtoFactory::new()->make(),
             'expenseAccountImport' => ExpenseAccountImportInSupplierGlAccountsDtoFactory::new()->make(),
             'expenseSubaccount' => ExpenseSubaccountInSupplierGlAccountsDtoFactory::new()->make(),
         ];

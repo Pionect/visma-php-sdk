@@ -34,7 +34,7 @@ class CustomerOverdueChargeUpdateDtoFactory extends Factory
             'financialPeriod' => FinancialPeriodInCustomerOverdueChargeUpdateDtoFactory::new()->make(),
             'invoiceText' => $this->faker->word(),
             'locationId' => $this->faker->uuid(),
-            'salesPersonId' => $this->faker->word(),
+            'salesPersonId' => SalesPersonIDInCustomerOverdueChargeUpdateDtoFactory::new()->make(),
             'salesperson' => SalespersonInCustomerOverdueChargeUpdateDtoFactory::new()->make(),
             'note' => $this->faker->word(),
             'branchNumber' => $this->faker->word(),

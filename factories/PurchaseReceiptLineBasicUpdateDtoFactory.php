@@ -55,7 +55,7 @@ class PurchaseReceiptLineBasicUpdateDtoFactory extends Factory
             'customDec2' => CustomDec2InPurchaseReceiptLineBasicUpdateDtoFactory::new()->make(),
             'customInt1' => CustomInt1InPurchaseReceiptLineBasicUpdateDtoFactory::new()->make(),
             'customInt2' => CustomInt2InPurchaseReceiptLineBasicUpdateDtoFactory::new()->make(),
-            'customDateTimeUtc1' => $this->faker->word(),
+            'customDateTimeUtc1' => CustomDateTimeUTC1InPurchaseReceiptLineBasicUpdateDtoFactory::new()->make(),
         ];
     }
 
