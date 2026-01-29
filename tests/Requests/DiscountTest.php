@@ -2,6 +2,7 @@
 
 // auto-generated
 
+use Carbon\Carbon;
 use Pionect\VismaSdk\Requests\Discount\DiscountGetDiscountsCollectionRequest;
 use Pionect\VismaSdk\Requests\Discount\DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest;
 use Pionect\VismaSdk\Requests\Discount\DiscountUpdateDiscountsBydiscountCodeseriesRequest;
@@ -16,19 +17,61 @@ beforeEach(function () {
 it('calls the discountGetDiscountsCollection method in the Discount resource', function () {
     Saloon::fake([
         DiscountGetDiscountsCollectionRequest::class => MockResponse::make([
-            0 => [
-                'pageNumber' => 42,
-                'pageSize' => 42,
-                'totalCount' => 42,
-                'records' => [],
-                'id' => 'mock-id-123',
-            ],
-            1 => [
-                'pageNumber' => 42,
-                'pageSize' => 42,
-                'totalCount' => 42,
-                'records' => [],
-                'id' => 'mock-id-123',
+            'records' => [
+                0 => [
+                    'discountCode' => 'String value',
+                    'series' => 'String value',
+                    'description' => 'String value',
+                    'discountBy' => 'String value',
+                    'breakBy' => 'String value',
+                    'promotional' => true,
+                    'active' => true,
+                    'prorateDiscount' => true,
+                    'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                    'expirationDate' => '2025-11-22T10:40:04.065Z',
+                    'lastUpdateDate' => '2025-11-22T10:40:04.065Z',
+                    'freeItem' => 42,
+                    'pendingFreeItem' => 42,
+                    'lastFreeItem' => 42,
+                    'lineCntr' => 42,
+                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'discountBreakpoints' => [],
+                    'customers' => [],
+                    'items' => [],
+                    'warehouses' => [],
+                    'customerPriceClasses' => [],
+                    'itemPriceClasses' => [],
+                    'branches' => [],
+                    'errorInfo' => 'String value',
+                ],
+                1 => [
+                    'discountCode' => 'String value',
+                    'series' => 'String value',
+                    'description' => 'String value',
+                    'discountBy' => 'String value',
+                    'breakBy' => 'String value',
+                    'promotional' => true,
+                    'active' => true,
+                    'prorateDiscount' => true,
+                    'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                    'expirationDate' => '2025-11-22T10:40:04.065Z',
+                    'lastUpdateDate' => '2025-11-22T10:40:04.065Z',
+                    'freeItem' => 42,
+                    'pendingFreeItem' => 42,
+                    'lastFreeItem' => 42,
+                    'lineCntr' => 42,
+                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'discountBreakpoints' => [],
+                    'customers' => [],
+                    'items' => [],
+                    'warehouses' => [],
+                    'customerPriceClasses' => [],
+                    'itemPriceClasses' => [],
+                    'branches' => [],
+                    'errorInfo' => 'String value',
+                ],
             ],
         ], 200),
     ]);
@@ -46,10 +89,24 @@ it('calls the discountGetDiscountsCollection method in the Discount resource', f
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->pageNumber->toBe(42)
-        ->pageSize->toBe(42)
-        ->totalCount->toBe(42)
-        ->id->toBe('mock-id-123');
+        ->discountCode->toBe('String value')
+        ->series->toBe('String value')
+        ->description->toBe('String value')
+        ->discountBy->toBe('String value')
+        ->breakBy->toBe('String value')
+        ->promotional->toBeTrue()
+        ->active->toBeTrue()
+        ->prorateDiscount->toBeTrue()
+        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastUpdateDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->freeItem->toBe(42)
+        ->pendingFreeItem->toBe(42)
+        ->lastFreeItem->toBe(42)
+        ->lineCntr->toBe(42)
+        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the discountUpdateDiscountsBydiscountCodeseriesfilerDate method in the Discount resource', function () {

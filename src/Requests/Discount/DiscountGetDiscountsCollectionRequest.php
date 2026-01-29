@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Discount;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfDiscountDto;
+use Pionect\VismaSdk\Dto\DiscountDto;
 use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -14,7 +14,7 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class DiscountGetDiscountsCollectionRequest extends Request implements Paginatable
 {
-    protected $model = BasePaginationDtoOfDiscountDto::class;
+    protected $model = DiscountDto::class;
 
     protected Method $method = Method::GET;
 
@@ -22,7 +22,7 @@ class DiscountGetDiscountsCollectionRequest extends Request implements Paginatab
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json()
+            $response->json('records')
         );
     }
 

@@ -56,19 +56,31 @@ it('calls the salesPersonGetSalespersonBysalespersonCd method in the SalesPerson
 it('calls the salesPersonGetSalespersonsCollection method in the SalesPerson resource', function () {
     Saloon::fake([
         SalesPersonGetSalespersonsCollectionRequest::class => MockResponse::make([
-            0 => [
-                'pageNumber' => 42,
-                'pageSize' => 42,
-                'totalCount' => 42,
-                'records' => [],
-                'id' => 'mock-id-123',
-            ],
-            1 => [
-                'pageNumber' => 42,
-                'pageSize' => 42,
-                'totalCount' => 42,
-                'records' => [],
-                'id' => 'mock-id-123',
+            'records' => [
+                0 => [
+                    'salespersonId' => 'mock-id-123',
+                    'name' => 'String value',
+                    'isActive' => true,
+                    'commissionPct' => 3.14,
+                    'salesSub' => null,
+                    'customers' => [],
+                    'commissionHistory' => [],
+                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'errorInfo' => 'String value',
+                ],
+                1 => [
+                    'salespersonId' => 'mock-id-123',
+                    'name' => 'String value',
+                    'isActive' => true,
+                    'commissionPct' => 3.14,
+                    'salesSub' => null,
+                    'customers' => [],
+                    'commissionHistory' => [],
+                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'errorInfo' => 'String value',
+                ],
             ],
         ], 200),
     ]);
@@ -86,8 +98,12 @@ it('calls the salesPersonGetSalespersonsCollection method in the SalesPerson res
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->pageNumber->toBe(42)
-        ->pageSize->toBe(42)
-        ->totalCount->toBe(42)
-        ->id->toBe('mock-id-123');
+        ->salespersonId->toBe('mock-id-123')
+        ->name->toBe('String value')
+        ->isActive->toBeTrue()
+        ->commissionPct->toBe(3.14)
+        ->salesSub->toBeNull()
+        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->errorInfo->toBe('String value');
 });

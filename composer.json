@@ -6,6 +6,10 @@
     "prefer-stable": true,
     "repositories": [
         {
+            "type": "path",
+            "url": "../JsonApiSdkGenerator"
+        },
+        {
             "type": "vcs",
             "url": "https://github.com/timatic/json-api-php-sdk-generator"
         },

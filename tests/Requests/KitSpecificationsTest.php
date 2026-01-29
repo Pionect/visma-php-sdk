@@ -16,19 +16,35 @@ beforeEach(function () {
 it('calls the kitSpecificationsGetAllCollection method in the KitSpecifications resource', function () {
     Saloon::fake([
         KitSpecificationsGetAllCollectionRequest::class => MockResponse::make([
-            0 => [
-                'pageNumber' => 42,
-                'pageSize' => 42,
-                'totalCount' => 42,
-                'records' => [],
-                'id' => 'mock-id-123',
-            ],
-            1 => [
-                'pageNumber' => 42,
-                'pageSize' => 42,
-                'totalCount' => 42,
-                'records' => [],
-                'id' => 'mock-id-123',
+            'records' => [
+                0 => [
+                    'kitInventoryId' => 'mock-id-123',
+                    'revision' => 'String value',
+                    'description' => 'String value',
+                    'isActive' => true,
+                    'allowComponentAddition' => true,
+                    'isNonStock' => true,
+                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'stockComponentLines' => [],
+                    'nonStockComponentLines' => [],
+                    'timestamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                1 => [
+                    'kitInventoryId' => 'mock-id-123',
+                    'revision' => 'String value',
+                    'description' => 'String value',
+                    'isActive' => true,
+                    'allowComponentAddition' => true,
+                    'isNonStock' => true,
+                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                    'stockComponentLines' => [],
+                    'nonStockComponentLines' => [],
+                    'timestamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
             ],
         ], 200),
     ]);
@@ -46,10 +62,16 @@ it('calls the kitSpecificationsGetAllCollection method in the KitSpecifications 
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->pageNumber->toBe(42)
-        ->pageSize->toBe(42)
-        ->totalCount->toBe(42)
-        ->id->toBe('mock-id-123');
+        ->kitInventoryId->toBe('mock-id-123')
+        ->revision->toBe('String value')
+        ->description->toBe('String value')
+        ->isActive->toBeTrue()
+        ->allowComponentAddition->toBeTrue()
+        ->isNonStock->toBeTrue()
+        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSpecifications resource', function () {

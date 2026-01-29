@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\KitSpecifications;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfKitSpecificationDto;
+use Pionect\VismaSdk\Dto\KitSpecificationDto;
 use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -14,7 +14,7 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class KitSpecificationsGetAllCollectionRequest extends Request implements Paginatable
 {
-    protected $model = BasePaginationDtoOfKitSpecificationDto::class;
+    protected $model = KitSpecificationDto::class;
 
     protected Method $method = Method::GET;
 
@@ -22,7 +22,7 @@ class KitSpecificationsGetAllCollectionRequest extends Request implements Pagina
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json()
+            $response->json('records')
         );
     }
 

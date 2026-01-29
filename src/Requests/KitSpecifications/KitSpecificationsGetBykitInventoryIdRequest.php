@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\KitSpecifications;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfKitSpecificationDto;
+use Pionect\VismaSdk\Dto\KitSpecificationDto;
 use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +15,7 @@ use Saloon\Http\Response;
  */
 class KitSpecificationsGetBykitInventoryIdRequest extends Request
 {
-    protected $model = BasePaginationDtoOfKitSpecificationDto::class;
+    protected $model = KitSpecificationDto::class;
 
     protected Method $method = Method::GET;
 

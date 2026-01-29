@@ -75,18 +75,46 @@ class PlainJsonCollectionTestGenerator extends CollectionRequestTestGenerator
     public function generateMockData(Endpoint $endpoint): array
     {
         $dtoClassName = $this->getDtoClassName($endpoint);
-        $attributes = $this->generateMockAttributesFromDto($dtoClassName);
+
+        // Check if this is a BasePaginationDtoOf* wrapper
+        $isBasePagination = false;
+        $itemDtoClassName = $dtoClassName;
+
+        if (preg_match('/^BasePaginationDtoOf(.+)Dto$/', $dtoClassName, $matches)) {
+            // This is a BasePaginationDto wrapper - extract the item DTO name
+            $isBasePagination = true;
+            $itemDtoClassName = $matches[1].'Dto';
+        }
+
+        // Generate attributes from the item DTO (not the wrapper)
+        $attributes = $this->generateMockAttributesFromDto($itemDtoClassName);
 
         unset($attributes['responseHeaders']);
 
+        // For BasePaginationDto format, don't include id in the records
+        if ($isBasePagination) {
+            unset($attributes['id']);
+        }
+
+        if (empty($attributes) || $attributes === ['name' => 'Mock value']) {
+            throw new \RuntimeException("DTO '{$itemDtoClassName}' has no properties - skipping test generation");
+        }
+
+        // For BasePaginationDto, wrap items in a records array
+        if ($isBasePagination) {
+            return [
+                'records' => [
+                    $attributes,
+                    $attributes,
+                ],
+            ];
+        }
+
+        // For standard format, check for metadata
         $response = $this->specification->components->schemas[$endpoint->response['schema']];
 
         if (array_key_exists('metadata', $response->properties)) {
             $attributes['metadata'] = ['totalCount' => 2, 'maxPageSize' => 100];
-        }
-
-        if (empty($attributes) || $attributes === ['name' => 'Mock value']) {
-            throw new \RuntimeException("DTO '{$dtoClassName}' has no properties - skipping test generation");
         }
 
         // Return plain JSON array with two items (no JSON:API wrapper)
@@ -122,8 +150,14 @@ class PlainJsonCollectionTestGenerator extends CollectionRequestTestGenerator
             $functionStub
         );
 
+        // For BasePaginationDto format, assertions are based on records
+        $firstItem = $mockData[0] ?? [];
+        if (isset($mockData['records']) && is_array($mockData['records'])) {
+            $firstItem = $mockData['records'][0] ?? [];
+        }
+
         // Generate DTO assertions based on first item in collection
-        $dtoAssertions = $this->generateDtoAssertions($mockData[0] ?? []);
+        $dtoAssertions = $this->generateDtoAssertions($firstItem);
 
         if (str_starts_with(trim($dtoAssertions), '//')) {
             $pattern = '/(.*\$response->status\(\)\)->toBe\(200\);.*?)(\n\s*\$dtoCollection = \$response->dto\(\);.*?{{ dtoAssertions }};)/s';

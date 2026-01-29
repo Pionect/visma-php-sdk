@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\KitAssembly;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfKitAssemblyDto;
+use Pionect\VismaSdk\Dto\KitAssemblyDto;
 use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -14,7 +14,7 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class KitAssemblyGetKitAssembliesCollectionRequest extends Request implements Paginatable
 {
-    protected $model = BasePaginationDtoOfKitAssemblyDto::class;
+    protected $model = KitAssemblyDto::class;
 
     protected Method $method = Method::GET;
 
@@ -22,7 +22,7 @@ class KitAssemblyGetKitAssembliesCollectionRequest extends Request implements Pa
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json()
+            $response->json('records')
         );
     }
 

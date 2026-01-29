@@ -92,18 +92,28 @@ class PlainJsonRequestGenerator extends JsonApiRequestGenerator
         // Determine DTO class name from endpoint
         $dtoClassName = $this->getDtoClassName($endpoint);
 
+        // Check if this is a BasePaginationDtoOf* wrapper (Visma-specific format)
+        $isBasePagination = false;
+        $itemDtoClassName = $dtoClassName;
+
+        if (preg_match('/^BasePaginationDtoOf(.+)Dto$/', $dtoClassName, $matches)) {
+            // This is a BasePaginationDto wrapper - extract the item DTO name
+            $isBasePagination = true;
+            $itemDtoClassName = $matches[1].'Dto';
+        }
+
         // Get Foundation classes with target namespace
         $hydratorClass = $this->foundationClass('Hydration\\Facades\\Hydrator');
 
         // Add imports
         $namespace->addUse($hydratorClass);
         $namespace->addUse(Response::class);
-        $namespace->addUse("{$this->config->namespace}\\Dto\\{$dtoClassName}");
+        $namespace->addUse("{$this->config->namespace}\\Dto\\{$itemDtoClassName}");
 
-        // Add $model property - use the imported class name with ::class
+        // Add $model property - use the item DTO class name
         $classType->addProperty('model')
             ->setProtected()
-            ->setValue(new \Nette\PhpGenerator\Literal("{$dtoClassName}::class"));
+            ->setValue(new \Nette\PhpGenerator\Literal("{$itemDtoClassName}::class"));
 
         // Add createDtoFromResponse method
         $method = $classType->addMethod('createDtoFromResponse')
@@ -118,7 +128,15 @@ class PlainJsonRequestGenerator extends JsonApiRequestGenerator
             // Collection: use hydrateCollection
             $method->addBody('return Hydrator::hydrateCollection(');
             $method->addBody('    $this->model,');
-            $method->addBody('    $response->json()');
+
+            // For BasePaginationDto format, extract records from the response
+            if ($isBasePagination) {
+                $method->addBody('    $response->json(\'records\')');
+            } else {
+                // Standard plain JSON format
+                $method->addBody('    $response->json()');
+            }
+
             $method->addBody(');');
         } else {
             // Single resource: use hydrate

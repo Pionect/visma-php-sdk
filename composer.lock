@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c2d9de3201a837bd0d1c4ce104146a6",
+    "content-hash": "68d3a0f11f4e34e87cb0415b23f92ff6",
     "packages": [
         {
             "name": "brick/math",
@@ -11630,16 +11630,10 @@
         {
             "name": "timatic/jsonapi-sdk-generator",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Timatic/json-api-php-sdk-generator.git",
-                "reference": "87169957aeeac90b5028ad4066a39d70967d03ba"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Timatic/json-api-php-sdk-generator/zipball/87169957aeeac90b5028ad4066a39d70967d03ba",
-                "reference": "87169957aeeac90b5028ad4066a39d70967d03ba",
-                "shasum": ""
+                "type": "path",
+                "url": "../JsonApiSdkGenerator",
+                "reference": "87169957aeeac90b5028ad4066a39d70967d03ba"
             },
             "require": {
                 "crescat-io/saloon-sdk-generator": "dev-add-hooks-to-pest-generator",
@@ -11653,7 +11647,6 @@
                 "pestphp/pest": "^3.0",
                 "phpstan/phpstan": "^2.1"
             },
-            "default-branch": true,
             "bin": [
                 "bin/jsonapi-sdk"
             ],
@@ -11683,11 +11676,9 @@
                 "MIT"
             ],
             "description": "Generate PHP SDKs from OpenAPI specifications for JSON:API endpoints",
-            "support": {
-                "source": "https://github.com/Timatic/json-api-php-sdk-generator/tree/main",
-                "issues": "https://github.com/Timatic/json-api-php-sdk-generator/issues"
-            },
-            "time": "2026-01-27T07:20:41+00:00"
+            "transport-options": {
+                "relative": true
+            }
         }
     ],
     "aliases": [],

@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\CreditTerm;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfCreditTermDto;
+use Pionect\VismaSdk\Dto\CreditTermDto;
 use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -14,7 +14,7 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class CreditTermGetCreditTermsCollectionRequest extends Request implements Paginatable
 {
-    protected $model = BasePaginationDtoOfCreditTermDto::class;
+    protected $model = CreditTermDto::class;
 
     protected Method $method = Method::GET;
 
@@ -22,7 +22,7 @@ class CreditTermGetCreditTermsCollectionRequest extends Request implements Pagin
     {
         return Hydrator::hydrateCollection(
             $this->model,
-            $response->json()
+            $response->json('records')
         );
     }
 
