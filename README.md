@@ -46,8 +46,10 @@ php artisan vendor:publish --tag=visma-config
 Add your API credentials to `.env`:
 
 ```env
+VISMA_APPLICATION_ID=your-application-id
+VISMA_APPLICATION_SECRET=your-application-secret
+VISMA_TENANT_ID=your-tenant-id
 VISMA_BASE_URL=https://integration.visma.net/API
-VISMA_API_TOKEN=your-api-token-here
 ```
 
 ## Usage
@@ -57,14 +59,13 @@ VISMA_API_TOKEN=your-api-token-here
 The SDK connector is automatically registered in Laravel's service container, making it easy to inject into your controllers, commands, and other classes:
 
 ```php
-use Pionect\VismaSdk\Requests\Budget\GetBudgetsCollectionRequest;
-use Pionect\VismaSdk\Requests\Budget\GetBudgetRequest;
-use Pionect\VismaSdk\Requests\Budget\PostBudgetsRequest;
-use Pionect\VismaSdk\Requests\BudgetType\GetBudgetTypesCollectionRequest;
-
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetBycustomerCdRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerPostRequest;
+use Pionect\VismaSdk\Dto\CustomerDto;
 use Pionect\VismaSdk\VismaConnector;
 
-class BudgetController extends Controller
+class CustomerController extends Controller
 {
     public function __construct(
         protected VismaConnector $visma
@@ -72,34 +73,33 @@ class BudgetController extends Controller
 
     public function index()
     {
-        // fetch one or more items, limited by the default page size from the api
-        $budgetTypes = $this->Visma
-            ->send(new GetBudgetTypesCollectionRequest())
-            ->dto();
-            
-        $defaultBudget = $this->Visma->send(
-            new \Pionect\VismaSdk\Requests\Budget\GetBudgetRequest(id: '1337')
+        // Fetch a single customer by customer number
+        $defaultCustomer = $this->visma->send(
+            new CustomerGetBycustomerCdRequest(customerCd: 'CUST001')
         )->dtoOrFail();
-    
-        // fetch all DTO's
-        $budgets = $this->Visma->paginate(new GetBudgetsCollectionRequest())
+
+        // Fetch all customers using pagination
+        $customers = $this->visma->paginate(new CustomerGetAllCollectionRequest())
             ->dtoCollection();
 
-        return view('budgets.index', compact('budgets', 'budgetTypes', 'defaultBudget'));
+        return view('customers.index', compact('customers', 'defaultCustomer'));
     }
 
     public function store(Request $request)
     {
-        $budget = new \Pionect\VismaSdk\Dto\Budget([
-            'title' => $request->input('title'),
-            'totalPrice' => $request->input('total_price'),
+        $customer = new CustomerDto([
+            'number' => $request->input('number'),
+            'name' => $request->input('name'),
+            'status' => 'Active',
+            'creditLimit' => $request->input('credit_limit'),
+            'currencyId' => 'NOK',
         ]);
 
-        $created = $this->Visma
-            ->send(new PostBudgetsRequest($budget))
+        $created = $this->visma
+            ->send(new CustomerPostRequest($customer))
             ->dtoOrFail();
 
-        return redirect()->route('budgets.show', $created->id);
+        return redirect()->route('customers.show', $created->number);
     }
 }
 ```
@@ -107,19 +107,20 @@ class BudgetController extends Controller
 **In Console Commands:**
 
 ```php
-use Pionect\VismaSdk\Requests\Budget\GetBudgetsCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
 use Pionect\VismaSdk\VismaConnector;
 
-class SyncBudgetsCommand extends Command
+class SyncCustomersCommand extends Command
 {
     public function handle(VismaConnector $visma): int
     {
-        $budgets = $visma->paginate(
-            new GetBudgetsCollectionRequest()
-        )->dtoCollection()
-        
-        foreach ($budgets as $budget) {
-            // Process budgets
+        $customers = $visma->paginate(
+            new CustomerGetAllCollectionRequest()
+        )->dtoCollection();
+
+        foreach ($customers as $customer) {
+            // Process customers
+            $this->info("Syncing customer: {$customer->name}");
         }
 
         return Command::SUCCESS;
@@ -131,93 +132,102 @@ class SyncBudgetsCommand extends Command
 
 When testing code that uses the Visma SDK, you can mock the connector and its responses using factories. The SDK includes factory classes for all DTOs that make it easy to generate test data.
 
-Here's an example of testing the `BudgetController` from the example above:
+Here's an example of testing the `CustomerController` from the example above:
 
 ```php
 use Pionect\VismaSdk\VismaConnector;
-use Pionect\VismaSdk\Dto\Budget;
-use Pionect\VismaSdk\Dto\BudgetType;
-use Pionect\VismaSdk\Requests\Budget\GetBudgetsRequest;
-use Pionect\VismaSdk\Requests\Budget\PostBudgetsRequest;
-use Pionect\VismaSdk\Requests\BudgetType\GetBudgetTypesRequest;
+use Pionect\VismaSdk\Dto\CustomerDto;
+use Pionect\VismaSdk\Dto\CustomerInvoiceDto;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetBycustomerCdRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerPostRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
-test('it displays budgets and budget types', function () {
+test('it displays customers', function () {
     // Generate test data using factories
-    $budget = Budget::factory()->state(['id' => '1'])->make();
-    $budgetType = BudgetType::factory()->state(['id' => '1'])->make();
+    $customer = CustomerDto::factory()->state([
+        'number' => 'CUST001',
+        'name' => 'Acme Corporation',
+        'status' => 'Active',
+    ])->make();
 
     // Create mock responses using factory-generated data
     $mockClient = MockClient::global([
-        GetBudgetsRequest::class => MockResponse::make([
-            'data' => [$budget->toJsonApi()],
+        CustomerGetAllCollectionRequest::class => MockResponse::make([
+            'data' => [$customer->toArray()],
         ], 200),
-        GetBudgetTypesRequest::class => MockResponse::make([
-            'data' => [$budgetType->toJsonApi()],
+        CustomerGetBycustomerCdRequest::class => MockResponse::make([
+            'data' => $customer->toArray(),
         ], 200),
     ]);
 
     // Make request
-    $response = $this->get(route('budgets.index'));
+    $response = $this->get(route('customers.index'));
 
     // Assert
     $response->assertOk();
-    $response->assertViewHas('budgets');
-    $response->assertViewHas('budgetTypes');
+    $response->assertViewHas('customers');
+    $response->assertViewHas('defaultCustomer');
 });
 
-test('it creates a new budget', function () {
+test('it creates a new customer', function () {
     // Generate test data with specific attributes
-    $budget = Budget::factory()->state([
-        'id' => '2',
-        'title' => 'New Budget',
-        'totalPrice' => '5000.00',
+    $customer = CustomerDto::factory()->state([
+        'number' => 'CUST002',
+        'name' => 'New Customer Ltd',
+        'status' => 'Active',
+        'creditLimit' => 50000.00,
+        'currencyId' => 'NOK',
     ])->make();
 
     $mockClient = MockClient::global([
-        PostBudgetsRequest::class => MockResponse::make([
-            'data' => $budget->toJsonApi(),
+        CustomerPostRequest::class => MockResponse::make([
+            'data' => $customer->toArray(),
         ], 201),
     ]);
 
-    $response = $this->post(route('budgets.store'), [
-        'title' => 'New Budget',
-        'total_price' => 5000.00,
+    $response = $this->post(route('customers.store'), [
+        'number' => 'CUST002',
+        'name' => 'New Customer Ltd',
+        'credit_limit' => 50000.00,
     ]);
 
-    $response->assertRedirect(route('budgets.show', '2'));
+    $response->assertRedirect(route('customers.show', 'CUST002'));
 });
 
-test('it sends a POST request to create a budget using the SDK', function () {
-    $budgetToCreate = Budget::factory()->state([
-        'title' => 'New Budget',
-        'totalPrice' => '5000.00',
-        'customerId' => 'customer-123',
+test('it sends a POST request to create a customer using the SDK', function () {
+    $customerToCreate = CustomerDto::factory()->state([
+        'number' => 'CUST003',
+        'name' => 'Test Customer AS',
+        'status' => 'Active',
+        'creditLimit' => 100000.00,
+        'currencyId' => 'NOK',
     ])->make();
 
-    $createdBudget = Budget::factory()->state([
-        'id' => 'created-456',
-        'title' => 'New Budget',
-        'totalPrice' => '5000.00',
-        'customerId' => 'customer-123',
+    $createdCustomer = CustomerDto::factory()->state([
+        'number' => 'CUST003',
+        'name' => 'Test Customer AS',
+        'status' => 'Active',
+        'creditLimit' => 100000.00,
+        'currencyId' => 'NOK',
     ])->make();
 
     $mockClient = MockClient::global([
-        PostBudgetsRequest::class => MockResponse::make([
-            'data' => $createdBudget->toJsonApi(),
+        CustomerPostRequest::class => MockResponse::make([
+            'data' => $createdCustomer->toArray(),
         ], 201),
     ]);
 
-    artisan('sync:budgets')->assertOk();
+    artisan('sync:customers')->assertOk();
 
     // Assert the request body was sent correctly
-    $mockClient->assertSent(function (PostBudgetsRequest $request) {
+    $mockClient->assertSent(function (CustomerPostRequest $request) {
         $body = $request->body()->all();
 
-        return $body['data']['attributes']['title'] === 'New Budget'
-            && $body['data']['attributes']['totalPrice'] === '5000.00'
-            && $body['data']['attributes']['customerId'] === 'customer-123';
+        return $body['data']['attributes']['number'] === 'CUST003'
+            && $body['data']['attributes']['name'] === 'Test Customer AS'
+            && $body['data']['attributes']['creditLimit'] === 100000.00;
     });
 });
 ```
@@ -228,21 +238,23 @@ Every DTO in the SDK has a corresponding factory class with the following method
 
 ```php
 // Create a single model with random data, without an ID
-$budget = Budget::factory()->make();
+$customer = CustomerDto::factory()->make();
 
 // Create multiple models with unique UUID IDs
-$budgets = Budget::factory()->withId()->count(3)->make(); // Returns Collection
+$customers = CustomerDto::factory()->withId()->count(3)->make(); // Returns Collection
 
 // Override specific attributes
-$budget = Budget::factory()->state([
-    'title' => 'Q1 Budget',
-    'totalPrice' => '10000.00',
+$customer = CustomerDto::factory()->state([
+    'number' => 'CUST100',
+    'name' => 'Q1 Customer',
+    'status' => 'Active',
+    'creditLimit' => 10000.00,
 ])->make();
 
 // Chain state calls for complex scenarios
-$budget = Budget::factory()
-    ->state(['customerId' => $customerId])
-    ->state(['budgetTypeId' => $budgetTypeId])
+$customer = CustomerDto::factory()
+    ->state(['number' => $customerNumber])
+    ->state(['currencyId' => 'NOK'])
     ->make();
 ```
 
@@ -254,26 +266,26 @@ The SDK supports automatic pagination for all collection endpoints using Saloon'
 
 ```php
 use Pionect\VismaSdk\VismaConnector;
-use Pionect\VismaSdk\Requests\Budget\GetBudgets;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
 
-class BudgetController extends Controller
+class CustomerController extends Controller
 {
     public function index(VismaConnector $visma)
     {
         // Create a paginator
-        $paginator = $visma->paginate(new GetBudgets());
+        $paginator = $visma->paginate(new CustomerGetAllCollectionRequest());
 
         // Optionally set items per page (default is API's default)
         $paginator->setPerPageLimit(50);
 
         // Iterate through all pages automatically
-        foreach ($paginator->items() as $budget) {
-            // Process each budget across all pages
+        foreach ($paginator->items() as $customer) {
+            // Process each customer across all pages
             // The paginator handles pagination automatically
         }
 
         // Or collect all items at once
-        $allBudgets = $paginator->dtoCollection();
+        $allCustomers = $paginator->dtoCollection();
     }
 }
 ```
@@ -281,17 +293,19 @@ class BudgetController extends Controller
 The paginator:
 - Automatically handles JSON:API pagination (`page[number]` and `page[size]`)
 - Detects the last page via `links.next`
-- Works with all GET collection requests (GetBudgets, GetCustomers, GetUsers, etc.)
+- Works with all GET collection requests (CustomerGetAllCollectionRequest, CustomerInvoiceGetAllCollectionRequest, etc.)
 
 ### Custom Response Methods
 
 All responses are instances of `VismaResponse` which extends Saloon's Response with JSON:API convenience methods:
 
 ```php
-$response = $visma->send(new GetBudgetsCollectionRequest());
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceGetAllCollectionRequest;
+
+$response = $visma->send(new CustomerInvoiceGetAllCollectionRequest());
 
 // Get the first item from a collection
-$firstBudget = $response->firstItem();
+$firstInvoice = $response->firstItem();
 
 // Check for errors
 if ($response->hasErrors()) {
