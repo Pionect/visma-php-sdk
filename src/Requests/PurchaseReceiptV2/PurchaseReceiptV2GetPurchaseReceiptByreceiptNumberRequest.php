@@ -31,11 +31,11 @@ class PurchaseReceiptV2GetPurchaseReceiptByreceiptNumberRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v2/PurchaseReceipt/{$this->receiptNumberId}";
+        return "/v2/PurchaseReceipt/{$this->receiptNumber}";
     }
 
     /**
-     * @param  string  $receiptNumberId  Identifies the Purchase Receipt
+     * @param  string  $receiptNumber  Identifies the Purchase Receipt
      * @param  null|bool  $includeCustomFreeFields  Optional parameter to request custom free fields.
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -47,7 +47,7 @@ class PurchaseReceiptV2GetPurchaseReceiptByreceiptNumberRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $receiptNumberId,
+        protected string $receiptNumber,
         protected ?bool $includeCustomFreeFields = null,
         protected ?string $erpApiBackground = null,
     ) {}

@@ -89,7 +89,6 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSp
             'nonStockComponentLines' => [],
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -116,8 +115,7 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSp
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the kitSpecificationsGetBykitInventoryId method in the KitSpecifications resource', function () {
@@ -127,7 +125,6 @@ it('calls the kitSpecificationsGetBykitInventoryId method in the KitSpecificatio
             'pageSize' => 42,
             'totalCount' => 42,
             'records' => [],
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -146,6 +143,5 @@ it('calls the kitSpecificationsGetBykitInventoryId method in the KitSpecificatio
     expect($dto)
         ->pageNumber->toBe(42)
         ->pageSize->toBe(42)
-        ->totalCount->toBe(42)
-        ->id->toBe('mock-id-123');
+        ->totalCount->toBe(42);
 });

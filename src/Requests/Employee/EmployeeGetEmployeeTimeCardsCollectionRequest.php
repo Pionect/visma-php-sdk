@@ -28,7 +28,7 @@ class EmployeeGetEmployeeTimeCardsCollectionRequest extends Request implements P
 
     public function resolveEndpoint(): string
     {
-        return "/v1/employee/{$this->employeeCdId}/timecards";
+        return "/v1/employee/{$this->employeeCd}/timecards";
     }
 
     /**

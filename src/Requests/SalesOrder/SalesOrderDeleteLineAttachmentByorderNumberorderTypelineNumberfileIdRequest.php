@@ -16,13 +16,13 @@ class SalesOrderDeleteLineAttachmentByorderNumberorderTypelineNumberfileIdReques
 
     public function resolveEndpoint(): string
     {
-        return "/v1/salesorder/{$this->orderTypeId}/{$this->orderNumberId}/{$this->lineNumberId}/attachment/{$this->fileId}";
+        return "/v1/salesorder/{$this->orderType}/{$this->orderNumber}/{$this->lineNumber}/attachment/{$this->fileId}";
     }
 
     /**
-     * @param  string  $orderNumberId  Identifies the sales order
-     * @param  string  $orderTypeId  Identifies the sales order type
-     * @param  int  $lineNumberId  Specifies line number
+     * @param  string  $orderNumber  Identifies the sales order
+     * @param  string  $orderType  Identifies the sales order type
+     * @param  int  $lineNumber  Specifies line number
      * @param  string  $fileId  Specifies the id of the file
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -34,9 +34,9 @@ class SalesOrderDeleteLineAttachmentByorderNumberorderTypelineNumberfileIdReques
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $orderNumberId,
-        protected string $orderTypeId,
-        protected int $lineNumberId,
+        protected string $orderNumber,
+        protected string $orderType,
+        protected int $lineNumber,
         protected string $fileId,
         protected ?string $erpApiBackground = null,
     ) {}

@@ -95,12 +95,11 @@ it('calls the salesOrderV2getByorderNbr method in the SalesOrderV2 resource', fu
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new SalesOrderV2GetByorderNbrRequest(
-        orderNbrId: 'test string',
+        orderNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -182,8 +181,7 @@ it('calls the salesOrderV2getByorderNbr method in the SalesOrderV2 resource', fu
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 resource', function () {
@@ -264,7 +262,6 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -345,7 +342,6 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -437,8 +433,7 @@ it('calls the salesOrderV2getAllOrdersV2collection method in the SalesOrderV2 re
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderV2createShipmentActionBysaleOrderNumber method in the SalesOrderV2 resource', function () {
@@ -454,7 +449,7 @@ it('calls the salesOrderV2createShipmentActionBysaleOrderNumber method in the Sa
         'actionResult' => 'test value',
     ])->make();
 
-    $request = new SalesOrderV2CreateShipmentActionBysaleOrderNumberRequest(saleOrderNumberId: 'sale_order_number_id-123', data: $dto);
+    $request = new SalesOrderV2CreateShipmentActionBysaleOrderNumberRequest(saleOrderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderV2CreateShipmentActionBysaleOrderNumberRequest::class);
@@ -483,7 +478,7 @@ it('calls the salesOrderV2prepareInvoiceActionByorderTypeorderNumber method in t
         'actionResult' => 'test value',
     ])->make();
 
-    $request = new SalesOrderV2PrepareInvoiceActionByorderTypeorderNumberRequest(orderTypeId: 'order_type_id-123', orderNumberId: 'order_number_id-123', data: $dto);
+    $request = new SalesOrderV2PrepareInvoiceActionByorderTypeorderNumberRequest(orderType: 'test value', orderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderV2PrepareInvoiceActionByorderTypeorderNumberRequest::class);
@@ -511,7 +506,7 @@ it('calls the salesOrderV2sendEmailActionByorderTypeorderNumber method in the Sa
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new SalesOrderV2SendEmailActionByorderTypeorderNumberRequest(orderTypeId: 'order_type_id-123', orderNumberId: 'order_number_id-123', data: $dto);
+    $request = new SalesOrderV2SendEmailActionByorderTypeorderNumberRequest(orderType: 'test value', orderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderV2SendEmailActionByorderTypeorderNumberRequest::class);
@@ -538,7 +533,7 @@ it('calls the salesOrderV2cancelSalesOrderBysaleOrderNumber method in the SalesO
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new SalesOrderV2CancelSalesOrderBysaleOrderNumberRequest(saleOrderNumberId: 'sale_order_number_id-123', data: $dto);
+    $request = new SalesOrderV2CancelSalesOrderBysaleOrderNumberRequest(saleOrderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderV2CancelSalesOrderBysaleOrderNumberRequest::class);
@@ -565,7 +560,7 @@ it('calls the salesOrderV2reopenSalesOrderBysalesOrderNumber method in the Sales
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new SalesOrderV2ReopenSalesOrderBysalesOrderNumberRequest(salesOrderNumberId: 'sales_order_number_id-123', data: $dto);
+    $request = new SalesOrderV2ReopenSalesOrderBysalesOrderNumberRequest(salesOrderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderV2ReopenSalesOrderBysalesOrderNumberRequest::class);

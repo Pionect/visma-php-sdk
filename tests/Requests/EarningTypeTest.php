@@ -22,12 +22,11 @@ it('calls the earningTypeGetEarningTypeBytypeCd method in the EarningType resour
             'isActive' => true,
             'overtimeMultiplier' => 3.14,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new EarningTypeGetEarningTypeBytypeCdRequest(
-        typeCdId: 'test string',
+        typeCd: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -45,8 +44,7 @@ it('calls the earningTypeGetEarningTypeBytypeCd method in the EarningType resour
         ->isBillable->toBeTrue()
         ->isActive->toBeTrue()
         ->overtimeMultiplier->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningType resource', function () {
@@ -60,7 +58,6 @@ it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningTy
                 'isActive' => true,
                 'overtimeMultiplier' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'code' => 'String value',
@@ -70,7 +67,6 @@ it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningTy
                 'isActive' => true,
                 'overtimeMultiplier' => 3.14,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -94,6 +90,5 @@ it('calls the earningTypeGetAllEarningTypeDtosCollection method in the EarningTy
         ->isBillable->toBeTrue()
         ->isActive->toBeTrue()
         ->overtimeMultiplier->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

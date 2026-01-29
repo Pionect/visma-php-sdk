@@ -23,7 +23,6 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerP
             'cardOrAccountNo' => 'String value',
             'paymentMethodDetails' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -46,8 +45,7 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerP
         ->active->toBeTrue()
         ->cashAccount->toBeNull()
         ->cardOrAccountNo->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method in the CustomerPaymentMethod resource', function () {
@@ -60,7 +58,6 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method 
             'cardOrAccountNo' => 'String value',
             'paymentMethodDetails' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -84,8 +81,7 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerId method 
         ->active->toBeTrue()
         ->cashAccount->toBeNull()
         ->cardOrAccountNo->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the customerPaymentMethodGetCustomerPaymentMethodsCollection method in the CustomerPaymentMethod resource', function () {
@@ -94,12 +90,10 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsCollection method in
             0 => [
                 'customerId' => 'mock-id-123',
                 'paymentMethods' => [],
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'customerId' => 'mock-id-123',
                 'paymentMethods' => [],
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -117,6 +111,5 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsCollection method in
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->customerId->toBe('mock-id-123')
-        ->id->toBe('mock-id-123');
+        ->customerId->toBe('mock-id-123');
 });

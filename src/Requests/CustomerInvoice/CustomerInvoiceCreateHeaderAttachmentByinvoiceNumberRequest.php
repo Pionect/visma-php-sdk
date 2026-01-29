@@ -27,11 +27,11 @@ class CustomerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest extends Reques
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerinvoice/{$this->invoiceNumberId}/attachment";
+        return "/v1/customerinvoice/{$this->invoiceNumber}/attachment";
     }
 
     /**
-     * @param  string  $invoiceNumberId  Identifies the invoice
+     * @param  string  $invoiceNumber  Identifies the invoice
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -47,7 +47,7 @@ class CustomerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest extends Reques
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $invoiceNumberId,
+        protected string $invoiceNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

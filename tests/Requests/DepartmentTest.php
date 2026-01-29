@@ -22,7 +22,6 @@ it('calls the departmentGetDepartmentBydepartmentId method in the Department res
             'expenseSubaccount' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -45,8 +44,7 @@ it('calls the departmentGetDepartmentBydepartmentId method in the Department res
         ->expenseAccount->toBeNull()
         ->expenseSubaccount->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the departmentGetAllDepartmentDtosCollection method in the Department resource', function () {
@@ -60,7 +58,6 @@ it('calls the departmentGetAllDepartmentDtosCollection method in the Department 
                 'expenseSubaccount' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'departmentId' => 'mock-id-123',
@@ -70,7 +67,6 @@ it('calls the departmentGetAllDepartmentDtosCollection method in the Department 
                 'expenseSubaccount' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -94,6 +90,5 @@ it('calls the departmentGetAllDepartmentDtosCollection method in the Department 
         ->expenseAccount->toBeNull()
         ->expenseSubaccount->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

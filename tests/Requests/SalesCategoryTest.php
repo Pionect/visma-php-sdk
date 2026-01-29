@@ -21,7 +21,6 @@ it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory r
             'parentId' => 42,
             'sortOrder' => 42,
             'subCategories' => [],
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -41,8 +40,7 @@ it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory r
         ->categoryId->toBe(42)
         ->description->toBe('String value')
         ->parentId->toBe(42)
-        ->sortOrder->toBe(42)
-        ->id->toBe('mock-id-123');
+        ->sortOrder->toBe(42);
 });
 
 it('calls the salesCategoryGetCollection method in the SalesCategory resource', function () {
@@ -54,7 +52,6 @@ it('calls the salesCategoryGetCollection method in the SalesCategory resource', 
                 'parentId' => 42,
                 'sortOrder' => 42,
                 'subCategories' => [],
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'categoryId' => 42,
@@ -62,7 +59,6 @@ it('calls the salesCategoryGetCollection method in the SalesCategory resource', 
                 'parentId' => 42,
                 'sortOrder' => 42,
                 'subCategories' => [],
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -83,8 +79,7 @@ it('calls the salesCategoryGetCollection method in the SalesCategory resource', 
         ->categoryId->toBe(42)
         ->description->toBe('String value')
         ->parentId->toBe(42)
-        ->sortOrder->toBe(42)
-        ->id->toBe('mock-id-123');
+        ->sortOrder->toBe(42);
 });
 
 it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCategory resource', function () {
@@ -135,7 +130,6 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
             'note' => 'String value',
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -189,6 +183,5 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
         ->priceClassId->toBe('mock-id-123')
         ->note->toBe('String value')
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

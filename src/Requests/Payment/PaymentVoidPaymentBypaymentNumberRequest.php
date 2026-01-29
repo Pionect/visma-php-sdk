@@ -34,11 +34,11 @@ class PaymentVoidPaymentBypaymentNumberRequest extends Request implements HasBod
 
     public function resolveEndpoint(): string
     {
-        return "/v1/payment/{$this->paymentNumberId}/action/void";
+        return "/v1/payment/{$this->paymentNumber}/action/void";
     }
 
     /**
-     * @param  string  $paymentNumberId  Reference number of the payment to be released
+     * @param  string  $paymentNumber  Reference number of the payment to be released
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -50,7 +50,7 @@ class PaymentVoidPaymentBypaymentNumberRequest extends Request implements HasBod
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $paymentNumberId,
+        protected string $paymentNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

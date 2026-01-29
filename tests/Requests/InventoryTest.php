@@ -32,7 +32,6 @@ it('calls the inventoryGetItemClassesCollection method in the Inventory resource
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -43,7 +42,6 @@ it('calls the inventoryGetItemClassesCollection method in the Inventory resource
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -67,8 +65,7 @@ it('calls the inventoryGetItemClassesCollection method in the Inventory resource
     expect($dtoCollection->first())
         ->type->toBe('String value')
         ->description->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inventory resource', function () {
@@ -78,12 +75,11 @@ it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inven
             'attributes' => [],
             'description' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryGetSpecificItemClassByitemClassNumberRequest(
-        itemClassNumberId: 'test string',
+        itemClassNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -97,8 +93,7 @@ it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inven
     expect($dto)
         ->type->toBe('String value')
         ->description->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryGetItemPostClassesCollection method in the Inventory resource', function () {
@@ -106,7 +101,6 @@ it('calls the inventoryGetItemPostClassesCollection method in the Inventory reso
         InventoryGetItemPostClassesCollectionRequest::class => MockResponse::make([
             0 => [
                 'description' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -114,7 +108,6 @@ it('calls the inventoryGetItemPostClassesCollection method in the Inventory reso
             ],
             1 => [
                 'description' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -136,8 +129,7 @@ it('calls the inventoryGetItemPostClassesCollection method in the Inventory reso
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->description->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->description->toBe('String value');
 });
 
 it('calls the inventoryGetByinventoryId method in the Inventory resource', function () {
@@ -188,7 +180,6 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
             'note' => 'String value',
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -242,8 +233,7 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
         ->priceClassId->toBe('mock-id-123')
         ->note->toBe('String value')
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryGetByinventoryNumber method in the Inventory resource', function () {
@@ -294,12 +284,11 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
             'note' => 'String value',
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryGetByinventoryNumberRequest(
-        inventoryNumberId: 'test string',
+        inventoryNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -348,8 +337,7 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
         ->priceClassId->toBe('mock-id-123')
         ->note->toBe('String value')
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryGetAllCollection method in the Inventory resource', function () {
@@ -401,7 +389,6 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'note' => 'String value',
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -453,7 +440,6 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'note' => 'String value',
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -512,8 +498,7 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
         ->priceClassId->toBe('mock-id-123')
         ->note->toBe('String value')
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryGetInventoryShipmentBarCodesByshipmentNbr method in the Inventory resource', function () {
@@ -521,12 +506,11 @@ it('calls the inventoryGetInventoryShipmentBarCodesByshipmentNbr method in the I
         InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest::class => MockResponse::make([
             'barCode' => 'String value',
             'inventoryNumber' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest(
-        shipmentNbrId: 'test string',
+        shipmentNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -539,8 +523,7 @@ it('calls the inventoryGetInventoryShipmentBarCodesByshipmentNbr method in the I
 
     expect($dto)
         ->barCode->toBe('String value')
-        ->inventoryNumber->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->inventoryNumber->toBe('String value');
 });
 
 it('calls the inventoryGetInventorySalesOrderBarCodesByorderNbr method in the Inventory resource', function () {
@@ -548,12 +531,11 @@ it('calls the inventoryGetInventorySalesOrderBarCodesByorderNbr method in the In
         InventoryGetInventorySalesOrderBarCodesByorderNbrRequest::class => MockResponse::make([
             'barCode' => 'String value',
             'inventoryNumber' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryGetInventorySalesOrderBarCodesByorderNbrRequest(
-        orderNbrId: 'test string',
+        orderNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -566,8 +548,7 @@ it('calls the inventoryGetInventorySalesOrderBarCodesByorderNbr method in the In
 
     expect($dto)
         ->barCode->toBe('String value')
-        ->inventoryNumber->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->inventoryNumber->toBe('String value');
 });
 
 it('calls the inventoryGetInventoryStockTakeBarCodesByreferenceNumber method in the Inventory resource', function () {
@@ -575,12 +556,11 @@ it('calls the inventoryGetInventoryStockTakeBarCodesByreferenceNumber method in 
         InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest::class => MockResponse::make([
             'barCode' => 'String value',
             'inventoryNumber' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest(
-        referenceNumberId: 'test string',
+        referenceNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -593,8 +573,7 @@ it('calls the inventoryGetInventoryStockTakeBarCodesByreferenceNumber method in 
 
     expect($dto)
         ->barCode->toBe('String value')
-        ->inventoryNumber->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->inventoryNumber->toBe('String value');
 });
 
 it('calls the inventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbr method in the Inventory resource', function () {
@@ -602,12 +581,11 @@ it('calls the inventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbr method in t
         InventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbrRequest::class => MockResponse::make([
             'barCode' => 'String value',
             'inventoryNumber' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbrRequest(
-        receiptNbrId: 'test string',
+        receiptNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -620,8 +598,7 @@ it('calls the inventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbr method in t
 
     expect($dto)
         ->barCode->toBe('String value')
-        ->inventoryNumber->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->inventoryNumber->toBe('String value');
 });
 
 it('calls the inventoryGetInventoryCrossReferencesByinventoryNumber method in the Inventory resource', function () {
@@ -633,12 +610,11 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumber method in th
             'description' => 'String value',
             'uom' => 'String value',
             'timestamp' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryGetInventoryCrossReferencesByinventoryNumberRequest(
-        inventoryNumberId: 'test string',
+        inventoryNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -655,8 +631,7 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumber method in th
         ->alternateId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->uom->toBe('String value')
-        ->timestamp->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->timestamp->toBe('String value');
 });
 
 it('calls the inventoryUpdateCostNonStockItemByinventoryCd method in the Inventory resource', function () {
@@ -671,7 +646,7 @@ it('calls the inventoryUpdateCostNonStockItemByinventoryCd method in the Invento
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new InventoryUpdateCostNonStockItemByinventoryCdRequest(inventoryCdId: 'inventory_cd_id-123', data: $dto);
+    $request = new InventoryUpdateCostNonStockItemByinventoryCdRequest(inventoryCd: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(InventoryUpdateCostNonStockItemByinventoryCdRequest::class);

@@ -27,7 +27,7 @@ class SalesOrderGetRotrutbyorderTypeorderNbrRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/salesorder/{$this->orderTypeId}/{$this->orderNbrId}/rotrut";
+        return "/v1/salesorder/{$this->orderType}/{$this->orderNbr}/rotrut";
     }
 
     /**
@@ -41,8 +41,8 @@ class SalesOrderGetRotrutbyorderTypeorderNbrRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $orderTypeId,
-        protected string $orderNbrId,
+        protected string $orderType,
+        protected string $orderNbr,
         protected ?string $erpApiBackground = null,
     ) {}
 

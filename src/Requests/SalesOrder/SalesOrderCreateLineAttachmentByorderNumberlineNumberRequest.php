@@ -21,12 +21,12 @@ class SalesOrderCreateLineAttachmentByorderNumberlineNumberRequest extends Reque
 
     public function resolveEndpoint(): string
     {
-        return "/v1/salesorder/{$this->orderNumberId}/{$this->lineNumberId}/attachment";
+        return "/v1/salesorder/{$this->orderNumber}/{$this->lineNumber}/attachment";
     }
 
     /**
-     * @param  string  $orderNumberId  Identifies the sales order
-     * @param  int  $lineNumberId  Specifies line number
+     * @param  string  $orderNumber  Identifies the sales order
+     * @param  int  $lineNumber  Specifies line number
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -38,8 +38,8 @@ class SalesOrderCreateLineAttachmentByorderNumberlineNumberRequest extends Reque
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $orderNumberId,
-        protected int $lineNumberId,
+        protected string $orderNumber,
+        protected int $lineNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

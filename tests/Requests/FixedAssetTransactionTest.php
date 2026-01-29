@@ -31,12 +31,11 @@ it('calls the fixedAssetTransactionGetByRefNo method in the FixedAssetTransactio
             'register' => null,
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new FixedAssetTransactionGetByRefNoRequest(
-        refNoId: 'test string',
+        refNo: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -63,8 +62,7 @@ it('calls the fixedAssetTransactionGetByRefNo method in the FixedAssetTransactio
         ->transactionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->register->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the fixedAssetTransactionGetAllCollection method in the FixedAssetTransaction resource', function () {
@@ -87,7 +85,6 @@ it('calls the fixedAssetTransactionGetAllCollection method in the FixedAssetTran
                 'register' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -110,7 +107,6 @@ it('calls the fixedAssetTransactionGetAllCollection method in the FixedAssetTran
                 'register' => null,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -147,6 +143,5 @@ it('calls the fixedAssetTransactionGetAllCollection method in the FixedAssetTran
         ->transactionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->register->toBeNull()
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

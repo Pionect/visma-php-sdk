@@ -31,12 +31,12 @@ class SupplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/supplierInvoice/{$this->documentTypeId}/{$this->invoiceNumberId}";
+        return "/v1/supplierInvoice/{$this->documentType}/{$this->invoiceNumber}";
     }
 
     /**
-     * @param  string  $documentTypeId  Identifies the Invoice
-     * @param  string  $invoiceNumberId  Identifies the Invoice
+     * @param  string  $documentType  Identifies the Invoice
+     * @param  string  $invoiceNumber  Identifies the Invoice
      * @param  null|bool  $expandLinePrebookAccounts  Expland line-level pre-booking account and sub-account information.
      * @param  null|bool  $expandLandedCosts  Expland landed costs information.
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
@@ -49,8 +49,8 @@ class SupplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $documentTypeId,
-        protected string $invoiceNumberId,
+        protected string $documentType,
+        protected string $invoiceNumber,
         protected ?bool $expandLinePrebookAccounts = null,
         protected ?bool $expandLandedCosts = null,
         protected ?string $erpApiBackground = null,

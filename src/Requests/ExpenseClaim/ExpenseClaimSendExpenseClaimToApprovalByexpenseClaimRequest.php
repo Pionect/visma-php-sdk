@@ -39,11 +39,11 @@ class ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest extends Reques
 
     public function resolveEndpoint(): string
     {
-        return "/v1/expenseClaim/{$this->expenseClaimId}/action/approval";
+        return "/v1/expenseClaim/{$this->expenseClaim}/action/approval";
     }
 
     /**
-     * @param  string  $expenseClaimId  Reference number of the Expense Claim to be sent to approval
+     * @param  string  $expenseClaim  Reference number of the Expense Claim to be sent to approval
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -59,7 +59,7 @@ class ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest extends Reques
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $expenseClaimId,
+        protected string $expenseClaim,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

@@ -25,12 +25,12 @@ class SupplierInvoiceCreateLineAttachmentByTypeBydocumentTypeinvoiceNumberlineNu
 
     public function resolveEndpoint(): string
     {
-        return "/v1/supplierInvoice/documentType/{$this->documentTypeId}/{$this->invoiceNumberId}/{$this->lineNumberId}/attachment";
+        return "/v1/supplierInvoice/documentType/{$this->documentType}/{$this->invoiceNumber}/{$this->lineNumber}/attachment";
     }
 
     /**
-     * @param  string  $invoiceNumberId  Identifies the supplier invoice
-     * @param  int  $lineNumberId  Identifies the supplier invoice line
+     * @param  string  $invoiceNumber  Identifies the supplier invoice
+     * @param  int  $lineNumber  Identifies the supplier invoice line
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -46,9 +46,9 @@ class SupplierInvoiceCreateLineAttachmentByTypeBydocumentTypeinvoiceNumberlineNu
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $documentTypeId,
-        protected string $invoiceNumberId,
-        protected int $lineNumberId,
+        protected string $documentType,
+        protected string $invoiceNumber,
+        protected int $lineNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

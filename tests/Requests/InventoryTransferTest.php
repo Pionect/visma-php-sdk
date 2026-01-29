@@ -35,12 +35,11 @@ it('calls the inventoryTransferGetByinventoryTransferNumber method in the Invent
             'attachments' => [],
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryTransferGetByinventoryTransferNumberRequest(
-        inventoryTransferNumberId: 'test string',
+        inventoryTransferNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -67,8 +66,7 @@ it('calls the inventoryTransferGetByinventoryTransferNumber method in the Invent
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryTransferGetAllCollection method in the InventoryTransfer resource', function () {
@@ -93,7 +91,6 @@ it('calls the inventoryTransferGetAllCollection method in the InventoryTransfer 
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -118,7 +115,6 @@ it('calls the inventoryTransferGetAllCollection method in the InventoryTransfer 
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -155,8 +151,7 @@ it('calls the inventoryTransferGetAllCollection method in the InventoryTransfer 
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryTransferReleaseDocumentBytransferNumber method in the InventoryTransfer resource', function () {
@@ -171,7 +166,7 @@ it('calls the inventoryTransferReleaseDocumentBytransferNumber method in the Inv
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new InventoryTransferReleaseDocumentBytransferNumberRequest(transferNumberId: 'transfer_number_id-123', data: $dto);
+    $request = new InventoryTransferReleaseDocumentBytransferNumberRequest(transferNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(InventoryTransferReleaseDocumentBytransferNumberRequest::class);

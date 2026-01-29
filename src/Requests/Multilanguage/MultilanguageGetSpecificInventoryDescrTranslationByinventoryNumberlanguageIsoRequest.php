@@ -27,7 +27,7 @@ class MultilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguage
 
     public function resolveEndpoint(): string
     {
-        return "/v1/multilanguage/inventory/{$this->inventoryNumberId}/{$this->languageIsoId}";
+        return "/v1/multilanguage/inventory/{$this->inventoryNumber}/{$this->languageIso}";
     }
 
     /**
@@ -41,8 +41,8 @@ class MultilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguage
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $inventoryNumberId,
-        protected string $languageIsoid,
+        protected string $inventoryNumber,
+        protected string $languageIso,
         protected ?string $erpApiBackground = null,
     ) {}
 

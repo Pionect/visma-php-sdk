@@ -26,11 +26,11 @@ class CustomerInvoiceSendToAutoInvoiceByinvoiceNumberRequest extends Request imp
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerinvoice/{$this->invoiceNumberId}/action/sendToAutoInvoice";
+        return "/v1/customerinvoice/{$this->invoiceNumber}/action/sendToAutoInvoice";
     }
 
     /**
-     * @param  string  $invoiceNumberId  Reference number of the invoice to be send to AutoInvoice
+     * @param  string  $invoiceNumber  Reference number of the invoice to be send to AutoInvoice
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -46,7 +46,7 @@ class CustomerInvoiceSendToAutoInvoiceByinvoiceNumberRequest extends Request imp
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $invoiceNumberId,
+        protected string $invoiceNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

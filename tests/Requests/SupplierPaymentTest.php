@@ -43,12 +43,11 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
             'paymentLines' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new SupplierPaymentGetBypaymentNumberRequest(
-        paymentNumberId: 'test string',
+        paymentNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -83,8 +82,7 @@ it('calls the supplierPaymentGetBypaymentNumber method in the SupplierPayment re
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the SupplierPayment resource', function () {
@@ -115,13 +113,12 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
             'paymentLines' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new SupplierPaymentGetByTypeBypaymentTypepaymentNumberRequest(
-        paymentTypeId: 'test string',
-        paymentNumberId: 'test string',
+        paymentType: 'test string',
+        paymentNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -156,8 +153,7 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumber method in the S
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPayment resource', function () {
@@ -189,7 +185,6 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
                 'paymentLines' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -221,7 +216,6 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
                 'paymentLines' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -266,8 +260,7 @@ it('calls the supplierPaymentGetAllPaymentsCollection method in the SupplierPaym
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the supplierPaymentWriteoffPaymentBypaymentTypepaymentNumber method in the SupplierPayment resource', function () {
@@ -282,7 +275,7 @@ it('calls the supplierPaymentWriteoffPaymentBypaymentTypepaymentNumber method in
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest(paymentTypeId: 'payment_type_id-123', paymentNumberId: 'payment_number_id-123', data: $dto);
+    $request = new SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest(paymentType: 'test value', paymentNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest::class);

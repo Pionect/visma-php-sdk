@@ -27,11 +27,11 @@ class EmployeeGetEmployeeExpenseReceiptsByemployeeCdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/employee/{$this->employeeCdId}/expenseReceipt";
+        return "/v1/employee/{$this->employeeCd}/expenseReceipt";
     }
 
     /**
-     * @param  string  $employeeCdId  Identifies the employee
+     * @param  string  $employeeCd  Identifies the employee
      * @param  null|string  $date  The date of the document
      * @param  null|string  $inventory  Identifies the inventory item from the document
      * @param  null|string  $project  Identifies the project from the document
@@ -50,7 +50,7 @@ class EmployeeGetEmployeeExpenseReceiptsByemployeeCdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $employeeCdId,
+        protected string $employeeCd,
         protected ?string $date = null,
         protected ?string $dateCondition = null,
         protected ?string $inventory = null,

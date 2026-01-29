@@ -35,12 +35,11 @@ it('calls the organizationGetByOrganizationCdByorganizationNumber method in the 
             'bankSettings' => null,
             'branches' => [],
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new OrganizationGetByOrganizationCdByorganizationNumberRequest(
-        organizationNumberId: 'test string',
+        organizationNumber: 'test string',
         expandBranches: true,
         expandBankSettings: true,
         lastModifiedDateTime: 'test string',
@@ -75,8 +74,7 @@ it('calls the organizationGetByOrganizationCdByorganizationNumber method in the 
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->ledger->toBeNull()
         ->bankSettings->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the organizationGetAllCollection method in the Organization resource', function () {
@@ -103,7 +101,6 @@ it('calls the organizationGetAllCollection method in the Organization resource',
                 'bankSettings' => null,
                 'branches' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'organizationCd' => 'String value',
@@ -126,7 +123,6 @@ it('calls the organizationGetAllCollection method in the Organization resource',
                 'bankSettings' => null,
                 'branches' => [],
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -162,6 +158,5 @@ it('calls the organizationGetAllCollection method in the Organization resource',
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->ledger->toBeNull()
         ->bankSettings->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

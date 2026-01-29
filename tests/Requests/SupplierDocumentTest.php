@@ -51,7 +51,6 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierCollection method in the
                 'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -94,7 +93,6 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierCollection method in the
                 'cashAccount' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -151,6 +149,5 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierCollection method in the
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

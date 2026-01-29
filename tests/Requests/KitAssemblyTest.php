@@ -127,13 +127,12 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
             'kitAllocations' => [],
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new KitAssemblyGetKitAssemblyBytyperefNoRequest(
-        typeId: 'test string',
-        refNoId: 'test string',
+        type: 'test string',
+        refNo: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -163,6 +162,5 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->salesOrderLink->toBe('String value')
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

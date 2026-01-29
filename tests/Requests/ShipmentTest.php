@@ -68,12 +68,11 @@ it('calls the shipmentGetByshipmentNbr method in the Shipment resource', functio
             'customInt2' => 42,
             'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new ShipmentGetByshipmentNbrRequest(
-        shipmentNbrId: 'test string',
+        shipmentNbr: 'test string',
         includeCustomFreeFields: true,
         erpApiBackground: 'test string'
     );
@@ -133,8 +132,7 @@ it('calls the shipmentGetByshipmentNbr method in the Shipment resource', functio
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource', function () {
@@ -192,7 +190,6 @@ it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource'
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -250,7 +247,6 @@ it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource'
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -319,8 +315,7 @@ it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource'
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the shipmentConfirmShipmentByshipmentNumber method in the Shipment resource', function () {
@@ -335,7 +330,7 @@ it('calls the shipmentConfirmShipmentByshipmentNumber method in the Shipment res
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new ShipmentConfirmShipmentByshipmentNumberRequest(shipmentNumberId: 'shipment_number_id-123', data: $dto);
+    $request = new ShipmentConfirmShipmentByshipmentNumberRequest(shipmentNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(ShipmentConfirmShipmentByshipmentNumberRequest::class);

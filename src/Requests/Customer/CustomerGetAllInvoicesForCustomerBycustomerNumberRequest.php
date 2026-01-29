@@ -27,11 +27,11 @@ class CustomerGetAllInvoicesForCustomerBycustomerNumberRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customer/{$this->customerNumberId}/invoice";
+        return "/v1/customer/{$this->customerNumber}/invoice";
     }
 
     /**
-     * @param  string  $customerNumberId  Identifies the customer for which to return data
+     * @param  string  $customerNumber  Identifies the customer for which to return data
      * @param  null|string  $documentType  The field is deprecated for specific customer document endpoints. It will only be usable from customer document endpoint.
      * @param  null|int  $released  Parameter for showing if invoice has been released or not.
      * @param  null|int  $dunningLevel  The dunning level of the document.
@@ -115,7 +115,7 @@ class CustomerGetAllInvoicesForCustomerBycustomerNumberRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $customerNumberId,
+        protected string $customerNumber,
         protected ?string $documentType = null,
         protected ?int $released = null,
         protected ?int $dunningLevel = null,

@@ -18,12 +18,11 @@ it('calls the carrierGetCarrierBycarrierName method in the Carrier resource', fu
             'carrierId' => 'mock-id-123',
             'carrierDescription' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CarrierGetCarrierBycarrierNameRequest(
-        carrierNameId: 'test string',
+        carrierName: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -37,8 +36,7 @@ it('calls the carrierGetCarrierBycarrierName method in the Carrier resource', fu
     expect($dto)
         ->carrierId->toBe('mock-id-123')
         ->carrierDescription->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the carrierGetAllCarriersCollection method in the Carrier resource', function () {
@@ -48,7 +46,6 @@ it('calls the carrierGetAllCarriersCollection method in the Carrier resource', f
                 'carrierId' => 'mock-id-123',
                 'carrierDescription' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -58,7 +55,6 @@ it('calls the carrierGetAllCarriersCollection method in the Carrier resource', f
                 'carrierId' => 'mock-id-123',
                 'carrierDescription' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -82,6 +78,5 @@ it('calls the carrierGetAllCarriersCollection method in the Carrier resource', f
     expect($dtoCollection->first())
         ->carrierId->toBe('mock-id-123')
         ->carrierDescription->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

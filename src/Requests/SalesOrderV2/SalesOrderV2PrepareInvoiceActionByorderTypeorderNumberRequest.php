@@ -34,12 +34,12 @@ class SalesOrderV2PrepareInvoiceActionByorderTypeorderNumberRequest extends Requ
 
     public function resolveEndpoint(): string
     {
-        return "/v2/salesorder/{$this->orderTypeId}/{$this->orderNumberId}/action/prepareInvoice";
+        return "/v2/salesorder/{$this->orderType}/{$this->orderNumber}/action/prepareInvoice";
     }
 
     /**
-     * @param  string  $orderTypeId  Order Type of the sale order from which the invoice will be created
-     * @param  string  $orderNumberId  Reference number of the sale order from which the invoice will be created
+     * @param  string  $orderType  Order Type of the sale order from which the invoice will be created
+     * @param  string  $orderNumber  Reference number of the sale order from which the invoice will be created
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -51,8 +51,8 @@ class SalesOrderV2PrepareInvoiceActionByorderTypeorderNumberRequest extends Requ
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $orderTypeId,
-        protected string $orderNumberId,
+        protected string $orderType,
+        protected string $orderNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

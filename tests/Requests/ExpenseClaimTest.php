@@ -38,12 +38,11 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbr method in the Expense
             'approvalStatusText' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new ExpenseClaimGetExpenseClaimByexpenseClaimNbrRequest(
-        expenseClaimNbrId: 'test string',
+        expenseClaimNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -72,8 +71,7 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbr method in the Expense
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource', function () {
@@ -99,7 +97,6 @@ it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource',
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -125,7 +122,6 @@ it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource',
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -164,8 +160,7 @@ it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource',
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaim method in the ExpenseClaim resource', function () {
@@ -180,7 +175,7 @@ it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaim method in the Expe
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest(expenseClaimId: 'expense_claim_id-123', data: $dto);
+    $request = new ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest(expenseClaim: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest::class);
@@ -207,7 +202,7 @@ it('calls the expenseClaimSubmitExpenseClaimByexpenseClaim method in the Expense
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest(expenseClaimId: 'expense_claim_id-123', data: $dto);
+    $request = new ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest(expenseClaim: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest::class);
@@ -234,7 +229,7 @@ it('calls the expenseClaimSendExpenseClaimToApprovalByexpenseClaim method in the
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest(expenseClaimId: 'expense_claim_id-123', data: $dto);
+    $request = new ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest(expenseClaim: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest::class);

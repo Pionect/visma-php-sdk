@@ -27,11 +27,11 @@ class SupplierGetAllDocumentsForSupplierBysupplierNumberRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/supplier/{$this->supplierNumberId}/document";
+        return "/v1/supplier/{$this->supplierNumber}/document";
     }
 
     /**
-     * @param  string  $supplierNumberId  Identifies the supplier for which to return data
+     * @param  string  $supplierNumber  Identifies the supplier for which to return data
      * @param  null|string  $documentType  By type of document.
      * @param  null|int  $released  Parameter for showing if invoice has been released or not.
      * @param  null|string  $project  Filter by the project with which the document is associated.
@@ -130,7 +130,7 @@ class SupplierGetAllDocumentsForSupplierBysupplierNumberRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $supplierNumberId,
+        protected string $supplierNumber,
         protected ?string $documentType = null,
         protected ?int $released = null,
         protected ?string $project = null,

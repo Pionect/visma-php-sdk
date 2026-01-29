@@ -56,12 +56,11 @@ it('calls the purchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumber metho
             'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new PurchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumberRequest(
-        purchaseOrderNumberId: 'test string',
+        purchaseOrderNumber: 'test string',
         includeCustomFreeFields: true,
         erpApiBackground: 'test string'
     );
@@ -111,8 +110,7 @@ it('calls the purchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumber metho
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the purchaseOrderBasicGetAllOrderBasicCollection method in the PurchaseOrderBasic resource', function () {
@@ -160,7 +158,6 @@ it('calls the purchaseOrderBasicGetAllOrderBasicCollection method in the Purchas
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -208,7 +205,6 @@ it('calls the purchaseOrderBasicGetAllOrderBasicCollection method in the Purchas
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -267,6 +263,5 @@ it('calls the purchaseOrderBasicGetAllOrderBasicCollection method in the Purchas
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

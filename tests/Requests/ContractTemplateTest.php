@@ -18,13 +18,11 @@ it('calls the contractTemplateGetAllCollection method in the ContractTemplate re
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'attributes' => [],
                 'description' => 'String value',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
                 'attributes' => [],
                 'description' => 'String value',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -43,6 +41,5 @@ it('calls the contractTemplateGetAllCollection method in the ContractTemplate re
 
     expect($dtoCollection->first())
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->description->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->description->toBe('String value');
 });

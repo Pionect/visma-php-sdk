@@ -21,11 +21,11 @@ class CustomerPutBycustomerCdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customer/{$this->customerCdId}";
+        return "/v1/customer/{$this->customerCd}";
     }
 
     /**
-     * @param  string  $customerCdId  Identifies the customer to update
+     * @param  string  $customerCd  Identifies the customer to update
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -41,7 +41,7 @@ class CustomerPutBycustomerCdRequest extends Request
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $customerCdId,
+        protected string $customerCd,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

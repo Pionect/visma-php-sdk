@@ -25,12 +25,11 @@ it('calls the salesPersonGetSalespersonBysalespersonCd method in the SalesPerson
             'createdDateTime' => '2025-11-22T10:40:04.065Z',
             'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new SalesPersonGetSalespersonBysalespersonCdRequest(
-        salespersonCdId: 'test string',
+        salespersonCd: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -49,8 +48,7 @@ it('calls the salesPersonGetSalespersonBysalespersonCd method in the SalesPerson
         ->salesSub->toBeNull()
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesPersonGetSalespersonsCollection method in the SalesPerson resource', function () {

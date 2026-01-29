@@ -19,7 +19,6 @@ it('calls the unitOfMeasureGetAllUnitsOfMeasureCollection method in the UnitOfMe
                 'unitMultDiv' => 'String value',
                 'unitRate' => 3.14,
                 'supplementaryMeasureUnit' => 'String value',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'fromUnit' => 'String value',
@@ -27,7 +26,6 @@ it('calls the unitOfMeasureGetAllUnitsOfMeasureCollection method in the UnitOfMe
                 'unitMultDiv' => 'String value',
                 'unitRate' => 3.14,
                 'supplementaryMeasureUnit' => 'String value',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -49,6 +47,5 @@ it('calls the unitOfMeasureGetAllUnitsOfMeasureCollection method in the UnitOfMe
         ->toUnit->toBe('String value')
         ->unitMultDiv->toBe('String value')
         ->unitRate->toBe(3.14)
-        ->supplementaryMeasureUnit->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->supplementaryMeasureUnit->toBe('String value');
 });

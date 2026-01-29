@@ -15,11 +15,11 @@ class VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/vat/{$this->vendorCdId}/{$this->taxPeriodId}/{$this->revisionId}";
+        return "/v1/vat/{$this->vendorCd}/{$this->taxPeriodId}/{$this->revisionId}";
     }
 
     /**
-     * @param  string  $vendorCdId  Identifies the tax agency.
+     * @param  string  $vendorCd  Identifies the tax agency.
      * @param  string  $taxPeriodId  Identifies the tax period.
      * @param  int  $revisionId  Identifies the tax revision.
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
@@ -33,7 +33,7 @@ class VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $vendorCdId,
+        protected string $vendorCd,
         protected string $taxPeriodId,
         protected int $revisionId,
         protected Model|array|null $data = null,

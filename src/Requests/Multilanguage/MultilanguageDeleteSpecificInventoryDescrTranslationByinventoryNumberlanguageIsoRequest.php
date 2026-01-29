@@ -16,12 +16,12 @@ class MultilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlangu
 
     public function resolveEndpoint(): string
     {
-        return "/v1/multilanguage/inventory/{$this->inventoryNumberId}/{$this->languageIsoId}";
+        return "/v1/multilanguage/inventory/{$this->inventoryNumber}/{$this->languageIso}";
     }
 
     /**
-     * @param  string  $inventoryNumberId  Identifies the inventory to update
-     * @param  string  $languageIsoid  Identifies the description language to update
+     * @param  string  $inventoryNumber  Identifies the inventory to update
+     * @param  string  $languageIso  Identifies the description language to update
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -32,8 +32,8 @@ class MultilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlangu
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $inventoryNumberId,
-        protected string $languageIsoid,
+        protected string $inventoryNumber,
+        protected string $languageIso,
         protected ?string $erpApiBackground = null,
     ) {}
 

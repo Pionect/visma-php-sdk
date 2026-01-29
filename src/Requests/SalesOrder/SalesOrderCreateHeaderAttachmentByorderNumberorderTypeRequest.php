@@ -21,11 +21,11 @@ class SalesOrderCreateHeaderAttachmentByorderNumberorderTypeRequest extends Requ
 
     public function resolveEndpoint(): string
     {
-        return "/v1/salesorder/orderType/{$this->orderTypeId}/{$this->orderNumberId}/attachment";
+        return "/v1/salesorder/orderType/{$this->orderType}/{$this->orderNumber}/attachment";
     }
 
     /**
-     * @param  string  $orderNumberId  Identifies the sales order
+     * @param  string  $orderNumber  Identifies the sales order
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -37,8 +37,8 @@ class SalesOrderCreateHeaderAttachmentByorderNumberorderTypeRequest extends Requ
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $orderNumberId,
-        protected string $orderTypeId,
+        protected string $orderNumber,
+        protected string $orderType,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

@@ -16,7 +16,6 @@ it('calls the countryGetCountryBycountryId method in the Country resource', func
         CountryGetCountryBycountryIdRequest::class => MockResponse::make([
             'name' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -34,8 +33,7 @@ it('calls the countryGetCountryBycountryId method in the Country resource', func
 
     expect($dto)
         ->name->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the countryGetCountriesCollection method in the Country resource', function () {
@@ -44,7 +42,6 @@ it('calls the countryGetCountriesCollection method in the Country resource', fun
             0 => [
                 'name' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -53,7 +50,6 @@ it('calls the countryGetCountriesCollection method in the Country resource', fun
             1 => [
                 'name' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -76,6 +72,5 @@ it('calls the countryGetCountriesCollection method in the Country resource', fun
 
     expect($dtoCollection->first())
         ->name->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

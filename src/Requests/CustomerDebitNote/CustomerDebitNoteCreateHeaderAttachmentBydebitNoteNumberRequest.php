@@ -25,11 +25,11 @@ class CustomerDebitNoteCreateHeaderAttachmentBydebitNoteNumberRequest extends Re
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerDebitNote/{$this->debitNoteNumberId}/attachment";
+        return "/v1/customerDebitNote/{$this->debitNoteNumber}/attachment";
     }
 
     /**
-     * @param  string  $debitNoteNumberId  Identifies the debit note
+     * @param  string  $debitNoteNumber  Identifies the debit note
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -45,7 +45,7 @@ class CustomerDebitNoteCreateHeaderAttachmentBydebitNoteNumberRequest extends Re
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $debitNoteNumberId,
+        protected string $debitNoteNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

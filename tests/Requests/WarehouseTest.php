@@ -31,7 +31,6 @@ it('calls the warehouseGetBywarehouseId method in the Warehouse resource', funct
             'address' => null,
             'locations' => [],
             'timestamp' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -63,8 +62,7 @@ it('calls the warehouseGetBywarehouseId method in the Warehouse resource', funct
         ->dropShipLocation->toBeNull()
         ->contact->toBeNull()
         ->address->toBeNull()
-        ->timestamp->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->timestamp->toBe('String value');
 });
 
 it('calls the warehouseGetAllCollection method in the Warehouse resource', function () {
@@ -88,7 +86,6 @@ it('calls the warehouseGetAllCollection method in the Warehouse resource', funct
                 'address' => null,
                 'locations' => [],
                 'timestamp' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -112,7 +109,6 @@ it('calls the warehouseGetAllCollection method in the Warehouse resource', funct
                 'address' => null,
                 'locations' => [],
                 'timestamp' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -149,6 +145,5 @@ it('calls the warehouseGetAllCollection method in the Warehouse resource', funct
         ->dropShipLocation->toBeNull()
         ->contact->toBeNull()
         ->address->toBeNull()
-        ->timestamp->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->timestamp->toBe('String value');
 });

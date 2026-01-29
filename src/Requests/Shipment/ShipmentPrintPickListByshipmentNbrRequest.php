@@ -14,11 +14,11 @@ class ShipmentPrintPickListByshipmentNbrRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/shipment/{$this->shipmentNbrId}/printPickList";
+        return "/v1/shipment/{$this->shipmentNbr}/printPickList";
     }
 
     /**
-     * @param  string  $shipmentNbrId  Identifies the shipment
+     * @param  string  $shipmentNbr  Identifies the shipment
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -29,7 +29,7 @@ class ShipmentPrintPickListByshipmentNbrRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $shipmentNbrId,
+        protected string $shipmentNbr,
         protected ?string $erpApiBackground = null,
     ) {}
 

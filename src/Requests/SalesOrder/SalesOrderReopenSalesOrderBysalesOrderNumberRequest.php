@@ -34,11 +34,11 @@ class SalesOrderReopenSalesOrderBysalesOrderNumberRequest extends Request implem
 
     public function resolveEndpoint(): string
     {
-        return "/v1/salesorder/{$this->salesOrderNumberId}/action/reopenSalesOrder";
+        return "/v1/salesorder/{$this->salesOrderNumber}/action/reopenSalesOrder";
     }
 
     /**
-     * @param  string  $salesOrderNumberId  Identifies the Sale Order to reopen
+     * @param  string  $salesOrderNumber  Identifies the Sale Order to reopen
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -50,7 +50,7 @@ class SalesOrderReopenSalesOrderBysalesOrderNumberRequest extends Request implem
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $salesOrderNumberId,
+        protected string $salesOrderNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

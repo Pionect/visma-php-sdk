@@ -32,7 +32,7 @@ class DiscountUpdateDiscountsBydiscountCodeseriesRequest extends Request impleme
 
     public function resolveEndpoint(): string
     {
-        return "/v1/discount/{$this->discountCodeId}/{$this->seriesId}/action/updateDiscounts";
+        return "/v1/discount/{$this->discountCode}/{$this->series}/action/updateDiscounts";
     }
 
     /**
@@ -47,8 +47,8 @@ class DiscountUpdateDiscountsBydiscountCodeseriesRequest extends Request impleme
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $discountCodeId,
-        protected string $seriesId,
+        protected string $discountCode,
+        protected string $series,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

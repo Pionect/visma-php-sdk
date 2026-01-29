@@ -23,13 +23,11 @@ it('calls the customerInvoiceGetWorkTypesCollection method in the CustomerInvoic
                 'rutRotType' => 'String value',
                 'description' => 'String value',
                 'xmlTag' => 'String value',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'rutRotType' => 'String value',
                 'description' => 'String value',
                 'xmlTag' => 'String value',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -49,8 +47,7 @@ it('calls the customerInvoiceGetWorkTypesCollection method in the CustomerInvoic
     expect($dtoCollection->first())
         ->rutRotType->toBe('String value')
         ->description->toBe('String value')
-        ->xmlTag->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->xmlTag->toBe('String value');
 });
 
 it('calls the customerInvoiceGetByinvoiceNumber method in the CustomerInvoice resource', function () {
@@ -132,12 +129,11 @@ it('calls the customerInvoiceGetByinvoiceNumber method in the CustomerInvoice re
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerInvoiceGetByinvoiceNumberRequest(
-        invoiceNumberId: 'test string',
+        invoiceNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -220,8 +216,7 @@ it('calls the customerInvoiceGetByinvoiceNumber method in the CustomerInvoice re
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerInvoiceGetRotRutByrefNbr method in the CustomerInvoice resource', function () {
@@ -240,12 +235,11 @@ it('calls the customerInvoiceGetRotRutByrefNbr method in the CustomerInvoice res
             'estate' => 'String value',
             'organizationNbr' => 'String value',
             'distribution' => [],
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerInvoiceGetRotRutByrefNbrRequest(
-        refNbrId: 'test string',
+        refNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -268,8 +262,7 @@ it('calls the customerInvoiceGetRotRutByrefNbr method in the CustomerInvoice res
         ->distributedAmount->toBe(3.14)
         ->appartment->toBe('String value')
         ->estate->toBe('String value')
-        ->organizationNbr->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->organizationNbr->toBe('String value');
 });
 
 it('calls the customerInvoiceGetAllCollection method in the CustomerInvoice resource', function () {
@@ -352,7 +345,6 @@ it('calls the customerInvoiceGetAllCollection method in the CustomerInvoice reso
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -435,7 +427,6 @@ it('calls the customerInvoiceGetAllCollection method in the CustomerInvoice reso
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -528,8 +519,7 @@ it('calls the customerInvoiceGetAllCollection method in the CustomerInvoice reso
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerInvoiceReleaseInvoiceByinvoiceNumber method in the CustomerInvoice resource', function () {
@@ -544,7 +534,7 @@ it('calls the customerInvoiceReleaseInvoiceByinvoiceNumber method in the Custome
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest(invoiceNumberId: 'invoice_number_id-123', data: $dto);
+    $request = new CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest(invoiceNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest::class);

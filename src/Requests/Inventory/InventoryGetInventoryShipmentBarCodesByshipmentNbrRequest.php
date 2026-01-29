@@ -27,7 +27,7 @@ class InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/inventory/barcode/shipment/{$this->shipmentNbrId}";
+        return "/v1/inventory/barcode/shipment/{$this->shipmentNbr}";
     }
 
     /**
@@ -41,7 +41,7 @@ class InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $shipmentNbrId,
+        protected string $shipmentNbr,
         protected ?string $erpApiBackground = null,
     ) {}
 

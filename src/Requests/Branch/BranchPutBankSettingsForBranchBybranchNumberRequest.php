@@ -17,11 +17,11 @@ class BranchPutBankSettingsForBranchBybranchNumberRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/branch/{$this->branchNumberId}/BankSettings";
+        return "/v1/branch/{$this->branchNumber}/BankSettings";
     }
 
     /**
-     * @param  string  $branchNumberId  branch number to update
+     * @param  string  $branchNumber  branch number to update
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -33,7 +33,7 @@ class BranchPutBankSettingsForBranchBybranchNumberRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $branchNumberId,
+        protected string $branchNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

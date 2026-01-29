@@ -26,12 +26,12 @@ class SupplierInvoicePrebookInvoiceBydocumentTypeinvoiceNumberRequest extends Re
 
     public function resolveEndpoint(): string
     {
-        return "/v1/supplierInvoice/{$this->documentTypeId}/{$this->invoiceNumberId}/action/prebook";
+        return "/v1/supplierInvoice/{$this->documentType}/{$this->invoiceNumber}/action/prebook";
     }
 
     /**
-     * @param  string  $documentTypeId  Document type of the document to be Pre-Booked
-     * @param  string  $invoiceNumberId  Reference number of the document to be Pre-Booked
+     * @param  string  $documentType  Document type of the document to be Pre-Booked
+     * @param  string  $invoiceNumber  Reference number of the document to be Pre-Booked
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -47,8 +47,8 @@ class SupplierInvoicePrebookInvoiceBydocumentTypeinvoiceNumberRequest extends Re
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $documentTypeId,
-        protected string $invoiceNumberId,
+        protected string $documentType,
+        protected string $invoiceNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

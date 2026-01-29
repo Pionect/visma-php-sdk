@@ -21,12 +21,12 @@ class KitAssemblyReleaseKitAssemblyBytyperefNoRequest extends Request implements
 
     public function resolveEndpoint(): string
     {
-        return "/v1/kitassembly/{$this->typeId}/{$this->refNoId}/action/release";
+        return "/v1/kitassembly/{$this->type}/{$this->refNo}/action/release";
     }
 
     /**
-     * @param  string  $typeId  Kit Assembly Type
-     * @param  string  $refNoId  Kit Assembly Ref No
+     * @param  string  $type  Kit Assembly Type
+     * @param  string  $refNo  Kit Assembly Ref No
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -38,8 +38,8 @@ class KitAssemblyReleaseKitAssemblyBytyperefNoRequest extends Request implements
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $typeId,
-        protected string $refNoId,
+        protected string $type,
+        protected string $refNo,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

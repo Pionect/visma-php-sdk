@@ -27,11 +27,11 @@ class BranchGetSpecificBranchBybranchNumberRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/branch/{$this->branchNumberId}";
+        return "/v1/branch/{$this->branchNumber}";
     }
 
     /**
-     * @param  string  $branchNumberId  Identifies the branch
+     * @param  string  $branchNumber  Identifies the branch
      * @param  null|bool  $expandAddress  True to get main address for branch.
      * @param  null|bool  $expandContact  True to get main contact for a branch.
      * @param  null|bool  $expandCurrency  True to get base currency for a branch.
@@ -52,7 +52,7 @@ class BranchGetSpecificBranchBybranchNumberRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $branchNumberId,
+        protected string $branchNumber,
         protected ?bool $expandAddress = null,
         protected ?bool $expandContact = null,
         protected ?bool $expandCurrency = null,

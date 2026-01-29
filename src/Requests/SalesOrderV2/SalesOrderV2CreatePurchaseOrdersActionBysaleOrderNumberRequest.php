@@ -21,11 +21,11 @@ class SalesOrderV2CreatePurchaseOrdersActionBysaleOrderNumberRequest extends Req
 
     public function resolveEndpoint(): string
     {
-        return "/v2/salesorder/{$this->saleOrderNumberId}/action/createPurchaseOrders";
+        return "/v2/salesorder/{$this->saleOrderNumber}/action/createPurchaseOrders";
     }
 
     /**
-     * @param  string  $saleOrderNumberId  Reference number of the sale oreder from which the purchase order will be created
+     * @param  string  $saleOrderNumber  Reference number of the sale oreder from which the purchase order will be created
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -37,7 +37,7 @@ class SalesOrderV2CreatePurchaseOrdersActionBysaleOrderNumberRequest extends Req
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $saleOrderNumberId,
+        protected string $saleOrderNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

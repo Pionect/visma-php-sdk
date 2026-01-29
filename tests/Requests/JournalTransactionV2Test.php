@@ -46,12 +46,11 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
             'journalTransactionLines' => [],
             'attachments' => [],
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new JournalTransactionV2GetSpecificJournalTransactionsByjournalTransactionNumberRequest(
-        journalTransactionNumberId: 'test string',
+        journalTransactionNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -91,8 +90,7 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
         ->transactionCodeDescription->toBe('String value')
         ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the journalTransactionV2getAllJournalTransactionsCollection method in the JournalTransactionV2 resource', function () {
@@ -130,7 +128,6 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
                 'journalTransactionLines' => [],
                 'attachments' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -168,7 +165,6 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
                 'journalTransactionLines' => [],
                 'attachments' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -218,6 +214,5 @@ it('calls the journalTransactionV2getAllJournalTransactionsCollection method in 
         ->transactionCodeDescription->toBe('String value')
         ->branch->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

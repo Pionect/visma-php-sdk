@@ -21,11 +21,11 @@ class ShipmentPutByshipmentNbrRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/shipment/{$this->shipmentNbrId}";
+        return "/v1/shipment/{$this->shipmentNbr}";
     }
 
     /**
-     * @param  string  $shipmentNbrId  Identifies the Shipment to update
+     * @param  string  $shipmentNbr  Identifies the Shipment to update
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -41,7 +41,7 @@ class ShipmentPutByshipmentNbrRequest extends Request
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $shipmentNbrId,
+        protected string $shipmentNbr,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

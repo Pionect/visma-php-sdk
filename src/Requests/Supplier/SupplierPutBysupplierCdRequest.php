@@ -21,11 +21,11 @@ class SupplierPutBysupplierCdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/supplier/{$this->supplierCdId}";
+        return "/v1/supplier/{$this->supplierCd}";
     }
 
     /**
-     * @param  string  $supplierCdId  Identifies the supplier to update
+     * @param  string  $supplierCd  Identifies the supplier to update
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -41,7 +41,7 @@ class SupplierPutBysupplierCdRequest extends Request
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $supplierCdId,
+        protected string $supplierCd,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

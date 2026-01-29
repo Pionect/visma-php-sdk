@@ -84,12 +84,11 @@ it('calls the customerDebitNoteGetBydebitNoteNumber method in the CustomerDebitN
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerDebitNoteGetBydebitNoteNumberRequest(
-        debitNoteNumberId: 'test string',
+        debitNoteNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -163,8 +162,7 @@ it('calls the customerDebitNoteGetBydebitNoteNumber method in the CustomerDebitN
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerDebitNoteGetAllCollection method in the CustomerDebitNote resource', function () {
@@ -238,7 +236,6 @@ it('calls the customerDebitNoteGetAllCollection method in the CustomerDebitNote 
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -312,7 +309,6 @@ it('calls the customerDebitNoteGetAllCollection method in the CustomerDebitNote 
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -396,8 +392,7 @@ it('calls the customerDebitNoteGetAllCollection method in the CustomerDebitNote 
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerDebitNoteReleaseDocumentBydebitNoteNumber method in the CustomerDebitNote resource', function () {
@@ -412,7 +407,7 @@ it('calls the customerDebitNoteReleaseDocumentBydebitNoteNumber method in the Cu
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new CustomerDebitNoteReleaseDocumentBydebitNoteNumberRequest(debitNoteNumberId: 'debit_note_number_id-123', data: $dto);
+    $request = new CustomerDebitNoteReleaseDocumentBydebitNoteNumberRequest(debitNoteNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(CustomerDebitNoteReleaseDocumentBydebitNoteNumberRequest::class);

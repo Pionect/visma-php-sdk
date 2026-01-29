@@ -23,12 +23,12 @@ class JournalTransactionV2AddHeaderAttachmentBymodulejournalTransactionNumberReq
 
     public function resolveEndpoint(): string
     {
-        return "/v2/journaltransaction/module/{$this->moduleId}/{$this->journalTransactionNumberId}/attachment";
+        return "/v2/journaltransaction/module/{$this->module}/{$this->journalTransactionNumber}/attachment";
     }
 
     /**
-     * @param  string  $moduleId  Identifies journal transaction module allowed values are: GL, AP, AR, CM, CA, IN, DR, FA, PM, TX, SO, PO.
-     * @param  string  $journalTransactionNumberId  Identifies the journal transaction number
+     * @param  string  $module  Identifies journal transaction module allowed values are: GL, AP, AR, CM, CA, IN, DR, FA, PM, TX, SO, PO.
+     * @param  string  $journalTransactionNumber  Identifies the journal transaction number
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -40,8 +40,8 @@ class JournalTransactionV2AddHeaderAttachmentBymodulejournalTransactionNumberReq
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $moduleId,
-        protected string $journalTransactionNumberId,
+        protected string $module,
+        protected string $journalTransactionNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

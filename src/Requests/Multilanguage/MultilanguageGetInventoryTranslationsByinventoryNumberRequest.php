@@ -27,7 +27,7 @@ class MultilanguageGetInventoryTranslationsByinventoryNumberRequest extends Requ
 
     public function resolveEndpoint(): string
     {
-        return "/v1/multilanguage/inventory/{$this->inventoryNumberId}";
+        return "/v1/multilanguage/inventory/{$this->inventoryNumber}";
     }
 
     /**
@@ -41,7 +41,7 @@ class MultilanguageGetInventoryTranslationsByinventoryNumberRequest extends Requ
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $inventoryNumberId,
+        protected string $inventoryNumber,
         protected ?string $erpApiBackground = null,
     ) {}
 

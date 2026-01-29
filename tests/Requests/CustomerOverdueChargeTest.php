@@ -82,12 +82,11 @@ it('calls the customerOverdueChargeGetByoverdueChargeNumber method in the Custom
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerOverdueChargeGetByoverdueChargeNumberRequest(
-        overdueChargeNumberId: 'test string',
+        overdueChargeNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -159,8 +158,7 @@ it('calls the customerOverdueChargeGetByoverdueChargeNumber method in the Custom
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerOverdueChargeGetAllCollection method in the CustomerOverdueCharge resource', function () {
@@ -232,7 +230,6 @@ it('calls the customerOverdueChargeGetAllCollection method in the CustomerOverdu
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -304,7 +301,6 @@ it('calls the customerOverdueChargeGetAllCollection method in the CustomerOverdu
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -386,8 +382,7 @@ it('calls the customerOverdueChargeGetAllCollection method in the CustomerOverdu
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerOverdueChargeReleaseDocumentByoverdueChargeNumber method in the CustomerOverdueCharge resource', function () {
@@ -402,7 +397,7 @@ it('calls the customerOverdueChargeReleaseDocumentByoverdueChargeNumber method i
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new CustomerOverdueChargeReleaseDocumentByoverdueChargeNumberRequest(overdueChargeNumberId: 'overdue_charge_number_id-123', data: $dto);
+    $request = new CustomerOverdueChargeReleaseDocumentByoverdueChargeNumberRequest(overdueChargeNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(CustomerOverdueChargeReleaseDocumentByoverdueChargeNumberRequest::class);

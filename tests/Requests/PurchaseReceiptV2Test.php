@@ -52,12 +52,11 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumber method in the P
             'customInt2' => 42,
             'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new PurchaseReceiptV2GetPurchaseReceiptByreceiptNumberRequest(
-        receiptNumberId: 'test string',
+        receiptNumber: 'test string',
         includeCustomFreeFields: true,
         erpApiBackground: 'test string'
     );
@@ -104,8 +103,7 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumber method in the P
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the purchaseReceiptV2getAllReceiptsCollection method in the PurchaseReceiptV2 resource', function () {
@@ -149,7 +147,6 @@ it('calls the purchaseReceiptV2getAllReceiptsCollection method in the PurchaseRe
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -193,7 +190,6 @@ it('calls the purchaseReceiptV2getAllReceiptsCollection method in the PurchaseRe
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -249,6 +245,5 @@ it('calls the purchaseReceiptV2getAllReceiptsCollection method in the PurchaseRe
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

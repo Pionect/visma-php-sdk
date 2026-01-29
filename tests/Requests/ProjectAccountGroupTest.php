@@ -20,7 +20,6 @@ it('calls the projectAccountGroupGetAllCollection method in the ProjectAccountGr
                 'description' => 'String value',
                 'attributes' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -32,7 +31,6 @@ it('calls the projectAccountGroupGetAllCollection method in the ProjectAccountGr
                 'description' => 'String value',
                 'attributes' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -57,8 +55,7 @@ it('calls the projectAccountGroupGetAllCollection method in the ProjectAccountGr
         ->accountGroupId->toBe('mock-id-123')
         ->active->toBeTrue()
         ->description->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the projectAccountGroupGetByaccountGroupId method in the ProjectAccountGroup resource', function () {
@@ -69,7 +66,6 @@ it('calls the projectAccountGroupGetByaccountGroupId method in the ProjectAccoun
             'description' => 'String value',
             'attributes' => [],
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -89,6 +85,5 @@ it('calls the projectAccountGroupGetByaccountGroupId method in the ProjectAccoun
         ->accountGroupId->toBe('mock-id-123')
         ->active->toBeTrue()
         ->description->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

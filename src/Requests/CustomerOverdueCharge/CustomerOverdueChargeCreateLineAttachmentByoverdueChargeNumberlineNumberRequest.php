@@ -25,12 +25,12 @@ class CustomerOverdueChargeCreateLineAttachmentByoverdueChargeNumberlineNumberRe
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerOverdueCharge/{$this->overdueChargeNumberId}/{$this->lineNumberId}/attachment";
+        return "/v1/customerOverdueCharge/{$this->overdueChargeNumber}/{$this->lineNumber}/attachment";
     }
 
     /**
-     * @param  string  $overdueChargeNumberId  Identifies the overdue charge
-     * @param  int  $lineNumberId  Specifies line number
+     * @param  string  $overdueChargeNumber  Identifies the overdue charge
+     * @param  int  $lineNumber  Specifies line number
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -46,8 +46,8 @@ class CustomerOverdueChargeCreateLineAttachmentByoverdueChargeNumberlineNumberRe
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $overdueChargeNumberId,
-        protected int $lineNumberId,
+        protected string $overdueChargeNumber,
+        protected int $lineNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

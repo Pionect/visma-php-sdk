@@ -23,7 +23,6 @@ it('calls the currencyRateGetAllCollection method in the CurrencyRate resource',
                 'multDiv' => 'String value',
                 'rateReciprocal' => 3.14,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'fromCurrencyId' => 'mock-id-123',
@@ -34,7 +33,6 @@ it('calls the currencyRateGetAllCollection method in the CurrencyRate resource',
                 'multDiv' => 'String value',
                 'rateReciprocal' => 3.14,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -59,6 +57,5 @@ it('calls the currencyRateGetAllCollection method in the CurrencyRate resource',
         ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->multDiv->toBe('String value')
         ->rateReciprocal->toBe(3.14)
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

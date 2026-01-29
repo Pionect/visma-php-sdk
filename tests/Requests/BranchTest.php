@@ -34,12 +34,11 @@ it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resourc
             'vatZone' => null,
             'ledger' => null,
             'bankSettings' => null,
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new BranchGetSpecificBranchBybranchNumberRequest(
-        branchNumberId: 'test string',
+        branchNumber: 'test string',
         expandAddress: true,
         expandContact: true,
         expandCurrency: true,
@@ -79,8 +78,7 @@ it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resourc
         ->currency->toBeNull()
         ->vatZone->toBeNull()
         ->ledger->toBeNull()
-        ->bankSettings->toBeNull()
-        ->id->toBe('mock-id-123');
+        ->bankSettings->toBeNull();
 });
 
 it('calls the branchGetAllBranchesCollection method in the Branch resource', function () {
@@ -106,7 +104,6 @@ it('calls the branchGetAllBranchesCollection method in the Branch resource', fun
                 'vatZone' => null,
                 'ledger' => null,
                 'bankSettings' => null,
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'branchId' => 42,
@@ -128,7 +125,6 @@ it('calls the branchGetAllBranchesCollection method in the Branch resource', fun
                 'vatZone' => null,
                 'ledger' => null,
                 'bankSettings' => null,
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -164,6 +160,5 @@ it('calls the branchGetAllBranchesCollection method in the Branch resource', fun
         ->currency->toBeNull()
         ->vatZone->toBeNull()
         ->ledger->toBeNull()
-        ->bankSettings->toBeNull()
-        ->id->toBe('mock-id-123');
+        ->bankSettings->toBeNull();
 });

@@ -26,7 +26,7 @@ class CustomerInvoiceCorrectInvoiceByinvoiceNumberRequest extends Request implem
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customerinvoice/{$this->invoiceNumberId}/action/correct";
+        return "/v1/customerinvoice/{$this->invoiceNumber}/action/correct";
     }
 
     /**
@@ -45,7 +45,7 @@ class CustomerInvoiceCorrectInvoiceByinvoiceNumberRequest extends Request implem
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $invoiceNumberId,
+        protected string $invoiceNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

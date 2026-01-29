@@ -37,12 +37,11 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
             'allowManualEntry' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new AccountGetByaccountCdRequest(
-        accountCdId: 'test string',
+        accountCd: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -75,8 +74,7 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
         ->controlAccountModule->toBe('String value')
         ->allowManualEntry->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the accountGetAllCollection method in the Account resource', function () {
@@ -105,7 +103,6 @@ it('calls the accountGetAllCollection method in the Account resource', function 
                 'allowManualEntry' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -134,7 +131,6 @@ it('calls the accountGetAllCollection method in the Account resource', function 
                 'allowManualEntry' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -177,6 +173,5 @@ it('calls the accountGetAllCollection method in the Account resource', function 
         ->controlAccountModule->toBe('String value')
         ->allowManualEntry->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

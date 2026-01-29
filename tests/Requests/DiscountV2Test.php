@@ -40,7 +40,6 @@ it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource
                 'itemPriceClasses' => [],
                 'branches' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -72,7 +71,6 @@ it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource
                 'itemPriceClasses' => [],
                 'branches' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -111,6 +109,5 @@ it('calls the discountV2getDiscountsCollection method in the DiscountV2 resource
         ->lineCntr->toBe(42)
         ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

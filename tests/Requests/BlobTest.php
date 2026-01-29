@@ -24,7 +24,6 @@ it('calls the blobGetByblobId method in the Blob resource', function () {
             'position' => 42,
             'readTimeout' => 42,
             'writeTimeout' => 42,
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -48,8 +47,7 @@ it('calls the blobGetByblobId method in the Blob resource', function () {
         ->length->toBe(42)
         ->position->toBe(42)
         ->readTimeout->toBe(42)
-        ->writeTimeout->toBe(42)
-        ->id->toBe('mock-id-123');
+        ->writeTimeout->toBe(42);
 });
 
 it('calls the blobGetPresignedUrlCollection method in the Blob resource', function () {
@@ -57,7 +55,6 @@ it('calls the blobGetPresignedUrlCollection method in the Blob resource', functi
         BlobGetPresignedUrlCollectionRequest::class => MockResponse::make([
             0 => [
                 'preSignedUrl' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -65,7 +62,6 @@ it('calls the blobGetPresignedUrlCollection method in the Blob resource', functi
             ],
             1 => [
                 'preSignedUrl' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -87,8 +83,7 @@ it('calls the blobGetPresignedUrlCollection method in the Blob resource', functi
     expect($dtoCollection)->toHaveCount(2);
 
     expect($dtoCollection->first())
-        ->preSignedUrl->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->preSignedUrl->toBe('String value');
 });
 
 it('calls the blobGetMetadataByblobId method in the Blob resource', function () {
@@ -102,7 +97,6 @@ it('calls the blobGetMetadataByblobId method in the Blob resource', function () 
             'size' => 42,
             'countryCode' => 'String value',
             'createdDateTimeUtc' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -126,6 +120,5 @@ it('calls the blobGetMetadataByblobId method in the Blob resource', function () 
         ->fileChecksum->toBe('String value')
         ->size->toBe(42)
         ->countryCode->toBe('String value')
-        ->createdDateTimeUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->createdDateTimeUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });

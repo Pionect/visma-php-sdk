@@ -39,11 +39,11 @@ class CashTransactionReverseByreferenceNbrRequest extends Request implements Has
 
     public function resolveEndpoint(): string
     {
-        return "/v1/cashTransaction/{$this->referenceNbrId}/action/reverse";
+        return "/v1/cashTransaction/{$this->referenceNbr}/action/reverse";
     }
 
     /**
-     * @param  string  $referenceNbrId  Reference number of the cash transaction to be reversed.
+     * @param  string  $referenceNbr  Reference number of the cash transaction to be reversed.
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -59,7 +59,7 @@ class CashTransactionReverseByreferenceNbrRequest extends Request implements Has
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $referenceNbrId,
+        protected string $referenceNbr,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

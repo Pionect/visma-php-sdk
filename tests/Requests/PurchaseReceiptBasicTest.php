@@ -52,12 +52,11 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumber method 
             'customInt2' => 42,
             'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new PurchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumberRequest(
-        receiptNumberId: 'test string',
+        receiptNumber: 'test string',
         includeCustomFreeFields: true,
         erpApiBackground: 'test string'
     );
@@ -103,8 +102,7 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumber method 
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the PurchaseReceiptBasic resource', function () {
@@ -146,7 +144,6 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -188,7 +185,6 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
                 'customInt2' => 42,
                 'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -243,8 +239,7 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicCollection method in the Pur
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
         ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the purchaseReceiptBasicReleaseInvoiceByreceiptNumber method in the PurchaseReceiptBasic resource', function () {
@@ -259,7 +254,7 @@ it('calls the purchaseReceiptBasicReleaseInvoiceByreceiptNumber method in the Pu
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new PurchaseReceiptBasicReleaseInvoiceByreceiptNumberRequest(receiptNumberId: 'receipt_number_id-123', data: $dto);
+    $request = new PurchaseReceiptBasicReleaseInvoiceByreceiptNumberRequest(receiptNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(PurchaseReceiptBasicReleaseInvoiceByreceiptNumberRequest::class);

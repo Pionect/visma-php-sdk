@@ -18,13 +18,12 @@ it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumber
             'languageIso' => 'String value',
             'translation' => 'String value',
             'isTranslated' => true,
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new MultilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest(
-        inventoryNumberId: 'test string',
-        languageIsoId: 'test string',
+        inventoryNumber: 'test string',
+        languageIso: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -38,8 +37,7 @@ it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumber
     expect($dto)
         ->languageIso->toBe('String value')
         ->translation->toBe('String value')
-        ->isTranslated->toBeTrue()
-        ->id->toBe('mock-id-123');
+        ->isTranslated->toBeTrue();
 });
 
 it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in the Multilanguage resource', function () {
@@ -48,12 +46,11 @@ it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in t
             'languageIso' => 'String value',
             'translation' => 'String value',
             'isTranslated' => true,
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new MultilanguageGetInventoryTranslationsByinventoryNumberRequest(
-        inventoryNumberId: 'test string',
+        inventoryNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -67,8 +64,7 @@ it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in t
     expect($dto)
         ->languageIso->toBe('String value')
         ->translation->toBe('String value')
-        ->isTranslated->toBeTrue()
-        ->id->toBe('mock-id-123');
+        ->isTranslated->toBeTrue();
 });
 
 it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multilanguage resource', function () {
@@ -79,14 +75,12 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
                 'languageIso' => 'String value',
                 'nativeName' => 'String value',
                 'isActive' => true,
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'isDefault' => true,
                 'languageIso' => 'String value',
                 'nativeName' => 'String value',
                 'isActive' => true,
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -107,6 +101,5 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
         ->isDefault->toBeTrue()
         ->languageIso->toBe('String value')
         ->nativeName->toBe('String value')
-        ->isActive->toBeTrue()
-        ->id->toBe('mock-id-123');
+        ->isActive->toBeTrue();
 });

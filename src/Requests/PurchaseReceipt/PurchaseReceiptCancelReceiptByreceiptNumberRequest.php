@@ -19,7 +19,7 @@ class PurchaseReceiptCancelReceiptByreceiptNumberRequest extends Request impleme
 
     public function resolveEndpoint(): string
     {
-        return "/v1/PurchaseReceipt/{$this->receiptNumberId}/action/cancelReceipt";
+        return "/v1/PurchaseReceipt/{$this->receiptNumber}/action/cancelReceipt";
     }
 
     /**
@@ -34,7 +34,7 @@ class PurchaseReceiptCancelReceiptByreceiptNumberRequest extends Request impleme
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $receiptNumberId,
+        protected string $receiptNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

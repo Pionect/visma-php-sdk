@@ -26,7 +26,7 @@ it('calls the salesOrderBasicV2createShipmentActionBysaleOrderNumber method in t
         'actionResult' => 'test value',
     ])->make();
 
-    $request = new SalesOrderBasicV2CreateShipmentActionBysaleOrderNumberRequest(saleOrderNumberId: 'sale_order_number_id-123', data: $dto);
+    $request = new SalesOrderBasicV2CreateShipmentActionBysaleOrderNumberRequest(saleOrderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderBasicV2CreateShipmentActionBysaleOrderNumberRequest::class);
@@ -55,7 +55,7 @@ it('calls the salesOrderBasicV2prepareInvoiceActionByorderTypeorderNumber method
         'actionResult' => 'test value',
     ])->make();
 
-    $request = new SalesOrderBasicV2PrepareInvoiceActionByorderTypeorderNumberRequest(orderTypeId: 'order_type_id-123', orderNumberId: 'order_number_id-123', data: $dto);
+    $request = new SalesOrderBasicV2PrepareInvoiceActionByorderTypeorderNumberRequest(orderType: 'test value', orderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderBasicV2PrepareInvoiceActionByorderTypeorderNumberRequest::class);
@@ -83,7 +83,7 @@ it('calls the salesOrderBasicV2sendEmailActionByorderTypeorderNumber method in t
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new SalesOrderBasicV2SendEmailActionByorderTypeorderNumberRequest(orderTypeId: 'order_type_id-123', orderNumberId: 'order_number_id-123', data: $dto);
+    $request = new SalesOrderBasicV2SendEmailActionByorderTypeorderNumberRequest(orderType: 'test value', orderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderBasicV2SendEmailActionByorderTypeorderNumberRequest::class);

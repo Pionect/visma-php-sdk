@@ -15,7 +15,7 @@ class InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealter
 
     public function resolveEndpoint(): string
     {
-        return "/v1/inventory/{$this->inventoryNumberId}/crossReferences/{$this->alternateTypeId}/{$this->alternateId}";
+        return "/v1/inventory/{$this->inventoryNumber}/crossReferences/{$this->alternateType}/{$this->alternateId}";
     }
 
     /**
@@ -30,8 +30,8 @@ class InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealter
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $inventoryNumberId,
-        protected string $alternateTypeId,
+        protected string $inventoryNumber,
+        protected string $alternateType,
         protected string $alternateId,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,

@@ -34,11 +34,11 @@ class PurchaseReceiptReleaseReceiptByreceiptNumberRequest extends Request implem
 
     public function resolveEndpoint(): string
     {
-        return "/v1/PurchaseReceipt/{$this->receiptNumberId}/action/release";
+        return "/v1/PurchaseReceipt/{$this->receiptNumber}/action/release";
     }
 
     /**
-     * @param  string  $receiptNumberId  Reference number of the receipt to be released
+     * @param  string  $receiptNumber  Reference number of the receipt to be released
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -50,7 +50,7 @@ class PurchaseReceiptReleaseReceiptByreceiptNumberRequest extends Request implem
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $receiptNumberId,
+        protected string $receiptNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

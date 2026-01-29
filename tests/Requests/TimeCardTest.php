@@ -38,12 +38,11 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
             'approvalStatusText' => 'String value',
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new TimeCardGetEmployeeTimeCardByreferenceNumberRequest(
-        referenceNumberId: 'test string',
+        referenceNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -71,8 +70,7 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumber method in the TimeCar
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard resource', function () {
@@ -98,7 +96,6 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -124,7 +121,6 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
                 'approvalStatusText' => 'String value',
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -162,8 +158,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsCollection method in the TimeCard r
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the timeCardSubmitTimeCardBytimeCardCd method in the TimeCard resource', function () {
@@ -178,7 +173,7 @@ it('calls the timeCardSubmitTimeCardBytimeCardCd method in the TimeCard resource
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new TimeCardSubmitTimeCardBytimeCardCdRequest(timeCardCdId: 'time_card_cd_id-123', data: $dto);
+    $request = new TimeCardSubmitTimeCardBytimeCardCdRequest(timeCardCd: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(TimeCardSubmitTimeCardBytimeCardCdRequest::class);
@@ -205,7 +200,7 @@ it('calls the timeCardSendTimeCardToApprovalBytimeCardCd method in the TimeCard 
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new TimeCardSendTimeCardToApprovalBytimeCardCdRequest(timeCardCdId: 'time_card_cd_id-123', data: $dto);
+    $request = new TimeCardSendTimeCardToApprovalBytimeCardCdRequest(timeCardCd: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(TimeCardSendTimeCardToApprovalBytimeCardCdRequest::class);
@@ -232,7 +227,7 @@ it('calls the timeCardPutTimeCardOnHoldBytimeCardCd method in the TimeCard resou
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new TimeCardPutTimeCardOnHoldBytimeCardCdRequest(timeCardCdId: 'time_card_cd_id-123', data: $dto);
+    $request = new TimeCardPutTimeCardOnHoldBytimeCardCdRequest(timeCardCd: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(TimeCardPutTimeCardOnHoldBytimeCardCdRequest::class);

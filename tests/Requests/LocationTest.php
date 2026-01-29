@@ -31,7 +31,6 @@ it('calls the locationGetLocationBybAccountIdlocationId method in the Location r
             'peppolScheme' => null,
             'internalId' => 42,
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -63,8 +62,7 @@ it('calls the locationGetLocationBybAccountIdlocationId method in the Location r
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->peppolScheme->toBeNull()
         ->internalId->toBe(42)
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the locationGetLocationsForBaccountBybAccountId method in the Location resource', function () {
@@ -85,7 +83,6 @@ it('calls the locationGetLocationsForBaccountBybAccountId method in the Location
             'peppolScheme' => null,
             'internalId' => 42,
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -127,8 +124,7 @@ it('calls the locationGetLocationsForBaccountBybAccountId method in the Location
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->peppolScheme->toBeNull()
         ->internalId->toBe(42)
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the locationGetLocationsCollection method in the Location resource', function () {
@@ -150,7 +146,6 @@ it('calls the locationGetLocationsCollection method in the Location resource', f
                 'peppolScheme' => null,
                 'internalId' => 42,
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -172,7 +167,6 @@ it('calls the locationGetLocationsCollection method in the Location resource', f
                 'peppolScheme' => null,
                 'internalId' => 42,
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -208,6 +202,5 @@ it('calls the locationGetLocationsCollection method in the Location resource', f
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->peppolScheme->toBeNull()
         ->internalId->toBe(42)
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

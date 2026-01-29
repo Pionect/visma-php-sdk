@@ -39,11 +39,11 @@ class TimeCardSubmitTimeCardBytimeCardCdRequest extends Request implements HasBo
 
     public function resolveEndpoint(): string
     {
-        return "/v1/timeCard/{$this->timeCardCdId}/action/submit";
+        return "/v1/timeCard/{$this->timeCardCd}/action/submit";
     }
 
     /**
-     * @param  string  $timeCardCdId  Reference number of the time card to be submitted
+     * @param  string  $timeCardCd  Reference number of the time card to be submitted
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -59,7 +59,7 @@ class TimeCardSubmitTimeCardBytimeCardCdRequest extends Request implements HasBo
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $timeCardCdId,
+        protected string $timeCardCd,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

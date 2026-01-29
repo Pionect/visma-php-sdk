@@ -38,7 +38,6 @@ it('calls the customerGetCustomerClassesCollection method in the Customer resour
                 'requiredTaxzoneId' => true,
                 'paymentMethodId' => 'mock-id-123',
                 'attributes' => [],
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'description' => 'String value',
@@ -46,7 +45,6 @@ it('calls the customerGetCustomerClassesCollection method in the Customer resour
                 'requiredTaxzoneId' => true,
                 'paymentMethodId' => 'mock-id-123',
                 'attributes' => [],
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -67,8 +65,7 @@ it('calls the customerGetCustomerClassesCollection method in the Customer resour
         ->description->toBe('String value')
         ->taxZoneId->toBe('mock-id-123')
         ->requiredTaxzoneId->toBeTrue()
-        ->paymentMethodId->toBe('mock-id-123')
-        ->id->toBe('mock-id-123');
+        ->paymentMethodId->toBe('mock-id-123');
 });
 
 it('calls the customerGetSpecificCustomerClassBycustomerClassId method in the Customer resource', function () {
@@ -79,7 +76,6 @@ it('calls the customerGetSpecificCustomerClassBycustomerClassId method in the Cu
             'requiredTaxzoneId' => true,
             'paymentMethodId' => 'mock-id-123',
             'attributes' => [],
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -99,8 +95,7 @@ it('calls the customerGetSpecificCustomerClassBycustomerClassId method in the Cu
         ->description->toBe('String value')
         ->taxZoneId->toBe('mock-id-123')
         ->requiredTaxzoneId->toBeTrue()
-        ->paymentMethodId->toBe('mock-id-123')
-        ->id->toBe('mock-id-123');
+        ->paymentMethodId->toBe('mock-id-123');
 });
 
 it('calls the customerGetCustomerBalanceBycustomerCd method in the Customer resource', function () {
@@ -115,12 +110,11 @@ it('calls the customerGetCustomerBalanceBycustomerCd method in the Customer reso
             'totalDiscountPeriod' => 3.14,
             'totalDiscountYear' => 3.14,
             'lastModified' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetCustomerBalanceBycustomerCdRequest(
-        customerCdId: 'test string',
+        customerCd: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -140,8 +134,7 @@ it('calls the customerGetCustomerBalanceBycustomerCd method in the Customer reso
         ->totalSaleYear->toBe(3.14)
         ->totalDiscountPeriod->toBe(3.14)
         ->totalDiscountYear->toBe(3.14)
-        ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the customerGetCustomerDirectDebitBycustomerCd method in the Customer resource', function () {
@@ -158,12 +151,11 @@ it('calls the customerGetCustomerDirectDebitBycustomerCd method in the Customer 
             'maxAmount' => 3.14,
             'expirationDate' => '2025-11-22T10:40:04.065Z',
             'branch' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetCustomerDirectDebitBycustomerCdRequest(
-        customerCdId: 'test string',
+        customerCd: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -185,8 +177,7 @@ it('calls the customerGetCustomerDirectDebitBycustomerCd method in the Customer 
         ->lastCollectionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->maxAmount->toBe(3.14)
         ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->branch->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->branch->toBe('String value');
 });
 
 it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer resource', function () {
@@ -266,12 +257,11 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetAllOrderForCustomerBycustomerCdRequest(
-        customerCdId: 'test string',
+        customerCd: 'test string',
         orderType: 'test string',
         status: 'test string',
         greaterThanValue: 'test string',
@@ -364,8 +354,7 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the Customer resource', function () {
@@ -401,12 +390,11 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetAllSalesOrderBasicForCustomerBycustomerCdRequest(
-        customerCdId: 'test string',
+        customerCd: 'test string',
         orderType: 'test string',
         status: 'test string',
         greaterThanValue: 'test string',
@@ -456,8 +444,7 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Customer resource', function () {
@@ -490,12 +477,11 @@ it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Custom
             'contactId' => 42,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetAllContactsForCustomerBycustomerCdRequest(
-        customerCdId: 'test string',
+        customerCd: 'test string',
         displayName: 'test string',
         active: 'test string',
         firstName: 'test string',
@@ -545,8 +531,7 @@ it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Custom
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->contactId->toBe(42)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetSalesPersonsForCustomerBycustomerCd method in the Customer resource', function () {
@@ -559,12 +544,11 @@ it('calls the customerGetSalesPersonsForCustomerBycustomerCd method in the Custo
             'commisionPct' => 3.14,
             'isDefault' => true,
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetSalesPersonsForCustomerBycustomerCdRequest(
-        customerCdId: 'test string',
+        customerCd: 'test string',
         pageNumber: 123,
         pageSize: 123,
         erpApiBackground: 'test string'
@@ -584,8 +568,7 @@ it('calls the customerGetSalesPersonsForCustomerBycustomerCd method in the Custo
         ->locationName->toBe('String value')
         ->commisionPct->toBe(3.14)
         ->isDefault->toBeTrue()
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetAllCustomerBalanceCollection method in the Customer resource', function () {
@@ -601,7 +584,6 @@ it('calls the customerGetAllCustomerBalanceCollection method in the Customer res
                 'totalDiscountPeriod' => 3.14,
                 'totalDiscountYear' => 3.14,
                 'lastModified' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'customer' => null,
@@ -613,7 +595,6 @@ it('calls the customerGetAllCustomerBalanceCollection method in the Customer res
                 'totalDiscountPeriod' => 3.14,
                 'totalDiscountYear' => 3.14,
                 'lastModified' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -639,20 +620,18 @@ it('calls the customerGetAllCustomerBalanceCollection method in the Customer res
         ->totalSaleYear->toBe(3.14)
         ->totalDiscountPeriod->toBe(3.14)
         ->totalDiscountYear->toBe(3.14)
-        ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the customerGetCustomerNoteBycustomerCd method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerNoteBycustomerCdRequest::class => MockResponse::make([
             'note' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetCustomerNoteBycustomerCdRequest(
-        customerCdId: 'test string',
+        customerCd: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -664,8 +643,7 @@ it('calls the customerGetCustomerNoteBycustomerCd method in the Customer resourc
     $dto = $response->dto();
 
     expect($dto)
-        ->note->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->note->toBe('String value');
 });
 
 it('calls the customerGetByinternalId method in the Customer resource', function () {
@@ -717,7 +695,6 @@ it('calls the customerGetByinternalId method in the Customer resource', function
             'excludeDebtCollection' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -776,8 +753,7 @@ it('calls the customerGetByinternalId method in the Customer resource', function
         ->numberOfEmployees->toBe(42)
         ->excludeDebtCollection->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetBycustomerCd method in the Customer resource', function () {
@@ -829,12 +805,11 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
             'excludeDebtCollection' => true,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetBycustomerCdRequest(
-        customerCdId: 'test string',
+        customerCd: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -888,8 +863,7 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
         ->numberOfEmployees->toBe(42)
         ->excludeDebtCollection->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetAllCollection method in the Customer resource', function () {
@@ -942,7 +916,6 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
                 'excludeDebtCollection' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -995,7 +968,6 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
                 'excludeDebtCollection' => true,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -1059,8 +1031,7 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
         ->numberOfEmployees->toBe(42)
         ->excludeDebtCollection->toBeTrue()
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Customer resource', function () {
@@ -1142,12 +1113,11 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetAllInvoicesForCustomerBycustomerNumberRequest(
-        customerNumberId: 'test string',
+        customerNumber: 'test string',
         documentType: 'test string',
         released: 123,
         dunningLevel: 123,
@@ -1262,8 +1232,7 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the Customer resource', function () {
@@ -1323,12 +1292,11 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the C
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetAllCashSalesForCustomerBycustomerNumberRequest(
-        customerNumberId: 'test string',
+        customerNumber: 'test string',
         documentType: 'test string',
         released: 123,
         dunningLevel: 123,
@@ -1423,8 +1391,7 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the C
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the Customer resource', function () {
@@ -1464,12 +1431,11 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the C
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CustomerGetAllDocumentsForCustomerBycustomerNumberRequest(
-        customerNumberId: 'test string',
+        customerNumber: 'test string',
         documentType: 'test string',
         released: 123,
         dunningLevel: 123,
@@ -1546,8 +1512,7 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the C
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the customerCreateDunningLetterActionBycustomer method in the Customer resource', function () {
@@ -1562,7 +1527,7 @@ it('calls the customerCreateDunningLetterActionBycustomer method in the Customer
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new CustomerCreateDunningLetterActionBycustomerRequest(customerId: 'customer_id-123', data: $dto);
+    $request = new CustomerCreateDunningLetterActionBycustomerRequest(customer: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(CustomerCreateDunningLetterActionBycustomerRequest::class);

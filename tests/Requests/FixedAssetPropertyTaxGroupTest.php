@@ -19,7 +19,6 @@ it('calls the fixedAssetPropertyTaxGroupGetByPropertyTaxId method in the FixedAs
             'active' => true,
             'details' => [],
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -39,8 +38,7 @@ it('calls the fixedAssetPropertyTaxGroupGetByPropertyTaxId method in the FixedAs
         ->propertyTaxId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->active->toBeTrue()
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAssetPropertyTaxGroup resource', function () {
@@ -52,7 +50,6 @@ it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAsse
                 'active' => true,
                 'details' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -64,7 +61,6 @@ it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAsse
                 'active' => true,
                 'details' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -89,6 +85,5 @@ it('calls the fixedAssetPropertyTaxGroupGetAllCollection method in the FixedAsse
         ->propertyTaxId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->active->toBeTrue()
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

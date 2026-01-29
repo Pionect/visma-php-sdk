@@ -47,12 +47,11 @@ it('calls the paymentGetBypaymentNumber method in the Payment resource', functio
             'availableBalanceInCurrency' => 3.14,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new PaymentGetBypaymentNumberRequest(
-        paymentNumberId: 'test string',
+        paymentNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -90,8 +89,7 @@ it('calls the paymentGetBypaymentNumber method in the Payment resource', functio
         ->paymentAmountInCurrency->toBe(3.14)
         ->availableBalanceInCurrency->toBe(3.14)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the paymentGetAllPaymentsCollection method in the Payment resource', function () {
@@ -127,7 +125,6 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
                 'availableBalanceInCurrency' => 3.14,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -163,7 +160,6 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
                 'availableBalanceInCurrency' => 3.14,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -211,8 +207,7 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
         ->paymentAmountInCurrency->toBe(3.14)
         ->availableBalanceInCurrency->toBe(3.14)
         ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the paymentReleasePaymentBypaymentNumber method in the Payment resource', function () {
@@ -227,7 +222,7 @@ it('calls the paymentReleasePaymentBypaymentNumber method in the Payment resourc
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new PaymentReleasePaymentBypaymentNumberRequest(paymentNumberId: 'payment_number_id-123', data: $dto);
+    $request = new PaymentReleasePaymentBypaymentNumberRequest(paymentNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(PaymentReleasePaymentBypaymentNumberRequest::class);
@@ -255,7 +250,7 @@ it('calls the paymentVoidPaymentBypaymentNumber method in the Payment resource',
         'actionId' => 'action_id-123',
     ])->make();
 
-    $request = new PaymentVoidPaymentBypaymentNumberRequest(paymentNumberId: 'payment_number_id-123', data: $dto);
+    $request = new PaymentVoidPaymentBypaymentNumberRequest(paymentNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(PaymentVoidPaymentBypaymentNumberRequest::class);

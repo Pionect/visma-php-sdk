@@ -39,12 +39,12 @@ class SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest extends Re
 
     public function resolveEndpoint(): string
     {
-        return "/v1/supplierPayment/{$this->paymentTypeId}/{$this->paymentNumberId}/action/writeoff";
+        return "/v1/supplierPayment/{$this->paymentType}/{$this->paymentNumber}/action/writeoff";
     }
 
     /**
-     * @param  string  $paymentTypeId  The type of the payment to be written off
-     * @param  string  $paymentNumberId  Reference number of the payment to be written off
+     * @param  string  $paymentType  The type of the payment to be written off
+     * @param  string  $paymentNumber  Reference number of the payment to be written off
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -60,8 +60,8 @@ class SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest extends Re
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $paymentTypeId,
-        protected string $paymentNumberId,
+        protected string $paymentType,
+        protected string $paymentNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,

@@ -15,7 +15,7 @@ class VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest extends 
 
     public function resolveEndpoint(): string
     {
-        return "/v1/vat/{$this->vendorCdId}/{$this->taxPeriodId}/{$this->revisionId}/{$this->lineNumberId}";
+        return "/v1/vat/{$this->vendorCd}/{$this->taxPeriodId}/{$this->revisionId}/{$this->lineNumber}";
     }
 
     /**
@@ -30,10 +30,10 @@ class VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest extends 
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $vendorCdId,
+        protected string $vendorCd,
         protected string $taxPeriodId,
         protected int $revisionId,
-        protected int $lineNumberId,
+        protected int $lineNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}

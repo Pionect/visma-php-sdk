@@ -19,7 +19,6 @@ it('calls the currencyGetSpecificCurrencyBycuryId method in the Currency resourc
             'isBaseCurrency' => true,
             'decimalPrecision' => 42,
             'isUsedForAccounting' => true,
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -40,8 +39,7 @@ it('calls the currencyGetSpecificCurrencyBycuryId method in the Currency resourc
         ->symbol->toBe('String value')
         ->isBaseCurrency->toBeTrue()
         ->decimalPrecision->toBe(42)
-        ->isUsedForAccounting->toBeTrue()
-        ->id->toBe('mock-id-123');
+        ->isUsedForAccounting->toBeTrue();
 });
 
 it('calls the currencyGetAllCollection method in the Currency resource', function () {
@@ -53,7 +51,6 @@ it('calls the currencyGetAllCollection method in the Currency resource', functio
                 'isBaseCurrency' => true,
                 'decimalPrecision' => 42,
                 'isUsedForAccounting' => true,
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'description' => 'String value',
@@ -61,7 +58,6 @@ it('calls the currencyGetAllCollection method in the Currency resource', functio
                 'isBaseCurrency' => true,
                 'decimalPrecision' => 42,
                 'isUsedForAccounting' => true,
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -83,6 +79,5 @@ it('calls the currencyGetAllCollection method in the Currency resource', functio
         ->symbol->toBe('String value')
         ->isBaseCurrency->toBeTrue()
         ->decimalPrecision->toBe(42)
-        ->isUsedForAccounting->toBeTrue()
-        ->id->toBe('mock-id-123');
+        ->isUsedForAccounting->toBeTrue();
 });

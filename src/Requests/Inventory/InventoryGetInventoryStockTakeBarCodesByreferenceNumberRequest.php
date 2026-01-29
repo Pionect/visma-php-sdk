@@ -27,7 +27,7 @@ class InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest extends Req
 
     public function resolveEndpoint(): string
     {
-        return "/v1/inventory/barcode/stocktake/{$this->referenceNumberId}";
+        return "/v1/inventory/barcode/stocktake/{$this->referenceNumber}";
     }
 
     /**
@@ -41,7 +41,7 @@ class InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest extends Req
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $referenceNumberId,
+        protected string $referenceNumber,
         protected ?string $erpApiBackground = null,
     ) {}
 

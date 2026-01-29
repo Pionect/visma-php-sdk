@@ -27,7 +27,7 @@ class CustomerGetSalesPersonsForCustomerBycustomerCdRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/v1/customer/{$this->customerCdId}/salespersons";
+        return "/v1/customer/{$this->customerCd}/salespersons";
     }
 
     /**
@@ -45,7 +45,7 @@ class CustomerGetSalesPersonsForCustomerBycustomerCdRequest extends Request
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $customerCdId,
+        protected string $customerCd,
         protected ?int $pageNumber = null,
         protected ?int $pageSize = null,
         protected ?string $erpApiBackground = null,

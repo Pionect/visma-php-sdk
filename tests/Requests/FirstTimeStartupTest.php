@@ -17,7 +17,6 @@ it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resou
                 'financials' => true,
                 'message' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -27,7 +26,6 @@ it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resou
                 'financials' => true,
                 'message' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -51,6 +49,5 @@ it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resou
     expect($dtoCollection->first())
         ->financials->toBeTrue()
         ->message->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

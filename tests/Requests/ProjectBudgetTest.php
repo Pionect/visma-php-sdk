@@ -36,7 +36,6 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
                 'committedInvoicedQty' => 3.14,
                 'committedInvoicedAmount' => 3.14,
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -65,7 +64,6 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
                 'committedInvoicedQty' => 3.14,
                 'committedInvoicedAmount' => 3.14,
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -108,6 +106,5 @@ it('calls the projectBudgetGetAllCollection method in the ProjectBudget resource
         ->committedReceivedQty->toBe(3.14)
         ->committedInvoicedQty->toBe(3.14)
         ->committedInvoicedAmount->toBe(3.14)
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

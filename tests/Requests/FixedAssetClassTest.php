@@ -31,7 +31,6 @@ it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource
             'proceedSubAccountMask' => 'String value',
             'gainLossSubAccountMask' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
@@ -64,8 +63,7 @@ it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource
         ->depreciatedExpenseSubAccountMask->toBe('String value')
         ->proceedSubAccountMask->toBe('String value')
         ->gainLossSubAccountMask->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass resource', function () {
@@ -89,7 +87,6 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
                 'proceedSubAccountMask' => 'String value',
                 'gainLossSubAccountMask' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -113,7 +110,6 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
                 'proceedSubAccountMask' => 'String value',
                 'gainLossSubAccountMask' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -151,6 +147,5 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
         ->depreciatedExpenseSubAccountMask->toBe('String value')
         ->proceedSubAccountMask->toBe('String value')
         ->gainLossSubAccountMask->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

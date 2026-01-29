@@ -27,7 +27,7 @@ class InventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbrRequest extends Requ
 
     public function resolveEndpoint(): string
     {
-        return "/v1/inventory/barcode/purchasereceipt/{$this->receiptNbrId}";
+        return "/v1/inventory/barcode/purchasereceipt/{$this->receiptNbr}";
     }
 
     /**
@@ -41,7 +41,7 @@ class InventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbrRequest extends Requ
      * To find status and details of a background-api operation, GET .. v1/background/{id}. To get the response payload of a background-api operation, if any, GET .. v1/background/{id}/content
      */
     public function __construct(
-        protected string $receiptNbrId,
+        protected string $receiptNbr,
         protected ?string $erpApiBackground = null,
     ) {}
 

@@ -44,12 +44,11 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
             'taxDetails' => [],
             'financialsDetail' => null,
             'timeStamp' => '2025-11-22T10:40:04.065Z',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CashTransactionGetByreferenceNbrRequest(
-        referenceNbrId: 'test string',
+        referenceNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -83,8 +82,7 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
         ->taxAmount->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->financialsDetail->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the cashTransactionGetAllCollection method in the CashTransaction resource', function () {
@@ -116,7 +114,6 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
                 'taxDetails' => [],
                 'financialsDetail' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'tranType' => 'String value',
@@ -144,7 +141,6 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
                 'taxDetails' => [],
                 'financialsDetail' => null,
                 'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -184,8 +180,7 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
         ->taxAmount->toBe(3.14)
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->financialsDetail->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->id->toBe('mock-id-123');
+        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
 });
 
 it('calls the cashTransactionReleaseByreferenceNbr method in the CashTransaction resource', function () {
@@ -200,7 +195,7 @@ it('calls the cashTransactionReleaseByreferenceNbr method in the CashTransaction
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new CashTransactionReleaseByreferenceNbrRequest(referenceNbrId: 'reference_nbr_id-123', data: $dto);
+    $request = new CashTransactionReleaseByreferenceNbrRequest(referenceNbr: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(CashTransactionReleaseByreferenceNbrRequest::class);
@@ -228,7 +223,7 @@ it('calls the cashTransactionReverseByreferenceNbr method in the CashTransaction
         'actionResult' => 'test value',
     ])->make();
 
-    $request = new CashTransactionReverseByreferenceNbrRequest(referenceNbrId: 'reference_nbr_id-123', data: $dto);
+    $request = new CashTransactionReverseByreferenceNbrRequest(referenceNbr: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(CashTransactionReverseByreferenceNbrRequest::class);
@@ -254,7 +249,7 @@ it('calls the cashTransactionCreateAttachmentByreferenceNbr method in the CashTr
         'stateLocation' => 'test value',
     ])->make();
 
-    $request = new CashTransactionCreateAttachmentByreferenceNbrRequest(referenceNbrId: 'reference_nbr_id-123', data: $dto);
+    $request = new CashTransactionCreateAttachmentByreferenceNbrRequest(referenceNbr: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(CashTransactionCreateAttachmentByreferenceNbrRequest::class);

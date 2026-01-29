@@ -22,12 +22,11 @@ it('calls the cashAccountGetByaccountNumber method in the CashAccount resource',
             'subaccount' => null,
             'number' => 'String value',
             'description' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CashAccountGetByaccountNumberRequest(
-        accountNumberId: 'test string',
+        accountNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -44,8 +43,7 @@ it('calls the cashAccountGetByaccountNumber method in the CashAccount resource',
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->number->toBe('String value')
-        ->description->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->description->toBe('String value');
 });
 
 it('calls the cashAccountGetAllCollection method in the CashAccount resource', function () {
@@ -59,7 +57,6 @@ it('calls the cashAccountGetAllCollection method in the CashAccount resource', f
                 'subaccount' => null,
                 'number' => 'String value',
                 'description' => 'String value',
-                'id' => 'mock-id-123',
             ],
             1 => [
                 'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
@@ -69,7 +66,6 @@ it('calls the cashAccountGetAllCollection method in the CashAccount resource', f
                 'subaccount' => null,
                 'number' => 'String value',
                 'description' => 'String value',
-                'id' => 'mock-id-123',
             ],
         ], 200),
     ]);
@@ -92,6 +88,5 @@ it('calls the cashAccountGetAllCollection method in the CashAccount resource', f
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->number->toBe('String value')
-        ->description->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->description->toBe('String value');
 });

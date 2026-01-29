@@ -48,12 +48,11 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new SalesOrderBasicGetByorderNbrRequest(
-        orderNbrId: 'test string',
+        orderNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -92,8 +91,7 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the SalesOrderBasic resource', function () {
@@ -129,13 +127,12 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new SalesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest(
-        orderTypeId: 'test string',
-        orderNbrId: 'test string',
+        orderType: 'test string',
+        orderNbr: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -174,8 +171,7 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasic resource', function () {
@@ -212,7 +208,6 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -249,7 +244,6 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -298,8 +292,7 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumber method in the SalesOrderBasic resource', function () {
@@ -315,7 +308,7 @@ it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumber method in the
         'actionResult' => 'test value',
     ])->make();
 
-    $request = new SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest(saleOrderNumberId: 'sale_order_number_id-123', data: $dto);
+    $request = new SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest(saleOrderNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest::class);

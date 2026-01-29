@@ -72,12 +72,11 @@ it('calls the creditNoteGetBycreditNoteNumber method in the CreditNote resource'
             'subaccount' => null,
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new CreditNoteGetBycreditNoteNumberRequest(
-        creditNoteNumberId: 'test string',
+        creditNoteNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -140,8 +139,7 @@ it('calls the creditNoteGetBycreditNoteNumber method in the CreditNote resource'
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote resource', function () {
@@ -203,7 +201,6 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -265,7 +262,6 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -338,8 +334,7 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
         ->account->toBeNull()
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the creditNoteReleaseInvoiceBycreditNoteNumber method in the CreditNote resource', function () {
@@ -354,7 +349,7 @@ it('calls the creditNoteReleaseInvoiceBycreditNoteNumber method in the CreditNot
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new CreditNoteReleaseInvoiceBycreditNoteNumberRequest(creditNoteNumberId: 'credit_note_number_id-123', data: $dto);
+    $request = new CreditNoteReleaseInvoiceBycreditNoteNumberRequest(creditNoteNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(CreditNoteReleaseInvoiceBycreditNoteNumberRequest::class);

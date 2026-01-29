@@ -45,12 +45,11 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in 
             'estimatedUnitCost' => 3.14,
             'estimatedTotalCost' => 3.14,
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventorySummaryGetAllInventorySummaryByinventoryNumberRequest(
-        inventoryNumberId: 'test string',
+        inventoryNumber: 'test string',
         warehouse: 'test string',
         location: 'test string',
         erpApiBackground: 'test string'
@@ -95,6 +94,5 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in 
         ->baseUnit->toBe('String value')
         ->estimatedUnitCost->toBe(3.14)
         ->estimatedTotalCost->toBe(3.14)
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });

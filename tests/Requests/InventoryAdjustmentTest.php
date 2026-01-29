@@ -35,12 +35,11 @@ it('calls the inventoryAdjustmentGetByinventoryAdjustmentNumber method in the In
             'attachments' => [],
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
-            'id' => 'mock-id-123',
         ], 200),
     ]);
 
     $request = new InventoryAdjustmentGetByinventoryAdjustmentNumberRequest(
-        inventoryAdjustmentNumberId: 'test string',
+        inventoryAdjustmentNumber: 'test string',
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
@@ -67,8 +66,7 @@ it('calls the inventoryAdjustmentGetByinventoryAdjustmentNumber method in the In
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryAdjustmentGetAllCollection method in the InventoryAdjustment resource', function () {
@@ -93,7 +91,6 @@ it('calls the inventoryAdjustmentGetAllCollection method in the InventoryAdjustm
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -118,7 +115,6 @@ it('calls the inventoryAdjustmentGetAllCollection method in the InventoryAdjustm
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
-                'id' => 'mock-id-123',
                 'metadata' => [
                     'totalCount' => 2,
                     'maxPageSize' => 100,
@@ -155,8 +151,7 @@ it('calls the inventoryAdjustmentGetAllCollection method in the InventoryAdjustm
         ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
         ->branchNumber->toBeNull()
         ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value')
-        ->id->toBe('mock-id-123');
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryAdjustmentReleaseDocumentByadjRefNumber method in the InventoryAdjustment resource', function () {
@@ -171,7 +166,7 @@ it('calls the inventoryAdjustmentReleaseDocumentByadjRefNumber method in the Inv
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new InventoryAdjustmentReleaseDocumentByadjRefNumberRequest(adjRefNumberId: 'adj_ref_number_id-123', data: $dto);
+    $request = new InventoryAdjustmentReleaseDocumentByadjRefNumberRequest(adjRefNumber: 'test value', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(InventoryAdjustmentReleaseDocumentByadjRefNumberRequest::class);

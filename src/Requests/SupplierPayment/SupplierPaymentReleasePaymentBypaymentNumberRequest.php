@@ -26,11 +26,11 @@ class SupplierPaymentReleasePaymentBypaymentNumberRequest extends Request implem
 
     public function resolveEndpoint(): string
     {
-        return "/v1/supplierPayment/{$this->paymentNumberId}/action/release";
+        return "/v1/supplierPayment/{$this->paymentNumber}/action/release";
     }
 
     /**
-     * @param  string  $paymentNumberId  Reference number of the payment to be released
+     * @param  string  $paymentNumber  Reference number of the payment to be released
      * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -46,7 +46,7 @@ class SupplierPaymentReleasePaymentBypaymentNumberRequest extends Request implem
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected string $paymentNumberId,
+        protected string $paymentNumber,
         protected Model|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
