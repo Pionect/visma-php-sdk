@@ -146,20 +146,11 @@ use Saloon\Http\Faking\MockResponse;
 
 test('it displays customers', function () {
     // Generate test data using factories
-    $customer = CustomerDto::factory()->state([
-        'number' => 'CUST001',
-        'name' => 'Acme Corporation',
-        'status' => 'Active',
-    ])->make();
+    $customers = CustomerDto::factory()->count(2)->make();
 
     // Create mock responses using factory-generated data
     $mockClient = MockClient::global([
-        CustomerGetAllCollectionRequest::class => MockResponse::make([
-            'data' => [$customer->toArray()],
-        ], 200),
-        CustomerGetBycustomerCdRequest::class => MockResponse::make([
-            'data' => $customer->toArray(),
-        ], 200),
+        CustomerGetAllCollectionRequest::class => MockResponse::make($customers->toArray(), 200),
     ]);
 
     // Make request
@@ -182,9 +173,7 @@ test('it creates a new customer', function () {
     ])->make();
 
     $mockClient = MockClient::global([
-        CustomerPostRequest::class => MockResponse::make([
-            'data' => $customer->toArray(),
-        ], 201),
+        CustomerPostRequest::class => MockResponse::make($customer->toArray(), 201),
     ]);
 
     $response = $this->post(route('customers.store'), [
@@ -214,9 +203,7 @@ test('it sends a POST request to create a customer using the SDK', function () {
     ])->make();
 
     $mockClient = MockClient::global([
-        CustomerPostRequest::class => MockResponse::make([
-            'data' => $createdCustomer->toArray(),
-        ], 201),
+        CustomerPostRequest::class => MockResponse::make($createdCustomer->toArray(), 201),
     ]);
 
     artisan('sync:customers')->assertOk();
@@ -225,9 +212,9 @@ test('it sends a POST request to create a customer using the SDK', function () {
     $mockClient->assertSent(function (CustomerPostRequest $request) {
         $body = $request->body()->all();
 
-        return $body['data']['attributes']['number'] === 'CUST003'
-            && $body['data']['attributes']['name'] === 'Test Customer AS'
-            && $body['data']['attributes']['creditLimit'] === 100000.00;
+        return $body['number'] === 'CUST003'
+            && $body['name'] === 'Test Customer AS'
+            && $body['creditLimit'] === 100000.00;
     });
 });
 ```
