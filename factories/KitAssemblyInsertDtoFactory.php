@@ -11,7 +11,7 @@ class KitAssemblyInsertDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'kitAssemblyLink' => $this->faker->word(),
+            'kitAssemblyLink' => KitAssemblyLinkInsertDtoFactory::new()->make(),
             'type' => $this->faker->word(),
             'refNo' => $this->faker->word(),
             'hold' => $this->faker->boolean(),

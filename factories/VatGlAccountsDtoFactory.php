@@ -10,10 +10,10 @@ class VatGlAccountsDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'vatPayableAccount' => $this->faker->word(),
-            'vatPayableSubaccount' => $this->faker->word(),
-            'vatClaimableAccount' => $this->faker->word(),
-            'vatClaimableSubccount' => $this->faker->word(),
+            'vatPayableAccount' => VatPayableAccountInVatGlAccountsDtoFactory::new()->make(),
+            'vatPayableSubaccount' => VatPayableSubaccountInVatGlAccountsDtoFactory::new()->make(),
+            'vatClaimableAccount' => VatClaimableAccountInVatGlAccountsDtoFactory::new()->make(),
+            'vatClaimableSubccount' => VatClaimableSubccountInVatGlAccountsDtoFactory::new()->make(),
         ];
     }
 

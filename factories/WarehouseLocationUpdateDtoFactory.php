@@ -10,21 +10,21 @@ class WarehouseLocationUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'locationId' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
-            'active' => $this->faker->word(),
-            'inclQtyAvail' => $this->faker->word(),
-            'isCosted' => $this->faker->word(),
-            'salesValid' => $this->faker->word(),
-            'receiptsValid' => $this->faker->word(),
-            'transfersValid' => $this->faker->word(),
-            'assemblyValid' => $this->faker->word(),
-            'pickPriority' => $this->faker->word(),
-            'primaryItemValid' => $this->faker->word(),
-            'primaryItemId' => $this->faker->word(),
-            'primaryItemClassId' => $this->faker->word(),
-            'projectId' => $this->faker->word(),
-            'projectTaskId' => $this->faker->word(),
+            'locationId' => LocationIdInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'description' => DescriptionInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'active' => ActiveInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'inclQtyAvail' => InclQtyAvailInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'isCosted' => IsCostedInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'salesValid' => SalesValidInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'receiptsValid' => ReceiptsValidInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'transfersValid' => TransfersValidInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'assemblyValid' => AssemblyValidInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'pickPriority' => PickPriorityInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'primaryItemValid' => PrimaryItemValidInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'primaryItemId' => PrimaryItemIdInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'primaryItemClassId' => PrimaryItemClassIdInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'projectId' => ProjectIdInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'projectTaskId' => ProjectTaskIdInWarehouseLocationUpdateDtoFactory::new()->make(),
         ];
     }
 

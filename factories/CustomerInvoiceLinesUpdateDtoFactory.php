@@ -13,8 +13,8 @@ class CustomerInvoiceLinesUpdateDtoFactory extends Factory
         return [
             'discountCode' => $this->faker->word(),
             'domesticServicesDeductible' => $this->faker->boolean(),
-            'itemType' => $this->faker->word(),
-            'typeOfWork' => $this->faker->word(),
+            'itemType' => ItemTypeInCustomerInvoiceLinesUpdateDtoFactory::new()->make(),
+            'typeOfWork' => TypeOfWorkInCustomerInvoiceLinesUpdateDtoFactory::new()->make(),
             'taskId' => $this->faker->uuid(),
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'endDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

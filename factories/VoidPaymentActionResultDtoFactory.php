@@ -12,7 +12,7 @@ class VoidPaymentActionResultDtoFactory extends Factory
         return [
             'type' => $this->faker->word(),
             'refNbr' => $this->faker->word(),
-            'voidPayment' => $this->faker->word(),
+            'voidPayment' => PaymentDtoFactory::new()->make(),
             'actionId' => $this->faker->uuid(),
             'actionResult' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),

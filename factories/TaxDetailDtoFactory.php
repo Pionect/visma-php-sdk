@@ -12,7 +12,7 @@ class TaxDetailDtoFactory extends Factory
         return [
             'taxId' => $this->faker->uuid(),
             'recordId' => $this->faker->numberBetween(1, 1000),
-            'vatId' => $this->faker->word(),
+            'vatId' => VatIdInTaxDetailDtoFactory::new()->make(),
             'vatRate' => $this->faker->randomFloat(2, 0, 1000),
             'taxableAmount' => $this->faker->randomFloat(2, 0, 1000),
             'vatAmount' => $this->faker->randomFloat(2, 0, 1000),

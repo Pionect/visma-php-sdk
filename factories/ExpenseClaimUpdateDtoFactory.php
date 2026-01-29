@@ -10,12 +10,12 @@ class ExpenseClaimUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'date' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
-            'claimedBy' => $this->faker->word(),
-            'customer' => $this->faker->word(),
+            'date' => DateInExpenseClaimUpdateDtoFactory::new()->make(),
+            'description' => DescriptionInExpenseClaimUpdateDtoFactory::new()->make(),
+            'claimedBy' => ClaimedByInExpenseClaimUpdateDtoFactory::new()->make(),
+            'customer' => CustomerInExpenseClaimUpdateDtoFactory::new()->make(),
             'customerUpdateAnswer' => $this->faker->word(),
-            'location' => $this->faker->word(),
+            'location' => LocationInExpenseClaimUpdateDtoFactory::new()->make(),
             'details' => [],
         ];
     }

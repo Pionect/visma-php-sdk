@@ -10,7 +10,7 @@ class UpdateNoteDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'note' => $this->faker->word(),
+            'note' => NoteInUpdateNoteDtoFactory::new()->make(),
         ];
     }
 

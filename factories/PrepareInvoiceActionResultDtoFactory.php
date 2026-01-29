@@ -11,7 +11,7 @@ class PrepareInvoiceActionResultDtoFactory extends Factory
     {
         return [
             'referenceNumber' => $this->faker->word(),
-            'customerInvoiceDto' => $this->faker->word(),
+            'customerInvoiceDto' => CustomerInvoiceDtoFactory::new()->make(),
             'actionId' => $this->faker->uuid(),
             'actionResult' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),

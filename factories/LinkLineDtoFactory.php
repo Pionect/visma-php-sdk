@@ -11,8 +11,8 @@ class LinkLineDtoFactory extends Factory
     {
         return [
             'purchaseType' => $this->faker->word(),
-            'purchaseNumber' => $this->faker->word(),
-            'purchaseLineNbr' => $this->faker->word(),
+            'purchaseNumber' => PurchaseNumberInLinkLineDtoFactory::new()->make(),
+            'purchaseLineNbr' => PurchaseLineNbrInLinkLineDtoFactory::new()->make(),
         ];
     }
 

@@ -11,7 +11,7 @@ class SupplierPaymentUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'type' => $this->faker->word(),
+            'type' => TypeInSupplierPaymentUpdateDtoFactory::new()->make(),
             'referenceNumber' => $this->faker->word(),
             'hold' => $this->faker->boolean(),
             'applicationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

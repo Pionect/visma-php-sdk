@@ -11,8 +11,8 @@ class SupplierInvoiceCommentUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'userEmail' => $this->faker->safeEmail(),
-            'commentText' => $this->faker->word(),
+            'userEmail' => UserEmailInSupplierInvoiceCommentUpdateDtoFactory::new()->make(),
+            'commentText' => CommentTextInSupplierInvoiceCommentUpdateDtoFactory::new()->make(),
             'commentDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

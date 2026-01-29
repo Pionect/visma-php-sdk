@@ -12,26 +12,26 @@ class InventoryIssueLineDtoFactory extends Factory
     {
         return [
             'transactionType' => $this->faker->word(),
-            'warehouse' => $this->faker->word(),
+            'warehouse' => WarehouseInInventoryIssueLineDtoFactory::new()->make(),
             'unitCost' => $this->faker->randomFloat(2, 0, 1000),
             'extCost' => $this->faker->randomFloat(2, 0, 1000),
             'unitPrice' => $this->faker->randomFloat(2, 0, 1000),
             'extPrice' => $this->faker->randomFloat(2, 0, 1000),
-            'project' => $this->faker->word(),
-            'projectTask' => $this->faker->word(),
+            'project' => ProjectInInventoryIssueLineDtoFactory::new()->make(),
+            'projectTask' => ProjectTaskInInventoryIssueLineDtoFactory::new()->make(),
             'lotSerialNumber' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'allocations' => [],
             'poReceiptNumber' => $this->faker->word(),
             'lineNumber' => $this->faker->numberBetween(1, 100),
-            'inventoryItem' => $this->faker->word(),
-            'location' => $this->faker->word(),
+            'inventoryItem' => InventoryItemInInventoryIssueLineDtoFactory::new()->make(),
+            'location' => LocationInInventoryIssueLineDtoFactory::new()->make(),
             'quantity' => $this->faker->randomFloat(2, 0, 1000),
             'uom' => $this->faker->word(),
-            'reasonCode' => $this->faker->word(),
+            'reasonCode' => ReasonCodeInInventoryIssueLineDtoFactory::new()->make(),
             'description' => $this->faker->sentence(),
             'attachments' => [],
-            'branchNumber' => $this->faker->word(),
+            'branchNumber' => BranchNumberDtoFactory::new()->make(),
         ];
     }
 

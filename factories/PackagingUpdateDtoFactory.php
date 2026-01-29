@@ -10,9 +10,9 @@ class PackagingUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'baseItemWeight' => $this->faker->word(),
+            'baseItemWeight' => BaseItemWeightInPackagingUpdateDtoFactory::new()->make(),
             'weightUom' => $this->faker->word(),
-            'baseItemVolume' => $this->faker->word(),
+            'baseItemVolume' => BaseItemVolumeInPackagingUpdateDtoFactory::new()->make(),
             'volumeUom' => $this->faker->word(),
         ];
     }

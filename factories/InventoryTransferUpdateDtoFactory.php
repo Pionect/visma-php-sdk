@@ -13,14 +13,14 @@ class InventoryTransferUpdateDtoFactory extends Factory
             'warehouseId' => $this->faker->uuid(),
             'toWarehouseId' => $this->faker->uuid(),
             'transferLines' => [],
-            'referenceNumber' => $this->faker->word(),
-            'hold' => $this->faker->word(),
-            'date' => $this->faker->word(),
-            'postPeriod' => $this->faker->word(),
-            'externalReference' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
-            'controlQuantity' => $this->faker->word(),
-            'branchNumber' => $this->faker->word(),
+            'referenceNumber' => ReferenceNumberInInventoryTransferUpdateDtoFactory::new()->make(),
+            'hold' => HoldInInventoryTransferUpdateDtoFactory::new()->make(),
+            'date' => DateInInventoryTransferUpdateDtoFactory::new()->make(),
+            'postPeriod' => PostPeriodInInventoryTransferUpdateDtoFactory::new()->make(),
+            'externalReference' => ExternalReferenceInInventoryTransferUpdateDtoFactory::new()->make(),
+            'description' => DescriptionInInventoryTransferUpdateDtoFactory::new()->make(),
+            'controlQuantity' => ControlQuantityInInventoryTransferUpdateDtoFactory::new()->make(),
+            'branchNumber' => BranchNumberInInventoryTransferUpdateDtoFactory::new()->make(),
         ];
     }
 

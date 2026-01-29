@@ -10,16 +10,16 @@ class InventoryAdjustmentUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'controlCost' => $this->faker->word(),
+            'controlCost' => ControlCostInInventoryAdjustmentUpdateDtoFactory::new()->make(),
             'adjustmentLines' => [],
-            'referenceNumber' => $this->faker->word(),
-            'hold' => $this->faker->word(),
-            'date' => $this->faker->word(),
-            'postPeriod' => $this->faker->word(),
-            'externalReference' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
-            'controlQuantity' => $this->faker->word(),
-            'branchNumber' => $this->faker->word(),
+            'referenceNumber' => ReferenceNumberInInventoryAdjustmentUpdateDtoFactory::new()->make(),
+            'hold' => HoldInInventoryAdjustmentUpdateDtoFactory::new()->make(),
+            'date' => DateInInventoryAdjustmentUpdateDtoFactory::new()->make(),
+            'postPeriod' => PostPeriodInInventoryAdjustmentUpdateDtoFactory::new()->make(),
+            'externalReference' => ExternalReferenceInInventoryAdjustmentUpdateDtoFactory::new()->make(),
+            'description' => DescriptionInInventoryAdjustmentUpdateDtoFactory::new()->make(),
+            'controlQuantity' => ControlQuantityInInventoryAdjustmentUpdateDtoFactory::new()->make(),
+            'branchNumber' => BranchNumberInInventoryAdjustmentUpdateDtoFactory::new()->make(),
         ];
     }
 

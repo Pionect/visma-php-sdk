@@ -10,7 +10,7 @@ class AttributeLineUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'attributeId' => $this->faker->word(),
+            'attributeId' => AttributeIdInAttributeLineUpdateDtoFactory::new()->make(),
             'attributeValue' => $this->faker->word(),
         ];
     }

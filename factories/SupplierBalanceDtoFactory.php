@@ -12,12 +12,12 @@ class SupplierBalanceDtoFactory extends Factory
     {
         return [
             'branchNumber' => $this->faker->word(),
-            'supplier' => $this->faker->word(),
+            'supplier' => SupplierDescriptionDtoFactory::new()->make(),
             'balance' => $this->faker->randomFloat(2, 0, 1000),
-            'unreleasedPurchasesNotInApproval' => $this->faker->word(),
-            'totalSentForApproval' => $this->faker->word(),
-            'totalPurchaseInvoicePeriod' => $this->faker->word(),
-            'totalPurchaseInvoiceYear' => $this->faker->word(),
+            'unreleasedPurchasesNotInApproval' => WithoutWithVatDtoFactory::new()->make(),
+            'totalSentForApproval' => WithoutWithVatDtoFactory::new()->make(),
+            'totalPurchaseInvoicePeriod' => WithoutWithVatDtoFactory::new()->make(),
+            'totalPurchaseInvoiceYear' => WithoutWithVatDtoFactory::new()->make(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

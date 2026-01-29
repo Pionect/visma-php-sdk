@@ -25,7 +25,7 @@ class InventoryIssueDtoFactory extends Factory
             'controlQuantity' => $this->faker->randomFloat(2, 0, 1000),
             'batchNumber' => $this->faker->word(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'branchNumber' => $this->faker->word(),
+            'branchNumber' => BranchNumberInInventoryIssueDtoFactory::new()->make(),
             'attachments' => [],
             'timestamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),

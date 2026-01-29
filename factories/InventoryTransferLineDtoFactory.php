@@ -11,19 +11,19 @@ class InventoryTransferLineDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'toLocation' => $this->faker->word(),
+            'toLocation' => LocationDescriptionDtoFactory::new()->make(),
             'lotSerialNumber' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'allocations' => [],
             'lineNumber' => $this->faker->numberBetween(1, 100),
-            'inventoryItem' => $this->faker->word(),
-            'location' => $this->faker->word(),
+            'inventoryItem' => InventoryItemInInventoryTransferLineDtoFactory::new()->make(),
+            'location' => LocationInInventoryTransferLineDtoFactory::new()->make(),
             'quantity' => $this->faker->randomFloat(2, 0, 1000),
             'uom' => $this->faker->word(),
-            'reasonCode' => $this->faker->word(),
+            'reasonCode' => ReasonCodeInInventoryTransferLineDtoFactory::new()->make(),
             'description' => $this->faker->sentence(),
             'attachments' => [],
-            'branchNumber' => $this->faker->word(),
+            'branchNumber' => BranchNumberDtoFactory::new()->make(),
         ];
     }
 

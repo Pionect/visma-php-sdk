@@ -16,8 +16,8 @@ class SupplierInvoiceUpdateDtoFactory extends Factory
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'origInvoiceDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'postPeriod' => $this->faker->word(),
-            'financialPeriod' => $this->faker->word(),
+            'postPeriod' => PostPeriodInSupplierInvoiceUpdateDtoFactory::new()->make(),
+            'financialPeriod' => FinancialPeriodInSupplierInvoiceUpdateDtoFactory::new()->make(),
             'supplierReference' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'supplierNumber' => $this->faker->word(),
@@ -42,13 +42,13 @@ class SupplierInvoiceUpdateDtoFactory extends Factory
             'applyRetainage' => $this->faker->boolean(),
             'taxDetailLines' => [],
             'invoiceLines' => [],
-            'approvalDetails' => $this->faker->word(),
+            'approvalDetails' => ApprovalDetailsUpdateDtoFactory::new()->make(),
             'addPoreceiptLines' => [],
             'addPurchaseOrders' => [],
             'landedCosts' => [],
-            'paySelected' => $this->faker->word(),
+            'paySelected' => PaySelectedInSupplierInvoiceUpdateDtoFactory::new()->make(),
             'overrideNumberSeries' => $this->faker->boolean(),
-            'validateLineDetails' => $this->faker->word(),
+            'validateLineDetails' => ValidateLineDetailsInSupplierInvoiceUpdateDtoFactory::new()->make(),
         ];
     }
 

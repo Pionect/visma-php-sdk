@@ -11,7 +11,7 @@ class CustomerBalanceDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'customer' => $this->faker->word(),
+            'customer' => CustomerDescriptionDtoFactory::new()->make(),
             'balance' => $this->faker->randomFloat(2, 0, 1000),
             'totalOrder' => $this->faker->randomFloat(2, 0, 1000),
             'totalLoan' => $this->faker->randomFloat(2, 0, 1000),

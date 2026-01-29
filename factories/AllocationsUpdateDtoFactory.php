@@ -12,11 +12,11 @@ class AllocationsUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'lineNbr' => $this->faker->word(),
-            'location' => $this->faker->word(),
-            'lotSerialNumber' => $this->faker->word(),
-            'quantity' => $this->faker->word(),
-            'uom' => $this->faker->word(),
+            'lineNbr' => LineNbrInAllocationsUpdateDtoFactory::new()->make(),
+            'location' => LocationInAllocationsUpdateDtoFactory::new()->make(),
+            'lotSerialNumber' => LotSerialNumberInAllocationsUpdateDtoFactory::new()->make(),
+            'quantity' => QuantityInAllocationsUpdateDtoFactory::new()->make(),
+            'uom' => UomInAllocationsUpdateDtoFactory::new()->make(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

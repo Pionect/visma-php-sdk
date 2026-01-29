@@ -28,7 +28,7 @@ class AccountDtoFactory extends Factory
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'externalCode1info' => $this->faker->word(),
             'externalCode2info' => $this->faker->word(),
-            'analisysCodeInfo' => $this->faker->word(),
+            'analisysCodeInfo' => AnalisysCodeInfoInAccountDtoFactory::new()->make(),
             'controlAccountModule' => $this->faker->word(),
             'allowManualEntry' => $this->faker->boolean(),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

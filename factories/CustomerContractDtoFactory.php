@@ -12,15 +12,15 @@ class CustomerContractDtoFactory extends Factory
     {
         return [
             'contractId' => $this->faker->uuid(),
-            'contractTemplate' => $this->faker->word(),
+            'contractTemplate' => ContractTemplateInCustomerContractDtoFactory::new()->make(),
             'status' => $this->faker->word(),
-            'customer' => $this->faker->word(),
-            'location' => $this->faker->word(),
+            'customer' => CustomerInCustomerContractDtoFactory::new()->make(),
+            'location' => LocationInCustomerContractDtoFactory::new()->make(),
             'description' => $this->faker->sentence(),
             'balance' => $this->faker->randomFloat(2, 0, 1000),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'summary' => $this->faker->word(),
-            'details' => $this->faker->word(),
+            'summary' => SummaryInCustomerContractDtoFactory::new()->make(),
+            'details' => DetailsInCustomerContractDtoFactory::new()->make(),
             'attributes' => [],
         ];
     }

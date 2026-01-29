@@ -28,7 +28,7 @@ class SupplierInvoiceLineUpdateDtoFactory extends Factory
             'deferralSchedule' => $this->faker->numberBetween(1, 100),
             'deferralCode' => $this->faker->word(),
             'vatCodeId' => $this->faker->uuid(),
-            'branch' => $this->faker->word(),
+            'branch' => BranchInSupplierInvoiceLineUpdateDtoFactory::new()->make(),
             'branchNumber' => $this->faker->word(),
             'note' => $this->faker->word(),
             'projectId' => $this->faker->uuid(),
@@ -40,11 +40,11 @@ class SupplierInvoiceLineUpdateDtoFactory extends Factory
             'splitHierarchy' => $this->faker->word(),
             'retainagePct' => $this->faker->randomFloat(2, 0, 1000),
             'curyRetainageAmt' => $this->faker->randomFloat(2, 0, 1000),
-            'linkLine' => $this->faker->word(),
+            'linkLine' => LinkLineDtoFactory::new()->make(),
             'termStartDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'termEndDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'externalInventoryId' => $this->faker->uuid(),
-            'prebookAccountNumber' => $this->faker->word(),
+            'prebookAccountNumber' => PrebookAccountNumberInSupplierInvoiceLineUpdateDtoFactory::new()->make(),
             'prebookSubaccount' => [],
         ];
     }

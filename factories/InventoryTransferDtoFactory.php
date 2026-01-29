@@ -11,8 +11,8 @@ class InventoryTransferDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'warehouse' => $this->faker->word(),
-            'toWarehouse' => $this->faker->word(),
+            'warehouse' => WarehouseInInventoryTransferDtoFactory::new()->make(),
+            'toWarehouse' => ToWarehouseInInventoryTransferDtoFactory::new()->make(),
             'transferLines' => [],
             'referenceNumber' => $this->faker->word(),
             'status' => $this->faker->word(),
@@ -25,7 +25,7 @@ class InventoryTransferDtoFactory extends Factory
             'controlQuantity' => $this->faker->randomFloat(2, 0, 1000),
             'batchNumber' => $this->faker->word(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'branchNumber' => $this->faker->word(),
+            'branchNumber' => BranchNumberInInventoryTransferDtoFactory::new()->make(),
             'attachments' => [],
             'timestamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),

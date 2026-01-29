@@ -17,7 +17,7 @@ class LedgerDtoFactory extends Factory
             'balanceType' => $this->faker->word(),
             'currencyId' => $this->faker->uuid(),
             'consolidationSource' => $this->faker->boolean(),
-            'consolBranch' => $this->faker->word(),
+            'consolBranch' => ConsolBranchInLedgerDtoFactory::new()->make(),
             'branchAccounting' => $this->faker->boolean(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'postInterCompany' => $this->faker->boolean(),

@@ -14,8 +14,8 @@ class CashAccountDtoFactory extends Factory
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'entryTypes' => [],
             'currency' => $this->faker->word(),
-            'account' => $this->faker->word(),
-            'subaccount' => $this->faker->word(),
+            'account' => AccountInCashAccountDtoFactory::new()->make(),
+            'subaccount' => SubaccountInCashAccountDtoFactory::new()->make(),
             'number' => $this->faker->word(),
             'description' => $this->faker->sentence(),
         ];

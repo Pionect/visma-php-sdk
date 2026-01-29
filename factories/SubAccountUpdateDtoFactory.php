@@ -10,8 +10,8 @@ class SubAccountUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'subaccountNumber' => $this->faker->word(),
-            'subaccountId' => $this->faker->word(),
+            'subaccountNumber' => SubaccountNumberInSubAccountUpdateDtoFactory::new()->make(),
+            'subaccountId' => SubaccountIdInSubAccountUpdateDtoFactory::new()->make(),
             'description' => $this->faker->sentence(),
             'active' => $this->faker->boolean(),
         ];

@@ -11,7 +11,7 @@ class CreateShipmentActionResultDtoFactory extends Factory
     {
         return [
             'referenceNumber' => $this->faker->word(),
-            'shipmentDto' => $this->faker->word(),
+            'shipmentDto' => ShipmentDtoFactory::new()->make(),
             'actionId' => $this->faker->uuid(),
             'actionResult' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),

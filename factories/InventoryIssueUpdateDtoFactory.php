@@ -10,16 +10,16 @@ class InventoryIssueUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'controlAmount' => $this->faker->word(),
+            'controlAmount' => ControlAmountInInventoryIssueUpdateDtoFactory::new()->make(),
             'issueLines' => [],
-            'referenceNumber' => $this->faker->word(),
-            'hold' => $this->faker->word(),
-            'date' => $this->faker->word(),
-            'postPeriod' => $this->faker->word(),
-            'externalReference' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
-            'controlQuantity' => $this->faker->word(),
-            'branchNumber' => $this->faker->word(),
+            'referenceNumber' => ReferenceNumberInInventoryIssueUpdateDtoFactory::new()->make(),
+            'hold' => HoldInInventoryIssueUpdateDtoFactory::new()->make(),
+            'date' => DateInInventoryIssueUpdateDtoFactory::new()->make(),
+            'postPeriod' => PostPeriodInInventoryIssueUpdateDtoFactory::new()->make(),
+            'externalReference' => ExternalReferenceInInventoryIssueUpdateDtoFactory::new()->make(),
+            'description' => DescriptionInInventoryIssueUpdateDtoFactory::new()->make(),
+            'controlQuantity' => ControlQuantityInInventoryIssueUpdateDtoFactory::new()->make(),
+            'branchNumber' => BranchNumberInInventoryIssueUpdateDtoFactory::new()->make(),
         ];
     }
 

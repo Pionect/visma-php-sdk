@@ -13,8 +13,8 @@ class ContractUsageLineDtoFactory extends Factory
         return [
             'transactionNumber' => $this->faker->numberBetween(1, 100),
             'billed' => $this->faker->boolean(),
-            'branch' => $this->faker->word(),
-            'item' => $this->faker->word(),
+            'branch' => BranchInContractUsageLineDtoFactory::new()->make(),
+            'item' => ItemInContractUsageLineDtoFactory::new()->make(),
             'description' => $this->faker->sentence(),
             'uom' => $this->faker->word(),
             'quantity' => $this->faker->randomFloat(2, 0, 1000),

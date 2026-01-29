@@ -10,9 +10,9 @@ class InventorySummaryDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'inventory' => $this->faker->word(),
-            'warehouse' => $this->faker->word(),
-            'location' => $this->faker->word(),
+            'inventory' => InventoryInInventorySummaryDtoFactory::new()->make(),
+            'warehouse' => WarehouseInInventorySummaryDtoFactory::new()->make(),
+            'location' => LocationInInventorySummaryDtoFactory::new()->make(),
             'available' => $this->faker->randomFloat(2, 0, 1000),
             'availableForShipment' => $this->faker->randomFloat(2, 0, 1000),
             'notAvailable' => $this->faker->randomFloat(2, 0, 1000),

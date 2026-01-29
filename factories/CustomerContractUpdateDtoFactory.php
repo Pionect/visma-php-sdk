@@ -11,9 +11,9 @@ class CustomerContractUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'contractId' => $this->faker->word(),
-            'contractTemplate' => $this->faker->word(),
-            'customer' => $this->faker->word(),
+            'contractId' => ContractIdInCustomerContractUpdateDtoFactory::new()->make(),
+            'contractTemplate' => ContractTemplateInCustomerContractUpdateDtoFactory::new()->make(),
+            'customer' => CustomerInCustomerContractUpdateDtoFactory::new()->make(),
             'location' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'setupDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

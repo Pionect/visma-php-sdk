@@ -10,7 +10,7 @@ class PrebookingUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'accountNumber' => $this->faker->word(),
+            'accountNumber' => AccountNumberInPrebookingUpdateDtoFactory::new()->make(),
             'subaccount' => [],
         ];
     }

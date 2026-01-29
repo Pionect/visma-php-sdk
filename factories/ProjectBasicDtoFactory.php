@@ -13,7 +13,7 @@ class ProjectBasicDtoFactory extends Factory
         return [
             'internalId' => $this->faker->numberBetween(1, 1000),
             'projectId' => $this->faker->uuid(),
-            'customer' => $this->faker->word(),
+            'customer' => CustomerInProjectBasicDtoFactory::new()->make(),
             'hold' => $this->faker->boolean(),
             'status' => $this->faker->word(),
             'description' => $this->faker->sentence(),
@@ -24,7 +24,7 @@ class ProjectBasicDtoFactory extends Factory
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'publicId' => $this->faker->uuid(),
             'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'visibility' => $this->faker->word(),
+            'visibility' => VisibilityInProjectBasicDtoFactory::new()->make(),
             'errorInfo' => $this->faker->word(),
         ];
     }

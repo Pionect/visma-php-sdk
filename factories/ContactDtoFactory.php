@@ -20,7 +20,7 @@ class ContactDtoFactory extends Factory
             'businessAccount' => $this->faker->word(),
             'businessAccountType' => $this->faker->word(),
             'sameAsAccount' => $this->faker->boolean(),
-            'address' => $this->faker->word(),
+            'address' => AddressInContactDtoFactory::new()->make(),
             'email' => $this->faker->safeEmail(),
             'web' => $this->faker->word(),
             'phone1' => $this->faker->word(),

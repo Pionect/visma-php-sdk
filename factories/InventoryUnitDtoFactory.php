@@ -11,7 +11,7 @@ class InventoryUnitDtoFactory extends Factory
     {
         return [
             'unitType' => $this->faker->numberBetween(1, 100),
-            'itemClass' => $this->faker->word(),
+            'itemClass' => ItemClassDtoFactory::new()->make(),
             'inventoryId' => $this->faker->numberBetween(1, 1000),
             'toUnit' => $this->faker->word(),
             'sampleToUnit' => $this->faker->word(),

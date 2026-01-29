@@ -10,22 +10,22 @@ class InventoryReceiptLineDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'warehouse' => $this->faker->word(),
+            'warehouse' => WarehouseInInventoryReceiptLineDtoFactory::new()->make(),
             'unitCost' => $this->faker->randomFloat(2, 0, 1000),
             'extCost' => $this->faker->randomFloat(2, 0, 1000),
-            'project' => $this->faker->word(),
-            'projectTask' => $this->faker->word(),
+            'project' => ProjectInInventoryReceiptLineDtoFactory::new()->make(),
+            'projectTask' => ProjectTaskInInventoryReceiptLineDtoFactory::new()->make(),
             'allocations' => [],
             'poReceiptNumber' => $this->faker->word(),
             'lineNumber' => $this->faker->numberBetween(1, 100),
-            'inventoryItem' => $this->faker->word(),
-            'location' => $this->faker->word(),
+            'inventoryItem' => InventoryItemInInventoryReceiptLineDtoFactory::new()->make(),
+            'location' => LocationInInventoryReceiptLineDtoFactory::new()->make(),
             'quantity' => $this->faker->randomFloat(2, 0, 1000),
             'uom' => $this->faker->word(),
-            'reasonCode' => $this->faker->word(),
+            'reasonCode' => ReasonCodeInInventoryReceiptLineDtoFactory::new()->make(),
             'description' => $this->faker->sentence(),
             'attachments' => [],
-            'branchNumber' => $this->faker->word(),
+            'branchNumber' => BranchNumberDtoFactory::new()->make(),
         ];
     }
 

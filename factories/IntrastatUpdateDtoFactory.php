@@ -10,9 +10,9 @@ class IntrastatUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'cN8' => $this->faker->word(),
-            'countryOfOrigin' => $this->faker->word(),
-            'supplementaryMeasureUnit' => $this->faker->word(),
+            'cN8' => CN8InIntrastatUpdateDtoFactory::new()->make(),
+            'countryOfOrigin' => CountryOfOriginInIntrastatUpdateDtoFactory::new()->make(),
+            'supplementaryMeasureUnit' => SupplementaryMeasureUnitInIntrastatUpdateDtoFactory::new()->make(),
         ];
     }
 

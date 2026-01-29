@@ -20,10 +20,10 @@ class WarehouseLocationDtoFactory extends Factory
             'transfersValid' => $this->faker->boolean(),
             'assemblyValid' => $this->faker->boolean(),
             'primaryItemValid' => $this->faker->word(),
-            'primaryItem' => $this->faker->word(),
-            'primaryItemClass' => $this->faker->word(),
-            'project' => $this->faker->word(),
-            'projectTask' => $this->faker->word(),
+            'primaryItem' => PrimaryItemInWarehouseLocationDtoFactory::new()->make(),
+            'primaryItemClass' => PrimaryItemClassInWarehouseLocationDtoFactory::new()->make(),
+            'project' => ProjectInWarehouseLocationDtoFactory::new()->make(),
+            'projectTask' => ProjectTaskInWarehouseLocationDtoFactory::new()->make(),
         ];
     }
 

@@ -10,7 +10,7 @@ class SupplierAccountsDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'supplierAccount' => $this->faker->word(),
+            'supplierAccount' => SupplierAccountInSupplierAccountsDtoFactory::new()->make(),
             'supplierItemAccounts' => [],
         ];
     }

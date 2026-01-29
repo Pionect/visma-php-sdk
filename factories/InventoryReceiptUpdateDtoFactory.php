@@ -10,17 +10,17 @@ class InventoryReceiptUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'transferNumber' => $this->faker->word(),
-            'controlCost' => $this->faker->word(),
+            'transferNumber' => TransferNumberInInventoryReceiptUpdateDtoFactory::new()->make(),
+            'controlCost' => ControlCostInInventoryReceiptUpdateDtoFactory::new()->make(),
             'receiptLines' => [],
-            'referenceNumber' => $this->faker->word(),
-            'hold' => $this->faker->word(),
-            'date' => $this->faker->word(),
-            'postPeriod' => $this->faker->word(),
-            'externalReference' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
-            'controlQuantity' => $this->faker->word(),
-            'branchNumber' => $this->faker->word(),
+            'referenceNumber' => ReferenceNumberInInventoryReceiptUpdateDtoFactory::new()->make(),
+            'hold' => HoldInInventoryReceiptUpdateDtoFactory::new()->make(),
+            'date' => DateInInventoryReceiptUpdateDtoFactory::new()->make(),
+            'postPeriod' => PostPeriodInInventoryReceiptUpdateDtoFactory::new()->make(),
+            'externalReference' => ExternalReferenceInInventoryReceiptUpdateDtoFactory::new()->make(),
+            'description' => DescriptionInInventoryReceiptUpdateDtoFactory::new()->make(),
+            'controlQuantity' => ControlQuantityInInventoryReceiptUpdateDtoFactory::new()->make(),
+            'branchNumber' => BranchNumberInInventoryReceiptUpdateDtoFactory::new()->make(),
         ];
     }
 

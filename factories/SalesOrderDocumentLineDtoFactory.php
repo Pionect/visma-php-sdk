@@ -12,8 +12,8 @@ class SalesOrderDocumentLineDtoFactory extends Factory
         return [
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'sortOrder' => $this->faker->numberBetween(1, 100),
-            'inventory' => $this->faker->word(),
-            'warehouse' => $this->faker->word(),
+            'inventory' => InventoryNumberDescriptionDtoFactory::new()->make(),
+            'warehouse' => WarehouseIdDescriptionDtoFactory::new()->make(),
             'uom' => $this->faker->word(),
             'quantity' => $this->faker->randomFloat(2, 0, 1000),
             'qtyOnShipments' => $this->faker->randomFloat(2, 0, 1000),
@@ -29,7 +29,7 @@ class SalesOrderDocumentLineDtoFactory extends Factory
             'extPrice' => $this->faker->randomFloat(2, 0, 1000),
             'unbilledAmount' => $this->faker->randomFloat(2, 0, 1000),
             'lineDescription' => $this->faker->sentence(),
-            'branchNumber' => $this->faker->word(),
+            'branchNumber' => BranchNumberDtoFactory::new()->make(),
             'note' => $this->faker->word(),
             'attachments' => [],
         ];

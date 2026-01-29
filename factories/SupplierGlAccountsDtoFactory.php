@@ -10,13 +10,13 @@ class SupplierGlAccountsDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'supplierAccount' => $this->faker->word(),
-            'supplierSubaccount' => $this->faker->word(),
-            'expenseAccount' => $this->faker->word(),
-            'expenseAccountNonTax' => $this->faker->word(),
+            'supplierAccount' => SupplierAccountInSupplierGlAccountsDtoFactory::new()->make(),
+            'supplierSubaccount' => SupplierSubaccountInSupplierGlAccountsDtoFactory::new()->make(),
+            'expenseAccount' => ExpenseAccountInSupplierGlAccountsDtoFactory::new()->make(),
+            'expenseAccountNonTax' => ExpenseAccountNonTaxInSupplierGlAccountsDtoFactory::new()->make(),
             'expenseEuaccount' => $this->faker->word(),
-            'expenseAccountImport' => $this->faker->word(),
-            'expenseSubaccount' => $this->faker->word(),
+            'expenseAccountImport' => ExpenseAccountImportInSupplierGlAccountsDtoFactory::new()->make(),
+            'expenseSubaccount' => ExpenseSubaccountInSupplierGlAccountsDtoFactory::new()->make(),
         ];
     }
 

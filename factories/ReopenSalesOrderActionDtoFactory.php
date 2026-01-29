@@ -10,7 +10,7 @@ class ReopenSalesOrderActionDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'saleOrderUpdateDto' => $this->faker->word(),
+            'saleOrderUpdateDto' => SaleOrderUpdateDtoInReopenSalesOrderActionDtoFactory::new()->make(),
         ];
     }
 

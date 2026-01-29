@@ -10,9 +10,9 @@ class CreateCurrencyRateTypeDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'id' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
-            'daysEffective' => $this->faker->word(),
+            'id' => IdInCreateCurrencyRateTypeDtoFactory::new()->make(),
+            'description' => DescriptionInCreateCurrencyRateTypeDtoFactory::new()->make(),
+            'daysEffective' => DaysEffectiveInCreateCurrencyRateTypeDtoFactory::new()->make(),
         ];
     }
 

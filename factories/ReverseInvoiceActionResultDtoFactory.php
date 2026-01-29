@@ -11,7 +11,7 @@ class ReverseInvoiceActionResultDtoFactory extends Factory
     {
         return [
             'referenceNumber' => $this->faker->word(),
-            'creditNoteDto' => $this->faker->word(),
+            'creditNoteDto' => CreditNoteDtoFactory::new()->make(),
             'actionId' => $this->faker->uuid(),
             'actionResult' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),

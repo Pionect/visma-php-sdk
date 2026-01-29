@@ -16,8 +16,8 @@ class CustomerDocumentAddressDtoFactory extends Factory
             'addressLine3' => $this->faker->word(),
             'postalCode' => $this->faker->word(),
             'city' => $this->faker->word(),
-            'country' => $this->faker->word(),
-            'county' => $this->faker->word(),
+            'country' => CountryInCustomerDocumentAddressDtoFactory::new()->make(),
+            'county' => CountyInCustomerDocumentAddressDtoFactory::new()->make(),
             'overrideAddress' => $this->faker->boolean(),
         ];
     }

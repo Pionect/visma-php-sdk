@@ -11,14 +11,14 @@ class SupplierLocationDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'baccount' => $this->faker->word(),
+            'baccount' => BaccountInSupplierLocationDtoFactory::new()->make(),
             'locationId' => $this->faker->uuid(),
             'locationName' => $this->faker->company(),
             'active' => $this->faker->boolean(),
-            'address' => $this->faker->word(),
-            'contact' => $this->faker->word(),
+            'address' => AddressInSupplierLocationDtoFactory::new()->make(),
+            'contact' => ContactInSupplierLocationDtoFactory::new()->make(),
             'vatRegistrationId' => $this->faker->uuid(),
-            'vatZone' => $this->faker->word(),
+            'vatZone' => VatZoneInSupplierLocationDtoFactory::new()->make(),
             'ediCode' => $this->faker->word(),
             'gln' => $this->faker->word(),
             'corporateId' => $this->faker->uuid(),

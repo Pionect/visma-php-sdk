@@ -15,7 +15,7 @@ class SalesPersonDtoFactory extends Factory
             'name' => $this->faker->name(),
             'isActive' => $this->faker->boolean(),
             'commissionPct' => $this->faker->randomFloat(2, 0, 1000),
-            'salesSub' => $this->faker->word(),
+            'salesSub' => SubAccountDescriptionDtoFactory::new()->make(),
             'customers' => [],
             'commissionHistory' => [],
             'createdDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

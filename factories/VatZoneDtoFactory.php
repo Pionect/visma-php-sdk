@@ -13,7 +13,7 @@ class VatZoneDtoFactory extends Factory
             'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'defaultVatCategory' => $this->faker->word(),
-            'defaultTaxCategory' => $this->faker->word(),
+            'defaultTaxCategory' => TaxCategoryNumberDescriptionDtoFactory::new()->make(),
             'errorInfo' => $this->faker->word(),
         ];
     }

@@ -11,7 +11,7 @@ class ReverseCashTransactionActionResultDtoFactory extends Factory
     {
         return [
             'referenceNbr' => $this->faker->word(),
-            'cashTransaction' => $this->faker->word(),
+            'cashTransaction' => CashTransactionDtoFactory::new()->make(),
             'actionId' => $this->faker->uuid(),
             'actionResult' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),

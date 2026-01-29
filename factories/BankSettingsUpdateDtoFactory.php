@@ -10,17 +10,17 @@ class BankSettingsUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'bankName' => $this->faker->company(),
-            'bankAddress1' => $this->faker->word(),
-            'bankAddress2' => $this->faker->word(),
-            'bankAddress3' => $this->faker->word(),
-            'bankCountry' => $this->faker->word(),
-            'iban' => $this->faker->word(),
-            'bban' => $this->faker->word(),
-            'bbaN2' => $this->faker->word(),
-            'bbaN3' => $this->faker->word(),
-            'bic' => $this->faker->word(),
-            'creditorId' => $this->faker->word(),
+            'bankName' => BankNameInBankSettingsUpdateDtoFactory::new()->make(),
+            'bankAddress1' => BankAddress1InBankSettingsUpdateDtoFactory::new()->make(),
+            'bankAddress2' => BankAddress2InBankSettingsUpdateDtoFactory::new()->make(),
+            'bankAddress3' => BankAddress3InBankSettingsUpdateDtoFactory::new()->make(),
+            'bankCountry' => BankCountryInBankSettingsUpdateDtoFactory::new()->make(),
+            'iban' => IbanInBankSettingsUpdateDtoFactory::new()->make(),
+            'bban' => BbanInBankSettingsUpdateDtoFactory::new()->make(),
+            'bbaN2' => BbaN2InBankSettingsUpdateDtoFactory::new()->make(),
+            'bbaN3' => BbaN3InBankSettingsUpdateDtoFactory::new()->make(),
+            'bic' => BicInBankSettingsUpdateDtoFactory::new()->make(),
+            'creditorId' => CreditorIdInBankSettingsUpdateDtoFactory::new()->make(),
         ];
     }
 

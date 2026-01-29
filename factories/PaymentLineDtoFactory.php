@@ -16,7 +16,7 @@ class PaymentLineDtoFactory extends Factory
             'amountPaid' => $this->faker->randomFloat(2, 0, 1000),
             'cashDiscountTaken' => $this->faker->randomFloat(2, 0, 1000),
             'balanceWriteOff' => $this->faker->randomFloat(2, 0, 1000),
-            'writeOffReasonCode' => $this->faker->word(),
+            'writeOffReasonCode' => WriteOffReasonCodeInPaymentLineDtoFactory::new()->make(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'dueDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'cashDiscountDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

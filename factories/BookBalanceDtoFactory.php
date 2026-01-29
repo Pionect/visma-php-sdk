@@ -19,7 +19,7 @@ class BookBalanceDtoFactory extends Factory
             'lastDepreciationPeriod' => $this->faker->word(),
             'salvageAmount' => $this->faker->randomFloat(2, 0, 1000),
             'usefulLife' => $this->faker->randomFloat(2, 0, 1000),
-            'book' => $this->faker->word(),
+            'book' => BookInBookBalanceDtoFactory::new()->make(),
         ];
     }
 

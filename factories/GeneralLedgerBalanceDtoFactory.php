@@ -11,11 +11,11 @@ class GeneralLedgerBalanceDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'branch' => $this->faker->word(),
-            'ledger' => $this->faker->word(),
+            'branch' => BranchNumberDtoFactory::new()->make(),
+            'ledger' => LedgerDescriptionDtoFactory::new()->make(),
             'balanceType' => $this->faker->word(),
             'financialPeriod' => $this->faker->word(),
-            'account' => $this->faker->word(),
+            'account' => AccountNumberDescriptionDtoFactory::new()->make(),
             'subaccountId' => $this->faker->uuid(),
             'subAccountCd' => $this->faker->word(),
             'currencyId' => $this->faker->uuid(),

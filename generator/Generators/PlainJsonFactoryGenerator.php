@@ -16,4 +16,24 @@ class PlainJsonFactoryGenerator extends JsonApiFactoryGenerator
     {
         return []; // Don't skip any properties
     }
+
+    protected function extractDtoProperties(): array
+    {
+        if (! $this->dtoSchema) {
+            return [];
+        }
+
+        return $this->dtoSchema->properties;
+    }
+
+    public function getReferencedDtoClass(string $propertyName): ?string
+    {
+        $referencedDtoClass = parent::getReferencedDtoClass($propertyName);
+
+        if (is_null($referencedDtoClass) || str_starts_with($referencedDtoClass, 'DtoValueOf')) {
+            return null;
+        }
+
+        return $referencedDtoClass;
+    }
 }
