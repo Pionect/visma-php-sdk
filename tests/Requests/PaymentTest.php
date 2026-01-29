@@ -246,8 +246,8 @@ it('calls the paymentVoidPaymentBypaymentNumber method in the Payment resource',
     $dto = \Pionect\VismaSdk\Dto\VoidPaymentActionResultDto::factory()->state([
         'type' => 'test value',
         'refNbr' => 'test value',
-        'voidPayment' => 'test value',
         'actionId' => 'action_id-123',
+        'actionResult' => 'test value',
     ])->make();
 
     $request = new PaymentVoidPaymentBypaymentNumberRequest(paymentNumber: 'test value', data: $dto);
@@ -259,8 +259,8 @@ it('calls the paymentVoidPaymentBypaymentNumber method in the Payment resource',
         expect($request->body()->all())
             ->type->toBe('test value')
             ->refNbr->toBe('test value')
-            ->voidPayment->toBe('test value')
-            ->actionId->toBe('action_id-123');
+            ->actionId->toBe('action_id-123')
+            ->actionResult->toBe('test value');
 
         return true;
     });

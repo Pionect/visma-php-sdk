@@ -644,9 +644,9 @@ it('calls the salesOrderCreateShipmentActionBysaleOrderNumber method in the Sale
     // Create DTO with sample data
     $dto = \Pionect\VismaSdk\Dto\CreateShipmentActionResultDto::factory()->state([
         'referenceNumber' => 'test value',
-        'shipmentDto' => 'test value',
         'actionId' => 'action_id-123',
         'actionResult' => 'test value',
+        'errorInfo' => 'test value',
     ])->make();
 
     $request = new SalesOrderCreateShipmentActionBysaleOrderNumberRequest(saleOrderNumber: 'test value', data: $dto);
@@ -657,9 +657,9 @@ it('calls the salesOrderCreateShipmentActionBysaleOrderNumber method in the Sale
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
             ->referenceNumber->toBe('test value')
-            ->shipmentDto->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value');
+            ->actionResult->toBe('test value')
+            ->errorInfo->toBe('test value');
 
         return true;
     });

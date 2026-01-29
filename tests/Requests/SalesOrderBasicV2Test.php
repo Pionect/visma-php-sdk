@@ -21,9 +21,9 @@ it('calls the salesOrderBasicV2createShipmentActionBysaleOrderNumber method in t
     // Create DTO with sample data
     $dto = \Pionect\VismaSdk\Dto\CreateShipmentActionResultDto::factory()->state([
         'referenceNumber' => 'test value',
-        'shipmentDto' => 'test value',
         'actionId' => 'action_id-123',
         'actionResult' => 'test value',
+        'errorInfo' => 'test value',
     ])->make();
 
     $request = new SalesOrderBasicV2CreateShipmentActionBysaleOrderNumberRequest(saleOrderNumber: 'test value', data: $dto);
@@ -34,9 +34,9 @@ it('calls the salesOrderBasicV2createShipmentActionBysaleOrderNumber method in t
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
             ->referenceNumber->toBe('test value')
-            ->shipmentDto->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value');
+            ->actionResult->toBe('test value')
+            ->errorInfo->toBe('test value');
 
         return true;
     });
@@ -50,9 +50,9 @@ it('calls the salesOrderBasicV2prepareInvoiceActionByorderTypeorderNumber method
     // Create DTO with sample data
     $dto = \Pionect\VismaSdk\Dto\PrepareInvoiceActionResultDto::factory()->state([
         'referenceNumber' => 'test value',
-        'customerInvoiceDto' => 'test value',
         'actionId' => 'action_id-123',
         'actionResult' => 'test value',
+        'errorInfo' => 'test value',
     ])->make();
 
     $request = new SalesOrderBasicV2PrepareInvoiceActionByorderTypeorderNumberRequest(orderType: 'test value', orderNumber: 'test value', data: $dto);
@@ -63,9 +63,9 @@ it('calls the salesOrderBasicV2prepareInvoiceActionByorderTypeorderNumber method
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
             ->referenceNumber->toBe('test value')
-            ->customerInvoiceDto->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value');
+            ->actionResult->toBe('test value')
+            ->errorInfo->toBe('test value');
 
         return true;
     });

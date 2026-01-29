@@ -218,9 +218,9 @@ it('calls the cashTransactionReverseByreferenceNbr method in the CashTransaction
     // Create DTO with sample data
     $dto = \Pionect\VismaSdk\Dto\ReverseCashTransactionActionResultDto::factory()->state([
         'referenceNbr' => 'test value',
-        'cashTransaction' => 'test value',
         'actionId' => 'action_id-123',
         'actionResult' => 'test value',
+        'errorInfo' => 'test value',
     ])->make();
 
     $request = new CashTransactionReverseByreferenceNbrRequest(referenceNbr: 'test value', data: $dto);
@@ -231,9 +231,9 @@ it('calls the cashTransactionReverseByreferenceNbr method in the CashTransaction
     $mockClient->assertSent(function (Request $request) {
         expect($request->body()->all())
             ->referenceNbr->toBe('test value')
-            ->cashTransaction->toBe('test value')
             ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value');
+            ->actionResult->toBe('test value')
+            ->errorInfo->toBe('test value');
 
         return true;
     });

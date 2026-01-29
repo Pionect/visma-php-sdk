@@ -205,7 +205,7 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
         ], 200),
     ]);
 
-    $request = (new EmployeeGetEmployeeTimeCardsCollectionRequest(employeeCd: 'test string', status: 'test string', week: 'test string', type: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', employeeCd: 'test string'));
+    $request = (new EmployeeGetEmployeeTimeCardsCollectionRequest(employeeCd: 'test string', status: 'test string', week: 'test string', type: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
 
     $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
 

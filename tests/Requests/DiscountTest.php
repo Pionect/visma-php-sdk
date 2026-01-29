@@ -121,7 +121,7 @@ it('calls the discountUpdateDiscountsBydiscountCodeseriesfilerDate method in the
         'errorInfo' => 'test value',
     ])->make();
 
-    $request = new DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest(discountCode: 'test value', series: 'test value', filerDate: '2025-01-15T10:30:00Z', data: $dto);
+    $request = new DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest(discountCode: 'test value', series: 'test value', filerDate: '2025-01-15T10:30:00Z', filterDate: '2025-01-15T10:30:00Z', data: $dto);
     $this->vismaConnector->send($request);
 
     Saloon::assertSent(DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest::class);
