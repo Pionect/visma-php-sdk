@@ -13,7 +13,7 @@ class NumberingSequenceDto extends Model
     public ?string $numberingId;
 
     #[Property]
-    public ?\branchInNumberingSequenceDto $branch;
+    public ?branchInNumberingSequenceDto $branch;
 
     /** Mandatory field: The table &gt; Start number* &gt; The number to be used first in this numbering series or subsequence. */
     #[Property]

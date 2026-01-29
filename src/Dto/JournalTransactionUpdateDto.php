@@ -27,10 +27,10 @@ class JournalTransactionUpdateDto extends Model
     public ?\Carbon\Carbon $transactionDate;
 
     #[Property]
-    public ?\postPeriodInJournalTransactionUpdateDto $postPeriod;
+    public ?postPeriodInJournalTransactionUpdateDto $postPeriod;
 
     #[Property]
-    public ?\financialPeriodInJournalTransactionUpdateDto $financialPeriod;
+    public ?financialPeriodInJournalTransactionUpdateDto $financialPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

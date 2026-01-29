@@ -37,7 +37,7 @@ class CustomerCreditNoteLineDto extends Model
     public ?string $itemType;
 
     #[Property]
-    public ?\WorkTypeDto $typeOfWork;
+    public ?WorkTypeDto $typeOfWork;
 
     #[Property]
     public ?float $deductableAmount;
@@ -55,7 +55,7 @@ class CustomerCreditNoteLineDto extends Model
     public ?array $attachments;
 
     #[Property]
-    public ?\ProjectTaskIdDescriptionDto $projectTask;
+    public ?ProjectTaskIdDescriptionDto $projectTask;
 
     /** Line no. &gt; A counter of lines in the overview of cash sales document overview. */
     #[Property]
@@ -114,10 +114,10 @@ class CustomerCreditNoteLineDto extends Model
     public ?float $amountInCurrency;
 
     #[Property]
-    public ?\accountInCustomerCreditNoteLineDto $account;
+    public ?accountInCustomerCreditNoteLineDto $account;
 
     #[Property]
-    public ?\vatCodeInCustomerCreditNoteLineDto $vatCode;
+    public ?vatCodeInCustomerCreditNoteLineDto $vatCode;
 
     /** UoM &gt; The unit of measure (UoM) for the item. */
     #[Property]
@@ -154,14 +154,14 @@ class CustomerCreditNoteLineDto extends Model
     public ?bool $manualDiscount;
 
     #[Property]
-    public ?\subaccountInCustomerCreditNoteLineDto $subaccount;
+    public ?subaccountInCustomerCreditNoteLineDto $subaccount;
 
     /** The field is deprecated for customer document endpoints, please use Seller instead */
     #[Property]
     public ?string $salesperson;
 
     #[Property]
-    public ?\sellerInCustomerCreditNoteLineDto $seller;
+    public ?sellerInCustomerCreditNoteLineDto $seller;
 
     /** Original deferral schedule &gt; A read-only column filled in by the system in the Cash return documents created by the reversing process. It shows the identifier of the deferral schedule associated with the original Cash sale document. */
     #[Property]
@@ -184,7 +184,7 @@ class CustomerCreditNoteLineDto extends Model
     public ?string $note;
 
     #[Property]
-    public ?\branchNumberInCustomerCreditNoteLineDto $branchNumber;
+    public ?branchNumberInCustomerCreditNoteLineDto $branchNumber;
 
     #[Property]
     public ?string $externalLink;

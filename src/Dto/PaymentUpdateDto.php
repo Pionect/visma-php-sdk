@@ -10,44 +10,44 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class PaymentUpdateDto extends Model
 {
     #[Property]
-    public ?\referenceNumberInPaymentUpdateDto $referenceNumber;
+    public ?referenceNumberInPaymentUpdateDto $referenceNumber;
 
     #[Property]
-    public ?\typeInPaymentUpdateDto $type;
+    public ?typeInPaymentUpdateDto $type;
 
     #[Property]
-    public ?\holdInPaymentUpdateDto $hold;
+    public ?holdInPaymentUpdateDto $hold;
 
     #[Property]
     #[DateTime]
     public ?\Carbon\Carbon $applicationDate;
 
     #[Property]
-    public ?\applicationPeriodInPaymentUpdateDto $applicationPeriod;
+    public ?applicationPeriodInPaymentUpdateDto $applicationPeriod;
 
     #[Property]
-    public ?\paymentRefInPaymentUpdateDto $paymentRef;
+    public ?paymentRefInPaymentUpdateDto $paymentRef;
 
     #[Property]
-    public ?\customerInPaymentUpdateDto $customer;
+    public ?customerInPaymentUpdateDto $customer;
 
     #[Property]
-    public ?\locationInPaymentUpdateDto $location;
+    public ?locationInPaymentUpdateDto $location;
 
     #[Property]
-    public ?\paymentMethodInPaymentUpdateDto $paymentMethod;
+    public ?paymentMethodInPaymentUpdateDto $paymentMethod;
 
     #[Property]
-    public ?\cashAccountInPaymentUpdateDto $cashAccount;
+    public ?cashAccountInPaymentUpdateDto $cashAccount;
 
     #[Property]
-    public ?\currencyInPaymentUpdateDto $currency;
+    public ?currencyInPaymentUpdateDto $currency;
 
     #[Property]
-    public ?\paymentAmountInPaymentUpdateDto $paymentAmount;
+    public ?paymentAmountInPaymentUpdateDto $paymentAmount;
 
     #[Property]
-    public ?\invoiceTextInPaymentUpdateDto $invoiceText;
+    public ?invoiceTextInPaymentUpdateDto $invoiceText;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

@@ -31,10 +31,10 @@ class CustomerDocumentAddressDto extends Model
     public ?string $city;
 
     #[Property]
-    public ?\countryInCustomerDocumentAddressDto $country;
+    public ?countryInCustomerDocumentAddressDto $country;
 
     #[Property]
-    public ?\countyInCustomerDocumentAddressDto $county;
+    public ?countyInCustomerDocumentAddressDto $county;
 
     /** Override address &gt; A check box that indicates (if selected) that the invoice address is not the default invoice address of the customer. */
     #[Property]

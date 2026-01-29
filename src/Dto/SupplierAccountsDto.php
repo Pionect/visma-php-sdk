@@ -8,7 +8,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class SupplierAccountsDto extends Model
 {
     #[Property]
-    public ?\supplierAccountInSupplierAccountsDto $supplierAccount;
+    public ?supplierAccountInSupplierAccountsDto $supplierAccount;
 
     /** The list of SUpplierItems Ids with their expense accounts */
     #[Property]

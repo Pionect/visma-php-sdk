@@ -21,19 +21,19 @@ class EntryTypeDto extends Model
     public ?string $module;
 
     #[Property]
-    public ?\defaultOffsetAccountBranchInEntryTypeDto $defaultOffsetAccountBranch;
+    public ?defaultOffsetAccountBranchInEntryTypeDto $defaultOffsetAccountBranch;
 
     #[Property]
-    public ?\defaultOffsetAccountInEntryTypeDto $defaultOffsetAccount;
+    public ?defaultOffsetAccountInEntryTypeDto $defaultOffsetAccount;
 
     #[Property]
-    public ?\defaultOffsetSubaccountInEntryTypeDto $defaultOffsetSubaccount;
+    public ?defaultOffsetSubaccountInEntryTypeDto $defaultOffsetSubaccount;
 
     #[Property]
-    public ?\reclasificationAccountInEntryTypeDto $reclasificationAccount;
+    public ?reclasificationAccountInEntryTypeDto $reclasificationAccount;
 
     #[Property]
-    public ?\businessAccountInEntryTypeDto $businessAccount;
+    public ?businessAccountInEntryTypeDto $businessAccount;
 
     /** Description &gt; A detailed description of the entry type that is used as transaction description by default. */
     #[Property]
@@ -44,19 +44,19 @@ class EntryTypeDto extends Model
     public ?bool $useForPaymentsReclasification;
 
     #[Property]
-    public ?\reclasificationAccountOverrideInEntryTypeDto $reclasificationAccountOverride;
+    public ?reclasificationAccountOverrideInEntryTypeDto $reclasificationAccountOverride;
 
     #[Property]
-    public ?\offsetAccountOverrideInEntryTypeDto $offsetAccountOverride;
+    public ?offsetAccountOverrideInEntryTypeDto $offsetAccountOverride;
 
     #[Property]
-    public ?\offsetSubaccountOverrideInEntryTypeDto $offsetSubaccountOverride;
+    public ?offsetSubaccountOverrideInEntryTypeDto $offsetSubaccountOverride;
 
     #[Property]
-    public ?\offsetAccountBranchInEntryTypeDto $offsetAccountBranch;
+    public ?offsetAccountBranchInEntryTypeDto $offsetAccountBranch;
 
     #[Property]
-    public ?\vatZoneInEntryTypeDto $vatZone;
+    public ?vatZoneInEntryTypeDto $vatZone;
 
     /** Tax calculation mode &gt; The tax calculation mode to be used by default with this entry type */
     #[Property]

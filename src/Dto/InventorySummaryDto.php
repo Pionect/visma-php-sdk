@@ -11,13 +11,13 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventorySummaryDto extends Model
 {
     #[Property]
-    public ?\inventoryInInventorySummaryDto $inventory;
+    public ?inventoryInInventorySummaryDto $inventory;
 
     #[Property]
-    public ?\warehouseInInventorySummaryDto $warehouse;
+    public ?warehouseInInventorySummaryDto $warehouse;
 
     #[Property]
-    public ?\locationInInventorySummaryDto $location;
+    public ?locationInInventorySummaryDto $location;
 
     /** The table &gt; Available &gt; The quantity of the stock items available at the specific warehouse and location. */
     #[Property]

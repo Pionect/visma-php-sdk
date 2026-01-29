@@ -71,17 +71,17 @@ class SummaryInCustomerContractDto extends Model
     public ?string $invoiceTo;
 
     #[Property]
-    public ?\invoiceAccountInCustomerContractSummaryDto $invoiceAccount;
+    public ?invoiceAccountInCustomerContractSummaryDto $invoiceAccount;
 
     #[Property]
-    public ?\LocationNameDescriptionDto $invoiceLocation;
+    public ?LocationNameDescriptionDto $invoiceLocation;
 
     #[Property]
-    public ?\ownerInCustomerContractSummaryDto $owner;
+    public ?ownerInCustomerContractSummaryDto $owner;
 
     #[Property]
-    public ?\salesPersonInCustomerContractSummaryDto $salesPerson;
+    public ?salesPersonInCustomerContractSummaryDto $salesPerson;
 
     #[Property]
-    public ?\caseCountItemInCustomerContractSummaryDto $caseCountItem;
+    public ?caseCountItemInCustomerContractSummaryDto $caseCountItem;
 }

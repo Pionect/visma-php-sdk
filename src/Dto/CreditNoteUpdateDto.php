@@ -59,10 +59,10 @@ class CreditNoteUpdateDto extends Model
     public ?bool $hold;
 
     #[Property]
-    public ?\postPeriodInCreditNoteUpdateDto $postPeriod;
+    public ?postPeriodInCreditNoteUpdateDto $postPeriod;
 
     #[Property]
-    public ?\financialPeriodInCreditNoteUpdateDto $financialPeriod;
+    public ?financialPeriodInCreditNoteUpdateDto $financialPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -73,10 +73,10 @@ class CreditNoteUpdateDto extends Model
     public ?string $locationId;
 
     #[Property]
-    public ?\salesPersonIDInCreditNoteUpdateDto $salesPersonId;
+    public ?salesPersonIDInCreditNoteUpdateDto $salesPersonId;
 
     #[Property]
-    public ?\salespersonInCreditNoteUpdateDto $salesperson;
+    public ?salespersonInCreditNoteUpdateDto $salesperson;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

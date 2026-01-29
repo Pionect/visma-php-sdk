@@ -35,8 +35,8 @@ class PurchaseOrderAddressDto extends Model
     public ?string $city;
 
     #[Property]
-    public ?\countryInPurchaseOrderAddressDto $country;
+    public ?countryInPurchaseOrderAddressDto $country;
 
     #[Property]
-    public ?\countyInPurchaseOrderAddressDto $county;
+    public ?countyInPurchaseOrderAddressDto $county;
 }

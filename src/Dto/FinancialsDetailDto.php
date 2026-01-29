@@ -13,7 +13,7 @@ class FinancialsDetailDto extends Model
     public ?string $batchNumber;
 
     #[Property]
-    public ?\branchInFinancialsDetailDto $branch;
+    public ?branchInFinancialsDetailDto $branch;
 
     /** Link to general ledger section &gt; Cleared &gt; A check box that indicates (if selected) that the transaction was cleared. */
     #[Property]
@@ -25,7 +25,7 @@ class FinancialsDetailDto extends Model
     public ?\Carbon\Carbon $clearDate;
 
     #[Property]
-    public ?\taxZoneInFinancialsDetailDto $taxZone;
+    public ?taxZoneInFinancialsDetailDto $taxZone;
 
     /** VAT settings section &gt; VAT calculation &gt; The VAT calculation mode, which defines which amounts (VAT-inclusive or VAT-exclusive) should be entered in the detail lines of a document. */
     #[Property]

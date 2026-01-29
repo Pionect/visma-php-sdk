@@ -32,10 +32,10 @@ class SupplierInvoiceUpdateDto extends Model
     public ?\Carbon\Carbon $origInvoiceDate;
 
     #[Property]
-    public ?\postPeriodInSupplierInvoiceUpdateDto $postPeriod;
+    public ?postPeriodInSupplierInvoiceUpdateDto $postPeriod;
 
     #[Property]
-    public ?\financialPeriodInSupplierInvoiceUpdateDto $financialPeriod;
+    public ?financialPeriodInSupplierInvoiceUpdateDto $financialPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -135,7 +135,7 @@ class SupplierInvoiceUpdateDto extends Model
     public ?array $invoiceLines;
 
     #[Property]
-    public ?\ApprovalDetailsUpdateDto $approvalDetails;
+    public ?ApprovalDetailsUpdateDto $approvalDetails;
 
     #[Property]
     public ?array $addPoreceiptLines;
@@ -147,12 +147,12 @@ class SupplierInvoiceUpdateDto extends Model
     public ?array $landedCosts;
 
     #[Property]
-    public ?\paySelectedInSupplierInvoiceUpdateDto $paySelected;
+    public ?paySelectedInSupplierInvoiceUpdateDto $paySelected;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?bool $overrideNumberSeries;
 
     #[Property]
-    public ?\validateLineDetailsInSupplierInvoiceUpdateDto $validateLineDetails;
+    public ?validateLineDetailsInSupplierInvoiceUpdateDto $validateLineDetails;
 }

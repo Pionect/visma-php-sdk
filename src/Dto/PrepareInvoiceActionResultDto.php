@@ -11,7 +11,7 @@ class PrepareInvoiceActionResultDto extends Model
     public ?string $referenceNumber;
 
     #[Property]
-    public ?\CustomerInvoiceDto $customerInvoiceDto;
+    public ?CustomerInvoiceDto $customerInvoiceDto;
 
     #[Property]
     public ?string $actionId;

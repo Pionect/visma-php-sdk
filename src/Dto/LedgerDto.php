@@ -32,7 +32,7 @@ class LedgerDto extends Model
     public ?bool $consolidationSource;
 
     #[Property]
-    public ?\consolBranchInLedgerDto $consolBranch;
+    public ?consolBranchInLedgerDto $consolBranch;
 
     /** The top part &gt; Branch accounting &gt; A check box that you select to indicate that the system should automatically generate inter-branch transactions for this ledger to balance transactions for all branches involved. */
     #[Property]

@@ -17,7 +17,7 @@ class SalesOrderBasicUpdateDto extends Model
     public ?array $lines;
 
     #[Property]
-    public ?\orderTypeInSalesOrderBasicUpdateDto $orderType;
+    public ?orderTypeInSalesOrderBasicUpdateDto $orderType;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -46,7 +46,7 @@ class SalesOrderBasicUpdateDto extends Model
     public ?string $customerRefNo;
 
     #[Property]
-    public ?\customerInSalesOrderBasicUpdateDto $customer;
+    public ?customerInSalesOrderBasicUpdateDto $customer;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -57,10 +57,10 @@ class SalesOrderBasicUpdateDto extends Model
     public ?int $contactId;
 
     #[Property]
-    public ?\glnInSalesOrderBasicUpdateDto $gln;
+    public ?glnInSalesOrderBasicUpdateDto $gln;
 
     #[Property]
-    public ?\vatRegistrationIdInSalesOrderBasicUpdateDto $vatRegistrationId;
+    public ?vatRegistrationIdInSalesOrderBasicUpdateDto $vatRegistrationId;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

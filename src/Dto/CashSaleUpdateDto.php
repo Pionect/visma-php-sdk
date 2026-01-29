@@ -18,7 +18,7 @@ class CashSaleUpdateDto extends Model
     public ?string $creditTermsId;
 
     #[Property]
-    public ?\paymentReferenceInCashSaleUpdateDto $paymentReference;
+    public ?paymentReferenceInCashSaleUpdateDto $paymentReference;
 
     #[Property]
     public ?array $cashSaleLines;
@@ -54,10 +54,10 @@ class CashSaleUpdateDto extends Model
     public ?bool $hold;
 
     #[Property]
-    public ?\postPeriodInCashSaleUpdateDto $postPeriod;
+    public ?postPeriodInCashSaleUpdateDto $postPeriod;
 
     #[Property]
-    public ?\financialPeriodInCashSaleUpdateDto $financialPeriod;
+    public ?financialPeriodInCashSaleUpdateDto $financialPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -68,10 +68,10 @@ class CashSaleUpdateDto extends Model
     public ?string $locationId;
 
     #[Property]
-    public ?\salesPersonIDInCashSaleUpdateDto $salesPersonId;
+    public ?salesPersonIDInCashSaleUpdateDto $salesPersonId;
 
     #[Property]
-    public ?\salespersonInCashSaleUpdateDto $salesperson;
+    public ?salespersonInCashSaleUpdateDto $salesperson;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

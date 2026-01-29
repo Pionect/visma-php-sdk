@@ -11,29 +11,29 @@ class SupplierInvoiceLandedCostUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\lineNumberInSupplierInvoiceLandedCostUpdateDto $lineNumber;
+    public ?lineNumberInSupplierInvoiceLandedCostUpdateDto $lineNumber;
 
     #[Property]
-    public ?\landedCostCodeIdInSupplierInvoiceLandedCostUpdateDto $landedCostCodeId;
+    public ?landedCostCodeIdInSupplierInvoiceLandedCostUpdateDto $landedCostCodeId;
 
     #[Property]
-    public ?\descriptionInSupplierInvoiceLandedCostUpdateDto $description;
+    public ?descriptionInSupplierInvoiceLandedCostUpdateDto $description;
 
     #[Property]
-    public ?\amountInSupplierInvoiceLandedCostUpdateDto $amount;
+    public ?amountInSupplierInvoiceLandedCostUpdateDto $amount;
 
     #[Property]
-    public ?\taxCategoryIdInSupplierInvoiceLandedCostUpdateDto $taxCategoryId;
+    public ?taxCategoryIdInSupplierInvoiceLandedCostUpdateDto $taxCategoryId;
 
     #[Property]
-    public ?\poReceiptNumberInSupplierInvoiceLandedCostUpdateDto $poReceiptNumber;
+    public ?poReceiptNumberInSupplierInvoiceLandedCostUpdateDto $poReceiptNumber;
 
     #[Property]
-    public ?\inventoryIdInSupplierInvoiceLandedCostUpdateDto $inventoryId;
+    public ?inventoryIdInSupplierInvoiceLandedCostUpdateDto $inventoryId;
 
     #[Property]
-    public ?\siteIdInSupplierInvoiceLandedCostUpdateDto $siteId;
+    public ?siteIdInSupplierInvoiceLandedCostUpdateDto $siteId;
 
     #[Property]
-    public ?\locationIdInSupplierInvoiceLandedCostUpdateDto $locationId;
+    public ?locationIdInSupplierInvoiceLandedCostUpdateDto $locationId;
 }

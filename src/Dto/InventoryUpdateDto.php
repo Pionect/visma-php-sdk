@@ -9,7 +9,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class InventoryUpdateDto extends Model
 {
     #[Property]
-    public ?\inventoryNumberInInventoryUpdateDto $inventoryNumber;
+    public ?inventoryNumberInInventoryUpdateDto $inventoryNumber;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -28,16 +28,16 @@ class InventoryUpdateDto extends Model
     public ?string $body;
 
     #[Property]
-    public ?\itemClassInInventoryUpdateDto $itemClass;
+    public ?itemClassInInventoryUpdateDto $itemClass;
 
     #[Property]
-    public ?\postingClassInInventoryUpdateDto $postingClass;
+    public ?postingClassInInventoryUpdateDto $postingClass;
 
     #[Property]
-    public ?\vatCodeInInventoryUpdateDto $vatCode;
+    public ?vatCodeInInventoryUpdateDto $vatCode;
 
     #[Property]
-    public ?\defaultPriceInInventoryUpdateDto $defaultPrice;
+    public ?defaultPriceInInventoryUpdateDto $defaultPrice;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -52,16 +52,16 @@ class InventoryUpdateDto extends Model
     public ?string $purchaseUnit;
 
     #[Property]
-    public ?\expenseAccrualAccountInInventoryUpdateDto $expenseAccrualAccount;
+    public ?expenseAccrualAccountInInventoryUpdateDto $expenseAccrualAccount;
 
     #[Property]
-    public ?\inventoryAccountInInventoryUpdateDto $inventoryAccount;
+    public ?inventoryAccountInInventoryUpdateDto $inventoryAccount;
 
     #[Property]
-    public ?\expenseAccountInInventoryUpdateDto $expenseAccount;
+    public ?expenseAccountInInventoryUpdateDto $expenseAccount;
 
     #[Property]
-    public ?\cogsAccountInInventoryUpdateDto $cogsAccount;
+    public ?cogsAccountInInventoryUpdateDto $cogsAccount;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -106,25 +106,25 @@ class InventoryUpdateDto extends Model
     public ?array $attributeLines;
 
     #[Property]
-    public ?\PackagingUpdateDto $packaging;
+    public ?PackagingUpdateDto $packaging;
 
     #[Property]
     public ?array $supplierDetails;
 
     #[Property]
-    public ?\IntrastatUpdateDto $intrastat;
+    public ?IntrastatUpdateDto $intrastat;
 
     #[Property]
     public ?array $crossReferences;
 
     #[Property]
-    public ?\defaultWarehouseInInventoryUpdateDto $defaultWarehouse;
+    public ?defaultWarehouseInInventoryUpdateDto $defaultWarehouse;
 
     #[Property]
-    public ?\defaultIssueFromInInventoryUpdateDto $defaultIssueFrom;
+    public ?defaultIssueFromInInventoryUpdateDto $defaultIssueFrom;
 
     #[Property]
-    public ?\defaultReceiptToInInventoryUpdateDto $defaultReceiptTo;
+    public ?defaultReceiptToInInventoryUpdateDto $defaultReceiptTo;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

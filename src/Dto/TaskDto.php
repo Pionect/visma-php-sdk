@@ -35,10 +35,10 @@ class TaskDto extends Model
     public ?\Carbon\Carbon $endDate;
 
     #[Property]
-    public ?\branchInTaskDto $branch;
+    public ?branchInTaskDto $branch;
 
     #[Property]
-    public ?\RateTableIdDescriptionDto $rateTable;
+    public ?RateTableIdDescriptionDto $rateTable;
 
     /** Mandatory field: Status* &gt; The status of the task, which can be one of the following: In planning, Active, Cancelled, Completed. */
     #[Property]
@@ -49,7 +49,7 @@ class TaskDto extends Model
     public ?bool $restrictEmployees;
 
     #[Property]
-    public ?\VisibilityDto $visibility;
+    public ?VisibilityDto $visibility;
 
     /**
      * Identifier that represents a specific version of the resource.

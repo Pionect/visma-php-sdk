@@ -17,7 +17,7 @@ class CustomerCreditWriteOffDto extends Model
     public ?float $roundingDiff;
 
     #[Property]
-    public ?\customerVatZoneInCustomerCreditWriteOffDto $customerVatZone;
+    public ?customerVatZoneInCustomerCreditWriteOffDto $customerVatZone;
 
     /**
      * Identifier that represents a specific version of the resource.
@@ -28,7 +28,7 @@ class CustomerCreditWriteOffDto extends Model
     public ?\Carbon\Carbon $timeStamp;
 
     #[Property]
-    public ?\customerInCustomerCreditWriteOffDto $customer;
+    public ?customerInCustomerCreditWriteOffDto $customer;
 
     /** The top part &gt; Type &gt; The document type. The following types are available: invoice, debit note, credit note, overdue charge, credit write-off */
     #[Property]
@@ -105,7 +105,7 @@ class CustomerCreditWriteOffDto extends Model
     public ?float $cashDiscountInCurrency;
 
     #[Property]
-    public ?\paymentMethodInCustomerCreditWriteOffDto $paymentMethod;
+    public ?paymentMethodInCustomerCreditWriteOffDto $paymentMethod;
 
     /** The top part &gt; External reference &gt; The external reference used in AutoInvoice. */
     #[Property]
@@ -138,23 +138,23 @@ class CustomerCreditWriteOffDto extends Model
     public ?float $vatTotalInCurrency;
 
     #[Property]
-    public ?\locationInCustomerCreditWriteOffDto $location;
+    public ?locationInCustomerCreditWriteOffDto $location;
 
     #[Property]
-    public ?\branchNumberInCustomerCreditWriteOffDto $branchNumber;
+    public ?branchNumberInCustomerCreditWriteOffDto $branchNumber;
 
     /** Financial details tab &gt; The payment information section &gt; Cash account &gt; The cash account associated with the payment method. */
     #[Property]
     public ?string $cashAccount;
 
     #[Property]
-    public ?\projectInCustomerCreditWriteOffDto $project;
+    public ?projectInCustomerCreditWriteOffDto $project;
 
     #[Property]
-    public ?\accountInCustomerCreditWriteOffDto $account;
+    public ?accountInCustomerCreditWriteOffDto $account;
 
     #[Property]
-    public ?\subaccountInCustomerCreditWriteOffDto $subaccount;
+    public ?subaccountInCustomerCreditWriteOffDto $subaccount;
 
     /** The top part &gt; Customer project no. &gt; The customer project no. used in AutoInvoice. */
     #[Property]

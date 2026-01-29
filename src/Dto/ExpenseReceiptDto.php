@@ -28,14 +28,14 @@ class ExpenseReceiptDto extends Model
     public ?float $taxTotal;
 
     #[Property]
-    public ?\currencyInExpenseReceiptDto $currency;
+    public ?currencyInExpenseReceiptDto $currency;
 
     /** Both tabs &gt; Ref. no. &gt; The reference number, which usually matches the number of the original receipt. */
     #[Property]
     public ?string $refNbr;
 
     #[Property]
-    public ?\InventoryNumberDescriptionDto $inventory;
+    public ?InventoryNumberDescriptionDto $inventory;
 
     /**
      * Open the receipt
@@ -73,47 +73,47 @@ class ExpenseReceiptDto extends Model
     public ?string $status;
 
     #[Property]
-    public ?\claimedByInExpenseReceiptDto $claimedBy;
+    public ?claimedByInExpenseReceiptDto $claimedBy;
 
     #[Property]
-    public ?\branchInExpenseReceiptDto $branch;
+    public ?branchInExpenseReceiptDto $branch;
 
     #[Property]
-    public ?\expenseClaimInExpenseReceiptDto $expenseClaim;
+    public ?expenseClaimInExpenseReceiptDto $expenseClaim;
 
     /** Receipt details tab &gt; Financial details section &gt; Invoiceable &gt; A check box that indicates (if selected) that the customer should be invoiced for the claim amount. */
     #[Property]
     public ?bool $invoiceable;
 
     #[Property]
-    public ?\projectInExpenseReceiptDto $project;
+    public ?projectInExpenseReceiptDto $project;
 
     #[Property]
-    public ?\projectTaskInExpenseReceiptDto $projectTask;
+    public ?projectTaskInExpenseReceiptDto $projectTask;
 
     #[Property]
-    public ?\customerInExpenseReceiptDto $customer;
+    public ?customerInExpenseReceiptDto $customer;
 
     #[Property]
-    public ?\locationInExpenseReceiptDto $location;
+    public ?locationInExpenseReceiptDto $location;
 
     #[Property]
-    public ?\expenseAccountInExpenseReceiptDto $expenseAccount;
+    public ?expenseAccountInExpenseReceiptDto $expenseAccount;
 
     #[Property]
-    public ?\expenseSubInExpenseReceiptDto $expenseSub;
+    public ?expenseSubInExpenseReceiptDto $expenseSub;
 
     #[Property]
-    public ?\salesAccountInExpenseReceiptDto $salesAccount;
+    public ?salesAccountInExpenseReceiptDto $salesAccount;
 
     #[Property]
-    public ?\salesSubInExpenseReceiptDto $salesSub;
+    public ?salesSubInExpenseReceiptDto $salesSub;
 
     #[Property]
-    public ?\taxCategoryInExpenseReceiptDto $taxCategory;
+    public ?taxCategoryInExpenseReceiptDto $taxCategory;
 
     #[Property]
-    public ?\imageInExpenseReceiptDto $image;
+    public ?imageInExpenseReceiptDto $image;
 
     /**
      * Identifier that represents a specific version of the resource.

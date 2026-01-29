@@ -34,8 +34,8 @@ class AddressInContactDto extends Model
     public ?string $city;
 
     #[Property]
-    public ?\countryInAddressDto $country;
+    public ?countryInAddressDto $country;
 
     #[Property]
-    public ?\countyInAddressDto $county;
+    public ?countyInAddressDto $county;
 }

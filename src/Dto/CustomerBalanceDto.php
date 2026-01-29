@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class CustomerBalanceDto extends Model
 {
     #[Property]
-    public ?\CustomerDescriptionDto $customer;
+    public ?CustomerDescriptionDto $customer;
 
     #[Property]
     public ?float $balance;

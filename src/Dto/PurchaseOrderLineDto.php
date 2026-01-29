@@ -16,17 +16,17 @@ class PurchaseOrderLineDto extends Model
     public ?int $lineNbr;
 
     #[Property]
-    public ?\branchInPurchaseOrderLineDto $branch;
+    public ?branchInPurchaseOrderLineDto $branch;
 
     #[Property]
-    public ?\inventoryInPurchaseOrderLineDto $inventory;
+    public ?inventoryInPurchaseOrderLineDto $inventory;
 
     /** Line type &gt; 	The type of the order line, which can be one of the following options: Goods for inventory, Non-stock, Service, Freight, Good for sales order, Non-stock for drop-ship, Drop-ship, Goods for RP, Description. */
     #[Property]
     public ?string $lineType;
 
     #[Property]
-    public ?\warehouseInPurchaseOrderLineDto $warehouse;
+    public ?warehouseInPurchaseOrderLineDto $warehouse;
 
     /** A description of the order line, which is copied from the item's description. */
     #[Property]
@@ -73,7 +73,7 @@ class PurchaseOrderLineDto extends Model
     public ?bool $manualDiscount;
 
     #[Property]
-    public ?\discountCodeInPurchaseOrderLineDto $discountCode;
+    public ?discountCodeInPurchaseOrderLineDto $discountCode;
 
     /** Amount &gt; The amount calculated (after the discount has been taken) for the item. */
     #[Property]
@@ -104,19 +104,19 @@ class PurchaseOrderLineDto extends Model
     public ?string $receiptAction;
 
     #[Property]
-    public ?\taxCategoryInPurchaseOrderLineDto $taxCategory;
+    public ?taxCategoryInPurchaseOrderLineDto $taxCategory;
 
     #[Property]
-    public ?\accountInPurchaseOrderLineDto $account;
+    public ?accountInPurchaseOrderLineDto $account;
 
     #[Property]
-    public ?\subInPurchaseOrderLineDto $sub;
+    public ?subInPurchaseOrderLineDto $sub;
 
     #[Property]
-    public ?\projectInPurchaseOrderLineDto $project;
+    public ?projectInPurchaseOrderLineDto $project;
 
     #[Property]
-    public ?\projectTaskInPurchaseOrderLineDto $projectTask;
+    public ?projectTaskInPurchaseOrderLineDto $projectTask;
 
     /** Requested &gt; The date when the item was requested. */
     #[Property]

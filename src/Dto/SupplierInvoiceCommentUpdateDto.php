@@ -12,10 +12,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class SupplierInvoiceCommentUpdateDto extends Model
 {
     #[Property]
-    public ?\userEmailInSupplierInvoiceCommentUpdateDto $userEmail;
+    public ?userEmailInSupplierInvoiceCommentUpdateDto $userEmail;
 
     #[Property]
-    public ?\commentTextInSupplierInvoiceCommentUpdateDto $commentText;
+    public ?commentTextInSupplierInvoiceCommentUpdateDto $commentText;
 
     #[Property]
     #[DateTime]

@@ -61,7 +61,7 @@ class VatInformationDto extends Model
     public ?string $cashDiscount;
 
     #[Property]
-    public ?\vatAgencyIdInVatInformationDto $vatAgencyId;
+    public ?vatAgencyIdInVatInformationDto $vatAgencyId;
 
     /** VAT settings tab &gt; Not valid after &gt; The date after which the VAT is not effective. */
     #[Property]
@@ -77,7 +77,7 @@ class VatInformationDto extends Model
     public ?string $documentText;
 
     #[Property]
-    public ?\defaultNonStockItemInVatInformationDto $defaultNonStockItem;
+    public ?defaultNonStockItemInVatInformationDto $defaultNonStockItem;
 
     /** VAT settings tab &gt; Visma XML VAT type &gt; The VAT type to be used in Visma XML files. */
     #[Property]
@@ -89,7 +89,7 @@ class VatInformationDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\glAccountsInVatInformationDto $glAccounts;
+    public ?glAccountsInVatInformationDto $glAccounts;
 
     /** Both tabs &gt; VAT schedule &gt; */
     #[Property]

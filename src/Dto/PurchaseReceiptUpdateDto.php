@@ -40,7 +40,7 @@ class PurchaseReceiptUpdateDto extends Model
     public ?\Carbon\Carbon $date;
 
     #[Property]
-    public ?\postPeriodInPurchaseReceiptUpdateDto $postPeriod;
+    public ?postPeriodInPurchaseReceiptUpdateDto $postPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -83,34 +83,34 @@ class PurchaseReceiptUpdateDto extends Model
     public ?string $branchNumber;
 
     #[Property]
-    public ?\customStr1InPurchaseReceiptUpdateDto $customStr1;
+    public ?customStr1InPurchaseReceiptUpdateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InPurchaseReceiptUpdateDto $customStr2;
+    public ?customStr2InPurchaseReceiptUpdateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InPurchaseReceiptUpdateDto $customStr3;
+    public ?customStr3InPurchaseReceiptUpdateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InPurchaseReceiptUpdateDto $customStr4;
+    public ?customStr4InPurchaseReceiptUpdateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InPurchaseReceiptUpdateDto $customStr5;
+    public ?customStr5InPurchaseReceiptUpdateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InPurchaseReceiptUpdateDto $customDec1;
+    public ?customDec1InPurchaseReceiptUpdateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InPurchaseReceiptUpdateDto $customDec2;
+    public ?customDec2InPurchaseReceiptUpdateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InPurchaseReceiptUpdateDto $customInt1;
+    public ?customInt1InPurchaseReceiptUpdateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InPurchaseReceiptUpdateDto $customInt2;
+    public ?customInt2InPurchaseReceiptUpdateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InPurchaseReceiptUpdateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InPurchaseReceiptUpdateDto $customDateTimeUtc1;
 
     #[Property]
     #[DateTime]

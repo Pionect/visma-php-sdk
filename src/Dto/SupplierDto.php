@@ -27,23 +27,23 @@ class SupplierDto extends Model
     public ?string $status;
 
     #[Property]
-    public ?\mainAddressInSupplierDto $mainAddress;
+    public ?mainAddressInSupplierDto $mainAddress;
 
     #[Property]
-    public ?\mainContactInSupplierDto $mainContact;
+    public ?mainContactInSupplierDto $mainContact;
 
     /** General information tab &gt; Main contact section &gt; Account ref. &gt; An optional text field that can contain a reference to your company's account number in the supplier's system. */
     #[Property]
     public ?string $accountReference;
 
     #[Property]
-    public ?\parentRecordInSupplierDto $parentRecord;
+    public ?parentRecordInSupplierDto $parentRecord;
 
     #[Property]
-    public ?\supplierClassInSupplierDto $supplierClass;
+    public ?supplierClassInSupplierDto $supplierClass;
 
     #[Property]
-    public ?\creditTermsInSupplierDto $creditTerms;
+    public ?creditTermsInSupplierDto $creditTerms;
 
     /** General information tab &gt; Financial settings section &gt; Document language &gt; The language of the documents to be printed to the suppliers of the class. */
     #[Property]
@@ -54,13 +54,13 @@ class SupplierDto extends Model
     public ?string $currencyId;
 
     #[Property]
-    public ?\remitAddressInSupplierDto $remitAddress;
+    public ?remitAddressInSupplierDto $remitAddress;
 
     #[Property]
-    public ?\remitContactInSupplierDto $remitContact;
+    public ?remitContactInSupplierDto $remitContact;
 
     #[Property]
-    public ?\paymentMethodInSupplierDto $paymentMethod;
+    public ?paymentMethodInSupplierDto $paymentMethod;
 
     /** Payment settings tab &gt; Payment settings section &gt; Cash account &gt; The cash account to be used for operations with the supplier. You must select a cash account. */
     #[Property]
@@ -92,13 +92,13 @@ class SupplierDto extends Model
     public ?bool $paySeparately;
 
     #[Property]
-    public ?\supplierAddressInSupplierDto $supplierAddress;
+    public ?supplierAddressInSupplierDto $supplierAddress;
 
     #[Property]
-    public ?\supplierContactInSupplierDto $supplierContact;
+    public ?supplierContactInSupplierDto $supplierContact;
 
     #[Property]
-    public ?\locationInSupplierDto $location;
+    public ?locationInSupplierDto $location;
 
     /** Purchase settings tab &gt; Default location settings section &gt; VAT registration ID &gt; The supplier's VAT registration ID associated with the location. */
     #[Property]
@@ -109,10 +109,10 @@ class SupplierDto extends Model
     public ?string $corporateId;
 
     #[Property]
-    public ?\vatZoneInSupplierDto $vatZone;
+    public ?vatZoneInSupplierDto $vatZone;
 
     #[Property]
-    public ?\glAccountsInSupplierDto $glAccounts;
+    public ?glAccountsInSupplierDto $glAccounts;
 
     /** Attributes tab &gt; */
     #[Property]

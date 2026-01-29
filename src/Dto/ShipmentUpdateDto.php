@@ -165,32 +165,32 @@ class ShipmentUpdateDto extends Model
     public ?array $shipmentPackageLines;
 
     #[Property]
-    public ?\customStr1InShipmentUpdateDto $customStr1;
+    public ?customStr1InShipmentUpdateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InShipmentUpdateDto $customStr2;
+    public ?customStr2InShipmentUpdateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InShipmentUpdateDto $customStr3;
+    public ?customStr3InShipmentUpdateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InShipmentUpdateDto $customStr4;
+    public ?customStr4InShipmentUpdateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InShipmentUpdateDto $customStr5;
+    public ?customStr5InShipmentUpdateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InShipmentUpdateDto $customDec1;
+    public ?customDec1InShipmentUpdateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InShipmentUpdateDto $customDec2;
+    public ?customDec2InShipmentUpdateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InShipmentUpdateDto $customInt1;
+    public ?customInt1InShipmentUpdateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InShipmentUpdateDto $customInt2;
+    public ?customInt2InShipmentUpdateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InShipmentUpdateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InShipmentUpdateDto $customDateTimeUtc1;
 }

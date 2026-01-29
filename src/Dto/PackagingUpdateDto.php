@@ -12,14 +12,14 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class PackagingUpdateDto extends Model
 {
     #[Property]
-    public ?\baseItemWeightInPackagingUpdateDto $baseItemWeight;
+    public ?baseItemWeightInPackagingUpdateDto $baseItemWeight;
 
     #[Property]
-    public ?\weightUOMInPackagingUpdateDto $weightUom;
+    public ?weightUOMInPackagingUpdateDto $weightUom;
 
     #[Property]
-    public ?\baseItemVolumeInPackagingUpdateDto $baseItemVolume;
+    public ?baseItemVolumeInPackagingUpdateDto $baseItemVolume;
 
     #[Property]
-    public ?\volumeUOMInPackagingUpdateDto $volumeUom;
+    public ?volumeUOMInPackagingUpdateDto $volumeUom;
 }

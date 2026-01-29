@@ -49,14 +49,14 @@ class SalesOrderBasicDto extends Model
     public ?string $customerRefNo;
 
     #[Property]
-    public ?\customerInSalesOrderBasicDto $customer;
+    public ?customerInSalesOrderBasicDto $customer;
 
     /** The top part &gt; Contact &gt; The contact person of the customer. */
     #[Property]
     public ?int $contactId;
 
     #[Property]
-    public ?\locationInSalesOrderBasicDto $location;
+    public ?locationInSalesOrderBasicDto $location;
 
     /** The top part &gt; Currency &gt; The currency of the document. */
     #[Property]
@@ -112,7 +112,7 @@ class SalesOrderBasicDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\branchNumberInSalesOrderBasicDto $branchNumber;
+    public ?branchNumberInSalesOrderBasicDto $branchNumber;
 
     /** Icon Notes on top of the window &gt; Pop-up window for providing any user-defined text connected to the order. */
     #[Property]

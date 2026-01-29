@@ -42,13 +42,13 @@ class PurchaseReceiptBasicDto extends Model
     public ?string $postPeriod;
 
     #[Property]
-    public ?\warehouseInPurchaseReceiptBasicDto $warehouse;
+    public ?warehouseInPurchaseReceiptBasicDto $warehouse;
 
     #[Property]
-    public ?\supplierInPurchaseReceiptBasicDto $supplier;
+    public ?supplierInPurchaseReceiptBasicDto $supplier;
 
     #[Property]
-    public ?\locationInPurchaseReceiptBasicDto $location;
+    public ?locationInPurchaseReceiptBasicDto $location;
 
     /** The top part &gt; Currency &gt; The currency the supplier uses for invoicing. */
     #[Property]
@@ -95,7 +95,7 @@ class PurchaseReceiptBasicDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\branchNumberInPurchaseReceiptBasicDto $branchNumber;
+    public ?branchNumberInPurchaseReceiptBasicDto $branchNumber;
 
     /** Document details tab &gt; Line no &gt; The number of the purchase receipt line on the document. */
     #[Property]

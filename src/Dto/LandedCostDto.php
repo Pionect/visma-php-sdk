@@ -28,10 +28,10 @@ class LandedCostDto extends Model
     public ?string $purchaseInvoiceNbr;
 
     #[Property]
-    public ?\supplierInLandedCostDto $supplier;
+    public ?supplierInLandedCostDto $supplier;
 
     #[Property]
-    public ?\locationInLandedCostDto $location;
+    public ?locationInLandedCostDto $location;
 
     /** Landed costs tab &gt; Purchase invoice date &gt; The date of the purchase invoice for the landed cost. */
     #[Property]
@@ -47,13 +47,13 @@ class LandedCostDto extends Model
     public ?float $amount;
 
     #[Property]
-    public ?\taxCategoryInLandedCostDto $taxCategory;
+    public ?taxCategoryInLandedCostDto $taxCategory;
 
     #[Property]
-    public ?\termsInLandedCostDto $terms;
+    public ?termsInLandedCostDto $terms;
 
     #[Property]
-    public ?\InventoryNumberDescriptionDto $inventory;
+    public ?InventoryNumberDescriptionDto $inventory;
 
     /** Landed costs tab &gt; Supplier document type &gt; The type of the supplier document generated for the landed cost. */
     #[Property]

@@ -11,35 +11,35 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class BankSettingsUpdateDto extends Model
 {
     #[Property]
-    public ?\bankNameInBankSettingsUpdateDto $bankName;
+    public ?bankNameInBankSettingsUpdateDto $bankName;
 
     #[Property]
-    public ?\bankAddress1InBankSettingsUpdateDto $bankAddress1;
+    public ?bankAddress1InBankSettingsUpdateDto $bankAddress1;
 
     #[Property]
-    public ?\bankAddress2InBankSettingsUpdateDto $bankAddress2;
+    public ?bankAddress2InBankSettingsUpdateDto $bankAddress2;
 
     #[Property]
-    public ?\bankAddress3InBankSettingsUpdateDto $bankAddress3;
+    public ?bankAddress3InBankSettingsUpdateDto $bankAddress3;
 
     #[Property]
-    public ?\bankCountryInBankSettingsUpdateDto $bankCountry;
+    public ?bankCountryInBankSettingsUpdateDto $bankCountry;
 
     #[Property]
-    public ?\ibanInBankSettingsUpdateDto $iban;
+    public ?ibanInBankSettingsUpdateDto $iban;
 
     #[Property]
-    public ?\bbanInBankSettingsUpdateDto $bban;
+    public ?bbanInBankSettingsUpdateDto $bban;
 
     #[Property]
-    public ?\bbaN2InBankSettingsUpdateDto $bbaN2;
+    public ?bbaN2InBankSettingsUpdateDto $bbaN2;
 
     #[Property]
-    public ?\bbaN3InBankSettingsUpdateDto $bbaN3;
+    public ?bbaN3InBankSettingsUpdateDto $bbaN3;
 
     #[Property]
-    public ?\bicInBankSettingsUpdateDto $bic;
+    public ?bicInBankSettingsUpdateDto $bic;
 
     #[Property]
-    public ?\creditorIdInBankSettingsUpdateDto $creditorId;
+    public ?creditorIdInBankSettingsUpdateDto $creditorId;
 }

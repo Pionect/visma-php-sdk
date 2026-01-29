@@ -41,13 +41,13 @@ class PaymentDto extends Model
     public ?string $paymentRef;
 
     #[Property]
-    public ?\customerInPaymentDto $customer;
+    public ?customerInPaymentDto $customer;
 
     #[Property]
-    public ?\locationInPaymentDto $location;
+    public ?locationInPaymentDto $location;
 
     #[Property]
-    public ?\paymentMethodInPaymentDto $paymentMethod;
+    public ?paymentMethodInPaymentDto $paymentMethod;
 
     /** Mandatory field: The top part &gt; Cash account* &gt; The default cash account associated with the payment method; this field is not available for credit notes. */
     #[Property]
@@ -106,7 +106,7 @@ class PaymentDto extends Model
     public ?array $ordersToApply;
 
     #[Property]
-    public ?\financialDetailsInPaymentDto $financialDetails;
+    public ?financialDetailsInPaymentDto $financialDetails;
 
     /** Payment amount calculated in your default (base) currency. This field is applicable if the amount is given in another currency than your default. */
     #[Property]

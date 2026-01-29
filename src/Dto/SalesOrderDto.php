@@ -28,13 +28,13 @@ class SalesOrderDto extends Model
     public ?bool $printNoteOnInternalDocuments;
 
     #[Property]
-    public ?\soBillingContactInSalesOrderDto $soBillingContact;
+    public ?soBillingContactInSalesOrderDto $soBillingContact;
 
     #[Property]
-    public ?\soBillingAddressInSalesOrderDto $soBillingAddress;
+    public ?soBillingAddressInSalesOrderDto $soBillingAddress;
 
     #[Property]
-    public ?\customerVATZoneInSalesOrderDto $customerVatzone;
+    public ?customerVATZoneInSalesOrderDto $customerVatzone;
 
     /** Financial settings tab &gt; Financial information section &gt; Invoice separately &gt; A check box that indicating that this document is to be invoiced separately (if that is required). */
     #[Property]
@@ -50,7 +50,7 @@ class SalesOrderDto extends Model
     public ?\Carbon\Carbon $invoiceDate;
 
     #[Property]
-    public ?\termsInSalesOrderDto $terms;
+    public ?termsInSalesOrderDto $terms;
 
     /** Financial settings tab &gt; Financial information section &gt; Due date &gt; The due date of the invoice according to the credit terms. */
     #[Property]
@@ -67,7 +67,7 @@ class SalesOrderDto extends Model
     public ?string $postPeriod;
 
     #[Property]
-    public ?\salesPersonInSalesOrderDto $salesPerson;
+    public ?salesPersonInSalesOrderDto $salesPerson;
 
     /** The Commissions tab &gt; Commission (%) &gt; The percentage of commission generally earned by the salesperson. */
     #[Property]
@@ -82,7 +82,7 @@ class SalesOrderDto extends Model
     public ?string $commissionableAmount;
 
     #[Property]
-    public ?\ownerInSalesOrderDto $owner;
+    public ?ownerInSalesOrderDto $owner;
 
     /** Mandatory field: The top part &gt; Order type* &gt; The type of the document, which is one of the predefined order types or a custom order type created by using the window SO201000. */
     #[Property]
@@ -93,10 +93,10 @@ class SalesOrderDto extends Model
     public ?string $origOrderNbr;
 
     #[Property]
-    public ?\soShippingContactInSalesOrderDto $soShippingContact;
+    public ?soShippingContactInSalesOrderDto $soShippingContact;
 
     #[Property]
-    public ?\soShippingAddressInSalesOrderDto $soShippingAddress;
+    public ?soShippingAddressInSalesOrderDto $soShippingAddress;
 
     /** Delivery settings tab &gt; Shipping information section &gt; Sched. shipment &gt; The date when the ordered goods are scheduled to be shipped. */
     #[Property]
@@ -121,23 +121,23 @@ class SalesOrderDto extends Model
     public ?bool $canceled;
 
     #[Property]
-    public ?\preferredWarehouseInSalesOrderDto $preferredWarehouse;
+    public ?preferredWarehouseInSalesOrderDto $preferredWarehouse;
 
     #[Property]
-    public ?\shipViaInSalesOrderDto $shipVia;
+    public ?shipViaInSalesOrderDto $shipVia;
 
     #[Property]
-    public ?\fobPointInSalesOrderDto $fobPoint;
+    public ?fobPointInSalesOrderDto $fobPoint;
 
     /** Delivery settings tab &gt; Shipping information section &gt; Priority &gt; Field only for informational purposes. The level of priority for processing order of this customer, as specified for the customer on the Shipping settings tab on the AR303000 window. */
     #[Property]
     public ?int $priority;
 
     #[Property]
-    public ?\shippingTermsInSalesOrderDto $shippingTerms;
+    public ?shippingTermsInSalesOrderDto $shippingTerms;
 
     #[Property]
-    public ?\shippingZoneInSalesOrderDto $shippingZone;
+    public ?shippingZoneInSalesOrderDto $shippingZone;
 
     /** Delivery settings tab &gt; Shipping information section &gt; Residential delivery &gt; A check box that you select to indicate that the shipment should be delivered to a residential area. */
     #[Property]
@@ -152,10 +152,10 @@ class SalesOrderDto extends Model
     public ?bool $insurance;
 
     #[Property]
-    public ?\transactionTypeInSalesOrderDto $transactionType;
+    public ?transactionTypeInSalesOrderDto $transactionType;
 
     #[Property]
-    public ?\paymentMethodInSalesOrderDto $paymentMethod;
+    public ?paymentMethodInSalesOrderDto $paymentMethod;
 
     /** Payment settings tab &gt; Cash account */
     #[Property]
@@ -216,14 +216,14 @@ class SalesOrderDto extends Model
     public ?string $customerRefNo;
 
     #[Property]
-    public ?\customerInSalesOrderDto $customer;
+    public ?customerInSalesOrderDto $customer;
 
     /** The top part &gt; Contact &gt; The contact person of the customer. */
     #[Property]
     public ?int $contactId;
 
     #[Property]
-    public ?\locationInSalesOrderDto $location;
+    public ?locationInSalesOrderDto $location;
 
     /** The top part &gt; Currency &gt; The currency of the document. */
     #[Property]
@@ -279,7 +279,7 @@ class SalesOrderDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\branchNumberInSalesOrderDto $branchNumber;
+    public ?branchNumberInSalesOrderDto $branchNumber;
 
     /** Icon Notes on top of the window &gt; Pop-up window for providing any user-defined text connected to the order. */
     #[Property]

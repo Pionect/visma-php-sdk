@@ -21,10 +21,10 @@ class BudgetDto extends Model
     public ?float $releasedAmount;
 
     #[Property]
-    public ?\accountInBudgetDto $account;
+    public ?accountInBudgetDto $account;
 
     #[Property]
-    public ?\subaccountInBudgetDto $subaccount;
+    public ?subaccountInBudgetDto $subaccount;
 
     /** Mandatory field: The budget area &gt; The budget articles pane &gt; Description* &gt; A description of the budget article.By default, this column displays the account description. */
     #[Property]
@@ -48,7 +48,7 @@ class BudgetDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\branchNumberInBudgetDto $branchNumber;
+    public ?branchNumberInBudgetDto $branchNumber;
 
     /** The timestamp of the budget article, used for concurrency control. */
     #[Property]

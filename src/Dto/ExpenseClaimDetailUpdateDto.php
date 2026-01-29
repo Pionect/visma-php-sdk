@@ -11,57 +11,57 @@ class ExpenseClaimDetailUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\claimDetailIdInExpenseClaimDetailUpdateDto $claimDetailId;
+    public ?claimDetailIdInExpenseClaimDetailUpdateDto $claimDetailId;
 
     #[Property]
-    public ?\dateInExpenseClaimDetailUpdateDto $date;
+    public ?dateInExpenseClaimDetailUpdateDto $date;
 
     #[Property]
-    public ?\expenseItemInExpenseClaimDetailUpdateDto $expenseItem;
+    public ?expenseItemInExpenseClaimDetailUpdateDto $expenseItem;
 
     #[Property]
-    public ?\descriptionInExpenseClaimDetailUpdateDto $description;
+    public ?descriptionInExpenseClaimDetailUpdateDto $description;
 
     #[Property]
-    public ?\quantityInExpenseClaimDetailUpdateDto $quantity;
+    public ?quantityInExpenseClaimDetailUpdateDto $quantity;
 
     #[Property]
-    public ?\uomInExpenseClaimDetailUpdateDto $uom;
+    public ?uomInExpenseClaimDetailUpdateDto $uom;
 
     #[Property]
-    public ?\unitCostInExpenseClaimDetailUpdateDto $unitCost;
+    public ?unitCostInExpenseClaimDetailUpdateDto $unitCost;
 
     #[Property]
-    public ?\invoiceableInExpenseClaimDetailUpdateDto $invoiceable;
+    public ?invoiceableInExpenseClaimDetailUpdateDto $invoiceable;
 
     #[Property]
-    public ?\projectInExpenseClaimDetailUpdateDto $project;
+    public ?projectInExpenseClaimDetailUpdateDto $project;
 
     #[Property]
-    public ?\projectTaskInExpenseClaimDetailUpdateDto $projectTask;
+    public ?projectTaskInExpenseClaimDetailUpdateDto $projectTask;
 
     #[Property]
-    public ?\expenseAccountInExpenseClaimDetailUpdateDto $expenseAccount;
+    public ?expenseAccountInExpenseClaimDetailUpdateDto $expenseAccount;
 
     /** The corresponding subaccount the system uses to record the part of the expense to be paid back to the employee. */
     #[Property]
     public ?array $expenseSubaccount;
 
     #[Property]
-    public ?\branchInExpenseClaimDetailUpdateDto $branch;
+    public ?branchInExpenseClaimDetailUpdateDto $branch;
 
     #[Property]
-    public ?\taxCategoryInExpenseClaimDetailUpdateDto $taxCategory;
+    public ?taxCategoryInExpenseClaimDetailUpdateDto $taxCategory;
 
     #[Property]
-    public ?\refNbrInExpenseClaimDetailUpdateDto $refNbr;
+    public ?refNbrInExpenseClaimDetailUpdateDto $refNbr;
 
     #[Property]
-    public ?\employeePartInExpenseClaimDetailUpdateDto $employeePart;
+    public ?employeePartInExpenseClaimDetailUpdateDto $employeePart;
 
     #[Property]
-    public ?\customerInExpenseClaimDetailUpdateDto $customer;
+    public ?customerInExpenseClaimDetailUpdateDto $customer;
 
     #[Property]
-    public ?\locationInExpenseClaimDetailUpdateDto $location;
+    public ?locationInExpenseClaimDetailUpdateDto $location;
 }

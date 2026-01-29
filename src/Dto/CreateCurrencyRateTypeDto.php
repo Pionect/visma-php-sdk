@@ -8,11 +8,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class CreateCurrencyRateTypeDto extends Model
 {
     #[Property]
-    public ?\idInCreateCurrencyRateTypeDto $id;
+    public ?idInCreateCurrencyRateTypeDto $id;
 
     #[Property]
-    public ?\descriptionInCreateCurrencyRateTypeDto $description;
+    public ?descriptionInCreateCurrencyRateTypeDto $description;
 
     #[Property]
-    public ?\daysEffectiveInCreateCurrencyRateTypeDto $daysEffective;
+    public ?daysEffectiveInCreateCurrencyRateTypeDto $daysEffective;
 }

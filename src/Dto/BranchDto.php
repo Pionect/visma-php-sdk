@@ -45,32 +45,32 @@ class BranchDto extends Model
     public ?string $vatRegistrationId;
 
     #[Property]
-    public ?\mainAddressInBranchDto $mainAddress;
+    public ?mainAddressInBranchDto $mainAddress;
 
     #[Property]
-    public ?\mainContactInBranchDto $mainContact;
+    public ?mainContactInBranchDto $mainContact;
 
     #[Property]
-    public ?\deliveryAddressInBranchDto $deliveryAddress;
+    public ?deliveryAddressInBranchDto $deliveryAddress;
 
     #[Property]
-    public ?\deliveryContactInBranchDto $deliveryContact;
+    public ?deliveryContactInBranchDto $deliveryContact;
 
     #[Property]
-    public ?\defaultCountryInBranchDto $defaultCountry;
+    public ?defaultCountryInBranchDto $defaultCountry;
 
     #[Property]
-    public ?\industryCodeInBranchDto $industryCode;
+    public ?industryCodeInBranchDto $industryCode;
 
     #[Property]
-    public ?\currencyInBranchDto $currency;
+    public ?currencyInBranchDto $currency;
 
     #[Property]
-    public ?\vatZoneInBranchDto $vatZone;
+    public ?vatZoneInBranchDto $vatZone;
 
     #[Property]
-    public ?\ledgerInBranchDto $ledger;
+    public ?ledgerInBranchDto $ledger;
 
     #[Property]
-    public ?\bankSettingsInBranchDto $bankSettings;
+    public ?bankSettingsInBranchDto $bankSettings;
 }

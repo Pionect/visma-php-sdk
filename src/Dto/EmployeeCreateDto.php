@@ -29,11 +29,11 @@ class EmployeeCreateDto extends Model
     public ?string $calendar;
 
     #[Property]
-    public ?\EmployeeContactUpdateDto $contact;
+    public ?EmployeeContactUpdateDto $contact;
 
     #[Property]
-    public ?\AddressUpdateDto $address;
+    public ?AddressUpdateDto $address;
 
     #[Property]
-    public ?\statusInEmployeeCreateDTO $status;
+    public ?statusInEmployeeCreateDTO $status;
 }

@@ -37,13 +37,13 @@ class GeneralLedgerTransactionDetailsDto extends Model
     public ?string $refNumber;
 
     #[Property]
-    public ?\branchInGeneralLedgerTransactionDetailsDto $branch;
+    public ?branchInGeneralLedgerTransactionDetailsDto $branch;
 
     #[Property]
-    public ?\accountInGeneralLedgerTransactionDetailsDto $account;
+    public ?accountInGeneralLedgerTransactionDetailsDto $account;
 
     #[Property]
-    public ?\ledgerInGeneralLedgerTransactionDetailsDto $ledger;
+    public ?ledgerInGeneralLedgerTransactionDetailsDto $ledger;
 
     /** Subaccount &gt; The subaccount used in the batch. */
     #[Property]

@@ -24,7 +24,7 @@ class SalesPersonDto extends Model
     public ?float $commissionPct;
 
     #[Property]
-    public ?\SubAccountDescriptionDto $salesSub;
+    public ?SubAccountDescriptionDto $salesSub;
 
     #[Property]
     public ?array $customers;

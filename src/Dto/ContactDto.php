@@ -47,7 +47,7 @@ class ContactDto extends Model
     public ?bool $sameAsAccount;
 
     #[Property]
-    public ?\addressInContactDto $address;
+    public ?addressInContactDto $address;
 
     /** The Details tab &gt; Contact section &gt; Email &gt; The email address of the contact. */
     #[Property]

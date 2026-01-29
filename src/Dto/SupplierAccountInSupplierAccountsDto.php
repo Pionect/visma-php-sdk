@@ -23,5 +23,5 @@ class SupplierAccountInSupplierAccountsDto extends Model
     public ?string $accountId;
 
     #[Property]
-    public ?\subaccountInSupplierAccountDto $subaccount;
+    public ?subaccountInSupplierAccountDto $subaccount;
 }

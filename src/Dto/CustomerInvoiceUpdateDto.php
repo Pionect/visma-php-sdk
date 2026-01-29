@@ -52,7 +52,7 @@ class CustomerInvoiceUpdateDto extends Model
     public ?bool $domesticServicesDeductibleDocument;
 
     #[Property]
-    public ?\RotRutUpdateDto $rotRutDetails;
+    public ?RotRutUpdateDto $rotRutDetails;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -82,11 +82,11 @@ class CustomerInvoiceUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\SalesInvoiceAddressUpdateDto $billingAddress;
+    public ?SalesInvoiceAddressUpdateDto $billingAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\SalesInvoiceContactUpdateDto $invoiceContact;
+    public ?SalesInvoiceContactUpdateDto $invoiceContact;
 
     #[Property]
     #[DateTime]
@@ -115,7 +115,7 @@ class CustomerInvoiceUpdateDto extends Model
     public ?bool $revoked;
 
     #[Property]
-    public ?\overrideNumberSeriesInCustomerInvoiceUpdateDto $overrideNumberSeries;
+    public ?overrideNumberSeriesInCustomerInvoiceUpdateDto $overrideNumberSeries;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -172,10 +172,10 @@ class CustomerInvoiceUpdateDto extends Model
     public ?bool $hold;
 
     #[Property]
-    public ?\postPeriodInCustomerInvoiceUpdateDto $postPeriod;
+    public ?postPeriodInCustomerInvoiceUpdateDto $postPeriod;
 
     #[Property]
-    public ?\financialPeriodInCustomerInvoiceUpdateDto $financialPeriod;
+    public ?financialPeriodInCustomerInvoiceUpdateDto $financialPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -186,10 +186,10 @@ class CustomerInvoiceUpdateDto extends Model
     public ?string $locationId;
 
     #[Property]
-    public ?\salesPersonIDInCustomerInvoiceUpdateDto $salesPersonId;
+    public ?salesPersonIDInCustomerInvoiceUpdateDto $salesPersonId;
 
     #[Property]
-    public ?\salespersonInCustomerInvoiceUpdateDto $salesperson;
+    public ?salespersonInCustomerInvoiceUpdateDto $salesperson;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

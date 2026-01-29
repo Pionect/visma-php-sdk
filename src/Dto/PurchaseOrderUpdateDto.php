@@ -27,11 +27,11 @@ class PurchaseOrderUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\PurchaseOrderContactUpdateDto $shippingContact;
+    public ?PurchaseOrderContactUpdateDto $shippingContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\PurchaseOrderAddressUpdateDto $shippingAddress;
+    public ?PurchaseOrderAddressUpdateDto $shippingAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -47,11 +47,11 @@ class PurchaseOrderUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\PurchaseOrderContactUpdateDto $remitContact;
+    public ?PurchaseOrderContactUpdateDto $remitContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\PurchaseOrderAddressUpdateDto $remitAddress;
+    public ?PurchaseOrderAddressUpdateDto $remitAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -99,17 +99,17 @@ class PurchaseOrderUpdateDto extends Model
     public ?string $description;
 
     #[Property]
-    public ?\supplierInPurchaseOrderUpdateDto $supplier;
+    public ?supplierInPurchaseOrderUpdateDto $supplier;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?string $location;
 
     #[Property]
-    public ?\glnInPurchaseOrderUpdateDto $gln;
+    public ?glnInPurchaseOrderUpdateDto $gln;
 
     #[Property]
-    public ?\vatRegistrationIdInPurchaseOrderUpdateDto $vatRegistrationId;
+    public ?vatRegistrationIdInPurchaseOrderUpdateDto $vatRegistrationId;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -150,34 +150,34 @@ class PurchaseOrderUpdateDto extends Model
     public ?bool $overrideNumberSeries;
 
     #[Property]
-    public ?\customStr1InPurchaseOrderUpdateDto $customStr1;
+    public ?customStr1InPurchaseOrderUpdateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InPurchaseOrderUpdateDto $customStr2;
+    public ?customStr2InPurchaseOrderUpdateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InPurchaseOrderUpdateDto $customStr3;
+    public ?customStr3InPurchaseOrderUpdateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InPurchaseOrderUpdateDto $customStr4;
+    public ?customStr4InPurchaseOrderUpdateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InPurchaseOrderUpdateDto $customStr5;
+    public ?customStr5InPurchaseOrderUpdateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InPurchaseOrderUpdateDto $customDec1;
+    public ?customDec1InPurchaseOrderUpdateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InPurchaseOrderUpdateDto $customDec2;
+    public ?customDec2InPurchaseOrderUpdateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InPurchaseOrderUpdateDto $customInt1;
+    public ?customInt1InPurchaseOrderUpdateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InPurchaseOrderUpdateDto $customInt2;
+    public ?customInt2InPurchaseOrderUpdateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InPurchaseOrderUpdateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InPurchaseOrderUpdateDto $customDateTimeUtc1;
 
     #[Property]
     #[DateTime]

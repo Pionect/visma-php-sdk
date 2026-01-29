@@ -41,7 +41,7 @@ class ProjectTaskUpdateDto extends Model
     public ?string $status;
 
     #[Property]
-    public ?\VisibilityUpdateDto $visibility;
+    public ?VisibilityUpdateDto $visibility;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

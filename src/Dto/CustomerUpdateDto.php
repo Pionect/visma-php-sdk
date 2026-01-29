@@ -113,11 +113,11 @@ class CustomerUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\AddressUpdateDto $mainAddress;
+    public ?AddressUpdateDto $mainAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\ContactInfoUpdateDto $mainContact;
+    public ?ContactInfoUpdateDto $mainContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -125,11 +125,11 @@ class CustomerUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\AddressUpdateDto $invoiceAddress;
+    public ?AddressUpdateDto $invoiceAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\ContactInfoUpdateDto $invoiceContact;
+    public ?ContactInfoUpdateDto $invoiceContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -137,11 +137,11 @@ class CustomerUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\AddressUpdateDto $deliveryAddress;
+    public ?AddressUpdateDto $deliveryAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\ContactInfoUpdateDto $deliveryContact;
+    public ?ContactInfoUpdateDto $deliveryContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -149,15 +149,15 @@ class CustomerUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\EInvoiceContractUpdateDto $eInvoiceContract;
+    public ?EInvoiceContractUpdateDto $eInvoiceContract;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\CustomerDefaultPaymentMethodUpdateDto $defaultPaymentMethod;
+    public ?CustomerDefaultPaymentMethodUpdateDto $defaultPaymentMethod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\CustomerGlAccountsUpdateDto $glAccounts;
+    public ?CustomerGlAccountsUpdateDto $glAccounts;
 
     /** Update direct debit information for a customer(only for Netherlands) */
     #[Property]

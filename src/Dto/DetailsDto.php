@@ -60,8 +60,8 @@ class DetailsDto extends Model
     public ?string $serialNumber;
 
     #[Property]
-    public ?\disposalMethodInDetailsDto $disposalMethod;
+    public ?disposalMethodInDetailsDto $disposalMethod;
 
     #[Property]
-    public ?\leaseAndRentInfoInDetailsDto $leaseAndRentInfo;
+    public ?leaseAndRentInfoInDetailsDto $leaseAndRentInfo;
 }

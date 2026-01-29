@@ -12,10 +12,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class SupplierLocationUpdateDto extends Model
 {
     #[Property]
-    public ?\baccountIdInSupplierLocationUpdateDto $baccountId;
+    public ?baccountIdInSupplierLocationUpdateDto $baccountId;
 
     #[Property]
-    public ?\locationIdInSupplierLocationUpdateDto $locationId;
+    public ?locationIdInSupplierLocationUpdateDto $locationId;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -31,7 +31,7 @@ class SupplierLocationUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\AddressUpdateDto $address;
+    public ?AddressUpdateDto $address;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -39,7 +39,7 @@ class SupplierLocationUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\ContactInfoUpdateDto $contact;
+    public ?ContactInfoUpdateDto $contact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

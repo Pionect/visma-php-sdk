@@ -11,44 +11,44 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class AccountInformationInInventoryDto extends Model
 {
     #[Property]
-    public ?\expenseAccrualAccountInInventoryAccountInformationDto $expenseAccrualAccount;
+    public ?expenseAccrualAccountInInventoryAccountInformationDto $expenseAccrualAccount;
 
     #[Property]
-    public ?\inventoryAccountInInventoryAccountInformationDto $inventoryAccount;
+    public ?inventoryAccountInInventoryAccountInformationDto $inventoryAccount;
 
     #[Property]
-    public ?\expenseAccountInInventoryAccountInformationDto $expenseAccount;
+    public ?expenseAccountInInventoryAccountInformationDto $expenseAccount;
 
     #[Property]
-    public ?\cogsAccountInInventoryAccountInformationDto $cogsAccount;
+    public ?cogsAccountInInventoryAccountInformationDto $cogsAccount;
 
     #[Property]
-    public ?\expenseNonTaxableAccountInInventoryAccountInformationDto $expenseNonTaxableAccount;
+    public ?expenseNonTaxableAccountInInventoryAccountInformationDto $expenseNonTaxableAccount;
 
     #[Property]
-    public ?\expenseEuAccountInInventoryAccountInformationDto $expenseEuAccount;
+    public ?expenseEuAccountInInventoryAccountInformationDto $expenseEuAccount;
 
     #[Property]
-    public ?\expenseImportAccountInInventoryAccountInformationDto $expenseImportAccount;
+    public ?expenseImportAccountInInventoryAccountInformationDto $expenseImportAccount;
 
     #[Property]
-    public ?\expenseSubaccountInInventoryAccountInformationDto $expenseSubaccount;
+    public ?expenseSubaccountInInventoryAccountInformationDto $expenseSubaccount;
 
     #[Property]
-    public ?\cogsSubaccountInInventoryAccountInformationDto $cogsSubaccount;
+    public ?cogsSubaccountInInventoryAccountInformationDto $cogsSubaccount;
 
     #[Property]
-    public ?\salesAccountInInventoryAccountInformationDto $salesAccount;
+    public ?salesAccountInInventoryAccountInformationDto $salesAccount;
 
     #[Property]
-    public ?\salesNonTaxableAccountInInventoryAccountInformationDto $salesNonTaxableAccount;
+    public ?salesNonTaxableAccountInInventoryAccountInformationDto $salesNonTaxableAccount;
 
     #[Property]
-    public ?\salesEuAccountInInventoryAccountInformationDto $salesEuAccount;
+    public ?salesEuAccountInInventoryAccountInformationDto $salesEuAccount;
 
     #[Property]
-    public ?\salesExportAccountInInventoryAccountInformationDto $salesExportAccount;
+    public ?salesExportAccountInInventoryAccountInformationDto $salesExportAccount;
 
     #[Property]
-    public ?\salesSubaccountInInventoryAccountInformationDto $salesSubaccount;
+    public ?salesSubaccountInInventoryAccountInformationDto $salesSubaccount;
 }

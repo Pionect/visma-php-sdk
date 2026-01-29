@@ -21,10 +21,10 @@ class CashAccountDto extends Model
     public ?string $currency;
 
     #[Property]
-    public ?\accountInCashAccountDto $account;
+    public ?accountInCashAccountDto $account;
 
     #[Property]
-    public ?\subaccountInCashAccountDto $subaccount;
+    public ?subaccountInCashAccountDto $subaccount;
 
     /** Number of item */
     #[Property]

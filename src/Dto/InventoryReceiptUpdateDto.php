@@ -11,36 +11,36 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryReceiptUpdateDto extends Model
 {
     #[Property]
-    public ?\transferNumberInInventoryReceiptUpdateDto $transferNumber;
+    public ?transferNumberInInventoryReceiptUpdateDto $transferNumber;
 
     #[Property]
-    public ?\controlCostInInventoryReceiptUpdateDto $controlCost;
+    public ?controlCostInInventoryReceiptUpdateDto $controlCost;
 
     /** The inventory issue lines */
     #[Property]
     public ?array $receiptLines;
 
     #[Property]
-    public ?\referenceNumberInInventoryReceiptUpdateDto $referenceNumber;
+    public ?referenceNumberInInventoryReceiptUpdateDto $referenceNumber;
 
     #[Property]
-    public ?\holdInInventoryReceiptUpdateDto $hold;
+    public ?holdInInventoryReceiptUpdateDto $hold;
 
     #[Property]
-    public ?\dateInInventoryReceiptUpdateDto $date;
+    public ?dateInInventoryReceiptUpdateDto $date;
 
     #[Property]
-    public ?\postPeriodInInventoryReceiptUpdateDto $postPeriod;
+    public ?postPeriodInInventoryReceiptUpdateDto $postPeriod;
 
     #[Property]
-    public ?\externalReferenceInInventoryReceiptUpdateDto $externalReference;
+    public ?externalReferenceInInventoryReceiptUpdateDto $externalReference;
 
     #[Property]
-    public ?\descriptionInInventoryReceiptUpdateDto $description;
+    public ?descriptionInInventoryReceiptUpdateDto $description;
 
     #[Property]
-    public ?\controlQuantityInInventoryReceiptUpdateDto $controlQuantity;
+    public ?controlQuantityInInventoryReceiptUpdateDto $controlQuantity;
 
     #[Property]
-    public ?\branchNumberInInventoryReceiptUpdateDto $branchNumber;
+    public ?branchNumberInInventoryReceiptUpdateDto $branchNumber;
 }

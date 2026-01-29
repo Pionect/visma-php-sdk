@@ -13,10 +13,10 @@ class CustomerDocumentDto extends Model
     public ?\Carbon\Carbon $documentDueDate;
 
     #[Property]
-    public ?\branchInCustomerDocumentDto $branch;
+    public ?branchInCustomerDocumentDto $branch;
 
     #[Property]
-    public ?\customerInCustomerDocumentDto $customer;
+    public ?customerInCustomerDocumentDto $customer;
 
     /** The top part &gt; Type &gt; The document type. The following types are available: invoice, debit note, credit note, overdue charge, credit write-off */
     #[Property]
@@ -93,7 +93,7 @@ class CustomerDocumentDto extends Model
     public ?float $cashDiscountInCurrency;
 
     #[Property]
-    public ?\paymentMethodInCustomerDocumentDto $paymentMethod;
+    public ?paymentMethodInCustomerDocumentDto $paymentMethod;
 
     /** The top part &gt; External reference &gt; The external reference used in AutoInvoice. */
     #[Property]
@@ -126,23 +126,23 @@ class CustomerDocumentDto extends Model
     public ?float $vatTotalInCurrency;
 
     #[Property]
-    public ?\locationInCustomerDocumentDto $location;
+    public ?locationInCustomerDocumentDto $location;
 
     #[Property]
-    public ?\branchNumberInCustomerDocumentDto $branchNumber;
+    public ?branchNumberInCustomerDocumentDto $branchNumber;
 
     /** Financial details tab &gt; The payment information section &gt; Cash account &gt; The cash account associated with the payment method. */
     #[Property]
     public ?string $cashAccount;
 
     #[Property]
-    public ?\projectInCustomerDocumentDto $project;
+    public ?projectInCustomerDocumentDto $project;
 
     #[Property]
-    public ?\accountInCustomerDocumentDto $account;
+    public ?accountInCustomerDocumentDto $account;
 
     #[Property]
-    public ?\subaccountInCustomerDocumentDto $subaccount;
+    public ?subaccountInCustomerDocumentDto $subaccount;
 
     /** The top part &gt; Customer project no. &gt; The customer project no. used in AutoInvoice. */
     #[Property]

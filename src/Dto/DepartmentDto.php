@@ -21,10 +21,10 @@ class DepartmentDto extends Model
     public ?string $description;
 
     #[Property]
-    public ?\expenseAccountInDepartmentDto $expenseAccount;
+    public ?expenseAccountInDepartmentDto $expenseAccount;
 
     #[Property]
-    public ?\expenseSubaccountInDepartmentDto $expenseSubaccount;
+    public ?expenseSubaccountInDepartmentDto $expenseSubaccount;
 
     /** A system generated date/time that indicates the last change for the department. */
     #[Property]

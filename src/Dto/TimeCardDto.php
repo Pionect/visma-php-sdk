@@ -21,10 +21,10 @@ class TimeCardDto extends Model
     public ?string $approvalStatus;
 
     #[Property]
-    public ?\weekInTimeCardDto $week;
+    public ?weekInTimeCardDto $week;
 
     #[Property]
-    public ?\employeeInTimeCardDto $employee;
+    public ?employeeInTimeCardDto $employee;
 
     /** The top part &gt; Type &gt; The type of the time card. The following options are available:• Normal: Regular time card• Correction: Corrective time card, which is a time card that updates a released time card */
     #[Property]

@@ -24,7 +24,7 @@ class VatZoneInSupplierLocationDto extends Model
     public ?string $defaultVatCategory;
 
     #[Property]
-    public ?\TaxCategoryNumberDescriptionDto $defaultTaxCategory;
+    public ?TaxCategoryNumberDescriptionDto $defaultTaxCategory;
 
     #[Property]
     public ?string $errorInfo;

@@ -21,7 +21,7 @@ class AllocationsDto extends Model
     public ?string $itemId;
 
     #[Property]
-    public ?\locationInAllocationsDto $location;
+    public ?locationInAllocationsDto $location;
 
     /** Lot/Serial no. &gt; The lot or serial number of the item. */
     #[Property]

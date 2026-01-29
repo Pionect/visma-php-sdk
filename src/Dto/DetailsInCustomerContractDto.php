@@ -16,7 +16,7 @@ class DetailsInCustomerContractDto extends Model
     public ?\Carbon\Carbon $effectiveFrom;
 
     #[Property]
-    public ?\PromoCodeIdDescriptionDto $promoCode;
+    public ?PromoCodeIdDescriptionDto $promoCode;
 
     #[Property]
     public ?float $pendingSetup;

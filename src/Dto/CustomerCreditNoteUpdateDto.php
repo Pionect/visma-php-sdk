@@ -44,11 +44,11 @@ class CustomerCreditNoteUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\SalesInvoiceAddressUpdateDto $invoiceAddress;
+    public ?SalesInvoiceAddressUpdateDto $invoiceAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\SalesInvoiceContactUpdateDto $invoiceContact;
+    public ?SalesInvoiceContactUpdateDto $invoiceContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -93,10 +93,10 @@ class CustomerCreditNoteUpdateDto extends Model
     public ?bool $hold;
 
     #[Property]
-    public ?\postPeriodInCustomerCreditNoteUpdateDto $postPeriod;
+    public ?postPeriodInCustomerCreditNoteUpdateDto $postPeriod;
 
     #[Property]
-    public ?\financialPeriodInCustomerCreditNoteUpdateDto $financialPeriod;
+    public ?financialPeriodInCustomerCreditNoteUpdateDto $financialPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -107,10 +107,10 @@ class CustomerCreditNoteUpdateDto extends Model
     public ?string $locationId;
 
     #[Property]
-    public ?\salesPersonIDInCustomerCreditNoteUpdateDto $salesPersonId;
+    public ?salesPersonIDInCustomerCreditNoteUpdateDto $salesPersonId;
 
     #[Property]
-    public ?\salespersonInCustomerCreditNoteUpdateDto $salesperson;
+    public ?salespersonInCustomerCreditNoteUpdateDto $salesperson;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

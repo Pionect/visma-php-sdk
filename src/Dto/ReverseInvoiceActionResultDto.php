@@ -11,7 +11,7 @@ class ReverseInvoiceActionResultDto extends Model
     public ?string $referenceNumber;
 
     #[Property]
-    public ?\CreditNoteDto $creditNoteDto;
+    public ?CreditNoteDto $creditNoteDto;
 
     #[Property]
     public ?string $actionId;

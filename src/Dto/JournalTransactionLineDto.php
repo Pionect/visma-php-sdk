@@ -20,7 +20,7 @@ class JournalTransactionLineDto extends Model
     public ?string $description;
 
     #[Property]
-    public ?\subaccountInJournalTransactionLineDto $subaccount;
+    public ?subaccountInJournalTransactionLineDto $subaccount;
 
     /** The table &gt; Ref. no. &gt; The reference number of the external or internal document associated with the journal transaction. */
     #[Property]
@@ -47,10 +47,10 @@ class JournalTransactionLineDto extends Model
     public ?string $transactionDescription;
 
     #[Property]
-    public ?\vatCodeInJournalTransactionLineDto $vatCode;
+    public ?vatCodeInJournalTransactionLineDto $vatCode;
 
     #[Property]
-    public ?\vatInJournalTransactionLineDto $vat;
+    public ?vatInJournalTransactionLineDto $vat;
 
     /** The table &gt; Branch &gt; The branch associated with this journal entry. */
     #[Property]
@@ -73,10 +73,10 @@ class JournalTransactionLineDto extends Model
     public ?string $uom;
 
     #[Property]
-    public ?\projectInJournalTransactionLineDto $project;
+    public ?projectInJournalTransactionLineDto $project;
 
     #[Property]
-    public ?\projectTaskInJournalTransactionLineDto $projectTask;
+    public ?projectTaskInJournalTransactionLineDto $projectTask;
 
     #[Property]
     public ?array $attachments;

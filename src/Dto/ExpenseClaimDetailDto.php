@@ -22,7 +22,7 @@ class ExpenseClaimDetailDto extends Model
     public ?\Carbon\Carbon $date;
 
     #[Property]
-    public ?\expenseItemInExpenseClaimDetailDto $expenseItem;
+    public ?expenseItemInExpenseClaimDetailDto $expenseItem;
 
     /** Mandatory field: Description* &gt; A description of the transaction. */
     #[Property]
@@ -61,42 +61,42 @@ class ExpenseClaimDetailDto extends Model
     public ?float $amountInClaimCurr;
 
     #[Property]
-    public ?\projectInExpenseClaimDetailDto $project;
+    public ?projectInExpenseClaimDetailDto $project;
 
     #[Property]
-    public ?\projectTaskInExpenseClaimDetailDto $projectTask;
+    public ?projectTaskInExpenseClaimDetailDto $projectTask;
 
     #[Property]
-    public ?\expenseAccountInExpenseClaimDetailDto $expenseAccount;
+    public ?expenseAccountInExpenseClaimDetailDto $expenseAccount;
 
     #[Property]
-    public ?\expenseSubaccountInExpenseClaimDetailDto $expenseSubaccount;
+    public ?expenseSubaccountInExpenseClaimDetailDto $expenseSubaccount;
 
     #[Property]
-    public ?\branchInExpenseClaimDetailDto $branch;
+    public ?branchInExpenseClaimDetailDto $branch;
 
     #[Property]
-    public ?\taxCategoryInExpenseClaimDetailDto $taxCategory;
+    public ?taxCategoryInExpenseClaimDetailDto $taxCategory;
 
     /** Ref. no. &gt; The identifier of the transaction. */
     #[Property]
     public ?string $refNbr;
 
     #[Property]
-    public ?\salesAccountInExpenseClaimDetailDto $salesAccount;
+    public ?salesAccountInExpenseClaimDetailDto $salesAccount;
 
     #[Property]
-    public ?\salesSubaccountInExpenseClaimDetailDto $salesSubaccount;
+    public ?salesSubaccountInExpenseClaimDetailDto $salesSubaccount;
 
     /** Employee part &gt; The part of the total amount that will not be paid back to the employee. The percentage depends on the company policy. */
     #[Property]
     public ?float $employeePart;
 
     #[Property]
-    public ?\customerInExpenseClaimDetailDto $customer;
+    public ?customerInExpenseClaimDetailDto $customer;
 
     #[Property]
-    public ?\locationInExpenseClaimDetailDto $location;
+    public ?locationInExpenseClaimDetailDto $location;
 
     /** REef.no. customer &gt; The reference number of the customer ledger document. */
     #[Property]

@@ -41,7 +41,7 @@ class FixedAssetTransactionDto extends Model
     public ?string $transactionType;
 
     #[Property]
-    public ?\accountsInFixedAssetTransactionDto $accounts;
+    public ?accountsInFixedAssetTransactionDto $accounts;
 
     /** The amount of this fixed asset transaction */
     #[Property]
@@ -61,7 +61,7 @@ class FixedAssetTransactionDto extends Model
     public ?\Carbon\Carbon $transactionDate;
 
     #[Property]
-    public ?\registerInFixedAssetTransactionDto $register;
+    public ?registerInFixedAssetTransactionDto $register;
 
     /** A system generated date/time that indicates the last change for this fixed asset transaction */
     #[Property]

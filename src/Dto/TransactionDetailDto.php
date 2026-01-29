@@ -12,10 +12,10 @@ class TransactionDetailDto extends Model
     public ?int $lineNumber;
 
     #[Property]
-    public ?\branchInTransactionDetailDto $branch;
+    public ?branchInTransactionDetailDto $branch;
 
     #[Property]
-    public ?\itemInTransactionDetailDto $item;
+    public ?itemInTransactionDetailDto $item;
 
     /** Description &gt; The description provided for the item. */
     #[Property]
@@ -38,24 +38,24 @@ class TransactionDetailDto extends Model
     public ?float $amount;
 
     #[Property]
-    public ?\offsetCashAccountInTransactionDetailDto $offsetCashAccount;
+    public ?offsetCashAccountInTransactionDetailDto $offsetCashAccount;
 
     #[Property]
-    public ?\offsetAccountInTransactionDetailDto $offsetAccount;
+    public ?offsetAccountInTransactionDetailDto $offsetAccount;
 
     #[Property]
-    public ?\offsetSubAccountInTransactionDetailDto $offsetSubAccount;
+    public ?offsetSubAccountInTransactionDetailDto $offsetSubAccount;
 
     #[Property]
-    public ?\taxCategoryInTransactionDetailDto $taxCategory;
+    public ?taxCategoryInTransactionDetailDto $taxCategory;
 
     /** Non-invoiceable &gt; A check box that indicates (if selected) that this transaction is non-invoiceable in the project. */
     #[Property]
     public ?bool $nonBillable;
 
     #[Property]
-    public ?\projectInTransactionDetailDto $project;
+    public ?projectInTransactionDetailDto $project;
 
     #[Property]
-    public ?\projectTaskInTransactionDetailDto $projectTask;
+    public ?projectTaskInTransactionDetailDto $projectTask;
 }

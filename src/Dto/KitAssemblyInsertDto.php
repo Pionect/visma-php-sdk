@@ -10,7 +10,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class KitAssemblyInsertDto extends Model
 {
     #[Property]
-    public ?\KitAssemblyLinkInsertDto $kitAssemblyLink;
+    public ?KitAssemblyLinkInsertDto $kitAssemblyLink;
 
     /** Type, possible values: P - Production, D - Disassembly */
     #[Property]

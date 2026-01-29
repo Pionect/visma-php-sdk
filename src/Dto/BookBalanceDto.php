@@ -42,5 +42,5 @@ class BookBalanceDto extends Model
     public ?float $usefulLife;
 
     #[Property]
-    public ?\bookInBookBalanceDto $book;
+    public ?bookInBookBalanceDto $book;
 }

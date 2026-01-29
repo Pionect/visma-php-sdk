@@ -11,33 +11,33 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryAdjustmentUpdateDto extends Model
 {
     #[Property]
-    public ?\controlCostInInventoryAdjustmentUpdateDto $controlCost;
+    public ?controlCostInInventoryAdjustmentUpdateDto $controlCost;
 
     /** The inventory adjustment lines */
     #[Property]
     public ?array $adjustmentLines;
 
     #[Property]
-    public ?\referenceNumberInInventoryAdjustmentUpdateDto $referenceNumber;
+    public ?referenceNumberInInventoryAdjustmentUpdateDto $referenceNumber;
 
     #[Property]
-    public ?\holdInInventoryAdjustmentUpdateDto $hold;
+    public ?holdInInventoryAdjustmentUpdateDto $hold;
 
     #[Property]
-    public ?\dateInInventoryAdjustmentUpdateDto $date;
+    public ?dateInInventoryAdjustmentUpdateDto $date;
 
     #[Property]
-    public ?\postPeriodInInventoryAdjustmentUpdateDto $postPeriod;
+    public ?postPeriodInInventoryAdjustmentUpdateDto $postPeriod;
 
     #[Property]
-    public ?\externalReferenceInInventoryAdjustmentUpdateDto $externalReference;
+    public ?externalReferenceInInventoryAdjustmentUpdateDto $externalReference;
 
     #[Property]
-    public ?\descriptionInInventoryAdjustmentUpdateDto $description;
+    public ?descriptionInInventoryAdjustmentUpdateDto $description;
 
     #[Property]
-    public ?\controlQuantityInInventoryAdjustmentUpdateDto $controlQuantity;
+    public ?controlQuantityInInventoryAdjustmentUpdateDto $controlQuantity;
 
     #[Property]
-    public ?\branchNumberInInventoryAdjustmentUpdateDto $branchNumber;
+    public ?branchNumberInInventoryAdjustmentUpdateDto $branchNumber;
 }

@@ -8,8 +8,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class UpdateCurrencyRateDto extends Model
 {
     #[Property]
-    public ?\rateInUpdateCurrencyRateDto $rate;
+    public ?rateInUpdateCurrencyRateDto $rate;
 
     #[Property]
-    public ?\multDivInUpdateCurrencyRateDto $multDiv;
+    public ?multDivInUpdateCurrencyRateDto $multDiv;
 }

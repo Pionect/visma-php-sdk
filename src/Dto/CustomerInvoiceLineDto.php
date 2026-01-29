@@ -31,7 +31,7 @@ class CustomerInvoiceLineDto extends Model
     public ?string $itemType;
 
     #[Property]
-    public ?\WorkTypeDto $typeOfWork;
+    public ?WorkTypeDto $typeOfWork;
 
     #[Property]
     public ?float $deductableAmount;
@@ -40,7 +40,7 @@ class CustomerInvoiceLineDto extends Model
     public ?array $attachments;
 
     #[Property]
-    public ?\ProjectTaskIdDescriptionDto $projectTask;
+    public ?ProjectTaskIdDescriptionDto $projectTask;
 
     /**
      * Transaction line type.
@@ -129,10 +129,10 @@ class CustomerInvoiceLineDto extends Model
     public ?float $amountInCurrency;
 
     #[Property]
-    public ?\accountInCustomerInvoiceLineDto $account;
+    public ?accountInCustomerInvoiceLineDto $account;
 
     #[Property]
-    public ?\vatCodeInCustomerInvoiceLineDto $vatCode;
+    public ?vatCodeInCustomerInvoiceLineDto $vatCode;
 
     /** UoM &gt; The unit of measure (UoM) for the item. */
     #[Property]
@@ -169,14 +169,14 @@ class CustomerInvoiceLineDto extends Model
     public ?bool $manualDiscount;
 
     #[Property]
-    public ?\subaccountInCustomerInvoiceLineDto $subaccount;
+    public ?subaccountInCustomerInvoiceLineDto $subaccount;
 
     /** The field is deprecated for customer document endpoints, please use Seller instead */
     #[Property]
     public ?string $salesperson;
 
     #[Property]
-    public ?\sellerInCustomerInvoiceLineDto $seller;
+    public ?sellerInCustomerInvoiceLineDto $seller;
 
     /** Original deferral schedule &gt; A read-only column filled in by the system in the Cash return documents created by the reversing process. It shows the identifier of the deferral schedule associated with the original Cash sale document. */
     #[Property]
@@ -199,7 +199,7 @@ class CustomerInvoiceLineDto extends Model
     public ?string $note;
 
     #[Property]
-    public ?\branchNumberInCustomerInvoiceLineDto $branchNumber;
+    public ?branchNumberInCustomerInvoiceLineDto $branchNumber;
 
     #[Property]
     public ?string $externalLink;

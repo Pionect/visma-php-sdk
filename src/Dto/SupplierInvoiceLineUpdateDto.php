@@ -76,7 +76,7 @@ class SupplierInvoiceLineUpdateDto extends Model
     public ?string $vatCodeId;
 
     #[Property]
-    public ?\branchInSupplierInvoiceLineUpdateDto $branch;
+    public ?branchInSupplierInvoiceLineUpdateDto $branch;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -123,7 +123,7 @@ class SupplierInvoiceLineUpdateDto extends Model
     public ?float $curyRetainageAmt;
 
     #[Property]
-    public ?\LinkLineDto $linkLine;
+    public ?LinkLineDto $linkLine;
 
     #[Property]
     #[DateTime]
@@ -140,7 +140,7 @@ class SupplierInvoiceLineUpdateDto extends Model
     public ?string $externalInventoryId;
 
     #[Property]
-    public ?\prebookAccountNumberInSupplierInvoiceLineUpdateDto $prebookAccountNumber;
+    public ?prebookAccountNumberInSupplierInvoiceLineUpdateDto $prebookAccountNumber;
 
     /** Subaccount used for prebooking. Note that this feature is not available for all countries. */
     #[Property]

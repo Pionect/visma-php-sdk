@@ -9,10 +9,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class SubAccountUpdateDto extends Model
 {
     #[Property]
-    public ?\subaccountNumberInSubAccountUpdateDto $subaccountNumber;
+    public ?subaccountNumberInSubAccountUpdateDto $subaccountNumber;
 
     #[Property]
-    public ?\subaccountIdInSubAccountUpdateDto $subaccountId;
+    public ?subaccountIdInSubAccountUpdateDto $subaccountId;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

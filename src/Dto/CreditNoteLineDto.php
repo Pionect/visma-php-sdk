@@ -11,7 +11,7 @@ class CreditNoteLineDto extends Model
     public ?array $attachments;
 
     #[Property]
-    public ?\ProjectTaskIdDescriptionDto $projectTask;
+    public ?ProjectTaskIdDescriptionDto $projectTask;
 
     /** Line no. &gt; A counter of lines in the overview of cash sales document overview. */
     #[Property]
@@ -70,10 +70,10 @@ class CreditNoteLineDto extends Model
     public ?float $amountInCurrency;
 
     #[Property]
-    public ?\accountInCreditNoteLineDto $account;
+    public ?accountInCreditNoteLineDto $account;
 
     #[Property]
-    public ?\vatCodeInCreditNoteLineDto $vatCode;
+    public ?vatCodeInCreditNoteLineDto $vatCode;
 
     /** UoM &gt; The unit of measure (UoM) for the item. */
     #[Property]
@@ -110,14 +110,14 @@ class CreditNoteLineDto extends Model
     public ?bool $manualDiscount;
 
     #[Property]
-    public ?\subaccountInCreditNoteLineDto $subaccount;
+    public ?subaccountInCreditNoteLineDto $subaccount;
 
     /** The field is deprecated for customer document endpoints, please use Seller instead */
     #[Property]
     public ?string $salesperson;
 
     #[Property]
-    public ?\sellerInCreditNoteLineDto $seller;
+    public ?sellerInCreditNoteLineDto $seller;
 
     /** Original deferral schedule &gt; A read-only column filled in by the system in the Cash return documents created by the reversing process. It shows the identifier of the deferral schedule associated with the original Cash sale document. */
     #[Property]
@@ -140,7 +140,7 @@ class CreditNoteLineDto extends Model
     public ?string $note;
 
     #[Property]
-    public ?\branchNumberInCreditNoteLineDto $branchNumber;
+    public ?branchNumberInCreditNoteLineDto $branchNumber;
 
     #[Property]
     public ?string $externalLink;

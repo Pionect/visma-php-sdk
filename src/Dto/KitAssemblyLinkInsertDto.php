@@ -8,11 +8,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class KitAssemblyLinkInsertDto extends Model
 {
     #[Property]
-    public ?\orderTypeInKitAssemblyLinkInsertDto $orderType;
+    public ?orderTypeInKitAssemblyLinkInsertDto $orderType;
 
     #[Property]
-    public ?\orderNumberInKitAssemblyLinkInsertDto $orderNumber;
+    public ?orderNumberInKitAssemblyLinkInsertDto $orderNumber;
 
     #[Property]
-    public ?\orderLineNumberInKitAssemblyLinkInsertDto $orderLineNumber;
+    public ?orderLineNumberInKitAssemblyLinkInsertDto $orderLineNumber;
 }

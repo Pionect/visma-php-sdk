@@ -16,10 +16,10 @@ class ContractUsageLineDto extends Model
     public ?bool $billed;
 
     #[Property]
-    public ?\branchInContractUsageLineDto $branch;
+    public ?branchInContractUsageLineDto $branch;
 
     #[Property]
-    public ?\itemInContractUsageLineDto $item;
+    public ?itemInContractUsageLineDto $item;
 
     /** Both tabs &gt; Description &gt; A description of the non-stock item. */
     #[Property]

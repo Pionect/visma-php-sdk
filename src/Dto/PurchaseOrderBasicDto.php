@@ -42,13 +42,13 @@ class PurchaseOrderBasicDto extends Model
     public ?string $description;
 
     #[Property]
-    public ?\supplierInPurchaseOrderBasicDto $supplier;
+    public ?supplierInPurchaseOrderBasicDto $supplier;
 
     #[Property]
-    public ?\locationInPurchaseOrderBasicDto $location;
+    public ?locationInPurchaseOrderBasicDto $location;
 
     #[Property]
-    public ?\ownerInPurchaseOrderBasicDto $owner;
+    public ?ownerInPurchaseOrderBasicDto $owner;
 
     /** The top part &gt; Currency &gt; The currency the purchase order will be paid in. */
     #[Property]
@@ -102,7 +102,7 @@ class PurchaseOrderBasicDto extends Model
     public ?float $controlTotalInBaseCurrency;
 
     #[Property]
-    public ?\branchInPurchaseOrderBasicDto $branch;
+    public ?branchInPurchaseOrderBasicDto $branch;
 
     /** Document details tab &gt; The table &gt; */
     #[Property]

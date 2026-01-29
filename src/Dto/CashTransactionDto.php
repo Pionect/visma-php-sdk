@@ -38,14 +38,14 @@ class CashTransactionDto extends Model
     public ?string $financialPeriod;
 
     #[Property]
-    public ?\cashAccountInCashTransactionDto $cashAccount;
+    public ?cashAccountInCashTransactionDto $cashAccount;
 
     /** The top part &gt; Currency &gt; The currency of the cash account. */
     #[Property]
     public ?string $currency;
 
     #[Property]
-    public ?\entryTypeInCashTransactionDto $entryType;
+    public ?entryTypeInCashTransactionDto $entryType;
 
     /** The top part &gt; Disb./receipt &gt; The basic type of the transaction. */
     #[Property]
@@ -56,7 +56,7 @@ class CashTransactionDto extends Model
     public ?string $documentRef;
 
     #[Property]
-    public ?\ownerInCashTransactionDto $owner;
+    public ?ownerInCashTransactionDto $owner;
 
     /** The top part &gt; Description &gt; A detailed description of the transaction. */
     #[Property]
@@ -100,7 +100,7 @@ class CashTransactionDto extends Model
     public ?array $taxDetails;
 
     #[Property]
-    public ?\financialsDetailInCashTransactionDto $financialsDetail;
+    public ?financialsDetailInCashTransactionDto $financialsDetail;
 
     /**
      * Identifier that represents a specific version of the resource.

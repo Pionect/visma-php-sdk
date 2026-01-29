@@ -115,10 +115,10 @@ class SalesOrderLineUpdateDto extends Model
     public ?int $lineNbr;
 
     #[Property]
-    public ?\inventoryIdInSalesOrderLineUpdateDto $inventoryId;
+    public ?inventoryIdInSalesOrderLineUpdateDto $inventoryId;
 
     #[Property]
-    public ?\inventoryNumberInSalesOrderLineUpdateDto $inventoryNumber;
+    public ?inventoryNumberInSalesOrderLineUpdateDto $inventoryNumber;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

@@ -13,7 +13,7 @@ class InventoryIssueLineDto extends Model
     public ?string $transactionType;
 
     #[Property]
-    public ?\warehouseInInventoryIssueLineDto $warehouse;
+    public ?warehouseInInventoryIssueLineDto $warehouse;
 
     /** Unit cost &gt; The cost of the specified unit of this stock item. */
     #[Property]
@@ -32,10 +32,10 @@ class InventoryIssueLineDto extends Model
     public ?float $extPrice;
 
     #[Property]
-    public ?\projectInInventoryIssueLineDto $project;
+    public ?projectInInventoryIssueLineDto $project;
 
     #[Property]
-    public ?\projectTaskInInventoryIssueLineDto $projectTask;
+    public ?projectTaskInInventoryIssueLineDto $projectTask;
 
     #[Property]
     public ?string $lotSerialNumber;
@@ -55,10 +55,10 @@ class InventoryIssueLineDto extends Model
     public ?int $lineNumber;
 
     #[Property]
-    public ?\inventoryItemInInventoryIssueLineDto $inventoryItem;
+    public ?inventoryItemInInventoryIssueLineDto $inventoryItem;
 
     #[Property]
-    public ?\locationInInventoryIssueLineDto $location;
+    public ?locationInInventoryIssueLineDto $location;
 
     /** Quantity &gt; The quantity of the transferred goods (in the units indicated below). */
     #[Property]
@@ -69,7 +69,7 @@ class InventoryIssueLineDto extends Model
     public ?string $uom;
 
     #[Property]
-    public ?\reasonCodeInInventoryIssueLineDto $reasonCode;
+    public ?reasonCodeInInventoryIssueLineDto $reasonCode;
 
     /** Description &gt; A brief description of the goods transfer transaction. */
     #[Property]
@@ -79,5 +79,5 @@ class InventoryIssueLineDto extends Model
     public ?array $attachments;
 
     #[Property]
-    public ?\BranchNumberDto $branchNumber;
+    public ?BranchNumberDto $branchNumber;
 }

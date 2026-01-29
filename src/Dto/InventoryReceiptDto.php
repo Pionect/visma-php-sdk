@@ -79,7 +79,7 @@ class InventoryReceiptDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\branchNumberInInventoryReceiptDto $branchNumber;
+    public ?branchNumberInInventoryReceiptDto $branchNumber;
 
     /** The data containing information about the document attachments */
     #[Property]

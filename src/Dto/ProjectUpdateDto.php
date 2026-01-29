@@ -26,7 +26,7 @@ class ProjectUpdateDto extends Model
     public ?string $customer;
 
     #[Property]
-    public ?\descriptionInProjectUpdateDto $description;
+    public ?descriptionInProjectUpdateDto $description;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -77,7 +77,7 @@ class ProjectUpdateDto extends Model
     public ?string $billingRule;
 
     #[Property]
-    public ?\branchInProjectUpdateDto $branch;
+    public ?branchInProjectUpdateDto $branch;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -112,7 +112,7 @@ class ProjectUpdateDto extends Model
     public ?string $customerLocation;
 
     #[Property]
-    public ?\VisibilityUpdateDto $visibility;
+    public ?VisibilityUpdateDto $visibility;
 
     #[Property]
     public ?array $tasks;

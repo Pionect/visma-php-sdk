@@ -24,26 +24,26 @@ class InventoryTransferUpdateDto extends Model
     public ?array $transferLines;
 
     #[Property]
-    public ?\referenceNumberInInventoryTransferUpdateDto $referenceNumber;
+    public ?referenceNumberInInventoryTransferUpdateDto $referenceNumber;
 
     #[Property]
-    public ?\holdInInventoryTransferUpdateDto $hold;
+    public ?holdInInventoryTransferUpdateDto $hold;
 
     #[Property]
-    public ?\dateInInventoryTransferUpdateDto $date;
+    public ?dateInInventoryTransferUpdateDto $date;
 
     #[Property]
-    public ?\postPeriodInInventoryTransferUpdateDto $postPeriod;
+    public ?postPeriodInInventoryTransferUpdateDto $postPeriod;
 
     #[Property]
-    public ?\externalReferenceInInventoryTransferUpdateDto $externalReference;
+    public ?externalReferenceInInventoryTransferUpdateDto $externalReference;
 
     #[Property]
-    public ?\descriptionInInventoryTransferUpdateDto $description;
+    public ?descriptionInInventoryTransferUpdateDto $description;
 
     #[Property]
-    public ?\controlQuantityInInventoryTransferUpdateDto $controlQuantity;
+    public ?controlQuantityInInventoryTransferUpdateDto $controlQuantity;
 
     #[Property]
-    public ?\branchNumberInInventoryTransferUpdateDto $branchNumber;
+    public ?branchNumberInInventoryTransferUpdateDto $branchNumber;
 }

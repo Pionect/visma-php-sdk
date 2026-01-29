@@ -16,38 +16,38 @@ class TimeCardMaterialsUpdateDto extends Model
     public ?int $lineNumber;
 
     #[Property]
-    public ?\itemIdInTimeCardMaterialsUpdateDto $itemId;
+    public ?itemIdInTimeCardMaterialsUpdateDto $itemId;
 
     #[Property]
-    public ?\descriptionInTimeCardMaterialsUpdateDto $description;
+    public ?descriptionInTimeCardMaterialsUpdateDto $description;
 
     #[Property]
-    public ?\uoMInTimeCardMaterialsUpdateDto $uoM;
+    public ?uoMInTimeCardMaterialsUpdateDto $uoM;
 
     #[Property]
-    public ?\projectInTimeCardMaterialsUpdateDto $project;
+    public ?projectInTimeCardMaterialsUpdateDto $project;
 
     #[Property]
-    public ?\projectTaskInTimeCardMaterialsUpdateDto $projectTask;
+    public ?projectTaskInTimeCardMaterialsUpdateDto $projectTask;
 
     #[Property]
-    public ?\monInTimeCardMaterialsUpdateDto $mon;
+    public ?monInTimeCardMaterialsUpdateDto $mon;
 
     #[Property]
-    public ?\tueInTimeCardMaterialsUpdateDto $tue;
+    public ?tueInTimeCardMaterialsUpdateDto $tue;
 
     #[Property]
-    public ?\wedInTimeCardMaterialsUpdateDto $wed;
+    public ?wedInTimeCardMaterialsUpdateDto $wed;
 
     #[Property]
-    public ?\thuInTimeCardMaterialsUpdateDto $thu;
+    public ?thuInTimeCardMaterialsUpdateDto $thu;
 
     #[Property]
-    public ?\friInTimeCardMaterialsUpdateDto $fri;
+    public ?friInTimeCardMaterialsUpdateDto $fri;
 
     #[Property]
-    public ?\satInTimeCardMaterialsUpdateDto $sat;
+    public ?satInTimeCardMaterialsUpdateDto $sat;
 
     #[Property]
-    public ?\sunInTimeCardMaterialsUpdateDto $sun;
+    public ?sunInTimeCardMaterialsUpdateDto $sun;
 }

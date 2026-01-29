@@ -48,22 +48,22 @@ class FixedAssetDto extends Model
     public ?float $usefulLife;
 
     #[Property]
-    public ?\accountsInFixedAssetDto $accounts;
+    public ?accountsInFixedAssetDto $accounts;
 
     #[Property]
-    public ?\detailsInFixedAssetDto $details;
+    public ?detailsInFixedAssetDto $details;
 
     #[Property]
-    public ?\bookBalanceInFixedAssetDto $bookBalance;
+    public ?bookBalanceInFixedAssetDto $bookBalance;
 
     #[Property]
-    public ?\locationInFixedAssetDto $location;
+    public ?locationInFixedAssetDto $location;
 
     #[Property]
-    public ?\propertyTaxInFixedAssetDto $propertyTax;
+    public ?propertyTaxInFixedAssetDto $propertyTax;
 
     #[Property]
-    public ?\typeInFixedAssetDto $type;
+    public ?typeInFixedAssetDto $type;
 
     /** A system generated date/time that indicates the last change for this fixed asset */
     #[Property]

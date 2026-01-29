@@ -9,17 +9,17 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class CustomerPaymentMethodDto extends Model
 {
     #[Property]
-    public ?\customerInCustomerPaymentMethodDto $customer;
+    public ?customerInCustomerPaymentMethodDto $customer;
 
     #[Property]
-    public ?\paymentMethodInCustomerPaymentMethodDto $paymentMethod;
+    public ?paymentMethodInCustomerPaymentMethodDto $paymentMethod;
 
     /** The top part &gt; Active &gt; A check box that indicates (if selected) that the selected customer payment method is active (that is, available for recording payments). */
     #[Property]
     public ?bool $active;
 
     #[Property]
-    public ?\cashAccountInCustomerPaymentMethodDto $cashAccount;
+    public ?cashAccountInCustomerPaymentMethodDto $cashAccount;
 
     /** The top part &gt; Card/account no. &gt; The identifier for the customer's payment method. */
     #[Property]

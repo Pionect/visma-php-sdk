@@ -11,7 +11,7 @@ class InventoryUnitDto extends Model
     public ?int $unitType;
 
     #[Property]
-    public ?\ItemClassDto $itemClass;
+    public ?ItemClassDto $itemClass;
 
     /** The top part &gt; Item ID &gt; The unique alphanumeric identifier of the stock item. */
     #[Property]

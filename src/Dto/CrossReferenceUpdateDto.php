@@ -12,7 +12,7 @@ class CrossReferenceUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\alternateTypeInCrossReferenceUpdateDto $alternateType;
+    public ?alternateTypeInCrossReferenceUpdateDto $alternateType;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

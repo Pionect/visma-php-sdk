@@ -19,7 +19,7 @@ class ProjectBasicDto extends Model
     public ?string $projectId;
 
     #[Property]
-    public ?\customerInProjectBasicDto $customer;
+    public ?customerInProjectBasicDto $customer;
 
     /** The top part &gt; Hold &gt; A check box that you select to indicate that the project should have the In planning status. */
     #[Property]
@@ -68,7 +68,7 @@ class ProjectBasicDto extends Model
     public ?\Carbon\Carbon $timeStamp;
 
     #[Property]
-    public ?\visibilityInProjectBasicDto $visibility;
+    public ?visibilityInProjectBasicDto $visibility;
 
     #[Property]
     public ?string $errorInfo;

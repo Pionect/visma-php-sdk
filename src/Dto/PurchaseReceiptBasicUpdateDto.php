@@ -33,7 +33,7 @@ class PurchaseReceiptBasicUpdateDto extends Model
     public ?\Carbon\Carbon $date;
 
     #[Property]
-    public ?\postPeriodInPurchaseReceiptBasicUpdateDto $postPeriod;
+    public ?postPeriodInPurchaseReceiptBasicUpdateDto $postPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -76,34 +76,34 @@ class PurchaseReceiptBasicUpdateDto extends Model
     public ?string $branchNumber;
 
     #[Property]
-    public ?\customStr1InPurchaseReceiptBasicUpdateDto $customStr1;
+    public ?customStr1InPurchaseReceiptBasicUpdateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InPurchaseReceiptBasicUpdateDto $customStr2;
+    public ?customStr2InPurchaseReceiptBasicUpdateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InPurchaseReceiptBasicUpdateDto $customStr3;
+    public ?customStr3InPurchaseReceiptBasicUpdateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InPurchaseReceiptBasicUpdateDto $customStr4;
+    public ?customStr4InPurchaseReceiptBasicUpdateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InPurchaseReceiptBasicUpdateDto $customStr5;
+    public ?customStr5InPurchaseReceiptBasicUpdateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InPurchaseReceiptBasicUpdateDto $customDec1;
+    public ?customDec1InPurchaseReceiptBasicUpdateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InPurchaseReceiptBasicUpdateDto $customDec2;
+    public ?customDec2InPurchaseReceiptBasicUpdateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InPurchaseReceiptBasicUpdateDto $customInt1;
+    public ?customInt1InPurchaseReceiptBasicUpdateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InPurchaseReceiptBasicUpdateDto $customInt2;
+    public ?customInt2InPurchaseReceiptBasicUpdateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InPurchaseReceiptBasicUpdateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InPurchaseReceiptBasicUpdateDto $customDateTimeUtc1;
 
     #[Property]
     #[DateTime]

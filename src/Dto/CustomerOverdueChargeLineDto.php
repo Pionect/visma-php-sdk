@@ -67,10 +67,10 @@ class CustomerOverdueChargeLineDto extends Model
     public ?float $amountInCurrency;
 
     #[Property]
-    public ?\accountInCustomerOverdueChargeLineDto $account;
+    public ?accountInCustomerOverdueChargeLineDto $account;
 
     #[Property]
-    public ?\vatCodeInCustomerOverdueChargeLineDto $vatCode;
+    public ?vatCodeInCustomerOverdueChargeLineDto $vatCode;
 
     /** UoM &gt; The unit of measure (UoM) for the item. */
     #[Property]
@@ -107,14 +107,14 @@ class CustomerOverdueChargeLineDto extends Model
     public ?bool $manualDiscount;
 
     #[Property]
-    public ?\subaccountInCustomerOverdueChargeLineDto $subaccount;
+    public ?subaccountInCustomerOverdueChargeLineDto $subaccount;
 
     /** The field is deprecated for customer document endpoints, please use Seller instead */
     #[Property]
     public ?string $salesperson;
 
     #[Property]
-    public ?\sellerInCustomerOverdueChargeLineDto $seller;
+    public ?sellerInCustomerOverdueChargeLineDto $seller;
 
     /** Original deferral schedule &gt; A read-only column filled in by the system in the Cash return documents created by the reversing process. It shows the identifier of the deferral schedule associated with the original Cash sale document. */
     #[Property]
@@ -137,7 +137,7 @@ class CustomerOverdueChargeLineDto extends Model
     public ?string $note;
 
     #[Property]
-    public ?\branchNumberInCustomerOverdueChargeLineDto $branchNumber;
+    public ?branchNumberInCustomerOverdueChargeLineDto $branchNumber;
 
     #[Property]
     public ?string $externalLink;

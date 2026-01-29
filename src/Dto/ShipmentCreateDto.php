@@ -165,32 +165,32 @@ class ShipmentCreateDto extends Model
     public ?array $shipmentPackageLines;
 
     #[Property]
-    public ?\customStr1InShipmentCreateDto $customStr1;
+    public ?customStr1InShipmentCreateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InShipmentCreateDto $customStr2;
+    public ?customStr2InShipmentCreateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InShipmentCreateDto $customStr3;
+    public ?customStr3InShipmentCreateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InShipmentCreateDto $customStr4;
+    public ?customStr4InShipmentCreateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InShipmentCreateDto $customStr5;
+    public ?customStr5InShipmentCreateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InShipmentCreateDto $customDec1;
+    public ?customDec1InShipmentCreateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InShipmentCreateDto $customDec2;
+    public ?customDec2InShipmentCreateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InShipmentCreateDto $customInt1;
+    public ?customInt1InShipmentCreateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InShipmentCreateDto $customInt2;
+    public ?customInt2InShipmentCreateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InShipmentCreateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InShipmentCreateDto $customDateTimeUtc1;
 }

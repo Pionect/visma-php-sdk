@@ -8,23 +8,23 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class SupplierGlAccountsDto extends Model
 {
     #[Property]
-    public ?\supplierAccountInSupplierGlAccountsDto $supplierAccount;
+    public ?supplierAccountInSupplierGlAccountsDto $supplierAccount;
 
     #[Property]
-    public ?\supplierSubaccountInSupplierGlAccountsDto $supplierSubaccount;
+    public ?supplierSubaccountInSupplierGlAccountsDto $supplierSubaccount;
 
     #[Property]
-    public ?\expenseAccountInSupplierGlAccountsDto $expenseAccount;
+    public ?expenseAccountInSupplierGlAccountsDto $expenseAccount;
 
     #[Property]
-    public ?\expenseAccountNonTaxInSupplierGlAccountsDto $expenseAccountNonTax;
+    public ?expenseAccountNonTaxInSupplierGlAccountsDto $expenseAccountNonTax;
 
     #[Property]
-    public ?\expenseEUAccountInSupplierGlAccountsDto $expenseEuaccount;
+    public ?expenseEUAccountInSupplierGlAccountsDto $expenseEuaccount;
 
     #[Property]
-    public ?\expenseAccountImportInSupplierGlAccountsDto $expenseAccountImport;
+    public ?expenseAccountImportInSupplierGlAccountsDto $expenseAccountImport;
 
     #[Property]
-    public ?\expenseSubaccountInSupplierGlAccountsDto $expenseSubaccount;
+    public ?expenseSubaccountInSupplierGlAccountsDto $expenseSubaccount;
 }

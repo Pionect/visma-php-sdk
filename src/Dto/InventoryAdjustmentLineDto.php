@@ -8,7 +8,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryAdjustmentLineDto extends Model
 {
     #[Property]
-    public ?\warehouseInInventoryAdjustmentLineDto $warehouse;
+    public ?warehouseInInventoryAdjustmentLineDto $warehouse;
 
     /** Unit cost &gt; The cost of the unit used as base unit for the stock item. */
     #[Property]
@@ -30,10 +30,10 @@ class InventoryAdjustmentLineDto extends Model
     public ?int $lineNumber;
 
     #[Property]
-    public ?\inventoryItemInInventoryAdjustmentLineDto $inventoryItem;
+    public ?inventoryItemInInventoryAdjustmentLineDto $inventoryItem;
 
     #[Property]
-    public ?\locationInInventoryAdjustmentLineDto $location;
+    public ?locationInInventoryAdjustmentLineDto $location;
 
     /** Quantity &gt; The quantity of the transferred goods (in the units indicated below). */
     #[Property]
@@ -44,7 +44,7 @@ class InventoryAdjustmentLineDto extends Model
     public ?string $uom;
 
     #[Property]
-    public ?\reasonCodeInInventoryAdjustmentLineDto $reasonCode;
+    public ?reasonCodeInInventoryAdjustmentLineDto $reasonCode;
 
     /** Description &gt; A brief description of the goods transfer transaction. */
     #[Property]
@@ -54,5 +54,5 @@ class InventoryAdjustmentLineDto extends Model
     public ?array $attachments;
 
     #[Property]
-    public ?\BranchNumberDto $branchNumber;
+    public ?BranchNumberDto $branchNumber;
 }

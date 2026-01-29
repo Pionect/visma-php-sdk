@@ -47,10 +47,10 @@ class FixedAssetClassDto extends Model
     public ?bool $acceleratedDepreciation;
 
     #[Property]
-    public ?\bookSettingsInFixedAssetClassDto $bookSettings;
+    public ?bookSettingsInFixedAssetClassDto $bookSettings;
 
     #[Property]
-    public ?\accountsInFixedAssetClassDto $accounts;
+    public ?accountsInFixedAssetClassDto $accounts;
 
     /** The sub account mask for this fixed asset class */
     #[Property]

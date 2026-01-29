@@ -17,10 +17,10 @@ class TimeCardSummaryDto extends Model
     public ?string $lineId;
 
     #[Property]
-    public ?\earningTypeInTimeCardSummaryDto $earningType;
+    public ?earningTypeInTimeCardSummaryDto $earningType;
 
     #[Property]
-    public ?\projectInTimeCardSummaryDto $project;
+    public ?projectInTimeCardSummaryDto $project;
 
     /** Mon &gt; The work time reported for Monday, including overtime. */
     #[Property]
@@ -55,7 +55,7 @@ class TimeCardSummaryDto extends Model
     public ?bool $invoiceable;
 
     #[Property]
-    public ?\projectTaskInTimeCardSummaryDto $projectTask;
+    public ?projectTaskInTimeCardSummaryDto $projectTask;
 
     /** Time spent &gt; The work time (regular and overtime) that the employee spent on the project and task during the week. */
     #[Property]

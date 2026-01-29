@@ -8,7 +8,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class CashTranTaxDetailDto extends Model
 {
     #[Property]
-    public ?\taxInCashTranTaxDetailDto $tax;
+    public ?taxInCashTranTaxDetailDto $tax;
 
     /** VAT rate &gt; The rate of the VAT. */
     #[Property]

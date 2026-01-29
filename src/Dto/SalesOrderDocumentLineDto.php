@@ -19,10 +19,10 @@ class SalesOrderDocumentLineDto extends Model
     public ?int $sortOrder;
 
     #[Property]
-    public ?\InventoryNumberDescriptionDto $inventory;
+    public ?InventoryNumberDescriptionDto $inventory;
 
     #[Property]
-    public ?\WarehouseIdDescriptionDto $warehouse;
+    public ?WarehouseIdDescriptionDto $warehouse;
 
     /** Mandatory field: Document details tab &gt; UoM* &gt; The unit of measure (UoM) used for the item with this item ID. */
     #[Property]
@@ -84,7 +84,7 @@ class SalesOrderDocumentLineDto extends Model
     public ?string $lineDescription;
 
     #[Property]
-    public ?\BranchNumberDto $branchNumber;
+    public ?BranchNumberDto $branchNumber;
 
     /** Tables in tab &gt; Icon Notes &gt; Pop-up window for providing any user-defined text connected to the order. */
     #[Property]

@@ -26,23 +26,23 @@ class PurchaseReceiptLineDto extends Model
     public ?int $lineNbr;
 
     #[Property]
-    public ?\branchInPurchaseReceiptLineDto $branch;
+    public ?branchInPurchaseReceiptLineDto $branch;
 
     #[Property]
-    public ?\branchNumberInPurchaseReceiptLineDto $branchNumber;
+    public ?branchNumberInPurchaseReceiptLineDto $branchNumber;
 
     #[Property]
-    public ?\InventoryNumberDescriptionDto $inventory;
+    public ?InventoryNumberDescriptionDto $inventory;
 
     /** Document details tab &gt; Line type &gt; The type of the purchase order line. */
     #[Property]
     public ?string $lineType;
 
     #[Property]
-    public ?\warehouseInPurchaseReceiptLineDto $warehouse;
+    public ?warehouseInPurchaseReceiptLineDto $warehouse;
 
     #[Property]
-    public ?\locationInPurchaseReceiptLineDto $location;
+    public ?locationInPurchaseReceiptLineDto $location;
 
     /** Document details tab &gt; Transaction descr. &gt; The description of the receipt or return transaction. */
     #[Property]
@@ -85,36 +85,36 @@ class PurchaseReceiptLineDto extends Model
     public ?bool $manualDiscount;
 
     #[Property]
-    public ?\discountCodeInPurchaseReceiptLineDto $discountCode;
+    public ?discountCodeInPurchaseReceiptLineDto $discountCode;
 
     /** Document details tab &gt; Amount &gt; The amount calculated (after discount has been taken) for the item. */
     #[Property]
     public ?float $amount;
 
     #[Property]
-    public ?\taxCategoryInPurchaseReceiptLineDto $taxCategory;
+    public ?taxCategoryInPurchaseReceiptLineDto $taxCategory;
 
     #[Property]
-    public ?\accountInPurchaseReceiptLineDto $account;
+    public ?accountInPurchaseReceiptLineDto $account;
 
     /** Document details tab &gt; Description &gt; The description of this account. */
     #[Property]
     public ?string $accountDescription;
 
     #[Property]
-    public ?\subInPurchaseReceiptLineDto $sub;
+    public ?subInPurchaseReceiptLineDto $sub;
 
     #[Property]
-    public ?\actualAccountInPurchaseReceiptLineDto $actualAccount;
+    public ?actualAccountInPurchaseReceiptLineDto $actualAccount;
 
     #[Property]
-    public ?\actualSubInPurchaseReceiptLineDto $actualSub;
+    public ?actualSubInPurchaseReceiptLineDto $actualSub;
 
     #[Property]
-    public ?\projectInPurchaseReceiptLineDto $project;
+    public ?projectInPurchaseReceiptLineDto $project;
 
     #[Property]
-    public ?\projectTaskInPurchaseReceiptLineDto $projectTask;
+    public ?projectTaskInPurchaseReceiptLineDto $projectTask;
 
     /** Document details tab &gt; Expiration date &gt; The expiration date of the received item. */
     #[Property]

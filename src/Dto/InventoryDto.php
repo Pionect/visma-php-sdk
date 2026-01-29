@@ -33,16 +33,16 @@ class InventoryDto extends Model
     public ?string $body;
 
     #[Property]
-    public ?\itemClassInInventoryDto $itemClass;
+    public ?itemClassInInventoryDto $itemClass;
 
     #[Property]
-    public ?\postingClassInInventoryDto $postingClass;
+    public ?postingClassInInventoryDto $postingClass;
 
     #[Property]
-    public ?\vatCodeInInventoryDto $vatCode;
+    public ?vatCodeInInventoryDto $vatCode;
 
     #[Property]
-    public ?\lotSerialClassInInventoryDto $lotSerialClass;
+    public ?lotSerialClassInInventoryDto $lotSerialClass;
 
     /** Price/cost information tab &gt; Price management section &gt; Default price &gt; The price of the stock item. */
     #[Property]
@@ -94,10 +94,10 @@ class InventoryDto extends Model
     public ?bool $kitItem;
 
     #[Property]
-    public ?\accountInformationInInventoryDto $accountInformation;
+    public ?accountInformationInInventoryDto $accountInformation;
 
     #[Property]
-    public ?\costPriceStatisticsInInventoryDto $costPriceStatistics;
+    public ?costPriceStatisticsInInventoryDto $costPriceStatistics;
 
     /** Cross-reference tab &gt; */
     #[Property]
@@ -119,13 +119,13 @@ class InventoryDto extends Model
     public ?array $inventoryUnits;
 
     #[Property]
-    public ?\defaultWarehouseInInventoryDto $defaultWarehouse;
+    public ?defaultWarehouseInInventoryDto $defaultWarehouse;
 
     #[Property]
-    public ?\defaultIssueFromInInventoryDto $defaultIssueFrom;
+    public ?defaultIssueFromInInventoryDto $defaultIssueFrom;
 
     #[Property]
-    public ?\defaultReceiptToInInventoryDto $defaultReceiptTo;
+    public ?defaultReceiptToInInventoryDto $defaultReceiptTo;
 
     /** Supplier details tab */
     #[Property]
@@ -136,10 +136,10 @@ class InventoryDto extends Model
     public ?array $salesCategories;
 
     #[Property]
-    public ?\packagingInInventoryDto $packaging;
+    public ?packagingInInventoryDto $packaging;
 
     #[Property]
-    public ?\intrastatInInventoryDto $intrastat;
+    public ?intrastatInInventoryDto $intrastat;
 
     /** The Price/cost information tab &gt; Price management section &gt; List price &gt; The manufacturer's suggested retail price (MSRP) of the stock item. */
     #[Property]
@@ -150,10 +150,10 @@ class InventoryDto extends Model
     public ?string $priceManagerId;
 
     #[Property]
-    public ?\priceManagerInInventoryDto $priceManager;
+    public ?priceManagerInInventoryDto $priceManager;
 
     #[Property]
-    public ?\priceClassInInventoryDto $priceClass;
+    public ?priceClassInInventoryDto $priceClass;
 
     /** The Price/cost information tab &gt; Price management section &gt; Price work group &gt; The work group responsible for product pricing. Select the pricing work group for the stock item. */
     #[Property]

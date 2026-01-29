@@ -17,19 +17,19 @@ class TaskExtendedDto extends Model
     public ?int $projectInternalId;
 
     #[Property]
-    public ?\defAccountInTaskExtendedDto $defAccount;
+    public ?defAccountInTaskExtendedDto $defAccount;
 
     #[Property]
-    public ?\defSubInTaskExtendedDto $defSub;
+    public ?defSubInTaskExtendedDto $defSub;
 
     #[Property]
-    public ?\defAccrualAccountInTaskExtendedDto $defAccrualAccount;
+    public ?defAccrualAccountInTaskExtendedDto $defAccrualAccount;
 
     #[Property]
-    public ?\defAccrualSubInTaskExtendedDto $defAccrualSub;
+    public ?defAccrualSubInTaskExtendedDto $defAccrualSub;
 
     #[Property]
-    public ?\taxCategoryInTaskExtendedDto $taxCategory;
+    public ?taxCategoryInTaskExtendedDto $taxCategory;
 
     /** Information collected from system. */
     #[Property]
@@ -68,10 +68,10 @@ class TaskExtendedDto extends Model
     public ?\Carbon\Carbon $endDate;
 
     #[Property]
-    public ?\branchInTaskExtendedDto $branch;
+    public ?branchInTaskExtendedDto $branch;
 
     #[Property]
-    public ?\rateTableInTaskExtendedDto $rateTable;
+    public ?rateTableInTaskExtendedDto $rateTable;
 
     /** Mandatory field: Status* &gt; The status of the task, which can be one of the following: In planning, Active, Cancelled, Completed. */
     #[Property]
@@ -82,7 +82,7 @@ class TaskExtendedDto extends Model
     public ?bool $restrictEmployees;
 
     #[Property]
-    public ?\visibilityInTaskExtendedDto $visibility;
+    public ?visibilityInTaskExtendedDto $visibility;
 
     /**
      * Identifier that represents a specific version of the resource.

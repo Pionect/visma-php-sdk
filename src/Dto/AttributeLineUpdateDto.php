@@ -9,7 +9,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class AttributeLineUpdateDto extends Model
 {
     #[Property]
-    public ?\attributeIdInAttributeLineUpdateDto $attributeId;
+    public ?attributeIdInAttributeLineUpdateDto $attributeId;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

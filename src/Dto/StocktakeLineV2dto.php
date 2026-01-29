@@ -21,13 +21,13 @@ class StocktakeLineV2dto extends Model
     public ?int $tagNbr;
 
     #[Property]
-    public ?\inventoryInStocktakeLineV2Dto $inventory;
+    public ?inventoryInStocktakeLineV2Dto $inventory;
 
     #[Property]
-    public ?\locationInStocktakeLineV2Dto $location;
+    public ?locationInStocktakeLineV2Dto $location;
 
     #[Property]
-    public ?\warehouseInStocktakeLineV2Dto $warehouse;
+    public ?warehouseInStocktakeLineV2Dto $warehouse;
 
     /** Stocktaking details tab &gt; Lot/serial number &gt; The lot or serial number of the item. */
     #[Property]

@@ -77,16 +77,16 @@ class SupplierInvoiceLineDto extends Model
     public ?bool $manualDiscount;
 
     #[Property]
-    public ?\accountInSupplierInvoiceLineDto $account;
+    public ?accountInSupplierInvoiceLineDto $account;
 
     #[Property]
-    public ?\subaccountInSupplierInvoiceLineDto $subaccount;
+    public ?subaccountInSupplierInvoiceLineDto $subaccount;
 
     #[Property]
-    public ?\prebookAccountInSupplierInvoiceLineDto $prebookAccount;
+    public ?prebookAccountInSupplierInvoiceLineDto $prebookAccount;
 
     #[Property]
-    public ?\prebookSubaccountInSupplierInvoiceLineDto $prebookSubaccount;
+    public ?prebookSubaccountInSupplierInvoiceLineDto $prebookSubaccount;
 
     /** The table &gt; Original deferral schedule &gt; A read-only column filled in by the system in the Debit adjustment documents created by the reversing process.It shows the ID of the deferral schedule associated with the original document (such as a purchase invoice). */
     #[Property]
@@ -101,7 +101,7 @@ class SupplierInvoiceLineDto extends Model
     public ?string $deferralCode;
 
     #[Property]
-    public ?\vatCodeInSupplierInvoiceLineDto $vatCode;
+    public ?vatCodeInSupplierInvoiceLineDto $vatCode;
 
     /** The table &gt; Purchase order number &gt; The number of the purchase order linked to this line of the invoice. */
     #[Property]
@@ -120,7 +120,7 @@ class SupplierInvoiceLineDto extends Model
     public ?int $poReceiptLineNbr;
 
     #[Property]
-    public ?\branchNumberInSupplierInvoiceLineDto $branchNumber;
+    public ?branchNumberInSupplierInvoiceLineDto $branchNumber;
 
     /** The table &gt; Icon Notes &gt; Pop-up window for providing any user-defined text connected with to invoice. */
     #[Property]
@@ -131,10 +131,10 @@ class SupplierInvoiceLineDto extends Model
     public ?string $splitHierarchy;
 
     #[Property]
-    public ?\projectInSupplierInvoiceLineDto $project;
+    public ?projectInSupplierInvoiceLineDto $project;
 
     #[Property]
-    public ?\projectTaskInSupplierInvoiceLineDto $projectTask;
+    public ?projectTaskInSupplierInvoiceLineDto $projectTask;
 
     /** The data containing information about the document attachments */
     #[Property]

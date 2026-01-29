@@ -18,10 +18,10 @@ class CustomerInvoiceLinesUpdateDto extends Model
     public ?bool $domesticServicesDeductible;
 
     #[Property]
-    public ?\itemTypeInCustomerInvoiceLinesUpdateDto $itemType;
+    public ?itemTypeInCustomerInvoiceLinesUpdateDto $itemType;
 
     #[Property]
-    public ?\typeOfWorkInCustomerInvoiceLinesUpdateDto $typeOfWork;
+    public ?typeOfWorkInCustomerInvoiceLinesUpdateDto $typeOfWork;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

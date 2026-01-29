@@ -11,7 +11,7 @@ class CreateShipmentActionResultDto extends Model
     public ?string $referenceNumber;
 
     #[Property]
-    public ?\ShipmentDto $shipmentDto;
+    public ?ShipmentDto $shipmentDto;
 
     #[Property]
     public ?string $actionId;

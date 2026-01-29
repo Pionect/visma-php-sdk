@@ -17,81 +17,81 @@ class PurchaseReceiptLineBasicUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\lineNbrInPurchaseReceiptLineBasicUpdateDto $lineNbr;
+    public ?lineNbrInPurchaseReceiptLineBasicUpdateDto $lineNbr;
 
     #[Property]
-    public ?\lineTypeInPurchaseReceiptLineBasicUpdateDto $lineType;
+    public ?lineTypeInPurchaseReceiptLineBasicUpdateDto $lineType;
 
     #[Property]
-    public ?\branchIdInPurchaseReceiptLineBasicUpdateDto $branchId;
+    public ?branchIdInPurchaseReceiptLineBasicUpdateDto $branchId;
 
     #[Property]
-    public ?\branchNumberInPurchaseReceiptLineBasicUpdateDto $branchNumber;
+    public ?branchNumberInPurchaseReceiptLineBasicUpdateDto $branchNumber;
 
     #[Property]
-    public ?\inventoryIdInPurchaseReceiptLineBasicUpdateDto $inventoryId;
+    public ?inventoryIdInPurchaseReceiptLineBasicUpdateDto $inventoryId;
 
     #[Property]
-    public ?\warehouseIdInPurchaseReceiptLineBasicUpdateDto $warehouseId;
+    public ?warehouseIdInPurchaseReceiptLineBasicUpdateDto $warehouseId;
 
     #[Property]
-    public ?\locationIdInPurchaseReceiptLineBasicUpdateDto $locationId;
+    public ?locationIdInPurchaseReceiptLineBasicUpdateDto $locationId;
 
     #[Property]
-    public ?\transactionDescriptionInPurchaseReceiptLineBasicUpdateDto $transactionDescription;
+    public ?transactionDescriptionInPurchaseReceiptLineBasicUpdateDto $transactionDescription;
 
     #[Property]
-    public ?\uomInPurchaseReceiptLineBasicUpdateDto $uom;
+    public ?uomInPurchaseReceiptLineBasicUpdateDto $uom;
 
     #[Property]
-    public ?\receiptQtyInPurchaseReceiptLineBasicUpdateDto $receiptQty;
+    public ?receiptQtyInPurchaseReceiptLineBasicUpdateDto $receiptQty;
 
     #[Property]
-    public ?\unitCostInPurchaseReceiptLineBasicUpdateDto $unitCost;
+    public ?unitCostInPurchaseReceiptLineBasicUpdateDto $unitCost;
 
     #[Property]
-    public ?\extCostInPurchaseReceiptLineBasicUpdateDto $extCost;
+    public ?extCostInPurchaseReceiptLineBasicUpdateDto $extCost;
 
     #[Property]
-    public ?\discountPercentInPurchaseReceiptLineBasicUpdateDto $discountPercent;
+    public ?discountPercentInPurchaseReceiptLineBasicUpdateDto $discountPercent;
 
     #[Property]
-    public ?\discountAmountInPurchaseReceiptLineBasicUpdateDto $discountAmount;
+    public ?discountAmountInPurchaseReceiptLineBasicUpdateDto $discountAmount;
 
     #[Property]
-    public ?\manualDiscountInPurchaseReceiptLineBasicUpdateDto $manualDiscount;
+    public ?manualDiscountInPurchaseReceiptLineBasicUpdateDto $manualDiscount;
 
     #[Property]
-    public ?\discountCodeIdInPurchaseReceiptLineBasicUpdateDto $discountCodeId;
+    public ?discountCodeIdInPurchaseReceiptLineBasicUpdateDto $discountCodeId;
 
     #[Property]
-    public ?\amountInPurchaseReceiptLineBasicUpdateDto $amount;
+    public ?amountInPurchaseReceiptLineBasicUpdateDto $amount;
 
     #[Property]
-    public ?\taxCategoryIdInPurchaseReceiptLineBasicUpdateDto $taxCategoryId;
+    public ?taxCategoryIdInPurchaseReceiptLineBasicUpdateDto $taxCategoryId;
 
     #[Property]
-    public ?\accountIdInPurchaseReceiptLineBasicUpdateDto $accountId;
+    public ?accountIdInPurchaseReceiptLineBasicUpdateDto $accountId;
 
     #[Property]
-    public ?\accountDescriptionInPurchaseReceiptLineBasicUpdateDto $accountDescription;
+    public ?accountDescriptionInPurchaseReceiptLineBasicUpdateDto $accountDescription;
 
     /** The Document details tab &gt; The subaccount to be used to record the non-stock item amount on the purchase receipt (for non-stock items for which receipts are not required). */
     #[Property]
     public ?array $subaccount;
 
     #[Property]
-    public ?\actualAccountIdInPurchaseReceiptLineBasicUpdateDto $actualAccountId;
+    public ?actualAccountIdInPurchaseReceiptLineBasicUpdateDto $actualAccountId;
 
     /** The Document details tab &gt; The subaccount used to record the item amount on the purchase receipt, used for stock items and non-stock items for which a receipt is required. */
     #[Property]
     public ?array $actualSubaccount;
 
     #[Property]
-    public ?\projectIdInPurchaseReceiptLineBasicUpdateDto $projectId;
+    public ?projectIdInPurchaseReceiptLineBasicUpdateDto $projectId;
 
     #[Property]
-    public ?\projectTaskIdInPurchaseReceiptLineBasicUpdateDto $projectTaskId;
+    public ?projectTaskIdInPurchaseReceiptLineBasicUpdateDto $projectTaskId;
 
     #[Property]
     #[DateTime]
@@ -102,53 +102,53 @@ class PurchaseReceiptLineBasicUpdateDto extends Model
     public ?string $lotSerialNumber;
 
     #[Property]
-    public ?\poOrderTypeInPurchaseReceiptLineBasicUpdateDto $poOrderType;
+    public ?poOrderTypeInPurchaseReceiptLineBasicUpdateDto $poOrderType;
 
     #[Property]
-    public ?\poOrderNbrInPurchaseReceiptLineBasicUpdateDto $poOrderNbr;
+    public ?poOrderNbrInPurchaseReceiptLineBasicUpdateDto $poOrderNbr;
 
     #[Property]
-    public ?\poOrderLineNbrInPurchaseReceiptLineBasicUpdateDto $poOrderLineNbr;
+    public ?poOrderLineNbrInPurchaseReceiptLineBasicUpdateDto $poOrderLineNbr;
 
     #[Property]
-    public ?\transferOrderTypeInPurchaseReceiptLineBasicUpdateDto $transferOrderType;
+    public ?transferOrderTypeInPurchaseReceiptLineBasicUpdateDto $transferOrderType;
 
     #[Property]
-    public ?\transferOrderNbrInPurchaseReceiptLineBasicUpdateDto $transferOrderNbr;
+    public ?transferOrderNbrInPurchaseReceiptLineBasicUpdateDto $transferOrderNbr;
 
     #[Property]
-    public ?\transferOrderLineNbrInPurchaseReceiptLineBasicUpdateDto $transferOrderLineNbr;
+    public ?transferOrderLineNbrInPurchaseReceiptLineBasicUpdateDto $transferOrderLineNbr;
 
     #[Property]
-    public ?\completePoLineInPurchaseReceiptLineBasicUpdateDto $completePoLine;
+    public ?completePoLineInPurchaseReceiptLineBasicUpdateDto $completePoLine;
 
     #[Property]
-    public ?\customStr1InPurchaseReceiptLineBasicUpdateDto $customStr1;
+    public ?customStr1InPurchaseReceiptLineBasicUpdateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InPurchaseReceiptLineBasicUpdateDto $customStr2;
+    public ?customStr2InPurchaseReceiptLineBasicUpdateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InPurchaseReceiptLineBasicUpdateDto $customStr3;
+    public ?customStr3InPurchaseReceiptLineBasicUpdateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InPurchaseReceiptLineBasicUpdateDto $customStr4;
+    public ?customStr4InPurchaseReceiptLineBasicUpdateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InPurchaseReceiptLineBasicUpdateDto $customStr5;
+    public ?customStr5InPurchaseReceiptLineBasicUpdateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InPurchaseReceiptLineBasicUpdateDto $customDec1;
+    public ?customDec1InPurchaseReceiptLineBasicUpdateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InPurchaseReceiptLineBasicUpdateDto $customDec2;
+    public ?customDec2InPurchaseReceiptLineBasicUpdateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InPurchaseReceiptLineBasicUpdateDto $customInt1;
+    public ?customInt1InPurchaseReceiptLineBasicUpdateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InPurchaseReceiptLineBasicUpdateDto $customInt2;
+    public ?customInt2InPurchaseReceiptLineBasicUpdateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InPurchaseReceiptLineBasicUpdateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InPurchaseReceiptLineBasicUpdateDto $customDateTimeUtc1;
 }

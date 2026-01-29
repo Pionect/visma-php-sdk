@@ -12,10 +12,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryTransferDto extends Model
 {
     #[Property]
-    public ?\warehouseInInventoryTransferDto $warehouse;
+    public ?warehouseInInventoryTransferDto $warehouse;
 
     #[Property]
-    public ?\toWarehouseInInventoryTransferDto $toWarehouse;
+    public ?toWarehouseInInventoryTransferDto $toWarehouse;
 
     /** The Transaction details tab &gt; The inventory transfer lines */
     #[Property]
@@ -73,7 +73,7 @@ class InventoryTransferDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\branchNumberInInventoryTransferDto $branchNumber;
+    public ?branchNumberInInventoryTransferDto $branchNumber;
 
     /** The data containing information about the document attachments */
     #[Property]

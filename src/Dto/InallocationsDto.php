@@ -15,7 +15,7 @@ class InallocationsDto extends Model
     public ?int $lineNbr;
 
     #[Property]
-    public ?\LocationDescriptionDto $location;
+    public ?LocationDescriptionDto $location;
 
     #[Property]
     public ?string $lotSerialNumber;

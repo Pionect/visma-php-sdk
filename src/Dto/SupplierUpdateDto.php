@@ -110,31 +110,31 @@ class SupplierUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\AddressUpdateDto $mainAddress;
+    public ?AddressUpdateDto $mainAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\ContactInfoUpdateDto $mainContact;
+    public ?ContactInfoUpdateDto $mainContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\AddressUpdateDto $remitAddress;
+    public ?AddressUpdateDto $remitAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\ContactInfoUpdateDto $remitContact;
+    public ?ContactInfoUpdateDto $remitContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\AddressUpdateDto $supplierAddress;
+    public ?AddressUpdateDto $supplierAddress;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\ContactInfoUpdateDto $supplierContact;
+    public ?ContactInfoUpdateDto $supplierContact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\SupplierGlAccountsUpdateDto $glAccounts;
+    public ?SupplierGlAccountsUpdateDto $glAccounts;
 
     #[Property]
     public ?array $supplierPaymentMethodDetails;

@@ -38,8 +38,8 @@ class SoBillingAddressInSalesOrderDto extends Model
     public ?string $city;
 
     #[Property]
-    public ?\countryInSalesOrderAddressDto $country;
+    public ?countryInSalesOrderAddressDto $country;
 
     #[Property]
-    public ?\countyInSalesOrderAddressDto $county;
+    public ?countyInSalesOrderAddressDto $county;
 }

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryTransferLineDto extends Model
 {
     #[Property]
-    public ?\LocationDescriptionDto $toLocation;
+    public ?LocationDescriptionDto $toLocation;
 
     #[Property]
     public ?string $lotSerialNumber;
@@ -25,10 +25,10 @@ class InventoryTransferLineDto extends Model
     public ?int $lineNumber;
 
     #[Property]
-    public ?\inventoryItemInInventoryTransferLineDto $inventoryItem;
+    public ?inventoryItemInInventoryTransferLineDto $inventoryItem;
 
     #[Property]
-    public ?\locationInInventoryTransferLineDto $location;
+    public ?locationInInventoryTransferLineDto $location;
 
     /** Quantity &gt; The quantity of the transferred goods (in the units indicated below). */
     #[Property]
@@ -39,7 +39,7 @@ class InventoryTransferLineDto extends Model
     public ?string $uom;
 
     #[Property]
-    public ?\reasonCodeInInventoryTransferLineDto $reasonCode;
+    public ?reasonCodeInInventoryTransferLineDto $reasonCode;
 
     /** Description &gt; A brief description of the goods transfer transaction. */
     #[Property]
@@ -49,5 +49,5 @@ class InventoryTransferLineDto extends Model
     public ?array $attachments;
 
     #[Property]
-    public ?\BranchNumberDto $branchNumber;
+    public ?BranchNumberDto $branchNumber;
 }

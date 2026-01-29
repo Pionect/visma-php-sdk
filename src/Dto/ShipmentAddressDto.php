@@ -35,8 +35,8 @@ class ShipmentAddressDto extends Model
     public ?string $city;
 
     #[Property]
-    public ?\countryInShipmentAddressDto $country;
+    public ?countryInShipmentAddressDto $country;
 
     #[Property]
-    public ?\countyInShipmentAddressDto $county;
+    public ?countyInShipmentAddressDto $county;
 }

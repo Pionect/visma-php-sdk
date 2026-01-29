@@ -8,7 +8,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class PrebookingUpdateDto extends Model
 {
     #[Property]
-    public ?\accountNumberInPrebookingUpdateDto $accountNumber;
+    public ?accountNumberInPrebookingUpdateDto $accountNumber;
 
     /** Subaccount used for prebooking. */
     #[Property]

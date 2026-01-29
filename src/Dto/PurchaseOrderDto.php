@@ -16,19 +16,19 @@ class PurchaseOrderDto extends Model
     public ?string $shippingDestinationType;
 
     #[Property]
-    public ?\shipToInPurchaseOrderDto $shipTo;
+    public ?shipToInPurchaseOrderDto $shipTo;
 
     #[Property]
-    public ?\shippingLocationInPurchaseOrderDto $shippingLocation;
+    public ?shippingLocationInPurchaseOrderDto $shippingLocation;
 
     #[Property]
-    public ?\warehouseInPurchaseOrderDto $warehouse;
+    public ?warehouseInPurchaseOrderDto $warehouse;
 
     #[Property]
-    public ?\shippingContactInPurchaseOrderDto $shippingContact;
+    public ?shippingContactInPurchaseOrderDto $shippingContact;
 
     #[Property]
-    public ?\shippingAddressInPurchaseOrderDto $shippingAddress;
+    public ?shippingAddressInPurchaseOrderDto $shippingAddress;
 
     /** Delivery instructions tab &gt; The Delivery instructions section &gt; FOB point &gt; The FOB point where the title of goods (listed on this purchase order) is transferred from the supplier to the company. */
     #[Property]
@@ -43,16 +43,16 @@ class PurchaseOrderDto extends Model
     public ?string $shipTerms;
 
     #[Property]
-    public ?\remitContactInPurchaseOrderDto $remitContact;
+    public ?remitContactInPurchaseOrderDto $remitContact;
 
     #[Property]
-    public ?\remitAddressInPurchaseOrderDto $remitAddress;
+    public ?remitAddressInPurchaseOrderDto $remitAddress;
 
     #[Property]
-    public ?\termsInPurchaseOrderDto $terms;
+    public ?termsInPurchaseOrderDto $terms;
 
     #[Property]
-    public ?\supplierVatZoneInPurchaseOrderDto $supplierVatZone;
+    public ?supplierVatZoneInPurchaseOrderDto $supplierVatZone;
 
     /** Discount details tab &gt; */
     #[Property]
@@ -133,13 +133,13 @@ class PurchaseOrderDto extends Model
     public ?string $description;
 
     #[Property]
-    public ?\supplierInPurchaseOrderDto $supplier;
+    public ?supplierInPurchaseOrderDto $supplier;
 
     #[Property]
-    public ?\locationInPurchaseOrderDto $location;
+    public ?locationInPurchaseOrderDto $location;
 
     #[Property]
-    public ?\ownerInPurchaseOrderDto $owner;
+    public ?ownerInPurchaseOrderDto $owner;
 
     /** The top part &gt; Currency &gt; The currency the purchase order will be paid in. */
     #[Property]
@@ -193,7 +193,7 @@ class PurchaseOrderDto extends Model
     public ?float $controlTotalInBaseCurrency;
 
     #[Property]
-    public ?\branchInPurchaseOrderDto $branch;
+    public ?branchInPurchaseOrderDto $branch;
 
     /** Document details tab &gt; The table &gt; */
     #[Property]

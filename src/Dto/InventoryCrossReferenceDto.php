@@ -12,7 +12,7 @@ class InventoryCrossReferenceDto extends Model
     public ?string $alternateType;
 
     #[Property]
-    public ?\bAccountInInventoryCrossReferenceDto $bAccount;
+    public ?bAccountInInventoryCrossReferenceDto $bAccount;
 
     /** Mandatory field: Alternate ID &gt; The alternate ID of the stock item (under the specified item ID) as used by the supplier or customer. */
     #[Property]

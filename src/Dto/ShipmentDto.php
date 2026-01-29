@@ -41,23 +41,23 @@ class ShipmentDto extends Model
     public ?\Carbon\Carbon $shipmentDate;
 
     #[Property]
-    public ?\customerInShipmentDto $customer;
+    public ?customerInShipmentDto $customer;
 
     #[Property]
-    public ?\locationInShipmentDto $location;
+    public ?locationInShipmentDto $location;
 
     #[Property]
-    public ?\fromWarehouseInShipmentDto $fromWarehouse;
+    public ?fromWarehouseInShipmentDto $fromWarehouse;
 
     #[Property]
-    public ?\toWarehouseInShipmentDto $toWarehouse;
+    public ?toWarehouseInShipmentDto $toWarehouse;
 
     /** Delivery settings tab &gt; Freight currency &gt; By default, it is the currency of the sales order, but you can change it if needed. */
     #[Property]
     public ?string $currencyId;
 
     #[Property]
-    public ?\ownerInShipmentDto $owner;
+    public ?ownerInShipmentDto $owner;
 
     /** The top part &gt; Shipped quantity &gt; The quantity of goods shipped. */
     #[Property]
@@ -88,22 +88,22 @@ class ShipmentDto extends Model
     public ?float $controlQuantity;
 
     #[Property]
-    public ?\deliveryAddressInShipmentDto $deliveryAddress;
+    public ?deliveryAddressInShipmentDto $deliveryAddress;
 
     #[Property]
-    public ?\deliveryContactInShipmentDto $deliveryContact;
+    public ?deliveryContactInShipmentDto $deliveryContact;
 
     #[Property]
-    public ?\shipViaInShipmentDto $shipVia;
+    public ?shipViaInShipmentDto $shipVia;
 
     #[Property]
-    public ?\fobPointInShipmentDto $fobPoint;
+    public ?fobPointInShipmentDto $fobPoint;
 
     #[Property]
-    public ?\shippingTermsInShipmentDto $shippingTerms;
+    public ?shippingTermsInShipmentDto $shippingTerms;
 
     #[Property]
-    public ?\shippingZoneInShipmentDto $shippingZone;
+    public ?shippingZoneInShipmentDto $shippingZone;
 
     /** Delivery settings tab &gt; Shipping information section &gt; Residential delivery &gt; This check box indicates (if selected) that the shipping address is a residential one. */
     #[Property]
@@ -129,10 +129,10 @@ class ShipmentDto extends Model
     public ?float $freightAmt;
 
     #[Property]
-    public ?\transactionTypeInShipmentDto $transactionType;
+    public ?transactionTypeInShipmentDto $transactionType;
 
     #[Property]
-    public ?\modeOfTrasportInShipmentDto $modeOfTrasport;
+    public ?modeOfTrasportInShipmentDto $modeOfTrasport;
 
     /** Delivery settings tab &gt; Intrastat section &gt; Container &gt; This check box indicates (if selected) that the shipment gets marked as shipped in container for Intrastat reporting purposes. */
     #[Property]

@@ -28,10 +28,10 @@ class DeferralCodeDto extends Model
     public ?string $codeType;
 
     #[Property]
-    public ?\deferralAccountInDeferralCodeDto $deferralAccount;
+    public ?deferralAccountInDeferralCodeDto $deferralAccount;
 
     #[Property]
-    public ?\deferralSubInDeferralCodeDto $deferralSub;
+    public ?deferralSubInDeferralCodeDto $deferralSub;
 
     #[Property]
     public ?string $errorInfo;

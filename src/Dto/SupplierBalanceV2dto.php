@@ -15,7 +15,7 @@ class SupplierBalanceV2dto extends Model
     public ?string $branch;
 
     #[Property]
-    public ?\supplierInSupplierBalanceV2Dto $supplier;
+    public ?supplierInSupplierBalanceV2Dto $supplier;
 
     /** Begin balance */
     #[Property]

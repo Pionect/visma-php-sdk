@@ -12,10 +12,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class LocationUpdateDto extends Model
 {
     #[Property]
-    public ?\baccountIdInLocationUpdateDto $baccountId;
+    public ?baccountIdInLocationUpdateDto $baccountId;
 
     #[Property]
-    public ?\locationIdInLocationUpdateDto $locationId;
+    public ?locationIdInLocationUpdateDto $locationId;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -31,7 +31,7 @@ class LocationUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\AddressUpdateDto $address;
+    public ?AddressUpdateDto $address;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -39,7 +39,7 @@ class LocationUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\ContactInfoUpdateDto $contact;
+    public ?ContactInfoUpdateDto $contact;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -63,5 +63,5 @@ class LocationUpdateDto extends Model
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
-    public ?\PeppolSchemeUpdateDto $peppolScheme;
+    public ?PeppolSchemeUpdateDto $peppolScheme;
 }

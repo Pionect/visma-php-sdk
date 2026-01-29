@@ -16,17 +16,17 @@ class CustomerContractDto extends Model
     public ?string $contractId;
 
     #[Property]
-    public ?\contractTemplateInCustomerContractDto $contractTemplate;
+    public ?contractTemplateInCustomerContractDto $contractTemplate;
 
     /** The top part &gt; Status &gt; The status of the contract, which is one of the following: Draft, Pending activation, Active, Expired, Cancelled, Pending update. */
     #[Property]
     public ?string $status;
 
     #[Property]
-    public ?\customerInCustomerContractDto $customer;
+    public ?customerInCustomerContractDto $customer;
 
     #[Property]
-    public ?\locationInCustomerContractDto $location;
+    public ?locationInCustomerContractDto $location;
 
     /** Mandatory field: The top part &gt; Description* &gt; The description of the contract, which includes any related comments. */
     #[Property]
@@ -42,10 +42,10 @@ class CustomerContractDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\summaryInCustomerContractDto $summary;
+    public ?summaryInCustomerContractDto $summary;
 
     #[Property]
-    public ?\detailsInCustomerContractDto $details;
+    public ?detailsInCustomerContractDto $details;
 
     /** Project attributes tab */
     #[Property]

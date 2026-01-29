@@ -15,10 +15,10 @@ class WarehouseDto extends Model
     public ?string $warehouseId;
 
     #[Property]
-    public ?\branchInWarehouseDto $branch;
+    public ?branchInWarehouseDto $branch;
 
     #[Property]
-    public ?\replenishmentClassInWarehouseDto $replenishmentClass;
+    public ?replenishmentClassInWarehouseDto $replenishmentClass;
 
     /** The top part &gt; Active &gt; This check box indicates (if selected) that the warehouse is active. */
     #[Property]
@@ -45,22 +45,22 @@ class WarehouseDto extends Model
     public ?string $fifoDefaultCost;
 
     #[Property]
-    public ?\receiptLocationInWarehouseDto $receiptLocation;
+    public ?receiptLocationInWarehouseDto $receiptLocation;
 
     #[Property]
-    public ?\shipLocationInWarehouseDto $shipLocation;
+    public ?shipLocationInWarehouseDto $shipLocation;
 
     #[Property]
-    public ?\returnLocationInWarehouseDto $returnLocation;
+    public ?returnLocationInWarehouseDto $returnLocation;
 
     #[Property]
-    public ?\dropShipLocationInWarehouseDto $dropShipLocation;
+    public ?dropShipLocationInWarehouseDto $dropShipLocation;
 
     #[Property]
-    public ?\contactInWarehouseDto $contact;
+    public ?contactInWarehouseDto $contact;
 
     #[Property]
-    public ?\addressInWarehouseDto $address;
+    public ?addressInWarehouseDto $address;
 
     /** Location table tab &gt; The location table &gt; */
     #[Property]

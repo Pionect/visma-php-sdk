@@ -36,32 +36,32 @@ class ShipmentDetailLineAddDto extends Model
     public ?float $shippedQty;
 
     #[Property]
-    public ?\customStr1InShipmentDetailLineAddDto $customStr1;
+    public ?customStr1InShipmentDetailLineAddDto $customStr1;
 
     #[Property]
-    public ?\customStr2InShipmentDetailLineAddDto $customStr2;
+    public ?customStr2InShipmentDetailLineAddDto $customStr2;
 
     #[Property]
-    public ?\customStr3InShipmentDetailLineAddDto $customStr3;
+    public ?customStr3InShipmentDetailLineAddDto $customStr3;
 
     #[Property]
-    public ?\customStr4InShipmentDetailLineAddDto $customStr4;
+    public ?customStr4InShipmentDetailLineAddDto $customStr4;
 
     #[Property]
-    public ?\customStr5InShipmentDetailLineAddDto $customStr5;
+    public ?customStr5InShipmentDetailLineAddDto $customStr5;
 
     #[Property]
-    public ?\customDec1InShipmentDetailLineAddDto $customDec1;
+    public ?customDec1InShipmentDetailLineAddDto $customDec1;
 
     #[Property]
-    public ?\customDec2InShipmentDetailLineAddDto $customDec2;
+    public ?customDec2InShipmentDetailLineAddDto $customDec2;
 
     #[Property]
-    public ?\customInt1InShipmentDetailLineAddDto $customInt1;
+    public ?customInt1InShipmentDetailLineAddDto $customInt1;
 
     #[Property]
-    public ?\customInt2InShipmentDetailLineAddDto $customInt2;
+    public ?customInt2InShipmentDetailLineAddDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InShipmentDetailLineAddDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InShipmentDetailLineAddDto $customDateTimeUtc1;
 }

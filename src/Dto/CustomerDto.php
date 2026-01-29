@@ -27,23 +27,23 @@ class CustomerDto extends Model
     public ?string $status;
 
     #[Property]
-    public ?\mainAddressInCustomerDto $mainAddress;
+    public ?mainAddressInCustomerDto $mainAddress;
 
     #[Property]
-    public ?\mainContactInCustomerDto $mainContact;
+    public ?mainContactInCustomerDto $mainContact;
 
     /** General information tab &gt; Main contact section &gt; Account ref. &gt; Your company's account number in the customer's system. */
     #[Property]
     public ?string $accountReference;
 
     #[Property]
-    public ?\ParentRecordDto $parentRecord;
+    public ?ParentRecordDto $parentRecord;
 
     #[Property]
-    public ?\customerClassInCustomerDto $customerClass;
+    public ?customerClassInCustomerDto $customerClass;
 
     #[Property]
-    public ?\creditTermsInCustomerDto $creditTerms;
+    public ?creditTermsInCustomerDto $creditTerms;
 
     /** The General information tab &gt; Financial settings section &gt; Currency ID &gt; The currency used in operations with the customer, which you can select from the list of currencies defined in the system. */
     #[Property]
@@ -62,10 +62,10 @@ class CustomerDto extends Model
     public ?int $creditDaysPastDue;
 
     #[Property]
-    public ?\invoiceAddressInCustomerDto $invoiceAddress;
+    public ?invoiceAddressInCustomerDto $invoiceAddress;
 
     #[Property]
-    public ?\invoiceContactInCustomerDto $invoiceContact;
+    public ?invoiceContactInCustomerDto $invoiceContact;
 
     /** Invoicing settings &gt; Print and email settings section &gt; Print invoices &gt; A check box that, if selected, indicates that invoices can be printed in the Print invoice (AR508000) window. */
     #[Property]
@@ -104,10 +104,10 @@ class CustomerDto extends Model
     public ?string $statementType;
 
     #[Property]
-    public ?\deliveryAddressInCustomerDto $deliveryAddress;
+    public ?deliveryAddressInCustomerDto $deliveryAddress;
 
     #[Property]
-    public ?\deliveryContactInCustomerDto $deliveryContact;
+    public ?deliveryContactInCustomerDto $deliveryContact;
 
     /** Deliver settings tab &gt; Default location settings section &gt; VAT registration ID &gt; The customer's taxpayer ID associated with the location. */
     #[Property]
@@ -122,10 +122,10 @@ class CustomerDto extends Model
     public ?string $gln;
 
     #[Property]
-    public ?\vatZoneInCustomerDto $vatZone;
+    public ?vatZoneInCustomerDto $vatZone;
 
     #[Property]
-    public ?\locationInCustomerDto $location;
+    public ?locationInCustomerDto $location;
 
     /** Information collected from the system. Not visible on the screen. */
     #[Property]
@@ -146,17 +146,17 @@ class CustomerDto extends Model
     public ?array $directDebitLines;
 
     #[Property]
-    public ?\priceClassInCustomerDto $priceClass;
+    public ?priceClassInCustomerDto $priceClass;
 
     #[Property]
-    public ?\glAccountsInCustomerDto $glAccounts;
+    public ?glAccountsInCustomerDto $glAccounts;
 
     /** Delivery settings tab &gt; Default location settings &gt; Invoice to default location &gt; A check box indicating that the default location is to be used. */
     #[Property]
     public ?bool $invoiceToDefaultLocation;
 
     #[Property]
-    public ?\eInvoiceContractInCustomerDto $eInvoiceContract;
+    public ?eInvoiceContractInCustomerDto $eInvoiceContract;
 
     /** Payment methods tab. */
     #[Property]

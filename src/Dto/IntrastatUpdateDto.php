@@ -12,11 +12,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class IntrastatUpdateDto extends Model
 {
     #[Property]
-    public ?\cN8InIntrastatUpdateDto $cN8;
+    public ?cN8InIntrastatUpdateDto $cN8;
 
     #[Property]
-    public ?\countryOfOriginInIntrastatUpdateDto $countryOfOrigin;
+    public ?countryOfOriginInIntrastatUpdateDto $countryOfOrigin;
 
     #[Property]
-    public ?\supplementaryMeasureUnitInIntrastatUpdateDto $supplementaryMeasureUnit;
+    public ?supplementaryMeasureUnitInIntrastatUpdateDto $supplementaryMeasureUnit;
 }

@@ -32,10 +32,10 @@ class WarehouseAddressDto extends Model
     public ?string $city;
 
     #[Property]
-    public ?\countryInWarehouseAddressDto $country;
+    public ?countryInWarehouseAddressDto $country;
 
     #[Property]
-    public ?\countyInWarehouseAddressDto $county;
+    public ?countyInWarehouseAddressDto $county;
 
     /** Postcode &gt; The postcode relevant for the warehouse address. */
     #[Property]

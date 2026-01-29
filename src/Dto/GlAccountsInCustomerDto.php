@@ -11,47 +11,47 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class GlAccountsInCustomerDto extends Model
 {
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $customerLedgerAccount;
+    public ?AccountNumberTypeDescriptionDto $customerLedgerAccount;
 
     #[Property]
-    public ?\SubAccountDto $customerLedgerSubaccount;
+    public ?SubAccountDto $customerLedgerSubaccount;
 
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $salesAccount;
+    public ?AccountNumberTypeDescriptionDto $salesAccount;
 
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $salesNonTaxableAccount;
+    public ?AccountNumberTypeDescriptionDto $salesNonTaxableAccount;
 
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $salesEuAccount;
+    public ?AccountNumberTypeDescriptionDto $salesEuAccount;
 
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $salesExportAccount;
+    public ?AccountNumberTypeDescriptionDto $salesExportAccount;
 
     #[Property]
-    public ?\SubAccountDto $salesSubaccount;
+    public ?SubAccountDto $salesSubaccount;
 
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $discountAccount;
+    public ?AccountNumberTypeDescriptionDto $discountAccount;
 
     #[Property]
-    public ?\SubAccountDto $discountSubaccount;
+    public ?SubAccountDto $discountSubaccount;
 
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $freightAccount;
+    public ?AccountNumberTypeDescriptionDto $freightAccount;
 
     #[Property]
-    public ?\SubAccountDto $freightSubaccount;
+    public ?SubAccountDto $freightSubaccount;
 
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $cashDiscountAccount;
+    public ?AccountNumberTypeDescriptionDto $cashDiscountAccount;
 
     #[Property]
-    public ?\SubAccountDto $cashDiscountSubaccount;
+    public ?SubAccountDto $cashDiscountSubaccount;
 
     #[Property]
-    public ?\AccountNumberTypeDescriptionDto $prepaymentAccount;
+    public ?AccountNumberTypeDescriptionDto $prepaymentAccount;
 
     #[Property]
-    public ?\SubAccountDto $prepaymentSubaccount;
+    public ?SubAccountDto $prepaymentSubaccount;
 }

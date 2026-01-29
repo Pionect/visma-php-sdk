@@ -9,10 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class SupplierDocumentDto extends Model
 {
     #[Property]
-    public ?\accountInSupplierDocumentDto $account;
+    public ?accountInSupplierDocumentDto $account;
 
     #[Property]
-    public ?\subaccountInSupplierDocumentDto $subaccount;
+    public ?subaccountInSupplierDocumentDto $subaccount;
 
     /** Document details tab &gt; Amount &gt; Read-only. The total amount for the specified quantity of items or services of this type (after the discount has been taken). */
     #[Property]
@@ -23,10 +23,10 @@ class SupplierDocumentDto extends Model
     public ?float $amountInCurrency;
 
     #[Property]
-    public ?\branchInSupplierDocumentDto $branch;
+    public ?branchInSupplierDocumentDto $branch;
 
     #[Property]
-    public ?\supplierInSupplierDocumentDto $supplier;
+    public ?supplierInSupplierDocumentDto $supplier;
 
     /** The top part &gt; Top part &gt; Type &gt; The type of the document. The following types are available: Purchase invoice, credit adjustment, purchase credit note, prepayment. */
     #[Property]
@@ -87,7 +87,7 @@ class SupplierDocumentDto extends Model
     public ?float $cashDiscountInCurrency;
 
     #[Property]
-    public ?\paymentMethodInSupplierDocumentDto $paymentMethod;
+    public ?paymentMethodInSupplierDocumentDto $paymentMethod;
 
     /** The Top part &gt; Supplier ref. &gt; The document's original reference number as assigned by the supplier (for informational purposes). */
     #[Property]
@@ -114,7 +114,7 @@ class SupplierDocumentDto extends Model
     public ?string $closedFinancialPeriod;
 
     #[Property]
-    public ?\locationInSupplierDocumentDto $location;
+    public ?locationInSupplierDocumentDto $location;
 
     /** The Top part &gt; VAT total &gt; The total amount of tax paid in the document. */
     #[Property]
@@ -125,7 +125,7 @@ class SupplierDocumentDto extends Model
     public ?float $vatTotalInCurrency;
 
     #[Property]
-    public ?\BranchNumberDto $branchNumber;
+    public ?BranchNumberDto $branchNumber;
 
     /** The Financial details tab &gt; The Payment information section &gt; Pay date* &gt; The date when the invoice should be paid. The date is the difference between the document due date or discount date and the number of days specified in the Payment lead time field in AP303000. */
     #[Property]

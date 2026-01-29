@@ -17,19 +17,19 @@ class AllocationsUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    public ?\lineNbrInAllocationsUpdateDto $lineNbr;
+    public ?lineNbrInAllocationsUpdateDto $lineNbr;
 
     #[Property]
-    public ?\locationInAllocationsUpdateDto $location;
+    public ?locationInAllocationsUpdateDto $location;
 
     #[Property]
-    public ?\lotSerialNumberInAllocationsUpdateDto $lotSerialNumber;
+    public ?lotSerialNumberInAllocationsUpdateDto $lotSerialNumber;
 
     #[Property]
-    public ?\quantityInAllocationsUpdateDto $quantity;
+    public ?quantityInAllocationsUpdateDto $quantity;
 
     #[Property]
-    public ?\uomInAllocationsUpdateDto $uom;
+    public ?uomInAllocationsUpdateDto $uom;
 
     #[Property]
     #[DateTime]

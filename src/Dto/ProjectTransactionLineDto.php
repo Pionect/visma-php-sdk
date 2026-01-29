@@ -17,7 +17,7 @@ class ProjectTransactionLineDto extends Model
     public ?\Carbon\Carbon $date;
 
     #[Property]
-    public ?\inventoryIdInProjectTransactionLineDto $inventoryId;
+    public ?inventoryIdInProjectTransactionLineDto $inventoryId;
 
     /** Description &gt; The description of the transaction. */
     #[Property]
@@ -83,50 +83,50 @@ class ProjectTransactionLineDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\earningTypeInProjectTransactionLineDto $earningType;
+    public ?earningTypeInProjectTransactionLineDto $earningType;
 
     /** Multiplier &gt; The multiplier by which the unit rate is multiplied when the labour cost is calculated. */
     #[Property]
     public ?float $overtimeMultiplier;
 
     #[Property]
-    public ?\projectInProjectTransactionLineDto $project;
+    public ?projectInProjectTransactionLineDto $project;
 
     #[Property]
-    public ?\projectTaskInProjectTransactionLineDto $projectTask;
+    public ?projectTaskInProjectTransactionLineDto $projectTask;
 
     #[Property]
-    public ?\debitAccountInProjectTransactionLineDto $debitAccount;
+    public ?debitAccountInProjectTransactionLineDto $debitAccount;
 
     #[Property]
-    public ?\debitSubaccountInProjectTransactionLineDto $debitSubaccount;
+    public ?debitSubaccountInProjectTransactionLineDto $debitSubaccount;
 
     #[Property]
-    public ?\creditAccountInProjectTransactionLineDto $creditAccount;
+    public ?creditAccountInProjectTransactionLineDto $creditAccount;
 
     #[Property]
-    public ?\creditSubaccountInProjectTransactionLineDto $creditSubaccount;
+    public ?creditSubaccountInProjectTransactionLineDto $creditSubaccount;
 
     #[Property]
-    public ?\branchInProjectTransactionLineDto $branch;
+    public ?branchInProjectTransactionLineDto $branch;
 
     #[Property]
-    public ?\employeeInProjectTransactionLineDto $employee;
+    public ?employeeInProjectTransactionLineDto $employee;
 
     #[Property]
-    public ?\customerVendorInProjectTransactionLineDto $customerVendor;
+    public ?customerVendorInProjectTransactionLineDto $customerVendor;
 
     #[Property]
-    public ?\accountGroupInProjectTransactionLineDto $accountGroup;
+    public ?accountGroupInProjectTransactionLineDto $accountGroup;
 
     #[Property]
-    public ?\debitAccountGroupInProjectTransactionLineDto $debitAccountGroup;
+    public ?debitAccountGroupInProjectTransactionLineDto $debitAccountGroup;
 
     #[Property]
-    public ?\creditAccountGroupInProjectTransactionLineDto $creditAccountGroup;
+    public ?creditAccountGroupInProjectTransactionLineDto $creditAccountGroup;
 
     #[Property]
-    public ?\locationInProjectTransactionLineDto $location;
+    public ?locationInProjectTransactionLineDto $location;
 
     #[Property]
     public ?string $note;

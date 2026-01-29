@@ -19,7 +19,7 @@ class SupplierInvoiceDto extends Model
     public ?array $attachments;
 
     #[Property]
-    public ?\approvalDetailsInSupplierInvoiceDto $approvalDetails;
+    public ?approvalDetailsInSupplierInvoiceDto $approvalDetails;
 
     /** Transaction lines */
     #[Property]
@@ -42,7 +42,7 @@ class SupplierInvoiceDto extends Model
     public ?string $paymentRefNo;
 
     #[Property]
-    public ?\creditTermsInSupplierInvoiceDto $creditTerms;
+    public ?creditTermsInSupplierInvoiceDto $creditTerms;
 
     /** The Top part &gt; Apply retainage &gt; A check box that indicates (if selected) that this invoice is an invoice with retainage. */
     #[Property]
@@ -118,7 +118,7 @@ class SupplierInvoiceDto extends Model
     public ?string $taxCalculationMode;
 
     #[Property]
-    public ?\supplierTaxZoneInSupplierInvoiceDto $supplierTaxZone;
+    public ?supplierTaxZoneInSupplierInvoiceDto $supplierTaxZone;
 
     /** The Financial details tab &gt; The Payment information section &gt; Approved for payment &gt; When set to true indicates that the document is approved for payment. */
     #[Property]
@@ -134,7 +134,7 @@ class SupplierInvoiceDto extends Model
     public ?int $documentVersionNumber;
 
     #[Property]
-    public ?\supplierInSupplierInvoiceDto $supplier;
+    public ?supplierInSupplierInvoiceDto $supplier;
 
     /** The top part &gt; Top part &gt; Type &gt; The type of the document. The following types are available: Purchase invoice, credit adjustment, purchase credit note, prepayment. */
     #[Property]
@@ -195,7 +195,7 @@ class SupplierInvoiceDto extends Model
     public ?float $cashDiscountInCurrency;
 
     #[Property]
-    public ?\paymentMethodInSupplierInvoiceDto $paymentMethod;
+    public ?paymentMethodInSupplierInvoiceDto $paymentMethod;
 
     /** The Top part &gt; Supplier ref. &gt; The document's original reference number as assigned by the supplier (for informational purposes). */
     #[Property]
@@ -222,7 +222,7 @@ class SupplierInvoiceDto extends Model
     public ?string $closedFinancialPeriod;
 
     #[Property]
-    public ?\locationInSupplierInvoiceDto $location;
+    public ?locationInSupplierInvoiceDto $location;
 
     /** The Top part &gt; VAT total &gt; The total amount of tax paid in the document. */
     #[Property]
@@ -233,7 +233,7 @@ class SupplierInvoiceDto extends Model
     public ?float $vatTotalInCurrency;
 
     #[Property]
-    public ?\BranchNumberDto $branchNumber;
+    public ?BranchNumberDto $branchNumber;
 
     /** The Financial details tab &gt; The Payment information section &gt; Pay date* &gt; The date when the invoice should be paid. The date is the difference between the document due date or discount date and the number of days specified in the Payment lead time field in AP303000. */
     #[Property]

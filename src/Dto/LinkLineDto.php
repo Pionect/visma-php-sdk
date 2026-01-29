@@ -16,8 +16,8 @@ class LinkLineDto extends Model
     public ?string $purchaseType;
 
     #[Property]
-    public ?\purchaseNumberInLinkLineDto $purchaseNumber;
+    public ?purchaseNumberInLinkLineDto $purchaseNumber;
 
     #[Property]
-    public ?\purchaseLineNbrInLinkLineDto $purchaseLineNbr;
+    public ?purchaseLineNbrInLinkLineDto $purchaseLineNbr;
 }

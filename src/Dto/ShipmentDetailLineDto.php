@@ -29,10 +29,10 @@ class ShipmentDetailLineDto extends Model
     public ?bool $freeItem;
 
     #[Property]
-    public ?\warehouseInShipmentDetailLineDto $warehouse;
+    public ?warehouseInShipmentDetailLineDto $warehouse;
 
     #[Property]
-    public ?\locationInShipmentDetailLineDto $location;
+    public ?locationInShipmentDetailLineDto $location;
 
     /** Document details tab &gt; UoM &gt; The unit of measure used for the item in shipment. */
     #[Property]

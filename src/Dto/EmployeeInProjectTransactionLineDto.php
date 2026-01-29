@@ -37,20 +37,20 @@ class EmployeeInProjectTransactionLineDto extends Model
     public ?string $department;
 
     #[Property]
-    public ?\contactInEmployeeDto $contact;
+    public ?contactInEmployeeDto $contact;
 
     #[Property]
-    public ?\addressInEmployeeDto $address;
+    public ?addressInEmployeeDto $address;
 
     #[Property]
     #[DateTime]
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\employeeClassInEmployeeDto $employeeClass;
+    public ?employeeClassInEmployeeDto $employeeClass;
 
     #[Property]
-    public ?\BranchNumberDto $branch;
+    public ?BranchNumberDto $branch;
 
     #[Property]
     public ?string $calendarId;

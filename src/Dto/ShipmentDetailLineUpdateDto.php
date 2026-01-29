@@ -56,32 +56,32 @@ class ShipmentDetailLineUpdateDto extends Model
     public ?array $allocations;
 
     #[Property]
-    public ?\customStr1InShipmentDetailLineUpdateDto $customStr1;
+    public ?customStr1InShipmentDetailLineUpdateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InShipmentDetailLineUpdateDto $customStr2;
+    public ?customStr2InShipmentDetailLineUpdateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InShipmentDetailLineUpdateDto $customStr3;
+    public ?customStr3InShipmentDetailLineUpdateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InShipmentDetailLineUpdateDto $customStr4;
+    public ?customStr4InShipmentDetailLineUpdateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InShipmentDetailLineUpdateDto $customStr5;
+    public ?customStr5InShipmentDetailLineUpdateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InShipmentDetailLineUpdateDto $customDec1;
+    public ?customDec1InShipmentDetailLineUpdateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InShipmentDetailLineUpdateDto $customDec2;
+    public ?customDec2InShipmentDetailLineUpdateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InShipmentDetailLineUpdateDto $customInt1;
+    public ?customInt1InShipmentDetailLineUpdateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InShipmentDetailLineUpdateDto $customInt2;
+    public ?customInt2InShipmentDetailLineUpdateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InShipmentDetailLineUpdateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InShipmentDetailLineUpdateDto $customDateTimeUtc1;
 }

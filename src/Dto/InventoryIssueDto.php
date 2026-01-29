@@ -75,7 +75,7 @@ class InventoryIssueDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\branchNumberInInventoryIssueDto $branchNumber;
+    public ?branchNumberInInventoryIssueDto $branchNumber;
 
     /** The data containing information about the document attachments */
     #[Property]

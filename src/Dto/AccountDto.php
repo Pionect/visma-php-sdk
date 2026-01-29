@@ -70,13 +70,13 @@ class AccountDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\externalCode1InfoInAccountDto $externalCode1info;
+    public ?externalCode1InfoInAccountDto $externalCode1info;
 
     #[Property]
-    public ?\externalCode2InfoInAccountDto $externalCode2info;
+    public ?externalCode2InfoInAccountDto $externalCode2info;
 
     #[Property]
-    public ?\analisysCodeInfoInAccountDto $analisysCodeInfo;
+    public ?analisysCodeInfoInAccountDto $analisysCodeInfo;
 
     #[Property]
     public ?string $controlAccountModule;

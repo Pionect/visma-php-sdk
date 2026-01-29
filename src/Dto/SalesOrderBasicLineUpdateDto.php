@@ -24,10 +24,10 @@ class SalesOrderBasicLineUpdateDto extends Model
     public ?int $lineNbr;
 
     #[Property]
-    public ?\inventoryIdInSalesOrderBasicLineUpdateDto $inventoryId;
+    public ?inventoryIdInSalesOrderBasicLineUpdateDto $inventoryId;
 
     #[Property]
-    public ?\inventoryNumberInSalesOrderBasicLineUpdateDto $inventoryNumber;
+    public ?inventoryNumberInSalesOrderBasicLineUpdateDto $inventoryNumber;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

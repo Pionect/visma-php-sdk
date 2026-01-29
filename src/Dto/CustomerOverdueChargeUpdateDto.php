@@ -89,10 +89,10 @@ class CustomerOverdueChargeUpdateDto extends Model
     public ?bool $hold;
 
     #[Property]
-    public ?\postPeriodInCustomerOverdueChargeUpdateDto $postPeriod;
+    public ?postPeriodInCustomerOverdueChargeUpdateDto $postPeriod;
 
     #[Property]
-    public ?\financialPeriodInCustomerOverdueChargeUpdateDto $financialPeriod;
+    public ?financialPeriodInCustomerOverdueChargeUpdateDto $financialPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -103,10 +103,10 @@ class CustomerOverdueChargeUpdateDto extends Model
     public ?string $locationId;
 
     #[Property]
-    public ?\salesPersonIDInCustomerOverdueChargeUpdateDto $salesPersonId;
+    public ?salesPersonIDInCustomerOverdueChargeUpdateDto $salesPersonId;
 
     #[Property]
-    public ?\salespersonInCustomerOverdueChargeUpdateDto $salesperson;
+    public ?salespersonInCustomerOverdueChargeUpdateDto $salesperson;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

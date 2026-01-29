@@ -32,16 +32,16 @@ class ExtendedOrganizationDto extends Model
     public ?string $baseCurrency;
 
     #[Property]
-    public ?\mainAddressInExtendedOrganizationDto $mainAddress;
+    public ?mainAddressInExtendedOrganizationDto $mainAddress;
 
     #[Property]
-    public ?\mainContactInExtendedOrganizationDto $mainContact;
+    public ?mainContactInExtendedOrganizationDto $mainContact;
 
     #[Property]
-    public ?\deliveryAddressInExtendedOrganizationDto $deliveryAddress;
+    public ?deliveryAddressInExtendedOrganizationDto $deliveryAddress;
 
     #[Property]
-    public ?\deliveryContactInExtendedOrganizationDto $deliveryContact;
+    public ?deliveryContactInExtendedOrganizationDto $deliveryContact;
 
     /** CorporateId */
     #[Property]
@@ -52,16 +52,16 @@ class ExtendedOrganizationDto extends Model
     public ?string $vatRegistrationId;
 
     #[Property]
-    public ?\defaultCountryInExtendedOrganizationDto $defaultCountry;
+    public ?defaultCountryInExtendedOrganizationDto $defaultCountry;
 
     #[Property]
-    public ?\industryCodeInExtendedOrganizationDto $industryCode;
+    public ?industryCodeInExtendedOrganizationDto $industryCode;
 
     #[Property]
-    public ?\currencyInExtendedOrganizationDto $currency;
+    public ?currencyInExtendedOrganizationDto $currency;
 
     #[Property]
-    public ?\vatZoneInExtendedOrganizationDto $vatZone;
+    public ?vatZoneInExtendedOrganizationDto $vatZone;
 
     /** LastModifiedDateTime */
     #[Property]
@@ -69,10 +69,10 @@ class ExtendedOrganizationDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\ledgerInExtendedOrganizationDto $ledger;
+    public ?ledgerInExtendedOrganizationDto $ledger;
 
     #[Property]
-    public ?\bankSettingsInExtendedOrganizationDto $bankSettings;
+    public ?bankSettingsInExtendedOrganizationDto $bankSettings;
 
     /** Branches */
     #[Property]

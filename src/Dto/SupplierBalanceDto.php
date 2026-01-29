@@ -12,22 +12,22 @@ class SupplierBalanceDto extends Model
     public ?string $branchNumber;
 
     #[Property]
-    public ?\SupplierDescriptionDto $supplier;
+    public ?SupplierDescriptionDto $supplier;
 
     #[Property]
     public ?float $balance;
 
     #[Property]
-    public ?\WithoutWithVatDto $unreleasedPurchasesNotInApproval;
+    public ?WithoutWithVatDto $unreleasedPurchasesNotInApproval;
 
     #[Property]
-    public ?\WithoutWithVatDto $totalSentForApproval;
+    public ?WithoutWithVatDto $totalSentForApproval;
 
     #[Property]
-    public ?\WithoutWithVatDto $totalPurchaseInvoicePeriod;
+    public ?WithoutWithVatDto $totalPurchaseInvoicePeriod;
 
     #[Property]
-    public ?\WithoutWithVatDto $totalPurchaseInvoiceYear;
+    public ?WithoutWithVatDto $totalPurchaseInvoiceYear;
 
     #[Property]
     #[DateTime]

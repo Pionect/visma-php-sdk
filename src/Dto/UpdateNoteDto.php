@@ -8,5 +8,5 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class UpdateNoteDto extends Model
 {
     #[Property]
-    public ?\noteInUpdateNoteDto $note;
+    public ?noteInUpdateNoteDto $note;
 }

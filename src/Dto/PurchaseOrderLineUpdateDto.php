@@ -130,34 +130,34 @@ class PurchaseOrderLineUpdateDto extends Model
     public ?string $note;
 
     #[Property]
-    public ?\customStr1InPurchaseOrderLineUpdateDto $customStr1;
+    public ?customStr1InPurchaseOrderLineUpdateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InPurchaseOrderLineUpdateDto $customStr2;
+    public ?customStr2InPurchaseOrderLineUpdateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InPurchaseOrderLineUpdateDto $customStr3;
+    public ?customStr3InPurchaseOrderLineUpdateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InPurchaseOrderLineUpdateDto $customStr4;
+    public ?customStr4InPurchaseOrderLineUpdateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InPurchaseOrderLineUpdateDto $customStr5;
+    public ?customStr5InPurchaseOrderLineUpdateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InPurchaseOrderLineUpdateDto $customDec1;
+    public ?customDec1InPurchaseOrderLineUpdateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InPurchaseOrderLineUpdateDto $customDec2;
+    public ?customDec2InPurchaseOrderLineUpdateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InPurchaseOrderLineUpdateDto $customInt1;
+    public ?customInt1InPurchaseOrderLineUpdateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InPurchaseOrderLineUpdateDto $customInt2;
+    public ?customInt2InPurchaseOrderLineUpdateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InPurchaseOrderLineUpdateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InPurchaseOrderLineUpdateDto $customDateTimeUtc1;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

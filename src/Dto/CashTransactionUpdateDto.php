@@ -23,10 +23,10 @@ class CashTransactionUpdateDto extends Model
     public ?\Carbon\Carbon $tranDate;
 
     #[Property]
-    public ?\finanacialPeriodInCashTransactionUpdateDto $finanacialPeriod;
+    public ?finanacialPeriodInCashTransactionUpdateDto $finanacialPeriod;
 
     #[Property]
-    public ?\financialPeriodInCashTransactionUpdateDto $financialPeriod;
+    public ?financialPeriodInCashTransactionUpdateDto $financialPeriod;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

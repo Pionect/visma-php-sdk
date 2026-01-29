@@ -9,7 +9,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class InventoryCrossReferenceUpdateDto extends Model
 {
     #[Property]
-    public ?\alternateTypeInInventoryCrossReferenceUpdateDto $alternateType;
+    public ?alternateTypeInInventoryCrossReferenceUpdateDto $alternateType;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

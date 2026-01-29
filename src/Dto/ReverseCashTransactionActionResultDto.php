@@ -11,7 +11,7 @@ class ReverseCashTransactionActionResultDto extends Model
     public ?string $referenceNbr;
 
     #[Property]
-    public ?\CashTransactionDto $cashTransaction;
+    public ?CashTransactionDto $cashTransaction;
 
     #[Property]
     public ?string $actionId;

@@ -8,7 +8,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryReceiptLineDto extends Model
 {
     #[Property]
-    public ?\warehouseInInventoryReceiptLineDto $warehouse;
+    public ?warehouseInInventoryReceiptLineDto $warehouse;
 
     /** Unit cost &gt; The cost of a unit of the received stock item. */
     #[Property]
@@ -19,10 +19,10 @@ class InventoryReceiptLineDto extends Model
     public ?float $extCost;
 
     #[Property]
-    public ?\projectInInventoryReceiptLineDto $project;
+    public ?projectInInventoryReceiptLineDto $project;
 
     #[Property]
-    public ?\projectTaskInInventoryReceiptLineDto $projectTask;
+    public ?projectTaskInInventoryReceiptLineDto $projectTask;
 
     #[Property]
     public ?array $allocations;
@@ -35,10 +35,10 @@ class InventoryReceiptLineDto extends Model
     public ?int $lineNumber;
 
     #[Property]
-    public ?\inventoryItemInInventoryReceiptLineDto $inventoryItem;
+    public ?inventoryItemInInventoryReceiptLineDto $inventoryItem;
 
     #[Property]
-    public ?\locationInInventoryReceiptLineDto $location;
+    public ?locationInInventoryReceiptLineDto $location;
 
     /** Quantity &gt; The quantity of the transferred goods (in the units indicated below). */
     #[Property]
@@ -49,7 +49,7 @@ class InventoryReceiptLineDto extends Model
     public ?string $uom;
 
     #[Property]
-    public ?\reasonCodeInInventoryReceiptLineDto $reasonCode;
+    public ?reasonCodeInInventoryReceiptLineDto $reasonCode;
 
     /** Description &gt; A brief description of the goods transfer transaction. */
     #[Property]
@@ -59,5 +59,5 @@ class InventoryReceiptLineDto extends Model
     public ?array $attachments;
 
     #[Property]
-    public ?\BranchNumberDto $branchNumber;
+    public ?BranchNumberDto $branchNumber;
 }

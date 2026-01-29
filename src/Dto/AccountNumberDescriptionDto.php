@@ -19,10 +19,10 @@ class AccountNumberDescriptionDto extends Model
     public ?string $externalCode2;
 
     #[Property]
-    public ?\ExternalCodeNumberDescriptionDto $externalCode1info;
+    public ?ExternalCodeNumberDescriptionDto $externalCode1info;
 
     #[Property]
-    public ?\ExternalCodeNumberDescriptionDto $externalCode2info;
+    public ?ExternalCodeNumberDescriptionDto $externalCode2info;
 
     #[Property]
     public ?string $glConsolAccountCd;

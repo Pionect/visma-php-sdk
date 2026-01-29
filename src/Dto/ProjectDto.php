@@ -19,7 +19,7 @@ class ProjectDto extends Model
     public ?string $projectId;
 
     #[Property]
-    public ?\customerInProjectDto $customer;
+    public ?customerInProjectDto $customer;
 
     /** The top part &gt; Hold &gt; A check box that you select to indicate that the project should have the In planning status. */
     #[Property]
@@ -30,7 +30,7 @@ class ProjectDto extends Model
     public ?string $status;
 
     #[Property]
-    public ?\templateInProjectDto $template;
+    public ?templateInProjectDto $template;
 
     /** Mandatory field: The top part &gt; Description* &gt; The description of the project. */
     #[Property]
@@ -63,7 +63,7 @@ class ProjectDto extends Model
     public ?\Carbon\Carbon $endDate;
 
     #[Property]
-    public ?\projectManagerInProjectDto $projectManager;
+    public ?projectManagerInProjectDto $projectManager;
 
     /** Summary tab &gt; Project properties section &gt; Restrict employees &gt; A check box that indicates (if selected) that only the employees listed on the Employees tab of this window can create activities and documents associated with the current project. */
     #[Property]
@@ -73,19 +73,19 @@ class ProjectDto extends Model
     public ?bool $restrictEquipment;
 
     #[Property]
-    public ?\visibilityInProjectDto $visibility;
+    public ?visibilityInProjectDto $visibility;
 
     #[Property]
-    public ?\defAccountInProjectDto $defAccount;
+    public ?defAccountInProjectDto $defAccount;
 
     #[Property]
-    public ?\defSubInProjectDto $defSub;
+    public ?defSubInProjectDto $defSub;
 
     #[Property]
-    public ?\defAccrualAccountInProjectDto $defAccrualAccount;
+    public ?defAccrualAccountInProjectDto $defAccrualAccount;
 
     #[Property]
-    public ?\defAccrualSubInProjectDto $defAccrualSub;
+    public ?defAccrualSubInProjectDto $defAccrualSub;
 
     /** Summary tab &gt; Invoicing and allocation settings section &gt; Invoicing period &gt; The frequency of invoicing, which can be one of the following options: Week, Month, Quarter, Year, On demand. */
     #[Property]
@@ -102,19 +102,19 @@ class ProjectDto extends Model
     public ?\Carbon\Carbon $lastBillingDate;
 
     #[Property]
-    public ?\customerLocationInProjectDto $customerLocation;
+    public ?customerLocationInProjectDto $customerLocation;
 
     #[Property]
-    public ?\allocationRuleInProjectDto $allocationRule;
+    public ?allocationRuleInProjectDto $allocationRule;
 
     #[Property]
-    public ?\billingRuleInProjectDto $billingRule;
+    public ?billingRuleInProjectDto $billingRule;
 
     #[Property]
-    public ?\branchInProjectDto $branch;
+    public ?branchInProjectDto $branch;
 
     #[Property]
-    public ?\rateTableInProjectDto $rateTable;
+    public ?rateTableInProjectDto $rateTable;
 
     /** Summary tab &gt; Invoicing and allocation settings section &gt; Run allocation when you release project transactions &gt; A check box that indicates (if selected) that allocation is run automatically during the release of the documents associated with this project. */
     #[Property]

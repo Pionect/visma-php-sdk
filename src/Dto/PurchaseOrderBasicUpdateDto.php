@@ -42,17 +42,17 @@ class PurchaseOrderBasicUpdateDto extends Model
     public ?string $description;
 
     #[Property]
-    public ?\supplierInPurchaseOrderBasicUpdateDto $supplier;
+    public ?supplierInPurchaseOrderBasicUpdateDto $supplier;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?string $location;
 
     #[Property]
-    public ?\glnInPurchaseOrderBasicUpdateDto $gln;
+    public ?glnInPurchaseOrderBasicUpdateDto $gln;
 
     #[Property]
-    public ?\vatRegistrationIdInPurchaseOrderBasicUpdateDto $vatRegistrationId;
+    public ?vatRegistrationIdInPurchaseOrderBasicUpdateDto $vatRegistrationId;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
@@ -93,34 +93,34 @@ class PurchaseOrderBasicUpdateDto extends Model
     public ?bool $overrideNumberSeries;
 
     #[Property]
-    public ?\customStr1InPurchaseOrderBasicUpdateDto $customStr1;
+    public ?customStr1InPurchaseOrderBasicUpdateDto $customStr1;
 
     #[Property]
-    public ?\customStr2InPurchaseOrderBasicUpdateDto $customStr2;
+    public ?customStr2InPurchaseOrderBasicUpdateDto $customStr2;
 
     #[Property]
-    public ?\customStr3InPurchaseOrderBasicUpdateDto $customStr3;
+    public ?customStr3InPurchaseOrderBasicUpdateDto $customStr3;
 
     #[Property]
-    public ?\customStr4InPurchaseOrderBasicUpdateDto $customStr4;
+    public ?customStr4InPurchaseOrderBasicUpdateDto $customStr4;
 
     #[Property]
-    public ?\customStr5InPurchaseOrderBasicUpdateDto $customStr5;
+    public ?customStr5InPurchaseOrderBasicUpdateDto $customStr5;
 
     #[Property]
-    public ?\customDec1InPurchaseOrderBasicUpdateDto $customDec1;
+    public ?customDec1InPurchaseOrderBasicUpdateDto $customDec1;
 
     #[Property]
-    public ?\customDec2InPurchaseOrderBasicUpdateDto $customDec2;
+    public ?customDec2InPurchaseOrderBasicUpdateDto $customDec2;
 
     #[Property]
-    public ?\customInt1InPurchaseOrderBasicUpdateDto $customInt1;
+    public ?customInt1InPurchaseOrderBasicUpdateDto $customInt1;
 
     #[Property]
-    public ?\customInt2InPurchaseOrderBasicUpdateDto $customInt2;
+    public ?customInt2InPurchaseOrderBasicUpdateDto $customInt2;
 
     #[Property]
-    public ?\customDateTimeUTC1InPurchaseOrderBasicUpdateDto $customDateTimeUtc1;
+    public ?customDateTimeUTC1InPurchaseOrderBasicUpdateDto $customDateTimeUtc1;
 
     #[Property]
     #[DateTime]

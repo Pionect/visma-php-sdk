@@ -25,10 +25,10 @@ class TimeCardMaterialsDto extends Model
     public ?string $uoM;
 
     #[Property]
-    public ?\projectInTimeCardMaterialsDto $project;
+    public ?projectInTimeCardMaterialsDto $project;
 
     #[Property]
-    public ?\projectTaskInTimeCardMaterialsDto $projectTask;
+    public ?projectTaskInTimeCardMaterialsDto $projectTask;
 
     /** Mon &gt; The quantity reported for Monday. */
     #[Property]

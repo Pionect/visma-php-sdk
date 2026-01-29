@@ -12,7 +12,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class LocationDto extends Model
 {
     #[Property]
-    public ?\baccountInLocationDto $baccount;
+    public ?baccountInLocationDto $baccount;
 
     /** Mandatory field: The top part &gt; Location ID* &gt; The identifier of the location. Click the magnifier. */
     #[Property]
@@ -27,17 +27,17 @@ class LocationDto extends Model
     public ?bool $active;
 
     #[Property]
-    public ?\addressInLocationDto $address;
+    public ?addressInLocationDto $address;
 
     #[Property]
-    public ?\contactInLocationDto $contact;
+    public ?contactInLocationDto $contact;
 
     /** General information tab &gt; Location address section &gt; VAT registration ID &gt; The optional VAT registration ID associated with the location. */
     #[Property]
     public ?string $vatRegistrationId;
 
     #[Property]
-    public ?\vatZoneInLocationDto $vatZone;
+    public ?vatZoneInLocationDto $vatZone;
 
     /** General information tab &gt; Location address section &gt; EDI code &gt; The EDI code to be used for the customer location. */
     #[Property]
@@ -57,7 +57,7 @@ class LocationDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\peppolSchemeInLocationDto $peppolScheme;
+    public ?peppolSchemeInLocationDto $peppolScheme;
 
     #[Property]
     public ?int $internalId;

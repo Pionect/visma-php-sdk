@@ -14,7 +14,7 @@ class VoidPaymentActionResultDto extends Model
     public ?string $refNbr;
 
     #[Property]
-    public ?\PaymentDto $voidPayment;
+    public ?PaymentDto $voidPayment;
 
     #[Property]
     public ?string $actionId;

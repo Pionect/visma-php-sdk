@@ -9,21 +9,21 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class CreateCurrencyRateDto extends Model
 {
     #[Property]
-    public ?\fromCurrencyIdInCreateCurrencyRateDto $fromCurrencyId;
+    public ?fromCurrencyIdInCreateCurrencyRateDto $fromCurrencyId;
 
     #[Property]
-    public ?\toCurrencyIdInCreateCurrencyRateDto $toCurrencyId;
+    public ?toCurrencyIdInCreateCurrencyRateDto $toCurrencyId;
 
     #[Property]
-    public ?\rateTypeInCreateCurrencyRateDto $rateType;
+    public ?rateTypeInCreateCurrencyRateDto $rateType;
 
     #[Property]
     #[DateTime]
     public ?\Carbon\Carbon $effectiveDate;
 
     #[Property]
-    public ?\rateInCreateCurrencyRateDto $rate;
+    public ?rateInCreateCurrencyRateDto $rate;
 
     #[Property]
-    public ?\multDivInCreateCurrencyRateDto $multDiv;
+    public ?multDivInCreateCurrencyRateDto $multDiv;
 }

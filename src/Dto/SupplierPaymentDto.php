@@ -42,10 +42,10 @@ class SupplierPaymentDto extends Model
     public ?string $paymentRef;
 
     #[Property]
-    public ?\supplierInSupplierPaymentDto $supplier;
+    public ?supplierInSupplierPaymentDto $supplier;
 
     #[Property]
-    public ?\locationInSupplierPaymentDto $location;
+    public ?locationInSupplierPaymentDto $location;
 
     /** Mandatory field: The top part &gt; Payment method* &gt; The payment method associated with the supplier. */
     #[Property]
@@ -56,7 +56,7 @@ class SupplierPaymentDto extends Model
     public ?string $cashAccount;
 
     #[Property]
-    public ?\currencyInSupplierPaymentDto $currency;
+    public ?currencyInSupplierPaymentDto $currency;
 
     /** The top part &gt; Description &gt; A description for the payment. You may use up to 50 alphanumeric characters. */
     #[Property]

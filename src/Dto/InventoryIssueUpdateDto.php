@@ -11,33 +11,33 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryIssueUpdateDto extends Model
 {
     #[Property]
-    public ?\controlAmountInInventoryIssueUpdateDto $controlAmount;
+    public ?controlAmountInInventoryIssueUpdateDto $controlAmount;
 
     /** The inventory issue lines */
     #[Property]
     public ?array $issueLines;
 
     #[Property]
-    public ?\referenceNumberInInventoryIssueUpdateDto $referenceNumber;
+    public ?referenceNumberInInventoryIssueUpdateDto $referenceNumber;
 
     #[Property]
-    public ?\holdInInventoryIssueUpdateDto $hold;
+    public ?holdInInventoryIssueUpdateDto $hold;
 
     #[Property]
-    public ?\dateInInventoryIssueUpdateDto $date;
+    public ?dateInInventoryIssueUpdateDto $date;
 
     #[Property]
-    public ?\postPeriodInInventoryIssueUpdateDto $postPeriod;
+    public ?postPeriodInInventoryIssueUpdateDto $postPeriod;
 
     #[Property]
-    public ?\externalReferenceInInventoryIssueUpdateDto $externalReference;
+    public ?externalReferenceInInventoryIssueUpdateDto $externalReference;
 
     #[Property]
-    public ?\descriptionInInventoryIssueUpdateDto $description;
+    public ?descriptionInInventoryIssueUpdateDto $description;
 
     #[Property]
-    public ?\controlQuantityInInventoryIssueUpdateDto $controlQuantity;
+    public ?controlQuantityInInventoryIssueUpdateDto $controlQuantity;
 
     #[Property]
-    public ?\branchNumberInInventoryIssueUpdateDto $branchNumber;
+    public ?branchNumberInInventoryIssueUpdateDto $branchNumber;
 }

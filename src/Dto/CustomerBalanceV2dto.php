@@ -11,10 +11,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class CustomerBalanceV2dto extends Model
 {
     #[Property]
-    public ?\branchNumberInCustomerBalanceV2Dto $branchNumber;
+    public ?branchNumberInCustomerBalanceV2Dto $branchNumber;
 
     #[Property]
-    public ?\customerInCustomerBalanceV2Dto $customer;
+    public ?customerInCustomerBalanceV2Dto $customer;
 
     /** Begin balance */
     #[Property]

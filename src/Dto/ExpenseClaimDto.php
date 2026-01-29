@@ -33,7 +33,7 @@ class ExpenseClaimDto extends Model
     public ?string $description;
 
     #[Property]
-    public ?\claimedByInExpenseClaimDto $claimedBy;
+    public ?claimedByInExpenseClaimDto $claimedBy;
 
     /** The top part &gt; Claim total &gt; The total amount of the claim. */
     #[Property]
@@ -48,7 +48,7 @@ class ExpenseClaimDto extends Model
     public ?float $vatExemptTotal;
 
     #[Property]
-    public ?\customerInExpenseClaimDto $customer;
+    public ?customerInExpenseClaimDto $customer;
 
     /** The top part &gt; Currency &gt; The currency of the claim. */
     #[Property]
@@ -60,10 +60,10 @@ class ExpenseClaimDto extends Model
     public ?\Carbon\Carbon $approvalDate;
 
     #[Property]
-    public ?\departmentInExpenseClaimDto $department;
+    public ?departmentInExpenseClaimDto $department;
 
     #[Property]
-    public ?\locationInExpenseClaimDto $location;
+    public ?locationInExpenseClaimDto $location;
 
     /** System generated information: The lastest time the expense claim was modified */
     #[Property]

@@ -10,7 +10,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class SupplierPaymentUpdateDto extends Model
 {
     #[Property]
-    public ?\typeInSupplierPaymentUpdateDto $type;
+    public ?typeInSupplierPaymentUpdateDto $type;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

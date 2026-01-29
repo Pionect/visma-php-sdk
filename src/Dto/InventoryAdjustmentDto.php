@@ -75,7 +75,7 @@ class InventoryAdjustmentDto extends Model
     public ?\Carbon\Carbon $lastModifiedDateTime;
 
     #[Property]
-    public ?\branchNumberInInventoryAdjustmentDto $branchNumber;
+    public ?branchNumberInInventoryAdjustmentDto $branchNumber;
 
     /** The data containing information about the document attachments */
     #[Property]

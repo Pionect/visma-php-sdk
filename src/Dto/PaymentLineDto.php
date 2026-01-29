@@ -29,7 +29,7 @@ class PaymentLineDto extends Model
     public ?float $balanceWriteOff;
 
     #[Property]
-    public ?\writeOffReasonCodeInPaymentLineDto $writeOffReasonCode;
+    public ?writeOffReasonCodeInPaymentLineDto $writeOffReasonCode;
 
     /** Date &gt; The creation date of the customer ledger document. */
     #[Property]

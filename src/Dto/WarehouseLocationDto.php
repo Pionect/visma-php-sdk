@@ -48,14 +48,14 @@ class WarehouseLocationDto extends Model
     public ?string $primaryItemValid;
 
     #[Property]
-    public ?\primaryItemInWarehouseLocationDto $primaryItem;
+    public ?primaryItemInWarehouseLocationDto $primaryItem;
 
     #[Property]
-    public ?\primaryItemClassInWarehouseLocationDto $primaryItemClass;
+    public ?primaryItemClassInWarehouseLocationDto $primaryItemClass;
 
     #[Property]
-    public ?\projectInWarehouseLocationDto $project;
+    public ?projectInWarehouseLocationDto $project;
 
     #[Property]
-    public ?\projectTaskInWarehouseLocationDto $projectTask;
+    public ?projectTaskInWarehouseLocationDto $projectTask;
 }

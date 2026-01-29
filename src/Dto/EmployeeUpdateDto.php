@@ -13,16 +13,16 @@ class EmployeeUpdateDto extends Model
     public ?string $employeeClass;
 
     #[Property]
-    public ?\statusInEmployeeUpdateDto $status;
+    public ?statusInEmployeeUpdateDto $status;
 
     #[Property]
-    public ?\departmentInEmployeeUpdateDto $department;
+    public ?departmentInEmployeeUpdateDto $department;
 
     #[Property]
-    public ?\contactInEmployeeUpdateDto $contact;
+    public ?contactInEmployeeUpdateDto $contact;
 
     #[Property]
-    public ?\addressInEmployeeUpdateDto $address;
+    public ?addressInEmployeeUpdateDto $address;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

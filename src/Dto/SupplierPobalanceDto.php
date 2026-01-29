@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class SupplierPobalanceDto extends Model
 {
     #[Property]
-    public ?\supplierInSupplierPOBalanceDto $supplier;
+    public ?supplierInSupplierPOBalanceDto $supplier;
 
     /** The total amount of order on hold */
     #[Property]

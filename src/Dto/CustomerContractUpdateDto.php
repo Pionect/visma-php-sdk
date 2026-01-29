@@ -10,13 +10,13 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class CustomerContractUpdateDto extends Model
 {
     #[Property]
-    public ?\contractIdInCustomerContractUpdateDto $contractId;
+    public ?contractIdInCustomerContractUpdateDto $contractId;
 
     #[Property]
-    public ?\contractTemplateInCustomerContractUpdateDto $contractTemplate;
+    public ?contractTemplateInCustomerContractUpdateDto $contractTemplate;
 
     #[Property]
-    public ?\customerInCustomerContractUpdateDto $customer;
+    public ?customerInCustomerContractUpdateDto $customer;
 
     #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]

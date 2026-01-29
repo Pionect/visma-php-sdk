@@ -13,10 +13,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class GeneralLedgerBalanceDto extends Model
 {
     #[Property]
-    public ?\BranchNumberDto $branch;
+    public ?BranchNumberDto $branch;
 
     #[Property]
-    public ?\LedgerDescriptionDto $ledger;
+    public ?LedgerDescriptionDto $ledger;
 
     #[Property]
     public ?string $balanceType;
@@ -26,7 +26,7 @@ class GeneralLedgerBalanceDto extends Model
     public ?string $financialPeriod;
 
     #[Property]
-    public ?\AccountNumberDescriptionDto $account;
+    public ?AccountNumberDescriptionDto $account;
 
     #[Property]
     public ?string $subaccountId;

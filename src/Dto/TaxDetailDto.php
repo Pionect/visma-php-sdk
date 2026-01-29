@@ -19,7 +19,7 @@ class TaxDetailDto extends Model
     public ?int $recordId;
 
     #[Property]
-    public ?\vatIdInTaxDetailDto $vatId;
+    public ?vatIdInTaxDetailDto $vatId;
 
     /** VAT rate &gt; The rate of the VAT. */
     #[Property]
