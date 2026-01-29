@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: Project* &gt; The project that the employee worked on.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectInTimeCardSummaryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectInTimeCardSummaryDtoFactory factory()
  */
 class ProjectInTimeCardSummaryDto extends Model
 {

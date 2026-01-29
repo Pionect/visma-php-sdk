@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a Packaging part of InventoryItem in InventoryItemController. Used for
  * insert/update data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PackagingUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PackagingUpdateDtoFactory factory()
  */
 class PackagingUpdateDto extends Model
 {

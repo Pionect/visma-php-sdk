@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * General ledger accounts tab &gt; Default values section &gt; Accrual account &gt; The default
  * accrual account to be used in project transactions for the project.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefAccrualAccountInProjectDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DefAccrualAccountInProjectDtoFactory factory()
  */
 class DefAccrualAccountInProjectDto extends Model
 {

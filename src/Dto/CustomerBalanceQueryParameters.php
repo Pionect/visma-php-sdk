@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerBalanceQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerBalanceQueryParametersFactory factory()
+ */
 class CustomerBalanceQueryParameters extends Model
 {
     #[Property]

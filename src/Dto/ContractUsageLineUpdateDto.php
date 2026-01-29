@@ -10,6 +10,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * This class represent a Contract Usage Line in Contract Usage Controller. Used to pass data to server
  * for creating or updating an Contract Usage Line
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ContractUsageLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ContractUsageLineUpdateDtoFactory factory()
  */
 class ContractUsageLineUpdateDto extends Model
 {

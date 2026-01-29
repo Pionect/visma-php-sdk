@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PackageDetailLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PackageDetailLineDtoFactory factory()
+ */
 class PackageDetailLineDto extends Model
 {
     /** Packages tab &gt; Line number. The sequence of the lines. */

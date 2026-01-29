@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Approval details tab &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ApprovalDetailsInSupplierInvoiceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ApprovalDetailsInSupplierInvoiceDtoFactory factory()
  */
 class ApprovalDetailsInSupplierInvoiceDto extends Model
 {

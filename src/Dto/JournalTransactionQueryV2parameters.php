@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\JournalTransactionQueryV2parametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\JournalTransactionQueryV2parametersFactory factory()
+ */
 class JournalTransactionQueryV2parameters extends Model
 {
     /** Financial Period to query data for. Mandatory if 'LastModifiedDateTime' not provided. Format: YYYYPP */

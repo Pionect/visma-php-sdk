@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a RutRot Distribution Line For RutRot in RutRotController. Used for getting
  * data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RotRutDistributionDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\RotRutDistributionDtoFactory factory()
  */
 class RotRutDistributionDto extends Model
 {

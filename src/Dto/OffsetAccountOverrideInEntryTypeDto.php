@@ -11,6 +11,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * types tab.
  * We recommend that for the disbursement type of transaction, you specify an expense
  * account. For the receipt type of transaction, specify an asset account.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetAccountOverrideInEntryTypeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\OffsetAccountOverrideInEntryTypeDtoFactory factory()
  */
 class OffsetAccountOverrideInEntryTypeDto extends Model
 {

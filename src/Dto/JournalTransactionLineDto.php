@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\JournalTransactionLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\JournalTransactionLineDtoFactory factory()
+ */
 class JournalTransactionLineDto extends Model
 {
     /** The table &gt; Number at the left indicating the line number of the table. */

@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubAccountDescriptionDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubAccountDescriptionDtoFactory factory()
+ */
 class SubAccountDescriptionDto extends Model
 {
     #[Property]

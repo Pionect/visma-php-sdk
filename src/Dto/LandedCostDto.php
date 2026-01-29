@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a Landed Cost Line for Purchase Receipt in PurchaseReceiptController. Used for
  * getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LandedCostDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LandedCostDtoFactory factory()
  */
 class LandedCostDto extends Model
 {

@@ -11,6 +11,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * location of the selected customer or, if the invoice is created from an
  * opportunity,
  * it is the customer location specified for the opportunity.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInCustomerOverdueChargeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInCustomerOverdueChargeDtoFactory factory()
  */
 class LocationInCustomerOverdueChargeDto extends Model
 {

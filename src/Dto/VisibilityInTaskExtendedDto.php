@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Information retrieved from the Summary tab
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VisibilityInTaskExtendedDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VisibilityInTaskExtendedDtoFactory factory()
  */
 class VisibilityInTaskExtendedDto extends Model
 {

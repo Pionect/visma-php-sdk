@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: Branch* &gt; The branch that sells the line item or provides the service.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInCustomerCreditNoteLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchNumberInCustomerCreditNoteLineDtoFactory factory()
  */
 class BranchNumberInCustomerCreditNoteLineDto extends Model
 {

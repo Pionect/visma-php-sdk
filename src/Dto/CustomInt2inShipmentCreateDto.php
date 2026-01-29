@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * A free custom colum of type int
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomInt2inShipmentCreateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomInt2inShipmentCreateDtoFactory factory()
  */
 class CustomInt2inShipmentCreateDto extends Model
 {

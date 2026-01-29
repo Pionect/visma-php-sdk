@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShipmentDetailLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ShipmentDetailLineDtoFactory factory()
+ */
 class ShipmentDetailLineDto extends Model
 {
     /** Document details tab &gt; The line number indicating sequence. */

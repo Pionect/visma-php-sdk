@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The payment settings tab.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BankSettingsInBranchDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BankSettingsInBranchDtoFactory factory()
  */
 class BankSettingsInBranchDto extends Model
 {

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The identifier of the customer associated with the expense.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerInExpenseClaimDetailUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerInExpenseClaimDetailUpdateDtoFactory factory()
  */
 class CustomerInExpenseClaimDetailUpdateDto extends Model
 {

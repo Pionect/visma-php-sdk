@@ -9,6 +9,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Purchase Receipt in PurchaseReceiptController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseReceiptUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PurchaseReceiptUpdateDtoFactory factory()
  */
 class PurchaseReceiptUpdateDto extends Model
 {

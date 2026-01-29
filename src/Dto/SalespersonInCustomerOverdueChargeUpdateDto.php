@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The identifier of the salesperson involved.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalespersonInCustomerOverdueChargeUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalespersonInCustomerOverdueChargeUpdateDtoFactory factory()
  */
 class SalespersonInCustomerOverdueChargeUpdateDto extends Model
 {

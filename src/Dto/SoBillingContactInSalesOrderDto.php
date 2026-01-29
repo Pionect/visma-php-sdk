@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Financial settings tab &gt; The Invoice address section or on the Delivery address section
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SoBillingContactInSalesOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SoBillingContactInSalesOrderDtoFactory factory()
  */
 class SoBillingContactInSalesOrderDto extends Model
 {

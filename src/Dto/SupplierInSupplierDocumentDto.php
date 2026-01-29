@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Top part &gt; Supplier* &gt; The identifier of the supplier referred to in the document.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierInSupplierDocumentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierInSupplierDocumentDtoFactory factory()
  */
 class SupplierInSupplierDocumentDto extends Model
 {

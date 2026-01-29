@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Country &gt; The country.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CountryInSalesOrderAddressDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CountryInSalesOrderAddressDtoFactory factory()
  */
 class CountryInSalesOrderAddressDto extends Model
 {

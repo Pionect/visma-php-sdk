@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierInvoiceLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierInvoiceLineDtoFactory factory()
+ */
 class SupplierInvoiceLineDto extends Model
 {
     /** The table &gt; Number at the left indicating the line number of the table. */

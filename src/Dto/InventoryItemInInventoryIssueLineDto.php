@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: Item ID* &gt; The ID of the goods to be transferred.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryItemInInventoryIssueLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryItemInInventoryIssueLineDtoFactory factory()
  */
 class InventoryItemInInventoryIssueLineDto extends Model
 {

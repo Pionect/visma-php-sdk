@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * General information tab &gt; Location contact section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ContactInSupplierLocationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ContactInSupplierLocationDtoFactory factory()
  */
 class ContactInSupplierLocationDto extends Model
 {

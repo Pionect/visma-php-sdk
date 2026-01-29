@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerClassDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerClassDtoFactory factory()
+ */
 class CustomerClassDto extends Model
 {
     /** The top part &gt; Class ID	&gt; The unique identifier of the class. You can use an alphanumeric string of up to 10 characters. */

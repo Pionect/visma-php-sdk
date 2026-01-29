@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Expense Claim in ExpenseClaimController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseClaimDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ExpenseClaimDtoFactory factory()
  */
 class ExpenseClaimDto extends Model
 {

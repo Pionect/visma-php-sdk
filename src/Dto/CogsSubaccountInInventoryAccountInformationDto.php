@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * Only used for Stock items.
  * COGS sub. &gt; The subaccount to be used for this item with the COGS
  * account.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CogsSubaccountInInventoryAccountInformationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CogsSubaccountInInventoryAccountInformationDtoFactory factory()
  */
 class CogsSubaccountInInventoryAccountInformationDto extends Model
 {

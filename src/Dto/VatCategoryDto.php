@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCategoryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatCategoryDtoFactory factory()
+ */
 class VatCategoryDto extends Model
 {
     /** Mandatory field: The top part &gt; VAT category ID* &gt; The unique ID of the VAT category. An alphanumeric string of up to six characters can be used. */

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Query parameters for Suppliers Balance - version 2
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierBalanceV2queryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierBalanceV2queryParametersFactory factory()
  */
 class SupplierBalanceV2queryParameters extends Model
 {

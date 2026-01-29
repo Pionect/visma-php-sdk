@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Debt Collection information for an invoice
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DebtCollectionDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DebtCollectionDtoFactory factory()
  */
 class DebtCollectionDto extends Model
 {

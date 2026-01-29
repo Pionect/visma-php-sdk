@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DescriptionInProjectUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DescriptionInProjectUpdateDtoFactory factory()
  */
 class DescriptionInProjectUpdateDto extends Model
 {

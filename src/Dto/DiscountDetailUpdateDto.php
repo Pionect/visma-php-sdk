@@ -9,6 +9,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * This class represent a Discount Detail for Purchase Order in Purchase Order Controller. Used to pass
  * data to server for creating or updating an order
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountDetailUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DiscountDetailUpdateDtoFactory factory()
  */
 class DiscountDetailUpdateDto extends Model
 {

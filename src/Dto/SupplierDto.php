@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a supplier in SupplierController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierDtoFactory factory()
  */
 class SupplierDto extends Model
 {

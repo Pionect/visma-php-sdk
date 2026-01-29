@@ -8,6 +8,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents an Allocation. Used to add/update data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AllocationsUpdateBasicDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AllocationsUpdateBasicDtoFactory factory()
  */
 class AllocationsUpdateBasicDto extends Model
 {

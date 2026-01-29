@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCategoryLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatCategoryLineDtoFactory factory()
+ */
 class VatCategoryLineDto extends Model
 {
     /** Mandatory field: VAT ID* &gt; The ID of the VAT included in the category. */

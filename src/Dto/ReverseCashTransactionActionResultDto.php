@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReverseCashTransactionActionResultDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ReverseCashTransactionActionResultDtoFactory factory()
+ */
 class ReverseCashTransactionActionResultDto extends Model
 {
     #[Property]

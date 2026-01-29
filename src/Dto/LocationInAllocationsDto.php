@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Location &gt; The location in the warehouse.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInAllocationsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInAllocationsDtoFactory factory()
  */
 class LocationInAllocationsDto extends Model
 {

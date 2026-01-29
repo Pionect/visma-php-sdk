@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Document details tab &gt; Branch &gt; The branch to receive the item.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchInPurchaseOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchInPurchaseOrderDtoFactory factory()
  */
 class BranchInPurchaseOrderDto extends Model
 {

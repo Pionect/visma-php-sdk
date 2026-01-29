@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Vat Zone
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatZoneInExtendedOrganizationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatZoneInExtendedOrganizationDtoFactory factory()
  */
 class VatZoneInExtendedOrganizationDto extends Model
 {

@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Purchase Receipt in PurchaseReceiptController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseReceiptBasicDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PurchaseReceiptBasicDtoFactory factory()
  */
 class PurchaseReceiptBasicDto extends Model
 {

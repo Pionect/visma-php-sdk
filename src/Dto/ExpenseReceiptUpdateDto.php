@@ -9,6 +9,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Expense Receipt in ExpenseReceiptController. Used to post data to server.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseReceiptUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ExpenseReceiptUpdateDtoFactory factory()
  */
 class ExpenseReceiptUpdateDto extends Model
 {

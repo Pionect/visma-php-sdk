@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SegmentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SegmentDtoFactory factory()
+ */
 class SegmentDto extends Model
 {
     /** The Segment values window &gt; The Top part &gt; The ID of the segment. */

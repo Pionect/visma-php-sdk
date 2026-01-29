@@ -7,12 +7,17 @@ namespace Pionect\VismaSdk\Foundation\Hydration;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use ReflectionClass;
 
+/**
+ * @template TFactory of \Pionect\VismaSdk\Foundation\Factories\Factory
+ */
 abstract class Model implements ModelInterface
 {
     use HasAttributes;
 
     /**
      * Get a new factory instance for the model.
+     *
+     * @return TFactory
      */
     public static function factory(): mixed
     {

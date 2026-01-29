@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a inventory issue in InventoryIssueController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryReceiptDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryReceiptDtoFactory factory()
  */
 class InventoryReceiptDto extends Model
 {

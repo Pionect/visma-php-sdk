@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCategoryQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatCategoryQueryParametersFactory factory()
+ */
 class VatCategoryQueryParameters extends Model
 {
     /** The vendor number associated with the VAT category line. */

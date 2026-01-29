@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShipmentSolineFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ShipmentSolineFactory factory()
+ */
 class ShipmentSoline extends Model
 {
     /** Sales Order Type */

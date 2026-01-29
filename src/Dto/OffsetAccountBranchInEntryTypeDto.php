@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Default offset account branch &gt; The branch to which the overriding offset account belongs.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetAccountBranchInEntryTypeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\OffsetAccountBranchInEntryTypeDtoFactory factory()
  */
 class OffsetAccountBranchInEntryTypeDto extends Model
 {

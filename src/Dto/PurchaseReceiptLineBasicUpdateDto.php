@@ -10,6 +10,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * This class represents a Purchase Receipt Line in PurchaseReceiptBasicContraoller. Used for adding
  * data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseReceiptLineBasicUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PurchaseReceiptLineBasicUpdateDtoFactory factory()
  */
 class PurchaseReceiptLineBasicUpdateDto extends Model
 {

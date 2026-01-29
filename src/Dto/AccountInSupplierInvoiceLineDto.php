@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The table &gt; Mandatory field: Account* &gt; The purchase account used for the invoice line.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInSupplierInvoiceLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountInSupplierInvoiceLineDtoFactory factory()
  */
 class AccountInSupplierInvoiceLineDto extends Model
 {

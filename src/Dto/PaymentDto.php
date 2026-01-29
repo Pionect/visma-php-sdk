@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Payment in PaymentController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PaymentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PaymentDtoFactory factory()
  */
 class PaymentDto extends Model
 {

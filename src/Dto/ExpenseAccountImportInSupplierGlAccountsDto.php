@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Expense account, import &gt; The import expense account used to record expenses made to the
  * suppliers of this class.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseAccountImportInSupplierGlAccountsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ExpenseAccountImportInSupplierGlAccountsDtoFactory factory()
  */
 class ExpenseAccountImportInSupplierGlAccountsDto extends Model
 {

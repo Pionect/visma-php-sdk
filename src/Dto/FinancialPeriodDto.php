@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Financial Period in FinancialPeriodController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FinancialPeriodDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\FinancialPeriodDtoFactory factory()
  */
 class FinancialPeriodDto extends Model
 {

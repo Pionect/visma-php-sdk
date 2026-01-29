@@ -8,6 +8,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * General information tab &gt; Address info section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AddressInEmployeeUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AddressInEmployeeUpdateDtoFactory factory()
  */
 class AddressInEmployeeUpdateDto extends Model
 {

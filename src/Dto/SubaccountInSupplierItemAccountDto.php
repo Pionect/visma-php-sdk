@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * The SubAccount for the SupplierItemID. If null, this means that no account was found for the
  * {Visma.net.ERP.Web.Api.Model.V1.SupplierItemAccountDto.SupplierItemId}
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInSupplierItemAccountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubaccountInSupplierItemAccountDtoFactory factory()
  */
 class SubaccountInSupplierItemAccountDto extends Model
 {

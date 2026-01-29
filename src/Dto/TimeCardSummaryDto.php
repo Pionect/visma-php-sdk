@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TimeCardSummaryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\TimeCardSummaryDtoFactory factory()
+ */
 class TimeCardSummaryDto extends Model
 {
     /** The time card line number */

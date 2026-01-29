@@ -8,6 +8,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Location in LocationController. Used to create and update Location.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierLocationUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierLocationUpdateDtoFactory factory()
  */
 class SupplierLocationUpdateDto extends Model
 {

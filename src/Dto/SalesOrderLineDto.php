@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesOrderLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalesOrderLineDtoFactory factory()
+ */
 class SalesOrderLineDto extends Model
 {
     /** The reference number of the invoice generated for this order. This number is collected from the system and not visible on the sales order line. */

@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectQueryParametersFactory factory()
+ */
 class ProjectQueryParameters extends Model
 {
     /** Use drop down and select Status. */

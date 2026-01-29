@@ -10,6 +10,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * This class represents a Landed Cost Line for Purchase Receipt in PurchaseReceiptController. Used for
  * getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LandedCostUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LandedCostUpdateDtoFactory factory()
  */
 class LandedCostUpdateDto extends Model
 {

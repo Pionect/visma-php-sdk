@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Delivery settings tab &gt; Shipping information section &gt; Shipping zone
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShippingZoneInSalesOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ShippingZoneInSalesOrderDtoFactory factory()
  */
 class ShippingZoneInSalesOrderDto extends Model
 {

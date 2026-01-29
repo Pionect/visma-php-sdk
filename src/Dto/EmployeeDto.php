@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents an Employee in EmployeeController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\EmployeeDtoFactory factory()
  */
 class EmployeeDto extends Model
 {

@@ -9,6 +9,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Kit Allocations from Kit Assembly. Used to add/update data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InallocationsUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InallocationsUpdateDtoFactory factory()
  */
 class InallocationsUpdateDto extends Model
 {

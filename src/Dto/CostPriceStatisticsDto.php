@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CostPriceStatisticsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CostPriceStatisticsDtoFactory factory()
+ */
 class CostPriceStatisticsDto extends Model
 {
     /** Cost price statistics section &gt; Last cost &gt; The last standard cost used for the stock item. */

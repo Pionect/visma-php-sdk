@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Purchase Order in PurchaseOrderController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PurchaseOrderDtoFactory factory()
  */
 class PurchaseOrderDto extends Model
 {

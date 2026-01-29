@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Summary tab &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SummaryInCustomerContractDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SummaryInCustomerContractDtoFactory factory()
  */
 class SummaryInCustomerContractDto extends Model
 {

@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a Intrastat part of InventoryItem in InventoryItemController. Used for
  * insert/update data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\IntrastatUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\IntrastatUpdateDtoFactory factory()
  */
 class IntrastatUpdateDto extends Model
 {

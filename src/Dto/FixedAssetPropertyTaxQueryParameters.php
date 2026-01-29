@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetPropertyTaxQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\FixedAssetPropertyTaxQueryParametersFactory factory()
+ */
 class FixedAssetPropertyTaxQueryParameters extends Model
 {
     /** Property Tax ID that identifies the property tax group. */

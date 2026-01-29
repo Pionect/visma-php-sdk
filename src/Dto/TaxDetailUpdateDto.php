@@ -8,6 +8,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Tax Detail Line. Used to pass data to server for updating a tax line
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxDetailUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\TaxDetailUpdateDtoFactory factory()
  */
 class TaxDetailUpdateDto extends Model
 {

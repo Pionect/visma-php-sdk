@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Deferral sub &gt; The corresponding subaccount.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DeferralSubInDeferralCodeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DeferralSubInDeferralCodeDtoFactory factory()
  */
 class DeferralSubInDeferralCodeDto extends Model
 {

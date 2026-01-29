@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * The top part &gt; Ref. no &gt; Reference number for the document. Can be used when manual numbering
  * is enabled.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReferenceNumberInPaymentUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ReferenceNumberInPaymentUpdateDtoFactory factory()
  */
 class ReferenceNumberInPaymentUpdateDto extends Model
 {

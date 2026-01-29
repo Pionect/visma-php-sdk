@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents Allocation/Kit Allocation. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InallocationsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InallocationsDtoFactory factory()
  */
 class InallocationsDto extends Model
 {

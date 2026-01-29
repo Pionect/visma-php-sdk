@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Mandatory field: Document details tab &gt; Subaccount* &gt; The corresponding subaccount to be used
  * for invoices and adjustments.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInSupplierDocumentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubaccountInSupplierDocumentDtoFactory factory()
  */
 class SubaccountInSupplierDocumentDto extends Model
 {

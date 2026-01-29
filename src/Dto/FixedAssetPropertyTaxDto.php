@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents an attribute in FixedAssetPropertyTaxGroup. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetPropertyTaxDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\FixedAssetPropertyTaxDtoFactory factory()
  */
 class FixedAssetPropertyTaxDto extends Model
 {

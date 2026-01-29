@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The current location of this fixed asset
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInFixedAssetDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInFixedAssetDtoFactory factory()
  */
 class LocationInFixedAssetDto extends Model
 {

@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WarehouseLocationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\WarehouseLocationDtoFactory factory()
+ */
 class WarehouseLocationDto extends Model
 {
     /** Location ID &gt; The unique ID of the warehouse location. */

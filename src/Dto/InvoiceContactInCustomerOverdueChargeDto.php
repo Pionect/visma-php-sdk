@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Invoice address tab &gt; The Invoice contact section.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InvoiceContactInCustomerOverdueChargeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InvoiceContactInCustomerOverdueChargeDtoFactory factory()
  */
 class InvoiceContactInCustomerOverdueChargeDto extends Model
 {

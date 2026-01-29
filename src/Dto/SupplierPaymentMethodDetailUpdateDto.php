@@ -9,6 +9,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * This class represents a Payment Method Detail in SupplierController. Used to update
  * SupplierPaymentMethodDetails when creating or updating a Supplier.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierPaymentMethodDetailUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierPaymentMethodDetailUpdateDtoFactory factory()
  */
 class SupplierPaymentMethodDetailUpdateDto extends Model
 {

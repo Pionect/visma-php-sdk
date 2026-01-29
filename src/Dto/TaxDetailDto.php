@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a VAT Detail Line. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxDetailDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\TaxDetailDtoFactory factory()
  */
 class TaxDetailDto extends Model
 {

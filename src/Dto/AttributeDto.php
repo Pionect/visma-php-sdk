@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents an attribute in AttributeController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AttributeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AttributeDtoFactory factory()
  */
 class AttributeDto extends Model
 {

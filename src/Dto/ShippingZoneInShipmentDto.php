@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Delivery settings tab &gt; Shipping information section &gt; Shipping zone ID &gt; The shipping zone
  * of the customer.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShippingZoneInShipmentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ShippingZoneInShipmentDtoFactory factory()
  */
 class ShippingZoneInShipmentDto extends Model
 {

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The lease and rent infor for this fixed asset
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LeaseAndRentInfoInDetailsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LeaseAndRentInfoInDetailsDtoFactory factory()
  */
 class LeaseAndRentInfoInDetailsDto extends Model
 {

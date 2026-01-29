@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Mandatory field: Document details tab &gt; Account* &gt; The expense account to be updated by this
  * transaction.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInSupplierDocumentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountInSupplierDocumentDtoFactory factory()
  */
 class AccountInSupplierDocumentDto extends Model
 {

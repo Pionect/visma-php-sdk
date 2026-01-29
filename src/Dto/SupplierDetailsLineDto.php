@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierDetailsLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierDetailsLineDtoFactory factory()
+ */
 class SupplierDetailsLineDto extends Model
 {
     #[Property]

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Default book settings for the fixed asset using this fixed asset class
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BookSettingsInFixedAssetClassDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BookSettingsInFixedAssetClassDtoFactory factory()
  */
 class BookSettingsInFixedAssetClassDto extends Model
 {

@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeContactDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\EmployeeContactDtoFactory factory()
+ */
 class EmployeeContactDto extends Model
 {
     /** Employee contact &gt; The link to the contact record associated with the employee. */

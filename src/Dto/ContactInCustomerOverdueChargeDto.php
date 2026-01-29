@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The top part &gt; Contact &gt; The contact associated with the customer.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ContactInCustomerOverdueChargeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ContactInCustomerOverdueChargeDtoFactory factory()
  */
 class ContactInCustomerOverdueChargeDto extends Model
 {

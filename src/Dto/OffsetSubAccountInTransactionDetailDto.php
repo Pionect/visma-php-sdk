@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Mandatory field: Offset subaccount* &gt; The corresponding subaccount to be used for the
  * transaction.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetSubAccountInTransactionDetailDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\OffsetSubAccountInTransactionDetailDtoFactory factory()
  */
 class OffsetSubAccountInTransactionDetailDto extends Model
 {

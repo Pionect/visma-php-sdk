@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Default offset account &gt; The account that is used by default as the offset account for this entry
  * type.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefaultOffsetAccountInEntryTypeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DefaultOffsetAccountInEntryTypeDtoFactory factory()
  */
 class DefaultOffsetAccountInEntryTypeDto extends Model
 {

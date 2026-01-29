@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DepartmentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DepartmentDtoFactory factory()
+ */
 class DepartmentDto extends Model
 {
     /** Mandatory field : The table &gt; Department ID* &gt; The unique identifier for the department. */

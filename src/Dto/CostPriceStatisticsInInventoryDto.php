@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Price/cost information tab &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CostPriceStatisticsInInventoryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CostPriceStatisticsInInventoryDtoFactory factory()
  */
 class CostPriceStatisticsInInventoryDto extends Model
 {

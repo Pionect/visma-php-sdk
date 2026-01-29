@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Financial details tab &gt; The VAT info section &gt; Dunning letter date &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerVatZoneInCustomerDebitNoteDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerVatZoneInCustomerDebitNoteDtoFactory factory()
  */
 class CustomerVatZoneInCustomerDebitNoteDto extends Model
 {

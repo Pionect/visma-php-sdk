@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CashSaleLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CashSaleLineDtoFactory factory()
+ */
 class CashSaleLineDto extends Model
 {
     /** Line no. &gt; A counter of lines in the overview of cash sales document overview. */

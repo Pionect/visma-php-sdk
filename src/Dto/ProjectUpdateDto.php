@@ -10,6 +10,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * This class represent a Project in Project Controller. Used to pass data to server for creating or
  * updating an project
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectUpdateDtoFactory factory()
  */
 class ProjectUpdateDto extends Model
 {

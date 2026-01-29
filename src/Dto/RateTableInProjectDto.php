@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Summary tab &gt; Invoicing and allocation settings section &gt; Rate table &gt; The rate table to be
  * used with the allocation rules, if applicable.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RateTableInProjectDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\RateTableInProjectDtoFactory factory()
  */
 class RateTableInProjectDto extends Model
 {

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * A brief description of the inventory issue or its transactions.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DescriptionInInventoryReceiptUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DescriptionInInventoryReceiptUpdateDtoFactory factory()
  */
 class DescriptionInInventoryReceiptUpdateDto extends Model
 {

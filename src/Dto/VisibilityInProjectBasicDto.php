@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Summary tab &gt; Visibility settings section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VisibilityInProjectBasicDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VisibilityInProjectBasicDtoFactory factory()
  */
 class VisibilityInProjectBasicDto extends Model
 {

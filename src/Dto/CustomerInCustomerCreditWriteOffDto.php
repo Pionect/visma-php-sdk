@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The top part &gt; Customer &gt; The customer associated with the document.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerInCustomerCreditWriteOffDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerInCustomerCreditWriteOffDtoFactory factory()
  */
 class CustomerInCustomerCreditWriteOffDto extends Model
 {

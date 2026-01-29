@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Salesperson ID &gt; The identifier of the salesperson involved.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SellerInCustomerDebitNoteLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SellerInCustomerDebitNoteLineDtoFactory factory()
  */
 class SellerInCustomerDebitNoteLineDto extends Model
 {

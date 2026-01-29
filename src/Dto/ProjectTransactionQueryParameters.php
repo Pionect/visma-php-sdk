@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectTransactionQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectTransactionQueryParametersFactory factory()
+ */
 class ProjectTransactionQueryParameters extends Model
 {
     /** Select to filter on module; e.g. AR, AP, IN etc. */

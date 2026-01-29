@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Project task &gt; The particular task of the project with which this transaction is associated.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectTaskInTransactionDetailDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectTaskInTransactionDetailDtoFactory factory()
  */
 class ProjectTaskInTransactionDetailDto extends Model
 {

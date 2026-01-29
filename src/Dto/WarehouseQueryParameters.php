@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WarehouseQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\WarehouseQueryParametersFactory factory()
+ */
 class WarehouseQueryParameters extends Model
 {
     /** Selects only the warehouses that are active/inactive. */

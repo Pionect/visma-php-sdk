@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Credit account &gt; For released transactions, the account the transaction credited when it was
  * released; for unreleased transactions, the account the transaction credits if it is released.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditAccountInProjectTransactionLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CreditAccountInProjectTransactionLineDtoFactory factory()
  */
 class CreditAccountInProjectTransactionLineDto extends Model
 {

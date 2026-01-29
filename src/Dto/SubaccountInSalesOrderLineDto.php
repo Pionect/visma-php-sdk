@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Subaccount &gt; A subcategory of the account that carries identifying information.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInSalesOrderLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubaccountInSalesOrderLineDtoFactory factory()
  */
 class SubaccountInSalesOrderLineDto extends Model
 {

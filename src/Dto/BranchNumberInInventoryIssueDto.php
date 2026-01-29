@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Branch associated
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInInventoryIssueDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchNumberInInventoryIssueDtoFactory factory()
  */
 class BranchNumberInInventoryIssueDto extends Model
 {

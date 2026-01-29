@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Top part &gt; Location* &gt; The supplier location associated with the purchase.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInSupplierInvoiceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInSupplierInvoiceDtoFactory factory()
  */
 class LocationInSupplierInvoiceDto extends Model
 {

@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BudgetDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BudgetDtoFactory factory()
+ */
 class BudgetDto extends Model
 {
     /** Mandatory field: The top part &gt; Financial year* &gt; The financial year of the budget. */

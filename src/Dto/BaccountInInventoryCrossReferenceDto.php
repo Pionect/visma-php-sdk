@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Mandatory field: Supplier/Customer*, click magnifier &gt; Account ID &gt; Account no. identifying
  * the business account.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BaccountInInventoryCrossReferenceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BaccountInInventoryCrossReferenceDtoFactory factory()
  */
 class BaccountInInventoryCrossReferenceDto extends Model
 {

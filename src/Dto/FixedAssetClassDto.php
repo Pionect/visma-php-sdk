@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents an attribute in FixedAssetClass. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetClassDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\FixedAssetClassDtoFactory factory()
  */
 class FixedAssetClassDto extends Model
 {

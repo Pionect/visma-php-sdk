@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * General information tab &gt; Contact section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ContactInEmployeeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ContactInEmployeeDtoFactory factory()
  */
 class ContactInEmployeeDto extends Model
 {

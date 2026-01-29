@@ -10,6 +10,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * involve a particular supplier, or the customer account,
  * if the entry type is used to record
  * transactions that involve a particular customer.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BusinessAccountInEntryTypeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BusinessAccountInEntryTypeDtoFactory factory()
  */
 class BusinessAccountInEntryTypeDto extends Model
 {

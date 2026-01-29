@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubAccountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubAccountDtoFactory factory()
+ */
 class SubAccountDto extends Model
 {
     /** Mandatory field: Subaccount* &gt; The subaccount number. Format 9-XX. */

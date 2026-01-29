@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The top part &gt; Invoice text &gt; A user-defined description of the payment.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InvoiceTextInPaymentUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InvoiceTextInPaymentUpdateDtoFactory factory()
  */
 class InvoiceTextInPaymentUpdateDto extends Model
 {

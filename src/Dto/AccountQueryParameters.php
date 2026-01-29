@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountQueryParametersFactory factory()
+ */
 class AccountQueryParameters extends Model
 {
     /** Set to True to select active accounts. */

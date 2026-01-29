@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Creditor Id
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditorIdInBankSettingsUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CreditorIdInBankSettingsUpdateDtoFactory factory()
  */
 class CreditorIdInBankSettingsUpdateDto extends Model
 {

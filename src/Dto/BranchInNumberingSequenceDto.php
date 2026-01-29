@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The table &gt; Branch &gt; The branch using the numbering series.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchInNumberingSequenceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchInNumberingSequenceDtoFactory factory()
  */
 class BranchInNumberingSequenceDto extends Model
 {

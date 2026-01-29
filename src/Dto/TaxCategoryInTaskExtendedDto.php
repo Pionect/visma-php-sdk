@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * VAT category &gt; The tax category for the project task.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxCategoryInTaskExtendedDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\TaxCategoryInTaskExtendedDtoFactory factory()
  */
 class TaxCategoryInTaskExtendedDto extends Model
 {

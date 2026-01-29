@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * The financial period to which the transactions recorded in the document should be posted. Use the
  * format MMYYYY.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PostPeriodInSupplierInvoiceUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PostPeriodInSupplierInvoiceUpdateDtoFactory factory()
  */
 class PostPeriodInSupplierInvoiceUpdateDto extends Model
 {

@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatInformationScheduleDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatInformationScheduleDtoFactory factory()
+ */
 class VatInformationScheduleDto extends Model
 {
     /** Mandatory field: Start date &gt; The date when the VAT at the rate in the current row becomes effective. */

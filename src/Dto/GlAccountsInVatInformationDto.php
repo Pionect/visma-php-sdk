@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * General ledger accounts &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GlAccountsInVatInformationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\GlAccountsInVatInformationDtoFactory factory()
  */
 class GlAccountsInVatInformationDto extends Model
 {

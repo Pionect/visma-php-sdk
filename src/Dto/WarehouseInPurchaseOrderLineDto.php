@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Warehouse &gt; The warehouse to receive the item listed on the order.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WarehouseInPurchaseOrderLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\WarehouseInPurchaseOrderLineDtoFactory factory()
  */
 class WarehouseInPurchaseOrderLineDto extends Model
 {

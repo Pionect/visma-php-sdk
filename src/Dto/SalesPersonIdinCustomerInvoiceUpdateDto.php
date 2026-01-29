@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The field is deprecated for customer document endpoints, please use Salesperson instead
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesPersonIdinCustomerInvoiceUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalesPersonIdinCustomerInvoiceUpdateDtoFactory factory()
  */
 class SalesPersonIdinCustomerInvoiceUpdateDto extends Model
 {

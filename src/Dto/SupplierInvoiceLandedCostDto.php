@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierInvoiceLandedCostDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierInvoiceLandedCostDtoFactory factory()
+ */
 class SupplierInvoiceLandedCostDto extends Model
 {
     /** Landed Costs Tab &gt; Number at the left indicating the line number of the table. */

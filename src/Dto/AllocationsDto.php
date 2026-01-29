@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a Allocations for Purchase Receipt Line in PurchaseReceiptController. Used for
  * getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AllocationsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AllocationsDtoFactory factory()
  */
 class AllocationsDto extends Model
 {

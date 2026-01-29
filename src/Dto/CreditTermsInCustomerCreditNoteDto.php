@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The top part &gt; Terms* &gt; The credit terms used in relations with the customer.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditTermsInCustomerCreditNoteDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CreditTermsInCustomerCreditNoteDtoFactory factory()
  */
 class CreditTermsInCustomerCreditNoteDto extends Model
 {

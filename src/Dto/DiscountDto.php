@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DiscountDtoFactory factory()
+ */
 class DiscountDto extends Model
 {
     /** Mandatory field: The top part &gt; Discount code &gt; The code of the discount for which you want to create a new series or view an existing one. */

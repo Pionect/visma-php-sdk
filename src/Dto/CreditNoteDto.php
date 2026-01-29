@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a invoice in InvoiceController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditNoteDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CreditNoteDtoFactory factory()
  */
 class CreditNoteDto extends Model
 {

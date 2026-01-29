@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The details of this fixed asset
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DetailsInFixedAssetDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DetailsInFixedAssetDtoFactory factory()
  */
 class DetailsInFixedAssetDto extends Model
 {

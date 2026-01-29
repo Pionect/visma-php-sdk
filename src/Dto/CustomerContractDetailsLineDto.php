@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a CustomerContractDetailLine in CustomerContractController. Used for getting
  * data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerContractDetailsLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerContractDetailsLineDtoFactory factory()
  */
 class CustomerContractDetailsLineDto extends Model
 {

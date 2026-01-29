@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a journal transaction in JournalTransactionController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\JournalTransactionDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\JournalTransactionDtoFactory factory()
  */
 class JournalTransactionDto extends Model
 {

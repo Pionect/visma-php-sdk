@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: Account* &gt; The sales account used for the transaction.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInCustomerCreditNoteLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountInCustomerCreditNoteLineDtoFactory factory()
  */
 class AccountInCustomerCreditNoteLineDto extends Model
 {

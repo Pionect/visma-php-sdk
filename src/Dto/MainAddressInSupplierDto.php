@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * General information tab &gt; Main address section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\MainAddressInSupplierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\MainAddressInSupplierDtoFactory factory()
  */
 class MainAddressInSupplierDto extends Model
 {

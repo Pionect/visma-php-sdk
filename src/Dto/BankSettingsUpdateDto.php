@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Bank settings update Dto
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BankSettingsUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BankSettingsUpdateDtoFactory factory()
  */
 class BankSettingsUpdateDto extends Model
 {

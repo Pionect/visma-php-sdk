@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The disposal method details of this fixed asset
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DisposalMethodInDetailsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DisposalMethodInDetailsDtoFactory factory()
  */
 class DisposalMethodInDetailsDto extends Model
 {

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * A free custom colum of type decimal with max 4 decimals.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomDec2inShipmentDetailLineAddDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomDec2inShipmentDetailLineAddDtoFactory factory()
  */
 class CustomDec2inShipmentDetailLineAddDto extends Model
 {

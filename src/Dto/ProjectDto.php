@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Project in ProjectController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectDtoFactory factory()
  */
 class ProjectDto extends Model
 {

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Contract management section &gt; Owner &gt; The owner of the contract.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OwnerInCustomerContractSummaryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\OwnerInCustomerContractSummaryDtoFactory factory()
  */
 class OwnerInCustomerContractSummaryDto extends Model
 {

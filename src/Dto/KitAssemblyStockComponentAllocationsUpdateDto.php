@@ -11,6 +11,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  * Lot/serial allocations for stock components in kit assemblies.
  * Used for adding and updating
  * allocations.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\KitAssemblyStockComponentAllocationsUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\KitAssemblyStockComponentAllocationsUpdateDtoFactory factory()
  */
 class KitAssemblyStockComponentAllocationsUpdateDto extends Model
 {

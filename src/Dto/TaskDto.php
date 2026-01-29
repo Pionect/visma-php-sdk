@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaskDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\TaskDtoFactory factory()
+ */
 class TaskDto extends Model
 {
     /** Mandatory field: &gt; Task ID* &gt; The ID of the task. */

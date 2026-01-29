@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseReceiptsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PurchaseReceiptsDtoFactory factory()
+ */
 class PurchaseReceiptsDto extends Model
 {
     /** The top part &gt; Type &gt; The type of the document, which can be Receipt, Return, or Transfer receipt. */

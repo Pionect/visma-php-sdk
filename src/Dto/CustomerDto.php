@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a customer in CustomerController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerDtoFactory factory()
  */
 class CustomerDto extends Model
 {

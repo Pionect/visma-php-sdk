@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Shipping instructions tab &gt; The Delivery address section &gt; Ship to &gt; The particular
  * destination of the selected type.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShipToInPurchaseOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ShipToInPurchaseOrderDtoFactory factory()
  */
 class ShipToInPurchaseOrderDto extends Model
 {

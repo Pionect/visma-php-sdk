@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field if GLN or VatRegistrationId is not specified.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerInSalesOrderBasicUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerInSalesOrderBasicUpdateDtoFactory factory()
  */
 class CustomerInSalesOrderBasicUpdateDto extends Model
 {

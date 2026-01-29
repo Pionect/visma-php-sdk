@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * VAT zone &gt; The VAT zone to be used by default with this entry type.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatZoneInEntryTypeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatZoneInEntryTypeDtoFactory factory()
  */
 class VatZoneInEntryTypeDto extends Model
 {

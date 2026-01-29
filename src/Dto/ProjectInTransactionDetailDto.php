@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Project &gt; The project with which this transaction is associated, or the code indicating that this
  * transaction is not associated with any project.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectInTransactionDetailDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectInTransactionDetailDtoFactory factory()
  */
 class ProjectInTransactionDetailDto extends Model
 {

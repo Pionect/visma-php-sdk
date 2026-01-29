@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ClassAttributeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ClassAttributeDtoFactory factory()
+ */
 class ClassAttributeDto extends Model
 {
     /** The Attributes tab &gt; Attribute ID &gt; The identifier of the attribute. */

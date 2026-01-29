@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseClaimQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ExpenseClaimQueryParametersFactory factory()
+ */
 class ExpenseClaimQueryParameters extends Model
 {
     /** The status of the document. */

@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Document details tab &gt; Location &gt; The location in the warehouse from which the item is
  * shipped.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInShipmentDetailLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInShipmentDetailLineDtoFactory factory()
  */
 class LocationInShipmentDetailLineDto extends Model
 {

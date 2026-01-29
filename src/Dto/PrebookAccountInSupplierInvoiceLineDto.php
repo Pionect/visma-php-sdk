@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Prebook account used on the line. Note that this feature is not available in all countries.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PrebookAccountInSupplierInvoiceLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PrebookAccountInSupplierInvoiceLineDtoFactory factory()
  */
 class PrebookAccountInSupplierInvoiceLineDto extends Model
 {

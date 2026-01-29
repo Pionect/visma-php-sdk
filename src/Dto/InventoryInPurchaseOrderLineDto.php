@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Item ID &gt; The ID of the item.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryInPurchaseOrderLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryInPurchaseOrderLineDtoFactory factory()
  */
 class InventoryInPurchaseOrderLineDto extends Model
 {

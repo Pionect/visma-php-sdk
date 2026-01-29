@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: VAT payable subaccount* &gt; The corresponding VAT payable subaccount.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatPayableSubaccountInVatGlAccountsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatPayableSubaccountInVatGlAccountsDtoFactory factory()
  */
 class VatPayableSubaccountInVatGlAccountsDto extends Model
 {

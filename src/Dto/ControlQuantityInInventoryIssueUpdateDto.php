@@ -10,6 +10,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * Document Totals on Entry option is selected on the Inventory Preferences form. If the Control
  * Qty. and Total Qty.values do not match, the system generates a warning message and the issue
  * cannot be saved.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ControlQuantityInInventoryIssueUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ControlQuantityInInventoryIssueUpdateDtoFactory factory()
  */
 class ControlQuantityInInventoryIssueUpdateDto extends Model
 {

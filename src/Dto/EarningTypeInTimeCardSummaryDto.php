@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Earning type &gt; The type of the work time spent by the employee
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EarningTypeInTimeCardSummaryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\EarningTypeInTimeCardSummaryDtoFactory factory()
  */
 class EarningTypeInTimeCardSummaryDto extends Model
 {

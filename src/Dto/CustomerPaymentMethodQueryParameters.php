@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerPaymentMethodQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerPaymentMethodQueryParametersFactory factory()
+ */
 class CustomerPaymentMethodQueryParameters extends Model
 {
     /** Pagination parameter. Page number. */

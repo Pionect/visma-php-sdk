@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CountryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CountryDtoFactory factory()
+ */
 class CountryDto extends Model
 {
     /** Mandatory field: Country ID* &gt; The unique two-letter country ID according to international standard ISO 3166. */

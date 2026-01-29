@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The ID of the attribute on the line.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AttributeIdInAttributeLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AttributeIdInAttributeLineUpdateDtoFactory factory()
  */
 class AttributeIdInAttributeLineUpdateDto extends Model
 {

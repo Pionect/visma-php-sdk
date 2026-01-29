@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Purchase settings tab &gt; Shipping contact information section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierContactInSupplierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierContactInSupplierDtoFactory factory()
  */
 class SupplierContactInSupplierDto extends Model
 {

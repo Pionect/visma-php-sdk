@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Summary tab &gt; Invoicing and allocation settings section &gt; Invoicing rule &gt; The default
  * invoicing rule that is used for the tasks created for the project.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BillingRuleInProjectDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BillingRuleInProjectDtoFactory factory()
  */
 class BillingRuleInProjectDto extends Model
 {

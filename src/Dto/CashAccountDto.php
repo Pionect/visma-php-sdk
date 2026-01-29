@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CashAccountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CashAccountDtoFactory factory()
+ */
 class CashAccountDto extends Model
 {
     /** A system generated date/time to indicate when the document was last changed. */

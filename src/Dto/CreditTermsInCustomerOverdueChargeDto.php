@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: The top part &gt; Terms* &gt; The credit terms used in relations with the customer.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditTermsInCustomerOverdueChargeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CreditTermsInCustomerOverdueChargeDtoFactory factory()
  */
 class CreditTermsInCustomerOverdueChargeDto extends Model
 {

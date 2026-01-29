@@ -10,6 +10,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * service.
  * Note: The field type has been changed from string to BranchNumberDto, please consider
  * doing changes accordingly.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInSupplierInvoiceLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchNumberInSupplierInvoiceLineDtoFactory factory()
  */
 class BranchNumberInSupplierInvoiceLineDto extends Model
 {

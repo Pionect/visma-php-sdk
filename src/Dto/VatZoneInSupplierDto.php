@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Purchase settings tab &gt; Default location settings section &gt; VAT zone &gt; The VAT zone of the
  * supplier's default location.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatZoneInSupplierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatZoneInSupplierDtoFactory factory()
  */
 class VatZoneInSupplierDto extends Model
 {

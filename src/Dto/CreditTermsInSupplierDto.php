@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * General information tab &gt; Financial settings section &gt; Terms &gt; The type of credit terms
  * used in operations with the supplier.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditTermsInSupplierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CreditTermsInSupplierDtoFactory factory()
  */
 class CreditTermsInSupplierDto extends Model
 {

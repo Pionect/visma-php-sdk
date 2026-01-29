@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * VAT settings section &gt; VAT zone &gt; The VAT zone that applies to the transaction.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxZoneInFinancialsDetailDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\TaxZoneInFinancialsDetailDtoFactory factory()
  */
 class TaxZoneInFinancialsDetailDto extends Model
 {

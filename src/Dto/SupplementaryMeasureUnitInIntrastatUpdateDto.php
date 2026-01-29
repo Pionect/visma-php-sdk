@@ -10,6 +10,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * Positions)
  * that may be expressed from quantitative point of view in other measurement units but
  * kilo also.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplementaryMeasureUnitInIntrastatUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplementaryMeasureUnitInIntrastatUpdateDtoFactory factory()
  */
 class SupplementaryMeasureUnitInIntrastatUpdateDto extends Model
 {

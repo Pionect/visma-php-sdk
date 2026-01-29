@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * BranchId is deprecated, please use BranchNumber instead.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchIdInPurchaseReceiptLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchIdInPurchaseReceiptLineUpdateDtoFactory factory()
  */
 class BranchIdInPurchaseReceiptLineUpdateDto extends Model
 {

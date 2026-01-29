@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Employee &gt; The employee associated with the transaction, such as the employee who worked on the
  * project for the customer.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeInProjectTransactionLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\EmployeeInProjectTransactionLineDtoFactory factory()
  */
 class EmployeeInProjectTransactionLineDto extends Model
 {

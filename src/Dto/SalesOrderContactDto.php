@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesOrderContactDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalesOrderContactDtoFactory factory()
+ */
 class SalesOrderContactDto extends Model
 {
     /** Override contact &gt; A check box indicating that you want to override the default contact information. */

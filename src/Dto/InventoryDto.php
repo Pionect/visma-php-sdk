@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryDtoFactory factory()
+ */
 class InventoryDto extends Model
 {
     /** The unique internal identifier of the  item as is stored in the database. This Id is not visible in the window. */

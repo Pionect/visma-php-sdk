@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PaymentQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PaymentQueryParametersFactory factory()
+ */
 class PaymentQueryParameters extends Model
 {
     /** Payment number */

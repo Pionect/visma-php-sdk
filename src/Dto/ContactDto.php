@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a contact in ContactController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ContactDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ContactDtoFactory factory()
  */
 class ContactDto extends Model
 {

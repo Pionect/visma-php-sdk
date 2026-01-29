@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Rate table &gt; The rate table to be used in the allocation rules, if applicable.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RateTableInTaskExtendedDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\RateTableInTaskExtendedDtoFactory factory()
  */
 class RateTableInTaskExtendedDto extends Model
 {

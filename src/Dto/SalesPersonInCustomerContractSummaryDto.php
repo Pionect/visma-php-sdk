@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Contract management &gt; Salesperson &gt; The salesperson associated with the contract.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesPersonInCustomerContractSummaryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalesPersonInCustomerContractSummaryDtoFactory factory()
  */
 class SalesPersonInCustomerContractSummaryDto extends Model
 {

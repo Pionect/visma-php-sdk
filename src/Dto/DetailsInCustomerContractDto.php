@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Details tab &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DetailsInCustomerContractDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DetailsInCustomerContractDtoFactory factory()
  */
 class DetailsInCustomerContractDto extends Model
 {

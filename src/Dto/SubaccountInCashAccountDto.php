@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The subaccount to be used for the cash account.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInCashAccountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubaccountInCashAccountDtoFactory factory()
  */
 class SubaccountInCashAccountDto extends Model
 {

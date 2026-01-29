@@ -7,6 +7,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerOverdueChargeLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerOverdueChargeLineUpdateDtoFactory factory()
+ */
 class CustomerOverdueChargeLineUpdateDto extends Model
 {
     #[Property]

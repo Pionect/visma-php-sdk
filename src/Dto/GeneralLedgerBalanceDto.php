@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a General Ledger Balance in GeneralLedgerBalanceController. Used by getting
  * data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GeneralLedgerBalanceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\GeneralLedgerBalanceDtoFactory factory()
  */
 class GeneralLedgerBalanceDto extends Model
 {

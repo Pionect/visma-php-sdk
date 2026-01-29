@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WarehouseContactDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\WarehouseContactDtoFactory factory()
+ */
 class WarehouseContactDto extends Model
 {
     /** Information retrieved from the system. */

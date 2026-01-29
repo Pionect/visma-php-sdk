@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Project task &gt; The project task with which this purchase order is associated.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectTaskInPurchaseOrderLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectTaskInPurchaseOrderLineDtoFactory factory()
  */
 class ProjectTaskInPurchaseOrderLineDto extends Model
 {

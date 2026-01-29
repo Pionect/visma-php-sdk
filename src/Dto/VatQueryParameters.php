@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatQueryParametersFactory factory()
+ */
 class VatQueryParameters extends Model
 {
     /** This field has been deprecated and will be removed in future versions. */

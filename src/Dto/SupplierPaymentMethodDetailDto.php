@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a Payment Method Detail in SupplierController. Used to get data for
  * SupplierPaymentMethodDetails of a Supplier.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierPaymentMethodDetailDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierPaymentMethodDetailDtoFactory factory()
  */
 class SupplierPaymentMethodDetailDto extends Model
 {

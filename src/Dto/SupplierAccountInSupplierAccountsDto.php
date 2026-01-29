@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The supplier account information
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierAccountInSupplierAccountsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierAccountInSupplierAccountsDtoFactory factory()
  */
 class SupplierAccountInSupplierAccountsDto extends Model
 {

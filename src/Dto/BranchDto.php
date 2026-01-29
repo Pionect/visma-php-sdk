@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchDtoFactory factory()
+ */
 class BranchDto extends Model
 {
     /** The top part &gt; Branch ID* &gt; The unique identifier of the Branch */

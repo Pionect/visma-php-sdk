@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Purchase settings tab &gt; Default location settings section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInSupplierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInSupplierDtoFactory factory()
  */
 class LocationInSupplierDto extends Model
 {

@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * The top part &gt; Location &gt; The location for which you want to view data; select a location, or
  * make no selection to view data for all locations.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInInventorySummaryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInInventorySummaryDtoFactory factory()
  */
 class LocationInInventorySummaryDto extends Model
 {

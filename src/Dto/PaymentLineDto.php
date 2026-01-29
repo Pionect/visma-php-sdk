@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PaymentLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PaymentLineDtoFactory factory()
+ */
 class PaymentLineDto extends Model
 {
     /** Doc. type &gt; The type of document to which the payment is applied. */

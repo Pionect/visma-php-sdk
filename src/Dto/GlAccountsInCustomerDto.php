@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Information collected from the system. Some accounts visible in window, some not.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GlAccountsInCustomerDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\GlAccountsInCustomerDtoFactory factory()
  */
 class GlAccountsInCustomerDto extends Model
 {

@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShipmentPackageLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ShipmentPackageLineUpdateDtoFactory factory()
+ */
 class ShipmentPackageLineUpdateDto extends Model
 {
     #[Property]

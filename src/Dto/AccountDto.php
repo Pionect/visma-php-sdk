@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountDtoFactory factory()
+ */
 class AccountDto extends Model
 {
     /** The table &gt; AccountID &gt; The Account ID is the actual ID that the account have in the database and are used in other tables as the relation between the Chart of accounts table and other tables. */

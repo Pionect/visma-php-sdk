@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a SOOrder in SOOrderController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesOrderDocumentLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalesOrderDocumentLineDtoFactory factory()
  */
 class SalesOrderDocumentLineDto extends Model
 {

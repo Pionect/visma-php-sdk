@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents an OrderToApply in Payments
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OrderToApplyDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\OrderToApplyDtoFactory factory()
  */
 class OrderToApplyDto extends Model
 {

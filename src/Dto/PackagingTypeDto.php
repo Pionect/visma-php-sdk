@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a PackagingType in PackagingTypeController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PackagingTypeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PackagingTypeDtoFactory factory()
  */
 class PackagingTypeDto extends Model
 {

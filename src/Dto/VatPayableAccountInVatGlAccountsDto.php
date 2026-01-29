@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Mandatory field: VAT payable account* &gt; The liability account that accumulates the VAT amounts to
  * be paid to a tax agency for the VAT reporting period.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatPayableAccountInVatGlAccountsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatPayableAccountInVatGlAccountsDtoFactory factory()
  */
 class VatPayableAccountInVatGlAccountsDto extends Model
 {

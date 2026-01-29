@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a SOOrderType in SalesOrderTypeController. Used to get data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesOrderTypeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalesOrderTypeDtoFactory factory()
  */
 class SalesOrderTypeDto extends Model
 {

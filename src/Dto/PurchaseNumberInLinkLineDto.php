@@ -13,6 +13,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * {Visma.net.ERP.Web.Api.Model.V1.Enum.PurchaseType.PurchaseReceipt}, then it should refer to the
  * PruchaseReceipt number
  * otherwise it refers to the PurchaseOrder
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseNumberInLinkLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PurchaseNumberInLinkLineDtoFactory factory()
  */
 class PurchaseNumberInLinkLineDto extends Model
 {

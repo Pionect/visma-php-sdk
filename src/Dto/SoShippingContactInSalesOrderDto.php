@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Delivery settings tab &gt; Delivery address contact section
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SoShippingContactInSalesOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SoShippingContactInSalesOrderDtoFactory factory()
  */
 class SoShippingContactInSalesOrderDto extends Model
 {

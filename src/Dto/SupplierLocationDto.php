@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Location in LocationController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierLocationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierLocationDtoFactory factory()
  */
 class SupplierLocationDto extends Model
 {

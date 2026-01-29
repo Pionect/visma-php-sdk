@@ -12,6 +12,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  * creating or updating an order
  * Supplier is mandatory to create Purchase Order, customer can be
  * identified by Supplier, GLN or VatRegistrationId
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseOrderBasicUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PurchaseOrderBasicUpdateDtoFactory factory()
  */
 class PurchaseOrderBasicUpdateDto extends Model
 {

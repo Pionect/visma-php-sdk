@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The table &gt; Project &gt; The project associated with the invoice line.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectInSupplierInvoiceLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectInSupplierInvoiceLineDtoFactory factory()
  */
 class ProjectInSupplierInvoiceLineDto extends Model
 {

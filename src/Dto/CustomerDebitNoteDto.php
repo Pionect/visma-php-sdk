@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Customer Debit Note. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerDebitNoteDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerDebitNoteDtoFactory factory()
  */
 class CustomerDebitNoteDto extends Model
 {

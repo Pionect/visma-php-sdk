@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShipmentAddressDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ShipmentAddressDtoFactory factory()
+ */
 class ShipmentAddressDto extends Model
 {
     /** Override address &gt; A check box that you select to not include the default address information and to type new address information. */

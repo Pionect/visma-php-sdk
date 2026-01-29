@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Project task &gt; The project task to associate with this location by default.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectTaskInWarehouseLocationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectTaskInWarehouseLocationDtoFactory factory()
  */
 class ProjectTaskInWarehouseLocationDto extends Model
 {

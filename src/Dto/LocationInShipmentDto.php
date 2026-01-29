@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: The top part &gt; Location* &gt; The customer location to receive the shipment.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInShipmentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInShipmentDtoFactory factory()
  */
 class LocationInShipmentDto extends Model
 {

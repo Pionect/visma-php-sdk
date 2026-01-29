@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PeppolSchemeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PeppolSchemeDtoFactory factory()
+ */
 class PeppolSchemeDto extends Model
 {
     /**

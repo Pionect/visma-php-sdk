@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The quantity reported for Thursday.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ThuInTimeCardMaterialsUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ThuInTimeCardMaterialsUpdateDtoFactory factory()
  */
 class ThuInTimeCardMaterialsUpdateDto extends Model
 {

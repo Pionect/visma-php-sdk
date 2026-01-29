@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The account added to the cash account.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInCashAccountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountInCashAccountDtoFactory factory()
  */
 class AccountInCashAccountDto extends Model
 {

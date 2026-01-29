@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * A free custom colum of type DateTime - in UTC timezone
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomDateTimeUtc1inPurchaseReceiptBasicUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomDateTimeUtc1inPurchaseReceiptBasicUpdateDtoFactory factory()
  */
 class CustomDateTimeUtc1inPurchaseReceiptBasicUpdateDto extends Model
 {

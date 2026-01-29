@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Sales Category in SalesCategoryController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesCategoryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalesCategoryDtoFactory factory()
  */
 class SalesCategoryDto extends Model
 {

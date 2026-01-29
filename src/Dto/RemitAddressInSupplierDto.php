@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Payment settings tab &gt; Remittance address section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RemitAddressInSupplierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\RemitAddressInSupplierDtoFactory factory()
  */
 class RemitAddressInSupplierDto extends Model
 {

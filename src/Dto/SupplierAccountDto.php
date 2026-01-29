@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierAccountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierAccountDtoFactory factory()
+ */
 class SupplierAccountDto extends Model
 {
     /** The supplier number */

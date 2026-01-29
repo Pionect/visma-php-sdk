@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * SupplierInvoiceCommentUpdateDto
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierInvoiceCommentUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierInvoiceCommentUpdateDtoFactory factory()
  */
 class SupplierInvoiceCommentUpdateDto extends Model
 {

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Currency rate type id.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\IdInCreateCurrencyRateTypeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\IdInCreateCurrencyRateTypeDtoFactory factory()
  */
 class IdInCreateCurrencyRateTypeDto extends Model
 {

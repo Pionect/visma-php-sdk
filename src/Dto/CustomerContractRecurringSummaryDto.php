@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents the CustomerContractRecurringSummary in CustomerContractController. Used for
  * getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerContractRecurringSummaryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerContractRecurringSummaryDtoFactory factory()
  */
 class CustomerContractRecurringSummaryDto extends Model
 {

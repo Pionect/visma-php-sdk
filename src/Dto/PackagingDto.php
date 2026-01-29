@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a Packaging part of InventoryItem in InventoryItemController. Used for getting
  * data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PackagingDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PackagingDtoFactory factory()
  */
 class PackagingDto extends Model
 {

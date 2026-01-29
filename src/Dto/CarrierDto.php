@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Carrier in CarrierController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CarrierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CarrierDtoFactory factory()
  */
 class CarrierDto extends Model
 {

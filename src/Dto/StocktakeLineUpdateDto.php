@@ -9,6 +9,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represent a Stocktake line in StocktakeContoller. Used to update a Stocktake line
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\StocktakeLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\StocktakeLineUpdateDtoFactory factory()
  */
 class StocktakeLineUpdateDto extends Model
 {

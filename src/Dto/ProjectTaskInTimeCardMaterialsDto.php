@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Project task &gt; The project task that the employee worked on.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectTaskInTimeCardMaterialsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectTaskInTimeCardMaterialsDtoFactory factory()
  */
 class ProjectTaskInTimeCardMaterialsDto extends Model
 {

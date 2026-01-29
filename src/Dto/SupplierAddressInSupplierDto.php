@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Purchase settings tab &gt; Shipping address section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierAddressInSupplierDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierAddressInSupplierDtoFactory factory()
  */
 class SupplierAddressInSupplierDto extends Model
 {

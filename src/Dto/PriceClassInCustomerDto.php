@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Deliver settings tab &gt; Default location settings section &gt; Price class &gt; The price class
  * assigned to the customer.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PriceClassInCustomerDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PriceClassInCustomerDtoFactory factory()
  */
 class PriceClassInCustomerDto extends Model
 {

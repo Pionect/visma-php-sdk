@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: Document details tab &gt; Branch* &gt; The branch of the company.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInSalesOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchNumberInSalesOrderDtoFactory factory()
  */
 class BranchNumberInSalesOrderDto extends Model
 {

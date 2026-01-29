@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Mandatory field: The top part Location* &gt; The supplier location from which the items should be
  * received or to which they should be returned.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInPurchaseReceiptBasicDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInPurchaseReceiptBasicDtoFactory factory()
  */
 class LocationInPurchaseReceiptBasicDto extends Model
 {

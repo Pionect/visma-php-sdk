@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GeneralLedgerBudgetQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\GeneralLedgerBudgetQueryParametersFactory factory()
+ */
 class GeneralLedgerBudgetQueryParameters extends Model
 {
     /** True to get released budgets. */

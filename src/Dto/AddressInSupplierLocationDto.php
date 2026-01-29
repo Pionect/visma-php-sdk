@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * General information tab &gt; Location address section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AddressInSupplierLocationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AddressInSupplierLocationDtoFactory factory()
  */
 class AddressInSupplierLocationDto extends Model
 {

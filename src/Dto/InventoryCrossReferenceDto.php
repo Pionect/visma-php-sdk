@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryCrossReferenceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryCrossReferenceDtoFactory factory()
+ */
 class InventoryCrossReferenceDto extends Model
 {
     /** Alternate type &gt; The type of alternate codification used for the item if applicable. */

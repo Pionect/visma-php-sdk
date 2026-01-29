@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a WarehouseDetail part of InventoryItem in InventoryItemController. Used for
  * getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WarehouseDetailDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\WarehouseDetailDtoFactory factory()
  */
 class WarehouseDetailDto extends Model
 {

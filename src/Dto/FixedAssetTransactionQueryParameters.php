@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetTransactionQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\FixedAssetTransactionQueryParametersFactory factory()
+ */
 class FixedAssetTransactionQueryParameters extends Model
 {
     /** View all transactions connected to this Reference number. */

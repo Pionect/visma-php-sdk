@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatZoneDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatZoneDtoFactory factory()
+ */
 class VatZoneDto extends Model
 {
     /** Click the magnifier. The identifier for the VAT zone of the supplier, which is specified in the  AP303000 window. */

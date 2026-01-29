@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The book balance details for this fixed asset
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BookBalanceInFixedAssetDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BookBalanceInFixedAssetDtoFactory factory()
  */
 class BookBalanceInFixedAssetDto extends Model
 {

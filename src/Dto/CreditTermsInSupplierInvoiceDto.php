@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * The Top part &gt; Terms &gt; The credit terms associated with the supplier (unavailable for
  * prepayments and debit adjustments)
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditTermsInSupplierInvoiceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CreditTermsInSupplierInvoiceDtoFactory factory()
  */
 class CreditTermsInSupplierInvoiceDto extends Model
 {

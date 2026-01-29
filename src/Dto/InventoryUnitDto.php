@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryUnitDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryUnitDtoFactory factory()
+ */
 class InventoryUnitDto extends Model
 {
     #[Property]

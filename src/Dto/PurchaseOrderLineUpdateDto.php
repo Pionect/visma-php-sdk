@@ -10,6 +10,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * This class represent a Purchase Order Line in Purchase Order Controller. Used to pass data to server
  * for creating or updating an order line
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseOrderLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PurchaseOrderLineUpdateDtoFactory factory()
  */
 class PurchaseOrderLineUpdateDto extends Model
 {

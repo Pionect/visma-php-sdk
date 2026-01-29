@@ -9,6 +9,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a supplier in SupplierController. Used to create and update supplier.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierUpdateDtoFactory factory()
  */
 class SupplierUpdateDto extends Model
 {

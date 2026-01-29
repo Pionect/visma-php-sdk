@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCodeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatCodeDtoFactory factory()
+ */
 class VatCodeDto extends Model
 {
     /** Click on the magnifier. &gt; The identifier. */

@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * VAT category &gt; The VAT category (if applied) for the transaction. The category represents the
  * type of goods or services.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCodeInCashSaleLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatCodeInCashSaleLineDtoFactory factory()
  */
 class VatCodeInCashSaleLineDto extends Model
 {

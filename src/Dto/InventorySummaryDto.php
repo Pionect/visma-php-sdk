@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a InventorySummary in InventorySummaryController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventorySummaryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventorySummaryDtoFactory factory()
  */
 class InventorySummaryDto extends Model
 {

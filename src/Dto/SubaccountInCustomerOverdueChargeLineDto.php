@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: Subaccount* &gt; The corresponding subaccount used for this transaction.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInCustomerOverdueChargeLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubaccountInCustomerOverdueChargeLineDtoFactory factory()
  */
 class SubaccountInCustomerOverdueChargeLineDto extends Model
 {

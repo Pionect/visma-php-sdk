@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Bank Settings
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BankSettingsInExtendedOrganizationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BankSettingsInExtendedOrganizationDtoFactory factory()
  */
 class BankSettingsInExtendedOrganizationDto extends Model
 {

@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * The currency of the expense receipt. However, if you enter a claim line directly, the currency value
  * is read-only and matching the claim currency.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InvoiceableInExpenseClaimDetailUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InvoiceableInExpenseClaimDetailUpdateDtoFactory factory()
  */
 class InvoiceableInExpenseClaimDetailUpdateDto extends Model
 {

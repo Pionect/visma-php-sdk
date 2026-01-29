@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Reference to the order line number that the kit assembly is connected to
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OrderLineNumberInKitAssemblyLinkInsertDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\OrderLineNumberInKitAssemblyLinkInsertDtoFactory factory()
  */
 class OrderLineNumberInKitAssemblyLinkInsertDto extends Model
 {

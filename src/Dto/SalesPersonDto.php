@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a salesperson in SalesPersonController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesPersonDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SalesPersonDtoFactory factory()
  */
 class SalesPersonDto extends Model
 {

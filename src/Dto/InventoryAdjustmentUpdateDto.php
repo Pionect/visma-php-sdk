@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a inventory issue in InventoryIssueController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryAdjustmentUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryAdjustmentUpdateDtoFactory factory()
  */
 class InventoryAdjustmentUpdateDto extends Model
 {

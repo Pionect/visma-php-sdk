@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Mandatory field: The table &gt; Subaccount &gt; The subaccount used with the account to detail a
  * journal entry.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInJournalTransactionLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubaccountInJournalTransactionLineDtoFactory factory()
  */
 class SubaccountInJournalTransactionLineDto extends Model
 {

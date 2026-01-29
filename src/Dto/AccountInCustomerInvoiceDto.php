@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Document details tab &gt;  Account * &gt; The sales account used for the transaction.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInCustomerInvoiceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountInCustomerInvoiceDtoFactory factory()
  */
 class AccountInCustomerInvoiceDto extends Model
 {

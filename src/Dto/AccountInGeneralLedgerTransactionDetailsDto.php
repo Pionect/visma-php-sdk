@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Account &gt; The account updated by the batch transactions.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInGeneralLedgerTransactionDetailsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountInGeneralLedgerTransactionDetailsDtoFactory factory()
  */
 class AccountInGeneralLedgerTransactionDetailsDto extends Model
 {

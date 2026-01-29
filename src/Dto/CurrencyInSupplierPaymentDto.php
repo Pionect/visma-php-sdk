@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * The top part &gt; Currency &gt; The currency of the payment; by default, it is the currency
  * associated with the cash account.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CurrencyInSupplierPaymentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CurrencyInSupplierPaymentDtoFactory factory()
  */
 class CurrencyInSupplierPaymentDto extends Model
 {

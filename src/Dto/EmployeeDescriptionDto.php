@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeDescriptionDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\EmployeeDescriptionDtoFactory factory()
+ */
 class EmployeeDescriptionDto extends Model
 {
     /** Employee internal user ID. This is the ID of the user linked to the employee */

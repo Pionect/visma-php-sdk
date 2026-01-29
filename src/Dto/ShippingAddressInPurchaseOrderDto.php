@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Supplier info tab &gt; The Supplier address section &gt; The default shipping address for the
  * supplier.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShippingAddressInPurchaseOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ShippingAddressInPurchaseOrderDtoFactory factory()
  */
 class ShippingAddressInPurchaseOrderDto extends Model
 {

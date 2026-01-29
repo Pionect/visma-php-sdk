@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Invoice address tab &gt; The Invoice address section.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InvoiceAddressInCustomerCreditNoteDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InvoiceAddressInCustomerCreditNoteDtoFactory factory()
  */
 class InvoiceAddressInCustomerCreditNoteDto extends Model
 {

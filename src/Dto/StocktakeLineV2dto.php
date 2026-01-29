@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\StocktakeLineV2dtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\StocktakeLineV2dtoFactory factory()
+ */
 class StocktakeLineV2dto extends Model
 {
     /** Stocktaking details tab &gt; Status &gt; The status of the line of the stocktaking document, which indicates whether the actual physical quantity has been specified for the line. */

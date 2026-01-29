@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The registration details
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RegisterInFixedAssetTransactionDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\RegisterInFixedAssetTransactionDtoFactory factory()
  */
 class RegisterInFixedAssetTransactionDto extends Model
 {

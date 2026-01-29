@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field: Branch &gt; The branch that created the transaction.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchInTransactionDetailDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\BranchInTransactionDetailDtoFactory factory()
  */
 class BranchInTransactionDetailDto extends Model
 {

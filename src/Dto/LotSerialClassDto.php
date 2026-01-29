@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LotSerialClassDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LotSerialClassDtoFactory factory()
+ */
 class LotSerialClassDto extends Model
 {
     /** The Id of the Lot Serial Class */

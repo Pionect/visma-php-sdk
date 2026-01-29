@@ -8,6 +8,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a inventory issue in InventoryIssueController. Used by getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryTransferUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryTransferUpdateDtoFactory factory()
  */
 class InventoryTransferUpdateDto extends Model
 {

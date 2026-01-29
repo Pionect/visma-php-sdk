@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The date when the claim was entered.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DateInExpenseClaimUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DateInExpenseClaimUpdateDtoFactory factory()
  */
 class DateInExpenseClaimUpdateDto extends Model
 {

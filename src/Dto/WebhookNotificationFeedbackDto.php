@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WebhookNotificationFeedbackDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\WebhookNotificationFeedbackDtoFactory factory()
+ */
 class WebhookNotificationFeedbackDto extends Model
 {
     /** The ID of the notification. */

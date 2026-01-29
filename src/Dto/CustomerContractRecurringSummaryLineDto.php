@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * This class represents a CustomerContractRecurringSummaryLine in CustomerContractController. Used for
  * getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerContractRecurringSummaryLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerContractRecurringSummaryLineDtoFactory factory()
  */
 class CustomerContractRecurringSummaryLineDto extends Model
 {

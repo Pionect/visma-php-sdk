@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryNumberInSalesOrderLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryNumberInSalesOrderLineUpdateDtoFactory factory()
  */
 class InventoryNumberInSalesOrderLineUpdateDto extends Model
 {

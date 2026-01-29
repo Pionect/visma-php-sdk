@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Mandatory field if GLN or VatRegistrationId is not specified.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierInPurchaseOrderUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierInPurchaseOrderUpdateDtoFactory factory()
  */
 class SupplierInPurchaseOrderUpdateDto extends Model
 {

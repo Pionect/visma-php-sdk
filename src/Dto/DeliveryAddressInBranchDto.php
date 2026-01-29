@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The Delivery settings tab &gt; Delivery address section &gt;
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DeliveryAddressInBranchDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DeliveryAddressInBranchDtoFactory factory()
  */
 class DeliveryAddressInBranchDto extends Model
 {

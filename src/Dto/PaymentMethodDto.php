@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Payment Method in PaymentMethodController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PaymentMethodDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\PaymentMethodDtoFactory factory()
  */
 class PaymentMethodDto extends Model
 {

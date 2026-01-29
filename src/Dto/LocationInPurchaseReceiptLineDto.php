@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Document details tab &gt; Location &gt; The location where the item has been received.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInPurchaseReceiptLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInPurchaseReceiptLineDtoFactory factory()
  */
 class LocationInPurchaseReceiptLineDto extends Model
 {

@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * General information tab &gt; Intrastat section
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\IntrastatInInventoryDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\IntrastatInInventoryDtoFactory factory()
  */
 class IntrastatInInventoryDto extends Model
 {

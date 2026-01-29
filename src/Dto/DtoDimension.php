@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DtoDimensionFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DtoDimensionFactory factory()
+ */
 class DtoDimension extends Model
 {
     /** Mandatory field: The top part &gt; Segment key ID* &gt; The ID of the segmented key. ACCGROUP, ACCOUNT, BIZACCT, CASHACCOUNT, CONTRACT, CONTRACTITEM, CUSTOMER, EMPLOYEE, INLOCATION, INSITE, INSUBITEM, INVENTORY, LOCATION, MLISTCD, PROJECT, PROTASK, SALESPER, SUBACCOUNT, TMCONTRACT, SUPLLIER */

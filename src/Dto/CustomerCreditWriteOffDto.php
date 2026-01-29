@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerCreditWriteOffDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerCreditWriteOffDtoFactory factory()
+ */
 class CustomerCreditWriteOffDto extends Model
 {
     /** The top part &gt; Hold &gt; A check box that indicates if the document is a draft. A document with the On Hold status may be edited and cannot be released. */

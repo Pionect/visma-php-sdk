@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * General information tab &gt; Location address section &gt; VAT zone &gt; The VAT zone associated
  * with the account location.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatZoneInLocationDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\VatZoneInLocationDtoFactory factory()
  */
 class VatZoneInLocationDto extends Model
 {

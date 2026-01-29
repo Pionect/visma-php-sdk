@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * All accounts selected for this fixed asset
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountsInFixedAssetDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AccountsInFixedAssetDtoFactory factory()
  */
 class AccountsInFixedAssetDto extends Model
 {

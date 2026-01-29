@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Financial Details
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FinancialDetailsInPaymentDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\FinancialDetailsInPaymentDtoFactory factory()
  */
 class FinancialDetailsInPaymentDto extends Model
 {

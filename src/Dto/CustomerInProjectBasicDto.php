@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The top part &gt; Customer &gt; The customer for the project if this project is external.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerInProjectBasicDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerInProjectBasicDtoFactory factory()
  */
 class CustomerInProjectBasicDto extends Model
 {

@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryUpdateDtoFactory factory()
+ */
 class InventoryUpdateDto extends Model
 {
     #[Property]

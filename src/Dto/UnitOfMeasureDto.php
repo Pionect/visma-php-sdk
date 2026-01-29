@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\UnitOfMeasureDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\UnitOfMeasureDtoFactory factory()
+ */
 class UnitOfMeasureDto extends Model
 {
     /** Mandatory field: The table &gt; From unit* &gt; The unit to be converted. */

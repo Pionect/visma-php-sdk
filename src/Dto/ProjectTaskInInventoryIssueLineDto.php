@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Project Task
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectTaskInInventoryIssueLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectTaskInInventoryIssueLineDtoFactory factory()
  */
 class ProjectTaskInInventoryIssueLineDto extends Model
 {

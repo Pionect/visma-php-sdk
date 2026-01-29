@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ApprovalDetailsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ApprovalDetailsDtoFactory factory()
+ */
 class ApprovalDetailsDto extends Model
 {
     /** The Approval details tab &gt; Default document &gt; The default document that includes the payments requiring approval. */

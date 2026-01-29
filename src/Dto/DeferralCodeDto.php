@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DeferralCodeDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DeferralCodeDtoFactory factory()
+ */
 class DeferralCodeDto extends Model
 {
     /** Mandatory field: Deferral code* &gt; 	The unique code for the deferral type. */

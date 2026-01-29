@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Mandatory field: The top part &gt; Claimed by* &gt; 	The name of the employee who is claiming the
  * expenses.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ClaimedByInExpenseReceiptDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ClaimedByInExpenseReceiptDtoFactory factory()
  */
 class ClaimedByInExpenseReceiptDto extends Model
 {

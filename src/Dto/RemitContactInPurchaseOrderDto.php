@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Supplier info tab &gt; The Supplier contact section &gt; The default contact settings for the
  * supplier.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RemitContactInPurchaseOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\RemitContactInPurchaseOrderDtoFactory factory()
  */
 class RemitContactInPurchaseOrderDto extends Model
 {

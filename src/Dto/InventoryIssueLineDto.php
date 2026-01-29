@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryIssueLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\InventoryIssueLineDtoFactory factory()
+ */
 class InventoryIssueLineDto extends Model
 {
     /** Trans. type &gt; The type of inventory issue transaction. Select one of the following types: Issue, Return, Invoice, Debit note, Credit note. */

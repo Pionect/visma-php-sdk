@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * SupplierBalanceV2Dto
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierBalanceV2dtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SupplierBalanceV2dtoFactory factory()
  */
 class SupplierBalanceV2dto extends Model
 {

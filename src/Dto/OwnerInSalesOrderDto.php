@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * The Financial settings tab &gt; Financial information section &gt; Owner &gt; The user in the work
  * group who is responsible for the sales order.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OwnerInSalesOrderDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\OwnerInSalesOrderDtoFactory factory()
  */
 class OwnerInSalesOrderDto extends Model
 {

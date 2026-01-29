@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a CustomerSalesPrice in CustomerSalesPriceController.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerSalesPriceDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\CustomerSalesPriceDtoFactory factory()
  */
 class CustomerSalesPriceDto extends Model
 {

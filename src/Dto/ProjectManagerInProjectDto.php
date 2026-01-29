@@ -9,6 +9,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * Summary tab &gt; Project properties section &gt; Project manager &gt; The person who is responsible
  * for managing the project and authorised to approve the project task and task activities.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectManagerInProjectDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ProjectManagerInProjectDtoFactory factory()
  */
 class ProjectManagerInProjectDto extends Model
 {

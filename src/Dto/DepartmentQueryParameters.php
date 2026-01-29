@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DepartmentQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\DepartmentQueryParametersFactory factory()
+ */
 class DepartmentQueryParameters extends Model
 {
     /** Greater-than value. The item which is the object for this, varies from API to API. */

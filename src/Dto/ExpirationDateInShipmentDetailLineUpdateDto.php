@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Property will become obsolete after version 5.31
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpirationDateInShipmentDetailLineUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\ExpirationDateInShipmentDetailLineUpdateDtoFactory factory()
  */
 class ExpirationDateInShipmentDetailLineUpdateDto extends Model
 {

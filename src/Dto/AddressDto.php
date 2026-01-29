@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AddressDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\AddressDtoFactory factory()
+ */
 class AddressDto extends Model
 {
     #[Property]

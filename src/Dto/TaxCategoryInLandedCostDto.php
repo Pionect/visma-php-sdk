@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Landed costs tab &gt; VAT category &gt; VAT category associated with supplier's VAT zone.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxCategoryInLandedCostDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\TaxCategoryInLandedCostDtoFactory factory()
  */
 class TaxCategoryInLandedCostDto extends Model
 {

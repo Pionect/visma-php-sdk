@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Ledger &gt; The ledger used for the batch.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LedgerInGeneralLedgerTransactionDetailsDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LedgerInGeneralLedgerTransactionDetailsDtoFactory factory()
  */
 class LedgerInGeneralLedgerTransactionDetailsDto extends Model
 {

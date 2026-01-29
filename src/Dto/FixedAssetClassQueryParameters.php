@@ -5,6 +5,11 @@ namespace Pionect\VismaSdk\Dto;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetClassQueryParametersFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\FixedAssetClassQueryParametersFactory factory()
+ */
 class FixedAssetClassQueryParameters extends Model
 {
     /** Fixed Asset Class ID that identifies the fixed asset class. */

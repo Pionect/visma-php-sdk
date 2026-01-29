@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * The default Expense SubAccount for the supplier
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInSupplierAccountDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\SubaccountInSupplierAccountDtoFactory factory()
  */
 class SubaccountInSupplierAccountDto extends Model
 {

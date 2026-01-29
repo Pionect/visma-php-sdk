@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a RutRot in RutRotController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RotRutDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\RotRutDtoFactory factory()
  */
 class RotRutDto extends Model
 {

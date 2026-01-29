@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * This class represents a Warehouse in WarehouseController. Used for getting data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WarehouseDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\WarehouseDtoFactory factory()
  */
 class WarehouseDto extends Model
 {

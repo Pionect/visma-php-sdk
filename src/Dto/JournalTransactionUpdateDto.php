@@ -10,6 +10,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * This class represents a journal transaction in JournalTransactionController. Used for
  * creating/updating data.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\JournalTransactionUpdateDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\JournalTransactionUpdateDtoFactory factory()
  */
 class JournalTransactionUpdateDto extends Model
 {

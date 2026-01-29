@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
  * Location &gt; The warehouse location from which the goods are transferred.
+ *
+ * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInInventoryReceiptLineDtoFactory>
+ *
+ * @method static \Pionect\VismaSdk\Factories\LocationInInventoryReceiptLineDtoFactory factory()
  */
 class LocationInInventoryReceiptLineDto extends Model
 {
