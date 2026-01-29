@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class CurrencyDto extends Model
 {
+    /** Currency Id. */
+    #[Property]
+    public ?string $id;
+
     /** Currency description. */
     #[Property]
     public ?string $description;

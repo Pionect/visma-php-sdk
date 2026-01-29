@@ -15,6 +15,10 @@ class ContractTemplateDto extends Model
     #[Property]
     public ?array $attributes;
 
+    /** Click on the magnifier. &gt; The identifier. */
+    #[Property]
+    public ?string $id;
+
     /** Click on the magnifier. &gt; The description. */
     #[Property]
     public ?string $description;

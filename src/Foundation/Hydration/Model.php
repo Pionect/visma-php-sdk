@@ -11,9 +11,6 @@ abstract class Model implements ModelInterface
 {
     use HasAttributes;
 
-    #[Property(isReadOnly: true)]
-    public string $id;
-
     /**
      * Get a new factory instance for the model.
      */

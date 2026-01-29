@@ -8,5 +8,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class PriceManagerDto extends Model
 {
     #[Property]
+    public ?string $id;
+
+    #[Property]
     public ?string $name;
 }

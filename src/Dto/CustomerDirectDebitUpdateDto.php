@@ -13,6 +13,9 @@ class CustomerDirectDebitUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
+    public ?string $id;
+
+    #[Property]
     #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
     public ?string $mandateId;
 

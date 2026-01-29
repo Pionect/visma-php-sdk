@@ -16,6 +16,10 @@ class ProjectInCustomerDocumentDto extends Model
     #[Property]
     public ?int $internalId;
 
+    /** Click on the magnifier. &gt; The identifier. */
+    #[Property]
+    public ?string $id;
+
     /** Click on the magnifier. &gt; The description. */
     #[Property]
     public ?string $description;

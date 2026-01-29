@@ -11,6 +11,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class LocationInPurchaseOrderBasicDto extends Model
 {
+    /** Click the magnifier &gt; The identifier */
+    #[Property]
+    public ?int $id;
+
     /** Click the magnifier &gt; The displayed name */
     #[Property]
     public ?string $name;

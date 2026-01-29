@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class CustomerClassDto extends Model
 {
+    /** The top part &gt; Class ID	&gt; The unique identifier of the class. You can use an alphanumeric string of up to 10 characters. */
+    #[Property]
+    public ?string $id;
+
     /** The top part &gt; Description &gt; A detailed description of the customer class. */
     #[Property]
     public ?string $description;

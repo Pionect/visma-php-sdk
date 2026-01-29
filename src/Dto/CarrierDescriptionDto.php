@@ -7,6 +7,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class CarrierDescriptionDto extends Model
 {
+    /** Click on the magnifier. &gt; The identifier. */
+    #[Property]
+    public ?string $id;
+
     /** Click on the magnifier. &gt; The description. */
     #[Property]
     public ?string $description;

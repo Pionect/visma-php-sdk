@@ -8,6 +8,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 class LotSerialClassDto extends Model
 {
+    /** The Id of the Lot Serial Class */
+    #[Property]
+    public ?string $id;
+
     /** The description of the Lot Serial Class */
     #[Property]
     public ?string $description;

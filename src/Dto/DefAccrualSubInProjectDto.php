@@ -14,6 +14,10 @@ class DefAccrualSubInProjectDto extends Model
     #[Property]
     public ?bool $active;
 
+    /** Click on the magnifier. &gt; The identifier. */
+    #[Property]
+    public ?string $id;
+
     /** Click on the magnifier. &gt; The description. */
     #[Property]
     public ?string $description;
