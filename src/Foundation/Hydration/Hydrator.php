@@ -59,6 +59,14 @@ class Hydrator
 
                 Assert::isInstanceOf($type, ReflectionNamedType::class);
 
+                // Handle nested DTOs - if the property type is a Model subclass and value is an array
+                if ($value !== null && is_array($value) && ! $type->isBuiltin()) {
+                    $typeName = $type->getName();
+                    if (is_subclass_of($typeName, Model::class)) {
+                        $value = $this->hydrate($typeName, $value);
+                    }
+                }
+
                 $model->$property = $value;
             }
         };

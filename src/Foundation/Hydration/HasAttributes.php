@@ -41,6 +41,13 @@ trait HasAttributes
                     continue;
                 }
 
+                // Recursively convert nested DTOs to arrays
+                if ($value instanceof Model) {
+                    $value = $value->toArray();
+                } elseif (is_array($value)) {
+                    $value = array_map(fn ($item) => $item instanceof Model ? $item->toArray() : $item, $value);
+                }
+
                 $attributes[$propertyName] = $value;
             }
         }
