@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
@@ -20,7 +21,7 @@ class PurchaseReceiptLineUpdateDto extends Model
     public ?array $allocations;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $note;
 
     #[Property]
@@ -108,7 +109,7 @@ class PurchaseReceiptLineUpdateDto extends Model
     public ?\Carbon\Carbon $expirationDate;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $lotSerialNumber;
 
     #[Property]

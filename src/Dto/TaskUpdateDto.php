@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
@@ -18,38 +19,38 @@ class TaskUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $taskId;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $description;
 
     #[Property]
     #[DateTime]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $plannedStart;
 
     #[Property]
     #[DateTime]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $plannedEnd;
 
     #[Property]
     #[DateTime]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $startDate;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $rateTable;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $status;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?bool $restrictEmployees;
 
     #[Property]

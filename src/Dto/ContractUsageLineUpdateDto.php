@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
 use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
@@ -21,31 +22,31 @@ class ContractUsageLineUpdateDto extends Model
     public ?string $operation;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?int $transactionNumber;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $branch;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $inventory;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $description;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?string $uom;
 
     #[Property]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?float $quantity;
 
     #[Property]
     #[DateTime]
-    #[WithTransformer(Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer::class)]
+    #[WithTransformer(ValueWrapperTransformer::class)]
     public ?\Carbon\Carbon $date;
 }

@@ -82,7 +82,7 @@ class PlainJsonDtoGenerator extends JsonApiDtoGenerator
             $withTransformerClass = 'Spatie\\LaravelData\\Attributes\\WithTransformer';
 
             $property->addAttribute($withTransformerClass, [
-                new Literal("{$transformerClass}::class"),
+                new Literal('ValueWrapperTransformer::class'),
             ]);
 
             $namespace->addUse($transformerClass);
