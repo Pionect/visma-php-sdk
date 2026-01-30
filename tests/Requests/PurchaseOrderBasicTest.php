@@ -118,8 +118,8 @@ it('calls the purchaseOrderBasicPutBypurchaseOrderNumberRequest method in the Pu
         orderType: 'String value',
         orderNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        promisedOn: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        promisedOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         description: 'String value',
         supplier: null,
         location: 'String value',
@@ -144,7 +144,7 @@ it('calls the purchaseOrderBasicPutBypurchaseOrderNumberRequest method in the Pu
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
 
@@ -331,8 +331,8 @@ it('calls the purchaseOrderBasicPostRequest method in the PurchaseOrderBasic res
         orderType: 'String value',
         orderNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        promisedOn: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        promisedOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         description: 'String value',
         supplier: null,
         location: 'String value',
@@ -357,7 +357,7 @@ it('calls the purchaseOrderBasicPostRequest method in the PurchaseOrderBasic res
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
 

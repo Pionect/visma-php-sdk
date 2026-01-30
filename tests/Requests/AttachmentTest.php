@@ -1,6 +1,6 @@
 <?php
 
-use Pionect\VismaSdk\Dto\AttachmentDto;
+use Pionect\VismaSdk\Dto\AttachmentMetadataUpdateDto;
 use Pionect\VismaSdk\Requests\Attachment\AttachmentGetByattachmentIdRequest;
 use Pionect\VismaSdk\Requests\Attachment\AttachmentPutByattachmentIdRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -36,9 +36,8 @@ it('calls the attachmentGetByattachmentIdRequest method in the Attachment resour
 });
 
 it('calls the attachmentPutByattachmentIdRequest method in the Attachment resource', function () {
-    $bodyData = new AttachmentDto(
-        name: 'String value',
-        revision: 42
+    $bodyData = new AttachmentMetadataUpdateDto(
+        sendToAutoinvoice: []
     );
 
     Saloon::fake([

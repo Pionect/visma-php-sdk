@@ -154,8 +154,8 @@ it('calls the creditNotePutBycreditNoteNumberRequest method in the CreditNote re
         customerNumber: 'String value',
         childCustomerNumber: 'String value',
         consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        documentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         hold: true,
         postPeriod: null,
         financialPeriod: null,
@@ -416,8 +416,8 @@ it('calls the creditNoteCreateCreditNoteRequest method in the CreditNote resourc
         customerNumber: 'String value',
         childCustomerNumber: 'String value',
         consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        documentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         hold: true,
         postPeriod: null,
         financialPeriod: null,
@@ -448,31 +448,7 @@ it('calls the creditNoteCreateCreditNoteRequest method in the CreditNote resourc
 });
 
 it('calls the creditNoteCreateHeaderAttachmentBycreditNoteNumberRequest method in the CreditNote resource', function () {
-    $bodyData = new CreditNoteUpdateDto(
-        currencyId: 'mock-id-123',
-        customerRefNumber: 'String value',
-        externalReference: 'String value',
-        contact: 42,
-        invoiceLines: [],
-        referenceNumber: 'String value',
-        customerNumber: 'String value',
-        childCustomerNumber: 'String value',
-        consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        hold: true,
-        postPeriod: null,
-        financialPeriod: null,
-        invoiceText: 'String value',
-        locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
-        note: 'String value',
-        branchNumber: 'String value',
-        cashAccount: 'String value',
-        dontPrint: true,
-        dontEmail: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CreditNoteCreateHeaderAttachmentBycreditNoteNumberRequest::class => MockResponse::make([], 201),
@@ -491,31 +467,7 @@ it('calls the creditNoteCreateHeaderAttachmentBycreditNoteNumberRequest method i
 });
 
 it('calls the creditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest method in the CreditNote resource', function () {
-    $bodyData = new CreditNoteUpdateDto(
-        currencyId: 'mock-id-123',
-        customerRefNumber: 'String value',
-        externalReference: 'String value',
-        contact: 42,
-        invoiceLines: [],
-        referenceNumber: 'String value',
-        customerNumber: 'String value',
-        childCustomerNumber: 'String value',
-        consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        hold: true,
-        postPeriod: null,
-        financialPeriod: null,
-        invoiceText: 'String value',
-        locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
-        note: 'String value',
-        branchNumber: 'String value',
-        cashAccount: 'String value',
-        dontPrint: true,
-        dontEmail: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CreditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest::class => MockResponse::make([], 201),
@@ -535,31 +487,7 @@ it('calls the creditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest 
 });
 
 it('calls the creditNoteReleaseInvoiceBycreditNoteNumberRequest method in the CreditNote resource', function () {
-    $bodyData = new CreditNoteUpdateDto(
-        currencyId: 'mock-id-123',
-        customerRefNumber: 'String value',
-        externalReference: 'String value',
-        contact: 42,
-        invoiceLines: [],
-        referenceNumber: 'String value',
-        customerNumber: 'String value',
-        childCustomerNumber: 'String value',
-        consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        hold: true,
-        postPeriod: null,
-        financialPeriod: null,
-        invoiceText: 'String value',
-        locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
-        note: 'String value',
-        branchNumber: 'String value',
-        cashAccount: 'String value',
-        dontPrint: true,
-        dontEmail: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CreditNoteReleaseInvoiceBycreditNoteNumberRequest::class => MockResponse::make([], 201),

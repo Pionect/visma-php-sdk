@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\StocktakeUpdateDto;
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2GetAllStocktakesRequest;
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2GetByreferenceNumberRequest;
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2PutByreferenceNumberRequest;
@@ -34,9 +35,9 @@ it('calls the stocktakeV2getByreferenceNumberRequest method in the StocktakeV2 r
 });
 
 it('calls the stocktakeV2putByreferenceNumberRequest method in the StocktakeV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new StocktakeUpdateDto(
+        lines: []
+    );
 
     Saloon::fake([
         StocktakeV2PutByreferenceNumberRequest::class => MockResponse::make([], 201),

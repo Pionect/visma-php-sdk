@@ -211,12 +211,7 @@ it('calls the timeCardCreateTimeCardRequest method in the TimeCard resource', fu
 });
 
 it('calls the timeCardSubmitTimeCardBytimeCardCdRequest method in the TimeCard resource', function () {
-    $bodyData = new TimeCardUpdateDto(
-        refNbr: 'String value',
-        employee: 'String value',
-        summary: [],
-        materials: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         TimeCardSubmitTimeCardBytimeCardCdRequest::class => MockResponse::make([], 201),
@@ -236,12 +231,7 @@ it('calls the timeCardSubmitTimeCardBytimeCardCdRequest method in the TimeCard r
 });
 
 it('calls the timeCardSendTimeCardToApprovalBytimeCardCdRequest method in the TimeCard resource', function () {
-    $bodyData = new TimeCardUpdateDto(
-        refNbr: 'String value',
-        employee: 'String value',
-        summary: [],
-        materials: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         TimeCardSendTimeCardToApprovalBytimeCardCdRequest::class => MockResponse::make([], 201),
@@ -261,12 +251,7 @@ it('calls the timeCardSendTimeCardToApprovalBytimeCardCdRequest method in the Ti
 });
 
 it('calls the timeCardPutTimeCardOnHoldBytimeCardCdRequest method in the TimeCard resource', function () {
-    $bodyData = new TimeCardUpdateDto(
-        refNbr: 'String value',
-        employee: 'String value',
-        summary: [],
-        materials: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         TimeCardPutTimeCardOnHoldBytimeCardCdRequest::class => MockResponse::make([], 201),

@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\CreateShipmentActionDto;
 use Pionect\VismaSdk\Dto\SalesOrderBasicUpdateDto;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateHeaderAttachmentByorderNumberRequest;
@@ -105,8 +106,8 @@ it('calls the salesOrderBasicPutByorderNbrRequest method in the SalesOrderBasic 
         orderType: null,
         orderNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        requestOn: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        requestOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         customerOrder: 'String value',
         customerRefNo: 'String value',
         customer: null,
@@ -348,8 +349,8 @@ it('calls the salesOrderBasicPostRequest method in the SalesOrderBasic resource'
         orderType: null,
         orderNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        requestOn: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        requestOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         customerOrder: 'String value',
         customerRefNo: 'String value',
         customer: null,
@@ -381,26 +382,12 @@ it('calls the salesOrderBasicPostRequest method in the SalesOrderBasic resource'
 });
 
 it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumberRequest method in the SalesOrderBasic resource', function () {
-    $bodyData = new SalesOrderBasicUpdateDto(
-        lines: [],
-        orderType: null,
-        orderNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        requestOn: '2025-11-22T10:40:04+00:00',
-        customerOrder: 'String value',
-        customerRefNo: 'String value',
-        customer: null,
-        location: 'String value',
-        contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
-        currency: 'String value',
-        description: 'String value',
-        recalculateShipment: true,
-        branchNumber: 'String value',
-        note: 'String value',
-        overrideNumberSeries: true
+    $bodyData = new CreateShipmentActionDto(
+        orderType: 'String value',
+        returnShipmentDto: true,
+        shipmentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        shipmentWarehouse: 'String value',
+        operation: 'String value'
     );
 
     Saloon::fake([
@@ -420,27 +407,7 @@ it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumberRequest method
 });
 
 it('calls the salesOrderBasicCreateHeaderAttachmentByorderNumberRequest method in the SalesOrderBasic resource', function () {
-    $bodyData = new SalesOrderBasicUpdateDto(
-        lines: [],
-        orderType: null,
-        orderNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        requestOn: '2025-11-22T10:40:04+00:00',
-        customerOrder: 'String value',
-        customerRefNo: 'String value',
-        customer: null,
-        location: 'String value',
-        contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
-        currency: 'String value',
-        description: 'String value',
-        recalculateShipment: true,
-        branchNumber: 'String value',
-        note: 'String value',
-        overrideNumberSeries: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicCreateHeaderAttachmentByorderNumberRequest::class => MockResponse::make([], 201),
@@ -459,27 +426,7 @@ it('calls the salesOrderBasicCreateHeaderAttachmentByorderNumberRequest method i
 });
 
 it('calls the salesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest method in the SalesOrderBasic resource', function () {
-    $bodyData = new SalesOrderBasicUpdateDto(
-        lines: [],
-        orderType: null,
-        orderNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        requestOn: '2025-11-22T10:40:04+00:00',
-        customerOrder: 'String value',
-        customerRefNo: 'String value',
-        customer: null,
-        location: 'String value',
-        contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
-        currency: 'String value',
-        description: 'String value',
-        recalculateShipment: true,
-        branchNumber: 'String value',
-        note: 'String value',
-        overrideNumberSeries: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest::class => MockResponse::make([], 201),
@@ -499,27 +446,7 @@ it('calls the salesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest
 });
 
 it('calls the salesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest method in the SalesOrderBasic resource', function () {
-    $bodyData = new SalesOrderBasicUpdateDto(
-        lines: [],
-        orderType: null,
-        orderNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        requestOn: '2025-11-22T10:40:04+00:00',
-        customerOrder: 'String value',
-        customerRefNo: 'String value',
-        customer: null,
-        location: 'String value',
-        contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
-        currency: 'String value',
-        description: 'String value',
-        recalculateShipment: true,
-        branchNumber: 'String value',
-        note: 'String value',
-        overrideNumberSeries: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest::class => MockResponse::make([], 201),
@@ -539,27 +466,7 @@ it('calls the salesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest 
 });
 
 it('calls the salesOrderBasicCreateLineAttachmentByorderNumberorderTypelineNumberRequest method in the SalesOrderBasic resource', function () {
-    $bodyData = new SalesOrderBasicUpdateDto(
-        lines: [],
-        orderType: null,
-        orderNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        requestOn: '2025-11-22T10:40:04+00:00',
-        customerOrder: 'String value',
-        customerRefNo: 'String value',
-        customer: null,
-        location: 'String value',
-        contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
-        currency: 'String value',
-        description: 'String value',
-        recalculateShipment: true,
-        branchNumber: 'String value',
-        note: 'String value',
-        overrideNumberSeries: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicCreateLineAttachmentByorderNumberorderTypelineNumberRequest::class => MockResponse::make([], 201),

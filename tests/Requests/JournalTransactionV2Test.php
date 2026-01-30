@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\JournalTransactionUpdateDto;
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2AddHeaderAttachmentBymodulejournalTransactionNumberRequest;
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2AddLineAttachmentBymodulejournalTransactionNumberlineNumberRequest;
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2GetAllJournalTransactionsRequest;
@@ -96,9 +97,25 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
 });
 
 it('calls the journalTransactionV2putByjournalTransactionNumberRequest method in the JournalTransactionV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new JournalTransactionUpdateDto(
+        batchNumber: 'String value',
+        hold: true,
+        transactionDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        postPeriod: null,
+        financialPeriod: null,
+        ledger: 'String value',
+        currencyId: 'mock-id-123',
+        exchangeRate: 42,
+        autoReversing: true,
+        description: 'String value',
+        controlTotalInCurrency: 42,
+        createVatTransaction: true,
+        skipVatAmountValidation: true,
+        transactionCode: 'String value',
+        branch: 'String value',
+        overrideNumberSeries: true,
+        journalTransactionLines: []
+    );
 
     Saloon::fake([
         JournalTransactionV2PutByjournalTransactionNumberRequest::class => MockResponse::make([], 201),
@@ -242,9 +259,25 @@ it('calls the journalTransactionV2getAllJournalTransactionsRequest method in the
 });
 
 it('calls the journalTransactionV2postRequest method in the JournalTransactionV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new JournalTransactionUpdateDto(
+        batchNumber: 'String value',
+        hold: true,
+        transactionDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        postPeriod: null,
+        financialPeriod: null,
+        ledger: 'String value',
+        currencyId: 'mock-id-123',
+        exchangeRate: 42,
+        autoReversing: true,
+        description: 'String value',
+        controlTotalInCurrency: 42,
+        createVatTransaction: true,
+        skipVatAmountValidation: true,
+        transactionCode: 'String value',
+        branch: 'String value',
+        overrideNumberSeries: true,
+        journalTransactionLines: []
+    );
 
     Saloon::fake([
         JournalTransactionV2PostRequest::class => MockResponse::make([], 201),
@@ -262,9 +295,7 @@ it('calls the journalTransactionV2postRequest method in the JournalTransactionV2
 });
 
 it('calls the journalTransactionV2releaseJournalTransactionByjournalTransactionNumberRequest method in the JournalTransactionV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         JournalTransactionV2ReleaseJournalTransactionByjournalTransactionNumberRequest::class => MockResponse::make([], 201),
@@ -284,9 +315,7 @@ it('calls the journalTransactionV2releaseJournalTransactionByjournalTransactionN
 });
 
 it('calls the journalTransactionV2addHeaderAttachmentBymodulejournalTransactionNumberRequest method in the JournalTransactionV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         JournalTransactionV2AddHeaderAttachmentBymodulejournalTransactionNumberRequest::class => MockResponse::make([], 201),
@@ -306,9 +335,7 @@ it('calls the journalTransactionV2addHeaderAttachmentBymodulejournalTransactionN
 });
 
 it('calls the journalTransactionV2addLineAttachmentBymodulejournalTransactionNumberlineNumberRequest method in the JournalTransactionV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         JournalTransactionV2AddLineAttachmentBymodulejournalTransactionNumberlineNumberRequest::class => MockResponse::make([], 201),

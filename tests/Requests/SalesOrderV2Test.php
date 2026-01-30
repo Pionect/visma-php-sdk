@@ -1,5 +1,10 @@
 <?php
 
+use Pionect\VismaSdk\Dto\CancelSalesOrderActionDto;
+use Pionect\VismaSdk\Dto\CreatePurchaseOrderActionDto;
+use Pionect\VismaSdk\Dto\CreateShipmentActionDto;
+use Pionect\VismaSdk\Dto\ReopenSalesOrderActionDto;
+use Pionect\VismaSdk\Dto\SalesOrderUpdateDto;
 use Pionect\VismaSdk\Requests\SalesOrderV2\SalesOrderV2CancelSalesOrderBysaleOrderNumberRequest;
 use Pionect\VismaSdk\Requests\SalesOrderV2\SalesOrderV2CreateHeaderAttachmentByorderNumberorderTypeRequest;
 use Pionect\VismaSdk\Requests\SalesOrderV2\SalesOrderV2CreateHeaderAttachmentByorderNumberRequest;
@@ -439,9 +444,63 @@ it('calls the salesOrderV2getAllOrdersV2request method in the SalesOrderV2 resou
 });
 
 it('calls the salesOrderV2postRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new SalesOrderUpdateDto(
+        project: 42,
+        printDescriptionOnInvoice: true,
+        printNoteOnExternalDocuments: true,
+        printNoteOnInternalDocuments: true,
+        soBillingContact: null,
+        soBillingAddress: null,
+        customerVatzone: 'String value',
+        invoiceSeparately: true,
+        terms: 'String value',
+        salesPerson: 'String value',
+        owner: 'String value',
+        origOrderType: 'String value',
+        origOrderNbr: 'String value',
+        soShippingContact: null,
+        soShippingAddress: null,
+        schedShipment: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        shipSeparately: true,
+        shipComplete: 'String value',
+        cancelBy: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        canceled: true,
+        preferredWarehouse: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        priority: 42,
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        insurance: true,
+        transactionType: 42,
+        paymentMethod: 'String value',
+        cashAccount: 'String value',
+        paymentRef: 'String value',
+        isRotRutDeductible: true,
+        emailed: true,
+        rotRutDetails: null,
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        requestOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
 
     Saloon::fake([
         SalesOrderV2PostRequest::class => MockResponse::make([], 201),
@@ -459,9 +518,13 @@ it('calls the salesOrderV2postRequest method in the SalesOrderV2 resource', func
 });
 
 it('calls the salesOrderV2createShipmentActionBysaleOrderNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new CreateShipmentActionDto(
+        orderType: 'String value',
+        returnShipmentDto: true,
+        shipmentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        shipmentWarehouse: 'String value',
+        operation: 'String value'
+    );
 
     Saloon::fake([
         SalesOrderV2CreateShipmentActionBysaleOrderNumberRequest::class => MockResponse::make([], 201),
@@ -480,9 +543,7 @@ it('calls the salesOrderV2createShipmentActionBysaleOrderNumberRequest method in
 });
 
 it('calls the salesOrderV2prepareInvoiceActionByorderTypeorderNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderV2PrepareInvoiceActionByorderTypeorderNumberRequest::class => MockResponse::make([], 201),
@@ -502,9 +563,7 @@ it('calls the salesOrderV2prepareInvoiceActionByorderTypeorderNumberRequest meth
 });
 
 it('calls the salesOrderV2sendEmailActionByorderTypeorderNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderV2SendEmailActionByorderTypeorderNumberRequest::class => MockResponse::make([], 201),
@@ -524,9 +583,10 @@ it('calls the salesOrderV2sendEmailActionByorderTypeorderNumberRequest method in
 });
 
 it('calls the salesOrderV2createPurchaseOrdersActionBysaleOrderNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new CreatePurchaseOrderActionDto(
+        orderType: 'String value',
+        preferSupplierFromSoline: true
+    );
 
     Saloon::fake([
         SalesOrderV2CreatePurchaseOrdersActionBysaleOrderNumberRequest::class => MockResponse::make([], 201),
@@ -545,9 +605,9 @@ it('calls the salesOrderV2createPurchaseOrdersActionBysaleOrderNumberRequest met
 });
 
 it('calls the salesOrderV2cancelSalesOrderBysaleOrderNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new CancelSalesOrderActionDto(
+        orderType: 'String value'
+    );
 
     Saloon::fake([
         SalesOrderV2CancelSalesOrderBysaleOrderNumberRequest::class => MockResponse::make([], 201),
@@ -566,9 +626,9 @@ it('calls the salesOrderV2cancelSalesOrderBysaleOrderNumberRequest method in the
 });
 
 it('calls the salesOrderV2reopenSalesOrderBysalesOrderNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new ReopenSalesOrderActionDto(
+        saleOrderUpdateDto: null
+    );
 
     Saloon::fake([
         SalesOrderV2ReopenSalesOrderBysalesOrderNumberRequest::class => MockResponse::make([], 201),
@@ -587,9 +647,7 @@ it('calls the salesOrderV2reopenSalesOrderBysalesOrderNumberRequest method in th
 });
 
 it('calls the salesOrderV2createHeaderAttachmentByorderNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderV2CreateHeaderAttachmentByorderNumberRequest::class => MockResponse::make([], 201),
@@ -608,9 +666,7 @@ it('calls the salesOrderV2createHeaderAttachmentByorderNumberRequest method in t
 });
 
 it('calls the salesOrderV2createHeaderAttachmentByorderNumberorderTypeRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderV2CreateHeaderAttachmentByorderNumberorderTypeRequest::class => MockResponse::make([], 201),
@@ -630,9 +686,7 @@ it('calls the salesOrderV2createHeaderAttachmentByorderNumberorderTypeRequest me
 });
 
 it('calls the salesOrderV2createLineAttachmentByorderNumberlineNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderV2CreateLineAttachmentByorderNumberlineNumberRequest::class => MockResponse::make([], 201),
@@ -652,9 +706,7 @@ it('calls the salesOrderV2createLineAttachmentByorderNumberlineNumberRequest met
 });
 
 it('calls the salesOrderV2createLineAttachmentByorderNumberorderTypelineNumberRequest method in the SalesOrderV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderV2CreateLineAttachmentByorderNumberorderTypelineNumberRequest::class => MockResponse::make([], 201),

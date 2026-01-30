@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\ReleaseSupplierPaymentActionDto;
 use Pionect\VismaSdk\Dto\SupplierPaymentUpdateDto;
 use Pionect\VismaSdk\Requests\SupplierPayment\SupplierPaymentCreateSupplierPaymentRequest;
 use Pionect\VismaSdk\Requests\SupplierPayment\SupplierPaymentGetAllPaymentsRequest;
@@ -90,7 +91,7 @@ it('calls the supplierPaymentPutBypaymentNumberRequest method in the SupplierPay
         type: null,
         referenceNumber: 'String value',
         hold: true,
-        applicationDate: '2025-11-22T10:40:04+00:00',
+        applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         applicationPeriod: 'String value',
         paymentRef: 'String value',
         supplier: 'String value',
@@ -314,7 +315,7 @@ it('calls the supplierPaymentCreateSupplierPaymentRequest method in the Supplier
         type: null,
         referenceNumber: 'String value',
         hold: true,
-        applicationDate: '2025-11-22T10:40:04+00:00',
+        applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         applicationPeriod: 'String value',
         paymentRef: 'String value',
         supplier: 'String value',
@@ -345,23 +346,8 @@ it('calls the supplierPaymentCreateSupplierPaymentRequest method in the Supplier
 });
 
 it('calls the supplierPaymentReleasePaymentBypaymentNumberRequest method in the SupplierPayment resource', function () {
-    $bodyData = new SupplierPaymentUpdateDto(
-        type: null,
-        referenceNumber: 'String value',
-        hold: true,
-        applicationDate: '2025-11-22T10:40:04+00:00',
-        applicationPeriod: 'String value',
-        paymentRef: 'String value',
-        supplier: 'String value',
-        location: 'String value',
-        paymentMethod: 'String value',
-        cashAccount: 'String value',
-        currency: 'String value',
-        description: 'String value',
-        paymentAmount: 42,
-        branch: 'String value',
-        paymentLines: [],
-        overrideNumberSeries: true
+    $bodyData = new ReleaseSupplierPaymentActionDto(
+        type: 'String value'
     );
 
     Saloon::fake([
@@ -382,24 +368,7 @@ it('calls the supplierPaymentReleasePaymentBypaymentNumberRequest method in the 
 });
 
 it('calls the supplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest method in the SupplierPayment resource', function () {
-    $bodyData = new SupplierPaymentUpdateDto(
-        type: null,
-        referenceNumber: 'String value',
-        hold: true,
-        applicationDate: '2025-11-22T10:40:04+00:00',
-        applicationPeriod: 'String value',
-        paymentRef: 'String value',
-        supplier: 'String value',
-        location: 'String value',
-        paymentMethod: 'String value',
-        cashAccount: 'String value',
-        currency: 'String value',
-        description: 'String value',
-        paymentAmount: 42,
-        branch: 'String value',
-        paymentLines: [],
-        overrideNumberSeries: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest::class => MockResponse::make([], 201),

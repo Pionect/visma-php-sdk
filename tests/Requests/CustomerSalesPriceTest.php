@@ -110,8 +110,8 @@ it('calls the customerSalesPricePostCustomerSalesPriceRequest method in the Cust
         price: 42,
         currency: 'String value',
         vat: 'String value',
-        effectiveDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
+        effectiveDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        expirationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         warehouse: 'String value'
     );
 
@@ -196,8 +196,8 @@ it('calls the customerSalesPricePutCustomerSalesPriceByrecordIdRequest method in
         price: 42,
         currency: 'String value',
         vat: 'String value',
-        effectiveDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
+        effectiveDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        expirationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         warehouse: 'String value'
     );
 

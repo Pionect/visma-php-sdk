@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\KitSpecificationUpdateDto;
 use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetAllRequest;
 use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetBykitInventoryIdRequest;
 use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetBykitInventoryIdrevisionIdRequest;
@@ -49,9 +50,17 @@ it('calls the kitSpecificationsGetAllRequest method in the KitSpecifications res
 });
 
 it('calls the kitSpecificationsPostRequest method in the KitSpecifications resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new KitSpecificationUpdateDto(
+        operation: 'String value',
+        kitInventoryId: 'mock-id-123',
+        revisionId: 'mock-id-123',
+        descr: 'String value',
+        isActive: true,
+        allowCompAddition: true,
+        isNonStock: true,
+        stockComponentLines: [],
+        nonStockComponentLines: []
+    );
 
     Saloon::fake([
         KitSpecificationsPostRequest::class => MockResponse::make([], 201),
@@ -113,9 +122,17 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionIdRequest method in th
 });
 
 it('calls the kitSpecificationsPutBykitInventoryIdrevisionIdRequest method in the KitSpecifications resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new KitSpecificationUpdateDto(
+        operation: 'String value',
+        kitInventoryId: 'mock-id-123',
+        revisionId: 'mock-id-123',
+        descr: 'String value',
+        isActive: true,
+        allowCompAddition: true,
+        isNonStock: true,
+        stockComponentLines: [],
+        nonStockComponentLines: []
+    );
 
     Saloon::fake([
         KitSpecificationsPutBykitInventoryIdrevisionIdRequest::class => MockResponse::make([], 201),

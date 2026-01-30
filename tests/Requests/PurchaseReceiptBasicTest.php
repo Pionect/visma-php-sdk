@@ -110,7 +110,7 @@ it('calls the purchaseReceiptBasicPutByreceiptNumberRequest method in the Purcha
         receiptType: 'String value',
         receiptNbr: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: null,
         warehouseId: 'mock-id-123',
         supplierId: 'mock-id-123',
@@ -131,7 +131,7 @@ it('calls the purchaseReceiptBasicPutByreceiptNumberRequest method in the Purcha
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
 
@@ -305,7 +305,7 @@ it('calls the purchaseReceiptBasicPostRequest method in the PurchaseReceiptBasic
         receiptType: 'String value',
         receiptNbr: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: null,
         warehouseId: 'mock-id-123',
         supplierId: 'mock-id-123',
@@ -326,7 +326,7 @@ it('calls the purchaseReceiptBasicPostRequest method in the PurchaseReceiptBasic
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
 
@@ -346,35 +346,7 @@ it('calls the purchaseReceiptBasicPostRequest method in the PurchaseReceiptBasic
 });
 
 it('calls the purchaseReceiptBasicReleaseInvoiceByreceiptNumberRequest method in the PurchaseReceiptBasic resource', function () {
-    $bodyData = new PurchaseReceiptBasicUpdateDto(
-        lines: [],
-        receiptType: 'String value',
-        receiptNbr: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        warehouseId: 'mock-id-123',
-        supplierId: 'mock-id-123',
-        locationId: 'mock-id-123',
-        currency: 'String value',
-        exchangeRate: 42,
-        createBill: true,
-        supplierRef: 'String value',
-        controlQty: 42,
-        controlAmount: 42,
-        branchNumber: 'String value',
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
-        timeStamp: 'String value'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         PurchaseReceiptBasicReleaseInvoiceByreceiptNumberRequest::class => MockResponse::make([], 201),

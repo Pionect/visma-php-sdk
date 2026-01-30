@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\ProjectTransactionDocumentUpdateDto;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetAllRequest;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetByrefNbrRequest;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionPostRequest;
@@ -52,9 +53,14 @@ it('calls the projectTransactionGetByrefNbrRequest method in the ProjectTransact
 });
 
 it('calls the projectTransactionPutByrefNbrRequest method in the ProjectTransaction resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new ProjectTransactionDocumentUpdateDto(
+        refNbr: 'String value',
+        description: 'String value',
+        status: 'String value',
+        module: 'String value',
+        lines: [],
+        note: 'String value'
+    );
 
     Saloon::fake([
         ProjectTransactionPutByrefNbrRequest::class => MockResponse::make([], 201),
@@ -147,9 +153,14 @@ it('calls the projectTransactionGetAllRequest method in the ProjectTransaction r
 });
 
 it('calls the projectTransactionPostRequest method in the ProjectTransaction resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new ProjectTransactionDocumentUpdateDto(
+        refNbr: 'String value',
+        description: 'String value',
+        status: 'String value',
+        module: 'String value',
+        lines: [],
+        note: 'String value'
+    );
 
     Saloon::fake([
         ProjectTransactionPostRequest::class => MockResponse::make([], 201),

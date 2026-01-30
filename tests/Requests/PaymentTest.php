@@ -1,6 +1,8 @@
 <?php
 
 use Pionect\VismaSdk\Dto\PaymentUpdateDto;
+use Pionect\VismaSdk\Dto\ReleasePaymentActionDto;
+use Pionect\VismaSdk\Dto\VoidPaymentActionDto;
 use Pionect\VismaSdk\Requests\Payment\PaymentCreatePaymentRequest;
 use Pionect\VismaSdk\Requests\Payment\PaymentGetAllPaymentsRequest;
 use Pionect\VismaSdk\Requests\Payment\PaymentGetBypaymentNumberRequest;
@@ -294,25 +296,8 @@ it('calls the paymentCreatePaymentRequest method in the Payment resource', funct
 });
 
 it('calls the paymentReleasePaymentBypaymentNumberRequest method in the Payment resource', function () {
-    $bodyData = new PaymentUpdateDto(
-        referenceNumber: null,
-        type: null,
-        hold: null,
-        applicationDate: null,
-        applicationPeriod: null,
-        paymentRef: null,
-        customer: null,
-        location: null,
-        paymentMethod: null,
-        cashAccount: null,
-        currency: null,
-        paymentAmount: null,
-        invoiceText: null,
-        branch: 'String value',
-        overrideNumberSeries: true,
-        ordersToApply: [],
-        financeCharges: [],
-        paymentLines: []
+    $bodyData = new ReleasePaymentActionDto(
+        type: 'String value'
     );
 
     Saloon::fake([
@@ -332,25 +317,9 @@ it('calls the paymentReleasePaymentBypaymentNumberRequest method in the Payment 
 });
 
 it('calls the paymentVoidPaymentBypaymentNumberRequest method in the Payment resource', function () {
-    $bodyData = new PaymentUpdateDto(
-        referenceNumber: null,
-        type: null,
-        hold: null,
-        applicationDate: null,
-        applicationPeriod: null,
-        paymentRef: null,
-        customer: null,
-        location: null,
-        paymentMethod: null,
-        cashAccount: null,
-        currency: null,
-        paymentAmount: null,
-        invoiceText: null,
-        branch: 'String value',
-        overrideNumberSeries: true,
-        ordersToApply: [],
-        financeCharges: [],
-        paymentLines: []
+    $bodyData = new VoidPaymentActionDto(
+        type: 'String value',
+        returnVoidPayment: true
     );
 
     Saloon::fake([

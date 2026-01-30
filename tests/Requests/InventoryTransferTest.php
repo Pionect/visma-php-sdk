@@ -220,19 +220,7 @@ it('calls the inventoryTransferPostRequest method in the InventoryTransfer resou
 });
 
 it('calls the inventoryTransferReleaseDocumentBytransferNumberRequest method in the InventoryTransfer resource', function () {
-    $bodyData = new InventoryTransferUpdateDto(
-        warehouseId: 'mock-id-123',
-        toWarehouseId: 'mock-id-123',
-        transferLines: [],
-        referenceNumber: null,
-        hold: null,
-        date: null,
-        postPeriod: null,
-        externalReference: null,
-        description: null,
-        controlQuantity: null,
-        branchNumber: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         InventoryTransferReleaseDocumentBytransferNumberRequest::class => MockResponse::make([], 201),

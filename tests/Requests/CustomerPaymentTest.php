@@ -1,5 +1,8 @@
 <?php
 
+use Pionect\VismaSdk\Dto\PaymentUpdateDto;
+use Pionect\VismaSdk\Dto\ReleasePaymentActionDto;
+use Pionect\VismaSdk\Dto\VoidPaymentActionDto;
 use Pionect\VismaSdk\Requests\CustomerPayment\CustomerPaymentCreatePaymentRequest;
 use Pionect\VismaSdk\Requests\CustomerPayment\CustomerPaymentGetAllPaymentsRequest;
 use Pionect\VismaSdk\Requests\CustomerPayment\CustomerPaymentGetBypaymentNumberRequest;
@@ -91,9 +94,26 @@ it('calls the customerPaymentGetBypaymentNumberRequest method in the CustomerPay
 });
 
 it('calls the customerPaymentPutBypaymentNumberRequest method in the CustomerPayment resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new PaymentUpdateDto(
+        referenceNumber: null,
+        type: null,
+        hold: null,
+        applicationDate: null,
+        applicationPeriod: null,
+        paymentRef: null,
+        customer: null,
+        location: null,
+        paymentMethod: null,
+        cashAccount: null,
+        currency: null,
+        paymentAmount: null,
+        invoiceText: null,
+        branch: 'String value',
+        overrideNumberSeries: true,
+        ordersToApply: [],
+        financeCharges: [],
+        paymentLines: []
+    );
 
     Saloon::fake([
         CustomerPaymentPutBypaymentNumberRequest::class => MockResponse::make([], 201),
@@ -240,9 +260,26 @@ it('calls the customerPaymentGetAllPaymentsRequest method in the CustomerPayment
 });
 
 it('calls the customerPaymentCreatePaymentRequest method in the CustomerPayment resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new PaymentUpdateDto(
+        referenceNumber: null,
+        type: null,
+        hold: null,
+        applicationDate: null,
+        applicationPeriod: null,
+        paymentRef: null,
+        customer: null,
+        location: null,
+        paymentMethod: null,
+        cashAccount: null,
+        currency: null,
+        paymentAmount: null,
+        invoiceText: null,
+        branch: 'String value',
+        overrideNumberSeries: true,
+        ordersToApply: [],
+        financeCharges: [],
+        paymentLines: []
+    );
 
     Saloon::fake([
         CustomerPaymentCreatePaymentRequest::class => MockResponse::make([], 201),
@@ -260,9 +297,9 @@ it('calls the customerPaymentCreatePaymentRequest method in the CustomerPayment 
 });
 
 it('calls the customerPaymentReleasePaymentBypaymentNumberRequest method in the CustomerPayment resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new ReleasePaymentActionDto(
+        type: 'String value'
+    );
 
     Saloon::fake([
         CustomerPaymentReleasePaymentBypaymentNumberRequest::class => MockResponse::make([], 201),
@@ -282,9 +319,10 @@ it('calls the customerPaymentReleasePaymentBypaymentNumberRequest method in the 
 });
 
 it('calls the customerPaymentVoidPaymentBypaymentNumberRequest method in the CustomerPayment resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new VoidPaymentActionDto(
+        type: 'String value',
+        returnVoidPayment: true
+    );
 
     Saloon::fake([
         CustomerPaymentVoidPaymentBypaymentNumberRequest::class => MockResponse::make([], 201),

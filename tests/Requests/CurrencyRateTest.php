@@ -1,6 +1,7 @@
 <?php
 
-use Pionect\VismaSdk\Dto\CurrencyRateDto;
+use Pionect\VismaSdk\Dto\CreateCurrencyRateDto;
+use Pionect\VismaSdk\Dto\UpdateCurrencyRateDto;
 use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRateGetAllRequest;
 use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRatePostCurrencyRateRequest;
 use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRatePutCurrencyRateBycurrencyRateIdRequest;
@@ -66,15 +67,13 @@ it('calls the currencyRateGetAllRequest method in the CurrencyRate resource', fu
 });
 
 it('calls the currencyRatePostCurrencyRateRequest method in the CurrencyRate resource', function () {
-    $bodyData = new CurrencyRateDto(
-        fromCurrencyId: 'mock-id-123',
-        toCurrencyId: 'mock-id-123',
-        rateType: 'String value',
-        rate: 42,
-        effectiveDate: '2025-11-22T10:40:04+00:00',
-        multDiv: 'String value',
-        rateReciprocal: 42,
-        timeStamp: 'String value'
+    $bodyData = new CreateCurrencyRateDto(
+        fromCurrencyId: null,
+        toCurrencyId: null,
+        rateType: null,
+        effectiveDate: null,
+        rate: null,
+        multDiv: null
     );
 
     Saloon::fake([
@@ -93,15 +92,9 @@ it('calls the currencyRatePostCurrencyRateRequest method in the CurrencyRate res
 });
 
 it('calls the currencyRatePutCurrencyRateBycurrencyRateIdRequest method in the CurrencyRate resource', function () {
-    $bodyData = new CurrencyRateDto(
-        fromCurrencyId: 'mock-id-123',
-        toCurrencyId: 'mock-id-123',
-        rateType: 'String value',
-        rate: 42,
-        effectiveDate: '2025-11-22T10:40:04+00:00',
-        multDiv: 'String value',
-        rateReciprocal: 42,
-        timeStamp: 'String value'
+    $bodyData = new UpdateCurrencyRateDto(
+        rate: null,
+        multDiv: null
     );
 
     Saloon::fake([

@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\PrebookingUpdateDto;
 use Pionect\VismaSdk\Dto\SupplierInvoiceUpdateDto;
 use Pionect\VismaSdk\Requests\SupplierInvoice\SupplierInvoiceCorrectInvoiceByinvoiceNumberRequest;
 use Pionect\VismaSdk\Requests\SupplierInvoice\SupplierInvoiceCreateHeaderAttachmentByinvoiceNumberRequest;
@@ -179,8 +180,8 @@ it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInv
         documentType: 'String value',
         referenceNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: null,
         financialPeriod: null,
         supplierReference: 'String value',
@@ -190,8 +191,8 @@ it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInv
         currencyId: 'mock-id-123',
         paymentRefNo: 'String value',
         creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        dueDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        cashDiscountDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         note: 'String value',
         exchangeRate: 42,
         branchNumber: 'String value',
@@ -200,7 +201,7 @@ it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInv
         supplierTaxZone: 'String value',
         cashAccount: 'String value',
         paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
+        payDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         amount: 42,
         vatAmount: 42,
         paymentMessage: 'String value',
@@ -400,8 +401,8 @@ it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method 
         documentType: 'String value',
         referenceNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: null,
         financialPeriod: null,
         supplierReference: 'String value',
@@ -411,8 +412,8 @@ it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method 
         currencyId: 'mock-id-123',
         paymentRefNo: 'String value',
         creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        dueDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        cashDiscountDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         note: 'String value',
         exchangeRate: 42,
         branchNumber: 'String value',
@@ -421,7 +422,7 @@ it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method 
         supplierTaxZone: 'String value',
         cashAccount: 'String value',
         paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
+        payDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         amount: 42,
         vatAmount: 42,
         paymentMessage: 'String value',
@@ -715,8 +716,8 @@ it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource'
         documentType: 'String value',
         referenceNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: null,
         financialPeriod: null,
         supplierReference: 'String value',
@@ -726,8 +727,8 @@ it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource'
         currencyId: 'mock-id-123',
         paymentRefNo: 'String value',
         creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        dueDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        cashDiscountDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         note: 'String value',
         exchangeRate: 42,
         branchNumber: 'String value',
@@ -736,7 +737,7 @@ it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource'
         supplierTaxZone: 'String value',
         cashAccount: 'String value',
         paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
+        payDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         amount: 42,
         vatAmount: 42,
         paymentMessage: 'String value',
@@ -979,46 +980,7 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
 });
 
 it('calls the supplierInvoiceReleaseInvoiceByinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceReleaseInvoiceByinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1038,46 +1000,7 @@ it('calls the supplierInvoiceReleaseInvoiceByinvoiceNumberRequest method in the 
 });
 
 it('calls the supplierInvoiceCorrectInvoiceByinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceCorrectInvoiceByinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1097,46 +1020,7 @@ it('calls the supplierInvoiceCorrectInvoiceByinvoiceNumberRequest method in the 
 });
 
 it('calls the supplierInvoiceReverseInvoiceBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceReverseInvoiceBydocumentTypeinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1157,46 +1041,7 @@ it('calls the supplierInvoiceReverseInvoiceBydocumentTypeinvoiceNumberRequest me
 });
 
 it('calls the supplierInvoiceSendToApprovalBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceSendToApprovalBydocumentTypeinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1217,46 +1062,7 @@ it('calls the supplierInvoiceSendToApprovalBydocumentTypeinvoiceNumberRequest me
 });
 
 it('calls the supplierInvoiceReleaseInvoiceByTypeBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceReleaseInvoiceByTypeBydocumentTypeinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1277,45 +1083,9 @@ it('calls the supplierInvoiceReleaseInvoiceByTypeBydocumentTypeinvoiceNumberRequ
 });
 
 it('calls the supplierInvoicePrebookInvoiceBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
+    $bodyData = new PrebookingUpdateDto(
+        accountNumber: null,
+        subaccount: []
     );
 
     Saloon::fake([
@@ -1337,46 +1107,7 @@ it('calls the supplierInvoicePrebookInvoiceBydocumentTypeinvoiceNumberRequest me
 });
 
 it('calls the supplierInvoiceVoidInvoiceBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceVoidInvoiceBydocumentTypeinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1397,46 +1128,7 @@ it('calls the supplierInvoiceVoidInvoiceBydocumentTypeinvoiceNumberRequest metho
 });
 
 it('calls the supplierInvoiceWriteoffInvoiceBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceWriteoffInvoiceBydocumentTypeinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1457,46 +1149,7 @@ it('calls the supplierInvoiceWriteoffInvoiceBydocumentTypeinvoiceNumberRequest m
 });
 
 it('calls the supplierInvoiceCreateHeaderAttachmentByinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceCreateHeaderAttachmentByinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1516,46 +1169,7 @@ it('calls the supplierInvoiceCreateHeaderAttachmentByinvoiceNumberRequest method
 });
 
 it('calls the supplierInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest::class => MockResponse::make([], 201),
@@ -1576,46 +1190,7 @@ it('calls the supplierInvoiceCreateLineAttachmentByinvoiceNumberlineNumberReques
 });
 
 it('calls the supplierInvoiceCreateHeaderAttachmentByTypeBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceCreateHeaderAttachmentByTypeBydocumentTypeinvoiceNumberRequest::class => MockResponse::make([], 201),
@@ -1636,46 +1211,7 @@ it('calls the supplierInvoiceCreateHeaderAttachmentByTypeBydocumentTypeinvoiceNu
 });
 
 it('calls the supplierInvoiceCreateLineAttachmentByTypeBydocumentTypeinvoiceNumberlineNumberRequest method in the SupplierInvoice resource', function () {
-    $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
-        referenceNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        financialPeriod: null,
-        supplierReference: 'String value',
-        description: 'String value',
-        supplierNumber: 'String value',
-        locationId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        paymentRefNo: 'String value',
-        creditTermsId: 'mock-id-123',
-        dueDate: '2025-11-22T10:40:04+00:00',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        note: 'String value',
-        exchangeRate: 42,
-        branchNumber: 'String value',
-        roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
-        supplierTaxZone: 'String value',
-        cashAccount: 'String value',
-        paymentMethod: 'String value',
-        payDate: '2025-11-22T10:40:04+00:00',
-        amount: 42,
-        vatAmount: 42,
-        paymentMessage: 'String value',
-        applyRetainage: true,
-        taxDetailLines: [],
-        invoiceLines: [],
-        approvalDetails: null,
-        addPoreceiptLines: [],
-        addPurchaseOrders: [],
-        landedCosts: [],
-        paySelected: null,
-        overrideNumberSeries: true,
-        validateLineDetails: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         SupplierInvoiceCreateLineAttachmentByTypeBydocumentTypeinvoiceNumberlineNumberRequest::class => MockResponse::make([], 201),

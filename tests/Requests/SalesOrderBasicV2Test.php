@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Dto\CreateShipmentActionDto;
+use Pionect\VismaSdk\Dto\SalesOrderBasicUpdateDto;
 use Pionect\VismaSdk\Requests\SalesOrderBasicV2\SalesOrderBasicV2CreateHeaderAttachmentByorderNumberorderTypeRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasicV2\SalesOrderBasicV2CreateHeaderAttachmentByorderNumberRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasicV2\SalesOrderBasicV2CreateLineAttachmentByorderNumberlineNumberRequest;
@@ -16,9 +18,13 @@ beforeEach(function () {
 });
 
 it('calls the salesOrderBasicV2createShipmentActionBysaleOrderNumberRequest method in the SalesOrderBasicV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new CreateShipmentActionDto(
+        orderType: 'String value',
+        returnShipmentDto: true,
+        shipmentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        shipmentWarehouse: 'String value',
+        operation: 'String value'
+    );
 
     Saloon::fake([
         SalesOrderBasicV2CreateShipmentActionBysaleOrderNumberRequest::class => MockResponse::make([], 201),
@@ -37,9 +43,7 @@ it('calls the salesOrderBasicV2createShipmentActionBysaleOrderNumberRequest meth
 });
 
 it('calls the salesOrderBasicV2prepareInvoiceActionByorderTypeorderNumberRequest method in the SalesOrderBasicV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicV2PrepareInvoiceActionByorderTypeorderNumberRequest::class => MockResponse::make([], 201),
@@ -59,9 +63,7 @@ it('calls the salesOrderBasicV2prepareInvoiceActionByorderTypeorderNumberRequest
 });
 
 it('calls the salesOrderBasicV2sendEmailActionByorderTypeorderNumberRequest method in the SalesOrderBasicV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicV2SendEmailActionByorderTypeorderNumberRequest::class => MockResponse::make([], 201),
@@ -81,9 +83,7 @@ it('calls the salesOrderBasicV2sendEmailActionByorderTypeorderNumberRequest meth
 });
 
 it('calls the salesOrderBasicV2createHeaderAttachmentByorderNumberRequest method in the SalesOrderBasicV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicV2CreateHeaderAttachmentByorderNumberRequest::class => MockResponse::make([], 201),
@@ -102,9 +102,7 @@ it('calls the salesOrderBasicV2createHeaderAttachmentByorderNumberRequest method
 });
 
 it('calls the salesOrderBasicV2createHeaderAttachmentByorderNumberorderTypeRequest method in the SalesOrderBasicV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicV2CreateHeaderAttachmentByorderNumberorderTypeRequest::class => MockResponse::make([], 201),
@@ -124,9 +122,7 @@ it('calls the salesOrderBasicV2createHeaderAttachmentByorderNumberorderTypeReque
 });
 
 it('calls the salesOrderBasicV2createLineAttachmentByorderNumberlineNumberRequest method in the SalesOrderBasicV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicV2CreateLineAttachmentByorderNumberlineNumberRequest::class => MockResponse::make([], 201),
@@ -146,9 +142,7 @@ it('calls the salesOrderBasicV2createLineAttachmentByorderNumberlineNumberReques
 });
 
 it('calls the salesOrderBasicV2createLineAttachmentByorderNumberorderTypelineNumberRequest method in the SalesOrderBasicV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = [];
 
     Saloon::fake([
         SalesOrderBasicV2CreateLineAttachmentByorderNumberorderTypelineNumberRequest::class => MockResponse::make([], 201),
@@ -169,9 +163,27 @@ it('calls the salesOrderBasicV2createLineAttachmentByorderNumberorderTypelineNum
 });
 
 it('calls the salesOrderBasicV2postRequest method in the SalesOrderBasicV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new SalesOrderBasicUpdateDto(
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        requestOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
 
     Saloon::fake([
         SalesOrderBasicV2PostRequest::class => MockResponse::make([], 201),

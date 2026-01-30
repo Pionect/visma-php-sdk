@@ -238,15 +238,7 @@ it('calls the expenseClaimCreateExpenseClaimRequest method in the ExpenseClaim r
 });
 
 it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest method in the ExpenseClaim resource', function () {
-    $bodyData = new ExpenseClaimUpdateDto(
-        date: null,
-        description: null,
-        claimedBy: null,
-        customer: null,
-        customerUpdateAnswer: 'String value',
-        location: null,
-        details: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest::class => MockResponse::make([], 201),
@@ -266,15 +258,7 @@ it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest method in t
 });
 
 it('calls the expenseClaimSubmitExpenseClaimByexpenseClaimRequest method in the ExpenseClaim resource', function () {
-    $bodyData = new ExpenseClaimUpdateDto(
-        date: null,
-        description: null,
-        claimedBy: null,
-        customer: null,
-        customerUpdateAnswer: 'String value',
-        location: null,
-        details: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest::class => MockResponse::make([], 201),
@@ -294,15 +278,7 @@ it('calls the expenseClaimSubmitExpenseClaimByexpenseClaimRequest method in the 
 });
 
 it('calls the expenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest method in the ExpenseClaim resource', function () {
-    $bodyData = new ExpenseClaimUpdateDto(
-        date: null,
-        description: null,
-        claimedBy: null,
-        customer: null,
-        customerUpdateAnswer: 'String value',
-        location: null,
-        details: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest::class => MockResponse::make([], 201),

@@ -216,18 +216,7 @@ it('calls the inventoryAdjustmentPostRequest method in the InventoryAdjustment r
 });
 
 it('calls the inventoryAdjustmentReleaseDocumentByadjRefNumberRequest method in the InventoryAdjustment resource', function () {
-    $bodyData = new InventoryAdjustmentUpdateDto(
-        controlCost: null,
-        adjustmentLines: [],
-        referenceNumber: null,
-        hold: null,
-        date: null,
-        postPeriod: null,
-        externalReference: null,
-        description: null,
-        controlQuantity: null,
-        branchNumber: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         InventoryAdjustmentReleaseDocumentByadjRefNumberRequest::class => MockResponse::make([], 201),

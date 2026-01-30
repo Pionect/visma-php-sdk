@@ -167,8 +167,8 @@ it('calls the customerOverdueChargeUpdateByoverdueChargeNumberRequest method in 
         creditTermsId: 'mock-id-123',
         currencyId: 'mock-id-123',
         customerRefNumber: 'String value',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        documentDueDate: '2025-11-22T10:40:04+00:00',
+        cashDiscountDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        documentDueDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         externalReference: 'String value',
         exchangeRate: 42,
         domesticServicesDeductibleDocument: true,
@@ -179,8 +179,8 @@ it('calls the customerOverdueChargeUpdateByoverdueChargeNumberRequest method in 
         customerNumber: 'String value',
         childCustomerNumber: 'String value',
         consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        documentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         hold: true,
         postPeriod: null,
         financialPeriod: null,
@@ -461,38 +461,7 @@ it('calls the customerOverdueChargeGetAllRequest method in the CustomerOverdueCh
 });
 
 it('calls the customerOverdueChargeReleaseDocumentByoverdueChargeNumberRequest method in the CustomerOverdueCharge resource', function () {
-    $bodyData = new CustomerOverdueChargeUpdateDto(
-        paymentMethodId: 'mock-id-123',
-        creditTermsId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        customerRefNumber: 'String value',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        documentDueDate: '2025-11-22T10:40:04+00:00',
-        externalReference: 'String value',
-        exchangeRate: 42,
-        domesticServicesDeductibleDocument: true,
-        paymentReference: 'String value',
-        contact: 42,
-        lines: [],
-        referenceNumber: 'String value',
-        customerNumber: 'String value',
-        childCustomerNumber: 'String value',
-        consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        hold: true,
-        postPeriod: null,
-        financialPeriod: null,
-        invoiceText: 'String value',
-        locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
-        note: 'String value',
-        branchNumber: 'String value',
-        cashAccount: 'String value',
-        dontPrint: true,
-        dontEmail: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerOverdueChargeReleaseDocumentByoverdueChargeNumberRequest::class => MockResponse::make([], 201),
@@ -512,38 +481,7 @@ it('calls the customerOverdueChargeReleaseDocumentByoverdueChargeNumberRequest m
 });
 
 it('calls the customerOverdueChargeCreateHeaderAttachmentByoverdueChargeNumberRequest method in the CustomerOverdueCharge resource', function () {
-    $bodyData = new CustomerOverdueChargeUpdateDto(
-        paymentMethodId: 'mock-id-123',
-        creditTermsId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        customerRefNumber: 'String value',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        documentDueDate: '2025-11-22T10:40:04+00:00',
-        externalReference: 'String value',
-        exchangeRate: 42,
-        domesticServicesDeductibleDocument: true,
-        paymentReference: 'String value',
-        contact: 42,
-        lines: [],
-        referenceNumber: 'String value',
-        customerNumber: 'String value',
-        childCustomerNumber: 'String value',
-        consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        hold: true,
-        postPeriod: null,
-        financialPeriod: null,
-        invoiceText: 'String value',
-        locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
-        note: 'String value',
-        branchNumber: 'String value',
-        cashAccount: 'String value',
-        dontPrint: true,
-        dontEmail: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerOverdueChargeCreateHeaderAttachmentByoverdueChargeNumberRequest::class => MockResponse::make([], 201),
@@ -563,38 +501,7 @@ it('calls the customerOverdueChargeCreateHeaderAttachmentByoverdueChargeNumberRe
 });
 
 it('calls the customerOverdueChargeCreateLineAttachmentByoverdueChargeNumberlineNumberRequest method in the CustomerOverdueCharge resource', function () {
-    $bodyData = new CustomerOverdueChargeUpdateDto(
-        paymentMethodId: 'mock-id-123',
-        creditTermsId: 'mock-id-123',
-        currencyId: 'mock-id-123',
-        customerRefNumber: 'String value',
-        cashDiscountDate: '2025-11-22T10:40:04+00:00',
-        documentDueDate: '2025-11-22T10:40:04+00:00',
-        externalReference: 'String value',
-        exchangeRate: 42,
-        domesticServicesDeductibleDocument: true,
-        paymentReference: 'String value',
-        contact: 42,
-        lines: [],
-        referenceNumber: 'String value',
-        customerNumber: 'String value',
-        childCustomerNumber: 'String value',
-        consolidateInvoices: true,
-        documentDate: '2025-11-22T10:40:04+00:00',
-        origInvoiceDate: '2025-11-22T10:40:04+00:00',
-        hold: true,
-        postPeriod: null,
-        financialPeriod: null,
-        invoiceText: 'String value',
-        locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
-        note: 'String value',
-        branchNumber: 'String value',
-        cashAccount: 'String value',
-        dontPrint: true,
-        dontEmail: true
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerOverdueChargeCreateLineAttachmentByoverdueChargeNumberlineNumberRequest::class => MockResponse::make([], 201),

@@ -70,9 +70,9 @@ it('calls the customerContractPutBycontractIdRequest method in the CustomerContr
         customer: null,
         location: 'String value',
         description: 'String value',
-        setupDate: '2025-11-22T10:40:04+00:00',
-        activationDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
+        setupDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        activationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        expirationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         massRenewal: true,
         renewalPoint: 42,
         gracePeriod: 42,
@@ -179,9 +179,9 @@ it('calls the customerContractCreateCustomerContractRequest method in the Custom
         customer: null,
         location: 'String value',
         description: 'String value',
-        setupDate: '2025-11-22T10:40:04+00:00',
-        activationDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
+        setupDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        activationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        expirationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         massRenewal: true,
         renewalPoint: 42,
         gracePeriod: 42,
@@ -336,27 +336,7 @@ it('calls the customerContractGetCustomerContractRecurringSummaryBycontractIdReq
 });
 
 it('calls the customerContractSetupContractBycontractIdRequest method in the CustomerContract resource', function () {
-    $bodyData = new CustomerContractUpdateDto(
-        contractId: null,
-        contractTemplate: null,
-        customer: null,
-        location: 'String value',
-        description: 'String value',
-        setupDate: '2025-11-22T10:40:04+00:00',
-        activationDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
-        massRenewal: true,
-        renewalPoint: 42,
-        gracePeriod: 42,
-        currency: 'String value',
-        invoiceTo: 'String value',
-        invoiceAccount: 'String value',
-        invoiceLocation: 'String value',
-        owner: 'String value',
-        salesPerson: 'String value',
-        details: [],
-        attributeLines: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerContractSetupContractBycontractIdRequest::class => MockResponse::make([], 201),
@@ -376,27 +356,7 @@ it('calls the customerContractSetupContractBycontractIdRequest method in the Cus
 });
 
 it('calls the customerContractActivateContractBycontractIdRequest method in the CustomerContract resource', function () {
-    $bodyData = new CustomerContractUpdateDto(
-        contractId: null,
-        contractTemplate: null,
-        customer: null,
-        location: 'String value',
-        description: 'String value',
-        setupDate: '2025-11-22T10:40:04+00:00',
-        activationDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
-        massRenewal: true,
-        renewalPoint: 42,
-        gracePeriod: 42,
-        currency: 'String value',
-        invoiceTo: 'String value',
-        invoiceAccount: 'String value',
-        invoiceLocation: 'String value',
-        owner: 'String value',
-        salesPerson: 'String value',
-        details: [],
-        attributeLines: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerContractActivateContractBycontractIdRequest::class => MockResponse::make([], 201),
@@ -416,27 +376,7 @@ it('calls the customerContractActivateContractBycontractIdRequest method in the 
 });
 
 it('calls the customerContractSetupAndActivateContractBycontractIdRequest method in the CustomerContract resource', function () {
-    $bodyData = new CustomerContractUpdateDto(
-        contractId: null,
-        contractTemplate: null,
-        customer: null,
-        location: 'String value',
-        description: 'String value',
-        setupDate: '2025-11-22T10:40:04+00:00',
-        activationDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
-        massRenewal: true,
-        renewalPoint: 42,
-        gracePeriod: 42,
-        currency: 'String value',
-        invoiceTo: 'String value',
-        invoiceAccount: 'String value',
-        invoiceLocation: 'String value',
-        owner: 'String value',
-        salesPerson: 'String value',
-        details: [],
-        attributeLines: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerContractSetupAndActivateContractBycontractIdRequest::class => MockResponse::make([], 201),
@@ -456,27 +396,7 @@ it('calls the customerContractSetupAndActivateContractBycontractIdRequest method
 });
 
 it('calls the customerContractTerminateContractBycontractIdRequest method in the CustomerContract resource', function () {
-    $bodyData = new CustomerContractUpdateDto(
-        contractId: null,
-        contractTemplate: null,
-        customer: null,
-        location: 'String value',
-        description: 'String value',
-        setupDate: '2025-11-22T10:40:04+00:00',
-        activationDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
-        massRenewal: true,
-        renewalPoint: 42,
-        gracePeriod: 42,
-        currency: 'String value',
-        invoiceTo: 'String value',
-        invoiceAccount: 'String value',
-        invoiceLocation: 'String value',
-        owner: 'String value',
-        salesPerson: 'String value',
-        details: [],
-        attributeLines: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerContractTerminateContractBycontractIdRequest::class => MockResponse::make([], 201),
@@ -496,27 +416,7 @@ it('calls the customerContractTerminateContractBycontractIdRequest method in the
 });
 
 it('calls the customerContractUpgradeContractBycontractIdRequest method in the CustomerContract resource', function () {
-    $bodyData = new CustomerContractUpdateDto(
-        contractId: null,
-        contractTemplate: null,
-        customer: null,
-        location: 'String value',
-        description: 'String value',
-        setupDate: '2025-11-22T10:40:04+00:00',
-        activationDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
-        massRenewal: true,
-        renewalPoint: 42,
-        gracePeriod: 42,
-        currency: 'String value',
-        invoiceTo: 'String value',
-        invoiceAccount: 'String value',
-        invoiceLocation: 'String value',
-        owner: 'String value',
-        salesPerson: 'String value',
-        details: [],
-        attributeLines: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerContractUpgradeContractBycontractIdRequest::class => MockResponse::make([], 201),
@@ -535,27 +435,7 @@ it('calls the customerContractUpgradeContractBycontractIdRequest method in the C
 });
 
 it('calls the customerContractActivateUpgradeBycontractIdRequest method in the CustomerContract resource', function () {
-    $bodyData = new CustomerContractUpdateDto(
-        contractId: null,
-        contractTemplate: null,
-        customer: null,
-        location: 'String value',
-        description: 'String value',
-        setupDate: '2025-11-22T10:40:04+00:00',
-        activationDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
-        massRenewal: true,
-        renewalPoint: 42,
-        gracePeriod: 42,
-        currency: 'String value',
-        invoiceTo: 'String value',
-        invoiceAccount: 'String value',
-        invoiceLocation: 'String value',
-        owner: 'String value',
-        salesPerson: 'String value',
-        details: [],
-        attributeLines: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CustomerContractActivateUpgradeBycontractIdRequest::class => MockResponse::make([], 201),

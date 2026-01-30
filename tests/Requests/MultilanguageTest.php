@@ -1,6 +1,7 @@
 <?php
 
-use Pionect\VismaSdk\Dto\MultilanguageDto;
+use Pionect\VismaSdk\Dto\LanguageUpdateDto;
+use Pionect\VismaSdk\Dto\MultilanguageTranslationDto;
 use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageAddDefaultLanguageRequest;
 use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest;
 use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageGetAllActiveLanguagesRequest;
@@ -44,10 +45,8 @@ it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumber
 });
 
 it('calls the multilanguagePutSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest method in the Multilanguage resource', function () {
-    $bodyData = new MultilanguageDto(
-        languageIso: 'String value',
-        translation: 'String value',
-        isTranslated: true
+    $bodyData = new MultilanguageTranslationDto(
+        translation: 'String value'
     );
 
     Saloon::fake([
@@ -68,10 +67,8 @@ it('calls the multilanguagePutSpecificInventoryDescrTranslationByinventoryNumber
 });
 
 it('calls the multilanguagePostSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest method in the Multilanguage resource', function () {
-    $bodyData = new MultilanguageDto(
-        languageIso: 'String value',
-        translation: 'String value',
-        isTranslated: true
+    $bodyData = new MultilanguageTranslationDto(
+        translation: 'String value'
     );
 
     Saloon::fake([
@@ -173,10 +170,8 @@ it('calls the multilanguageGetAllActiveLanguagesRequest method in the Multilangu
 });
 
 it('calls the multilanguageAddDefaultLanguageRequest method in the Multilanguage resource', function () {
-    $bodyData = new MultilanguageDto(
-        languageIso: 'String value',
-        translation: 'String value',
-        isTranslated: true
+    $bodyData = new LanguageUpdateDto(
+        languageIso: 'String value'
     );
 
     Saloon::fake([

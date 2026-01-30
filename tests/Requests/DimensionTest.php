@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\DtoSegmentUpdateDto;
 use Pionect\VismaSdk\Requests\Dimension\DimensionGetDimensionBydimensionIdRequest;
 use Pionect\VismaSdk\Requests\Dimension\DimensionGetDimensionListRequest;
 use Pionect\VismaSdk\Requests\Dimension\DimensionGetSegmentBydimensionIdsegmentIdRequest;
@@ -120,9 +121,12 @@ it('calls the dimensionGetSegmentBydimensionIdsegmentIdRequest method in the Dim
 });
 
 it('calls the dimensionUpdateSegmentBydimensionIdsegmentIdRequest method in the Dimension resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new DtoSegmentUpdateDto(
+        segmentValues: [],
+        dimensionId: 'mock-id-123',
+        segementId: 42,
+        description: 'String value'
+    );
 
     Saloon::fake([
         DimensionUpdateSegmentBydimensionIdsegmentIdRequest::class => MockResponse::make([], 201),

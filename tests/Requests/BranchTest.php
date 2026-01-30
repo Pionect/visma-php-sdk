@@ -1,6 +1,6 @@
 <?php
 
-use Pionect\VismaSdk\Dto\BranchDto;
+use Pionect\VismaSdk\Dto\BankSettingsUpdateDto;
 use Pionect\VismaSdk\Requests\Branch\BranchGetAllBranchesRequest;
 use Pionect\VismaSdk\Requests\Branch\BranchGetSpecificBranchBybranchNumberRequest;
 use Pionect\VismaSdk\Requests\Branch\BranchPutBankSettingsForBranchBybranchNumberRequest;
@@ -177,26 +177,18 @@ it('calls the branchGetAllBranchesRequest method in the Branch resource', functi
 });
 
 it('calls the branchPutBankSettingsForBranchBybranchNumberRequest method in the Branch resource', function () {
-    $bodyData = new BranchDto(
-        branchId: 42,
-        number: 'String value',
-        name: 'String value',
-        organizationId: 42,
-        isMainBranch: true,
-        isActive: true,
-        lastModifiedDateTime: '2025-11-22T10:40:04+00:00',
-        corporateId: 'mock-id-123',
-        vatRegistrationId: 'mock-id-123',
-        mainAddress: null,
-        mainContact: null,
-        deliveryAddress: null,
-        deliveryContact: null,
-        defaultCountry: null,
-        industryCode: null,
-        currency: null,
-        vatZone: null,
-        ledger: null,
-        bankSettings: null
+    $bodyData = new BankSettingsUpdateDto(
+        bankName: null,
+        bankAddress1: null,
+        bankAddress2: null,
+        bankAddress3: null,
+        bankCountry: null,
+        iban: null,
+        bban: null,
+        bbaN2: null,
+        bbaN3: null,
+        bic: null,
+        creditorId: null
     );
 
     Saloon::fake([

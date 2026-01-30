@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\CustomerPaymentMethodCreateDto;
 use Pionect\VismaSdk\Dto\CustomerPaymentMethodUpdateDto;
 use Pionect\VismaSdk\Requests\CustomerPaymentMethod\CustomerPaymentMethodCreateCustomerPaymentMethodRequest;
 use Pionect\VismaSdk\Requests\CustomerPaymentMethod\CustomerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodIdRequest;
@@ -142,7 +143,9 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsRequest method in th
 });
 
 it('calls the customerPaymentMethodCreateCustomerPaymentMethodRequest method in the CustomerPaymentMethod resource', function () {
-    $bodyData = new CustomerPaymentMethodUpdateDto(
+    $bodyData = new CustomerPaymentMethodCreateDto(
+        customerId: 'mock-id-123',
+        paymentMethodId: 'mock-id-123',
         active: true,
         cashAccountId: 'mock-id-123',
         paymentMethodDetails: []

@@ -216,18 +216,7 @@ it('calls the inventoryIssuePostRequest method in the InventoryIssue resource', 
 });
 
 it('calls the inventoryIssueReleaseDocumentByinvoiceNumberRequest method in the InventoryIssue resource', function () {
-    $bodyData = new InventoryIssueUpdateDto(
-        controlAmount: null,
-        issueLines: [],
-        referenceNumber: null,
-        hold: null,
-        date: null,
-        postPeriod: null,
-        externalReference: null,
-        description: null,
-        controlQuantity: null,
-        branchNumber: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         InventoryIssueReleaseDocumentByinvoiceNumberRequest::class => MockResponse::make([], 201),

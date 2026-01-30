@@ -1,6 +1,6 @@
 <?php
 
-use Pionect\VismaSdk\Dto\VatDto;
+use Pionect\VismaSdk\Dto\UpdateNoteDto;
 use Pionect\VismaSdk\Requests\Vat\VatGetAllVatsRequest;
 use Pionect\VismaSdk\Requests\Vat\VatGetVatByvatIdRequest;
 use Pionect\VismaSdk\Requests\Vat\VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest;
@@ -177,8 +177,8 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
 });
 
 it('calls the vatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest method in the Vat resource', function () {
-    $bodyData = new VatDto(
-        description: 'String value'
+    $bodyData = new UpdateNoteDto(
+        note: null
     );
 
     Saloon::fake([
@@ -200,8 +200,8 @@ it('calls the vatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest method i
 });
 
 it('calls the vatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest method in the Vat resource', function () {
-    $bodyData = new VatDto(
-        description: 'String value'
+    $bodyData = new UpdateNoteDto(
+        note: null
     );
 
     Saloon::fake([

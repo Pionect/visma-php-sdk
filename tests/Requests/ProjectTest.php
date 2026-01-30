@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\ChangeProjectIdActionDto;
 use Pionect\VismaSdk\Dto\ProjectUpdateDto;
 use Pionect\VismaSdk\Requests\Project\ProjectChangeProjectIdactionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Project\ProjectGetAllRequest;
@@ -397,7 +398,7 @@ it('calls the projectPostRequest method in the Project resource', function () {
         defAccrualAccount: 'String value',
         defAccrualSub: [],
         startDate: null,
-        endDate: '2025-11-22T10:40:04+00:00',
+        endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         billingPeriod: 'String value',
         allocationRule: 'String value',
         billingRule: 'String value',
@@ -553,36 +554,8 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
 });
 
 it('calls the projectChangeProjectIdactionByinternalIdRequest method in the Project resource', function () {
-    $bodyData = new ProjectUpdateDto(
-        projectId: 'mock-id-123',
-        internalId: 42,
-        customer: 'String value',
-        description: null,
-        hold: true,
-        template: 'String value',
-        status: 'String value',
-        defAccount: 'String value',
-        defSub: [],
-        defAccrualAccount: 'String value',
-        defAccrualSub: [],
-        startDate: null,
-        endDate: '2025-11-22T10:40:04+00:00',
-        billingPeriod: 'String value',
-        allocationRule: 'String value',
-        billingRule: 'String value',
-        branch: null,
-        rateTable: 'String value',
-        projectManger: 'String value',
-        projectManagerInternalId: 42,
-        autoAllocate: true,
-        automaticReleaseArDoc: true,
-        restricEmployees: true,
-        restricEquipment: true,
-        customerLocation: 'String value',
-        visibility: null,
-        tasks: [],
-        employees: [],
-        note: 'String value'
+    $bodyData = new ChangeProjectIdActionDto(
+        projectId: 'mock-id-123'
     );
 
     Saloon::fake([
@@ -616,7 +589,7 @@ it('calls the projectPutByprojectIdRequest method in the Project resource', func
         defAccrualAccount: 'String value',
         defAccrualSub: [],
         startDate: null,
-        endDate: '2025-11-22T10:40:04+00:00',
+        endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         billingPeriod: 'String value',
         allocationRule: 'String value',
         billingRule: 'String value',
@@ -666,7 +639,7 @@ it('calls the projectPutByinternalIdRequest method in the Project resource', fun
         defAccrualAccount: 'String value',
         defAccrualSub: [],
         startDate: null,
-        endDate: '2025-11-22T10:40:04+00:00',
+        endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         billingPeriod: 'String value',
         allocationRule: 'String value',
         billingRule: 'String value',

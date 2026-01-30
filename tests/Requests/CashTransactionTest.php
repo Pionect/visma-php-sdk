@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\CashTransactionUpdateDto;
+use Pionect\VismaSdk\Dto\ReverseCashTransactionActionDto;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionCreateAttachmentByreferenceNbrRequest;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionCreateCashTransactionRequest;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionGetAllRequest;
@@ -88,7 +89,7 @@ it('calls the cashTransactionPutByreferenceNbrRequest method in the CashTransact
     $bodyData = new CashTransactionUpdateDto(
         referenceNumber: 'String value',
         hold: true,
-        tranDate: '2025-11-22T10:40:04+00:00',
+        tranDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         finanacialPeriod: null,
         financialPeriod: null,
         description: 'String value',
@@ -229,7 +230,7 @@ it('calls the cashTransactionCreateCashTransactionRequest method in the CashTran
     $bodyData = new CashTransactionUpdateDto(
         referenceNumber: 'String value',
         hold: true,
-        tranDate: '2025-11-22T10:40:04+00:00',
+        tranDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         finanacialPeriod: null,
         financialPeriod: null,
         description: 'String value',
@@ -261,24 +262,7 @@ it('calls the cashTransactionCreateCashTransactionRequest method in the CashTran
 });
 
 it('calls the cashTransactionReleaseByreferenceNbrRequest method in the CashTransaction resource', function () {
-    $bodyData = new CashTransactionUpdateDto(
-        referenceNumber: 'String value',
-        hold: true,
-        tranDate: '2025-11-22T10:40:04+00:00',
-        finanacialPeriod: null,
-        financialPeriod: null,
-        description: 'String value',
-        cashAccount: 'String value',
-        entryType: 'String value',
-        documentRef: 'String value',
-        controlTotal: 42,
-        vatAmount: 42,
-        vatZone: 'String value',
-        taxCalculationMode: 'String value',
-        overrideNumberSeries: true,
-        cashTransactionDetails: [],
-        cashTransactionTaxDetails: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CashTransactionReleaseByreferenceNbrRequest::class => MockResponse::make([], 201),
@@ -298,23 +282,8 @@ it('calls the cashTransactionReleaseByreferenceNbrRequest method in the CashTran
 });
 
 it('calls the cashTransactionReverseByreferenceNbrRequest method in the CashTransaction resource', function () {
-    $bodyData = new CashTransactionUpdateDto(
-        referenceNumber: 'String value',
-        hold: true,
-        tranDate: '2025-11-22T10:40:04+00:00',
-        finanacialPeriod: null,
-        financialPeriod: null,
-        description: 'String value',
-        cashAccount: 'String value',
-        entryType: 'String value',
-        documentRef: 'String value',
-        controlTotal: 42,
-        vatAmount: 42,
-        vatZone: 'String value',
-        taxCalculationMode: 'String value',
-        overrideNumberSeries: true,
-        cashTransactionDetails: [],
-        cashTransactionTaxDetails: []
+    $bodyData = new ReverseCashTransactionActionDto(
+        returnCashTransaction: true
     );
 
     Saloon::fake([
@@ -335,24 +304,7 @@ it('calls the cashTransactionReverseByreferenceNbrRequest method in the CashTran
 });
 
 it('calls the cashTransactionCreateAttachmentByreferenceNbrRequest method in the CashTransaction resource', function () {
-    $bodyData = new CashTransactionUpdateDto(
-        referenceNumber: 'String value',
-        hold: true,
-        tranDate: '2025-11-22T10:40:04+00:00',
-        finanacialPeriod: null,
-        financialPeriod: null,
-        description: 'String value',
-        cashAccount: 'String value',
-        entryType: 'String value',
-        documentRef: 'String value',
-        controlTotal: 42,
-        vatAmount: 42,
-        vatZone: 'String value',
-        taxCalculationMode: 'String value',
-        overrideNumberSeries: true,
-        cashTransactionDetails: [],
-        cashTransactionTaxDetails: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         CashTransactionCreateAttachmentByreferenceNbrRequest::class => MockResponse::make([], 201),

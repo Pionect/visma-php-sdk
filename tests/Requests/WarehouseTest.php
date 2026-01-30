@@ -1,6 +1,6 @@
 <?php
 
-use Pionect\VismaSdk\Dto\WarehouseDto;
+use Pionect\VismaSdk\Dto\WarehouseLocationUpdateDto;
 use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetAllRequest;
 use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetBywarehouseIdRequest;
 use Pionect\VismaSdk\Requests\Warehouse\WarehousePostBywarehouseIdRequest;
@@ -146,24 +146,22 @@ it('calls the warehouseGetAllRequest method in the Warehouse resource', function
 });
 
 it('calls the warehousePostBywarehouseIdRequest method in the Warehouse resource', function () {
-    $bodyData = new WarehouseDto(
-        warehouseId: 'mock-id-123',
-        branch: null,
-        replenishmentClass: null,
-        active: true,
-        lockSitePicountEntry: true,
-        description: 'String value',
-        locationEntry: 'String value',
-        avgDefaultCost: 'String value',
-        fifoDefaultCost: 'String value',
-        receiptLocation: null,
-        shipLocation: null,
-        returnLocation: null,
-        dropShipLocation: null,
-        contact: null,
-        address: null,
-        locations: [],
-        timestamp: 'String value'
+    $bodyData = new WarehouseLocationUpdateDto(
+        locationId: null,
+        description: null,
+        active: null,
+        inclQtyAvail: null,
+        isCosted: null,
+        salesValid: null,
+        receiptsValid: null,
+        transfersValid: null,
+        assemblyValid: null,
+        pickPriority: null,
+        primaryItemValid: null,
+        primaryItemId: null,
+        primaryItemClassId: null,
+        projectId: null,
+        projectTaskId: null
     );
 
     Saloon::fake([
@@ -183,24 +181,22 @@ it('calls the warehousePostBywarehouseIdRequest method in the Warehouse resource
 });
 
 it('calls the warehousePutBywarehouseIdlocationIdRequest method in the Warehouse resource', function () {
-    $bodyData = new WarehouseDto(
-        warehouseId: 'mock-id-123',
-        branch: null,
-        replenishmentClass: null,
-        active: true,
-        lockSitePicountEntry: true,
-        description: 'String value',
-        locationEntry: 'String value',
-        avgDefaultCost: 'String value',
-        fifoDefaultCost: 'String value',
-        receiptLocation: null,
-        shipLocation: null,
-        returnLocation: null,
-        dropShipLocation: null,
-        contact: null,
-        address: null,
-        locations: [],
-        timestamp: 'String value'
+    $bodyData = new WarehouseLocationUpdateDto(
+        locationId: null,
+        description: null,
+        active: null,
+        inclQtyAvail: null,
+        isCosted: null,
+        salesValid: null,
+        receiptsValid: null,
+        transfersValid: null,
+        assemblyValid: null,
+        pickPriority: null,
+        primaryItemValid: null,
+        primaryItemId: null,
+        primaryItemClassId: null,
+        projectId: null,
+        projectTaskId: null
     );
 
     Saloon::fake([

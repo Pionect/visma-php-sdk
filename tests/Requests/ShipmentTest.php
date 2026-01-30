@@ -1,5 +1,10 @@
 <?php
 
+use Pionect\VismaSdk\Dto\ShipmentCreateDto;
+use Pionect\VismaSdk\Dto\ShipmentDetailLineAddDto;
+use Pionect\VismaSdk\Dto\ShipmentSOLine;
+use Pionect\VismaSdk\Dto\ShipmentSOOrder;
+use Pionect\VismaSdk\Dto\ShipmentUpdateDeleteLineDto;
 use Pionect\VismaSdk\Dto\ShipmentUpdateDto;
 use Pionect\VismaSdk\Requests\Shipment\ShipmentAddLineByshipmentNumberRequest;
 use Pionect\VismaSdk\Requests\Shipment\ShipmentAddSolineByshipmentNumberRequest;
@@ -146,7 +151,7 @@ it('calls the shipmentPutByshipmentNbrRequest method in the Shipment resource', 
     $bodyData = new ShipmentUpdateDto(
         shipmentType: 'String value',
         operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
+        shipmentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         location: 'String value',
         customer: 'String value',
         owner: 'String value',
@@ -192,7 +197,7 @@ it('calls the shipmentPutByshipmentNbrRequest method in the Shipment resource', 
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00')
     );
 
     Saloon::fake([
@@ -403,10 +408,10 @@ it('calls the shipmentGetAllShipmentsRequest method in the Shipment resource', f
 });
 
 it('calls the shipmentPostRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentUpdateDto(
+    $bodyData = new ShipmentCreateDto(
         shipmentType: 'String value',
         operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
+        shipmentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         location: 'String value',
         customer: 'String value',
         owner: 'String value',
@@ -452,7 +457,7 @@ it('calls the shipmentPostRequest method in the Shipment resource', function () 
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00')
     );
 
     Saloon::fake([
@@ -711,56 +716,8 @@ it('calls the shipmentPrintPickListByshipmentNbrRequest method in the Shipment r
 });
 
 it('calls the shipmentAddSolineByshipmentNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentUpdateDto(
-        shipmentType: 'String value',
-        operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
-        location: 'String value',
-        customer: 'String value',
-        owner: 'String value',
-        hold: true,
-        fromWarehouse: 'String value',
-        toWarehouse: 'String value',
-        controlQuantity: 42,
-        overrideContact: true,
-        businessName: 'String value',
-        attention: 'String value',
-        phone1: 'String value',
-        email: 'test@example.com',
-        overrideAddress: true,
-        addressLine1: 'String value',
-        addressLine2: 'String value',
-        addressLine3: 'String value',
-        city: 'String value',
-        country: 'String value',
-        county: 'String value',
-        postalCode: 'String value',
-        shipVia: 'String value',
-        fobPoint: 'String value',
-        shippingTerms: 'String value',
-        shippingZone: 'String value',
-        residentialDelivery: true,
-        saturdayDelivery: true,
-        useCustomerAccount: true,
-        insurance: true,
-        freightAmt: 42,
-        freightCost: 42,
-        transactionType: 42,
-        modeOfTrasport: 'String value',
-        container: true,
-        note: 'String value',
-        shipmentDetailLines: [],
-        shipmentPackageLines: [],
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    $bodyData = new ShipmentSOLine(
+        name: 'Mock value'
     );
 
     Saloon::fake([
@@ -780,56 +737,8 @@ it('calls the shipmentAddSolineByshipmentNumberRequest method in the Shipment re
 });
 
 it('calls the shipmentAddSoorderByshipmentNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentUpdateDto(
-        shipmentType: 'String value',
-        operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
-        location: 'String value',
-        customer: 'String value',
-        owner: 'String value',
-        hold: true,
-        fromWarehouse: 'String value',
-        toWarehouse: 'String value',
-        controlQuantity: 42,
-        overrideContact: true,
-        businessName: 'String value',
-        attention: 'String value',
-        phone1: 'String value',
-        email: 'test@example.com',
-        overrideAddress: true,
-        addressLine1: 'String value',
-        addressLine2: 'String value',
-        addressLine3: 'String value',
-        city: 'String value',
-        country: 'String value',
-        county: 'String value',
-        postalCode: 'String value',
-        shipVia: 'String value',
-        fobPoint: 'String value',
-        shippingTerms: 'String value',
-        shippingZone: 'String value',
-        residentialDelivery: true,
-        saturdayDelivery: true,
-        useCustomerAccount: true,
-        insurance: true,
-        freightAmt: 42,
-        freightCost: 42,
-        transactionType: 42,
-        modeOfTrasport: 'String value',
-        container: true,
-        note: 'String value',
-        shipmentDetailLines: [],
-        shipmentPackageLines: [],
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    $bodyData = new ShipmentSOOrder(
+        name: 'Mock value'
     );
 
     Saloon::fake([
@@ -849,57 +758,7 @@ it('calls the shipmentAddSoorderByshipmentNumberRequest method in the Shipment r
 });
 
 it('calls the shipmentConfirmShipmentByshipmentNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentUpdateDto(
-        shipmentType: 'String value',
-        operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
-        location: 'String value',
-        customer: 'String value',
-        owner: 'String value',
-        hold: true,
-        fromWarehouse: 'String value',
-        toWarehouse: 'String value',
-        controlQuantity: 42,
-        overrideContact: true,
-        businessName: 'String value',
-        attention: 'String value',
-        phone1: 'String value',
-        email: 'test@example.com',
-        overrideAddress: true,
-        addressLine1: 'String value',
-        addressLine2: 'String value',
-        addressLine3: 'String value',
-        city: 'String value',
-        country: 'String value',
-        county: 'String value',
-        postalCode: 'String value',
-        shipVia: 'String value',
-        fobPoint: 'String value',
-        shippingTerms: 'String value',
-        shippingZone: 'String value',
-        residentialDelivery: true,
-        saturdayDelivery: true,
-        useCustomerAccount: true,
-        insurance: true,
-        freightAmt: 42,
-        freightCost: 42,
-        transactionType: 42,
-        modeOfTrasport: 'String value',
-        container: true,
-        note: 'String value',
-        shipmentDetailLines: [],
-        shipmentPackageLines: [],
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         ShipmentConfirmShipmentByshipmentNumberRequest::class => MockResponse::make([], 201),
@@ -918,57 +777,7 @@ it('calls the shipmentConfirmShipmentByshipmentNumberRequest method in the Shipm
 });
 
 it('calls the shipmentCorrectShipmentByshipmentNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentUpdateDto(
-        shipmentType: 'String value',
-        operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
-        location: 'String value',
-        customer: 'String value',
-        owner: 'String value',
-        hold: true,
-        fromWarehouse: 'String value',
-        toWarehouse: 'String value',
-        controlQuantity: 42,
-        overrideContact: true,
-        businessName: 'String value',
-        attention: 'String value',
-        phone1: 'String value',
-        email: 'test@example.com',
-        overrideAddress: true,
-        addressLine1: 'String value',
-        addressLine2: 'String value',
-        addressLine3: 'String value',
-        city: 'String value',
-        country: 'String value',
-        county: 'String value',
-        postalCode: 'String value',
-        shipVia: 'String value',
-        fobPoint: 'String value',
-        shippingTerms: 'String value',
-        shippingZone: 'String value',
-        residentialDelivery: true,
-        saturdayDelivery: true,
-        useCustomerAccount: true,
-        insurance: true,
-        freightAmt: 42,
-        freightCost: 42,
-        transactionType: 42,
-        modeOfTrasport: 'String value',
-        container: true,
-        note: 'String value',
-        shipmentDetailLines: [],
-        shipmentPackageLines: [],
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         ShipmentCorrectShipmentByshipmentNumberRequest::class => MockResponse::make([], 201),
@@ -987,46 +796,14 @@ it('calls the shipmentCorrectShipmentByshipmentNumberRequest method in the Shipm
 });
 
 it('calls the shipmentAddLineByshipmentNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentUpdateDto(
-        shipmentType: 'String value',
+    $bodyData = new ShipmentDetailLineAddDto(
         operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
+        inventoryNumber: 'String value',
+        lineNumber: 42,
+        warehouse: 'String value',
         location: 'String value',
-        customer: 'String value',
-        owner: 'String value',
-        hold: true,
-        fromWarehouse: 'String value',
-        toWarehouse: 'String value',
-        controlQuantity: 42,
-        overrideContact: true,
-        businessName: 'String value',
-        attention: 'String value',
-        phone1: 'String value',
-        email: 'test@example.com',
-        overrideAddress: true,
-        addressLine1: 'String value',
-        addressLine2: 'String value',
-        addressLine3: 'String value',
-        city: 'String value',
-        country: 'String value',
-        county: 'String value',
-        postalCode: 'String value',
-        shipVia: 'String value',
-        fobPoint: 'String value',
-        shippingTerms: 'String value',
-        shippingZone: 'String value',
-        residentialDelivery: true,
-        saturdayDelivery: true,
-        useCustomerAccount: true,
-        insurance: true,
-        freightAmt: 42,
-        freightCost: 42,
-        transactionType: 42,
-        modeOfTrasport: 'String value',
-        container: true,
-        note: 'String value',
-        shipmentDetailLines: [],
-        shipmentPackageLines: [],
+        uom: 'String value',
+        shippedQty: 42,
         customStr1: null,
         customStr2: null,
         customStr3: null,
@@ -1036,7 +813,7 @@ it('calls the shipmentAddLineByshipmentNumberRequest method in the Shipment reso
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00')
     );
 
     Saloon::fake([
@@ -1056,56 +833,8 @@ it('calls the shipmentAddLineByshipmentNumberRequest method in the Shipment reso
 });
 
 it('calls the shipmentDeleteLineByshipmentNumberlineNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentUpdateDto(
-        shipmentType: 'String value',
-        operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
-        location: 'String value',
-        customer: 'String value',
-        owner: 'String value',
-        hold: true,
-        fromWarehouse: 'String value',
-        toWarehouse: 'String value',
-        controlQuantity: 42,
-        overrideContact: true,
-        businessName: 'String value',
-        attention: 'String value',
-        phone1: 'String value',
-        email: 'test@example.com',
-        overrideAddress: true,
-        addressLine1: 'String value',
-        addressLine2: 'String value',
-        addressLine3: 'String value',
-        city: 'String value',
-        country: 'String value',
-        county: 'String value',
-        postalCode: 'String value',
-        shipVia: 'String value',
-        fobPoint: 'String value',
-        shippingTerms: 'String value',
-        shippingZone: 'String value',
-        residentialDelivery: true,
-        saturdayDelivery: true,
-        useCustomerAccount: true,
-        insurance: true,
-        freightAmt: 42,
-        freightCost: 42,
-        transactionType: 42,
-        modeOfTrasport: 'String value',
-        container: true,
-        note: 'String value',
-        shipmentDetailLines: [],
-        shipmentPackageLines: [],
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    $bodyData = new ShipmentUpdateDeleteLineDto(
+        deleteSoline: true
     );
 
     Saloon::fake([
@@ -1126,57 +855,7 @@ it('calls the shipmentDeleteLineByshipmentNumberlineNumberRequest method in the 
 });
 
 it('calls the shipmentCancelShipmentByshipmentNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentUpdateDto(
-        shipmentType: 'String value',
-        operation: 'String value',
-        shipmentDate: '2025-11-22T10:40:04+00:00',
-        location: 'String value',
-        customer: 'String value',
-        owner: 'String value',
-        hold: true,
-        fromWarehouse: 'String value',
-        toWarehouse: 'String value',
-        controlQuantity: 42,
-        overrideContact: true,
-        businessName: 'String value',
-        attention: 'String value',
-        phone1: 'String value',
-        email: 'test@example.com',
-        overrideAddress: true,
-        addressLine1: 'String value',
-        addressLine2: 'String value',
-        addressLine3: 'String value',
-        city: 'String value',
-        country: 'String value',
-        county: 'String value',
-        postalCode: 'String value',
-        shipVia: 'String value',
-        fobPoint: 'String value',
-        shippingTerms: 'String value',
-        shippingZone: 'String value',
-        residentialDelivery: true,
-        saturdayDelivery: true,
-        useCustomerAccount: true,
-        insurance: true,
-        freightAmt: 42,
-        freightCost: 42,
-        transactionType: 42,
-        modeOfTrasport: 'String value',
-        container: true,
-        note: 'String value',
-        shipmentDetailLines: [],
-        shipmentPackageLines: [],
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         ShipmentCancelShipmentByshipmentNumberRequest::class => MockResponse::make([], 201),

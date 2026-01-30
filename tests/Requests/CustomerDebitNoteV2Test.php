@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\CustomerDebitNoteUpdateDto;
 use Pionect\VismaSdk\Requests\CustomerDebitNoteV2\CustomerDebitNoteV2CreateRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -9,9 +10,44 @@ beforeEach(function () {
 });
 
 it('calls the customerDebitNoteV2createRequest method in the CustomerDebitNoteV2 resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new CustomerDebitNoteUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        documentDueDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        externalReference: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        paymentReference: 'String value',
+        contact: 42,
+        rotRutDetails: null,
+        taxDetailLines: [],
+        lines: [],
+        customerVatZoneId: 'mock-id-123',
+        invoiceAddress: null,
+        invoiceContact: null,
+        overrideNumberSeries: true,
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
 
     Saloon::fake([
         CustomerDebitNoteV2CreateRequest::class => MockResponse::make([], 201),

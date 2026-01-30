@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\BankSettingsUpdateDto;
 use Pionect\VismaSdk\Requests\Organization\OrganizationGetAllRequest;
 use Pionect\VismaSdk\Requests\Organization\OrganizationGetByOrganizationCdByorganizationNumberRequest;
 use Pionect\VismaSdk\Requests\Organization\OrganizationPutBankSettingsForOrganizationByorganizationNumberRequest;
@@ -165,9 +166,19 @@ it('calls the organizationGetAllRequest method in the Organization resource', fu
 });
 
 it('calls the organizationPutBankSettingsForOrganizationByorganizationNumberRequest method in the Organization resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new BankSettingsUpdateDto(
+        bankName: null,
+        bankAddress1: null,
+        bankAddress2: null,
+        bankAddress3: null,
+        bankCountry: null,
+        iban: null,
+        bban: null,
+        bbaN2: null,
+        bbaN3: null,
+        bic: null,
+        creditorId: null
+    );
 
     Saloon::fake([
         OrganizationPutBankSettingsForOrganizationByorganizationNumberRequest::class => MockResponse::make([], 201),

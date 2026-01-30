@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Dto\ChangeEmployeeNrActionDto;
+use Pionect\VismaSdk\Dto\EmployeeCreateDTO;
 use Pionect\VismaSdk\Dto\EmployeeUpdateDto;
 use Pionect\VismaSdk\Requests\Employee\EmployeeChangeEmployeeNrActionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeCreateEmployeeRequest;
@@ -179,15 +181,8 @@ it('calls the employeeGetAllEmployeesRequest method in the Employee resource', f
 });
 
 it('calls the employeeCreateEmployeeRequest method in the Employee resource', function () {
-    $bodyData = new EmployeeUpdateDto(
-        employeeClass: 'String value',
-        status: null,
-        department: null,
-        contact: null,
-        address: null,
-        branch: 'String value',
-        calendar: 'String value',
-        companyTreeInfo: []
+    $bodyData = new EmployeeCreateDTO(
+        name: 'Mock value'
     );
 
     Saloon::fake([
@@ -457,15 +452,8 @@ it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCdRequest method in th
 });
 
 it('calls the employeeChangeEmployeeNrActionByinternalIdRequest method in the Employee resource', function () {
-    $bodyData = new EmployeeUpdateDto(
-        employeeClass: 'String value',
-        status: null,
-        department: null,
-        contact: null,
-        address: null,
-        branch: 'String value',
-        calendar: 'String value',
-        companyTreeInfo: []
+    $bodyData = new ChangeEmployeeNrActionDto(
+        employeeNr: 'String value'
     );
 
     Saloon::fake([

@@ -1,6 +1,6 @@
 <?php
 
-use Pionect\VismaSdk\Dto\DepartmentDto;
+use Pionect\VismaSdk\Dto\DepartmentUpdateBaseDto;
 use Pionect\VismaSdk\Requests\Department\DepartmentCreateDepartmentRequest;
 use Pionect\VismaSdk\Requests\Department\DepartmentGetAllDepartmentDtosRequest;
 use Pionect\VismaSdk\Requests\Department\DepartmentGetDepartmentBydepartmentIdRequest;
@@ -48,14 +48,11 @@ it('calls the departmentGetDepartmentBydepartmentIdRequest method in the Departm
 });
 
 it('calls the departmentUpdateDepartmentBydepartmentIdRequest method in the Department resource', function () {
-    $bodyData = new DepartmentDto(
+    $bodyData = new DepartmentUpdateBaseDto(
         departmentId: 'mock-id-123',
-        publicId: 'mock-id-123',
         description: 'String value',
-        expenseAccount: null,
-        expenseSubaccount: null,
-        lastModifiedDateTime: '2025-11-22T10:40:04+00:00',
-        timeStamp: 'String value'
+        expenseAccount: 'String value',
+        expenseSubaccount: []
     );
 
     Saloon::fake([
@@ -128,14 +125,11 @@ it('calls the departmentGetAllDepartmentDtosRequest method in the Department res
 });
 
 it('calls the departmentCreateDepartmentRequest method in the Department resource', function () {
-    $bodyData = new DepartmentDto(
+    $bodyData = new DepartmentUpdateBaseDto(
         departmentId: 'mock-id-123',
-        publicId: 'mock-id-123',
         description: 'String value',
-        expenseAccount: null,
-        expenseSubaccount: null,
-        lastModifiedDateTime: '2025-11-22T10:40:04+00:00',
-        timeStamp: 'String value'
+        expenseAccount: 'String value',
+        expenseSubaccount: []
     );
 
     Saloon::fake([

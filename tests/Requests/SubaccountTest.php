@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\SubAccountUpdateDto;
 use Pionect\VismaSdk\Requests\Subaccount\SubaccountGetAllSubaccountsRequest;
 use Pionect\VismaSdk\Requests\Subaccount\SubaccountGetSubaccountBysubAccountNumberRequest;
 use Pionect\VismaSdk\Requests\Subaccount\SubaccountPostRequest;
@@ -48,9 +49,12 @@ it('calls the subaccountGetSubaccountBysubAccountNumberRequest method in the Sub
 });
 
 it('calls the subaccountPutBysubAccountNumberRequest method in the Subaccount resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new SubAccountUpdateDto(
+        subaccountNumber: null,
+        subaccountId: null,
+        description: 'String value',
+        active: true
+    );
 
     Saloon::fake([
         SubaccountPutBysubAccountNumberRequest::class => MockResponse::make([], 201),
@@ -123,9 +127,12 @@ it('calls the subaccountGetAllSubaccountsRequest method in the Subaccount resour
 });
 
 it('calls the subaccountPostRequest method in the Subaccount resource', function () {
-    $bodyData = [
-        'name' => 'Test value',
-    ];
+    $bodyData = new SubAccountUpdateDto(
+        subaccountNumber: null,
+        subaccountId: null,
+        description: 'String value',
+        active: true
+    );
 
     Saloon::fake([
         SubaccountPostRequest::class => MockResponse::make([], 201),

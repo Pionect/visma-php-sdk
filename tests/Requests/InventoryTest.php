@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Dto\ChangeInventoryNbrActionDto;
+use Pionect\VismaSdk\Dto\InventoryCrossReferenceUpdateDto;
 use Pionect\VismaSdk\Dto\InventoryUpdateDto;
 use Pionect\VismaSdk\Requests\Inventory\InventoryChangeInventoryNbrActionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryCreateInventoryAttachmentByinventoryNumberRequest;
@@ -759,43 +761,12 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumberRequest metho
 });
 
 it('calls the inventoryCreateInventoryCrossReferencesByinventoryNumberRequest method in the Inventory resource', function () {
-    $bodyData = new InventoryUpdateDto(
-        inventoryNumber: null,
-        status: 'String value',
-        type: 'String value',
+    $bodyData = new InventoryCrossReferenceUpdateDto(
+        alternateType: null,
+        bAccount: 'String value',
+        alternateId: 'mock-id-123',
         description: 'String value',
-        body: 'String value',
-        itemClass: null,
-        postingClass: null,
-        vatCode: null,
-        defaultPrice: null,
-        baseUnit: 'String value',
-        salesUnit: 'String value',
-        purchaseUnit: 'String value',
-        expenseAccrualAccount: null,
-        inventoryAccount: null,
-        expenseAccount: null,
-        cogsAccount: null,
-        expenseNonTaxableAccount: 'String value',
-        expenseEuAccount: 'String value',
-        expenseImportAccount: 'String value',
-        expenseSubaccount: [],
-        cogsSubaccount: [],
-        salesAccount: 'String value',
-        salesNonTaxableAccount: 'String value',
-        salesEuAccount: 'String value',
-        salesExportAccount: 'String value',
-        salesSubaccount: [],
-        attributeLines: [],
-        packaging: null,
-        supplierDetails: [],
-        intrastat: null,
-        crossReferences: [],
-        defaultWarehouse: null,
-        defaultIssueFrom: null,
-        defaultReceiptTo: null,
-        kitItem: true,
-        note: 'String value'
+        uom: 'String value'
     );
 
     Saloon::fake([
@@ -815,44 +786,7 @@ it('calls the inventoryCreateInventoryCrossReferencesByinventoryNumberRequest me
 });
 
 it('calls the inventoryUpdateCostNonStockItemByinventoryCdRequest method in the Inventory resource', function () {
-    $bodyData = new InventoryUpdateDto(
-        inventoryNumber: null,
-        status: 'String value',
-        type: 'String value',
-        description: 'String value',
-        body: 'String value',
-        itemClass: null,
-        postingClass: null,
-        vatCode: null,
-        defaultPrice: null,
-        baseUnit: 'String value',
-        salesUnit: 'String value',
-        purchaseUnit: 'String value',
-        expenseAccrualAccount: null,
-        inventoryAccount: null,
-        expenseAccount: null,
-        cogsAccount: null,
-        expenseNonTaxableAccount: 'String value',
-        expenseEuAccount: 'String value',
-        expenseImportAccount: 'String value',
-        expenseSubaccount: [],
-        cogsSubaccount: [],
-        salesAccount: 'String value',
-        salesNonTaxableAccount: 'String value',
-        salesEuAccount: 'String value',
-        salesExportAccount: 'String value',
-        salesSubaccount: [],
-        attributeLines: [],
-        packaging: null,
-        supplierDetails: [],
-        intrastat: null,
-        crossReferences: [],
-        defaultWarehouse: null,
-        defaultIssueFrom: null,
-        defaultReceiptTo: null,
-        kitItem: true,
-        note: 'String value'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         InventoryUpdateCostNonStockItemByinventoryCdRequest::class => MockResponse::make([], 201),
@@ -871,44 +805,7 @@ it('calls the inventoryUpdateCostNonStockItemByinventoryCdRequest method in the 
 });
 
 it('calls the inventoryCreateInventoryAttachmentByinventoryNumberRequest method in the Inventory resource', function () {
-    $bodyData = new InventoryUpdateDto(
-        inventoryNumber: null,
-        status: 'String value',
-        type: 'String value',
-        description: 'String value',
-        body: 'String value',
-        itemClass: null,
-        postingClass: null,
-        vatCode: null,
-        defaultPrice: null,
-        baseUnit: 'String value',
-        salesUnit: 'String value',
-        purchaseUnit: 'String value',
-        expenseAccrualAccount: null,
-        inventoryAccount: null,
-        expenseAccount: null,
-        cogsAccount: null,
-        expenseNonTaxableAccount: 'String value',
-        expenseEuAccount: 'String value',
-        expenseImportAccount: 'String value',
-        expenseSubaccount: [],
-        cogsSubaccount: [],
-        salesAccount: 'String value',
-        salesNonTaxableAccount: 'String value',
-        salesEuAccount: 'String value',
-        salesExportAccount: 'String value',
-        salesSubaccount: [],
-        attributeLines: [],
-        packaging: null,
-        supplierDetails: [],
-        intrastat: null,
-        crossReferences: [],
-        defaultWarehouse: null,
-        defaultIssueFrom: null,
-        defaultReceiptTo: null,
-        kitItem: true,
-        note: 'String value'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         InventoryCreateInventoryAttachmentByinventoryNumberRequest::class => MockResponse::make([], 201),
@@ -927,43 +824,8 @@ it('calls the inventoryCreateInventoryAttachmentByinventoryNumberRequest method 
 });
 
 it('calls the inventoryChangeInventoryNbrActionByinternalIdRequest method in the Inventory resource', function () {
-    $bodyData = new InventoryUpdateDto(
-        inventoryNumber: null,
-        status: 'String value',
-        type: 'String value',
-        description: 'String value',
-        body: 'String value',
-        itemClass: null,
-        postingClass: null,
-        vatCode: null,
-        defaultPrice: null,
-        baseUnit: 'String value',
-        salesUnit: 'String value',
-        purchaseUnit: 'String value',
-        expenseAccrualAccount: null,
-        inventoryAccount: null,
-        expenseAccount: null,
-        cogsAccount: null,
-        expenseNonTaxableAccount: 'String value',
-        expenseEuAccount: 'String value',
-        expenseImportAccount: 'String value',
-        expenseSubaccount: [],
-        cogsSubaccount: [],
-        salesAccount: 'String value',
-        salesNonTaxableAccount: 'String value',
-        salesEuAccount: 'String value',
-        salesExportAccount: 'String value',
-        salesSubaccount: [],
-        attributeLines: [],
-        packaging: null,
-        supplierDetails: [],
-        intrastat: null,
-        crossReferences: [],
-        defaultWarehouse: null,
-        defaultIssueFrom: null,
-        defaultReceiptTo: null,
-        kitItem: true,
-        note: 'String value'
+    $bodyData = new ChangeInventoryNbrActionDto(
+        inventoryNbr: 'String value'
     );
 
     Saloon::fake([
@@ -1039,43 +901,12 @@ it('calls the inventoryPutByinventoryIdRequest method in the Inventory resource'
 });
 
 it('calls the inventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest method in the Inventory resource', function () {
-    $bodyData = new InventoryUpdateDto(
-        inventoryNumber: null,
-        status: 'String value',
-        type: 'String value',
+    $bodyData = new InventoryCrossReferenceUpdateDto(
+        alternateType: null,
+        bAccount: 'String value',
+        alternateId: 'mock-id-123',
         description: 'String value',
-        body: 'String value',
-        itemClass: null,
-        postingClass: null,
-        vatCode: null,
-        defaultPrice: null,
-        baseUnit: 'String value',
-        salesUnit: 'String value',
-        purchaseUnit: 'String value',
-        expenseAccrualAccount: null,
-        inventoryAccount: null,
-        expenseAccount: null,
-        cogsAccount: null,
-        expenseNonTaxableAccount: 'String value',
-        expenseEuAccount: 'String value',
-        expenseImportAccount: 'String value',
-        expenseSubaccount: [],
-        cogsSubaccount: [],
-        salesAccount: 'String value',
-        salesNonTaxableAccount: 'String value',
-        salesEuAccount: 'String value',
-        salesExportAccount: 'String value',
-        salesSubaccount: [],
-        attributeLines: [],
-        packaging: null,
-        supplierDetails: [],
-        intrastat: null,
-        crossReferences: [],
-        defaultWarehouse: null,
-        defaultIssueFrom: null,
-        defaultReceiptTo: null,
-        kitItem: true,
-        note: 'String value'
+        uom: 'String value'
     );
 
     Saloon::fake([

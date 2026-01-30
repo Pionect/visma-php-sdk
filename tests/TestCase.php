@@ -26,8 +26,6 @@ class TestCase extends Orchestra
             (Dotenv::createImmutable(dirname(__DIR__), '.env'))->load();
         }
 
-        // Set config values for testing
-        $app['config']->set('visma.base_url', env('VISMA_BASE_URL'));
-        $app['config']->set('visma.api_token', env('VISMA_API_TOKEN'));
+        // todo: inject neccesary auth config
     }
 }

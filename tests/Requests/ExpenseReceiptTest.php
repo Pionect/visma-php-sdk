@@ -97,7 +97,7 @@ it('calls the expenseReceiptGetByreceiptNumberRequest method in the ExpenseRecei
 
 it('calls the expenseReceiptPutByreceiptNumberRequest method in the ExpenseReceipt resource', function () {
     $bodyData = new ExpenseReceiptUpdateDto(
-        date: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         currency: 'String value',
         refNbr: 'String value',
         inventory: 'String value',
@@ -281,7 +281,7 @@ it('calls the expenseReceiptGetAllRequest method in the ExpenseReceipt resource'
 
 it('calls the expenseReceiptPostRequest method in the ExpenseReceipt resource', function () {
     $bodyData = new ExpenseReceiptUpdateDto(
-        date: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         currency: 'String value',
         refNbr: 'String value',
         inventory: 'String value',
@@ -322,31 +322,7 @@ it('calls the expenseReceiptPostRequest method in the ExpenseReceipt resource', 
 });
 
 it('calls the expenseReceiptCreateAttachmentByreceiptNumberRequest method in the ExpenseReceipt resource', function () {
-    $bodyData = new ExpenseReceiptUpdateDto(
-        date: '2025-11-22T10:40:04+00:00',
-        currency: 'String value',
-        refNbr: 'String value',
-        inventory: 'String value',
-        description: 'String value',
-        uom: 'String value',
-        quantity: 42,
-        unitCost: 42,
-        totalAmount: 42,
-        employeePart: 42,
-        claimedBy: 'String value',
-        branch: 'String value',
-        expenseClaim: 'String value',
-        invoiceable: true,
-        project: 'String value',
-        projectTask: 'String value',
-        customer: 'String value',
-        location: 'String value',
-        expenseAccount: 'String value',
-        expenseSub: 'String value',
-        salesAccount: 'String value',
-        salesSub: 'String value',
-        taxCategory: 'String value'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         ExpenseReceiptCreateAttachmentByreceiptNumberRequest::class => MockResponse::make([], 201),

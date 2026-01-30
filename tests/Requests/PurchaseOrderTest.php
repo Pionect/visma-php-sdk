@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\CreatePurchaseReceiptActionDto;
 use Pionect\VismaSdk\Dto\PurchaseOrderUpdateDto;
 use Pionect\VismaSdk\Requests\PurchaseOrder\PurchaseOrderCreatePurchaseReceiptFromPurchaseOrderBypurchaseorderNbrRequest;
 use Pionect\VismaSdk\Requests\PurchaseOrder\PurchaseOrderGetAllOrderRequest;
@@ -183,8 +184,8 @@ it('calls the purchaseOrderPutBypurchaseOrderNumberRequest method in the Purchas
         orderType: 'String value',
         orderNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        promisedOn: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        promisedOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         description: 'String value',
         supplier: null,
         location: 'String value',
@@ -209,7 +210,7 @@ it('calls the purchaseOrderPutBypurchaseOrderNumberRequest method in the Purchas
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
 
@@ -485,8 +486,8 @@ it('calls the purchaseOrderPostRequest method in the PurchaseOrder resource', fu
         orderType: 'String value',
         orderNumber: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        promisedOn: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        promisedOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         description: 'String value',
         supplier: null,
         location: 'String value',
@@ -511,7 +512,7 @@ it('calls the purchaseOrderPostRequest method in the PurchaseOrder resource', fu
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
 
@@ -531,53 +532,8 @@ it('calls the purchaseOrderPostRequest method in the PurchaseOrder resource', fu
 });
 
 it('calls the purchaseOrderCreatePurchaseReceiptFromPurchaseOrderBypurchaseorderNbrRequest method in the PurchaseOrder resource', function () {
-    $bodyData = new PurchaseOrderUpdateDto(
-        shippingDestinationType: 'String value',
-        shipTo: 'String value',
-        shippingLocation: 'String value',
-        shippingContact: null,
-        shippingAddress: null,
-        fobPoint: 'String value',
-        shipVia: 'String value',
-        shipTerms: 'String value',
-        remitContact: null,
-        remitAddress: null,
-        terms: 'String value',
-        supplierVatZone: 'String value',
-        discountDetails: [],
-        dontPrint: true,
-        dontEmail: true,
-        orderType: 'String value',
-        orderNumber: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        promisedOn: '2025-11-22T10:40:04+00:00',
-        description: 'String value',
-        supplier: null,
-        location: 'String value',
-        gln: null,
-        vatRegistrationId: null,
-        owner: 'String value',
-        currency: 'String value',
-        exchangeRate: 42,
-        supplierRef: 'String value',
-        controlTotal: 42,
-        branch: 'String value',
-        lines: [],
-        changeDatesOnLines: true,
-        note: 'String value',
-        overrideNumberSeries: true,
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
-        timeStamp: 'String value'
+    $bodyData = new CreatePurchaseReceiptActionDto(
+        orderType: 'String value'
     );
 
     Saloon::fake([

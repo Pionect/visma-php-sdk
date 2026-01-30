@@ -60,8 +60,8 @@ it('calls the discountPostRequest method in the Discount resource', function () 
         promotional: true,
         active: true,
         prorateDiscount: true,
-        effectiveDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
+        effectiveDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        expirationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         discountBreakpoints: []
     );
 
@@ -90,8 +90,8 @@ it('calls the discountPutBydiscountCodeseriesRequest method in the Discount reso
         promotional: true,
         active: true,
         prorateDiscount: true,
-        effectiveDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
+        effectiveDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        expirationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         discountBreakpoints: []
     );
 
@@ -130,19 +130,7 @@ it('calls the discountDeleteBydiscountCodeseriesRequest method in the Discount r
 });
 
 it('calls the discountUpdateDiscountsBydiscountCodeseriesfilerDateRequest method in the Discount resource', function () {
-    $bodyData = new DiscountUpdateDto(
-        discountCode: 'String value',
-        series: 'String value',
-        description: 'String value',
-        discountBy: 'String value',
-        breakBy: 'String value',
-        promotional: true,
-        active: true,
-        prorateDiscount: true,
-        effectiveDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
-        discountBreakpoints: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest::class => MockResponse::make([], 201),
@@ -164,19 +152,7 @@ it('calls the discountUpdateDiscountsBydiscountCodeseriesfilerDateRequest method
 });
 
 it('calls the discountUpdateDiscountsBydiscountCodeseriesRequest method in the Discount resource', function () {
-    $bodyData = new DiscountUpdateDto(
-        discountCode: 'String value',
-        series: 'String value',
-        description: 'String value',
-        discountBy: 'String value',
-        breakBy: 'String value',
-        promotional: true,
-        active: true,
-        prorateDiscount: true,
-        effectiveDate: '2025-11-22T10:40:04+00:00',
-        expirationDate: '2025-11-22T10:40:04+00:00',
-        discountBreakpoints: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         DiscountUpdateDiscountsBydiscountCodeseriesRequest::class => MockResponse::make([], 201),

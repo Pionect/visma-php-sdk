@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Dto\KitAssemblyInsertDto;
 use Pionect\VismaSdk\Dto\KitAssemblyUpdateDto;
 use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyDeleteBytyperefNoRequest;
 use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyGetKitAssembliesRequest;
@@ -55,11 +56,12 @@ it('calls the kitAssemblyGetKitAssembliesRequest method in the KitAssembly resou
 });
 
 it('calls the kitAssemblyPostRequest method in the KitAssembly resource', function () {
-    $bodyData = new KitAssemblyUpdateDto(
+    $bodyData = new KitAssemblyInsertDto(
+        kitAssemblyLink: null,
         type: 'String value',
         refNo: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: 'String value',
         itemId: 'mock-id-123',
         revision: 'String value',
@@ -158,7 +160,7 @@ it('calls the kitAssemblyPutBytyperefNoRequest method in the KitAssembly resourc
         type: 'String value',
         refNo: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: 'String value',
         itemId: 'mock-id-123',
         revision: 'String value',
@@ -209,25 +211,7 @@ it('calls the kitAssemblyDeleteBytyperefNoRequest method in the KitAssembly reso
 });
 
 it('calls the kitAssemblyReleaseKitAssemblyBytyperefNoRequest method in the KitAssembly resource', function () {
-    $bodyData = new KitAssemblyUpdateDto(
-        type: 'String value',
-        refNo: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        postPeriod: 'String value',
-        itemId: 'mock-id-123',
-        revision: 'String value',
-        reasonCode: 'String value',
-        description: 'String value',
-        warehouse: 'String value',
-        location: 'String value',
-        uoM: 'String value',
-        quantity: 42,
-        stockComponentLines: [],
-        stockComponentAllocations: [],
-        nonStockComponentLines: [],
-        kitAllocations: []
-    );
+    $bodyData = [];
 
     Saloon::fake([
         KitAssemblyReleaseKitAssemblyBytyperefNoRequest::class => MockResponse::make([], 201),

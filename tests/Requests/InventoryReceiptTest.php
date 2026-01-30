@@ -223,19 +223,7 @@ it('calls the inventoryReceiptPostRequest method in the InventoryReceipt resourc
 });
 
 it('calls the inventoryReceiptReleaseDocumentByinvoiceNumberRequest method in the InventoryReceipt resource', function () {
-    $bodyData = new InventoryReceiptUpdateDto(
-        transferNumber: null,
-        controlCost: null,
-        receiptLines: [],
-        referenceNumber: null,
-        hold: null,
-        date: null,
-        postPeriod: null,
-        externalReference: null,
-        description: null,
-        controlQuantity: null,
-        branchNumber: null
-    );
+    $bodyData = [];
 
     Saloon::fake([
         InventoryReceiptReleaseDocumentByinvoiceNumberRequest::class => MockResponse::make([], 201),

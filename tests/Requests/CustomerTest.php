@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Dto\ChangeCustomerCdActionDto;
+use Pionect\VismaSdk\Dto\CreateDunningLetterActionDto;
 use Pionect\VismaSdk\Dto\CustomerUpdateDto;
 use Pionect\VismaSdk\Requests\Customer\CustomerChangeCustomerNrActionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerCreateDunningLetterActionBycustomerRequest;
@@ -1720,49 +1722,10 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
 });
 
 it('calls the customerCreateDunningLetterActionBycustomerRequest method in the Customer resource', function () {
-    $bodyData = new CustomerUpdateDto(
-        number: 'String value',
-        name: 'String value',
-        status: 'String value',
-        accountReference: 'String value',
-        numberOfEmployees: 42,
-        parentRecordNumber: 'String value',
-        currencyId: 'mock-id-123',
-        creditLimit: 42,
-        creditDaysPastDue: 42,
-        overrideWithClassValues: true,
-        customerClassId: 'mock-id-123',
-        creditTermsId: 'mock-id-123',
-        printInvoices: true,
-        acceptAutoInvoices: true,
-        sendInvoicesByEmail: true,
-        sendDunningLettersViaEmail: true,
-        printDunningLetters: true,
-        printStatements: true,
-        sendStatementsByEmail: true,
-        printMultiCurrencyStatements: true,
-        invoiceToDefaultLocation: true,
-        vatRegistrationId: 'mock-id-123',
-        corporateId: 'mock-id-123',
-        vatZoneId: 'mock-id-123',
-        gln: 'String value',
-        note: 'String value',
-        mainAddress: null,
-        mainContact: null,
-        creditVerification: 'String value',
-        invoiceAddress: null,
-        invoiceContact: null,
-        statementType: 'String value',
-        deliveryAddress: null,
-        deliveryContact: null,
-        priceClassId: 'mock-id-123',
-        eInvoiceContract: null,
-        defaultPaymentMethod: null,
-        glAccounts: null,
-        directDebitLines: [],
-        attributeLines: [],
-        overrideNumberSeries: true,
-        excludeDebtCollection: true
+    $bodyData = new CreateDunningLetterActionDto(
+        dunningLetterDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        levelFrom: 42,
+        levelTo: 42
     );
 
     Saloon::fake([
@@ -1782,49 +1745,8 @@ it('calls the customerCreateDunningLetterActionBycustomerRequest method in the C
 });
 
 it('calls the customerChangeCustomerNrActionByinternalIdRequest method in the Customer resource', function () {
-    $bodyData = new CustomerUpdateDto(
-        number: 'String value',
-        name: 'String value',
-        status: 'String value',
-        accountReference: 'String value',
-        numberOfEmployees: 42,
-        parentRecordNumber: 'String value',
-        currencyId: 'mock-id-123',
-        creditLimit: 42,
-        creditDaysPastDue: 42,
-        overrideWithClassValues: true,
-        customerClassId: 'mock-id-123',
-        creditTermsId: 'mock-id-123',
-        printInvoices: true,
-        acceptAutoInvoices: true,
-        sendInvoicesByEmail: true,
-        sendDunningLettersViaEmail: true,
-        printDunningLetters: true,
-        printStatements: true,
-        sendStatementsByEmail: true,
-        printMultiCurrencyStatements: true,
-        invoiceToDefaultLocation: true,
-        vatRegistrationId: 'mock-id-123',
-        corporateId: 'mock-id-123',
-        vatZoneId: 'mock-id-123',
-        gln: 'String value',
-        note: 'String value',
-        mainAddress: null,
-        mainContact: null,
-        creditVerification: 'String value',
-        invoiceAddress: null,
-        invoiceContact: null,
-        statementType: 'String value',
-        deliveryAddress: null,
-        deliveryContact: null,
-        priceClassId: 'mock-id-123',
-        eInvoiceContract: null,
-        defaultPaymentMethod: null,
-        glAccounts: null,
-        directDebitLines: [],
-        attributeLines: [],
-        overrideNumberSeries: true,
-        excludeDebtCollection: true
+    $bodyData = new ChangeCustomerCdActionDto(
+        customerCd: 'String value'
     );
 
     Saloon::fake([

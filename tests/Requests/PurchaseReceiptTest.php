@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Dto\PurchaseReceiptOrderLinesListUpdateDto;
+use Pionect\VismaSdk\Dto\PurchaseReceiptOrderListUpdateDto;
 use Pionect\VismaSdk\Dto\PurchaseReceiptUpdateDto;
 use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest;
 use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptAddPurchaseOrdersByreceiptNumberRequest;
@@ -118,7 +120,7 @@ it('calls the purchaseReceiptPutByreceiptNumberRequest method in the PurchaseRec
         receiptType: 'String value',
         receiptNbr: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: null,
         warehouseId: 'mock-id-123',
         supplierId: 'mock-id-123',
@@ -139,7 +141,7 @@ it('calls the purchaseReceiptPutByreceiptNumberRequest method in the PurchaseRec
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
 
@@ -320,7 +322,7 @@ it('calls the purchaseReceiptPostRequest method in the PurchaseReceipt resource'
         receiptType: 'String value',
         receiptNbr: 'String value',
         hold: true,
-        date: '2025-11-22T10:40:04+00:00',
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         postPeriod: null,
         warehouseId: 'mock-id-123',
         supplierId: 'mock-id-123',
@@ -341,7 +343,7 @@ it('calls the purchaseReceiptPostRequest method in the PurchaseReceipt resource'
         customDec2: null,
         customInt1: null,
         customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
 
@@ -454,37 +456,7 @@ it('calls the purchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest method i
 });
 
 it('calls the purchaseReceiptReleaseReceiptByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
-    $bodyData = new PurchaseReceiptUpdateDto(
-        lines: [],
-        landedCost: [],
-        note: 'String value',
-        receiptType: 'String value',
-        receiptNbr: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        warehouseId: 'mock-id-123',
-        supplierId: 'mock-id-123',
-        locationId: 'mock-id-123',
-        currency: 'String value',
-        exchangeRate: 42,
-        createBill: true,
-        supplierRef: 'String value',
-        controlQty: 42,
-        controlAmount: 42,
-        branchNumber: 'String value',
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
-        timeStamp: 'String value'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         PurchaseReceiptReleaseReceiptByreceiptNumberRequest::class => MockResponse::make([], 201),
@@ -503,37 +475,7 @@ it('calls the purchaseReceiptReleaseReceiptByreceiptNumberRequest method in the 
 });
 
 it('calls the purchaseReceiptCancelReceiptByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
-    $bodyData = new PurchaseReceiptUpdateDto(
-        lines: [],
-        landedCost: [],
-        note: 'String value',
-        receiptType: 'String value',
-        receiptNbr: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        warehouseId: 'mock-id-123',
-        supplierId: 'mock-id-123',
-        locationId: 'mock-id-123',
-        currency: 'String value',
-        exchangeRate: 42,
-        createBill: true,
-        supplierRef: 'String value',
-        controlQty: 42,
-        controlAmount: 42,
-        branchNumber: 'String value',
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
-        timeStamp: 'String value'
-    );
+    $bodyData = [];
 
     Saloon::fake([
         PurchaseReceiptCancelReceiptByreceiptNumberRequest::class => MockResponse::make([], 201),
@@ -552,36 +494,8 @@ it('calls the purchaseReceiptCancelReceiptByreceiptNumberRequest method in the P
 });
 
 it('calls the purchaseReceiptAddPurchaseOrdersByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
-    $bodyData = new PurchaseReceiptUpdateDto(
-        lines: [],
-        landedCost: [],
-        note: 'String value',
-        receiptType: 'String value',
-        receiptNbr: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        warehouseId: 'mock-id-123',
-        supplierId: 'mock-id-123',
-        locationId: 'mock-id-123',
-        currency: 'String value',
-        exchangeRate: 42,
-        createBill: true,
-        supplierRef: 'String value',
-        controlQty: 42,
-        controlAmount: 42,
-        branchNumber: 'String value',
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
-        timeStamp: 'String value'
+    $bodyData = new PurchaseReceiptOrderListUpdateDto(
+        purchaseOrders: []
     );
 
     Saloon::fake([
@@ -601,36 +515,8 @@ it('calls the purchaseReceiptAddPurchaseOrdersByreceiptNumberRequest method in t
 });
 
 it('calls the purchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
-    $bodyData = new PurchaseReceiptUpdateDto(
-        lines: [],
-        landedCost: [],
-        note: 'String value',
-        receiptType: 'String value',
-        receiptNbr: 'String value',
-        hold: true,
-        date: '2025-11-22T10:40:04+00:00',
-        postPeriod: null,
-        warehouseId: 'mock-id-123',
-        supplierId: 'mock-id-123',
-        locationId: 'mock-id-123',
-        currency: 'String value',
-        exchangeRate: 42,
-        createBill: true,
-        supplierRef: 'String value',
-        controlQty: 42,
-        controlAmount: 42,
-        branchNumber: 'String value',
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
-        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
-        timeStamp: 'String value'
+    $bodyData = new PurchaseReceiptOrderLinesListUpdateDto(
+        purchaseOrderLines: []
     );
 
     Saloon::fake([

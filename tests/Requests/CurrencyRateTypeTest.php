@@ -1,6 +1,6 @@
 <?php
 
-use Pionect\VismaSdk\Dto\CurrencyRateTypeDto;
+use Pionect\VismaSdk\Dto\CreateCurrencyRateTypeDto;
 use Pionect\VismaSdk\Requests\CurrencyRateType\CurrencyRateTypeGetAllRequest;
 use Pionect\VismaSdk\Requests\CurrencyRateType\CurrencyRateTypePostRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -42,9 +42,9 @@ it('calls the currencyRateTypeGetAllRequest method in the CurrencyRateType resou
 });
 
 it('calls the currencyRateTypePostRequest method in the CurrencyRateType resource', function () {
-    $bodyData = new CurrencyRateTypeDto(
-        description: 'String value',
-        daysEffective: 42
+    $bodyData = new CreateCurrencyRateTypeDto(
+        description: null,
+        daysEffective: null
     );
 
     Saloon::fake([
