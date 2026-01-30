@@ -14,7 +14,7 @@ class CustSalesPersonsDtoFactory extends Factory
             'name' => $this->faker->name(),
             'locationId' => $this->faker->uuid(),
             'locationName' => $this->faker->company(),
-            'commisionPct' => $this->faker->randomFloat(2, 0, 1000),
+            'commisionPct' => null,
             'isDefault' => $this->faker->boolean(),
             'errorInfo' => $this->faker->word(),
         ];

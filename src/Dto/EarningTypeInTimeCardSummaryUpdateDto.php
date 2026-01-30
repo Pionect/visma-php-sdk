@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EarningTypeInTimeCardSummaryUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\EarningTypeInTimeCardSummaryUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\EarningTypeInTimeCardSummaryUpdateDtoFactory testFactory()
  */
 class EarningTypeInTimeCardSummaryUpdateDto extends Model
 {

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LotSerialClassQueryParametersFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LotSerialClassQueryParametersFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LotSerialClassQueryParametersFactory testFactory()
  */
 class LotSerialClassQueryParameters extends Model
 {

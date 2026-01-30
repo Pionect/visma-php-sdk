@@ -12,7 +12,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SupplierUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SupplierUpdateDtoFactory testFactory()
  */
 class SupplierUpdateDto extends Model
 {

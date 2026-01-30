@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\JournalTransactionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\JournalTransactionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\JournalTransactionDtoFactory testFactory()
  */
 class JournalTransactionDto extends Model
 {

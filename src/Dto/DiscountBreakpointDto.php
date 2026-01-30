@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountBreakpointDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DiscountBreakpointDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DiscountBreakpointDtoFactory testFactory()
  */
 class DiscountBreakpointDto extends Model
 {

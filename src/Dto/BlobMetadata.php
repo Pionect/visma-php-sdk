@@ -8,7 +8,7 @@ use Spatie\LaravelData\Attributes\MapName;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BlobMetadataFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BlobMetadataFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BlobMetadataFactory testFactory()
  */
 class BlobMetadata extends Model
 {

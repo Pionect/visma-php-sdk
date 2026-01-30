@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomStr4inShipmentCreateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CustomStr4inShipmentCreateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CustomStr4inShipmentCreateDtoFactory testFactory()
  */
 class CustomStr4inShipmentCreateDto extends Model
 {

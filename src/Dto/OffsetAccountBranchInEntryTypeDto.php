@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetAccountBranchInEntryTypeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\OffsetAccountBranchInEntryTypeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\OffsetAccountBranchInEntryTypeDtoFactory testFactory()
  */
 class OffsetAccountBranchInEntryTypeDto extends Model
 {

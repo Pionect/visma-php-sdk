@@ -13,9 +13,9 @@ class AllocationsDtoFactory extends Factory
         return [
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'itemId' => $this->faker->uuid(),
-            'location' => LocationInAllocationsDtoFactory::new()->make(),
+            'location' => null,
             'lotSerialNumber' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'uom' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'description' => $this->faker->sentence(),

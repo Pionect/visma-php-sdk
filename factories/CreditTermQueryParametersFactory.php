@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CreditTermQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -11,9 +10,9 @@ class CreditTermQueryParametersFactory extends Factory
     protected function definition(): array
     {
         return [
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
-            'createdDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'createdDateTime' => $this->faker->word(),
             'createdDateTimeCondition' => $this->faker->word(),
             'termsId' => $this->faker->uuid(),
             'pageNumber' => $this->faker->numberBetween(1, 100),

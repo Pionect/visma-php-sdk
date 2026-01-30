@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CostPriceStatisticsInInventoryDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CostPriceStatisticsInInventoryDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CostPriceStatisticsInInventoryDtoFactory testFactory()
  */
 class CostPriceStatisticsInInventoryDto extends Model
 {

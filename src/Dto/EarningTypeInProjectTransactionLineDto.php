@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EarningTypeInProjectTransactionLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\EarningTypeInProjectTransactionLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\EarningTypeInProjectTransactionLineDtoFactory testFactory()
  */
 class EarningTypeInProjectTransactionLineDto extends Model
 {

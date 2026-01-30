@@ -10,7 +10,7 @@ use Spatie\LaravelData\Attributes\MapName;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectBasicDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ProjectBasicDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ProjectBasicDtoFactory testFactory()
  */
 class ProjectBasicDto extends Model
 {

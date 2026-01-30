@@ -17,8 +17,8 @@ class InventoryUnitDtoFactory extends Factory
             'sampleToUnit' => $this->faker->word(),
             'fromUnit' => $this->faker->word(),
             'unitMultDiv' => $this->faker->word(),
-            'unitRate' => $this->faker->randomFloat(2, 0, 1000),
-            'priceAdjustmentMultiplier' => $this->faker->randomFloat(2, 0, 1000),
+            'unitRate' => null,
+            'priceAdjustmentMultiplier' => null,
             'recordId' => $this->faker->numberBetween(1, 1000),
         ];
     }

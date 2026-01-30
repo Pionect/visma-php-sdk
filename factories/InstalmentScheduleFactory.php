@@ -11,7 +11,7 @@ class InstalmentScheduleFactory extends Factory
     {
         return [
             'days' => $this->faker->numberBetween(1, 100),
-            'percent' => $this->faker->randomFloat(2, 0, 1000),
+            'percent' => null,
         ];
     }
 

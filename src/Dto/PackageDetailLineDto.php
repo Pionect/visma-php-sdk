@@ -8,7 +8,7 @@ use Spatie\LaravelData\Attributes\MapName;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PackageDetailLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PackageDetailLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PackageDetailLineDtoFactory testFactory()
  */
 class PackageDetailLineDto extends Model
 {

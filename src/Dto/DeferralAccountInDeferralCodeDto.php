@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DeferralAccountInDeferralCodeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DeferralAccountInDeferralCodeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DeferralAccountInDeferralCodeDtoFactory testFactory()
  */
 class DeferralAccountInDeferralCodeDto extends Model
 {

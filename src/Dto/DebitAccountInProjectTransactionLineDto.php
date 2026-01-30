@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DebitAccountInProjectTransactionLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DebitAccountInProjectTransactionLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DebitAccountInProjectTransactionLineDtoFactory testFactory()
  */
 class DebitAccountInProjectTransactionLineDto extends Model
 {

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PutTimeCardOnHoldActionResultDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PutTimeCardOnHoldActionResultDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PutTimeCardOnHoldActionResultDtoFactory testFactory()
  */
 class PutTimeCardOnHoldActionResultDto extends Model
 {

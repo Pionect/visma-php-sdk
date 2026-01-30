@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PrebookingUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PrebookingUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PrebookingUpdateDtoFactory testFactory()
  */
 class PrebookingUpdateDto extends Model
 {

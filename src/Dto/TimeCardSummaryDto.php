@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TimeCardSummaryDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\TimeCardSummaryDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\TimeCardSummaryDtoFactory testFactory()
  */
 class TimeCardSummaryDto extends Model
 {

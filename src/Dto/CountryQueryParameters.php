@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CountryQueryParametersFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CountryQueryParametersFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CountryQueryParametersFactory testFactory()
  */
 class CountryQueryParameters extends Model
 {

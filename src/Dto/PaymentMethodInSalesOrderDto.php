@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PaymentMethodInSalesOrderDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PaymentMethodInSalesOrderDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PaymentMethodInSalesOrderDtoFactory testFactory()
  */
 class PaymentMethodInSalesOrderDto extends Model
 {

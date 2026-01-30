@@ -14,13 +14,13 @@ class KitAssemblyNonStockComponentDtoFactory extends Factory
             'itemId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
             'uoM' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
-            'unitCost' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
+            'unitCost' => null,
             'reasonCode' => $this->faker->word(),
-            'componentQty' => $this->faker->randomFloat(2, 0, 1000),
+            'componentQty' => null,
             'allowComponentQtyVariance' => $this->faker->boolean(),
-            'minComponentQty' => $this->faker->randomFloat(2, 0, 1000),
-            'maxComponentQty' => $this->faker->randomFloat(2, 0, 1000),
+            'minComponentQty' => null,
+            'maxComponentQty' => null,
             'errorInfo' => $this->faker->word(),
         ];
     }

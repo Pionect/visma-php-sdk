@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\UnitOfMeasureDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\UnitOfMeasureDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\UnitOfMeasureDtoFactory testFactory()
  */
 class UnitOfMeasureDto extends Model
 {

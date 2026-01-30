@@ -10,7 +10,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CompanyTreeInfoDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CompanyTreeInfoDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CompanyTreeInfoDtoFactory testFactory()
  */
 class CompanyTreeInfoDto extends Model
 {

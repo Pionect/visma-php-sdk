@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AnalisysCodeInfoInAccountDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\AnalisysCodeInfoInAccountDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\AnalisysCodeInfoInAccountDtoFactory testFactory()
  */
 class AnalisysCodeInfoInAccountDto extends Model
 {

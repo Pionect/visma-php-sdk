@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\EmployeeTimeCardQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -18,7 +17,7 @@ class EmployeeTimeCardQueryParametersFactory extends Factory
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'orderBy' => $this->faker->word(),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'employeeCd' => $this->faker->word(),
         ];

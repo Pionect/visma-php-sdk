@@ -11,7 +11,7 @@ use Spatie\LaravelData\Attributes\MapName;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ClaimedByInExpenseReceiptDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ClaimedByInExpenseReceiptDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ClaimedByInExpenseReceiptDtoFactory testFactory()
  */
 class ClaimedByInExpenseReceiptDto extends Model
 {

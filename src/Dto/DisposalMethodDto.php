@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DisposalMethodDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DisposalMethodDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DisposalMethodDtoFactory testFactory()
  */
 class DisposalMethodDto extends Model
 {

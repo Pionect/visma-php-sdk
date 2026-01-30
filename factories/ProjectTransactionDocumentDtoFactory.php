@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ProjectTransactionDocumentDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -18,7 +17,7 @@ class ProjectTransactionDocumentDtoFactory extends Factory
             'module' => $this->faker->word(),
             'origDocType' => $this->faker->word(),
             'note' => $this->faker->word(),
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
             'lines' => [],
             'errorInfo' => $this->faker->word(),
         ];

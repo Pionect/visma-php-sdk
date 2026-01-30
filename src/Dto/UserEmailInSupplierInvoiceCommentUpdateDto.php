@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\UserEmailInSupplierInvoiceCommentUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\UserEmailInSupplierInvoiceCommentUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\UserEmailInSupplierInvoiceCommentUpdateDtoFactory testFactory()
  */
 class UserEmailInSupplierInvoiceCommentUpdateDto extends Model
 {

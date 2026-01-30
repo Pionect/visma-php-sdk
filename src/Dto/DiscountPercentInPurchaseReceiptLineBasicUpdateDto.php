@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountPercentInPurchaseReceiptLineBasicUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DiscountPercentInPurchaseReceiptLineBasicUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DiscountPercentInPurchaseReceiptLineBasicUpdateDtoFactory testFactory()
  */
 class DiscountPercentInPurchaseReceiptLineBasicUpdateDto extends Model
 {

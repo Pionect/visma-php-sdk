@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LineNbrInAllocationsUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LineNbrInAllocationsUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LineNbrInAllocationsUpdateDtoFactory testFactory()
  */
 class LineNbrInAllocationsUpdateDto extends Model
 {

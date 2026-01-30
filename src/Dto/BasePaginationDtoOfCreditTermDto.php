@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BasePaginationDtoOfCreditTermDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BasePaginationDtoOfCreditTermDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BasePaginationDtoOfCreditTermDtoFactory testFactory()
  */
 class BasePaginationDtoOfCreditTermDto extends Model
 {

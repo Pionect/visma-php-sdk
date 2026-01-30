@@ -17,7 +17,7 @@ class ContractUsageLineUpdateDtoFactory extends Factory
             'inventory' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'uom' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

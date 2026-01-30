@@ -20,7 +20,7 @@ class ContactDtoFactory extends Factory
             'businessAccount' => $this->faker->word(),
             'businessAccountType' => $this->faker->word(),
             'sameAsAccount' => $this->faker->boolean(),
-            'address' => AddressInContactDtoFactory::new()->make(),
+            'address' => null,
             'email' => $this->faker->safeEmail(),
             'web' => $this->faker->word(),
             'phone1' => $this->faker->word(),
@@ -36,7 +36,7 @@ class ContactDtoFactory extends Factory
             'noMarketing' => $this->faker->boolean(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'contactId' => $this->faker->numberBetween(1, 1000),
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
         ];
     }

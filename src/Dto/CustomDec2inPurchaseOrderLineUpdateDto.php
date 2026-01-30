@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomDec2inPurchaseOrderLineUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CustomDec2inPurchaseOrderLineUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CustomDec2inPurchaseOrderLineUpdateDtoFactory testFactory()
  */
 class CustomDec2inPurchaseOrderLineUpdateDto extends Model
 {

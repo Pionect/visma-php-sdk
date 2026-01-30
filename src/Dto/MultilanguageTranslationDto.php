@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\MultilanguageTranslationDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\MultilanguageTranslationDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\MultilanguageTranslationDtoFactory testFactory()
  */
 class MultilanguageTranslationDto extends Model
 {

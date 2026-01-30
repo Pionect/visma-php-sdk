@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EntryTypeInCashTransactionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\EntryTypeInCashTransactionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\EntryTypeInCashTransactionDtoFactory testFactory()
  */
 class EntryTypeInCashTransactionDto extends Model
 {

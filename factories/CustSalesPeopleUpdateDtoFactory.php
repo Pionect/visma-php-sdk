@@ -13,7 +13,7 @@ class CustSalesPeopleUpdateDtoFactory extends Factory
             'operation' => $this->faker->word(),
             'customerId' => $this->faker->uuid(),
             'locationId' => $this->faker->uuid(),
-            'commissionPct' => $this->faker->randomFloat(2, 0, 1000),
+            'commissionPct' => null,
         ];
     }
 

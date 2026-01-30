@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefSubInProjectDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DefSubInProjectDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DefSubInProjectDtoFactory testFactory()
  */
 class DefSubInProjectDto extends Model
 {

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCodeInInventoryUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VatCodeInInventoryUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VatCodeInInventoryUpdateDtoFactory testFactory()
  */
 class VatCodeInInventoryUpdateDto extends Model
 {

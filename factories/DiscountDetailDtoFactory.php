@@ -16,12 +16,12 @@ class DiscountDetailDtoFactory extends Factory
             'sequanceId' => $this->faker->uuid(),
             'type' => $this->faker->word(),
             'manualDiscount' => $this->faker->boolean(),
-            'discountableAmt' => $this->faker->randomFloat(2, 0, 1000),
-            'discountableQty' => $this->faker->randomFloat(2, 0, 1000),
-            'discountAmt' => $this->faker->randomFloat(2, 0, 1000),
-            'discount' => $this->faker->randomFloat(2, 0, 1000),
+            'discountableAmt' => null,
+            'discountableQty' => null,
+            'discountAmt' => null,
+            'discount' => null,
             'freeItem' => $this->faker->numberBetween(1, 100),
-            'freeItemQty' => $this->faker->randomFloat(2, 0, 1000),
+            'freeItemQty' => null,
         ];
     }
 

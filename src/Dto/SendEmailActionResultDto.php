@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SendEmailActionResultDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SendEmailActionResultDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SendEmailActionResultDtoFactory testFactory()
  */
 class SendEmailActionResultDto extends Model
 {

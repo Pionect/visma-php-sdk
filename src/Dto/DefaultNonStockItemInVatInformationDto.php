@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefaultNonStockItemInVatInformationDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DefaultNonStockItemInVatInformationDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DefaultNonStockItemInVatInformationDtoFactory testFactory()
  */
 class DefaultNonStockItemInVatInformationDto extends Model
 {

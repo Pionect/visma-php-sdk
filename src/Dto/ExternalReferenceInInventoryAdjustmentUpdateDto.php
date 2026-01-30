@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExternalReferenceInInventoryAdjustmentUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ExternalReferenceInInventoryAdjustmentUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ExternalReferenceInInventoryAdjustmentUpdateDtoFactory testFactory()
  */
 class ExternalReferenceInInventoryAdjustmentUpdateDto extends Model
 {

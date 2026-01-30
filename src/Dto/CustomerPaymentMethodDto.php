@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerPaymentMethodDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CustomerPaymentMethodDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CustomerPaymentMethodDtoFactory testFactory()
  */
 class CustomerPaymentMethodDto extends Model
 {

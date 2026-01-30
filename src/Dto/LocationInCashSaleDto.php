@@ -13,7 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInCashSaleDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LocationInCashSaleDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LocationInCashSaleDtoFactory testFactory()
  */
 class LocationInCashSaleDto extends Model
 {

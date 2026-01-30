@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryItemInInventoryTransferLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\InventoryItemInInventoryTransferLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\InventoryItemInInventoryTransferLineDtoFactory testFactory()
  */
 class InventoryItemInInventoryTransferLineDto extends Model
 {

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\GeneralLedgerTransactionsQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -17,13 +16,13 @@ class GeneralLedgerTransactionsQueryParametersFactory extends Factory
             'toPeriod' => $this->faker->word(),
             'account' => $this->faker->word(),
             'subaccountId' => $this->faker->uuid(),
-            'fromDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'toDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'fromDate' => $this->faker->word(),
+            'toDate' => $this->faker->word(),
             'includeUnposted' => $this->faker->boolean(),
             'includeUnreleased' => $this->faker->boolean(),
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'numberToRead' => $this->faker->numberBetween(1, 100),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'expandAccountInfo' => $this->faker->boolean(),
             'expandBranchInfo' => $this->faker->boolean(),

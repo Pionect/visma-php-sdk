@@ -17,7 +17,7 @@ class SubaccountInSupplierAccountDtoFactory extends Factory
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'active' => $this->faker->boolean(),
             'segments' => [],
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
         ];
     }

@@ -12,7 +12,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplementaryMeasureUnitInIntrastatUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SupplementaryMeasureUnitInIntrastatUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SupplementaryMeasureUnitInIntrastatUpdateDtoFactory testFactory()
  */
 class SupplementaryMeasureUnitInIntrastatUpdateDto extends Model
 {

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetPropertyTaxDetailsDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\FixedAssetPropertyTaxDetailsDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\FixedAssetPropertyTaxDetailsDtoFactory testFactory()
  */
 class FixedAssetPropertyTaxDetailsDto extends Model
 {

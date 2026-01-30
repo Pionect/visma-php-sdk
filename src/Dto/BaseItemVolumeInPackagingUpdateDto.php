@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BaseItemVolumeInPackagingUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BaseItemVolumeInPackagingUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BaseItemVolumeInPackagingUpdateDtoFactory testFactory()
  */
 class BaseItemVolumeInPackagingUpdateDto extends Model
 {

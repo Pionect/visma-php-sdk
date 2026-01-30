@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SigmaIntrastatTransactionDescriptionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SigmaIntrastatTransactionDescriptionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SigmaIntrastatTransactionDescriptionDtoFactory testFactory()
  */
 class SigmaIntrastatTransactionDescriptionDto extends Model
 {

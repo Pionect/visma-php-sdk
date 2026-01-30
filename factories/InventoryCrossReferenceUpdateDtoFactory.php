@@ -10,7 +10,7 @@ class InventoryCrossReferenceUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'alternateType' => AlternateTypeInInventoryCrossReferenceUpdateDtoFactory::new()->make(),
+            'alternateType' => null,
             'bAccount' => $this->faker->word(),
             'alternateId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),

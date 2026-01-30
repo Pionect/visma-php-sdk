@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CompletePoLineInPurchaseReceiptLineBasicUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CompletePoLineInPurchaseReceiptLineBasicUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CompletePoLineInPurchaseReceiptLineBasicUpdateDtoFactory testFactory()
  */
 class CompletePoLineInPurchaseReceiptLineBasicUpdateDto extends Model
 {

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExpenseReceiptQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -12,7 +11,7 @@ class ExpenseReceiptQueryParametersFactory extends Factory
     {
         return [
             'date' => $this->faker->word(),
-            'dateCondition' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'dateCondition' => $this->faker->word(),
             'inventory' => $this->faker->word(),
             'project' => $this->faker->word(),
             'claimedBy' => $this->faker->word(),

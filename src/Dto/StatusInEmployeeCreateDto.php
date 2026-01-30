@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\StatusInEmployeeCreateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\StatusInEmployeeCreateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\StatusInEmployeeCreateDtoFactory testFactory()
  */
 class StatusInEmployeeCreateDto extends Model
 {

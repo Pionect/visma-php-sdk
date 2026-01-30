@@ -14,7 +14,7 @@ class LotSerialClassDtoFactory extends Factory
             'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'trackingMethod' => $this->faker->word(),
-            'trackExpirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'trackExpirationDate' => $this->faker->boolean(),
             'requiredForDropShip' => $this->faker->boolean(),
             'assignmentMethod' => $this->faker->word(),
             'issueMethod' => $this->faker->word(),

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\IntrastatInInventoryDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\IntrastatInInventoryDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\IntrastatInInventoryDtoFactory testFactory()
  */
 class IntrastatInInventoryDto extends Model
 {

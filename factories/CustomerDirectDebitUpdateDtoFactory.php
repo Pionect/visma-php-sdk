@@ -17,11 +17,11 @@ class CustomerDirectDebitUpdateDtoFactory extends Factory
             'mandateDescription' => $this->faker->sentence(),
             'dateOfSignature' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'isDefault' => $this->faker->boolean(),
-            'oneTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'oneTime' => $this->faker->boolean(),
             'bic' => $this->faker->word(),
             'iban' => $this->faker->word(),
             'lastCollectionDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'maxAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'maxAmount' => null,
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'branch' => $this->faker->word(),
         ];

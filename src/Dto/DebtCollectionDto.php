@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DebtCollectionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DebtCollectionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DebtCollectionDtoFactory testFactory()
  */
 class DebtCollectionDto extends Model
 {

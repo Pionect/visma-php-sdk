@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OverrideNumberSeriesInCustomerInvoiceUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\OverrideNumberSeriesInCustomerInvoiceUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\OverrideNumberSeriesInCustomerInvoiceUpdateDtoFactory testFactory()
  */
 class OverrideNumberSeriesInCustomerInvoiceUpdateDto extends Model
 {

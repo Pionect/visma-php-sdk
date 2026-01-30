@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WeekInTimeCardDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\WeekInTimeCardDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\WeekInTimeCardDtoFactory testFactory()
  */
 class WeekInTimeCardDto extends Model
 {

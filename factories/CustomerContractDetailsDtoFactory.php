@@ -13,13 +13,13 @@ class CustomerContractDetailsDtoFactory extends Factory
         return [
             'effectiveFrom' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'promoCode' => PromoCodeIdDescriptionDtoFactory::new()->make(),
-            'pendingSetup' => $this->faker->randomFloat(2, 0, 1000),
-            'pendingRecurring' => $this->faker->randomFloat(2, 0, 1000),
-            'pendingRenewal' => $this->faker->randomFloat(2, 0, 1000),
-            'totalPending' => $this->faker->randomFloat(2, 0, 1000),
-            'currentSetup' => $this->faker->randomFloat(2, 0, 1000),
-            'currentRecurring' => $this->faker->randomFloat(2, 0, 1000),
-            'currentRenewal' => $this->faker->randomFloat(2, 0, 1000),
+            'pendingSetup' => null,
+            'pendingRecurring' => null,
+            'pendingRenewal' => null,
+            'totalPending' => null,
+            'currentSetup' => null,
+            'currentRecurring' => null,
+            'currentRenewal' => null,
             'lines' => [],
         ];
     }

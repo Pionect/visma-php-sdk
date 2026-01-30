@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ValidateLineDetailsInSupplierInvoiceUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ValidateLineDetailsInSupplierInvoiceUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ValidateLineDetailsInSupplierInvoiceUpdateDtoFactory testFactory()
  */
 class ValidateLineDetailsInSupplierInvoiceUpdateDto extends Model
 {

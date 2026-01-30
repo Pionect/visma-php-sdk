@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\StocktakeLineV2dtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\StocktakeLineV2dtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\StocktakeLineV2dtoFactory testFactory()
  */
 class StocktakeLineV2dto extends Model
 {

@@ -17,7 +17,7 @@ class CustomerUpdateDtoFactory extends Factory
             'numberOfEmployees' => $this->faker->numberBetween(1, 100),
             'parentRecordNumber' => $this->faker->word(),
             'currencyId' => $this->faker->uuid(),
-            'creditLimit' => $this->faker->randomFloat(2, 0, 1000),
+            'creditLimit' => null,
             'creditDaysPastDue' => $this->faker->numberBetween(1, 100),
             'overrideWithClassValues' => $this->faker->boolean(),
             'customerClassId' => $this->faker->uuid(),

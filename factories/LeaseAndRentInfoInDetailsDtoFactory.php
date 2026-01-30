@@ -14,8 +14,8 @@ class LeaseAndRentInfoInDetailsDtoFactory extends Factory
             'lessorName' => $this->faker->company(),
             'leaseRentTerm' => $this->faker->numberBetween(1, 100),
             'leaseNumber' => $this->faker->word(),
-            'rentAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'retailCost' => $this->faker->randomFloat(2, 0, 1000),
+            'rentAmount' => null,
+            'retailCost' => null,
             'manufacturingYear' => $this->faker->word(),
         ];
     }

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxCategoryInPurchaseReceiptLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\TaxCategoryInPurchaseReceiptLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\TaxCategoryInPurchaseReceiptLineDtoFactory testFactory()
  */
 class TaxCategoryInPurchaseReceiptLineDto extends Model
 {

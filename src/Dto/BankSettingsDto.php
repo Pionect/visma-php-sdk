@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BankSettingsDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BankSettingsDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BankSettingsDtoFactory testFactory()
  */
 class BankSettingsDto extends Model
 {

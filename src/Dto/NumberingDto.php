@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\NumberingDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\NumberingDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\NumberingDtoFactory testFactory()
  */
 class NumberingDto extends Model
 {

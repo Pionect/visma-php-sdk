@@ -14,8 +14,8 @@ class KitAssemblyNonStockComponentsUpdateDtoFactory extends Factory
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'itemId' => $this->faker->uuid(),
             'uoM' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
-            'unitCost' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
+            'unitCost' => null,
             'reasonCode' => $this->faker->word(),
         ];
     }

@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FinancialPeriodInCustomerOverdueChargeUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\FinancialPeriodInCustomerOverdueChargeUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\FinancialPeriodInCustomerOverdueChargeUpdateDtoFactory testFactory()
  */
 class FinancialPeriodInCustomerOverdueChargeUpdateDto extends Model
 {

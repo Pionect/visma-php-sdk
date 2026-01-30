@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AllocationRuleInProjectDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\AllocationRuleInProjectDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\AllocationRuleInProjectDtoFactory testFactory()
  */
 class AllocationRuleInProjectDto extends Model
 {

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WithoutWithVatDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\WithoutWithVatDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\WithoutWithVatDtoFactory testFactory()
  */
 class WithoutWithVatDto extends Model
 {

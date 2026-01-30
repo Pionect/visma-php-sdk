@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CurrencyInPaymentUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CurrencyInPaymentUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CurrencyInPaymentUpdateDtoFactory testFactory()
  */
 class CurrencyInPaymentUpdateDto extends Model
 {

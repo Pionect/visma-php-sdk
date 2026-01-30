@@ -11,7 +11,7 @@ class FinancialPeriodAmountDtoFactory extends Factory
     {
         return [
             'periodId' => $this->faker->uuid(),
-            'amount' => $this->faker->randomFloat(2, 0, 1000),
+            'amount' => null,
         ];
     }
 

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseAccountInInventoryUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ExpenseAccountInInventoryUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ExpenseAccountInInventoryUpdateDtoFactory testFactory()
  */
 class ExpenseAccountInInventoryUpdateDto extends Model
 {

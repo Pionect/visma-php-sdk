@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInExpenseReceiptDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LocationInExpenseReceiptDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LocationInExpenseReceiptDtoFactory testFactory()
  */
 class LocationInExpenseReceiptDto extends Model
 {

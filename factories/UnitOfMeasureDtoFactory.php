@@ -13,7 +13,7 @@ class UnitOfMeasureDtoFactory extends Factory
             'fromUnit' => $this->faker->word(),
             'toUnit' => $this->faker->word(),
             'unitMultDiv' => $this->faker->word(),
-            'unitRate' => $this->faker->randomFloat(2, 0, 1000),
+            'unitRate' => null,
             'supplementaryMeasureUnit' => $this->faker->word(),
         ];
     }

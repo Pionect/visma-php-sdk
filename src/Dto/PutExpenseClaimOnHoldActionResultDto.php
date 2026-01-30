@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PutExpenseClaimOnHoldActionResultDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PutExpenseClaimOnHoldActionResultDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PutExpenseClaimOnHoldActionResultDtoFactory testFactory()
  */
 class PutExpenseClaimOnHoldActionResultDto extends Model
 {

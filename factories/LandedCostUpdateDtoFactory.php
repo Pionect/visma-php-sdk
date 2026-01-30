@@ -20,7 +20,7 @@ class LandedCostUpdateDtoFactory extends Factory
             'locationId' => $this->faker->uuid(),
             'apBillDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'currency' => $this->faker->word(),
-            'amount' => $this->faker->randomFloat(2, 0, 1000),
+            'amount' => null,
             'taxCategory' => $this->faker->word(),
             'terms' => $this->faker->word(),
             'inventoryId' => $this->faker->uuid(),

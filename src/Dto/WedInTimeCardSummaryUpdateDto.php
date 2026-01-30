@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WedInTimeCardSummaryUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\WedInTimeCardSummaryUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\WedInTimeCardSummaryUpdateDtoFactory testFactory()
  */
 class WedInTimeCardSummaryUpdateDto extends Model
 {

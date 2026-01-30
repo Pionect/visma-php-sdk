@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatInformationScheduleDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VatInformationScheduleDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VatInformationScheduleDtoFactory testFactory()
  */
 class VatInformationScheduleDto extends Model
 {

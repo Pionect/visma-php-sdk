@@ -13,7 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInCreditNoteDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LocationInCreditNoteDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LocationInCreditNoteDtoFactory testFactory()
  */
 class LocationInCreditNoteDto extends Model
 {

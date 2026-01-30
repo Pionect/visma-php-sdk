@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxInCashTranTaxDetailDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\TaxInCashTranTaxDetailDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\TaxInCashTranTaxDetailDtoFactory testFactory()
  */
 class TaxInCashTranTaxDetailDto extends Model
 {

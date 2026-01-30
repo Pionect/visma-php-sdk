@@ -10,7 +10,7 @@ use Spatie\LaravelData\Attributes\MapName;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseOrderBasicDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PurchaseOrderBasicDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PurchaseOrderBasicDtoFactory testFactory()
  */
 class PurchaseOrderBasicDto extends Model
 {

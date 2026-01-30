@@ -12,10 +12,10 @@ class InventoryIssueLineUpdateDtoFactory extends Factory
     {
         return [
             'warehouseId' => $this->faker->uuid(),
-            'unitCost' => $this->faker->randomFloat(2, 0, 1000),
-            'extCost' => $this->faker->randomFloat(2, 0, 1000),
-            'unitPrice' => $this->faker->randomFloat(2, 0, 1000),
-            'extPrice' => $this->faker->randomFloat(2, 0, 1000),
+            'unitCost' => null,
+            'extCost' => null,
+            'unitPrice' => null,
+            'extPrice' => null,
             'tranType' => $this->faker->word(),
             'lotSerialNumber' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
@@ -25,7 +25,7 @@ class InventoryIssueLineUpdateDtoFactory extends Factory
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'inventoryNumber' => $this->faker->word(),
             'locationId' => $this->faker->uuid(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'uom' => $this->faker->word(),
             'reasonCode' => $this->faker->word(),
             'projectId' => $this->faker->uuid(),

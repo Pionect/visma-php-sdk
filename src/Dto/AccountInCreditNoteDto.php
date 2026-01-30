@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInCreditNoteDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\AccountInCreditNoteDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\AccountInCreditNoteDtoFactory testFactory()
  */
 class AccountInCreditNoteDto extends Model
 {

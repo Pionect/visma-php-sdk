@@ -18,15 +18,15 @@ class CustomerSalesPriceDtoFactory extends Factory
             'description' => $this->faker->sentence(),
             'uoM' => $this->faker->word(),
             'promotion' => $this->faker->boolean(),
-            'breakQty' => $this->faker->randomFloat(2, 0, 1000),
-            'price' => $this->faker->randomFloat(2, 0, 1000),
+            'breakQty' => null,
+            'price' => null,
             'currency' => $this->faker->word(),
             'vat' => $this->faker->word(),
             'effectiveDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'warehouse' => $this->faker->word(),
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
         ];
     }

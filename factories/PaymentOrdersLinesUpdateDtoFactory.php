@@ -13,7 +13,7 @@ class PaymentOrdersLinesUpdateDtoFactory extends Factory
             'operation' => $this->faker->word(),
             'orderType' => $this->faker->word(),
             'orderNumber' => $this->faker->word(),
-            'appliedToOrder' => $this->faker->randomFloat(2, 0, 1000),
+            'appliedToOrder' => null,
         ];
     }
 

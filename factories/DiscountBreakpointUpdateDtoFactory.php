@@ -13,14 +13,14 @@ class DiscountBreakpointUpdateDtoFactory extends Factory
         return [
             'operation' => $this->faker->word(),
             'lineNbr' => $this->faker->numberBetween(1, 100),
-            'pendingBreakAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'pendingBreakAmount' => null,
             'pendingDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'pendingDiscountPercent' => $this->faker->randomFloat(2, 0, 1000),
-            'pendingDiscountAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'pendingBreakQuantity' => $this->faker->randomFloat(2, 0, 1000),
-            'breakAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'discountAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'discountPercent' => $this->faker->randomFloat(2, 0, 1000),
+            'pendingDiscountPercent' => null,
+            'pendingDiscountAmount' => null,
+            'pendingBreakQuantity' => null,
+            'breakAmount' => null,
+            'discountAmount' => null,
+            'discountPercent' => null,
         ];
     }
 

@@ -12,11 +12,11 @@ class KitSpecificationNonStockComponentDtoFactory extends Factory
         return [
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'componentId' => $this->faker->uuid(),
-            'componentQty' => $this->faker->randomFloat(2, 0, 1000),
+            'componentQty' => null,
             'uom' => $this->faker->word(),
             'allowComponentQtyVariance' => $this->faker->boolean(),
-            'minComponentQty' => $this->faker->randomFloat(2, 0, 1000),
-            'maxComponentQty' => $this->faker->randomFloat(2, 0, 1000),
+            'minComponentQty' => null,
+            'maxComponentQty' => null,
             'description' => $this->faker->sentence(),
             'errorInfo' => $this->faker->word(),
         ];

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WriteoffPaymentActionResultDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\WriteoffPaymentActionResultDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\WriteoffPaymentActionResultDtoFactory testFactory()
  */
 class WriteoffPaymentActionResultDto extends Model
 {

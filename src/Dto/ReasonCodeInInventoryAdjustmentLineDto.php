@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReasonCodeInInventoryAdjustmentLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ReasonCodeInInventoryAdjustmentLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ReasonCodeInInventoryAdjustmentLineDtoFactory testFactory()
  */
 class ReasonCodeInInventoryAdjustmentLineDto extends Model
 {

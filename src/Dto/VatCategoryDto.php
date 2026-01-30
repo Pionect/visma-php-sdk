@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCategoryDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VatCategoryDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VatCategoryDtoFactory testFactory()
  */
 class VatCategoryDto extends Model
 {

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TransactionDescriptionInPurchaseReceiptLineUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\TransactionDescriptionInPurchaseReceiptLineUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\TransactionDescriptionInPurchaseReceiptLineUpdateDtoFactory testFactory()
  */
 class TransactionDescriptionInPurchaseReceiptLineUpdateDto extends Model
 {

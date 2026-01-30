@@ -13,7 +13,7 @@ class SalesPersonUpdateDtoFactory extends Factory
             'salespersonId' => $this->faker->uuid(),
             'name' => $this->faker->name(),
             'isActive' => $this->faker->boolean(),
-            'commissionPct' => $this->faker->randomFloat(2, 0, 1000),
+            'commissionPct' => null,
             'salesSub' => $this->faker->word(),
             'customers' => [],
         ];

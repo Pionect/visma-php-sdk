@@ -10,8 +10,8 @@ class SupplierLocationUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'baccountId' => BaccountIdInSupplierLocationUpdateDtoFactory::new()->make(),
-            'locationId' => LocationIdInSupplierLocationUpdateDtoFactory::new()->make(),
+            'baccountId' => null,
+            'locationId' => null,
             'locationName' => $this->faker->company(),
             'active' => $this->faker->boolean(),
             'addressIsSameAsMain' => $this->faker->boolean(),

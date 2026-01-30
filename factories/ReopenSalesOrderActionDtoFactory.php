@@ -10,7 +10,7 @@ class ReopenSalesOrderActionDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'saleOrderUpdateDto' => SaleOrderUpdateDtoInReopenSalesOrderActionDtoFactory::new()->make(),
+            'saleOrderUpdateDto' => null,
         ];
     }
 

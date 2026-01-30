@@ -11,20 +11,20 @@ class TransactionDetailDtoFactory extends Factory
     {
         return [
             'lineNumber' => $this->faker->numberBetween(1, 100),
-            'branch' => BranchInTransactionDetailDtoFactory::new()->make(),
-            'item' => ItemInTransactionDetailDtoFactory::new()->make(),
+            'branch' => null,
+            'item' => null,
             'description' => $this->faker->sentence(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'uom' => $this->faker->word(),
-            'price' => $this->faker->randomFloat(2, 0, 1000),
-            'amount' => $this->faker->randomFloat(2, 0, 1000),
-            'offsetCashAccount' => OffsetCashAccountInTransactionDetailDtoFactory::new()->make(),
-            'offsetAccount' => OffsetAccountInTransactionDetailDtoFactory::new()->make(),
-            'offsetSubAccount' => OffsetSubAccountInTransactionDetailDtoFactory::new()->make(),
-            'taxCategory' => TaxCategoryInTransactionDetailDtoFactory::new()->make(),
+            'price' => null,
+            'amount' => null,
+            'offsetCashAccount' => null,
+            'offsetAccount' => null,
+            'offsetSubAccount' => null,
+            'taxCategory' => null,
             'nonBillable' => $this->faker->boolean(),
-            'project' => ProjectInTransactionDetailDtoFactory::new()->make(),
-            'projectTask' => ProjectTaskInTransactionDetailDtoFactory::new()->make(),
+            'project' => null,
+            'projectTask' => null,
         ];
     }
 

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VisibilityDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VisibilityDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VisibilityDtoFactory testFactory()
  */
 class VisibilityDto extends Model
 {

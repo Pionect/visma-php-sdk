@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomInt1inPurchaseReceiptUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CustomInt1inPurchaseReceiptUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CustomInt1inPurchaseReceiptUpdateDtoFactory testFactory()
  */
 class CustomInt1inPurchaseReceiptUpdateDto extends Model
 {

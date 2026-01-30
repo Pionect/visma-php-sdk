@@ -8,7 +8,7 @@ use Spatie\LaravelData\Attributes\MapName;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LanguageUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LanguageUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LanguageUpdateDtoFactory testFactory()
  */
 class LanguageUpdateDto extends Model
 {

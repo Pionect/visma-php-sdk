@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCodeInCustomerDebitNoteLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VatCodeInCustomerDebitNoteLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VatCodeInCustomerDebitNoteLineDtoFactory testFactory()
  */
 class VatCodeInCustomerDebitNoteLineDto extends Model
 {

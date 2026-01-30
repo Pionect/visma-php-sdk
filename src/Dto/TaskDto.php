@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaskDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\TaskDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\TaskDtoFactory testFactory()
  */
 class TaskDto extends Model
 {

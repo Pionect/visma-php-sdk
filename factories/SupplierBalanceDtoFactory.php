@@ -13,7 +13,7 @@ class SupplierBalanceDtoFactory extends Factory
         return [
             'branchNumber' => $this->faker->word(),
             'supplier' => SupplierDescriptionDtoFactory::new()->make(),
-            'balance' => $this->faker->randomFloat(2, 0, 1000),
+            'balance' => null,
             'unreleasedPurchasesNotInApproval' => WithoutWithVatDtoFactory::new()->make(),
             'totalSentForApproval' => WithoutWithVatDtoFactory::new()->make(),
             'totalPurchaseInvoicePeriod' => WithoutWithVatDtoFactory::new()->make(),

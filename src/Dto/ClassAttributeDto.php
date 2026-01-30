@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ClassAttributeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ClassAttributeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ClassAttributeDtoFactory testFactory()
  */
 class ClassAttributeDto extends Model
 {

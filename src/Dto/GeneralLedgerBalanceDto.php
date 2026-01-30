@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GeneralLedgerBalanceDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\GeneralLedgerBalanceDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\GeneralLedgerBalanceDtoFactory testFactory()
  */
 class GeneralLedgerBalanceDto extends Model
 {

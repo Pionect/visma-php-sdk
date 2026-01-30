@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BarCodeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BarCodeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BarCodeDtoFactory testFactory()
  */
 class BarCodeDto extends Model
 {

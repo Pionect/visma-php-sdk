@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FobpointDescriptionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\FobpointDescriptionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\FobpointDescriptionDtoFactory testFactory()
  */
 class FobpointDescriptionDto extends Model
 {

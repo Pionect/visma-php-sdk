@@ -13,10 +13,10 @@ class PackagingTypeDtoFactory extends Factory
         return [
             'boxId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
-            'boxWeight' => $this->faker->randomFloat(2, 0, 1000),
-            'maxWeight' => $this->faker->randomFloat(2, 0, 1000),
+            'boxWeight' => null,
+            'maxWeight' => null,
             'weightUoM' => $this->faker->word(),
-            'maxVolume' => $this->faker->randomFloat(2, 0, 1000),
+            'maxVolume' => null,
             'volumeUoM' => $this->faker->word(),
             'length' => $this->faker->numberBetween(1, 100),
             'width' => $this->faker->numberBetween(1, 100),

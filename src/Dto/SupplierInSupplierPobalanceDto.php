@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierInSupplierPobalanceDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SupplierInSupplierPobalanceDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SupplierInSupplierPobalanceDtoFactory testFactory()
  */
 class SupplierInSupplierPobalanceDto extends Model
 {

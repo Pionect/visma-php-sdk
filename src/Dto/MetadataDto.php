@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\MetadataDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\MetadataDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\MetadataDtoFactory testFactory()
  */
 class MetadataDto extends Model
 {

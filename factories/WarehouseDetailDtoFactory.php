@@ -13,9 +13,9 @@ class WarehouseDetailDtoFactory extends Factory
         return [
             'isDefault' => $this->faker->boolean(),
             'warehouse' => $this->faker->word(),
-            'quantityOnHand' => $this->faker->randomFloat(2, 0, 1000),
-            'available' => $this->faker->randomFloat(2, 0, 1000),
-            'availableForShipment' => $this->faker->randomFloat(2, 0, 1000),
+            'quantityOnHand' => null,
+            'available' => null,
+            'availableForShipment' => null,
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

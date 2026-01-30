@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\StreamFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\StreamFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\StreamFactory testFactory()
  */
 class Stream extends Model
 {

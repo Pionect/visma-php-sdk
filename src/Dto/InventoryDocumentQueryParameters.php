@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryDocumentQueryParametersFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\InventoryDocumentQueryParametersFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\InventoryDocumentQueryParametersFactory testFactory()
  */
 class InventoryDocumentQueryParameters extends Model
 {

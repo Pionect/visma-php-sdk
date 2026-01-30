@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LedgerDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LedgerDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LedgerDtoFactory testFactory()
  */
 class LedgerDto extends Model
 {

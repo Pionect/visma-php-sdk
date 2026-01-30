@@ -13,7 +13,7 @@ class SupplierAccountDtoFactory extends Factory
             'number' => $this->faker->word(),
             'name' => $this->faker->name(),
             'accountId' => $this->faker->uuid(),
-            'subaccount' => SubaccountInSupplierAccountDtoFactory::new()->make(),
+            'subaccount' => null,
         ];
     }
 

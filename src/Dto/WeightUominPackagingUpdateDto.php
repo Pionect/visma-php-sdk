@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WeightUominPackagingUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\WeightUominPackagingUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\WeightUominPackagingUpdateDtoFactory testFactory()
  */
 class WeightUominPackagingUpdateDto extends Model
 {

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OrderToApplyDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\OrderToApplyDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\OrderToApplyDtoFactory testFactory()
  */
 class OrderToApplyDto extends Model
 {

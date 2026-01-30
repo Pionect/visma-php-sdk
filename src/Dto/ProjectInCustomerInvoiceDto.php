@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectInCustomerInvoiceDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ProjectInCustomerInvoiceDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ProjectInCustomerInvoiceDtoFactory testFactory()
  */
 class ProjectInCustomerInvoiceDto extends Model
 {

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GeneralLedgerBudgetQueryParametersFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\GeneralLedgerBudgetQueryParametersFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\GeneralLedgerBudgetQueryParametersFactory testFactory()
  */
 class GeneralLedgerBudgetQueryParameters extends Model
 {

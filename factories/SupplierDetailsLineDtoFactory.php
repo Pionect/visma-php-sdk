@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierDetailsLineDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -19,15 +18,15 @@ class SupplierDetailsLineDtoFactory extends Factory
             'warehouse' => $this->faker->word(),
             'purchaseUnit' => $this->faker->word(),
             'supplierItemId' => $this->faker->uuid(),
-            'shipmentLeadTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'leadTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'shipmentLeadTime' => $this->faker->numberBetween(1, 100),
+            'leadTime' => $this->faker->numberBetween(1, 100),
             'minOrderFreq' => $this->faker->numberBetween(1, 100),
-            'minOrderQty' => $this->faker->randomFloat(2, 0, 1000),
-            'maxOrderQty' => $this->faker->randomFloat(2, 0, 1000),
-            'lotSize' => $this->faker->randomFloat(2, 0, 1000),
-            'eoq' => $this->faker->randomFloat(2, 0, 1000),
+            'minOrderQty' => null,
+            'maxOrderQty' => null,
+            'lotSize' => null,
+            'eoq' => null,
             'currencyId' => $this->faker->uuid(),
-            'lastSupplierPrice' => $this->faker->randomFloat(2, 0, 1000),
+            'lastSupplierPrice' => null,
             'override' => $this->faker->boolean(),
         ];
     }

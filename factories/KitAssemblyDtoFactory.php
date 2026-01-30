@@ -24,7 +24,7 @@ class KitAssemblyDtoFactory extends Factory
             'warehouse' => $this->faker->word(),
             'location' => $this->faker->word(),
             'uoM' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'createdDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'salesOrderLink' => $this->faker->word(),

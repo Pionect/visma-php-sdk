@@ -12,7 +12,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ControlQuantityInInventoryTransferUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ControlQuantityInInventoryTransferUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ControlQuantityInInventoryTransferUpdateDtoFactory testFactory()
  */
 class ControlQuantityInInventoryTransferUpdateDto extends Model
 {

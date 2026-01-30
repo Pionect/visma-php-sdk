@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WorkTypeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\WorkTypeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\WorkTypeDtoFactory testFactory()
  */
 class WorkTypeDto extends Model
 {

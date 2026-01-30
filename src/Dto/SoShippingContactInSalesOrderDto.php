@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SoShippingContactInSalesOrderDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SoShippingContactInSalesOrderDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SoShippingContactInSalesOrderDtoFactory testFactory()
  */
 class SoShippingContactInSalesOrderDto extends Model
 {

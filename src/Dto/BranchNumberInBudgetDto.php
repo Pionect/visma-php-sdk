@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInBudgetDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BranchNumberInBudgetDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BranchNumberInBudgetDtoFactory testFactory()
  */
 class BranchNumberInBudgetDto extends Model
 {

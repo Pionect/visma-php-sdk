@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeContactDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\EmployeeContactDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\EmployeeContactDtoFactory testFactory()
  */
 class EmployeeContactDto extends Model
 {

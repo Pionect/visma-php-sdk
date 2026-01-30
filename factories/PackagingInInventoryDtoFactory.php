@@ -10,9 +10,9 @@ class PackagingInInventoryDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'baseItemWeight' => $this->faker->randomFloat(2, 0, 1000),
+            'baseItemWeight' => null,
             'weightUom' => $this->faker->word(),
-            'baseItemVolume' => $this->faker->randomFloat(2, 0, 1000),
+            'baseItemVolume' => null,
             'volumeUom' => $this->faker->word(),
         ];
     }

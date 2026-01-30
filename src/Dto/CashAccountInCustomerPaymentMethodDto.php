@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CashAccountInCustomerPaymentMethodDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CashAccountInCustomerPaymentMethodDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CashAccountInCustomerPaymentMethodDtoFactory testFactory()
  */
 class CashAccountInCustomerPaymentMethodDto extends Model
 {

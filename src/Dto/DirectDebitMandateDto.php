@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DirectDebitMandateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DirectDebitMandateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DirectDebitMandateDtoFactory testFactory()
  */
 class DirectDebitMandateDto extends Model
 {

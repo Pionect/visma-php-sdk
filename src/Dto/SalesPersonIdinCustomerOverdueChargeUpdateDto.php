@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesPersonIdinCustomerOverdueChargeUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SalesPersonIdinCustomerOverdueChargeUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SalesPersonIdinCustomerOverdueChargeUpdateDtoFactory testFactory()
  */
 class SalesPersonIdinCustomerOverdueChargeUpdateDto extends Model
 {

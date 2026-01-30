@@ -11,15 +11,15 @@ class SupplierInvoiceLandedCostUpdateDtoFactory extends Factory
     {
         return [
             'operation' => $this->faker->word(),
-            'lineNumber' => LineNumberInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
-            'landedCostCodeId' => LandedCostCodeIdInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
-            'description' => DescriptionInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
-            'amount' => AmountInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
-            'taxCategoryId' => TaxCategoryIdInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
-            'poReceiptNumber' => PoReceiptNumberInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
-            'inventoryId' => InventoryIdInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
-            'siteId' => SiteIdInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
-            'locationId' => LocationIdInSupplierInvoiceLandedCostUpdateDtoFactory::new()->make(),
+            'lineNumber' => $this->faker->word(),
+            'landedCostCodeId' => null,
+            'description' => $this->faker->sentence(),
+            'amount' => null,
+            'taxCategoryId' => null,
+            'poReceiptNumber' => $this->faker->word(),
+            'inventoryId' => null,
+            'siteId' => null,
+            'locationId' => null,
         ];
     }
 

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\JournalTransactionQueryV2parameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -12,7 +11,7 @@ class JournalTransactionQueryV2parametersFactory extends Factory
     {
         return [
             'periodId' => $this->faker->uuid(),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'module' => $this->faker->word(),
             'status' => $this->faker->word(),
             'expandAttachments' => $this->faker->boolean(),

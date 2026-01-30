@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\StocktakeUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\StocktakeUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\StocktakeUpdateDtoFactory testFactory()
  */
 class StocktakeUpdateDto extends Model
 {

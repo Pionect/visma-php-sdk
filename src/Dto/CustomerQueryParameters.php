@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerQueryParametersFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CustomerQueryParametersFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CustomerQueryParametersFactory testFactory()
  */
 class CustomerQueryParameters extends Model
 {

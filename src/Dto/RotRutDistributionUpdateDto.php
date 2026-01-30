@@ -9,7 +9,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RotRutDistributionUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\RotRutDistributionUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\RotRutDistributionUpdateDtoFactory testFactory()
  */
 class RotRutDistributionUpdateDto extends Model
 {

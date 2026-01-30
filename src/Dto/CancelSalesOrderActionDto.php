@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CancelSalesOrderActionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CancelSalesOrderActionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CancelSalesOrderActionDtoFactory testFactory()
  */
 class CancelSalesOrderActionDto extends Model
 {

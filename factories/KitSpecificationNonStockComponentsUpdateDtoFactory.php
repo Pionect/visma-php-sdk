@@ -13,11 +13,11 @@ class KitSpecificationNonStockComponentsUpdateDtoFactory extends Factory
             'operation' => $this->faker->word(),
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'compInventoryId' => $this->faker->uuid(),
-            'dfltCompQty' => $this->faker->randomFloat(2, 0, 1000),
+            'dfltCompQty' => null,
             'uom' => $this->faker->word(),
             'allowQtyVariation' => $this->faker->boolean(),
-            'minCompQty' => $this->faker->randomFloat(2, 0, 1000),
-            'maxCompQty' => $this->faker->randomFloat(2, 0, 1000),
+            'minCompQty' => null,
+            'maxCompQty' => null,
         ];
     }
 

@@ -17,7 +17,7 @@ class DtoSegmentValueFactory extends Factory
             'description' => $this->faker->sentence(),
             'publicId' => $this->faker->uuid(),
             'active' => $this->faker->boolean(),
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
             'lastModified' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'mappedSegValue' => $this->faker->word(),
         ];

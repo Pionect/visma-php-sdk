@@ -12,13 +12,13 @@ class CustomerBalanceDtoFactory extends Factory
     {
         return [
             'customer' => CustomerDescriptionDtoFactory::new()->make(),
-            'balance' => $this->faker->randomFloat(2, 0, 1000),
-            'totalOrder' => $this->faker->randomFloat(2, 0, 1000),
-            'totalLoan' => $this->faker->randomFloat(2, 0, 1000),
-            'totalSalePeriod' => $this->faker->randomFloat(2, 0, 1000),
-            'totalSaleYear' => $this->faker->randomFloat(2, 0, 1000),
-            'totalDiscountPeriod' => $this->faker->randomFloat(2, 0, 1000),
-            'totalDiscountYear' => $this->faker->randomFloat(2, 0, 1000),
+            'balance' => null,
+            'totalOrder' => null,
+            'totalLoan' => null,
+            'totalSalePeriod' => null,
+            'totalSaleYear' => null,
+            'totalDiscountPeriod' => null,
+            'totalDiscountYear' => null,
             'lastModified' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

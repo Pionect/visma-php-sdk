@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LotSerialNumberInAllocationsUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LotSerialNumberInAllocationsUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LotSerialNumberInAllocationsUpdateDtoFactory testFactory()
  */
 class LotSerialNumberInAllocationsUpdateDto extends Model
 {

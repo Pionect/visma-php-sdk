@@ -12,11 +12,11 @@ class VatInformationScheduleDtoFactory extends Factory
     {
         return [
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'vatRate' => $this->faker->randomFloat(2, 0, 1000),
-            'minTaxableAmt' => $this->faker->randomFloat(2, 0, 1000),
-            'maxTaxableAmt' => $this->faker->randomFloat(2, 0, 1000),
+            'vatRate' => null,
+            'minTaxableAmt' => null,
+            'maxTaxableAmt' => null,
             'reportingGroup' => $this->faker->word(),
-            'deductibleVatRate' => $this->faker->randomFloat(2, 0, 1000),
+            'deductibleVatRate' => null,
             'groupType' => $this->faker->word(),
         ];
     }

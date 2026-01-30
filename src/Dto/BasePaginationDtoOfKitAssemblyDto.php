@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BasePaginationDtoOfKitAssemblyDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BasePaginationDtoOfKitAssemblyDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BasePaginationDtoOfKitAssemblyDtoFactory testFactory()
  */
 class BasePaginationDtoOfKitAssemblyDto extends Model
 {

@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReclasificationAccountOverrideInEntryTypeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ReclasificationAccountOverrideInEntryTypeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ReclasificationAccountOverrideInEntryTypeDtoFactory testFactory()
  */
 class ReclasificationAccountOverrideInEntryTypeDto extends Model
 {

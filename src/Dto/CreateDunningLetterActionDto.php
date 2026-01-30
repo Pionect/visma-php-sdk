@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreateDunningLetterActionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CreateDunningLetterActionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CreateDunningLetterActionDtoFactory testFactory()
  */
 class CreateDunningLetterActionDto extends Model
 {

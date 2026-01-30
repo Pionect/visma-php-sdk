@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GeneralLedgerTransactionDetailsDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\GeneralLedgerTransactionDetailsDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\GeneralLedgerTransactionDetailsDtoFactory testFactory()
  */
 class GeneralLedgerTransactionDetailsDto extends Model
 {

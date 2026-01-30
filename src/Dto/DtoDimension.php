@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DtoDimensionFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DtoDimensionFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DtoDimensionFactory testFactory()
  */
 class DtoDimension extends Model
 {

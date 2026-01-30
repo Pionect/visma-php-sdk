@@ -15,8 +15,8 @@ class PurchaseReceiptsDtoFactory extends Factory
             'status' => $this->faker->word(),
             'supplierName' => $this->faker->company(),
             'currency' => $this->faker->word(),
-            'totalQty' => $this->faker->randomFloat(2, 0, 1000),
-            'totalAmt' => $this->faker->randomFloat(2, 0, 1000),
+            'totalQty' => null,
+            'totalAmt' => null,
         ];
     }
 

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInCashAccountDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\AccountInCashAccountDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\AccountInCashAccountDtoFactory testFactory()
  */
 class AccountInCashAccountDto extends Model
 {

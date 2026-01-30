@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatAgencyIdInVatInformationDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VatAgencyIdInVatInformationDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VatAgencyIdInVatInformationDtoFactory testFactory()
  */
 class VatAgencyIdInVatInformationDto extends Model
 {

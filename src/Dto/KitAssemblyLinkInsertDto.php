@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\KitAssemblyLinkInsertDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\KitAssemblyLinkInsertDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\KitAssemblyLinkInsertDtoFactory testFactory()
  */
 class KitAssemblyLinkInsertDto extends Model
 {

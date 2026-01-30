@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectTaskInTimeCardMaterialsDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ProjectTaskInTimeCardMaterialsDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ProjectTaskInTimeCardMaterialsDtoFactory testFactory()
  */
 class ProjectTaskInTimeCardMaterialsDto extends Model
 {

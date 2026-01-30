@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInExpenseClaimDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LocationInExpenseClaimDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LocationInExpenseClaimDtoFactory testFactory()
  */
 class LocationInExpenseClaimDto extends Model
 {

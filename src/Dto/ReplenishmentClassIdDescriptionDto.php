@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReplenishmentClassIdDescriptionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ReplenishmentClassIdDescriptionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ReplenishmentClassIdDescriptionDtoFactory testFactory()
  */
 class ReplenishmentClassIdDescriptionDto extends Model
 {

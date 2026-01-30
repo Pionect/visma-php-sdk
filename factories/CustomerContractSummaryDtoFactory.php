@@ -24,11 +24,11 @@ class CustomerContractSummaryDtoFactory extends Factory
             'lastInvoicingDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'nextInvoicingDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'invoiceTo' => $this->faker->word(),
-            'invoiceAccount' => InvoiceAccountInCustomerContractSummaryDtoFactory::new()->make(),
+            'invoiceAccount' => null,
             'invoiceLocation' => LocationNameDescriptionDtoFactory::new()->make(),
-            'owner' => OwnerInCustomerContractSummaryDtoFactory::new()->make(),
-            'salesPerson' => SalesPersonInCustomerContractSummaryDtoFactory::new()->make(),
-            'caseCountItem' => CaseCountItemInCustomerContractSummaryDtoFactory::new()->make(),
+            'owner' => null,
+            'salesPerson' => null,
+            'caseCountItem' => null,
         ];
     }
 

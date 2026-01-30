@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomDateTimeUtc1inPurchaseOrderBasicUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CustomDateTimeUtc1inPurchaseOrderBasicUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CustomDateTimeUtc1inPurchaseOrderBasicUpdateDtoFactory testFactory()
  */
 class CustomDateTimeUtc1inPurchaseOrderBasicUpdateDto extends Model
 {

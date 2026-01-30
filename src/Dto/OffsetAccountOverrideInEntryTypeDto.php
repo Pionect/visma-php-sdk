@@ -13,7 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetAccountOverrideInEntryTypeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\OffsetAccountOverrideInEntryTypeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\OffsetAccountOverrideInEntryTypeDtoFactory testFactory()
  */
 class OffsetAccountOverrideInEntryTypeDto extends Model
 {

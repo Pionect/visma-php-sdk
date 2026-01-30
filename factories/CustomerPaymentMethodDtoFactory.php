@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerPaymentMethodDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -11,13 +10,13 @@ class CustomerPaymentMethodDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'customer' => CustomerInCustomerPaymentMethodDtoFactory::new()->make(),
-            'paymentMethod' => PaymentMethodInCustomerPaymentMethodDtoFactory::new()->make(),
+            'customer' => null,
+            'paymentMethod' => null,
             'active' => $this->faker->boolean(),
-            'cashAccount' => CashAccountInCustomerPaymentMethodDtoFactory::new()->make(),
+            'cashAccount' => null,
             'cardOrAccountNo' => $this->faker->word(),
             'paymentMethodDetails' => [],
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
         ];
     }
 

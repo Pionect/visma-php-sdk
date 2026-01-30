@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -20,9 +19,9 @@ class CustomerQueryParametersFactory extends Factory
             'vatRegistrationId' => $this->faker->uuid(),
             'email' => $this->faker->safeEmail(),
             'phone' => $this->faker->word(),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
-            'createdDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'createdDateTime' => $this->faker->word(),
             'createdDateTimeCondition' => $this->faker->word(),
             'expandAccountInformation' => $this->faker->boolean(),
             'expandPaymentMethods' => $this->faker->boolean(),

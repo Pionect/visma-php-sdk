@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CarrierDescriptionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CarrierDescriptionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CarrierDescriptionDtoFactory testFactory()
  */
 class CarrierDescriptionDto extends Model
 {

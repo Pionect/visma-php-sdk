@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeInTimeCardDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\EmployeeInTimeCardDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\EmployeeInTimeCardDtoFactory testFactory()
  */
 class EmployeeInTimeCardDto extends Model
 {

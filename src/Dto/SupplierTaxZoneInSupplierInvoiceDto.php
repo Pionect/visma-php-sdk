@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierTaxZoneInSupplierInvoiceDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SupplierTaxZoneInSupplierInvoiceDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SupplierTaxZoneInSupplierInvoiceDtoFactory testFactory()
  */
 class SupplierTaxZoneInSupplierInvoiceDto extends Model
 {

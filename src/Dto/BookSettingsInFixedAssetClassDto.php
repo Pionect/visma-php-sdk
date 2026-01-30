@@ -10,7 +10,7 @@ use Spatie\LaravelData\Attributes\MapName;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BookSettingsInFixedAssetClassDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BookSettingsInFixedAssetClassDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BookSettingsInFixedAssetClassDtoFactory testFactory()
  */
 class BookSettingsInFixedAssetClassDto extends Model
 {

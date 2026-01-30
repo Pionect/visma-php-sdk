@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CorrectArDocumentActionResultDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CorrectArDocumentActionResultDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CorrectArDocumentActionResultDtoFactory testFactory()
  */
 class CorrectArDocumentActionResultDto extends Model
 {

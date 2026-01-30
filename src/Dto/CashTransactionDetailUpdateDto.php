@@ -9,7 +9,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CashTransactionDetailUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CashTransactionDetailUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CashTransactionDetailUpdateDtoFactory testFactory()
  */
 class CashTransactionDetailUpdateDto extends Model
 {

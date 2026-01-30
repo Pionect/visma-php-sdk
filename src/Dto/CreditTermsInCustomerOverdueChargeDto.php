@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditTermsInCustomerOverdueChargeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CreditTermsInCustomerOverdueChargeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CreditTermsInCustomerOverdueChargeDtoFactory testFactory()
  */
 class CreditTermsInCustomerOverdueChargeDto extends Model
 {

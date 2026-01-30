@@ -16,8 +16,8 @@ class WarehouseAddressDtoFactory extends Factory
             'addressLine1' => $this->faker->word(),
             'addressLine2' => $this->faker->word(),
             'city' => $this->faker->word(),
-            'country' => CountryInWarehouseAddressDtoFactory::new()->make(),
-            'county' => CountyInWarehouseAddressDtoFactory::new()->make(),
+            'country' => null,
+            'county' => null,
             'postalCode' => $this->faker->word(),
         ];
     }

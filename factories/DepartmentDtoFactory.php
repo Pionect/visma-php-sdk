@@ -14,10 +14,10 @@ class DepartmentDtoFactory extends Factory
             'departmentId' => $this->faker->uuid(),
             'publicId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
-            'expenseAccount' => ExpenseAccountInDepartmentDtoFactory::new()->make(),
-            'expenseSubaccount' => ExpenseSubaccountInDepartmentDtoFactory::new()->make(),
+            'expenseAccount' => null,
+            'expenseSubaccount' => null,
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
         ];
     }
 

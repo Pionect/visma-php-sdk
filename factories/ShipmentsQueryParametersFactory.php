@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ShipmentsQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -17,13 +16,13 @@ class ShipmentsQueryParametersFactory extends Factory
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'orderBy' => $this->faker->word(),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'status' => $this->faker->word(),
             'pageSize' => $this->faker->numberBetween(1, 100),
             'pageNumber' => $this->faker->numberBetween(1, 100),
             'shipmentType' => $this->faker->word(),
-            'shipmentDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'shipmentDate' => $this->faker->word(),
             'shipmentDateCondition' => $this->faker->word(),
             'includeCustomFreeFields' => $this->faker->boolean(),
         ];

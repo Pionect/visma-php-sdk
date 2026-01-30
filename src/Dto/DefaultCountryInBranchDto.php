@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefaultCountryInBranchDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DefaultCountryInBranchDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DefaultCountryInBranchDtoFactory testFactory()
  */
 class DefaultCountryInBranchDto extends Model
 {

@@ -12,7 +12,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReclasificationAccountInEntryTypeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ReclasificationAccountInEntryTypeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ReclasificationAccountInEntryTypeDtoFactory testFactory()
  */
 class ReclasificationAccountInEntryTypeDto extends Model
 {

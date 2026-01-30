@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReferenceNumberInPaymentUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ReferenceNumberInPaymentUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ReferenceNumberInPaymentUpdateDtoFactory testFactory()
  */
 class ReferenceNumberInPaymentUpdateDto extends Model
 {

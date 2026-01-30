@@ -10,13 +10,13 @@ class GlAccountsInSupplierDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'supplierAccount' => SupplierAccountInSupplierGlAccountsDtoFactory::new()->make(),
-            'supplierSubaccount' => SupplierSubaccountInSupplierGlAccountsDtoFactory::new()->make(),
-            'expenseAccount' => ExpenseAccountInSupplierGlAccountsDtoFactory::new()->make(),
-            'expenseAccountNonTax' => ExpenseAccountNonTaxInSupplierGlAccountsDtoFactory::new()->make(),
-            'expenseEuaccount' => ExpenseEUAccountInSupplierGlAccountsDtoFactory::new()->make(),
-            'expenseAccountImport' => ExpenseAccountImportInSupplierGlAccountsDtoFactory::new()->make(),
-            'expenseSubaccount' => ExpenseSubaccountInSupplierGlAccountsDtoFactory::new()->make(),
+            'supplierAccount' => null,
+            'supplierSubaccount' => null,
+            'expenseAccount' => null,
+            'expenseAccountNonTax' => null,
+            'expenseEuaccount' => null,
+            'expenseAccountImport' => null,
+            'expenseSubaccount' => null,
         ];
     }
 

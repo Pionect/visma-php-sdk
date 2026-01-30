@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ArspcommnHistoryDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ArspcommnHistoryDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ArspcommnHistoryDtoFactory testFactory()
  */
 class ArspcommnHistoryDto extends Model
 {

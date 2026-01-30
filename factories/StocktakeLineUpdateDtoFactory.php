@@ -13,7 +13,7 @@ class StocktakeLineUpdateDtoFactory extends Factory
         return [
             'operation' => $this->faker->word(),
             'lineNbr' => $this->faker->numberBetween(1, 100),
-            'physicalQuantity' => $this->faker->randomFloat(2, 0, 1000),
+            'physicalQuantity' => null,
             'inventoryId' => $this->faker->uuid(),
             'locationId' => $this->faker->uuid(),
             'reasonCode' => $this->faker->word(),

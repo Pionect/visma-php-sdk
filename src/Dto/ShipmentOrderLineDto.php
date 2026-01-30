@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShipmentOrderLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ShipmentOrderLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ShipmentOrderLineDtoFactory testFactory()
  */
 class ShipmentOrderLineDto extends Model
 {

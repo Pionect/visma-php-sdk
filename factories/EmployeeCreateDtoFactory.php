@@ -17,7 +17,7 @@ class EmployeeCreateDtoFactory extends Factory
             'calendar' => $this->faker->word(),
             'contact' => EmployeeContactUpdateDtoFactory::new()->make(),
             'address' => AddressUpdateDtoFactory::new()->make(),
-            'status' => StatusInEmployeeCreateDTOFactory::new()->make(),
+            'status' => null,
         ];
     }
 

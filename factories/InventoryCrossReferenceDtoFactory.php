@@ -11,7 +11,7 @@ class InventoryCrossReferenceDtoFactory extends Factory
     {
         return [
             'alternateType' => $this->faker->word(),
-            'bAccount' => BAccountInInventoryCrossReferenceDtoFactory::new()->make(),
+            'bAccount' => null,
             'alternateId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
             'uom' => $this->faker->word(),

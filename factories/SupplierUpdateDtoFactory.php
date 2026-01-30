@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierUpdateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -26,7 +25,7 @@ class SupplierUpdateDtoFactory extends Factory
             'currencyRateOverride' => $this->faker->boolean(),
             'paymentMethodId' => $this->faker->uuid(),
             'cashAccount' => $this->faker->word(),
-            'paymentLeadTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'paymentLeadTime' => $this->faker->numberBetween(1, 100),
             'paymentRefDisplayMask' => $this->faker->word(),
             'paySeparately' => $this->faker->boolean(),
             'vatRegistrationId' => $this->faker->uuid(),
@@ -46,7 +45,7 @@ class SupplierUpdateDtoFactory extends Factory
             'attributeLines' => [],
             'retainageCashAccountId' => $this->faker->uuid(),
             'retainageApply' => $this->faker->boolean(),
-            'retainagePct' => $this->faker->randomFloat(2, 0, 1000),
+            'retainagePct' => null,
             'note' => $this->faker->word(),
             'overrideNumberSeries' => $this->faker->boolean(),
             'naceCode' => $this->faker->word(),

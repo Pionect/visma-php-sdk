@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReferenceNumberInInventoryAdjustmentUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ReferenceNumberInInventoryAdjustmentUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ReferenceNumberInInventoryAdjustmentUpdateDtoFactory testFactory()
  */
 class ReferenceNumberInInventoryAdjustmentUpdateDto extends Model
 {

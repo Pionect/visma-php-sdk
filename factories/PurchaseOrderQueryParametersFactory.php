@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PurchaseOrderQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -14,15 +13,15 @@ class PurchaseOrderQueryParametersFactory extends Factory
             'greaterThanValue' => $this->faker->word(),
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'orderType' => $this->faker->word(),
             'orderStatus' => $this->faker->word(),
             'supplier' => $this->faker->word(),
             'branch' => $this->faker->word(),
-            'orderDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'orderDate' => $this->faker->word(),
             'orderDateCondition' => $this->faker->word(),
-            'deliveryDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'deliveryDate' => $this->faker->word(),
             'deliveryDateCondition' => $this->faker->word(),
             'includeCustomFreeFields' => $this->faker->boolean(),
             'pageNumber' => $this->faker->numberBetween(1, 100),

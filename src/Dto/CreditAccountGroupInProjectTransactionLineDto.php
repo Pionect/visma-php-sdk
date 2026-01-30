@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditAccountGroupInProjectTransactionLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CreditAccountGroupInProjectTransactionLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CreditAccountGroupInProjectTransactionLineDtoFactory testFactory()
  */
 class CreditAccountGroupInProjectTransactionLineDto extends Model
 {

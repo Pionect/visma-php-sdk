@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RotRutDistributionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\RotRutDistributionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\RotRutDistributionDtoFactory testFactory()
  */
 class RotRutDistributionDto extends Model
 {

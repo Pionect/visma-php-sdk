@@ -20,7 +20,7 @@ class PaymentQueryParametersFactory extends Factory
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'orderBy' => $this->faker->word(),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'branch' => $this->faker->word(),
             'docDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

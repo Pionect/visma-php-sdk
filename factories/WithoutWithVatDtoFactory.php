@@ -10,8 +10,8 @@ class WithoutWithVatDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'withoutVat' => $this->faker->randomFloat(2, 0, 1000),
-            'withVat' => $this->faker->randomFloat(2, 0, 1000),
+            'withoutVat' => null,
+            'withVat' => null,
         ];
     }
 

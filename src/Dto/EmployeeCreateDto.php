@@ -9,7 +9,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeCreateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\EmployeeCreateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\EmployeeCreateDtoFactory testFactory()
  */
 class EmployeeCreateDto extends Model
 {

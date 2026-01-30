@@ -13,7 +13,7 @@ class StocktakeV2exceptionDtoFactory extends Factory
         return [
             'inventoryId' => $this->faker->uuid(),
             'locationId' => $this->faker->uuid(),
-            'physicalQuantity' => $this->faker->randomFloat(2, 0, 1000),
+            'physicalQuantity' => null,
             'reasonCode' => $this->faker->word(),
             'lotSerialNumber' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

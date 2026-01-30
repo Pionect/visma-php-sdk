@@ -18,7 +18,7 @@ class CustomerSalesPriceQueryParametersFactory extends Factory
             'priceCode' => $this->faker->word(),
             'inventoryId' => $this->faker->uuid(),
             'effectiveAsOf' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'pageNumber' => $this->faker->numberBetween(1, 100),
             'pageSize' => $this->faker->numberBetween(1, 100),

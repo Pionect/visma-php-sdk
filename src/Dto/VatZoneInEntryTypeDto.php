@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatZoneInEntryTypeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VatZoneInEntryTypeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VatZoneInEntryTypeDtoFactory testFactory()
  */
 class VatZoneInEntryTypeDto extends Model
 {

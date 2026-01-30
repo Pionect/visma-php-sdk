@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OrganizationQueryParametersFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\OrganizationQueryParametersFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\OrganizationQueryParametersFactory testFactory()
  */
 class OrganizationQueryParameters extends Model
 {

@@ -10,10 +10,10 @@ class CostPriceStatisticsDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'lastCost' => $this->faker->randomFloat(2, 0, 1000),
-            'averageCost' => $this->faker->randomFloat(2, 0, 1000),
-            'minCost' => $this->faker->randomFloat(2, 0, 1000),
-            'maxCost' => $this->faker->randomFloat(2, 0, 1000),
+            'lastCost' => null,
+            'averageCost' => null,
+            'minCost' => null,
+            'maxCost' => null,
         ];
     }
 

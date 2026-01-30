@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AddressInSupplierLocationDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\AddressInSupplierLocationDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\AddressInSupplierLocationDtoFactory testFactory()
  */
 class AddressInSupplierLocationDto extends Model
 {

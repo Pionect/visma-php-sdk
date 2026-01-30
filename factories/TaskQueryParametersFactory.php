@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\TaskQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -34,9 +33,9 @@ class TaskQueryParametersFactory extends Factory
             'greaterThanValue' => $this->faker->word(),
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
-            'createdDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'createdDateTime' => $this->faker->word(),
             'createdDateTimeCondition' => $this->faker->word(),
             'pageNumber' => $this->faker->numberBetween(1, 100),
             'pageSize' => $this->faker->numberBetween(1, 100),

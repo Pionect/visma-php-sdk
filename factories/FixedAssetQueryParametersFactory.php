@@ -16,7 +16,7 @@ class FixedAssetQueryParametersFactory extends Factory
             'status' => $this->faker->word(),
             'fromDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'toDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'expandAccounts' => $this->faker->boolean(),
             'pageNumber' => $this->faker->numberBetween(1, 100),

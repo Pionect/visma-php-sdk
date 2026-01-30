@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatClaimableAccountInVatGlAccountsDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VatClaimableAccountInVatGlAccountsDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VatClaimableAccountInVatGlAccountsDtoFactory testFactory()
  */
 class VatClaimableAccountInVatGlAccountsDto extends Model
 {

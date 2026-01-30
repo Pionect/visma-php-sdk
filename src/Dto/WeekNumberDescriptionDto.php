@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WeekNumberDescriptionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\WeekNumberDescriptionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\WeekNumberDescriptionDtoFactory testFactory()
  */
 class WeekNumberDescriptionDto extends Model
 {

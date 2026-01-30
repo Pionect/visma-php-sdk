@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreateCurrencyRateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CreateCurrencyRateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CreateCurrencyRateDtoFactory testFactory()
  */
 class CreateCurrencyRateDto extends Model
 {

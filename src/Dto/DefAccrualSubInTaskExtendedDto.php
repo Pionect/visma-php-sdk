@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefAccrualSubInTaskExtendedDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DefAccrualSubInTaskExtendedDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DefAccrualSubInTaskExtendedDtoFactory testFactory()
  */
 class DefAccrualSubInTaskExtendedDto extends Model
 {

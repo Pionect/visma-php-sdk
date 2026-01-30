@@ -16,7 +16,7 @@ class CustSalesPeopleDtoFactory extends Factory
             'locationId' => $this->faker->numberBetween(1, 1000),
             'locationName' => $this->faker->company(),
             'isDefault' => $this->faker->boolean(),
-            'commisionPct' => $this->faker->randomFloat(2, 0, 1000),
+            'commisionPct' => null,
             'createdDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WebhookNotificationFeedbackDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\WebhookNotificationFeedbackDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\WebhookNotificationFeedbackDtoFactory testFactory()
  */
 class WebhookNotificationFeedbackDto extends Model
 {

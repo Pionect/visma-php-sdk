@@ -8,7 +8,7 @@ use Spatie\LaravelData\Attributes\MapName;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\MultilanguageDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\MultilanguageDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\MultilanguageDtoFactory testFactory()
  */
 class MultilanguageDto extends Model
 {

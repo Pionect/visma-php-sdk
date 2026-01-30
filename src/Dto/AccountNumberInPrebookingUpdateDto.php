@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountNumberInPrebookingUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\AccountNumberInPrebookingUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\AccountNumberInPrebookingUpdateDtoFactory testFactory()
  */
 class AccountNumberInPrebookingUpdateDto extends Model
 {

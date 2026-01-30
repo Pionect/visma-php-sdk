@@ -12,9 +12,9 @@ class ShipmentOrderLineDtoFactory extends Factory
         return [
             'orderType' => $this->faker->word(),
             'orderNbr' => $this->faker->word(),
-            'shippedQty' => $this->faker->randomFloat(2, 0, 1000),
-            'shippedWeight' => $this->faker->randomFloat(2, 0, 1000),
-            'shippedVolume' => $this->faker->randomFloat(2, 0, 1000),
+            'shippedQty' => null,
+            'shippedWeight' => null,
+            'shippedVolume' => null,
             'invoiceType' => $this->faker->word(),
             'invoiceNbr' => $this->faker->word(),
             'inventoryDocType' => $this->faker->word(),

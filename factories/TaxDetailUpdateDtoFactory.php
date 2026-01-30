@@ -11,8 +11,8 @@ class TaxDetailUpdateDtoFactory extends Factory
     {
         return [
             'taxId' => $this->faker->uuid(),
-            'taxableAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'vatAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'taxableAmount' => null,
+            'vatAmount' => null,
         ];
     }
 

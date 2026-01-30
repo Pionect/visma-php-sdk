@@ -10,9 +10,9 @@ class KitAssemblyLinkInsertDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'orderType' => OrderTypeInKitAssemblyLinkInsertDtoFactory::new()->make(),
-            'orderNumber' => OrderNumberInKitAssemblyLinkInsertDtoFactory::new()->make(),
-            'orderLineNumber' => OrderLineNumberInKitAssemblyLinkInsertDtoFactory::new()->make(),
+            'orderType' => null,
+            'orderNumber' => $this->faker->word(),
+            'orderLineNumber' => $this->faker->word(),
         ];
     }
 

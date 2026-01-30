@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ShipmentSolineFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ShipmentSolineFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ShipmentSolineFactory testFactory()
  */
 class ShipmentSoline extends Model
 {

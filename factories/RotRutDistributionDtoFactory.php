@@ -12,7 +12,7 @@ class RotRutDistributionDtoFactory extends Factory
         return [
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'personalId' => $this->faker->uuid(),
-            'amount' => $this->faker->randomFloat(2, 0, 1000),
+            'amount' => null,
             'extra' => $this->faker->boolean(),
         ];
     }

@@ -11,10 +11,10 @@ class EmployeeUpdateDtoFactory extends Factory
     {
         return [
             'employeeClass' => $this->faker->word(),
-            'status' => StatusInEmployeeUpdateDtoFactory::new()->make(),
-            'department' => DepartmentInEmployeeUpdateDtoFactory::new()->make(),
-            'contact' => ContactInEmployeeUpdateDtoFactory::new()->make(),
-            'address' => AddressInEmployeeUpdateDtoFactory::new()->make(),
+            'status' => null,
+            'department' => null,
+            'contact' => null,
+            'address' => null,
             'branch' => $this->faker->word(),
             'calendar' => $this->faker->word(),
             'companyTreeInfo' => [],

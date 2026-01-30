@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInCreditNoteLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BranchNumberInCreditNoteLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BranchNumberInCreditNoteLineDtoFactory testFactory()
  */
 class BranchNumberInCreditNoteLineDto extends Model
 {

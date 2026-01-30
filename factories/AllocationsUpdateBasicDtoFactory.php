@@ -14,7 +14,7 @@ class AllocationsUpdateBasicDtoFactory extends Factory
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'location' => $this->faker->word(),
             'lotSerialNumber' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
         ];
     }
 

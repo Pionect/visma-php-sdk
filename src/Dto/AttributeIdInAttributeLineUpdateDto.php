@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AttributeIdInAttributeLineUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\AttributeIdInAttributeLineUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\AttributeIdInAttributeLineUpdateDtoFactory testFactory()
  */
 class AttributeIdInAttributeLineUpdateDto extends Model
 {

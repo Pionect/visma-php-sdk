@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCodeInJournalTransactionLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VatCodeInJournalTransactionLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VatCodeInJournalTransactionLineDtoFactory testFactory()
  */
 class VatCodeInJournalTransactionLineDto extends Model
 {

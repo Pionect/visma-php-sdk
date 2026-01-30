@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefaultPriceInInventoryUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DefaultPriceInInventoryUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DefaultPriceInInventoryUpdateDtoFactory testFactory()
  */
 class DefaultPriceInInventoryUpdateDto extends Model
 {

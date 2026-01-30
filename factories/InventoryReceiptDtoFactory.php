@@ -11,8 +11,8 @@ class InventoryReceiptDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'totalCost' => $this->faker->randomFloat(2, 0, 1000),
-            'controlCost' => $this->faker->randomFloat(2, 0, 1000),
+            'totalCost' => null,
+            'controlCost' => null,
             'transferNumber' => $this->faker->word(),
             'receiptLines' => [],
             'referenceNumber' => $this->faker->word(),
@@ -22,11 +22,11 @@ class InventoryReceiptDtoFactory extends Factory
             'postPeriod' => $this->faker->word(),
             'externalReference' => $this->faker->word(),
             'description' => $this->faker->sentence(),
-            'totalQuantity' => $this->faker->randomFloat(2, 0, 1000),
-            'controlQuantity' => $this->faker->randomFloat(2, 0, 1000),
+            'totalQuantity' => null,
+            'controlQuantity' => null,
             'batchNumber' => $this->faker->word(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'branchNumber' => BranchNumberInInventoryReceiptDtoFactory::new()->make(),
+            'branchNumber' => $this->faker->word(),
             'attachments' => [],
             'timestamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),

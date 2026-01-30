@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInCustomerDocumentDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SubaccountInCustomerDocumentDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SubaccountInCustomerDocumentDtoFactory testFactory()
  */
 class SubaccountInCustomerDocumentDto extends Model
 {

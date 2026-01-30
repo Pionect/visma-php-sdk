@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EffectiveDateInCreateCurrencyRateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\EffectiveDateInCreateCurrencyRateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\EffectiveDateInCreateCurrencyRateDtoFactory testFactory()
  */
 class EffectiveDateInCreateCurrencyRateDto extends Model
 {

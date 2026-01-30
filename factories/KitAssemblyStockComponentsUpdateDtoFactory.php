@@ -15,8 +15,8 @@ class KitAssemblyStockComponentsUpdateDtoFactory extends Factory
             'itemId' => $this->faker->uuid(),
             'location' => $this->faker->word(),
             'uoM' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
-            'unitCost' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
+            'unitCost' => null,
             'reasonCode' => $this->faker->word(),
             'stockComponentLineAllocations' => [],
         ];

@@ -12,7 +12,7 @@ class VatRateLineDtoFactory extends Factory
     {
         return [
             'revisionId' => $this->faker->uuid(),
-            'vatRate' => $this->faker->randomFloat(2, 0, 1000),
+            'vatRate' => null,
             'groupType' => $this->faker->word(),
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];

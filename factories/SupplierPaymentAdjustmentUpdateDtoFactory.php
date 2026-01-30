@@ -13,9 +13,9 @@ class SupplierPaymentAdjustmentUpdateDtoFactory extends Factory
             'operation' => $this->faker->word(),
             'documentType' => $this->faker->word(),
             'refNbr' => $this->faker->word(),
-            'amountPaid' => $this->faker->randomFloat(2, 0, 1000),
-            'cashDiscountTaken' => $this->faker->randomFloat(2, 0, 1000),
-            'crossRate' => $this->faker->randomFloat(2, 0, 1000),
+            'amountPaid' => null,
+            'cashDiscountTaken' => null,
+            'crossRate' => null,
         ];
     }
 

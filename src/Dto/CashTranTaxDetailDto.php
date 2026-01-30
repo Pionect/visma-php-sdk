@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CashTranTaxDetailDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CashTranTaxDetailDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CashTranTaxDetailDtoFactory testFactory()
  */
 class CashTranTaxDetailDto extends Model
 {

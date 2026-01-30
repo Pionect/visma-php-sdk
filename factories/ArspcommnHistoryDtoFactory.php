@@ -12,8 +12,8 @@ class ArspcommnHistoryDtoFactory extends Factory
     {
         return [
             'commnPeriod' => $this->faker->word(),
-            'commnAmt' => $this->faker->randomFloat(2, 0, 1000),
-            'commnblAmt' => $this->faker->randomFloat(2, 0, 1000),
+            'commnAmt' => null,
+            'commnblAmt' => null,
             'prProcessedDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'errorInfo' => $this->faker->word(),
         ];

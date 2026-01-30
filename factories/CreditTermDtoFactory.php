@@ -24,7 +24,7 @@ class CreditTermDtoFactory extends Factory
             'dueDay2dayTo1' => $this->faker->numberBetween(1, 100),
             'discountType' => $this->faker->word(),
             'discountDay' => $this->faker->numberBetween(1, 100),
-            'discountPercent' => $this->faker->randomFloat(2, 0, 1000),
+            'discountPercent' => null,
             'delayDays' => $this->faker->numberBetween(1, 100),
             'calculationType' => $this->faker->word(),
             'instalmentType' => $this->faker->word(),

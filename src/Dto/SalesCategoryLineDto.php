@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesCategoryLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SalesCategoryLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SalesCategoryLineDtoFactory testFactory()
  */
 class SalesCategoryLineDto extends Model
 {

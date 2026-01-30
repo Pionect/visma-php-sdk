@@ -10,7 +10,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryCrossReferenceUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\InventoryCrossReferenceUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\InventoryCrossReferenceUpdateDtoFactory testFactory()
  */
 class InventoryCrossReferenceUpdateDto extends Model
 {

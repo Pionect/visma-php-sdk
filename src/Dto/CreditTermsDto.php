@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditTermsDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CreditTermsDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CreditTermsDtoFactory testFactory()
  */
 class CreditTermsDto extends Model
 {

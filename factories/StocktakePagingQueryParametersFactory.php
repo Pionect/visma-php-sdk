@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\StocktakePagingQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -18,11 +17,11 @@ class StocktakePagingQueryParametersFactory extends Factory
             'summaryStatus' => $this->faker->word(),
             'startWithLine' => $this->faker->numberBetween(1, 100),
             'endWithLine' => $this->faker->numberBetween(1, 100),
-            'freezeDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'freezeDateTime' => $this->faker->word(),
             'freezeDateTimeCondition' => $this->faker->word(),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
-            'expirationDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'expirationDateTime' => $this->faker->word(),
             'expirationDateTimeCondition' => $this->faker->word(),
             'status' => $this->faker->word(),
             'pageNumber' => $this->faker->numberBetween(1, 100),

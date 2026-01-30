@@ -10,7 +10,7 @@ class SupplierAccountsDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'supplierAccount' => SupplierAccountInSupplierAccountsDtoFactory::new()->make(),
+            'supplierAccount' => null,
             'supplierItemAccounts' => [],
         ];
     }

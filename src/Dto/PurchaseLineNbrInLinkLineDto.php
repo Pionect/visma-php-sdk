@@ -15,7 +15,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseLineNbrInLinkLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PurchaseLineNbrInLinkLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PurchaseLineNbrInLinkLineDtoFactory testFactory()
  */
 class PurchaseLineNbrInLinkLineDto extends Model
 {

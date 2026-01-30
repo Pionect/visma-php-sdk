@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DescriptionInExpenseClaimUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DescriptionInExpenseClaimUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DescriptionInExpenseClaimUpdateDtoFactory testFactory()
  */
 class DescriptionInExpenseClaimUpdateDto extends Model
 {

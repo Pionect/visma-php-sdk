@@ -15,12 +15,12 @@ class CustomerContractRecurringSummaryLineDtoFactory extends Factory
             'itemId' => $this->faker->uuid(),
             'uom' => $this->faker->word(),
             'invoiceType' => $this->faker->word(),
-            'included' => $this->faker->randomFloat(2, 0, 1000),
-            'recurringPrice' => $this->faker->randomFloat(2, 0, 1000),
-            'recurringDiscount' => $this->faker->randomFloat(2, 0, 1000),
-            'extraUsagePrice' => $this->faker->randomFloat(2, 0, 1000),
-            'unInvoiced' => $this->faker->randomFloat(2, 0, 1000),
-            'usedTotal' => $this->faker->randomFloat(2, 0, 1000),
+            'included' => null,
+            'recurringPrice' => null,
+            'recurringDiscount' => null,
+            'extraUsagePrice' => null,
+            'unInvoiced' => null,
+            'usedTotal' => null,
         ];
     }
 

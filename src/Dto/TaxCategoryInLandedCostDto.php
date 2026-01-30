@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxCategoryInLandedCostDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\TaxCategoryInLandedCostDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\TaxCategoryInLandedCostDtoFactory testFactory()
  */
 class TaxCategoryInLandedCostDto extends Model
 {

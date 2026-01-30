@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ApplicationDateInPaymentUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ApplicationDateInPaymentUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ApplicationDateInPaymentUpdateDtoFactory testFactory()
  */
 class ApplicationDateInPaymentUpdateDto extends Model
 {

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VoidPaymentActionResultDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VoidPaymentActionResultDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VoidPaymentActionResultDtoFactory testFactory()
  */
 class VoidPaymentActionResultDto extends Model
 {

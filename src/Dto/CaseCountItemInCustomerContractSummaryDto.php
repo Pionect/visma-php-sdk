@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CaseCountItemInCustomerContractSummaryDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CaseCountItemInCustomerContractSummaryDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CaseCountItemInCustomerContractSummaryDtoFactory testFactory()
  */
 class CaseCountItemInCustomerContractSummaryDto extends Model
 {

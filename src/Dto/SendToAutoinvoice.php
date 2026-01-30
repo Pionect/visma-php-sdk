@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SendToAutoinvoiceFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SendToAutoinvoiceFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SendToAutoinvoiceFactory testFactory()
  */
 class SendToAutoinvoice extends Model
 {

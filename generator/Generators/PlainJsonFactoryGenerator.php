@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pionect\VismaSdk\Generator\Generators;
 
+use Nette\PhpGenerator\PhpFile;
 use Timatic\JsonApiSdk\Generators\JsonApiFactoryGenerator;
 
 class PlainJsonFactoryGenerator extends JsonApiFactoryGenerator
@@ -17,18 +18,94 @@ class PlainJsonFactoryGenerator extends JsonApiFactoryGenerator
         return []; // Don't skip any properties
     }
 
-    protected function extractDtoProperties(): array
+    /**
+     * Get DTO properties from constructor parameters (Spatie Data style with promoted properties).
+     * Overrides parent's property-based extraction since our DTOs use constructor promotion.
+     *
+     * @return array<array{name: string, type: ?string, isDateTime: bool}>
+     */
+    protected function getDtoPropertiesFromPhpFile(PhpFile $dtoClass): array
     {
-        if (! $this->dtoSchema) {
-            return [];
+        $properties = [];
+        $propertiesToSkip = $this->getPropertiesToSkip();
+
+        foreach ($dtoClass->getNamespaces() as $ns) {
+            foreach ($ns->getClasses() as $class) {
+                // Get constructor method
+                $constructor = $class->getMethod('__construct');
+                if (! $constructor) {
+                    continue;
+                }
+
+                // Extract promoted parameters from constructor
+                foreach ($constructor->getParameters() as $parameter) {
+                    $paramName = $parameter->getName();
+
+                    // Skip properties defined in getPropertiesToSkip()
+                    if (in_array($paramName, $propertiesToSkip)) {
+                        continue;
+                    }
+
+                    // Check if parameter has WithTransformer attribute (ValueWrapperTransformer)
+                    $hasValueWrapperTransformer = false;
+                    foreach ($parameter->getAttributes() as $attribute) {
+                        $attrName = $attribute->getName();
+                        if (str_contains($attrName, 'WithTransformer')) {
+                            $hasValueWrapperTransformer = true;
+                            break;
+                        }
+                    }
+
+                    // Check if parameter has DataCollectionOf attribute (indicates collection relationship)
+                    $hasDataCollectionOf = false;
+                    foreach ($parameter->getAttributes() as $attribute) {
+                        $attrName = $attribute->getName();
+                        if (str_contains($attrName, 'DataCollectionOf')) {
+                            $hasDataCollectionOf = true;
+                            break;
+                        }
+                    }
+
+                    // Skip relationship properties
+                    if ($hasDataCollectionOf) {
+                        continue;
+                    }
+
+                    // Get parameter type
+                    $typeName = $parameter->getType();
+                    $typeName = is_string($typeName) ? $typeName : null;
+
+                    // Check if it's a DateTime/Carbon type
+                    $isDateTime = false;
+                    if ($typeName) {
+                        $normalized = ltrim($typeName, '?\\');
+                        if (str_contains($normalized, 'Carbon\\Carbon') || str_ends_with($normalized, 'Carbon')) {
+                            $isDateTime = true;
+                            $typeName = 'Carbon\\Carbon';
+                        }
+                    }
+
+                    $properties[] = [
+                        'name' => $paramName,
+                        'type' => $typeName,
+                        'isDateTime' => $isDateTime,
+                    ];
+                }
+
+                // Only consider the first class in this file
+                break 2;
+            }
         }
 
-        return $this->dtoSchema->properties;
+        return $properties;
     }
 
-    public function getReferencedDtoClass(string $propertyName): ?string
+    /**
+     * Skip DtoValueOf wrapper classes when checking for referenced DTOs.
+     */
+    public function getReferencedDtoClass(string $propertyType): ?string
     {
-        $referencedDtoClass = parent::getReferencedDtoClass($propertyName);
+        $referencedDtoClass = parent::getReferencedDtoClass($propertyType);
 
         if (is_null($referencedDtoClass) || str_starts_with($referencedDtoClass, 'DtoValueOf')) {
             return null;

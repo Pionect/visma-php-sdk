@@ -11,9 +11,9 @@ class SocommissionDtoFactory extends Factory
     {
         return [
             'salesPersonId' => $this->faker->uuid(),
-            'commissionPercent' => $this->faker->randomFloat(2, 0, 1000),
-            'commissionAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'commissionableAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'commissionPercent' => null,
+            'commissionAmount' => null,
+            'commissionableAmount' => null,
         ];
     }
 

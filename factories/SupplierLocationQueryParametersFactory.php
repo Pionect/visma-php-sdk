@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Factories;
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierLocationQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
@@ -13,7 +12,7 @@ class SupplierLocationQueryParametersFactory extends Factory
         return [
             'locationId' => $this->faker->uuid(),
             'gln' => $this->faker->word(),
-            'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'pageNumber' => $this->faker->numberBetween(1, 100),
             'pageSize' => $this->faker->numberBetween(1, 100),

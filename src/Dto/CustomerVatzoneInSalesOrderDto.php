@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerVatzoneInSalesOrderDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\CustomerVatzoneInSalesOrderDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\CustomerVatzoneInSalesOrderDtoFactory testFactory()
  */
 class CustomerVatzoneInSalesOrderDto extends Model
 {

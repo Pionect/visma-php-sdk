@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpirationDateInAllocationsUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ExpirationDateInAllocationsUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ExpirationDateInAllocationsUpdateDtoFactory testFactory()
  */
 class ExpirationDateInAllocationsUpdateDto extends Model
 {

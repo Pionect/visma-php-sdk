@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OrderNumberInKitAssemblyLinkInsertDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\OrderNumberInKitAssemblyLinkInsertDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\OrderNumberInKitAssemblyLinkInsertDtoFactory testFactory()
  */
 class OrderNumberInKitAssemblyLinkInsertDto extends Model
 {

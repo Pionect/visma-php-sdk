@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetRegisterDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\FixedAssetRegisterDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\FixedAssetRegisterDtoFactory testFactory()
  */
 class FixedAssetRegisterDto extends Model
 {

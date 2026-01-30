@@ -10,7 +10,7 @@ class TueInTimeCardMaterialsUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'value' => $this->faker->randomFloat(2, 0, 1000),
+            'value' => null,
         ];
     }
 

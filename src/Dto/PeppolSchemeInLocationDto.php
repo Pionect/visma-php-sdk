@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PeppolSchemeInLocationDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PeppolSchemeInLocationDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PeppolSchemeInLocationDtoFactory testFactory()
  */
 class PeppolSchemeInLocationDto extends Model
 {

@@ -14,7 +14,7 @@ class InallocationsDtoFactory extends Factory
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'location' => LocationDescriptionDtoFactory::new()->make(),
             'lotSerialNumber' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'uom' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];

@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RateTypeInCreateCurrencyRateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\RateTypeInCreateCurrencyRateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\RateTypeInCreateCurrencyRateDtoFactory testFactory()
  */
 class RateTypeInCreateCurrencyRateDto extends Model
 {

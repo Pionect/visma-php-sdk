@@ -15,7 +15,7 @@ class BudgetUpdateDtoFactory extends Factory
             'account' => $this->faker->word(),
             'subaccount' => [],
             'description' => $this->faker->sentence(),
-            'amount' => $this->faker->randomFloat(2, 0, 1000),
+            'amount' => null,
             'branchNumber' => $this->faker->word(),
             'periods' => [],
         ];

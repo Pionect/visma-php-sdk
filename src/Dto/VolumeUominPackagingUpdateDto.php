@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VolumeUominPackagingUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\VolumeUominPackagingUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\VolumeUominPackagingUpdateDtoFactory testFactory()
  */
 class VolumeUominPackagingUpdateDto extends Model
 {

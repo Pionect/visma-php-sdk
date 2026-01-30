@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\Cn8inIntrastatUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\Cn8inIntrastatUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\Cn8inIntrastatUpdateDtoFactory testFactory()
  */
 class Cn8inIntrastatUpdateDto extends Model
 {

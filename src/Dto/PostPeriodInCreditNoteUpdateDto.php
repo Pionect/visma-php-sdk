@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PostPeriodInCreditNoteUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PostPeriodInCreditNoteUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PostPeriodInCreditNoteUpdateDtoFactory testFactory()
  */
 class PostPeriodInCreditNoteUpdateDto extends Model
 {

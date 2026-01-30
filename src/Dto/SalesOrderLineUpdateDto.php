@@ -13,7 +13,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesOrderLineUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SalesOrderLineUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SalesOrderLineUpdateDtoFactory testFactory()
  */
 class SalesOrderLineUpdateDto extends Model
 {

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ConsolBranchDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ConsolBranchDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ConsolBranchDtoFactory testFactory()
  */
 class ConsolBranchDto extends Model
 {

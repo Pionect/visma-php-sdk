@@ -11,7 +11,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierLocationUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SupplierLocationUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SupplierLocationUpdateDtoFactory testFactory()
  */
 class SupplierLocationUpdateDto extends Model
 {

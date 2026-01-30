@@ -18,13 +18,13 @@ class JournalTransactionLineUpdateDtoFactory extends Factory
             'projectTask' => $this->faker->word(),
             'referenceNumber' => $this->faker->word(),
             'transactionDescription' => $this->faker->sentence(),
-            'debitAmountInCurrency' => $this->faker->randomFloat(2, 0, 1000),
-            'creditAmountInCurrency' => $this->faker->randomFloat(2, 0, 1000),
+            'debitAmountInCurrency' => null,
+            'creditAmountInCurrency' => null,
             'vatCodeId' => $this->faker->uuid(),
             'vatId' => $this->faker->uuid(),
             'branch' => $this->faker->word(),
             'uom' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'note' => $this->faker->word(),
         ];
     }

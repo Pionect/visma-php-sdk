@@ -9,7 +9,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountBreakpointUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DiscountBreakpointUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DiscountBreakpointUpdateDtoFactory testFactory()
  */
 class DiscountBreakpointUpdateDto extends Model
 {

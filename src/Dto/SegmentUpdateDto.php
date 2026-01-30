@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SegmentUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SegmentUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SegmentUpdateDtoFactory testFactory()
  */
 class SegmentUpdateDto extends Model
 {

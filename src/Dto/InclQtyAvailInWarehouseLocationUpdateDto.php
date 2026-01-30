@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InclQtyAvailInWarehouseLocationUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\InclQtyAvailInWarehouseLocationUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\InclQtyAvailInWarehouseLocationUpdateDtoFactory testFactory()
  */
 class InclQtyAvailInWarehouseLocationUpdateDto extends Model
 {

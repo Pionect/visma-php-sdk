@@ -15,8 +15,8 @@ class DeferralCodeDtoFactory extends Factory
             'deferredRevenueFromItem' => $this->faker->boolean(),
             'recognitionMethod' => $this->faker->word(),
             'codeType' => $this->faker->word(),
-            'deferralAccount' => DeferralAccountInDeferralCodeDtoFactory::new()->make(),
-            'deferralSub' => DeferralSubInDeferralCodeDtoFactory::new()->make(),
+            'deferralAccount' => null,
+            'deferralSub' => null,
             'errorInfo' => $this->faker->word(),
         ];
     }

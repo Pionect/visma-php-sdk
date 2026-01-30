@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LinkLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\LinkLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\LinkLineDtoFactory testFactory()
  */
 class LinkLineDto extends Model
 {

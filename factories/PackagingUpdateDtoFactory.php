@@ -10,10 +10,10 @@ class PackagingUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'baseItemWeight' => BaseItemWeightInPackagingUpdateDtoFactory::new()->make(),
-            'weightUom' => WeightUOMInPackagingUpdateDtoFactory::new()->make(),
-            'baseItemVolume' => BaseItemVolumeInPackagingUpdateDtoFactory::new()->make(),
-            'volumeUom' => VolumeUOMInPackagingUpdateDtoFactory::new()->make(),
+            'baseItemWeight' => null,
+            'weightUom' => null,
+            'baseItemVolume' => null,
+            'volumeUom' => null,
         ];
     }
 

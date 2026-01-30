@@ -10,8 +10,8 @@ class UpdateCurrencyRateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'rate' => RateInUpdateCurrencyRateDtoFactory::new()->make(),
-            'multDiv' => MultDivInUpdateCurrencyRateDtoFactory::new()->make(),
+            'rate' => null,
+            'multDiv' => null,
         ];
     }
 

@@ -10,9 +10,9 @@ class CustomerContractRecurringSummaryDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'recurringTotal' => $this->faker->randomFloat(2, 0, 1000),
-            'extraUsageTotal' => $this->faker->randomFloat(2, 0, 1000),
-            'totalDue' => $this->faker->randomFloat(2, 0, 1000),
+            'recurringTotal' => null,
+            'extraUsageTotal' => null,
+            'totalDue' => null,
             'lines' => [],
         ];
     }

@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RateTableIdDescriptionDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\RateTableIdDescriptionDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\RateTableIdDescriptionDtoFactory testFactory()
  */
 class RateTableIdDescriptionDto extends Model
 {

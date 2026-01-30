@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefAccountInTaskExtendedDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DefAccountInTaskExtendedDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DefAccountInTaskExtendedDtoFactory testFactory()
  */
 class DefAccountInTaskExtendedDto extends Model
 {

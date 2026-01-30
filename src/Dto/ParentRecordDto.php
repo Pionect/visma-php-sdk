@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ParentRecordDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ParentRecordDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ParentRecordDtoFactory testFactory()
  */
 class ParentRecordDto extends Model
 {

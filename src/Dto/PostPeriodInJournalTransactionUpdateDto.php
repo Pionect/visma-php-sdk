@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PostPeriodInJournalTransactionUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PostPeriodInJournalTransactionUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PostPeriodInJournalTransactionUpdateDtoFactory testFactory()
  */
 class PostPeriodInJournalTransactionUpdateDto extends Model
 {

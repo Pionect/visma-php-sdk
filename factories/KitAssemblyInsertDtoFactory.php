@@ -24,7 +24,7 @@ class KitAssemblyInsertDtoFactory extends Factory
             'warehouse' => $this->faker->word(),
             'location' => $this->faker->word(),
             'uoM' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'stockComponentLines' => [],
             'stockComponentAllocations' => [],
             'nonStockComponentLines' => [],

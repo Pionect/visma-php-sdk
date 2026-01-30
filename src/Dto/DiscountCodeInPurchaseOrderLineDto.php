@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountCodeInPurchaseOrderLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DiscountCodeInPurchaseOrderLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DiscountCodeInPurchaseOrderLineDtoFactory testFactory()
  */
 class DiscountCodeInPurchaseOrderLineDto extends Model
 {

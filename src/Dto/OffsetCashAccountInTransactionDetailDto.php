@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetCashAccountInTransactionDetailDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\OffsetCashAccountInTransactionDetailDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\OffsetCashAccountInTransactionDetailDtoFactory testFactory()
  */
 class OffsetCashAccountInTransactionDetailDto extends Model
 {

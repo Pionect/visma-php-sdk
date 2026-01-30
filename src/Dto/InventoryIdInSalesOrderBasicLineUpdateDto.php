@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryIdInSalesOrderBasicLineUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\InventoryIdInSalesOrderBasicLineUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\InventoryIdInSalesOrderBasicLineUpdateDtoFactory testFactory()
  */
 class InventoryIdInSalesOrderBasicLineUpdateDto extends Model
 {

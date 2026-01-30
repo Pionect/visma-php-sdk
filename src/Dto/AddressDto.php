@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AddressDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\AddressDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\AddressDtoFactory testFactory()
  */
 class AddressDto extends Model
 {

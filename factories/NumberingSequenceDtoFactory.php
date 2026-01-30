@@ -12,7 +12,7 @@ class NumberingSequenceDtoFactory extends Factory
     {
         return [
             'numberingId' => $this->faker->uuid(),
-            'branch' => BranchInNumberingSequenceDtoFactory::new()->make(),
+            'branch' => null,
             'startNbr' => $this->faker->word(),
             'endNbr' => $this->faker->word(),
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

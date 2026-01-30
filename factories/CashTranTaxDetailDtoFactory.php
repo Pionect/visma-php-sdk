@@ -10,12 +10,12 @@ class CashTranTaxDetailDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'tax' => TaxInCashTranTaxDetailDtoFactory::new()->make(),
-            'taxRate' => $this->faker->randomFloat(2, 0, 1000),
-            'taxableAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'taxAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'deductibleTaxRate' => $this->faker->randomFloat(2, 0, 1000),
-            'expenseAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'tax' => null,
+            'taxRate' => null,
+            'taxableAmount' => null,
+            'taxAmount' => null,
+            'deductibleTaxRate' => null,
+            'expenseAmount' => null,
             'includeInVatExemptTotal' => $this->faker->boolean(),
             'pendingVat' => $this->faker->boolean(),
             'statisticalVat' => $this->faker->boolean(),

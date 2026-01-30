@@ -11,9 +11,9 @@ class CashTransactionTaxDetailUpdateDtoFactory extends Factory
     {
         return [
             'vatId' => $this->faker->uuid(),
-            'taxableAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'vatAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'expenseAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'taxableAmount' => null,
+            'vatAmount' => null,
+            'expenseAmount' => null,
         ];
     }
 

@@ -16,7 +16,7 @@ class KitAssemblyStockComponentAllocationsUpdateDtoFactory extends Factory
             'itemId' => $this->faker->uuid(),
             'location' => $this->faker->word(),
             'lotSerialNumber' => $this->faker->word(),
-            'quantity' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => null,
             'uom' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];

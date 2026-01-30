@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EarningTypeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\EarningTypeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\EarningTypeDtoFactory testFactory()
  */
 class EarningTypeDto extends Model
 {

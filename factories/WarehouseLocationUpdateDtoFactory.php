@@ -10,21 +10,21 @@ class WarehouseLocationUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'locationId' => LocationIdInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'description' => DescriptionInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'active' => ActiveInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'inclQtyAvail' => InclQtyAvailInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'isCosted' => IsCostedInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'salesValid' => SalesValidInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'receiptsValid' => ReceiptsValidInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'transfersValid' => TransfersValidInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'assemblyValid' => AssemblyValidInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'pickPriority' => PickPriorityInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'primaryItemValid' => PrimaryItemValidInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'primaryItemId' => PrimaryItemIdInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'primaryItemClassId' => PrimaryItemClassIdInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'projectId' => ProjectIdInWarehouseLocationUpdateDtoFactory::new()->make(),
-            'projectTaskId' => ProjectTaskIdInWarehouseLocationUpdateDtoFactory::new()->make(),
+            'locationId' => null,
+            'description' => $this->faker->sentence(),
+            'active' => null,
+            'inclQtyAvail' => null,
+            'isCosted' => null,
+            'salesValid' => null,
+            'receiptsValid' => null,
+            'transfersValid' => null,
+            'assemblyValid' => null,
+            'pickPriority' => null,
+            'primaryItemValid' => null,
+            'primaryItemId' => null,
+            'primaryItemClassId' => null,
+            'projectId' => null,
+            'projectTaskId' => null,
         ];
     }
 

@@ -13,7 +13,7 @@ class SupplierInvoiceLandedCostDtoFactory extends Factory
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'landedCostCodeId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
-            'amount' => $this->faker->randomFloat(2, 0, 1000),
+            'amount' => null,
             'vatCategoryId' => $this->faker->uuid(),
             'purchaseReceiptType' => $this->faker->word(),
             'purcahseOrderReceiptNumber' => $this->faker->word(),

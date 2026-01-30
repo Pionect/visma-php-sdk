@@ -13,16 +13,16 @@ class BudgetDtoFactory extends Factory
         return [
             'financialYear' => $this->faker->word(),
             'released' => $this->faker->boolean(),
-            'releasedAmount' => $this->faker->randomFloat(2, 0, 1000),
-            'account' => AccountInBudgetDtoFactory::new()->make(),
-            'subaccount' => SubaccountInBudgetDtoFactory::new()->make(),
+            'releasedAmount' => null,
+            'account' => null,
+            'subaccount' => null,
             'description' => $this->faker->sentence(),
-            'amount' => $this->faker->randomFloat(2, 0, 1000),
-            'distributedAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'amount' => null,
+            'distributedAmount' => null,
             'periods' => [],
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'branchNumber' => BranchNumberInBudgetDtoFactory::new()->make(),
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'branchNumber' => $this->faker->word(),
+            'timeStamp' => $this->faker->word(),
         ];
     }
 

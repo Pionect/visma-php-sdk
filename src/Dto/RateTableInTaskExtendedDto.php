@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RateTableInTaskExtendedDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\RateTableInTaskExtendedDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\RateTableInTaskExtendedDtoFactory testFactory()
  */
 class RateTableInTaskExtendedDto extends Model
 {

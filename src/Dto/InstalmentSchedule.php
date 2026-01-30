@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InstalmentScheduleFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\InstalmentScheduleFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\InstalmentScheduleFactory testFactory()
  */
 class InstalmentSchedule extends Model
 {

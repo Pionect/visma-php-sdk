@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DeferralCodeDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DeferralCodeDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DeferralCodeDtoFactory testFactory()
  */
 class DeferralCodeDto extends Model
 {

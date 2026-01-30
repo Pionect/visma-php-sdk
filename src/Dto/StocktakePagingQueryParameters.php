@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\StocktakePagingQueryParametersFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\StocktakePagingQueryParametersFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\StocktakePagingQueryParametersFactory testFactory()
  */
 class StocktakePagingQueryParameters extends Model
 {

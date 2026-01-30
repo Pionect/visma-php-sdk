@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BackgroundRequestStateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\BackgroundRequestStateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\BackgroundRequestStateDtoFactory testFactory()
  */
 class BackgroundRequestStateDto extends Model
 {

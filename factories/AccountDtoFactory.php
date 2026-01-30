@@ -26,12 +26,12 @@ class AccountDtoFactory extends Factory
             'cashAccount' => $this->faker->boolean(),
             'publicCode1' => $this->faker->word(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'externalCode1info' => ExternalCode1InfoInAccountDtoFactory::new()->make(),
-            'externalCode2info' => ExternalCode2InfoInAccountDtoFactory::new()->make(),
-            'analisysCodeInfo' => AnalisysCodeInfoInAccountDtoFactory::new()->make(),
+            'externalCode1info' => null,
+            'externalCode2info' => null,
+            'analisysCodeInfo' => null,
             'controlAccountModule' => $this->faker->word(),
             'allowManualEntry' => $this->faker->boolean(),
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
         ];
     }

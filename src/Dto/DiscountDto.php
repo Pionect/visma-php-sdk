@@ -7,7 +7,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DiscountDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DiscountDtoFactory testFactory()
  */
 class DiscountDto extends Model
 {

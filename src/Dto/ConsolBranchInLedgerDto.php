@@ -11,7 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ConsolBranchInLedgerDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ConsolBranchInLedgerDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ConsolBranchInLedgerDtoFactory testFactory()
  */
 class ConsolBranchInLedgerDto extends Model
 {

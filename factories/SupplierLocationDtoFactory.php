@@ -11,20 +11,20 @@ class SupplierLocationDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'baccount' => BaccountInSupplierLocationDtoFactory::new()->make(),
+            'baccount' => null,
             'locationId' => $this->faker->uuid(),
             'locationName' => $this->faker->company(),
             'active' => $this->faker->boolean(),
-            'address' => AddressInSupplierLocationDtoFactory::new()->make(),
-            'contact' => ContactInSupplierLocationDtoFactory::new()->make(),
+            'address' => null,
+            'contact' => null,
             'vatRegistrationId' => $this->faker->uuid(),
-            'vatZone' => VatZoneInSupplierLocationDtoFactory::new()->make(),
+            'vatZone' => null,
             'ediCode' => $this->faker->word(),
             'gln' => $this->faker->word(),
             'corporateId' => $this->faker->uuid(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'supplierPaymentMethodDetails' => [],
-            'timeStamp' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
+            'timeStamp' => $this->faker->word(),
             'errorInfo' => $this->faker->word(),
         ];
     }

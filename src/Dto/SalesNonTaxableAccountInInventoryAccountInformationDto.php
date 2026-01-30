@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesNonTaxableAccountInInventoryAccountInformationDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\SalesNonTaxableAccountInInventoryAccountInformationDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\SalesNonTaxableAccountInInventoryAccountInformationDtoFactory testFactory()
  */
 class SalesNonTaxableAccountInInventoryAccountInformationDto extends Model
 {

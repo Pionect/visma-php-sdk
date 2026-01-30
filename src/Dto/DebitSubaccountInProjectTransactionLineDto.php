@@ -10,7 +10,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DebitSubaccountInProjectTransactionLineDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\DebitSubaccountInProjectTransactionLineDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\DebitSubaccountInProjectTransactionLineDtoFactory testFactory()
  */
 class DebitSubaccountInProjectTransactionLineDto extends Model
 {

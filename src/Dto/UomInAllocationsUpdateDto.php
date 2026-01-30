@@ -9,7 +9,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\UomInAllocationsUpdateDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\UomInAllocationsUpdateDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\UomInAllocationsUpdateDtoFactory testFactory()
  */
 class UomInAllocationsUpdateDto extends Model
 {

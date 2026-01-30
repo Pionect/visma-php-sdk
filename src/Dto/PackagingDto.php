@@ -11,7 +11,7 @@ use Spatie\LaravelData\Attributes\MapName;
  *
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PackagingDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\PackagingDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\PackagingDtoFactory testFactory()
  */
 class PackagingDto extends Model
 {

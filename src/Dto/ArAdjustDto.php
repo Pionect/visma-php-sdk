@@ -8,7 +8,7 @@ use Spatie\LaravelData\Attributes\MapName;
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ArAdjustDtoFactory>
  *
- * @method static \Pionect\VismaSdk\Factories\ArAdjustDtoFactory factory()
+ * @method static \Pionect\VismaSdk\Factories\ArAdjustDtoFactory testFactory()
  */
 class ArAdjustDto extends Model
 {

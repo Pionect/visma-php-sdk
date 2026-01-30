@@ -15,16 +15,16 @@ class DetailsDtoFactory extends Factory
             'status' => $this->faker->word(),
             'receiptDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'depreciateFromDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'acquisitionCost' => $this->faker->randomFloat(2, 0, 1000),
-            'salvageAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'acquisitionCost' => null,
+            'salvageAmount' => null,
             'disposalDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'disposalPeriodId' => $this->faker->uuid(),
             'disposalMethodId' => $this->faker->numberBetween(1, 1000),
-            'saleAmount' => $this->faker->randomFloat(2, 0, 1000),
+            'saleAmount' => null,
             'billNumber' => $this->faker->word(),
             'serialNumber' => $this->faker->word(),
-            'disposalMethod' => DisposalMethodInDetailsDtoFactory::new()->make(),
-            'leaseAndRentInfo' => LeaseAndRentInfoInDetailsDtoFactory::new()->make(),
+            'disposalMethod' => null,
+            'leaseAndRentInfo' => null,
         ];
     }
 
