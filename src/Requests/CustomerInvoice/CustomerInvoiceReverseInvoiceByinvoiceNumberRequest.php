@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerInvoice;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Pionect\VismaSdk\Dto\ReverseInvoiceActionDto;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -33,7 +33,7 @@ class CustomerInvoiceReverseInvoiceByinvoiceNumberRequest extends Request implem
 
     /**
      * @param  string  $invoiceNumber  Reference number of the released invoice to be reversed
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\ReverseInvoiceActionDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -49,7 +49,7 @@ class CustomerInvoiceReverseInvoiceByinvoiceNumberRequest extends Request implem
      */
     public function __construct(
         protected string $invoiceNumber,
-        protected Model|array|null $data = null,
+        protected ReverseInvoiceActionDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}

@@ -2,9 +2,9 @@
 
 namespace Pionect\VismaSdk\Requests\Customer;
 
+use Pionect\VismaSdk\Dto\ChangeCustomerCdActionDto;
 use Pionect\VismaSdk\Dto\ChangeCustomerCdActionResultDto;
 use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -39,7 +39,7 @@ class CustomerChangeCustomerNrActionByinternalIdRequest extends Request implemen
 
     /**
      * @param  int  $internalId  Internal identifier of the Customer for which the Customer Nr will be changed
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\ChangeCustomerCdActionDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -51,7 +51,7 @@ class CustomerChangeCustomerNrActionByinternalIdRequest extends Request implemen
      */
     public function __construct(
         protected int $internalId,
-        protected Model|array|null $data = null,
+        protected ChangeCustomerCdActionDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
 

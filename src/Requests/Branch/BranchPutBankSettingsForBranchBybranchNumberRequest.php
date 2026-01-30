@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Branch;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Pionect\VismaSdk\Dto\BankSettingsUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -22,7 +22,7 @@ class BranchPutBankSettingsForBranchBybranchNumberRequest extends Request
 
     /**
      * @param  string  $branchNumber  branch number to update
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\BankSettingsUpdateDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -34,7 +34,7 @@ class BranchPutBankSettingsForBranchBybranchNumberRequest extends Request
      */
     public function __construct(
         protected string $branchNumber,
-        protected Model|array|null $data = null,
+        protected BankSettingsUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
 

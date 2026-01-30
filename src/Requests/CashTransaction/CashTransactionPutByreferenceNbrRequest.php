@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\CashTransaction;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Pionect\VismaSdk\Dto\CashTransactionUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -26,7 +26,7 @@ class CashTransactionPutByreferenceNbrRequest extends Request
 
     /**
      * @param  string  $referenceNbr  Identifies the Cash Transaction to update
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\CashTransactionUpdateDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -42,7 +42,7 @@ class CashTransactionPutByreferenceNbrRequest extends Request
      */
     public function __construct(
         protected string $referenceNbr,
-        protected Model|array|null $data = null,
+        protected CashTransactionUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}

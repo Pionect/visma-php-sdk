@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Shipment;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Pionect\VismaSdk\Dto\ShipmentSOOrder;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -26,7 +26,7 @@ class ShipmentAddSoorderByshipmentNumberRequest extends Request implements HasBo
 
     /**
      * @param  string  $shipmentNumber  Identifies the Shipment to update
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\ShipmentSOOrder|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -38,7 +38,7 @@ class ShipmentAddSoorderByshipmentNumberRequest extends Request implements HasBo
      */
     public function __construct(
         protected string $shipmentNumber,
-        protected Model|array|null $data = null,
+        protected ShipmentSOOrder|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
 

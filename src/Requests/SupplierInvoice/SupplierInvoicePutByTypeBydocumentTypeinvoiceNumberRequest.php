@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\SupplierInvoice;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Pionect\VismaSdk\Dto\SupplierInvoiceUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -27,7 +27,7 @@ class SupplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest extends Request
     /**
      * @param  string  $documentType  Identifies the SupplierInvoice to update
      * @param  string  $invoiceNumber  Identifies the SupplierInvoice to update
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\SupplierInvoiceUpdateDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -44,7 +44,7 @@ class SupplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest extends Request
     public function __construct(
         protected string $documentType,
         protected string $invoiceNumber,
-        protected Model|array|null $data = null,
+        protected SupplierInvoiceUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}

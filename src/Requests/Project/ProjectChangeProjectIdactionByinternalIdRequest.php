@@ -2,9 +2,9 @@
 
 namespace Pionect\VismaSdk\Requests\Project;
 
+use Pionect\VismaSdk\Dto\ChangeProjectIdActionDto;
 use Pionect\VismaSdk\Dto\ChangeProjectIdActionResultDto;
 use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -42,7 +42,7 @@ class ProjectChangeProjectIdactionByinternalIdRequest extends Request implements
 
     /**
      * @param  int  $internalId  Internal identifier of the project for which the project ID will be changed
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\ChangeProjectIdActionDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -58,7 +58,7 @@ class ProjectChangeProjectIdactionByinternalIdRequest extends Request implements
      */
     public function __construct(
         protected int $internalId,
-        protected Model|array|null $data = null,
+        protected ChangeProjectIdActionDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}

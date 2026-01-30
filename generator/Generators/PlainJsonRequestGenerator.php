@@ -45,10 +45,22 @@ class PlainJsonRequestGenerator extends JsonApiRequestGenerator
         }
 
         $modelClass = $this->foundationClass('Hydration\\Model');
-        $namespace->addUse($modelClass);
+
+        // Get specific DTO type from requestBody schema
+        $dtoType = $this->getRequestBodyDtoType($endpoint, $modelClass);
+
+        if ($dtoType !== $modelClass) {
+            // Specific DTO found
+            $namespace->addUse($dtoType);
+            $typeHint = '\\'.$dtoType.'|array|null';
+        } else {
+            // Fallback to generic Model
+            $namespace->addUse($modelClass);
+            $typeHint = '\\'.$modelClass.'|array|null';
+        }
 
         $dataParam = new Parameter(
-            type: '\\'.$modelClass.'|array|null',
+            type: $typeHint,
             nullable: true,
             name: 'data',
             description: 'Request data',

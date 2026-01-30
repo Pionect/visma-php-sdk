@@ -2,9 +2,9 @@
 
 namespace Pionect\VismaSdk\Requests\SalesOrder;
 
+use Pionect\VismaSdk\Dto\CancelSalesOrderActionDto;
 use Pionect\VismaSdk\Dto\CancelSalesOrderActionResultDto;
 use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -39,7 +39,7 @@ class SalesOrderCancelSalesOrderBysaleOrderNumberRequest extends Request impleme
 
     /**
      * @param  string  $saleOrderNumber  Reference number of the sale oreder that will be cancelled
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\CancelSalesOrderActionDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -51,7 +51,7 @@ class SalesOrderCancelSalesOrderBysaleOrderNumberRequest extends Request impleme
      */
     public function __construct(
         protected string $saleOrderNumber,
-        protected Model|array|null $data = null,
+        protected CancelSalesOrderActionDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
 

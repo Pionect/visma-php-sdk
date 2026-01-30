@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\JournalTransactionV2;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Pionect\VismaSdk\Dto\JournalTransactionUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -26,7 +26,7 @@ class JournalTransactionV2PutByjournalTransactionNumberRequest extends Request
 
     /**
      * @param  string  $journalTransactionNumber  Identifies the Journal Transaction to update
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\JournalTransactionUpdateDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -42,7 +42,7 @@ class JournalTransactionV2PutByjournalTransactionNumberRequest extends Request
      */
     public function __construct(
         protected string $journalTransactionNumber,
-        protected Model|array|null $data = null,
+        protected JournalTransactionUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}

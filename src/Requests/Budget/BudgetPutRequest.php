@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Budget;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Pionect\VismaSdk\Dto\BudgetUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -25,7 +25,7 @@ class BudgetPutRequest extends Request
     }
 
     /**
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|\Pionect\VismaSdk\Dto\BudgetUpdateDto|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -40,7 +40,7 @@ class BudgetPutRequest extends Request
      *                                * If the ETag on the server does not match the value provided in the If-Match header, the server responds with 412 Precondition Failed.
      */
     public function __construct(
-        protected Model|array|null $data = null,
+        protected BudgetUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}
