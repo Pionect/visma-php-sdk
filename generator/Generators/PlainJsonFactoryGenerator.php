@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Pionect\VismaSdk\Generator\Generators;
 
+use Crescat\SaloonSdkGenerator\Generators\FactoryGenerator;
 use Nette\PhpGenerator\PhpFile;
-use Timatic\JsonApiSdk\Generators\JsonApiFactoryGenerator;
 
-class PlainJsonFactoryGenerator extends JsonApiFactoryGenerator
+class PlainJsonFactoryGenerator extends FactoryGenerator
 {
     /**
      * Override to NOT skip 'id' and 'type' properties for plain JSON APIs.
@@ -103,7 +103,7 @@ class PlainJsonFactoryGenerator extends JsonApiFactoryGenerator
     /**
      * Skip DtoValueOf wrapper classes when checking for referenced DTOs.
      */
-    public function getReferencedDtoClass(string $propertyType): ?string
+    public function getReferencedDtoClass(?string $propertyType): ?string
     {
         $referencedDtoClass = parent::getReferencedDtoClass($propertyType);
 

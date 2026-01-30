@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Laravel package** providing a type-safe PHP SDK for the Visma.net ERP API. Built on Saloon v3.0+ with JSON:API specification compliance.
+This is a **Laravel package** providing a type-safe PHP SDK for the Visma.net ERP API. Built on Saloon v3.0+
+
+The SDK is generated using this openapi spec: https://api.finance.visma.net/API-index/api/vismanet.erp.service.api-apim
 
 **Important:** Most files in `src/Requests/`, `src/Dto/`, and `factories/` are **automatically generated** from OpenAPI specifications. Do not manually edit these files.
 
@@ -32,35 +34,16 @@ composer format
 ### Core Components (editable)
 
 - `src/VismaConnector.php` - Main API connector with OAuth2 client credentials authentication
-- `src/Foundation/` - Core framework: hydration system, responses, pagination, filtering
 - `src/Providers/VismaServiceProvider.php` - Laravel service provider registration
 - `config/visma-sdk.php` - Configuration template
 
 ### Generated Components (do not edit manually)
 
-- `src/Dto/` - ~1,686 Data Transfer Object classes extending `Model`
+- `src/Dto/` - ~1,686 Data Transfer Object classes extending `Data` from Spatie\Laravel-Data
 - `src/Requests/` - ~112 directories with request classes per API resource
 - `factories/` - ~1,688 factory classes for test data generation
 
-**Generator:** Fixes to generated code should be made in the generator at https://github.com/Timatic/json-api-php-sdk-generator/ then regenerated.
-
-### Key Patterns
-
-**Model-DTO Pattern:** DTOs extend `Model` using PHP 8 attributes:
-- `#[Property]` - Maps JSON:API attributes to typed properties
-- `#[DateTime]` - Auto-parses to Carbon instances
-- `#[Relationship]` - Handles nested model relationships
-
-**Request Pattern:** Each resource has dedicated request classes:
-- `*GetAllCollectionRequest` - Paginated collections
-- `*GetRequest` - Single resource fetch
-- `*CreateRequest` / `*PostRequest` - Create operations
-- `*PutRequest` - Update operations
-- `*DeleteRequest` - Delete operations
-
-**Hydration:** API responses are converted to DTOs via `Hydrator::hydrate()` and `Hydrator::hydrateCollection()`
-
-**Pagination:** `JsonApiPaginator` uses `page[number]` and `page[size]` query parameters
+**Generator:** The SDK uses custom generators in `generator/Generators/` extending the base Saloon SDK Generator. Fixes to generated code patterns should be made in these generator classes, then code regenerated using `./bin/generate-sdk generate openapi.json`.
 
 ### Testing
 

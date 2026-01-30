@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
 /**
  * @template TFactory of \Pionect\VismaSdk\Foundation\Factories\Factory
  */
-abstract class Model extends Data implements ModelInterface
+abstract class Model extends Data
 {
     /**
      * Get a new test factory instance for the model.

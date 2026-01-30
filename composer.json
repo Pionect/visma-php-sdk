@@ -7,7 +7,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../JsonApiSdkGenerator"
+            "url": "../saloon-sdk-generator"
         }
     ],
     "authors": [
@@ -32,7 +32,7 @@
         "orchestra/testbench": "^8.0 || ^9.0 || ^10.0",
         "pestphp/pest": "^2.0 || ^3.0",
         "phpunit/phpunit": "^10.0 || ^11.0",
-        "timatic/jsonapi-sdk-generator": "dev-main"
+        "timatic/saloon-sdk-generator": "dev-main"
     },
     "bin": [
         "bin/generate-sdk"

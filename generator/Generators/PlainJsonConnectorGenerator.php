@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Pionect\VismaSdk\Generator\Generators;
 
+use Crescat\SaloonSdkGenerator\Generators\ConnectorGenerator;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Literal;
-use Timatic\JsonApiSdk\Generators\JsonApiConnectorGenerator;
 
-class PlainJsonConnectorGenerator extends JsonApiConnectorGenerator
+class PlainJsonConnectorGenerator extends ConnectorGenerator
 {
     /**
      * Use plain JSON headers instead of JSON:API.

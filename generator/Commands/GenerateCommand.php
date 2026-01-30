@@ -8,11 +8,14 @@ use Crescat\SaloonSdkGenerator\CodeGenerator;
 use Crescat\SaloonSdkGenerator\Data\Generator\Config;
 use Crescat\SaloonSdkGenerator\Data\TaggedOutputFile;
 use Crescat\SaloonSdkGenerator\Generators\PestTestGenerator;
+use Crescat\SaloonSdkGenerator\Generators\ResourceGenerator;
 use Crescat\SaloonSdkGenerator\Parsers\OpenApiParser;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonConnectorGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonDtoGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonFactoryGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonRequestGenerator;
+use Pionect\VismaSdk\Generator\Services\ComposerSetup;
+use Pionect\VismaSdk\Generator\Services\PintRunner;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -20,9 +23,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Timatic\JsonApiSdk\Generators\JsonApiResourceGenerator;
-use Timatic\JsonApiSdk\Services\ComposerSetup;
-use Timatic\JsonApiSdk\Services\PintRunner;
 
 #[AsCommand(
     name: 'generate',
@@ -123,7 +123,7 @@ class GenerateCommand extends Command
         $codeGenerator = new CodeGenerator(
             config: $config,
             requestGenerator: new PlainJsonRequestGenerator($config),
-            resourceGenerator: new JsonApiResourceGenerator($config),
+            resourceGenerator: new ResourceGenerator($config),
             dtoGenerator: new PlainJsonDtoGenerator($config),
             connectorGenerator: new PlainJsonConnectorGenerator($config),
             postProcessors: $postProcessors,
