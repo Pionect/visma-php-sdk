@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1d3c2dc77d66a57ce615ea8dc10390e",
+    "content-hash": "e0c4c0120daa1680b4c7354a7aec0014",
     "packages": [
         {
             "name": "brick/math",
-            "version": "0.14.1",
+            "version": "0.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brick/math.git",
-                "reference": "f05858549e5f9d7bb45875a75583240a38a281d0"
+                "reference": "55c950aa71a2cabc1d8f2bec1f8a7020bd244aa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brick/math/zipball/f05858549e5f9d7bb45875a75583240a38a281d0",
-                "reference": "f05858549e5f9d7bb45875a75583240a38a281d0",
+                "url": "https://api.github.com/repos/brick/math/zipball/55c950aa71a2cabc1d8f2bec1f8a7020bd244aa2",
+                "reference": "55c950aa71a2cabc1d8f2bec1f8a7020bd244aa2",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
             ],
             "support": {
                 "issues": "https://github.com/brick/math/issues",
-                "source": "https://github.com/brick/math/tree/0.14.1"
+                "source": "https://github.com/brick/math/tree/0.14.2"
             },
             "funding": [
                 {
@@ -64,7 +64,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-24T14:40:29+00:00"
+            "time": "2026-01-30T14:03:11+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -11467,65 +11467,12 @@
             "time": "2025-11-17T20:03:58+00:00"
         },
         {
-            "name": "timatic/jsonapi-sdk-generator",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../JsonApiSdkGenerator",
-                "reference": "b9c1874bfa44e60da196471ec352845d381b0a27"
-            },
-            "require": {
-                "php": "^8.2",
-                "saloonphp/pagination-plugin": "^2.0",
-                "symfony/console": "^7.0",
-                "timatic/saloon-sdk-generator": "@dev",
-                "webmozart/assert": "^1.11"
-            },
-            "require-dev": {
-                "fakerphp/faker": "^1.23",
-                "pestphp/pest": "^3.0",
-                "phpstan/phpstan": "^2.1"
-            },
-            "bin": [
-                "bin/jsonapi-sdk"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Timatic\\JsonApiSdk\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Timatic\\JsonApiSdk\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "pest"
-                ],
-                "test:coverage": [
-                    "pest --coverage"
-                ],
-                "analyse": [
-                    "phpstan analyse --memory-limit=2G"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Generate PHP SDKs from OpenAPI specifications for JSON:API endpoints",
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
             "name": "timatic/saloon-sdk-generator",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "../saloon-sdk-generator",
-                "reference": "c7014cdd9b97b52880df648a4729e7b2b43efc14"
+                "reference": "1a82da4b9766a902518ec01c544dcde11972215d"
             },
             "require": {
                 "cebe/php-openapi": "^1.7",
@@ -11681,7 +11628,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "timatic/jsonapi-sdk-generator": 20
+        "timatic/saloon-sdk-generator": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
