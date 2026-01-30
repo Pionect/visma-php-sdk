@@ -8,14 +8,6 @@
         {
             "type": "path",
             "url": "../JsonApiSdkGenerator"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/timatic/json-api-php-sdk-generator"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/tomasvanrijsse/saloon-sdk-generator"
         }
     ],
     "authors": [
