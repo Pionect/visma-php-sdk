@@ -4,7 +4,6 @@ namespace Pionect\VismaSdk\Requests\Customer;
 
 use Pionect\VismaSdk\Dto\CreateDunningLetterActionDto;
 use Pionect\VismaSdk\Dto\CreateDunningLetterActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -26,10 +25,7 @@ class CustomerCreateDunningLetterActionBycustomerRequest extends Request impleme
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return CreateDunningLetterActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

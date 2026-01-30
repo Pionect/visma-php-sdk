@@ -4,7 +4,6 @@ namespace Pionect\VismaSdk\Requests\Customer;
 
 use Pionect\VismaSdk\Dto\ChangeCustomerCdActionDto;
 use Pionect\VismaSdk\Dto\ChangeCustomerCdActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -26,10 +25,7 @@ class CustomerChangeCustomerNrActionByinternalIdRequest extends Request implemen
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return ChangeCustomerCdActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

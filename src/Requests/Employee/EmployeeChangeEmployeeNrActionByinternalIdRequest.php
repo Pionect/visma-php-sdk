@@ -4,7 +4,6 @@ namespace Pionect\VismaSdk\Requests\Employee;
 
 use Pionect\VismaSdk\Dto\ChangeEmployeeNrActionDto;
 use Pionect\VismaSdk\Dto\ChangeEmployeeNrActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -31,10 +30,7 @@ class EmployeeChangeEmployeeNrActionByinternalIdRequest extends Request implemen
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return ChangeEmployeeNrActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

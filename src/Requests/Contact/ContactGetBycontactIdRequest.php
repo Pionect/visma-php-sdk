@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\Contact;
 
 use Pionect\VismaSdk\Dto\ContactDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -22,10 +21,7 @@ class ContactGetBycontactIdRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return ContactDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

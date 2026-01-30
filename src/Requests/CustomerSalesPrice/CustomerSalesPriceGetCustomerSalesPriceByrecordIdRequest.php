@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\CustomerSalesPrice;
 
 use Pionect\VismaSdk\Dto\CustomerSalesPriceDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -21,10 +20,7 @@ class CustomerSalesPriceGetCustomerSalesPriceByrecordIdRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return CustomerSalesPriceDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

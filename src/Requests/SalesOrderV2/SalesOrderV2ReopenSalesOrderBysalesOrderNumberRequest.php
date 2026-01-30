@@ -4,7 +4,6 @@ namespace Pionect\VismaSdk\Requests\SalesOrderV2;
 
 use Pionect\VismaSdk\Dto\ReopenSalesOrderActionDto;
 use Pionect\VismaSdk\Dto\ReopenSalesOrderActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -26,10 +25,7 @@ class SalesOrderV2ReopenSalesOrderBysalesOrderNumberRequest extends Request impl
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return ReopenSalesOrderActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

@@ -3,13 +3,12 @@
 namespace Pionect\VismaSdk\Requests\CustomerCreditNote;
 
 use Pionect\VismaSdk\Dto\ReleaseCustomerCreditNoteActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * CustomerCreditNote_ReleaseDocumentBycreditNoteNumber
@@ -31,10 +30,7 @@ class CustomerCreditNoteReleaseDocumentBycreditNoteNumberRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return ReleaseCustomerCreditNoteActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string
@@ -44,7 +40,7 @@ class CustomerCreditNoteReleaseDocumentBycreditNoteNumberRequest extends Request
 
     /**
      * @param  string  $creditNoteNumber  Reference number of the credit note to be released
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|Spatie\LaravelData\Data|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -60,7 +56,7 @@ class CustomerCreditNoteReleaseDocumentBycreditNoteNumberRequest extends Request
      */
     public function __construct(
         protected string $creditNoteNumber,
-        protected Model|array|null $data = null,
+        protected Data|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}

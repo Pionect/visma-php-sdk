@@ -2,11 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerContract;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * CustomerContract_TerminateContractBycontractId
@@ -26,7 +26,7 @@ class CustomerContractTerminateContractBycontractIdRequest extends Request imple
 
     /**
      * @param  string  $contractId  Reference number of the customer contract to be terminated
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|Spatie\LaravelData\Data|array|null  $data  Request data
      * @param  null|string  $terminationDate  Optional Termination Date
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
@@ -39,7 +39,7 @@ class CustomerContractTerminateContractBycontractIdRequest extends Request imple
      */
     public function __construct(
         protected string $contractId,
-        protected Model|array|null $data = null,
+        protected Data|array|null $data = null,
         protected ?string $terminationDate = null,
         protected ?string $erpApiBackground = null,
     ) {}

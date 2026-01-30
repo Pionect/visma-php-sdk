@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\PackagingType;
 
 use Pionect\VismaSdk\Dto\PackagingTypeDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -19,10 +18,7 @@ class PackagingTypeGetByboxIdRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return PackagingTypeDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

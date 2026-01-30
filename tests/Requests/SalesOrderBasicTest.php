@@ -1,6 +1,6 @@
 <?php
 
-// Generated 2026-01-30 14:10:14
+// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\SalesOrderBasicUpdateDto;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateHeaderAttachmentByorderNumberRequest;

@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\JournalTransactionV2;
 
 use Pionect\VismaSdk\Dto\JournalTransactionDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -23,10 +22,7 @@ class JournalTransactionV2GetSpecificJournalTransactionsByjournalTransactionNumb
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return JournalTransactionDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

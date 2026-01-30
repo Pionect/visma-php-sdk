@@ -4,87 +4,39 @@ declare(strict_types=1);
 
 namespace Pionect\VismaSdk\Generator\Generators;
 
+use Crescat\SaloonSdkGenerator\Data\Generator\Config;
 use Crescat\SaloonSdkGenerator\Data\Generator\Endpoint;
-use Crescat\SaloonSdkGenerator\Data\Generator\Parameter;
-use Crescat\SaloonSdkGenerator\Helpers\MethodGeneratorHelper;
+use Crescat\SaloonSdkGenerator\Generators\RequestGenerator;
 use Nette\PhpGenerator\ClassType;
-use Saloon\Http\Response;
+use Nette\PhpGenerator\Method;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
-use Timatic\JsonApiSdk\Generators\JsonApiRequestGenerator;
 
-class PlainJsonRequestGenerator extends JsonApiRequestGenerator
+class PlainJsonRequestGenerator extends RequestGenerator
 {
+    public function __construct(?Config $config = null)
+    {
+        parent::__construct($config);
+
+        // Configure for plain JSON format
+        $this->responseDataPath = null; // Extract from root by default
+        $this->serializationMethod = 'toArray';
+        $this->includePutInMutations = true;
+    }
+
     /**
      * Customize request class for plain JSON API.
-     * Skip HasFilters and HasIncludes traits.
+     * Add Paginatable interface to collection requests and hydration support.
      */
     protected function customizeRequestClass(ClassType $classType, $namespace, Endpoint $endpoint): void
     {
+        // Add Paginatable interface to collection requests
         if ($this->isCollectionRequest($endpoint)) {
-            // Add Paginatable interface to all collection requests
             $namespace->addUse(Paginatable::class);
             $classType->addImplement(Paginatable::class);
         }
 
-        // Skip HasFilters, HasIncludes, addIncludeMethods for plain JSON API
-
-        // Add hydration support to GET, POST, PUT, and PATCH requests
-        if ($this->shouldHaveHydration($endpoint)) {
-            $this->addHydrationSupport($classType, $namespace, $endpoint);
-        }
-    }
-
-    /**
-     * Customize constructor for mutation requests.
-     * Use toArray() instead of toJsonApi() for plain JSON.
-     */
-    protected function customizeConstructor($classConstructor, ClassType $classType, $namespace, Endpoint $endpoint): void
-    {
-        if (! $this->isMutationRequest($endpoint)) {
-            return;
-        }
-
-        $modelClass = $this->foundationClass('Hydration\\Model');
-
-        // Get specific DTO type from requestBody schema
-        $dtoType = $this->getRequestBodyDtoType($endpoint, $modelClass);
-
-        if ($dtoType !== $modelClass) {
-            // Specific DTO found
-            $namespace->addUse($dtoType);
-            $typeHint = '\\'.$dtoType.'|array|null';
-        } else {
-            // Fallback to generic Model
-            $namespace->addUse($modelClass);
-            $typeHint = '\\'.$modelClass.'|array|null';
-        }
-
-        $dataParam = new Parameter(
-            type: $typeHint,
-            nullable: true,
-            name: 'data',
-            description: 'Request data',
-        );
-
-        MethodGeneratorHelper::addParameterAsPromotedProperty($classConstructor, $dataParam);
-
-        // Use toArray() for plain JSON instead of toJsonApi()
-        $classType->addMethod('defaultBody')
-            ->setProtected()
-            ->setReturnType('array')
-            ->addBody('if ($this->data instanceof Model) {')
-            ->addBody('    return $this->data->toArray();')
-            ->addBody('}')
-            ->addBody('')
-            ->addBody('return $this->data ?? [];');
-    }
-
-    /**
-     * Skip include methods for plain JSON API.
-     */
-    protected function addIncludeMethods(ClassType $classType, $namespace, Endpoint $endpoint): void
-    {
-        // No-op: plain JSON APIs don't have JSON:API include mechanism
+        // Call parent to add hydration support
+        parent::customizeRequestClass($classType, $namespace, $endpoint);
     }
 
     /**
@@ -96,74 +48,35 @@ class PlainJsonRequestGenerator extends JsonApiRequestGenerator
     }
 
     /**
-     * Add hydration support with plain JSON response handling.
-     * No 'data' or 'included' wrapper.
+     * Generate the body of createDtoFromResponse method for Visma API.
+     * Handles BasePaginationDtoOf* wrapper format and plain JSON responses.
      */
-    protected function addHydrationSupport(ClassType $classType, $namespace, Endpoint $endpoint): void
+    protected function addHydrationMethodBody(Method $method, Endpoint $endpoint, string $dtoClassName): void
     {
-        // Determine DTO class name from endpoint
-        $dtoClassName = $this->getDtoClassName($endpoint);
-
         // Check if this is a BasePaginationDtoOf* wrapper (Visma-specific format)
-        $isBasePagination = false;
-        $itemDtoClassName = $dtoClassName;
+        $isBasePagination = preg_match('/^BasePaginationDtoOf(.+)Dto$/', $dtoClassName, $matches);
 
-        if (preg_match('/^BasePaginationDtoOf(.+)Dto$/', $dtoClassName, $matches)) {
-            // This is a BasePaginationDto wrapper - extract the item DTO name
-            $isBasePagination = true;
-            $itemDtoClassName = $matches[1].'Dto';
-        }
-
-        // Get Foundation classes with target namespace
-        $hydratorClass = $this->foundationClass('Hydration\\Facades\\Hydrator');
-
-        // Add imports
-        $namespace->addUse($hydratorClass);
-        $namespace->addUse(Response::class);
-        $namespace->addUse("{$this->config->namespace}\\Dto\\{$itemDtoClassName}");
-
-        // Add $model property - use the item DTO class name
-        $classType->addProperty('model')
-            ->setProtected()
-            ->setValue(new \Nette\PhpGenerator\Literal("{$itemDtoClassName}::class"));
-
-        // Add createDtoFromResponse method
-        $method = $classType->addMethod('createDtoFromResponse')
-            ->setReturnType('mixed');
-
-        $param = $method->addParameter('response');
-        $param->setType(Response::class);
-
-        // Use appropriate hydration method based on request type
-        // Plain JSON: use response->json() directly (no 'data' wrapper)
-        if ($this->isCollectionRequest($endpoint)) {
-            // Collection: use hydrateCollection
-            $method->addBody('return Hydrator::hydrateCollection(');
-        } else {
-            // Single resource: use hydrate
-            $method->addBody('return Hydrator::hydrate(');
-        }
-
-        $method->addBody('    $this->model,');
-
-        // For BasePaginationDto format, extract records from the response
         if ($isBasePagination) {
-            $method->addBody('    $response->json(\'records\')');
+            // Extract actual item DTO name (e.g., "CustomerDto" from "BasePaginationDtoOfCustomerDto")
+            $itemDtoClassName = $matches[1].'Dto';
         } else {
-            // Standard plain JSON format
-            $method->addBody('    $response->json()');
+            $itemDtoClassName = $dtoClassName;
         }
 
-        $method->addBody(');');
-    }
-
-    /**
-     * Include PUT requests for plain JSON API.
-     */
-    protected function isMutationRequest(Endpoint $endpoint): bool
-    {
-        return $endpoint->method->isPost()
-            || $endpoint->method->isPatch()
-            || $endpoint->method->isPut();
+        if ($this->isCollectionRequest($endpoint)) {
+            // Collection: extract from 'records' for BasePaginationDto, or root for standard arrays
+            if ($isBasePagination) {
+                $method->addBody('$data = $response->json(\'records\');');
+            } else {
+                $method->addBody('$data = $response->json();');
+            }
+            $method->addBody('');
+            $method->addBody('return collect($data)->map(');
+            $method->addBody('    fn(array $item) => '.$itemDtoClassName.'::from($item)');
+            $method->addBody(');');
+        } else {
+            // Single resource: extract from root
+            $method->addBody('return '.$itemDtoClassName.'::from($response->json());');
+        }
     }
 }

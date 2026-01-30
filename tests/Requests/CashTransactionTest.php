@@ -1,6 +1,6 @@
 <?php
 
-// Generated 2026-01-30 14:10:14
+// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\CashTransactionUpdateDto;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionCreateAttachmentByreferenceNbrRequest;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionCreateCashTransactionRequest;

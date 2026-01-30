@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\ProjectTask;
 
 use Pionect\VismaSdk\Dto\TaskExtendedDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -23,10 +22,7 @@ class ProjectTaskGetTaskByinternalIdRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return TaskExtendedDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

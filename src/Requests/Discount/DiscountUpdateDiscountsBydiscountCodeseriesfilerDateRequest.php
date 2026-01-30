@@ -3,13 +3,12 @@
 namespace Pionect\VismaSdk\Requests\Discount;
 
 use Pionect\VismaSdk\Dto\UpdateDiscountsActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * Discount_UpdateDiscountsBydiscountCodeseriesfilerDate
@@ -24,10 +23,7 @@ class DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest extends Reques
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return UpdateDiscountsActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string
@@ -36,7 +32,7 @@ class DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest extends Reques
     }
 
     /**
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|Spatie\LaravelData\Data|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -50,7 +46,7 @@ class DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest extends Reques
         protected string $discountCode,
         protected string $series,
         protected string $filerDate,
-        protected Model|array|null $data = null,
+        protected Data|array|null $data = null,
         protected string $filterDate,
         protected ?string $erpApiBackground = null,
     ) {}

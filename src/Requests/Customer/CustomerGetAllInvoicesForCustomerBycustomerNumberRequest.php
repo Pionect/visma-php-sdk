@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\Customer;
 
 use Pionect\VismaSdk\Dto\CustomerInvoiceDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -19,10 +18,7 @@ class CustomerGetAllInvoicesForCustomerBycustomerNumberRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return CustomerInvoiceDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

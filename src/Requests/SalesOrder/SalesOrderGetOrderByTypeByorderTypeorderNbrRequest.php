@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\SalesOrder;
 
 use Pionect\VismaSdk\Dto\SalesOrderDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -21,10 +20,7 @@ class SalesOrderGetOrderByTypeByorderTypeorderNbrRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return SalesOrderDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

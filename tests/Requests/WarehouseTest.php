@@ -1,6 +1,6 @@
 <?php
 
-// Generated 2026-01-30 14:10:14
+// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\WarehouseDto;
 use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetAllRequest;
 use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetBywarehouseIdRequest;

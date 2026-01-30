@@ -2,11 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\SupplierInvoice;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * SupplierInvoice_CreateLineAttachmentByinvoiceNumberlineNumber
@@ -31,7 +31,7 @@ class SupplierInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest extend
     /**
      * @param  string  $invoiceNumber  Identifies the supplier invoice
      * @param  int  $lineNumber  Specifies line number
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|Spatie\LaravelData\Data|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -48,7 +48,7 @@ class SupplierInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest extend
     public function __construct(
         protected string $invoiceNumber,
         protected int $lineNumber,
-        protected Model|array|null $data = null,
+        protected Data|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}

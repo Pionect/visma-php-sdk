@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\SupplierPayment;
 
 use Pionect\VismaSdk\Dto\SupplierPaymentDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -23,10 +22,7 @@ class SupplierPaymentGetByTypeBypaymentTypepaymentNumberRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return SupplierPaymentDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

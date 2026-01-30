@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\PurchaseReceiptV2;
 
 use Pionect\VismaSdk\Dto\PurchaseReceiptDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -23,10 +22,7 @@ class PurchaseReceiptV2GetPurchaseReceiptByreceiptNumberRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return PurchaseReceiptDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

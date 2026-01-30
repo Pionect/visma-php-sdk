@@ -1,6 +1,6 @@
 <?php
 
-// Generated 2026-01-30 14:10:14
+// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\CustomerInvoiceUpdateDto;
 use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCorrectInvoiceByinvoiceNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest;

@@ -2,11 +2,11 @@
 
 namespace Pionect\VismaSdk\Requests\PurchaseReceipt;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * PurchaseReceipt_CancelReceiptByreceiptNumber
@@ -23,7 +23,7 @@ class PurchaseReceiptCancelReceiptByreceiptNumberRequest extends Request impleme
     }
 
     /**
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|Spatie\LaravelData\Data|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -35,7 +35,7 @@ class PurchaseReceiptCancelReceiptByreceiptNumberRequest extends Request impleme
      */
     public function __construct(
         protected string $receiptNumber,
-        protected Model|array|null $data = null,
+        protected Data|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
 

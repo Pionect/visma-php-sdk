@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\CustomerOverdueCharge;
 
 use Pionect\VismaSdk\Dto\CustomerOverdueChargeDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -23,10 +22,7 @@ class CustomerOverdueChargeGetByoverdueChargeNumberRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return CustomerOverdueChargeDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

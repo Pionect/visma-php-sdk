@@ -4,7 +4,6 @@ namespace Pionect\VismaSdk\Requests\CashTransaction;
 
 use Pionect\VismaSdk\Dto\ReverseCashTransactionActionDto;
 use Pionect\VismaSdk\Dto\ReverseCashTransactionActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -31,10 +30,7 @@ class CashTransactionReverseByreferenceNbrRequest extends Request implements Has
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return ReverseCashTransactionActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

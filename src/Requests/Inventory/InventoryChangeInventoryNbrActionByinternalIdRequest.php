@@ -4,7 +4,6 @@ namespace Pionect\VismaSdk\Requests\Inventory;
 
 use Pionect\VismaSdk\Dto\ChangeInventoryNbrActionDto;
 use Pionect\VismaSdk\Dto\ChangeInventoryNbrActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -26,10 +25,7 @@ class InventoryChangeInventoryNbrActionByinternalIdRequest extends Request imple
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return ChangeInventoryNbrActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

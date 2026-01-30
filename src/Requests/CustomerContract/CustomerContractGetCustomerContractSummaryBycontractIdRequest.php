@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Requests\CustomerContract;
 
 use Pionect\VismaSdk\Dto\CustomerContractSummaryDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -19,10 +18,7 @@ class CustomerContractGetCustomerContractSummaryBycontractIdRequest extends Requ
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return CustomerContractSummaryDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

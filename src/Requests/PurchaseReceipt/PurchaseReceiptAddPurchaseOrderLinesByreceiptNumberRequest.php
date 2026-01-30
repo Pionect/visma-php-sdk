@@ -4,7 +4,6 @@ namespace Pionect\VismaSdk\Requests\PurchaseReceipt;
 
 use Pionect\VismaSdk\Dto\AddOrderLinesToPurchaseReceiptActionResultDto;
 use Pionect\VismaSdk\Dto\PurchaseReceiptOrderLinesListUpdateDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -26,10 +25,7 @@ class PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return AddOrderLinesToPurchaseReceiptActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

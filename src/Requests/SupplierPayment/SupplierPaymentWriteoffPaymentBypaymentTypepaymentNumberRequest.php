@@ -3,13 +3,12 @@
 namespace Pionect\VismaSdk\Requests\SupplierPayment;
 
 use Pionect\VismaSdk\Dto\WriteoffPaymentActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * SupplierPayment_WriteoffPaymentBypaymentTypepaymentNumber
@@ -31,10 +30,7 @@ class SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest extends Re
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return WriteoffPaymentActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string
@@ -45,7 +41,7 @@ class SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest extends Re
     /**
      * @param  string  $paymentType  The type of the payment to be written off
      * @param  string  $paymentNumber  Reference number of the payment to be written off
-     * @param  null|\Pionect\VismaSdk\Foundation\Hydration\Model|array|null  $data  Request data
+     * @param  null|Spatie\LaravelData\Data|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.
@@ -62,7 +58,7 @@ class SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest extends Re
     public function __construct(
         protected string $paymentType,
         protected string $paymentNumber,
-        protected Model|array|null $data = null,
+        protected Data|array|null $data = null,
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}

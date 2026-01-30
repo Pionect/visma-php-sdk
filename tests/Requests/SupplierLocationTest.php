@@ -1,6 +1,6 @@
 <?php
 
-// Generated 2026-01-30 14:10:14
+// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\SupplierLocationUpdateDto;
 use Pionect\VismaSdk\Requests\SupplierLocation\SupplierLocationCreateRequest;
 use Pionect\VismaSdk\Requests\SupplierLocation\SupplierLocationGetLocationBybAccountIdlocationIdRequest;

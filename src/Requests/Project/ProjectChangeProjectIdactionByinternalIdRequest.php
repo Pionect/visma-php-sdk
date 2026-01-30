@@ -4,7 +4,6 @@ namespace Pionect\VismaSdk\Requests\Project;
 
 use Pionect\VismaSdk\Dto\ChangeProjectIdActionDto;
 use Pionect\VismaSdk\Dto\ChangeProjectIdActionResultDto;
-use Pionect\VismaSdk\Foundation\Hydration\Facades\Hydrator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -29,10 +28,7 @@ class ProjectChangeProjectIdactionByinternalIdRequest extends Request implements
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return Hydrator::hydrate(
-            $this->model,
-            $response->json()
-        );
+        return ChangeProjectIdActionResultDto::from($response->json());
     }
 
     public function resolveEndpoint(): string
