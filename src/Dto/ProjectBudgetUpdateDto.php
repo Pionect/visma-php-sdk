@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,47 +14,28 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class ProjectBudgetUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $projectId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $projectTaskId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $accountGroupId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $inventoryNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $rate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $originalBudgetQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $originalBudgetAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $revisedBudgetQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $revisedBudgetAmount;
+    public function __construct(
+        #[MapName('projectID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectId = null,
+        #[MapName('projectTaskID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectTaskId = null,
+        #[MapName('accountGroupID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountGroupId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $rate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $originalBudgetQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $originalBudgetAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $revisedBudgetQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $revisedBudgetAmount = null,
+    ) {}
 }

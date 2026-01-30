@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,14 +11,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class AttributeIdValueDto extends Model
 {
-    #[Property]
-    public ?string $id;
-
-    /** Value &gt; The value of the attribute. */
-    #[Property]
-    public ?string $value;
-
-    /** Attribute &gt; The description of the attribute. */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        public ?string $id = null,
+        public ?string $value = null,
+        public ?string $description = null,
+    ) {}
 }

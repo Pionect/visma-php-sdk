@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,10 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PrebookingUpdateDto extends Model
 {
-    #[Property]
-    public ?accountNumberInPrebookingUpdateDto $accountNumber;
-
-    /** Subaccount used for prebooking. */
-    #[Property]
-    public ?array $subaccount;
+    public function __construct(
+        public ?AccountNumberInPrebookingUpdateDto $accountNumber = null,
+        public ?array $subaccount = null,
+    ) {}
 }

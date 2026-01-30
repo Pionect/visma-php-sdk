@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,6 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class NoteDto extends Model
 {
-    #[Property]
-    public ?string $note;
+    public function __construct(
+        public ?string $note = null,
+    ) {}
 }

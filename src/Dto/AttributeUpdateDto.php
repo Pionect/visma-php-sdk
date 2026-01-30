@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,30 +14,19 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class AttributeUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $attributeId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $internal;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $controlType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $entryMask;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $regExp;
-
-    #[Property]
-    public ?array $details;
+    public function __construct(
+        #[MapName('attributeID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $attributeId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $internal = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $controlType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $entryMask = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $regExp = null,
+        public ?array $details = null,
+    ) {}
 }

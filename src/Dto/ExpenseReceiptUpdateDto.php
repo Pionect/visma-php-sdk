@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -17,96 +15,52 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class ExpenseReceiptUpdateDto extends Model
 {
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $date;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $refNbr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $inventory;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $quantity;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $unitCost;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $totalAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $employeePart;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $claimedBy;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branch;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $expenseClaim;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $invoiceable;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $project;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $projectTask;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customer;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $location;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $expenseAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $expenseSub;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesSub;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $taxCategory;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $refNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventory = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $quantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $unitCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $totalAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $employeePart = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $claimedBy = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseClaim = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $invoiceable = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $project = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectTask = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseSub = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesSub = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $taxCategory = null,
+    ) {}
 }

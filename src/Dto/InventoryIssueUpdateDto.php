@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,34 +13,16 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class InventoryIssueUpdateDto extends Model
 {
-    #[Property]
-    public ?controlAmountInInventoryIssueUpdateDto $controlAmount;
-
-    /** The inventory issue lines */
-    #[Property]
-    public ?array $issueLines;
-
-    #[Property]
-    public ?referenceNumberInInventoryIssueUpdateDto $referenceNumber;
-
-    #[Property]
-    public ?holdInInventoryIssueUpdateDto $hold;
-
-    #[Property]
-    public ?dateInInventoryIssueUpdateDto $date;
-
-    #[Property]
-    public ?postPeriodInInventoryIssueUpdateDto $postPeriod;
-
-    #[Property]
-    public ?externalReferenceInInventoryIssueUpdateDto $externalReference;
-
-    #[Property]
-    public ?descriptionInInventoryIssueUpdateDto $description;
-
-    #[Property]
-    public ?controlQuantityInInventoryIssueUpdateDto $controlQuantity;
-
-    #[Property]
-    public ?branchNumberInInventoryIssueUpdateDto $branchNumber;
+    public function __construct(
+        public ?ControlAmountInInventoryIssueUpdateDto $controlAmount = null,
+        public ?array $issueLines = null,
+        public ?ReferenceNumberInInventoryIssueUpdateDto $referenceNumber = null,
+        public ?HoldInInventoryIssueUpdateDto $hold = null,
+        public ?DateInInventoryIssueUpdateDto $date = null,
+        public ?PostPeriodInInventoryIssueUpdateDto $postPeriod = null,
+        public ?ExternalReferenceInInventoryIssueUpdateDto $externalReference = null,
+        public ?DescriptionInInventoryIssueUpdateDto $description = null,
+        public ?ControlQuantityInInventoryIssueUpdateDto $controlQuantity = null,
+        public ?BranchNumberInInventoryIssueUpdateDto $branchNumber = null,
+    ) {}
 }

@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * The type of this fixed asset
@@ -14,11 +14,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class TypeInFixedAssetDto extends Model
 {
-    /** The type id of this fixed asset */
-    #[Property]
-    public ?string $assetTypeId;
-
-    /** The type description */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        #[MapName('assetTypeID')]
+        public ?string $assetTypeId = null,
+        public ?string $description = null,
+    ) {}
 }

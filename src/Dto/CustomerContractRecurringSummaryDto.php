@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,15 +14,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomerContractRecurringSummaryDto extends Model
 {
-    #[Property]
-    public ?float $recurringTotal;
-
-    #[Property]
-    public ?float $extraUsageTotal;
-
-    #[Property]
-    public ?float $totalDue;
-
-    #[Property]
-    public ?array $lines;
+    public function __construct(
+        public int|float|null $recurringTotal = null,
+        public int|float|null $extraUsageTotal = null,
+        public int|float|null $totalDue = null,
+        public ?array $lines = null,
+    ) {}
 }

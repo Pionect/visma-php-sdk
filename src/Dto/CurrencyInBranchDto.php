@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,15 +14,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CurrencyInBranchDto extends Model
 {
-    /** Currency Id. */
-    #[Property]
-    public ?string $id;
-
-    /** Currency description. */
-    #[Property]
-    public ?string $description;
-
-    /** Currency symbol. */
-    #[Property]
-    public ?string $symbol;
+    public function __construct(
+        public ?string $id = null,
+        public ?string $description = null,
+        public ?string $symbol = null,
+    ) {}
 }

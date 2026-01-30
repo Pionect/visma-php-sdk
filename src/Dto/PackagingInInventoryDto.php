@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * Packaging tab
@@ -14,19 +14,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PackagingInInventoryDto extends Model
 {
-    /** The weight of the <see cref="!:BaseUnit">Base Unit</see> of the item. */
-    #[Property]
-    public ?float $baseItemWeight;
-
-    /** The <see cref="!:INUnit">Unit of Measure</see> used for the <see cref="P:Visma.net.ERP.Web.Api.Model.V1.IN.PackagingDto.BaseItemWeight">Weight</see> of the item. */
-    #[Property]
-    public ?string $weightUom;
-
-    /** The volume of the <see cref="!:BaseUnit">Base Unit</see> of the item. */
-    #[Property]
-    public ?float $baseItemVolume;
-
-    /** The <see cref="!:INUnit">Unit of Measure</see> used for the <see cref="P:Visma.net.ERP.Web.Api.Model.V1.IN.PackagingDto.BaseItemVolume">Volume</see> of the item. */
-    #[Property]
-    public ?string $volumeUom;
+    public function __construct(
+        public int|float|null $baseItemWeight = null,
+        #[MapName('weightUOM')]
+        public ?string $weightUom = null,
+        public int|float|null $baseItemVolume = null,
+        #[MapName('volumeUOM')]
+        public ?string $volumeUom = null,
+    ) {}
 }

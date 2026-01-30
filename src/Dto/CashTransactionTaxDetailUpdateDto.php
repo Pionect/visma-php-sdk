@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,19 +13,14 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class CashTransactionTaxDetailUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $vatId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $taxableAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $vatAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $expenseAmount;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $taxableAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $vatAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $expenseAmount = null,
+    ) {}
 }

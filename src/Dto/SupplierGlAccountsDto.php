@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierGlAccountsDtoFactory>
@@ -12,24 +12,14 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SupplierGlAccountsDto extends Model
 {
-    #[Property]
-    public ?supplierAccountInSupplierGlAccountsDto $supplierAccount;
-
-    #[Property]
-    public ?supplierSubaccountInSupplierGlAccountsDto $supplierSubaccount;
-
-    #[Property]
-    public ?expenseAccountInSupplierGlAccountsDto $expenseAccount;
-
-    #[Property]
-    public ?expenseAccountNonTaxInSupplierGlAccountsDto $expenseAccountNonTax;
-
-    #[Property]
-    public ?expenseEUAccountInSupplierGlAccountsDto $expenseEuaccount;
-
-    #[Property]
-    public ?expenseAccountImportInSupplierGlAccountsDto $expenseAccountImport;
-
-    #[Property]
-    public ?expenseSubaccountInSupplierGlAccountsDto $expenseSubaccount;
+    public function __construct(
+        public ?SupplierAccountInSupplierGlAccountsDto $supplierAccount = null,
+        public ?SupplierSubaccountInSupplierGlAccountsDto $supplierSubaccount = null,
+        public ?ExpenseAccountInSupplierGlAccountsDto $expenseAccount = null,
+        public ?ExpenseAccountNonTaxInSupplierGlAccountsDto $expenseAccountNonTax = null,
+        #[MapName('expenseEUAccount')]
+        public ?ExpenseEuaccountInSupplierGlAccountsDto $expenseEuaccount = null,
+        public ?ExpenseAccountImportInSupplierGlAccountsDto $expenseAccountImport = null,
+        public ?ExpenseSubaccountInSupplierGlAccountsDto $expenseSubaccount = null,
+    ) {}
 }

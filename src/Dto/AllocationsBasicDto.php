@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,15 +13,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class AllocationsBasicDto extends Model
 {
-    #[Property]
-    public ?int $lineNbr;
-
-    #[Property]
-    public ?LocationDescriptionDto $location;
-
-    #[Property]
-    public ?string $lotSerialNumber;
-
-    #[Property]
-    public ?float $quantity;
+    public function __construct(
+        public ?int $lineNbr = null,
+        public ?LocationDescriptionDto $location = null,
+        public ?string $lotSerialNumber = null,
+        public int|float|null $quantity = null,
+    ) {}
 }

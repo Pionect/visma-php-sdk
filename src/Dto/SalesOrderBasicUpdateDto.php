@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -18,76 +16,39 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class SalesOrderBasicUpdateDto extends Model
 {
-    #[Property]
-    public ?array $lines;
-
-    #[Property]
-    public ?orderTypeInSalesOrderBasicUpdateDto $orderType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $orderNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $hold;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $date;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $requestOn;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customerOrder;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customerRefNo;
-
-    #[Property]
-    public ?customerInSalesOrderBasicUpdateDto $customer;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $location;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $contactId;
-
-    #[Property]
-    public ?glnInSalesOrderBasicUpdateDto $gln;
-
-    #[Property]
-    public ?vatRegistrationIdInSalesOrderBasicUpdateDto $vatRegistrationId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $recalculateShipment;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branchNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $overrideNumberSeries;
+    public function __construct(
+        public ?array $lines = null,
+        public ?OrderTypeInSalesOrderBasicUpdateDto $orderType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $orderNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $requestOn = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customerOrder = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customerRefNo = null,
+        public ?CustomerInSalesOrderBasicUpdateDto $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $contactId = null,
+        public ?GlnInSalesOrderBasicUpdateDto $gln = null,
+        public ?VatRegistrationIdInSalesOrderBasicUpdateDto $vatRegistrationId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $recalculateShipment = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideNumberSeries = null,
+    ) {}
 }

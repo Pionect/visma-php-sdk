@@ -3,9 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -18,114 +17,56 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class ProjectUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $projectId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $internalId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customer;
-
-    #[Property]
-    public ?descriptionInProjectUpdateDto $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $hold;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $template;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $status;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $defAccount;
-
-    /** Mandatory field when Project Template is not specified. */
-    #[Property]
-    public ?array $defSub;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $defAccrualAccount;
-
-    #[Property]
-    public ?array $defAccrualSub;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $startDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $endDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $billingPeriod;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $allocationRule;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $billingRule;
-
-    #[Property]
-    public ?branchInProjectUpdateDto $branch;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $rateTable;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $projectManger;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $projectManagerInternalId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $autoAllocate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $automaticReleaseArDoc;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $restricEmployees;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $restricEquipment;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customerLocation;
-
-    #[Property]
-    public ?VisibilityUpdateDto $visibility;
-
-    #[Property]
-    public ?array $tasks;
-
-    #[Property]
-    public ?array $employees;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
+    public function __construct(
+        #[MapName('projectID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectId = null,
+        #[MapName('internalID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $internalId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
+        public ?DescriptionInProjectUpdateDto $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $template = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $status = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $defAccount = null,
+        public ?array $defSub = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $defAccrualAccount = null,
+        public ?array $defAccrualSub = null,
+        public ?StartDateInProjectUpdateDto $startDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $endDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $billingPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $allocationRule = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $billingRule = null,
+        public ?BranchInProjectUpdateDto $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $rateTable = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectManger = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $projectManagerInternalId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $autoAllocate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $automaticReleaseArDoc = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $restricEmployees = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $restricEquipment = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customerLocation = null,
+        public ?VisibilityUpdateDto $visibility = null,
+        public ?array $tasks = null,
+        public ?array $employees = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+    ) {}
 }

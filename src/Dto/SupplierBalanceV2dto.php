@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,30 +13,13 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SupplierBalanceV2dto extends Model
 {
-    /** Branch */
-    #[Property]
-    public ?string $branch;
-
-    #[Property]
-    public ?supplierInSupplierBalanceV2Dto $supplier;
-
-    /** Begin balance */
-    #[Property]
-    public ?float $beginBalance;
-
-    /** Purchases */
-    #[Property]
-    public ?float $purchases;
-
-    /** Payments and prepayments */
-    #[Property]
-    public ?float $paymentsAndPrepayments;
-
-    /** Adjustments and discounts */
-    #[Property]
-    public ?float $adjustmentsAndDiscounts;
-
-    /** Year to date balance */
-    #[Property]
-    public ?float $yearToDateBalance;
+    public function __construct(
+        public ?string $branch = null,
+        public ?SupplierInSupplierBalanceV2dto $supplier = null,
+        public int|float|null $beginBalance = null,
+        public int|float|null $purchases = null,
+        public int|float|null $paymentsAndPrepayments = null,
+        public int|float|null $adjustmentsAndDiscounts = null,
+        public int|float|null $yearToDateBalance = null,
+    ) {}
 }

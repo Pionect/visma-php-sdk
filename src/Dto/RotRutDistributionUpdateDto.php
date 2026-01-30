@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,22 +13,15 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class RotRutDistributionUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNbr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $personalId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $amount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $extra;
+    public function __construct(
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $personalId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $amount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $extra = null,
+    ) {}
 }

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,9 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class UpdateCurrencyRateDto extends Model
 {
-    #[Property]
-    public ?rateInUpdateCurrencyRateDto $rate;
-
-    #[Property]
-    public ?multDivInUpdateCurrencyRateDto $multDiv;
+    public function __construct(
+        public ?RateInUpdateCurrencyRateDto $rate = null,
+        public ?MultDivInUpdateCurrencyRateDto $multDiv = null,
+    ) {}
 }

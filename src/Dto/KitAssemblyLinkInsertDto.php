@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,12 +11,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class KitAssemblyLinkInsertDto extends Model
 {
-    #[Property]
-    public ?orderTypeInKitAssemblyLinkInsertDto $orderType;
-
-    #[Property]
-    public ?orderNumberInKitAssemblyLinkInsertDto $orderNumber;
-
-    #[Property]
-    public ?orderLineNumberInKitAssemblyLinkInsertDto $orderLineNumber;
+    public function __construct(
+        public ?OrderTypeInKitAssemblyLinkInsertDto $orderType = null,
+        public ?OrderNumberInKitAssemblyLinkInsertDto $orderNumber = null,
+        public ?OrderLineNumberInKitAssemblyLinkInsertDto $orderLineNumber = null,
+    ) {}
 }

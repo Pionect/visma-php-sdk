@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,15 +11,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class BasePaginationDtoOfKitSpecificationDto extends Model
 {
-    #[Property]
-    public ?int $pageNumber;
-
-    #[Property]
-    public ?int $pageSize;
-
-    #[Property]
-    public ?int $totalCount;
-
-    #[Property]
-    public ?array $records;
+    public function __construct(
+        public ?int $pageNumber = null,
+        public ?int $pageSize = null,
+        public ?int $totalCount = null,
+        public ?array $records = null,
+    ) {}
 }

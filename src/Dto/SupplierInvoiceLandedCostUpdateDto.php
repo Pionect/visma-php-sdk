@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,33 +11,16 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SupplierInvoiceLandedCostUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    public ?lineNumberInSupplierInvoiceLandedCostUpdateDto $lineNumber;
-
-    #[Property]
-    public ?landedCostCodeIdInSupplierInvoiceLandedCostUpdateDto $landedCostCodeId;
-
-    #[Property]
-    public ?descriptionInSupplierInvoiceLandedCostUpdateDto $description;
-
-    #[Property]
-    public ?amountInSupplierInvoiceLandedCostUpdateDto $amount;
-
-    #[Property]
-    public ?taxCategoryIdInSupplierInvoiceLandedCostUpdateDto $taxCategoryId;
-
-    #[Property]
-    public ?poReceiptNumberInSupplierInvoiceLandedCostUpdateDto $poReceiptNumber;
-
-    #[Property]
-    public ?inventoryIdInSupplierInvoiceLandedCostUpdateDto $inventoryId;
-
-    #[Property]
-    public ?siteIdInSupplierInvoiceLandedCostUpdateDto $siteId;
-
-    #[Property]
-    public ?locationIdInSupplierInvoiceLandedCostUpdateDto $locationId;
+    public function __construct(
+        public ?string $operation = null,
+        public ?LineNumberInSupplierInvoiceLandedCostUpdateDto $lineNumber = null,
+        public ?LandedCostCodeIdInSupplierInvoiceLandedCostUpdateDto $landedCostCodeId = null,
+        public ?DescriptionInSupplierInvoiceLandedCostUpdateDto $description = null,
+        public ?AmountInSupplierInvoiceLandedCostUpdateDto $amount = null,
+        public ?TaxCategoryIdInSupplierInvoiceLandedCostUpdateDto $taxCategoryId = null,
+        public ?PoReceiptNumberInSupplierInvoiceLandedCostUpdateDto $poReceiptNumber = null,
+        public ?InventoryIdInSupplierInvoiceLandedCostUpdateDto $inventoryId = null,
+        public ?SiteIdInSupplierInvoiceLandedCostUpdateDto $siteId = null,
+        public ?LocationIdInSupplierInvoiceLandedCostUpdateDto $locationId = null,
+    ) {}
 }

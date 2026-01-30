@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,10 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SupplierAccountsDto extends Model
 {
-    #[Property]
-    public ?supplierAccountInSupplierAccountsDto $supplierAccount;
-
-    /** The list of SUpplierItems Ids with their expense accounts */
-    #[Property]
-    public ?array $supplierItemAccounts;
+    public function __construct(
+        public ?SupplierAccountInSupplierAccountsDto $supplierAccount = null,
+        public ?array $supplierItemAccounts = null,
+    ) {}
 }

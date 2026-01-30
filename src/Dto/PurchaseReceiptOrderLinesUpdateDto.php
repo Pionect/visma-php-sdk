@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,14 +13,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PurchaseReceiptOrderLinesUpdateDto extends Model
 {
-    /** The Purchase Order reference number. */
-    #[Property]
-    public ?string $orderNbr;
-
-    /** Array of line numbers belonging to a Purchase Order. */
-    #[Property]
-    public ?array $lines;
-
-    #[Property]
-    public ?array $allocations;
+    public function __construct(
+        public ?string $orderNbr = null,
+        public ?array $lines = null,
+        public ?array $allocations = null,
+    ) {}
 }

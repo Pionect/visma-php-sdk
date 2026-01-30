@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,61 +11,25 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ExpenseClaimDetailUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    public ?claimDetailIdInExpenseClaimDetailUpdateDto $claimDetailId;
-
-    #[Property]
-    public ?dateInExpenseClaimDetailUpdateDto $date;
-
-    #[Property]
-    public ?expenseItemInExpenseClaimDetailUpdateDto $expenseItem;
-
-    #[Property]
-    public ?descriptionInExpenseClaimDetailUpdateDto $description;
-
-    #[Property]
-    public ?quantityInExpenseClaimDetailUpdateDto $quantity;
-
-    #[Property]
-    public ?uomInExpenseClaimDetailUpdateDto $uom;
-
-    #[Property]
-    public ?unitCostInExpenseClaimDetailUpdateDto $unitCost;
-
-    #[Property]
-    public ?invoiceableInExpenseClaimDetailUpdateDto $invoiceable;
-
-    #[Property]
-    public ?projectInExpenseClaimDetailUpdateDto $project;
-
-    #[Property]
-    public ?projectTaskInExpenseClaimDetailUpdateDto $projectTask;
-
-    #[Property]
-    public ?expenseAccountInExpenseClaimDetailUpdateDto $expenseAccount;
-
-    /** The corresponding subaccount the system uses to record the part of the expense to be paid back to the employee. */
-    #[Property]
-    public ?array $expenseSubaccount;
-
-    #[Property]
-    public ?branchInExpenseClaimDetailUpdateDto $branch;
-
-    #[Property]
-    public ?taxCategoryInExpenseClaimDetailUpdateDto $taxCategory;
-
-    #[Property]
-    public ?refNbrInExpenseClaimDetailUpdateDto $refNbr;
-
-    #[Property]
-    public ?employeePartInExpenseClaimDetailUpdateDto $employeePart;
-
-    #[Property]
-    public ?customerInExpenseClaimDetailUpdateDto $customer;
-
-    #[Property]
-    public ?locationInExpenseClaimDetailUpdateDto $location;
+    public function __construct(
+        public ?string $operation = null,
+        public ?ClaimDetailIdInExpenseClaimDetailUpdateDto $claimDetailId = null,
+        public ?DateInExpenseClaimDetailUpdateDto $date = null,
+        public ?ExpenseItemInExpenseClaimDetailUpdateDto $expenseItem = null,
+        public ?DescriptionInExpenseClaimDetailUpdateDto $description = null,
+        public ?QuantityInExpenseClaimDetailUpdateDto $quantity = null,
+        public ?UomInExpenseClaimDetailUpdateDto $uom = null,
+        public ?UnitCostInExpenseClaimDetailUpdateDto $unitCost = null,
+        public ?InvoiceableInExpenseClaimDetailUpdateDto $invoiceable = null,
+        public ?ProjectInExpenseClaimDetailUpdateDto $project = null,
+        public ?ProjectTaskInExpenseClaimDetailUpdateDto $projectTask = null,
+        public ?ExpenseAccountInExpenseClaimDetailUpdateDto $expenseAccount = null,
+        public ?array $expenseSubaccount = null,
+        public ?BranchInExpenseClaimDetailUpdateDto $branch = null,
+        public ?TaxCategoryInExpenseClaimDetailUpdateDto $taxCategory = null,
+        public ?RefNbrInExpenseClaimDetailUpdateDto $refNbr = null,
+        public ?EmployeePartInExpenseClaimDetailUpdateDto $employeePart = null,
+        public ?CustomerInExpenseClaimDetailUpdateDto $customer = null,
+        public ?LocationInExpenseClaimDetailUpdateDto $location = null,
+    ) {}
 }

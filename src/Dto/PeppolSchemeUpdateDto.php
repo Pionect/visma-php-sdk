@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,15 +13,12 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class PeppolSchemeUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $endpoint;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $partyIdentification;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $partyLegal;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $endpoint = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $partyIdentification = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $partyLegal = null,
+    ) {}
 }

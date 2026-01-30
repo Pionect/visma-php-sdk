@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,32 +13,19 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class EmployeeCreateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $employeeCd;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $department;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $employeeClass;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branch;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $calendar;
-
-    #[Property]
-    public ?EmployeeContactUpdateDto $contact;
-
-    #[Property]
-    public ?AddressUpdateDto $address;
-
-    #[Property]
-    public ?statusInEmployeeCreateDTO $status;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $employeeCd = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $department = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $employeeClass = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $calendar = null,
+        public ?EmployeeContactUpdateDto $contact = null,
+        public ?AddressUpdateDto $address = null,
+        public ?StatusInEmployeeCreateDto $status = null,
+    ) {}
 }

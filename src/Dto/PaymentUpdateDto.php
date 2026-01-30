@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -15,62 +13,26 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class PaymentUpdateDto extends Model
 {
-    #[Property]
-    public ?referenceNumberInPaymentUpdateDto $referenceNumber;
-
-    #[Property]
-    public ?typeInPaymentUpdateDto $type;
-
-    #[Property]
-    public ?holdInPaymentUpdateDto $hold;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $applicationDate;
-
-    #[Property]
-    public ?applicationPeriodInPaymentUpdateDto $applicationPeriod;
-
-    #[Property]
-    public ?paymentRefInPaymentUpdateDto $paymentRef;
-
-    #[Property]
-    public ?customerInPaymentUpdateDto $customer;
-
-    #[Property]
-    public ?locationInPaymentUpdateDto $location;
-
-    #[Property]
-    public ?paymentMethodInPaymentUpdateDto $paymentMethod;
-
-    #[Property]
-    public ?cashAccountInPaymentUpdateDto $cashAccount;
-
-    #[Property]
-    public ?currencyInPaymentUpdateDto $currency;
-
-    #[Property]
-    public ?paymentAmountInPaymentUpdateDto $paymentAmount;
-
-    #[Property]
-    public ?invoiceTextInPaymentUpdateDto $invoiceText;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branch;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $overrideNumberSeries;
-
-    /** The top part &gt; Applied to orders &gt; The total of the orders for which payment is reserved, minus the amount transferred to invoice. */
-    #[Property]
-    public ?array $ordersToApply;
-
-    /** Financial Charges */
-    #[Property]
-    public ?array $financeCharges;
-
-    #[Property]
-    public ?array $paymentLines;
+    public function __construct(
+        public ?ReferenceNumberInPaymentUpdateDto $referenceNumber = null,
+        public ?TypeInPaymentUpdateDto $type = null,
+        public ?HoldInPaymentUpdateDto $hold = null,
+        public ?ApplicationDateInPaymentUpdateDto $applicationDate = null,
+        public ?ApplicationPeriodInPaymentUpdateDto $applicationPeriod = null,
+        public ?PaymentRefInPaymentUpdateDto $paymentRef = null,
+        public ?CustomerInPaymentUpdateDto $customer = null,
+        public ?LocationInPaymentUpdateDto $location = null,
+        public ?PaymentMethodInPaymentUpdateDto $paymentMethod = null,
+        public ?CashAccountInPaymentUpdateDto $cashAccount = null,
+        public ?CurrencyInPaymentUpdateDto $currency = null,
+        public ?PaymentAmountInPaymentUpdateDto $paymentAmount = null,
+        public ?InvoiceTextInPaymentUpdateDto $invoiceText = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideNumberSeries = null,
+        public ?array $ordersToApply = null,
+        public ?array $financeCharges = null,
+        public ?array $paymentLines = null,
+    ) {}
 }

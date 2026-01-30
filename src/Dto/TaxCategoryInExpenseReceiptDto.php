@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,11 +14,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class TaxCategoryInExpenseReceiptDto extends Model
 {
-    /** Number of item */
-    #[Property]
-    public ?string $number;
-
-    /** Name of item/description */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        public ?string $number = null,
+        public ?string $description = null,
+    ) {}
 }

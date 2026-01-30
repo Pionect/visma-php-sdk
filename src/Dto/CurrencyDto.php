@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,27 +11,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CurrencyDto extends Model
 {
-    /** Currency Id. */
-    #[Property]
-    public ?string $id;
-
-    /** Currency description. */
-    #[Property]
-    public ?string $description;
-
-    /** Currency symbol. */
-    #[Property]
-    public ?string $symbol;
-
-    /** Identify if the currency is the base currency. */
-    #[Property]
-    public ?bool $isBaseCurrency;
-
-    /** Decimal precision. */
-    #[Property]
-    public ?int $decimalPrecision;
-
-    /** Identify if is used for accounting. */
-    #[Property]
-    public ?bool $isUsedForAccounting;
+    public function __construct(
+        public ?string $id = null,
+        public ?string $description = null,
+        public ?string $symbol = null,
+        public ?bool $isBaseCurrency = null,
+        public ?int $decimalPrecision = null,
+        public ?bool $isUsedForAccounting = null,
+    ) {}
 }

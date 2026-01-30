@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * This class represents a Packaging part of InventoryItem in InventoryItemController. Used for
@@ -15,15 +15,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PackagingUpdateDto extends Model
 {
-    #[Property]
-    public ?baseItemWeightInPackagingUpdateDto $baseItemWeight;
-
-    #[Property]
-    public ?weightUOMInPackagingUpdateDto $weightUom;
-
-    #[Property]
-    public ?baseItemVolumeInPackagingUpdateDto $baseItemVolume;
-
-    #[Property]
-    public ?volumeUOMInPackagingUpdateDto $volumeUom;
+    public function __construct(
+        public ?BaseItemWeightInPackagingUpdateDto $baseItemWeight = null,
+        #[MapName('weightUOM')]
+        public ?WeightUominPackagingUpdateDto $weightUom = null,
+        public ?BaseItemVolumeInPackagingUpdateDto $baseItemVolume = null,
+        #[MapName('volumeUOM')]
+        public ?VolumeUominPackagingUpdateDto $volumeUom = null,
+    ) {}
 }

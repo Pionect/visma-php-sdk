@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,7 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class DisposalMethodInDetailsDto extends Model
 {
-    /** The description of the disposal method */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        public ?string $description = null,
+    ) {}
 }

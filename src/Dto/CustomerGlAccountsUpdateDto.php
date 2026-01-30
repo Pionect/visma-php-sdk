@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,57 +13,30 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class CustomerGlAccountsUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customerLedgerAccount;
-
-    #[Property]
-    public ?array $customerLedgerSubaccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesNonTaxableAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesEuAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesExportAccount;
-
-    #[Property]
-    public ?array $salesSubaccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $discountAccount;
-
-    #[Property]
-    public ?array $discountSubaccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $freightAccount;
-
-    #[Property]
-    public ?array $freightSubaccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $cashDiscountAccount;
-
-    #[Property]
-    public ?array $cashDiscountSubaccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $prepaymentAccount;
-
-    #[Property]
-    public ?array $prepaymentSubaccount;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customerLedgerAccount = null,
+        public ?array $customerLedgerSubaccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesNonTaxableAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesEuAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesExportAccount = null,
+        public ?array $salesSubaccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $discountAccount = null,
+        public ?array $discountSubaccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $freightAccount = null,
+        public ?array $freightSubaccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $cashDiscountAccount = null,
+        public ?array $cashDiscountSubaccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $prepaymentAccount = null,
+        public ?array $prepaymentSubaccount = null,
+    ) {}
 }

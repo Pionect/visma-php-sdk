@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * Other invoice settings tab.
@@ -14,9 +14,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class EinvoiceContractInCustomerDto extends Model
 {
-    #[Property]
-    public ?string $fInvoiceContractId;
-
-    #[Property]
-    public ?string $fInvoiceIntermediatorId;
+    public function __construct(
+        #[MapName('fInvoiceContractID')]
+        public ?string $fInvoiceContractId = null,
+        #[MapName('fInvoiceIntermediatorID')]
+        public ?string $fInvoiceIntermediatorId = null,
+    ) {}
 }

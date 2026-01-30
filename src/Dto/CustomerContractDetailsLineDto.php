@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,42 +14,19 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomerContractDetailsLineDto extends Model
 {
-    #[Property]
-    public ?int $contractDetailId;
-
-    #[Property]
-    public ?string $itemCode;
-
-    #[Property]
-    public ?string $description;
-
-    #[Property]
-    public ?float $included;
-
-    #[Property]
-    public ?float $difference;
-
-    #[Property]
-    public ?float $setupPrice;
-
-    #[Property]
-    public ?float $setupDiscount;
-
-    #[Property]
-    public ?float $recurringPrice;
-
-    #[Property]
-    public ?float $extraUsagePrice;
-
-    #[Property]
-    public ?float $recurringDiscount;
-
-    #[Property]
-    public ?float $renewalPrice;
-
-    #[Property]
-    public ?float $renewalDiscount;
-
-    #[Property]
-    public ?string $invoiceType;
+    public function __construct(
+        public ?int $contractDetailId = null,
+        public ?string $itemCode = null,
+        public ?string $description = null,
+        public int|float|null $included = null,
+        public int|float|null $difference = null,
+        public int|float|null $setupPrice = null,
+        public int|float|null $setupDiscount = null,
+        public int|float|null $recurringPrice = null,
+        public int|float|null $extraUsagePrice = null,
+        public int|float|null $recurringDiscount = null,
+        public int|float|null $renewalPrice = null,
+        public int|float|null $renewalDiscount = null,
+        public ?string $invoiceType = null,
+    ) {}
 }

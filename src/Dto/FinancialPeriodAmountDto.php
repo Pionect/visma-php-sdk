@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,9 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class FinancialPeriodAmountDto extends Model
 {
-    #[Property]
-    public ?string $periodId;
-
-    #[Property]
-    public ?float $amount;
+    public function __construct(
+        public ?string $periodId = null,
+        public int|float|null $amount = null,
+    ) {}
 }

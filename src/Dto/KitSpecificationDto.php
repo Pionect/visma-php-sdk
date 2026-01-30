@@ -2,9 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\KitSpecificationDtoFactory>
@@ -13,42 +12,19 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class KitSpecificationDto extends Model
 {
-    #[Property]
-    public ?string $kitInventoryId;
-
-    #[Property]
-    public ?string $revision;
-
-    #[Property]
-    public ?string $description;
-
-    #[Property]
-    public ?bool $isActive;
-
-    #[Property]
-    public ?bool $allowComponentAddition;
-
-    #[Property]
-    public ?bool $isNonStock;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $createdDateTime;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    #[Property]
-    public ?array $stockComponentLines;
-
-    #[Property]
-    public ?array $nonStockComponentLines;
-
-    /** Timestamp of the kit specification record */
-    #[Property]
-    public ?string $timestamp;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        #[MapName('kitInventoryID')]
+        public ?string $kitInventoryId = null,
+        public ?string $revision = null,
+        public ?string $description = null,
+        public ?bool $isActive = null,
+        public ?bool $allowComponentAddition = null,
+        public ?bool $isNonStock = null,
+        public ?\Carbon\Carbon $createdDateTime = null,
+        public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        public ?array $stockComponentLines = null,
+        public ?array $nonStockComponentLines = null,
+        public ?string $timestamp = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,18 +11,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CreateShipmentActionResultDto extends Model
 {
-    #[Property]
-    public ?string $referenceNumber;
-
-    #[Property]
-    public ?ShipmentDto $shipmentDto;
-
-    #[Property]
-    public ?string $actionId;
-
-    #[Property]
-    public ?string $actionResult;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        public ?string $referenceNumber = null,
+        public ?ShipmentDto $shipmentDto = null,
+        public ?string $actionId = null,
+        public ?string $actionResult = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

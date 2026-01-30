@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,9 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class UiExtensionQueryParameters extends Model
 {
-    #[Property]
-    public ?string $screenId;
-
-    #[Property]
-    public ?string $type;
+    public function __construct(
+        public ?string $screenId = null,
+        public ?string $type = null,
+    ) {}
 }

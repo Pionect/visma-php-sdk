@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,23 +13,16 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class AddPoreceiptLineDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $poReceiptNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $poReceiptLineNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $quantity;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $unitCostInCurrency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $costInCurrency;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $poReceiptNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $poReceiptLineNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $quantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $unitCostInCurrency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $costInCurrency = null,
+    ) {}
 }

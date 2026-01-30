@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -16,26 +14,13 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class AllocationsUpdateDto extends Model
 {
-    /** The operation &gt;  Insert=1, Update=2, Delete=3 */
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    public ?lineNbrInAllocationsUpdateDto $lineNbr;
-
-    #[Property]
-    public ?locationInAllocationsUpdateDto $location;
-
-    #[Property]
-    public ?lotSerialNumberInAllocationsUpdateDto $lotSerialNumber;
-
-    #[Property]
-    public ?quantityInAllocationsUpdateDto $quantity;
-
-    #[Property]
-    public ?uomInAllocationsUpdateDto $uom;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $expirationDate;
+    public function __construct(
+        public ?string $operation = null,
+        public ?LineNbrInAllocationsUpdateDto $lineNbr = null,
+        public ?LocationInAllocationsUpdateDto $location = null,
+        public ?LotSerialNumberInAllocationsUpdateDto $lotSerialNumber = null,
+        public ?QuantityInAllocationsUpdateDto $quantity = null,
+        public ?UomInAllocationsUpdateDto $uom = null,
+        public ?ExpirationDateInAllocationsUpdateDto $expirationDate = null,
+    ) {}
 }

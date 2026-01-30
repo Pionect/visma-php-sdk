@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,39 +13,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomerBalanceV2queryParameters extends Model
 {
-    /** Filter by Branch */
-    #[Property]
-    public ?string $branchNumber;
-
-    /** Filter by Customer */
-    #[Property]
-    public ?string $customer;
-
-    /**
-     * Filter from financial period, format YYYYPP
-     * The filte is inclusive, the records for the specified period will be included in the results.
-     * This filter is required.
-     */
-    #[Property]
-    public ?string $fromFinPeriod;
-
-    /**
-     * Filter to financial period, format YYYYPP
-     * The filte is inclusive, the records for the specified period will be included in the results.
-     * This filter is required.
-     */
-    #[Property]
-    public ?string $toFinPeriod;
-
-    /** Pagination parameter. Page number. */
-    #[Property]
-    public ?int $pageNumber;
-
-    /**
-     * Pagination parameter. Number of items to be collected.
-     * Please use a page size lower or equal to the allowed max page size which is returned as part of the metadata information.
-     * If requested page size is greater than allowed max page size, request will be limited to max page size.
-     */
-    #[Property]
-    public ?int $pageSize;
+    public function __construct(
+        public ?string $branchNumber = null,
+        public ?string $customer = null,
+        public ?string $fromFinPeriod = null,
+        public ?string $toFinPeriod = null,
+        public ?int $pageNumber = null,
+        public ?int $pageSize = null,
+    ) {}
 }

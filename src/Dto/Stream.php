@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,27 +11,14 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class Stream extends Model
 {
-    #[Property]
-    public ?bool $canRead;
-
-    #[Property]
-    public ?bool $canSeek;
-
-    #[Property]
-    public ?bool $canTimeout;
-
-    #[Property]
-    public ?bool $canWrite;
-
-    #[Property]
-    public ?int $length;
-
-    #[Property]
-    public ?int $position;
-
-    #[Property]
-    public ?int $readTimeout;
-
-    #[Property]
-    public ?int $writeTimeout;
+    public function __construct(
+        public ?bool $canRead = null,
+        public ?bool $canSeek = null,
+        public ?bool $canTimeout = null,
+        public ?bool $canWrite = null,
+        public ?int $length = null,
+        public ?int $position = null,
+        public ?int $readTimeout = null,
+        public ?int $writeTimeout = null,
+    ) {}
 }

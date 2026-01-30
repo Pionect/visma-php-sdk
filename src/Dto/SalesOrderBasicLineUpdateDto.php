@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -17,68 +16,37 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class SalesOrderBasicLineUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branchNumber;
-
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNbr;
-
-    #[Property]
-    public ?inventoryIdInSalesOrderBasicLineUpdateDto $inventoryId;
-
-    #[Property]
-    public ?inventoryNumberInSalesOrderBasicLineUpdateDto $inventoryNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $warehouse;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $quantity;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $unitCost;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $unitPrice;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discountPercent;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discountAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $discountCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $manualDiscount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discUnitPrice;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $lineDescription;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNbr = null,
+        public ?InventoryIdInSalesOrderBasicLineUpdateDto $inventoryId = null,
+        public ?InventoryNumberInSalesOrderBasicLineUpdateDto $inventoryNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $warehouse = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $quantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $unitCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $unitPrice = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountPercent = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $discountCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $manualDiscount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discUnitPrice = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $lineDescription = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+    ) {}
 }

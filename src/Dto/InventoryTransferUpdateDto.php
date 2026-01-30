@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -16,39 +15,19 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class InventoryTransferUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $warehouseId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $toWarehouseId;
-
-    /** The inventory issue lines */
-    #[Property]
-    public ?array $transferLines;
-
-    #[Property]
-    public ?referenceNumberInInventoryTransferUpdateDto $referenceNumber;
-
-    #[Property]
-    public ?holdInInventoryTransferUpdateDto $hold;
-
-    #[Property]
-    public ?dateInInventoryTransferUpdateDto $date;
-
-    #[Property]
-    public ?postPeriodInInventoryTransferUpdateDto $postPeriod;
-
-    #[Property]
-    public ?externalReferenceInInventoryTransferUpdateDto $externalReference;
-
-    #[Property]
-    public ?descriptionInInventoryTransferUpdateDto $description;
-
-    #[Property]
-    public ?controlQuantityInInventoryTransferUpdateDto $controlQuantity;
-
-    #[Property]
-    public ?branchNumberInInventoryTransferUpdateDto $branchNumber;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $warehouseId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $toWarehouseId = null,
+        public ?array $transferLines = null,
+        public ?ReferenceNumberInInventoryTransferUpdateDto $referenceNumber = null,
+        public ?HoldInInventoryTransferUpdateDto $hold = null,
+        public ?DateInInventoryTransferUpdateDto $date = null,
+        public ?PostPeriodInInventoryTransferUpdateDto $postPeriod = null,
+        public ?ExternalReferenceInInventoryTransferUpdateDto $externalReference = null,
+        public ?DescriptionInInventoryTransferUpdateDto $description = null,
+        public ?ControlQuantityInInventoryTransferUpdateDto $controlQuantity = null,
+        public ?BranchNumberInInventoryTransferUpdateDto $branchNumber = null,
+    ) {}
 }

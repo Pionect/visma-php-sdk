@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,87 +13,48 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class ContactUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $active;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $title;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $firstName;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $lastName;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $position;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $businessAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $sameAsAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?AddressUpdateDto $address;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $email;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $web;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $phone1;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $phone2;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $phone3;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $fax;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $contactMethod;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $doNotCall;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $doNotFax;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $doNotEmail;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $doNotMail;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $noMassMail;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $noMarketing;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $active = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $title = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $firstName = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $lastName = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $position = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $businessAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $sameAsAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\AddressUpdateDto $address = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $email = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $web = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $phone1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $phone2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $phone3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $fax = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $contactMethod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $doNotCall = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $doNotFax = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $doNotEmail = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $doNotMail = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $noMassMail = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $noMarketing = null,
+    ) {}
 }

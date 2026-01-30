@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,11 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PostingClassDto extends Model
 {
-    /** The identifier. */
-    #[Property]
-    public ?string $id;
-
-    /** The description. */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        public ?string $id = null,
+        public ?string $description = null,
+    ) {}
 }

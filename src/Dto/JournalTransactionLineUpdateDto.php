@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,65 +13,36 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class JournalTransactionLineUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $accountNumber;
-
-    #[Property]
-    public ?array $subaccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $project;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $projectTask;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $referenceNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $transactionDescription;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $debitAmountInCurrency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $creditAmountInCurrency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $vatCodeId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $vatId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branch;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $quantity;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
+    public function __construct(
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountNumber = null,
+        public ?array $subaccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $project = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectTask = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $referenceNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $transactionDescription = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $debitAmountInCurrency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $creditAmountInCurrency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatCodeId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $quantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+    ) {}
 }

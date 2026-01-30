@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,30 +11,14 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class StocktakeV2exceptionDto extends Model
 {
-    #[Property]
-    public ?string $inventoryId;
-
-    #[Property]
-    public ?string $locationId;
-
-    #[Property]
-    public ?float $physicalQuantity;
-
-    #[Property]
-    public ?string $reasonCode;
-
-    #[Property]
-    public ?string $lotSerialNumber;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $expirationDate;
-
-    /** Exception message */
-    #[Property]
-    public ?string $message;
-
-    /** Exception error code */
-    #[Property]
-    public ?string $errorCode;
+    public function __construct(
+        public ?string $inventoryId = null,
+        public ?string $locationId = null,
+        public int|float|null $physicalQuantity = null,
+        public ?string $reasonCode = null,
+        public ?string $lotSerialNumber = null,
+        public ?\Carbon\Carbon $expirationDate = null,
+        public ?string $message = null,
+        public ?string $errorCode = null,
+    ) {}
 }

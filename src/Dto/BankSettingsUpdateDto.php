@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,36 +13,17 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class BankSettingsUpdateDto extends Model
 {
-    #[Property]
-    public ?bankNameInBankSettingsUpdateDto $bankName;
-
-    #[Property]
-    public ?bankAddress1InBankSettingsUpdateDto $bankAddress1;
-
-    #[Property]
-    public ?bankAddress2InBankSettingsUpdateDto $bankAddress2;
-
-    #[Property]
-    public ?bankAddress3InBankSettingsUpdateDto $bankAddress3;
-
-    #[Property]
-    public ?bankCountryInBankSettingsUpdateDto $bankCountry;
-
-    #[Property]
-    public ?ibanInBankSettingsUpdateDto $iban;
-
-    #[Property]
-    public ?bbanInBankSettingsUpdateDto $bban;
-
-    #[Property]
-    public ?bbaN2InBankSettingsUpdateDto $bbaN2;
-
-    #[Property]
-    public ?bbaN3InBankSettingsUpdateDto $bbaN3;
-
-    #[Property]
-    public ?bicInBankSettingsUpdateDto $bic;
-
-    #[Property]
-    public ?creditorIdInBankSettingsUpdateDto $creditorId;
+    public function __construct(
+        public ?BankNameInBankSettingsUpdateDto $bankName = null,
+        public ?BankAddress1inBankSettingsUpdateDto $bankAddress1 = null,
+        public ?BankAddress2inBankSettingsUpdateDto $bankAddress2 = null,
+        public ?BankAddress3inBankSettingsUpdateDto $bankAddress3 = null,
+        public ?BankCountryInBankSettingsUpdateDto $bankCountry = null,
+        public ?IbanInBankSettingsUpdateDto $iban = null,
+        public ?BbanInBankSettingsUpdateDto $bban = null,
+        public ?BbaN2inBankSettingsUpdateDto $bbaN2 = null,
+        public ?BbaN3inBankSettingsUpdateDto $bbaN3 = null,
+        public ?BicInBankSettingsUpdateDto $bic = null,
+        public ?CreditorIdInBankSettingsUpdateDto $creditorId = null,
+    ) {}
 }

@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * Default book settings for the fixed asset using this fixed asset class
@@ -14,11 +14,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class BookSettingsInFixedAssetClassDto extends Model
 {
-    /** The book id */
-    #[Property]
-    public ?string $bookId;
-
-    /** The depreciation method id */
-    #[Property]
-    public ?string $depreciationMethodId;
+    public function __construct(
+        #[MapName('bookID')]
+        public ?string $bookId = null,
+        #[MapName('depreciationMethodID')]
+        public ?string $depreciationMethodId = null,
+    ) {}
 }

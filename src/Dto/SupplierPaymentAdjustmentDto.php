@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,57 +11,23 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SupplierPaymentAdjustmentDto extends Model
 {
-    #[Property]
-    public ?string $branch;
-
-    #[Property]
-    public ?string $batchNumber;
-
-    #[Property]
-    public ?string $docType;
-
-    #[Property]
-    public ?string $invoiceRefNbr;
-
-    #[Property]
-    public ?float $amountPaid;
-
-    #[Property]
-    public ?float $cashDiscountTaken;
-
-    #[Property]
-    public ?float $withholdingTax;
-
-    #[Property]
-    public ?string $applicationPeriod;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $date;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $dueDate;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $cashDiscountDate;
-
-    #[Property]
-    public ?float $balance;
-
-    #[Property]
-    public ?float $cashDiscountBalance;
-
-    #[Property]
-    public ?string $description;
-
-    #[Property]
-    public ?string $currency;
-
-    #[Property]
-    public ?string $postPeriod;
-
-    #[Property]
-    public ?string $supplierRef;
+    public function __construct(
+        public ?string $branch = null,
+        public ?string $batchNumber = null,
+        public ?string $docType = null,
+        public ?string $invoiceRefNbr = null,
+        public int|float|null $amountPaid = null,
+        public int|float|null $cashDiscountTaken = null,
+        public int|float|null $withholdingTax = null,
+        public ?string $applicationPeriod = null,
+        public ?\Carbon\Carbon $date = null,
+        public ?\Carbon\Carbon $dueDate = null,
+        public ?\Carbon\Carbon $cashDiscountDate = null,
+        public int|float|null $balance = null,
+        public int|float|null $cashDiscountBalance = null,
+        public ?string $description = null,
+        public ?string $currency = null,
+        public ?string $postPeriod = null,
+        public ?string $supplierRef = null,
+    ) {}
 }

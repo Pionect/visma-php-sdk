@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -15,43 +13,25 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class DiscountBreakpointUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNbr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $pendingBreakAmount;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $pendingDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $pendingDiscountPercent;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $pendingDiscountAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $pendingBreakQuantity;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $breakAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discountAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discountPercent;
+    public function __construct(
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $pendingBreakAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $pendingDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $pendingDiscountPercent = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $pendingDiscountAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $pendingBreakQuantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $breakAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountPercent = null,
+    ) {}
 }

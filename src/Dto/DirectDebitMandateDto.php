@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,15 +13,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class DirectDebitMandateDto extends Model
 {
-    /** Mandate Guid as stored in the database. */
-    #[Property]
-    public ?string $id;
-
-    /** The id shown on Billing Address tab */
-    #[Property]
-    public ?string $mandateId;
-
-    /** Mandate description show on Billing Address tab */
-    #[Property]
-    public ?string $mandateDescription;
+    public function __construct(
+        public ?string $id = null,
+        public ?string $mandateId = null,
+        public ?string $mandateDescription = null,
+    ) {}
 }

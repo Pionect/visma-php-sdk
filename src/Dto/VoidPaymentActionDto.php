@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,9 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class VoidPaymentActionDto extends Model
 {
-    #[Property]
-    public ?string $type;
-
-    #[Property]
-    public ?bool $returnVoidPayment;
+    public function __construct(
+        public ?string $type = null,
+        public ?bool $returnVoidPayment = null,
+    ) {}
 }

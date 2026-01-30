@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,34 +13,21 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class PaymentLinesUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $cashDiscountTaken;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $balanceWriteOff;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $writeOffReasonCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $crossRate;
-
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $documentType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $refNbr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $amountPaid;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $cashDiscountTaken = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $balanceWriteOff = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $writeOffReasonCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $crossRate = null,
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $documentType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $refNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $amountPaid = null,
+    ) {}
 }

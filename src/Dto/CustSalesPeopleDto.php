@@ -2,9 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustSalesPeopleDtoFactory>
@@ -13,32 +12,17 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustSalesPeopleDto extends Model
 {
-    #[Property]
-    public ?int $bAccountId;
-
-    #[Property]
-    public ?string $customerName;
-
-    #[Property]
-    public ?int $locationId;
-
-    #[Property]
-    public ?string $locationName;
-
-    #[Property]
-    public ?bool $isDefault;
-
-    #[Property]
-    public ?float $commisionPct;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $createdDateTime;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        #[MapName('bAccountID')]
+        public ?int $bAccountId = null,
+        public ?string $customerName = null,
+        #[MapName('locationID')]
+        public ?int $locationId = null,
+        public ?string $locationName = null,
+        public ?bool $isDefault = null,
+        public int|float|null $commisionPct = null,
+        public ?\Carbon\Carbon $createdDateTime = null,
+        public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

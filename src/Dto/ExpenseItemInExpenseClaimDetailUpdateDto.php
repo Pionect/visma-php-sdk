@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,6 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ExpenseItemInExpenseClaimDetailUpdateDto extends Model
 {
-    #[Property]
-    public ?string $value;
+    public function __construct(
+        public ?string $value = null,
+    ) {}
 }

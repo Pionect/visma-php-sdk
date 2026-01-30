@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,19 +13,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class DebtCollectionDto extends Model
 {
-    /** Debt Collection Case Number */
-    #[Property]
-    public ?string $caseNumber;
-
-    /** Debt Collection Case Number */
-    #[Property]
-    public ?string $caseType;
-
-    /** Debt Collection Case Number */
-    #[Property]
-    public ?string $caseStatus;
-
-    /** Debt Collection Case Number */
-    #[Property]
-    public ?string $caseUrl;
+    public function __construct(
+        public ?string $caseNumber = null,
+        public ?string $caseType = null,
+        public ?string $caseStatus = null,
+        public ?string $caseUrl = null,
+    ) {}
 }

@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,43 +11,18 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomerDirectDebitDto extends Model
 {
-    #[Property]
-    public ?string $id;
-
-    #[Property]
-    public ?string $mandateId;
-
-    #[Property]
-    public ?string $mandateDescription;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $dateOfSignature;
-
-    #[Property]
-    public ?bool $isDefault;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $oneTime;
-
-    #[Property]
-    public ?string $bic;
-
-    #[Property]
-    public ?string $iban;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastCollectionDate;
-
-    #[Property]
-    public ?float $maxAmount;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $expirationDate;
-
-    #[Property]
-    public ?string $branch;
+    public function __construct(
+        public ?string $id = null,
+        public ?string $mandateId = null,
+        public ?string $mandateDescription = null,
+        public ?\Carbon\Carbon $dateOfSignature = null,
+        public ?bool $isDefault = null,
+        public ?bool $oneTime = null,
+        public ?string $bic = null,
+        public ?string $iban = null,
+        public ?\Carbon\Carbon $lastCollectionDate = null,
+        public int|float|null $maxAmount = null,
+        public ?\Carbon\Carbon $expirationDate = null,
+        public ?string $branch = null,
+    ) {}
 }

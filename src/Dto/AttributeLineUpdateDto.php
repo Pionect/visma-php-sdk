@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,10 +13,9 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class AttributeLineUpdateDto extends Model
 {
-    #[Property]
-    public ?attributeIdInAttributeLineUpdateDto $attributeId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $attributeValue;
+    public function __construct(
+        public ?AttributeIdInAttributeLineUpdateDto $attributeId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $attributeValue = null,
+    ) {}
 }

@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,7 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomDateTimeUtc1inPurchaseReceiptLineUpdateDto extends Model
 {
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $value;
+    public function __construct(
+        public ?\Carbon\Carbon $value = null,
+    ) {}
 }

@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,35 +13,22 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class SalesOrderAddressUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $overrideAddress;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $addressLine1;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $addressLine2;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $addressLine3;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $postalCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $city;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $countryId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $county;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideAddress = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $addressLine1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $addressLine2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $addressLine3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postalCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $city = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $countryId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $county = null,
+    ) {}
 }

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,6 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class StocktakeUpdateDto extends Model
 {
-    #[Property]
-    public ?array $lines;
+    public function __construct(
+        public ?array $lines = null,
+    ) {}
 }

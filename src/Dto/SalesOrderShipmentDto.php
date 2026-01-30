@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,34 +11,16 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SalesOrderShipmentDto extends Model
 {
-    #[Property]
-    public ?string $shipmentType;
-
-    #[Property]
-    public ?string $shipmentNo;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $shipmentDate;
-
-    #[Property]
-    public ?float $shippedQty;
-
-    #[Property]
-    public ?float $shippedWeight;
-
-    #[Property]
-    public ?float $shippedVolume;
-
-    #[Property]
-    public ?string $invoiceType;
-
-    #[Property]
-    public ?string $invoiceNo;
-
-    #[Property]
-    public ?string $inventoryDocType;
-
-    #[Property]
-    public ?string $inventoryRefNo;
+    public function __construct(
+        public ?string $shipmentType = null,
+        public ?string $shipmentNo = null,
+        public ?\Carbon\Carbon $shipmentDate = null,
+        public int|float|null $shippedQty = null,
+        public int|float|null $shippedWeight = null,
+        public int|float|null $shippedVolume = null,
+        public ?string $invoiceType = null,
+        public ?string $invoiceNo = null,
+        public ?string $inventoryDocType = null,
+        public ?string $inventoryRefNo = null,
+    ) {}
 }

@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,7 +14,8 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class ShipmentUpdateDeleteLineDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $deleteSoline;
+    public function __construct(
+        #[MapName('deleteSOLine'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $deleteSoline = null,
+    ) {}
 }

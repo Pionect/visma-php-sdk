@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * The book details of this fixed asset
@@ -14,11 +14,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class BookInBookBalanceDto extends Model
 {
-    /** The book id of this fixed asset */
-    #[Property]
-    public ?string $bookId;
-
-    /** The description of the book */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        #[MapName('bookID')]
+        public ?string $bookId = null,
+        public ?string $description = null,
+    ) {}
 }

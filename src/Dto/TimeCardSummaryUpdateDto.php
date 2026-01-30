@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,46 +13,21 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class TimeCardSummaryUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNumber;
-
-    #[Property]
-    public ?earningTypeInTimeCardSummaryUpdateDto $earningType;
-
-    #[Property]
-    public ?projectInTimeCardSummaryUpdateDto $project;
-
-    #[Property]
-    public ?projectTaskInTimeCardSummaryUpdateDto $projectTask;
-
-    #[Property]
-    public ?monInTimeCardSummaryUpdateDto $mon;
-
-    #[Property]
-    public ?tueInTimeCardSummaryUpdateDto $tue;
-
-    #[Property]
-    public ?wedInTimeCardSummaryUpdateDto $wed;
-
-    #[Property]
-    public ?thuInTimeCardSummaryUpdateDto $thu;
-
-    #[Property]
-    public ?friInTimeCardSummaryUpdateDto $fri;
-
-    #[Property]
-    public ?satInTimeCardSummaryUpdateDto $sat;
-
-    #[Property]
-    public ?sunInTimeCardSummaryUpdateDto $sun;
-
-    #[Property]
-    public ?invoiceableInTimeCardSummaryUpdateDto $invoiceable;
-
-    #[Property]
-    public ?descriptionInTimeCardSummaryUpdateDto $description;
+    public function __construct(
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNumber = null,
+        public ?EarningTypeInTimeCardSummaryUpdateDto $earningType = null,
+        public ?ProjectInTimeCardSummaryUpdateDto $project = null,
+        public ?ProjectTaskInTimeCardSummaryUpdateDto $projectTask = null,
+        public ?MonInTimeCardSummaryUpdateDto $mon = null,
+        public ?TueInTimeCardSummaryUpdateDto $tue = null,
+        public ?WedInTimeCardSummaryUpdateDto $wed = null,
+        public ?ThuInTimeCardSummaryUpdateDto $thu = null,
+        public ?FriInTimeCardSummaryUpdateDto $fri = null,
+        public ?SatInTimeCardSummaryUpdateDto $sat = null,
+        public ?SunInTimeCardSummaryUpdateDto $sun = null,
+        public ?InvoiceableInTimeCardSummaryUpdateDto $invoiceable = null,
+        public ?DescriptionInTimeCardSummaryUpdateDto $description = null,
+    ) {}
 }

@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -15,74 +13,35 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class KitAssemblyInsertDto extends Model
 {
-    #[Property]
-    public ?KitAssemblyLinkInsertDto $kitAssemblyLink;
-
-    /** Type, possible values: P - Production, D - Disassembly */
-    #[Property]
-    public ?string $type;
-
-    #[Property]
-    public ?string $refNo;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $hold;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $date;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $postPeriod;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $itemId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $revision;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $reasonCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $warehouse;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $location;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uoM;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $quantity;
-
-    #[Property]
-    public ?array $stockComponentLines;
-
-    /**
-     * This property is deprecated and will be removed in a future version.
-     * Use StockComponentLineAllocations within each StockComponentLine instead.
-     */
-    #[Property]
-    public ?array $stockComponentAllocations;
-
-    #[Property]
-    public ?array $nonStockComponentLines;
-
-    #[Property]
-    public ?array $kitAllocations;
+    public function __construct(
+        public ?KitAssemblyLinkInsertDto $kitAssemblyLink = null,
+        public ?string $type = null,
+        public ?string $refNo = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $itemId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $revision = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $reasonCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $warehouse = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uoM = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $quantity = null,
+        public ?array $stockComponentLines = null,
+        public ?array $stockComponentAllocations = null,
+        public ?array $nonStockComponentLines = null,
+        public ?array $kitAllocations = null,
+    ) {}
 }

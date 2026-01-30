@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,9 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class WithoutWithVatDto extends Model
 {
-    #[Property]
-    public ?float $withoutVat;
-
-    #[Property]
-    public ?float $withVat;
+    public function __construct(
+        public int|float|null $withoutVat = null,
+        public int|float|null $withVat = null,
+    ) {}
 }

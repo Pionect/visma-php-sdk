@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -16,24 +14,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class WarehouseDetailDto extends Model
 {
-    #[Property]
-    public ?bool $isDefault;
-
-    /** Warehouse &gt; The warehouse where the stock item is available. */
-    #[Property]
-    public ?string $warehouse;
-
-    /** Qty. on hand &gt; The quantity of this item available (on hand) at the warehouse. */
-    #[Property]
-    public ?float $quantityOnHand;
-
-    #[Property]
-    public ?float $available;
-
-    #[Property]
-    public ?float $availableForShipment;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
+    public function __construct(
+        public ?bool $isDefault = null,
+        public ?string $warehouse = null,
+        public int|float|null $quantityOnHand = null,
+        public int|float|null $available = null,
+        public int|float|null $availableForShipment = null,
+        public ?\Carbon\Carbon $lastModifiedDateTime = null,
+    ) {}
 }

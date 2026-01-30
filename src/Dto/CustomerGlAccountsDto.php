@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,48 +11,21 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomerGlAccountsDto extends Model
 {
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $customerLedgerAccount;
-
-    #[Property]
-    public ?SubAccountDto $customerLedgerSubaccount;
-
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $salesAccount;
-
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $salesNonTaxableAccount;
-
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $salesEuAccount;
-
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $salesExportAccount;
-
-    #[Property]
-    public ?SubAccountDto $salesSubaccount;
-
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $discountAccount;
-
-    #[Property]
-    public ?SubAccountDto $discountSubaccount;
-
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $freightAccount;
-
-    #[Property]
-    public ?SubAccountDto $freightSubaccount;
-
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $cashDiscountAccount;
-
-    #[Property]
-    public ?SubAccountDto $cashDiscountSubaccount;
-
-    #[Property]
-    public ?AccountNumberTypeDescriptionDto $prepaymentAccount;
-
-    #[Property]
-    public ?SubAccountDto $prepaymentSubaccount;
+    public function __construct(
+        public ?AccountNumberTypeDescriptionDto $customerLedgerAccount = null,
+        public ?SubAccountDto $customerLedgerSubaccount = null,
+        public ?AccountNumberTypeDescriptionDto $salesAccount = null,
+        public ?AccountNumberTypeDescriptionDto $salesNonTaxableAccount = null,
+        public ?AccountNumberTypeDescriptionDto $salesEuAccount = null,
+        public ?AccountNumberTypeDescriptionDto $salesExportAccount = null,
+        public ?SubAccountDto $salesSubaccount = null,
+        public ?AccountNumberTypeDescriptionDto $discountAccount = null,
+        public ?SubAccountDto $discountSubaccount = null,
+        public ?AccountNumberTypeDescriptionDto $freightAccount = null,
+        public ?SubAccountDto $freightSubaccount = null,
+        public ?AccountNumberTypeDescriptionDto $cashDiscountAccount = null,
+        public ?SubAccountDto $cashDiscountSubaccount = null,
+        public ?AccountNumberTypeDescriptionDto $prepaymentAccount = null,
+        public ?SubAccountDto $prepaymentSubaccount = null,
+    ) {}
 }

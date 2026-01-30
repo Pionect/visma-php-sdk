@@ -3,9 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -18,153 +17,75 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class PurchaseOrderLineUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branch;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $inventory;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $lineType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $warehouse;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $lineDescription;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $orderQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $unitCost;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $extCost;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discountAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discountPercent;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $manualDiscount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $discountCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $amount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $alternateId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $minReceipt;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $maxReceipt;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $completeOn;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $receiptAction;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $taxCategory;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $account;
-
-    #[Property]
-    public ?array $sub;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $project;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $projectTask;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $requested;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $promised;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
-
-    #[Property]
-    public ?customStr1InPurchaseOrderLineUpdateDto $customStr1;
-
-    #[Property]
-    public ?customStr2InPurchaseOrderLineUpdateDto $customStr2;
-
-    #[Property]
-    public ?customStr3InPurchaseOrderLineUpdateDto $customStr3;
-
-    #[Property]
-    public ?customStr4InPurchaseOrderLineUpdateDto $customStr4;
-
-    #[Property]
-    public ?customStr5InPurchaseOrderLineUpdateDto $customStr5;
-
-    #[Property]
-    public ?customDec1InPurchaseOrderLineUpdateDto $customDec1;
-
-    #[Property]
-    public ?customDec2InPurchaseOrderLineUpdateDto $customDec2;
-
-    #[Property]
-    public ?customInt1InPurchaseOrderLineUpdateDto $customInt1;
-
-    #[Property]
-    public ?customInt2InPurchaseOrderLineUpdateDto $customInt2;
-
-    #[Property]
-    public ?customDateTimeUTC1InPurchaseOrderLineUpdateDto $customDateTimeUtc1;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $completed;
+    public function __construct(
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventory = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $lineType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $warehouse = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $lineDescription = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $orderQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $unitCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $extCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountPercent = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $manualDiscount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $discountCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $amount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $alternateId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $minReceipt = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $maxReceipt = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $completeOn = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $receiptAction = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $taxCategory = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $account = null,
+        public ?array $sub = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $project = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectTask = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $requested = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $promised = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+        public ?CustomStr1inPurchaseOrderLineUpdateDto $customStr1 = null,
+        public ?CustomStr2inPurchaseOrderLineUpdateDto $customStr2 = null,
+        public ?CustomStr3inPurchaseOrderLineUpdateDto $customStr3 = null,
+        public ?CustomStr4inPurchaseOrderLineUpdateDto $customStr4 = null,
+        public ?CustomStr5inPurchaseOrderLineUpdateDto $customStr5 = null,
+        public ?CustomDec1inPurchaseOrderLineUpdateDto $customDec1 = null,
+        public ?CustomDec2inPurchaseOrderLineUpdateDto $customDec2 = null,
+        public ?CustomInt1inPurchaseOrderLineUpdateDto $customInt1 = null,
+        public ?CustomInt2inPurchaseOrderLineUpdateDto $customInt2 = null,
+        #[MapName('customDateTimeUTC1')]
+        public ?CustomDateTimeUtc1inPurchaseOrderLineUpdateDto $customDateTimeUtc1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $completed = null,
+    ) {}
 }

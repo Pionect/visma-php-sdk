@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PropertyTaxDtoFactory>
@@ -12,11 +12,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PropertyTaxDto extends Model
 {
-    /** The property tax group id of this fixed asset */
-    #[Property]
-    public ?string $propertyTaxId;
-
-    /** The description of the property tax group of this fixed asset */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        #[MapName('propertyTaxID')]
+        public ?string $propertyTaxId = null,
+        public ?string $description = null,
+    ) {}
 }

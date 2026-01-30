@@ -3,9 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -17,107 +16,51 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class PurchaseReceiptUpdateDto extends Model
 {
-    #[Property]
-    public ?array $lines;
-
-    #[Property]
-    public ?array $landedCost;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $receiptType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $receiptNbr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $hold;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $date;
-
-    #[Property]
-    public ?postPeriodInPurchaseReceiptUpdateDto $postPeriod;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $warehouseId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $supplierId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $locationId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $exchangeRate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $createBill;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $supplierRef;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $controlQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $controlAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branchNumber;
-
-    #[Property]
-    public ?customStr1InPurchaseReceiptUpdateDto $customStr1;
-
-    #[Property]
-    public ?customStr2InPurchaseReceiptUpdateDto $customStr2;
-
-    #[Property]
-    public ?customStr3InPurchaseReceiptUpdateDto $customStr3;
-
-    #[Property]
-    public ?customStr4InPurchaseReceiptUpdateDto $customStr4;
-
-    #[Property]
-    public ?customStr5InPurchaseReceiptUpdateDto $customStr5;
-
-    #[Property]
-    public ?customDec1InPurchaseReceiptUpdateDto $customDec1;
-
-    #[Property]
-    public ?customDec2InPurchaseReceiptUpdateDto $customDec2;
-
-    #[Property]
-    public ?customInt1InPurchaseReceiptUpdateDto $customInt1;
-
-    #[Property]
-    public ?customInt2InPurchaseReceiptUpdateDto $customInt2;
-
-    #[Property]
-    public ?customDateTimeUTC1InPurchaseReceiptUpdateDto $customDateTimeUtc1;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $timeStamp;
+    public function __construct(
+        public ?array $lines = null,
+        public ?array $landedCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $receiptType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $receiptNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        public ?PostPeriodInPurchaseReceiptUpdateDto $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $warehouseId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $supplierId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $locationId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $exchangeRate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $createBill = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $supplierRef = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
+        public ?CustomStr1inPurchaseReceiptUpdateDto $customStr1 = null,
+        public ?CustomStr2inPurchaseReceiptUpdateDto $customStr2 = null,
+        public ?CustomStr3inPurchaseReceiptUpdateDto $customStr3 = null,
+        public ?CustomStr4inPurchaseReceiptUpdateDto $customStr4 = null,
+        public ?CustomStr5inPurchaseReceiptUpdateDto $customStr5 = null,
+        public ?CustomDec1inPurchaseReceiptUpdateDto $customDec1 = null,
+        public ?CustomDec2inPurchaseReceiptUpdateDto $customDec2 = null,
+        public ?CustomInt1inPurchaseReceiptUpdateDto $customInt1 = null,
+        public ?CustomInt2inPurchaseReceiptUpdateDto $customInt2 = null,
+        #[MapName('customDateTimeUTC1')]
+        public ?CustomDateTimeUtc1inPurchaseReceiptUpdateDto $customDateTimeUtc1 = null,
+        public ?string $timeStamp = null,
+    ) {}
 }

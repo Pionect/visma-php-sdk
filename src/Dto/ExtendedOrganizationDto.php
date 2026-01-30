@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,78 +13,26 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ExtendedOrganizationDto extends Model
 {
-    /** Organization Cd */
-    #[Property]
-    public ?string $organizationCd;
-
-    /** Name */
-    #[Property]
-    public ?string $name;
-
-    /** Organization Type */
-    #[Property]
-    public ?string $organizationType;
-
-    /** File Tax By Branches */
-    #[Property]
-    public ?bool $fileTaxByBranches;
-
-    /** Base Currency */
-    #[Property]
-    public ?string $baseCurrency;
-
-    #[Property]
-    public ?mainAddressInExtendedOrganizationDto $mainAddress;
-
-    #[Property]
-    public ?mainContactInExtendedOrganizationDto $mainContact;
-
-    #[Property]
-    public ?deliveryAddressInExtendedOrganizationDto $deliveryAddress;
-
-    #[Property]
-    public ?deliveryContactInExtendedOrganizationDto $deliveryContact;
-
-    /** CorporateId */
-    #[Property]
-    public ?string $corporateId;
-
-    /** VatRegistrationId */
-    #[Property]
-    public ?string $vatRegistrationId;
-
-    #[Property]
-    public ?defaultCountryInExtendedOrganizationDto $defaultCountry;
-
-    #[Property]
-    public ?industryCodeInExtendedOrganizationDto $industryCode;
-
-    #[Property]
-    public ?currencyInExtendedOrganizationDto $currency;
-
-    #[Property]
-    public ?vatZoneInExtendedOrganizationDto $vatZone;
-
-    /** LastModifiedDateTime */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    #[Property]
-    public ?ledgerInExtendedOrganizationDto $ledger;
-
-    #[Property]
-    public ?bankSettingsInExtendedOrganizationDto $bankSettings;
-
-    /** Branches */
-    #[Property]
-    public ?array $branches;
-
-    /**
-     * Identifier that represents a specific version of the resource.
-     * It helps to prevent simultaneous updates of the resource from overwriting each other (by using ETags and If-Match headers)
-     */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $timeStamp;
+    public function __construct(
+        public ?string $organizationCd = null,
+        public ?string $name = null,
+        public ?string $organizationType = null,
+        public ?bool $fileTaxByBranches = null,
+        public ?string $baseCurrency = null,
+        public ?MainAddressInExtendedOrganizationDto $mainAddress = null,
+        public ?MainContactInExtendedOrganizationDto $mainContact = null,
+        public ?DeliveryAddressInExtendedOrganizationDto $deliveryAddress = null,
+        public ?DeliveryContactInExtendedOrganizationDto $deliveryContact = null,
+        public ?string $corporateId = null,
+        public ?string $vatRegistrationId = null,
+        public ?DefaultCountryInExtendedOrganizationDto $defaultCountry = null,
+        public ?IndustryCodeInExtendedOrganizationDto $industryCode = null,
+        public ?CurrencyInExtendedOrganizationDto $currency = null,
+        public ?VatZoneInExtendedOrganizationDto $vatZone = null,
+        public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        public ?LedgerInExtendedOrganizationDto $ledger = null,
+        public ?BankSettingsInExtendedOrganizationDto $bankSettings = null,
+        public ?array $branches = null,
+        public ?string $timeStamp = null,
+    ) {}
 }

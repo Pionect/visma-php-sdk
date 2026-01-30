@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -18,69 +16,37 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class JournalTransactionUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $batchNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $hold;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $transactionDate;
-
-    #[Property]
-    public ?postPeriodInJournalTransactionUpdateDto $postPeriod;
-
-    #[Property]
-    public ?financialPeriodInJournalTransactionUpdateDto $financialPeriod;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $ledger;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currencyId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $exchangeRate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $autoReversing;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $controlTotalInCurrency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $createVatTransaction;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $skipVatAmountValidation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $transactionCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branch;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $overrideNumberSeries;
-
-    #[Property]
-    public ?array $journalTransactionLines;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $batchNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $transactionDate = null,
+        public ?PostPeriodInJournalTransactionUpdateDto $postPeriod = null,
+        public ?FinancialPeriodInJournalTransactionUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $ledger = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currencyId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $exchangeRate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $autoReversing = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlTotalInCurrency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $createVatTransaction = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $skipVatAmountValidation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $transactionCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideNumberSeries = null,
+        public ?array $journalTransactionLines = null,
+    ) {}
 }

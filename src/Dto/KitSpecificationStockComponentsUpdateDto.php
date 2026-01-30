@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,42 +14,25 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class KitSpecificationStockComponentsUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNbr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $compInventoryId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $dfltCompQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $allowQtyVariation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $minCompQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $maxCompQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $disassemblyCoeff;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $allowSubstitution;
+    public function __construct(
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNbr = null,
+        #[MapName('compInventoryID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $compInventoryId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $dfltCompQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $allowQtyVariation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $minCompQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $maxCompQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $disassemblyCoeff = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $allowSubstitution = null,
+    ) {}
 }

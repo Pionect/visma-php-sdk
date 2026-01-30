@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,6 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class DiscountBranchDto extends Model
 {
-    #[Property]
-    public ?string $branch;
+    public function __construct(
+        public ?string $branch = null,
+    ) {}
 }

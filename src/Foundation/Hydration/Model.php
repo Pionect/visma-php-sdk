@@ -4,22 +4,19 @@ declare(strict_types=1);
 
 namespace Pionect\VismaSdk\Foundation\Hydration;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
-use ReflectionClass;
+use Spatie\LaravelData\Data;
 
 /**
  * @template TFactory of \Pionect\VismaSdk\Foundation\Factories\Factory
  */
-abstract class Model implements ModelInterface
+abstract class Model extends Data implements ModelInterface
 {
-    use HasAttributes;
-
     /**
-     * Get a new factory instance for the model.
+     * Get a new test factory instance for the model.
      *
      * @return TFactory
      */
-    public static function factory(): mixed
+    public static function testFactory(): mixed
     {
         $modelClass = static::class;
         $factoryClass = str_replace('\\Dto\\', '\\Factories\\', $modelClass).'Factory';
@@ -29,56 +26,5 @@ abstract class Model implements ModelInterface
         }
 
         throw new \RuntimeException("Factory [{$factoryClass}] not found for model [{$modelClass}].");
-    }
-
-    /**
-     * @param  array<string, mixed>  $attributes
-     */
-    public function __construct(array $attributes = [])
-    {
-        $this->fill($attributes);
-    }
-
-    /**
-     * @param  array<string, mixed>  $attributes
-     */
-    public function fill(array $attributes): void
-    {
-        $propertyNames = $this->propertyNames();
-
-        foreach ($attributes as $key => $value) {
-            if (in_array($key, $propertyNames)) {
-                $this->$key = $value;
-            }
-        }
-    }
-
-    /**
-     * @return array<int, string>
-     */
-    private function propertyNames(): array
-    {
-        $reflectionClass = new ReflectionClass($this);
-        $properties = $reflectionClass->getProperties();
-        $propertyNames = [];
-
-        foreach ($properties as $property) {
-            $attributes = $property->getAttributes(Property::class);
-            if (count($attributes) > 0) {
-                $propertyNames[] = $property->getName();
-            }
-        }
-
-        return $propertyNames;
-    }
-
-    /**
-     * Convert Model to array for request body.
-     *
-     * @return array<string, mixed>
-     */
-    public function toArray(): array
-    {
-        return $this->attributes();
     }
 }

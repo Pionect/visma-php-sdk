@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,6 +14,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PaySelectedInSupplierInvoiceUpdateDto extends Model
 {
-    #[Property]
-    public ?bool $value;
+    public function __construct(
+        public ?bool $value = null,
+    ) {}
 }

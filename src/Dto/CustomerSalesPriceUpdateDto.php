@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -15,53 +13,30 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class CustomerSalesPriceUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $priceType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $priceCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $inventoryId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uoM;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $promotion;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $breakQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $price;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $vat;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $effectiveDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $expirationDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $warehouse;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $priceType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $priceCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uoM = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $promotion = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $breakQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $price = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vat = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $effectiveDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $expirationDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $warehouse = null,
+    ) {}
 }

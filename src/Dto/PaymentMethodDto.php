@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * This class represents a Payment Method in PaymentMethodController. Used for getting data.
@@ -14,27 +14,14 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PaymentMethodDto extends Model
 {
-    /** Mandatory field: The top part &gt; Payment method ID* &gt; The unique identifier of the payment method. */
-    #[Property]
-    public ?string $paymentMethodId;
-
-    /** The top part &gt; Active &gt; A check box that indicates whether the payment method is active in the system. */
-    #[Property]
-    public ?bool $active;
-
-    /** The top part &gt; Means of payment &gt; One of the system's built-in payment templates. The following options are available: Credit card, Cash, Direct deposit. */
-    #[Property]
-    public ?string $meansOfPayment;
-
-    /** Mandatory field: The top part &gt; Description* &gt; A description of the payment method. */
-    #[Property]
-    public ?string $description;
-
-    /** The top part &gt; Use for supplier &gt; A check box that indicates whether the payment method will be used in Supplier ledger. */
-    #[Property]
-    public ?bool $useInAp;
-
-    /** The settings for Customer ledger and The settings of Supplier ledger tab &gt; The table */
-    #[Property]
-    public ?array $details;
+    public function __construct(
+        #[MapName('paymentMethodID')]
+        public ?string $paymentMethodId = null,
+        public ?bool $active = null,
+        public ?string $meansOfPayment = null,
+        public ?string $description = null,
+        #[MapName('useInAP')]
+        public ?bool $useInAp = null,
+        public ?array $details = null,
+    ) {}
 }

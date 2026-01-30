@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -15,64 +13,34 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class CashTransactionUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $referenceNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $hold;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $tranDate;
-
-    #[Property]
-    public ?finanacialPeriodInCashTransactionUpdateDto $finanacialPeriod;
-
-    #[Property]
-    public ?financialPeriodInCashTransactionUpdateDto $financialPeriod;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $cashAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $entryType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $documentRef;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $controlTotal;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $vatAmount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $vatZone;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $taxCalculationMode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $overrideNumberSeries;
-
-    #[Property]
-    public ?array $cashTransactionDetails;
-
-    #[Property]
-    public ?array $cashTransactionTaxDetails;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $referenceNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $tranDate = null,
+        public ?FinanacialPeriodInCashTransactionUpdateDto $finanacialPeriod = null,
+        public ?FinancialPeriodInCashTransactionUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $cashAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $entryType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $documentRef = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlTotal = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $vatAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatZone = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $taxCalculationMode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideNumberSeries = null,
+        public ?array $cashTransactionDetails = null,
+        public ?array $cashTransactionTaxDetails = null,
+    ) {}
 }

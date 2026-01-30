@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,19 +11,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ArspcommnHistoryDto extends Model
 {
-    #[Property]
-    public ?string $commnPeriod;
-
-    #[Property]
-    public ?float $commnAmt;
-
-    #[Property]
-    public ?float $commnblAmt;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $prProcessedDate;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        public ?string $commnPeriod = null,
+        public int|float|null $commnAmt = null,
+        public int|float|null $commnblAmt = null,
+        public ?\Carbon\Carbon $prProcessedDate = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

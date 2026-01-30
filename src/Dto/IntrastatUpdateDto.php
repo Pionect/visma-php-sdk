@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,12 +14,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class IntrastatUpdateDto extends Model
 {
-    #[Property]
-    public ?cN8InIntrastatUpdateDto $cN8;
-
-    #[Property]
-    public ?countryOfOriginInIntrastatUpdateDto $countryOfOrigin;
-
-    #[Property]
-    public ?supplementaryMeasureUnitInIntrastatUpdateDto $supplementaryMeasureUnit;
+    public function __construct(
+        public ?CN8inIntrastatUpdateDto $cN8 = null,
+        public ?CountryOfOriginInIntrastatUpdateDto $countryOfOrigin = null,
+        public ?SupplementaryMeasureUnitInIntrastatUpdateDto $supplementaryMeasureUnit = null,
+    ) {}
 }

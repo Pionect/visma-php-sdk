@@ -2,9 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BlobMetadataFactory>
@@ -13,28 +12,15 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class BlobMetadata extends Model
 {
-    #[Property]
-    public ?string $blobId;
-
-    #[Property]
-    public ?string $blobName;
-
-    #[Property]
-    public ?string $contentType;
-
-    #[Property]
-    public ?string $mD5hash;
-
-    #[Property]
-    public ?string $fileChecksum;
-
-    #[Property]
-    public ?int $size;
-
-    #[Property]
-    public ?string $countryCode;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $createdDateTimeUtc;
+    public function __construct(
+        public ?string $blobId = null,
+        public ?string $blobName = null,
+        public ?string $contentType = null,
+        #[MapName('mD5Hash')]
+        public ?string $mD5hash = null,
+        public ?string $fileChecksum = null,
+        public ?int $size = null,
+        public ?string $countryCode = null,
+        public ?\Carbon\Carbon $createdDateTimeUtc = null,
+    ) {}
 }

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,9 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class MetadataDto extends Model
 {
-    #[Property]
-    public ?int $totalCount;
-
-    #[Property]
-    public ?int $maxPageSize;
+    public function __construct(
+        public ?int $totalCount = null,
+        public ?int $maxPageSize = null,
+    ) {}
 }

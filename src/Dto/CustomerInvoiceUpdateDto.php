@@ -3,9 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -15,205 +14,101 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class CustomerInvoiceUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $paymentMethodId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $creditTermsId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currencyId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customerRefNumber;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $cashDiscountDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $documentDueDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $externalReference;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customerProject;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $exchangeRate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $domesticServicesDeductibleDocument;
-
-    #[Property]
-    public ?RotRutUpdateDto $rotRutDetails;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $paymentReference;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $contact;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $project;
-
-    #[Property]
-    public ?array $taxDetailLines;
-
-    #[Property]
-    public ?array $invoiceLines;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $sendToAutoInvoice;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customerVatZoneId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?SalesInvoiceAddressUpdateDto $billingAddress;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?SalesInvoiceContactUpdateDto $invoiceContact;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $startDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $endDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $accountingCostRef;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $originatorDocRef;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $contractDocRef;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $revoked;
-
-    #[Property]
-    public ?overrideNumberSeriesInCustomerInvoiceUpdateDto $overrideNumberSeries;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $directDebitMandateId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $excludeDebtCollection;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $debtCollectionCaseNbr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $debtCollectionCaseStatus;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $debtCollectionCaseType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $debtCollectionCaseUrl;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $referenceNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customerNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $childCustomerNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $consolidateInvoices;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $documentDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $origInvoiceDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $hold;
-
-    #[Property]
-    public ?postPeriodInCustomerInvoiceUpdateDto $postPeriod;
-
-    #[Property]
-    public ?financialPeriodInCustomerInvoiceUpdateDto $financialPeriod;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $invoiceText;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $locationId;
-
-    #[Property]
-    public ?salesPersonIDInCustomerInvoiceUpdateDto $salesPersonId;
-
-    #[Property]
-    public ?salespersonInCustomerInvoiceUpdateDto $salesperson;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branchNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $cashAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $dontPrint;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $dontEmail;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $paymentMethodId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $creditTermsId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currencyId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customerRefNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $cashDiscountDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $documentDueDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $externalReference = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customerProject = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $exchangeRate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $domesticServicesDeductibleDocument = null,
+        public ?RotRutUpdateDto $rotRutDetails = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $paymentReference = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $contact = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $project = null,
+        public ?array $taxDetailLines = null,
+        public ?array $invoiceLines = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $sendToAutoInvoice = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customerVatZoneId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\SalesInvoiceAddressUpdateDto $billingAddress = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\SalesInvoiceContactUpdateDto $invoiceContact = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $startDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $endDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountingCostRef = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $originatorDocRef = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $contractDocRef = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $revoked = null,
+        public ?OverrideNumberSeriesInCustomerInvoiceUpdateDto $overrideNumberSeries = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $directDebitMandateId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $excludeDebtCollection = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $debtCollectionCaseNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $debtCollectionCaseStatus = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $debtCollectionCaseType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $debtCollectionCaseUrl = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $referenceNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customerNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $childCustomerNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $consolidateInvoices = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $documentDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $origInvoiceDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        public ?PostPeriodInCustomerInvoiceUpdateDto $postPeriod = null,
+        public ?FinancialPeriodInCustomerInvoiceUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $invoiceText = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $locationId = null,
+        #[MapName('salesPersonID')]
+        public ?SalesPersonIdinCustomerInvoiceUpdateDto $salesPersonId = null,
+        public ?SalespersonInCustomerInvoiceUpdateDto $salesperson = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $cashAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $dontPrint = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $dontEmail = null,
+    ) {}
 }

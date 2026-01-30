@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,42 +13,19 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class RotRutDto extends Model
 {
-    #[Property]
-    public ?string $docType;
-
-    #[Property]
-    public ?string $refNbr;
-
-    #[Property]
-    public ?bool $distributedAutomaticaly;
-
-    #[Property]
-    public ?string $type;
-
-    #[Property]
-    public ?float $totalDeductableAmount;
-
-    #[Property]
-    public ?float $otherCost;
-
-    #[Property]
-    public ?float $materialCost;
-
-    #[Property]
-    public ?float $workPrice;
-
-    #[Property]
-    public ?float $distributedAmount;
-
-    #[Property]
-    public ?string $appartment;
-
-    #[Property]
-    public ?string $estate;
-
-    #[Property]
-    public ?string $organizationNbr;
-
-    #[Property]
-    public ?array $distribution;
+    public function __construct(
+        public ?string $docType = null,
+        public ?string $refNbr = null,
+        public ?bool $distributedAutomaticaly = null,
+        public ?string $type = null,
+        public int|float|null $totalDeductableAmount = null,
+        public int|float|null $otherCost = null,
+        public int|float|null $materialCost = null,
+        public int|float|null $workPrice = null,
+        public int|float|null $distributedAmount = null,
+        public ?string $appartment = null,
+        public ?string $estate = null,
+        public ?string $organizationNbr = null,
+        public ?array $distribution = null,
+    ) {}
 }

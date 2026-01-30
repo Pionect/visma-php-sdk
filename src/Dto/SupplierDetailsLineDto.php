@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,59 +11,24 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SupplierDetailsLineDto extends Model
 {
-    #[Property]
-    public ?bool $active;
-
-    #[Property]
-    public ?bool $default;
-
-    #[Property]
-    public ?string $supplierId;
-
-    #[Property]
-    public ?string $supplierName;
-
-    #[Property]
-    public ?string $location;
-
-    #[Property]
-    public ?string $warehouse;
-
-    #[Property]
-    public ?string $purchaseUnit;
-
-    #[Property]
-    public ?string $supplierItemId;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $shipmentLeadTime;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $leadTime;
-
-    #[Property]
-    public ?int $minOrderFreq;
-
-    #[Property]
-    public ?float $minOrderQty;
-
-    #[Property]
-    public ?float $maxOrderQty;
-
-    #[Property]
-    public ?float $lotSize;
-
-    #[Property]
-    public ?float $eoq;
-
-    #[Property]
-    public ?string $currencyId;
-
-    #[Property]
-    public ?float $lastSupplierPrice;
-
-    #[Property]
-    public ?bool $override;
+    public function __construct(
+        public ?bool $active = null,
+        public ?bool $default = null,
+        public ?string $supplierId = null,
+        public ?string $supplierName = null,
+        public ?string $location = null,
+        public ?string $warehouse = null,
+        public ?string $purchaseUnit = null,
+        public ?string $supplierItemId = null,
+        public ?int $shipmentLeadTime = null,
+        public ?int $leadTime = null,
+        public ?int $minOrderFreq = null,
+        public int|float|null $minOrderQty = null,
+        public int|float|null $maxOrderQty = null,
+        public int|float|null $lotSize = null,
+        public int|float|null $eoq = null,
+        public ?string $currencyId = null,
+        public int|float|null $lastSupplierPrice = null,
+        public ?bool $override = null,
+    ) {}
 }

@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * The Approval details tab &gt;
@@ -14,11 +14,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ApprovalDetailsInSupplierInvoiceDto extends Model
 {
-    /** The Approval details tab &gt; Default document &gt; The default document that includes the payments requiring approval. */
-    #[Property]
-    public ?string $attachmentId;
-
-    /** The Approval details tab &gt; Comment &gt; The comment connected with the approval of the payments. */
-    #[Property]
-    public ?string $comment;
+    public function __construct(
+        #[MapName('attachmentID')]
+        public ?string $attachmentId = null,
+        public ?string $comment = null,
+    ) {}
 }

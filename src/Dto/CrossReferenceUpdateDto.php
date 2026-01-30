@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,25 +14,16 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class CrossReferenceUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    public ?alternateTypeInCrossReferenceUpdateDto $alternateType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $bAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $alternateId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
+    public function __construct(
+        public ?string $operation = null,
+        public ?AlternateTypeInCrossReferenceUpdateDto $alternateType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bAccount = null,
+        #[MapName('alternateID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $alternateId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+    ) {}
 }

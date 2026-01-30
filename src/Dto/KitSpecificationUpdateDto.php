@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,36 +14,21 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class KitSpecificationUpdateDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $kitInventoryId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $revisionId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $descr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $isActive;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $allowCompAddition;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $isNonStock;
-
-    #[Property]
-    public ?array $stockComponentLines;
-
-    #[Property]
-    public ?array $nonStockComponentLines;
+    public function __construct(
+        public ?string $operation = null,
+        #[MapName('kitInventoryID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $kitInventoryId = null,
+        #[MapName('revisionID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $revisionId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $descr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $isActive = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $allowCompAddition = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $isNonStock = null,
+        public ?array $stockComponentLines = null,
+        public ?array $nonStockComponentLines = null,
+    ) {}
 }

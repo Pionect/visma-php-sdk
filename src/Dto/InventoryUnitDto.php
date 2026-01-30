@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryUnitDtoFactory>
@@ -12,38 +12,18 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class InventoryUnitDto extends Model
 {
-    #[Property]
-    public ?int $unitType;
-
-    #[Property]
-    public ?ItemClassDto $itemClass;
-
-    /** The top part &gt; Item ID &gt; The unique alphanumeric identifier of the stock item. */
-    #[Property]
-    public ?int $inventoryId;
-
-    /** To unit &gt; The unit of measure selected as the base unit for the item. */
-    #[Property]
-    public ?string $toUnit;
-
-    #[Property]
-    public ?string $sampleToUnit;
-
-    /** Mandatory field: From unit &gt; The unit of measure for which the conversion parameters are specified. */
-    #[Property]
-    public ?string $fromUnit;
-
-    /** Multiply/divide &gt; The operation to be performed for unit conversion. */
-    #[Property]
-    public ?string $unitMultDiv;
-
-    #[Property]
-    public ?float $unitRate;
-
-    /** Price adjustment multiplier &gt; Changes the price automatically if you change the UoM. */
-    #[Property]
-    public ?float $priceAdjustmentMultiplier;
-
-    #[Property]
-    public ?int $recordId;
+    public function __construct(
+        public ?int $unitType = null,
+        public ?ItemClassDto $itemClass = null,
+        #[MapName('inventoryID')]
+        public ?int $inventoryId = null,
+        public ?string $toUnit = null,
+        public ?string $sampleToUnit = null,
+        public ?string $fromUnit = null,
+        public ?string $unitMultDiv = null,
+        public int|float|null $unitRate = null,
+        public int|float|null $priceAdjustmentMultiplier = null,
+        #[MapName('recordID')]
+        public ?int $recordId = null,
+    ) {}
 }

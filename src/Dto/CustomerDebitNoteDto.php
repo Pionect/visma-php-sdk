@@ -2,9 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * This class represents a Customer Debit Note. Used for getting data.
@@ -15,268 +14,74 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomerDebitNoteDto extends Model
 {
-    #[Property]
-    public ?creditTermsInCustomerDebitNoteDto $creditTerms;
-
-    /** Mandatory field: The Top part &gt; Due date* &gt; The date when payment for the document is due, in accordance with the credit terms. */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $documentDueDate;
-
-    /** Mandatory field: The Top part &gt; Cash discount date* &gt; The end date of the cash discount period, which the system calculates by using the credit terms. */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $cashDiscountDate;
-
-    /** The Top part &gt; External reference &gt; The external reference used in AutoInvoice. */
-    #[Property]
-    public ?string $externalReference;
-
-    /** The top part &gt; Domestic services deductible document &gt; A check box indicating if the document is Rot/rut deductible (applicable for the Swedish markets) */
-    #[Property]
-    public ?bool $isRotRutDeductible;
-
-    /** The Top part &gt; Currency &gt; The middle field, click the down arrow &gt; Exchange rate. */
-    #[Property]
-    public ?float $exchangeRate;
-
-    /** The Financial details tab &gt; The Dunning information section &gt; Dunning letter date &gt; The date of the last released dunning letter in which the document was listed. */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $dunningLetterDate;
-
-    /** The Financial details tab &gt; The Dunning information section &gt; Dunning level &gt; The dunning level of the document. */
-    #[Property]
-    public ?int $dunningLetterLevel;
-
-    #[Property]
-    public ?contactInCustomerDebitNoteDto $contact;
-
-    #[Property]
-    public ?array $attachments;
-
-    #[Property]
-    public ?array $taxDetails;
-
-    #[Property]
-    public ?array $lines;
-
-    /** The Top part &gt; Rounding diff. &gt; The difference between the original amount and the rounded amount. */
-    #[Property]
-    public ?float $roundingDiff;
-
-    #[Property]
-    public ?customerVatZoneInCustomerDebitNoteDto $customerVatZone;
-
-    #[Property]
-    public ?ChildRecordDto $childRecord;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $timeStamp;
-
-    /** The top part &gt; Hold &gt; A check box that indicates (if selected) that the document is a draft. A document with the On Hold status may be edited and cannot be released. */
-    #[Property]
-    public ?bool $hold;
-
-    /** The top part &gt; Discount total &gt; The document discount total. */
-    #[Property]
-    public ?float $discountTotal;
-
-    /** The top part &gt; Discount total &gt; The document discount total in your default currency. This field is applicable if the amount is given in a another currency than your default. */
-    #[Property]
-    public ?float $discountTotalInCurrency;
-
-    /** The top part &gt; Detail total &gt; The document total, which the system calculates for all line items in the Document details tab. */
-    #[Property]
-    public ?float $detailTotal;
-
-    /** Background calculation giving you the Detail total in your default currency. This field is applicable if the amount is given in a another currency than your default. */
-    #[Property]
-    public ?float $detailTotalInCurrency;
-
-    /** The top part &gt; VAT taxable total &gt; The document total that is subjected to VAT. */
-    #[Property]
-    public ?float $vatTaxableTotal;
-
-    /** Background calculation giving you the VAT taxable total in your default currency. This field is applicable if the amount is given in a another currency than your default. */
-    #[Property]
-    public ?float $vatTaxableTotalInCurrency;
-
-    /** The top part &gt; VAT exempt. total &gt; The document total that is exempt from VAT. This total is calculated as the taxable amount for the tax with the Include in VAT Exempt Total check box selected on the Taxes form.This box is available only if the VAT Reporting feature is enabled in your system. */
-    #[Property]
-    public ?float $vatExemptTotal;
-
-    /** Background calculation giving you the VAT exempt. total in your default currency. This field is applicable if the amount is given in a another currency than your default. */
-    #[Property]
-    public ?float $vatExemptTotalInCurrency;
-
-    /** The field is deprecated for customer document endpoints, please use SalesPerson instead */
-    #[Property]
-    public ?int $salesPersonId;
-
-    /** The field is deprecated for customer document endpoints, please use SalesPerson instead */
-    #[Property]
-    public ?string $salesPersonDescr;
-
-    #[Property]
-    public ?salesPersonInCustomerDebitNoteDto $salesPerson;
-
-    /** ///The top part &gt; Payment ref. &gt; The reference number of the document, as automatically generated by the system in accordance with the number series assigned to cash sales in the Customer ledger preferences window.. */
-    #[Property]
-    public ?string $paymentReference;
-
-    #[Property]
-    public ?invoiceAddressInCustomerDebitNoteDto $invoiceAddress;
-
-    #[Property]
-    public ?invoiceContactInCustomerDebitNoteDto $invoiceContact;
-
-    #[Property]
-    public ?array $applications;
-
-    #[Property]
-    public ?bool $dontPrint;
-
-    #[Property]
-    public ?bool $dontEmail;
-
-    #[Property]
-    public ?bool $revoked;
-
-    #[Property]
-    public ?customerInCustomerDebitNoteDto $customer;
-
-    /** The top part &gt; Type &gt; The document type. The following types are available: invoice, debit note, credit note, overdue charge, credit write-off */
-    #[Property]
-    public ?string $documentType;
-
-    /** The Top part &gt; Ref. no. &gt; The reference number of the customer ledger document in the system. */
-    #[Property]
-    public ?string $referenceNumber;
-
-    /** The top part &gt; Post period &gt; The period to which the document should be posted. Format YYYYMM. */
-    #[Property]
-    public ?string $postPeriod;
-
-    /** The financial period to which the transactions recorded in the document should be posted. Format YYYYMM. */
-    #[Property]
-    public ?string $financialPeriod;
-
-    /** Format YYYYMM. */
-    #[Property]
-    public ?string $closedFinancialPeriod;
-
-    /**
-     * The top part &gt; Date* &gt; The date when the customer ledger document was created.
-     * By default, for a new document, it is the current business date, but you can change the date.
-     */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $documentDate;
-
-    /**
-     * The top part &gt; Orig invoice date &gt; The date based on which the Due date and Cash discount date is calculated. Only used if setting "Use Orig Invoice Date" is active in AR Preferences.
-     * By default, for a new document, it is the current business date, but you can change the date.
-     */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $origInvoiceDate;
-
-    /** The top part &gt; Status &gt; The status of the document, which can be one of the following: Hold, Balanced, Voided, Scheduled, Open, Closed, Pending print, Pending email. */
-    #[Property]
-    public ?string $status;
-
-    /** The top part &gt; Currency &gt; The currency of the document. By default, it is the customer’s default currency,but it can be changed if the Allow Currency Override check box is selected in the AR303000 window. */
-    #[Property]
-    public ?string $currencyId;
-
-    /**
-     * The top part &gt; Amount &gt; The amount paid by the document. The value appears for new documents if the Validate document totals on entry check box is selected on the AR101000 window.
-     * If the check box is cleared, then the value appears when the document status is Open.
-     */
-    #[Property]
-    public ?float $amount;
-
-    /** Background calculation giving you the Amount in your default currency. This field is applicable if the amount is given in a another currency than your default. */
-    #[Property]
-    public ?float $amountInCurrency;
-
-    /**
-     * The top part &gt; Balance &gt; For an open customer ledger document, the balance after any cash discount was taken.
-     * For a document used in the application process, this is the balance after the payments were applied.
-     */
-    #[Property]
-    public ?float $balance;
-
-    /** Background calculation giving you the Balance in your default currency. This field is applicable if the amount is given in a another currency than your default. */
-    #[Property]
-    public ?float $balanceInCurrency;
-
-    /** The top part &gt; Cash discount &gt; The cash discount amount that has been or will be taken on the document, which the system calculates based on the specified credit terms. */
-    #[Property]
-    public ?float $cashDiscount;
-
-    /** Background calculation giving you the Cash discount in your default currency. This field is applicable if the amount is given in another currency than your default. */
-    #[Property]
-    public ?float $cashDiscountInCurrency;
-
-    #[Property]
-    public ?paymentMethodInCustomerDebitNoteDto $paymentMethod;
-
-    /** The top part &gt; External reference &gt; The external reference used in AutoInvoice. */
-    #[Property]
-    public ?string $customerRefNumber;
-
-    /** The top part &gt; Invoice text &gt; Any user-provided description of the customer ledger document. */
-    #[Property]
-    public ?string $invoiceText;
-
-    /** System generated field for last modification date/time of document. */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    /** The Attachments tab &gt; Creation time &gt; The date the attachment was created. */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $createdDateTime;
-
-    /** Icon Notes on top of the window &gt; Pop-up window for providing any user-defined text connected to the document. */
-    #[Property]
-    public ?string $note;
-
-    /** The top part &gt; VAT total &gt; The VAT amount of the document, as defined on the VAT details tab. */
-    #[Property]
-    public ?float $vatTotal;
-
-    /** Background calculation giving you the VAT total in your default currency. This field is applicable if the amount is given in a another currency than your default. */
-    #[Property]
-    public ?float $vatTotalInCurrency;
-
-    #[Property]
-    public ?locationInCustomerDebitNoteDto $location;
-
-    #[Property]
-    public ?branchNumberInCustomerDebitNoteDto $branchNumber;
-
-    /** Financial details tab &gt; The payment information section &gt; Cash account &gt; The cash account associated with the payment method. */
-    #[Property]
-    public ?string $cashAccount;
-
-    #[Property]
-    public ?projectInCustomerDebitNoteDto $project;
-
-    #[Property]
-    public ?accountInCustomerDebitNoteDto $account;
-
-    #[Property]
-    public ?subaccountInCustomerDebitNoteDto $subaccount;
-
-    /** The top part &gt; Customer project no. &gt; The customer project no. used in AutoInvoice. */
-    #[Property]
-    public ?string $customerProject;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        public ?CreditTermsInCustomerDebitNoteDto $creditTerms = null,
+        public ?\Carbon\Carbon $documentDueDate = null,
+        public ?\Carbon\Carbon $cashDiscountDate = null,
+        public ?string $externalReference = null,
+        public ?bool $isRotRutDeductible = null,
+        public int|float|null $exchangeRate = null,
+        public ?\Carbon\Carbon $dunningLetterDate = null,
+        public ?int $dunningLetterLevel = null,
+        public ?ContactInCustomerDebitNoteDto $contact = null,
+        public ?array $attachments = null,
+        public ?array $taxDetails = null,
+        public ?array $lines = null,
+        public int|float|null $roundingDiff = null,
+        public ?CustomerVatZoneInCustomerDebitNoteDto $customerVatZone = null,
+        public ?ChildRecordDto $childRecord = null,
+        public ?string $timeStamp = null,
+        public ?bool $hold = null,
+        public int|float|null $discountTotal = null,
+        public int|float|null $discountTotalInCurrency = null,
+        public int|float|null $detailTotal = null,
+        public int|float|null $detailTotalInCurrency = null,
+        public int|float|null $vatTaxableTotal = null,
+        public int|float|null $vatTaxableTotalInCurrency = null,
+        public int|float|null $vatExemptTotal = null,
+        public int|float|null $vatExemptTotalInCurrency = null,
+        #[MapName('salesPersonID')]
+        public ?int $salesPersonId = null,
+        public ?string $salesPersonDescr = null,
+        public ?SalesPersonInCustomerDebitNoteDto $salesPerson = null,
+        public ?string $paymentReference = null,
+        public ?InvoiceAddressInCustomerDebitNoteDto $invoiceAddress = null,
+        public ?InvoiceContactInCustomerDebitNoteDto $invoiceContact = null,
+        public ?array $applications = null,
+        public ?bool $dontPrint = null,
+        public ?bool $dontEmail = null,
+        public ?bool $revoked = null,
+        public ?CustomerInCustomerDebitNoteDto $customer = null,
+        public ?string $documentType = null,
+        public ?string $referenceNumber = null,
+        public ?string $postPeriod = null,
+        public ?string $financialPeriod = null,
+        public ?string $closedFinancialPeriod = null,
+        public ?\Carbon\Carbon $documentDate = null,
+        public ?\Carbon\Carbon $origInvoiceDate = null,
+        public ?string $status = null,
+        public ?string $currencyId = null,
+        public int|float|null $amount = null,
+        public int|float|null $amountInCurrency = null,
+        public int|float|null $balance = null,
+        public int|float|null $balanceInCurrency = null,
+        public int|float|null $cashDiscount = null,
+        public int|float|null $cashDiscountInCurrency = null,
+        public ?PaymentMethodInCustomerDebitNoteDto $paymentMethod = null,
+        public ?string $customerRefNumber = null,
+        public ?string $invoiceText = null,
+        public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        public ?\Carbon\Carbon $createdDateTime = null,
+        public ?string $note = null,
+        public int|float|null $vatTotal = null,
+        public int|float|null $vatTotalInCurrency = null,
+        public ?LocationInCustomerDebitNoteDto $location = null,
+        public ?BranchNumberInCustomerDebitNoteDto $branchNumber = null,
+        public ?string $cashAccount = null,
+        public ?ProjectInCustomerDebitNoteDto $project = null,
+        public ?AccountInCustomerDebitNoteDto $account = null,
+        public ?SubaccountInCustomerDebitNoteDto $subaccount = null,
+        public ?string $customerProject = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustSalesPersonsDtoFactory>
@@ -12,24 +12,15 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustSalesPersonsDto extends Model
 {
-    #[Property]
-    public ?string $salePersonId;
-
-    #[Property]
-    public ?string $name;
-
-    #[Property]
-    public ?string $locationId;
-
-    #[Property]
-    public ?string $locationName;
-
-    #[Property]
-    public ?float $commisionPct;
-
-    #[Property]
-    public ?bool $isDefault;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        #[MapName('salePersonID')]
+        public ?string $salePersonId = null,
+        public ?string $name = null,
+        #[MapName('locationID')]
+        public ?string $locationId = null,
+        public ?string $locationName = null,
+        public int|float|null $commisionPct = null,
+        public ?bool $isDefault = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

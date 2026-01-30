@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,11 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class UserDescriptionDto extends Model
 {
-    /** Click the magnifier &gt; The identifier */
-    #[Property]
-    public ?string $id;
-
-    /** Click the magnifier &gt; The displayed name */
-    #[Property]
-    public ?string $name;
+    public function __construct(
+        public ?string $id = null,
+        public ?string $name = null,
+    ) {}
 }

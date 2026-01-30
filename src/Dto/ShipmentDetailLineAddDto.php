@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,60 +14,30 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class ShipmentDetailLineAddDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $inventoryNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $warehouse;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $location;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $shippedQty;
-
-    #[Property]
-    public ?customStr1InShipmentDetailLineAddDto $customStr1;
-
-    #[Property]
-    public ?customStr2InShipmentDetailLineAddDto $customStr2;
-
-    #[Property]
-    public ?customStr3InShipmentDetailLineAddDto $customStr3;
-
-    #[Property]
-    public ?customStr4InShipmentDetailLineAddDto $customStr4;
-
-    #[Property]
-    public ?customStr5InShipmentDetailLineAddDto $customStr5;
-
-    #[Property]
-    public ?customDec1InShipmentDetailLineAddDto $customDec1;
-
-    #[Property]
-    public ?customDec2InShipmentDetailLineAddDto $customDec2;
-
-    #[Property]
-    public ?customInt1InShipmentDetailLineAddDto $customInt1;
-
-    #[Property]
-    public ?customInt2InShipmentDetailLineAddDto $customInt2;
-
-    #[Property]
-    public ?customDateTimeUTC1InShipmentDetailLineAddDto $customDateTimeUtc1;
+    public function __construct(
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $warehouse = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $shippedQty = null,
+        public ?CustomStr1inShipmentDetailLineAddDto $customStr1 = null,
+        public ?CustomStr2inShipmentDetailLineAddDto $customStr2 = null,
+        public ?CustomStr3inShipmentDetailLineAddDto $customStr3 = null,
+        public ?CustomStr4inShipmentDetailLineAddDto $customStr4 = null,
+        public ?CustomStr5inShipmentDetailLineAddDto $customStr5 = null,
+        public ?CustomDec1inShipmentDetailLineAddDto $customDec1 = null,
+        public ?CustomDec2inShipmentDetailLineAddDto $customDec2 = null,
+        public ?CustomInt1inShipmentDetailLineAddDto $customInt1 = null,
+        public ?CustomInt2inShipmentDetailLineAddDto $customInt2 = null,
+        #[MapName('customDateTimeUTC1')]
+        public ?CustomDateTimeUtc1inShipmentDetailLineAddDto $customDateTimeUtc1 = null,
+    ) {}
 }

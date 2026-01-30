@@ -3,9 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -15,63 +14,35 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class SupplierDetailsDto extends Model
 {
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $active;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $default;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $supplierId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $location;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $purchaseUnit;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $supplierItemId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $override;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $shipmentLeadTime;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $minOrderFreq;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $minOrderQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $maxOrderQty;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $lotSize;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $eoq;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currencyId;
+    public function __construct(
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $active = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $default = null,
+        #[MapName('supplierID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $supplierId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $purchaseUnit = null,
+        #[MapName('supplierItemID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $supplierItemId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $override = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $shipmentLeadTime = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $minOrderFreq = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $minOrderQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $maxOrderQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $lotSize = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $eoq = null,
+        #[MapName('currencyID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currencyId = null,
+    ) {}
 }

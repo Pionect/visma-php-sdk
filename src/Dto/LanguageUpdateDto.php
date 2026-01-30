@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LanguageUpdateDtoFactory>
@@ -12,6 +12,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class LanguageUpdateDto extends Model
 {
-    #[Property]
-    public ?string $languageIso;
+    public function __construct(
+        #[MapName('languageISO')]
+        public ?string $languageIso = null,
+    ) {}
 }

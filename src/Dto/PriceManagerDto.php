@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,9 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PriceManagerDto extends Model
 {
-    #[Property]
-    public ?string $id;
-
-    #[Property]
-    public ?string $name;
+    public function __construct(
+        public ?string $id = null,
+        public ?string $name = null,
+    ) {}
 }

@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,11 +14,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class EinvoiceContractUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $fInvoiceContractId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $fInvoiceIntermediatorId;
+    public function __construct(
+        #[MapName('fInvoiceContractID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $fInvoiceContractId = null,
+        #[MapName('fInvoiceIntermediatorID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $fInvoiceIntermediatorId = null,
+    ) {}
 }

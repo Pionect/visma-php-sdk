@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -15,115 +13,58 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class CustomerInvoiceLinesUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $discountCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $domesticServicesDeductible;
-
-    #[Property]
-    public ?itemTypeInCustomerInvoiceLinesUpdateDto $itemType;
-
-    #[Property]
-    public ?typeOfWorkInCustomerInvoiceLinesUpdateDto $typeOfWork;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $taskId;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $startDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $endDate;
-
-    #[Property]
-    public ?string $operation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $inventoryNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $lineNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $quantity;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $unitPriceInCurrency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $manualAmountInCurrency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $accountNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $vatCodeId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $uom;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discountPercent;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $discountAmountInCurrency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $manualDiscount;
-
-    #[Property]
-    public ?array $subaccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesperson;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $deferralSchedule;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $deferralCode;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $termStartDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $termEndDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $branchNumber;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $discountCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $domesticServicesDeductible = null,
+        public ?ItemTypeInCustomerInvoiceLinesUpdateDto $itemType = null,
+        public ?TypeOfWorkInCustomerInvoiceLinesUpdateDto $typeOfWork = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $taskId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $startDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $endDate = null,
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $quantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $unitPriceInCurrency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $manualAmountInCurrency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatCodeId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountPercent = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountAmountInCurrency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $manualDiscount = null,
+        public ?array $subaccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesperson = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $deferralSchedule = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $deferralCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $termStartDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $termEndDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
+    ) {}
 }

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,62 +11,21 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class LandedCostCodeDto extends Model
 {
-    /** Landed Cost Code */
-    #[Property]
-    public ?string $landedCostCodeId;
-
-    /** Description */
-    #[Property]
-    public ?string $description;
-
-    /** Type */
-    #[Property]
-    public ?string $landedCostType;
-
-    /** Application Method */
-    #[Property]
-    public ?string $applicationMethod;
-
-    /** Allocation Method */
-    #[Property]
-    public ?string $allocationMethod;
-
-    /** Supplier ID */
-    #[Property]
-    public ?string $supplierId;
-
-    /** Supplier Location ID */
-    #[Property]
-    public ?string $supplierLocationId;
-
-    /** Terms */
-    #[Property]
-    public ?string $terms;
-
-    /** Reason Code */
-    #[Property]
-    public ?string $reasonCode;
-
-    /** Landed Cost Accrual Account */
-    #[Property]
-    public ?string $landedCostAccrualAccount;
-
-    /** Landed Cost Accrual Sub. */
-    #[Property]
-    public ?string $landedCostAccrualSubaccount;
-
-    /** Tax Category */
-    #[Property]
-    public ?string $vatCategory;
-
-    /** Landed Cost Variance Account */
-    #[Property]
-    public ?string $landedCostVarianceAccount;
-
-    /** Landed Cost Variance Sub. */
-    #[Property]
-    public ?string $landedCostVarianceSubaccount;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        public ?string $landedCostCodeId = null,
+        public ?string $description = null,
+        public ?string $landedCostType = null,
+        public ?string $applicationMethod = null,
+        public ?string $allocationMethod = null,
+        public ?string $supplierId = null,
+        public ?string $supplierLocationId = null,
+        public ?string $terms = null,
+        public ?string $reasonCode = null,
+        public ?string $landedCostAccrualAccount = null,
+        public ?string $landedCostAccrualSubaccount = null,
+        public ?string $vatCategory = null,
+        public ?string $landedCostVarianceAccount = null,
+        public ?string $landedCostVarianceSubaccount = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

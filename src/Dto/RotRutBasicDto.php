@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,21 +11,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class RotRutBasicDto extends Model
 {
-    #[Property]
-    public ?bool $distributedAutomaticaly;
-
-    #[Property]
-    public ?string $type;
-
-    #[Property]
-    public ?string $appartment;
-
-    #[Property]
-    public ?string $estate;
-
-    #[Property]
-    public ?string $organizationNbr;
-
-    #[Property]
-    public ?array $distribution;
+    public function __construct(
+        public ?bool $distributedAutomaticaly = null,
+        public ?string $type = null,
+        public ?string $appartment = null,
+        public ?string $estate = null,
+        public ?string $organizationNbr = null,
+        public ?array $distribution = null,
+    ) {}
 }

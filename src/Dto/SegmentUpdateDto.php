@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,9 +11,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SegmentUpdateDto extends Model
 {
-    #[Property]
-    public ?int $segmentId;
-
-    #[Property]
-    public ?string $segmentValue;
+    public function __construct(
+        public ?int $segmentId = null,
+        public ?string $segmentValue = null,
+    ) {}
 }

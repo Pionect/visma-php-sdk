@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,16 +13,11 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class DtoSegmentUpdateDto extends Model
 {
-    #[Property]
-    public ?array $segmentValues;
-
-    #[Property]
-    public ?string $dimensionId;
-
-    #[Property]
-    public ?int $segementId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
+    public function __construct(
+        public ?array $segmentValues = null,
+        public ?string $dimensionId = null,
+        public ?int $segementId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+    ) {}
 }

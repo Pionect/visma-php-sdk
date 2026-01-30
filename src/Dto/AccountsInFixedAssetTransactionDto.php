@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * The accounts used in this fixed asset transaction
@@ -14,19 +14,14 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class AccountsInFixedAssetTransactionDto extends Model
 {
-    /** The debit account */
-    #[Property]
-    public ?string $debitAccountId;
-
-    /** The debit sub account */
-    #[Property]
-    public ?string $debitSubAccountId;
-
-    /** The credit account */
-    #[Property]
-    public ?string $creditAccountId;
-
-    /** The credit sub account */
-    #[Property]
-    public ?string $creditSubAccountId;
+    public function __construct(
+        #[MapName('debitAccountID')]
+        public ?string $debitAccountId = null,
+        #[MapName('debitSubAccountID')]
+        public ?string $debitSubAccountId = null,
+        #[MapName('creditAccountID')]
+        public ?string $creditAccountId = null,
+        #[MapName('creditSubAccountID')]
+        public ?string $creditSubAccountId = null,
+    ) {}
 }

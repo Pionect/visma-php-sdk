@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,6 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomInt1inShipmentUpdateDto extends Model
 {
-    #[Property]
-    public ?int $value;
+    public function __construct(
+        public ?int $value = null,
+    ) {}
 }

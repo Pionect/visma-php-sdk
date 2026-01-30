@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * The supplier account information
@@ -14,18 +14,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SupplierAccountInSupplierAccountsDto extends Model
 {
-    /** The supplier number */
-    #[Property]
-    public ?string $number;
-
-    /** The supplier name */
-    #[Property]
-    public ?string $name;
-
-    /** The default Expense Account ID for the supplier */
-    #[Property]
-    public ?string $accountId;
-
-    #[Property]
-    public ?subaccountInSupplierAccountDto $subaccount;
+    public function __construct(
+        public ?string $number = null,
+        public ?string $name = null,
+        #[MapName('accountID')]
+        public ?string $accountId = null,
+        public ?SubaccountInSupplierAccountDto $subaccount = null,
+    ) {}
 }

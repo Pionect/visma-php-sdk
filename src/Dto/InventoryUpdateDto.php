@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,129 +13,58 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class InventoryUpdateDto extends Model
 {
-    #[Property]
-    public ?inventoryNumberInInventoryUpdateDto $inventoryNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $status;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $type;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $body;
-
-    #[Property]
-    public ?itemClassInInventoryUpdateDto $itemClass;
-
-    #[Property]
-    public ?postingClassInInventoryUpdateDto $postingClass;
-
-    #[Property]
-    public ?vatCodeInInventoryUpdateDto $vatCode;
-
-    #[Property]
-    public ?defaultPriceInInventoryUpdateDto $defaultPrice;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $baseUnit;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesUnit;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $purchaseUnit;
-
-    #[Property]
-    public ?expenseAccrualAccountInInventoryUpdateDto $expenseAccrualAccount;
-
-    #[Property]
-    public ?inventoryAccountInInventoryUpdateDto $inventoryAccount;
-
-    #[Property]
-    public ?expenseAccountInInventoryUpdateDto $expenseAccount;
-
-    #[Property]
-    public ?cogsAccountInInventoryUpdateDto $cogsAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $expenseNonTaxableAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $expenseEuAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $expenseImportAccount;
-
-    /** Only used for Non-stock items */
-    #[Property]
-    public ?array $expenseSubaccount;
-
-    /** Only used for Stock items */
-    #[Property]
-    public ?array $cogsSubaccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesNonTaxableAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesEuAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesExportAccount;
-
-    #[Property]
-    public ?array $salesSubaccount;
-
-    #[Property]
-    public ?array $attributeLines;
-
-    #[Property]
-    public ?PackagingUpdateDto $packaging;
-
-    #[Property]
-    public ?array $supplierDetails;
-
-    #[Property]
-    public ?IntrastatUpdateDto $intrastat;
-
-    #[Property]
-    public ?array $crossReferences;
-
-    #[Property]
-    public ?defaultWarehouseInInventoryUpdateDto $defaultWarehouse;
-
-    #[Property]
-    public ?defaultIssueFromInInventoryUpdateDto $defaultIssueFrom;
-
-    #[Property]
-    public ?defaultReceiptToInInventoryUpdateDto $defaultReceiptTo;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $kitItem;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
+    public function __construct(
+        public ?InventoryNumberInInventoryUpdateDto $inventoryNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $status = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $type = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $body = null,
+        public ?ItemClassInInventoryUpdateDto $itemClass = null,
+        public ?PostingClassInInventoryUpdateDto $postingClass = null,
+        public ?VatCodeInInventoryUpdateDto $vatCode = null,
+        public ?DefaultPriceInInventoryUpdateDto $defaultPrice = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $baseUnit = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesUnit = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $purchaseUnit = null,
+        public ?ExpenseAccrualAccountInInventoryUpdateDto $expenseAccrualAccount = null,
+        public ?InventoryAccountInInventoryUpdateDto $inventoryAccount = null,
+        public ?ExpenseAccountInInventoryUpdateDto $expenseAccount = null,
+        public ?CogsAccountInInventoryUpdateDto $cogsAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseNonTaxableAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseEuAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseImportAccount = null,
+        public ?array $expenseSubaccount = null,
+        public ?array $cogsSubaccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesNonTaxableAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesEuAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesExportAccount = null,
+        public ?array $salesSubaccount = null,
+        public ?array $attributeLines = null,
+        public ?PackagingUpdateDto $packaging = null,
+        public ?array $supplierDetails = null,
+        public ?IntrastatUpdateDto $intrastat = null,
+        public ?array $crossReferences = null,
+        public ?DefaultWarehouseInInventoryUpdateDto $defaultWarehouse = null,
+        public ?DefaultIssueFromInInventoryUpdateDto $defaultIssueFrom = null,
+        public ?DefaultReceiptToInInventoryUpdateDto $defaultReceiptTo = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $kitItem = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+    ) {}
 }

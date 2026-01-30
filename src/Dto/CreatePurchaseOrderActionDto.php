@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreatePurchaseOrderActionDtoFactory>
@@ -12,11 +12,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CreatePurchaseOrderActionDto extends Model
 {
-    /** Mandatory field */
-    #[Property]
-    public ?string $orderType;
-
-    /** Supplier */
-    #[Property]
-    public ?bool $preferSupplierFromSoline;
+    public function __construct(
+        public ?string $orderType = null,
+        #[MapName('preferSupplierFromSOLine')]
+        public ?bool $preferSupplierFromSoline = null,
+    ) {}
 }

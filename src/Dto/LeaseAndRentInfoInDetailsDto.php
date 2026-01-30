@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * The lease and rent infor for this fixed asset
@@ -14,24 +14,14 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class LeaseAndRentInfoInDetailsDto extends Model
 {
-    #[Property]
-    public ?string $lessorId;
-
-    #[Property]
-    public ?string $lessorName;
-
-    #[Property]
-    public ?int $leaseRentTerm;
-
-    #[Property]
-    public ?string $leaseNumber;
-
-    #[Property]
-    public ?float $rentAmount;
-
-    #[Property]
-    public ?float $retailCost;
-
-    #[Property]
-    public ?string $manufacturingYear;
+    public function __construct(
+        #[MapName('lessorID')]
+        public ?string $lessorId = null,
+        public ?string $lessorName = null,
+        public ?int $leaseRentTerm = null,
+        public ?string $leaseNumber = null,
+        public int|float|null $rentAmount = null,
+        public int|float|null $retailCost = null,
+        public ?string $manufacturingYear = null,
+    ) {}
 }

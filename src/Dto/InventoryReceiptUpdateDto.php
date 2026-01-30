@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,37 +13,17 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class InventoryReceiptUpdateDto extends Model
 {
-    #[Property]
-    public ?transferNumberInInventoryReceiptUpdateDto $transferNumber;
-
-    #[Property]
-    public ?controlCostInInventoryReceiptUpdateDto $controlCost;
-
-    /** The inventory issue lines */
-    #[Property]
-    public ?array $receiptLines;
-
-    #[Property]
-    public ?referenceNumberInInventoryReceiptUpdateDto $referenceNumber;
-
-    #[Property]
-    public ?holdInInventoryReceiptUpdateDto $hold;
-
-    #[Property]
-    public ?dateInInventoryReceiptUpdateDto $date;
-
-    #[Property]
-    public ?postPeriodInInventoryReceiptUpdateDto $postPeriod;
-
-    #[Property]
-    public ?externalReferenceInInventoryReceiptUpdateDto $externalReference;
-
-    #[Property]
-    public ?descriptionInInventoryReceiptUpdateDto $description;
-
-    #[Property]
-    public ?controlQuantityInInventoryReceiptUpdateDto $controlQuantity;
-
-    #[Property]
-    public ?branchNumberInInventoryReceiptUpdateDto $branchNumber;
+    public function __construct(
+        public ?TransferNumberInInventoryReceiptUpdateDto $transferNumber = null,
+        public ?ControlCostInInventoryReceiptUpdateDto $controlCost = null,
+        public ?array $receiptLines = null,
+        public ?ReferenceNumberInInventoryReceiptUpdateDto $referenceNumber = null,
+        public ?HoldInInventoryReceiptUpdateDto $hold = null,
+        public ?DateInInventoryReceiptUpdateDto $date = null,
+        public ?PostPeriodInInventoryReceiptUpdateDto $postPeriod = null,
+        public ?ExternalReferenceInInventoryReceiptUpdateDto $externalReference = null,
+        public ?DescriptionInInventoryReceiptUpdateDto $description = null,
+        public ?ControlQuantityInInventoryReceiptUpdateDto $controlQuantity = null,
+        public ?BranchNumberInInventoryReceiptUpdateDto $branchNumber = null,
+    ) {}
 }

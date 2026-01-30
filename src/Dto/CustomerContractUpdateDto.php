@@ -3,8 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -15,77 +13,39 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class CustomerContractUpdateDto extends Model
 {
-    #[Property]
-    public ?contractIdInCustomerContractUpdateDto $contractId;
-
-    #[Property]
-    public ?contractTemplateInCustomerContractUpdateDto $contractTemplate;
-
-    #[Property]
-    public ?customerInCustomerContractUpdateDto $customer;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $location;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $description;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $setupDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $activationDate;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $expirationDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $massRenewal;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $renewalPoint;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $gracePeriod;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currency;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $invoiceTo;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $invoiceAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $invoiceLocation;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $owner;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $salesPerson;
-
-    #[Property]
-    public ?array $details;
-
-    #[Property]
-    public ?array $attributeLines;
+    public function __construct(
+        public ?ContractIdInCustomerContractUpdateDto $contractId = null,
+        public ?ContractTemplateInCustomerContractUpdateDto $contractTemplate = null,
+        public ?CustomerInCustomerContractUpdateDto $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $setupDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $activationDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $expirationDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $massRenewal = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $renewalPoint = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $gracePeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $invoiceTo = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $invoiceAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $invoiceLocation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $owner = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesPerson = null,
+        public ?array $details = null,
+        public ?array $attributeLines = null,
+    ) {}
 }

@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,44 +11,15 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CurrencyRateDto extends Model
 {
-    /** Currency rate Id. */
-    #[Property]
-    public ?int $id;
-
-    /** From Currency Id. */
-    #[Property]
-    public ?string $fromCurrencyId;
-
-    /** To Currency Id. */
-    #[Property]
-    public ?string $toCurrencyId;
-
-    /** Currency rate type. */
-    #[Property]
-    public ?string $rateType;
-
-    /** Currency rate. */
-    #[Property]
-    public ?float $rate;
-
-    /** EffectiveDate */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $effectiveDate;
-
-    /** Mult/Div */
-    #[Property]
-    public ?string $multDiv;
-
-    /** Rate reciprocal */
-    #[Property]
-    public ?float $rateReciprocal;
-
-    /**
-     * Identifier that represents a specific version of the resource.
-     * It helps to prevent simultaneous updates of the resource from overwriting each other (by using ETags and If-Match headers)
-     */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $timeStamp;
+    public function __construct(
+        public ?int $id = null,
+        public ?string $fromCurrencyId = null,
+        public ?string $toCurrencyId = null,
+        public ?string $rateType = null,
+        public int|float|null $rate = null,
+        public ?\Carbon\Carbon $effectiveDate = null,
+        public ?string $multDiv = null,
+        public int|float|null $rateReciprocal = null,
+        public ?string $timeStamp = null,
+    ) {}
 }

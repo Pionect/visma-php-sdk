@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -17,6 +16,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ControlQuantityInInventoryTransferUpdateDto extends Model
 {
-    #[Property]
-    public ?float $value;
+    public function __construct(
+        public int|float|null $value = null,
+    ) {}
 }

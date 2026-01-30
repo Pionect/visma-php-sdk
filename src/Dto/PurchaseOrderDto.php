@@ -2,9 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * This class represents a Purchase Order in PurchaseOrderController. Used for getting data.
@@ -15,256 +14,74 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PurchaseOrderDto extends Model
 {
-    /** Shipping instructions tab &gt; The Delivery address section &gt; Shipping destination type &gt; The type of the shipping destination, which is one of the following options: Branch location (meaning a branch of your company), Customer, Supplier, and Warehouse. */
-    #[Property]
-    public ?string $shippingDestinationType;
-
-    #[Property]
-    public ?shipToInPurchaseOrderDto $shipTo;
-
-    #[Property]
-    public ?shippingLocationInPurchaseOrderDto $shippingLocation;
-
-    #[Property]
-    public ?warehouseInPurchaseOrderDto $warehouse;
-
-    #[Property]
-    public ?shippingContactInPurchaseOrderDto $shippingContact;
-
-    #[Property]
-    public ?shippingAddressInPurchaseOrderDto $shippingAddress;
-
-    /** Delivery instructions tab &gt; The Delivery instructions section &gt; FOB point &gt; The FOB point where the title of goods (listed on this purchase order) is transferred from the supplier to the company. */
-    #[Property]
-    public ?string $fobPoint;
-
-    /** Delivery instructions tab &gt; The Delivery instructions section &gt; Ship via &gt; The carrier selected to ship the goods for the purchase order. */
-    #[Property]
-    public ?string $shipVia;
-
-    /** Delivery instructions tab &gt; The Delivery instructions section &gt; Shipping terms &gt; The shipping terms for the purchase order. */
-    #[Property]
-    public ?string $shipTerms;
-
-    #[Property]
-    public ?remitContactInPurchaseOrderDto $remitContact;
-
-    #[Property]
-    public ?remitAddressInPurchaseOrderDto $remitAddress;
-
-    #[Property]
-    public ?termsInPurchaseOrderDto $terms;
-
-    #[Property]
-    public ?supplierVatZoneInPurchaseOrderDto $supplierVatZone;
-
-    /** Discount details tab &gt; */
-    #[Property]
-    public ?array $discountDetails;
-
-    /** Other information tab &gt; Sales order type &gt; The type of the sales order associated with the purchase order. */
-    #[Property]
-    public ?string $salesOrderType;
-
-    /** Other information tab &gt; Sales order no. &gt; The ID of the sales order associated with the purchase order. */
-    #[Property]
-    public ?string $salesOrderNbr;
-
-    /** Other information tab &gt; Requisition ref. no. &gt; The reference number of the requisition document associated with the purchase order, if any. */
-    #[Property]
-    public ?string $requisitionRefNbr;
-
-    /** Other information tab &gt; Prepayment ref. no. &gt; The reference number of the prepayment request linked to this purchase order, if any. */
-    #[Property]
-    public ?string $paymentRefNbr;
-
-    /** Other information tab &gt; Work group ID &gt; The work group to which the purchase order was assigned for processing. */
-    #[Property]
-    public ?int $workgroupId;
-
-    /** Other information &gt; Do not print &gt; A check box that indicates (if selected) that the current purchase order should not be printed. */
-    #[Property]
-    public ?bool $dontPrint;
-
-    /** Other information &gt; Printed &gt; A check box that indicates (if selected) that the current purchase order was printed. */
-    #[Property]
-    public ?bool $printed;
-
-    /** Other information &gt; Do not email &gt; A check box that indicates (if selected) indicates that the purchase order should not be emailed. */
-    #[Property]
-    public ?bool $dontEmail;
-
-    /** Other information &gt; Emailed &gt; A check box that indicates (if selected) indicates that the current purchase order was emailed. */
-    #[Property]
-    public ?bool $emailed;
-
-    /** Other information &gt; Open Quantity &gt; The difference between the quantities of ordered and received items. */
-    #[Property]
-    public ?float $openQuantity;
-
-    /** Other information &gt; Open amount &gt; The amount of these items that are ordered but not received. */
-    #[Property]
-    public ?float $openBalance;
-
-    /** The top part &gt; Type &gt; The type of the purchase order, which can be one of these options: Normal, Drop-ship, Blanket, Default */
-    #[Property]
-    public ?string $orderType;
-
-    /** The top part &gt; Order no. &gt; The unique reference number of the purchase order, which the system assigns based on the number series assigned to purchase orders of this type, as specified in the PO101000 window. */
-    #[Property]
-    public ?string $orderNbr;
-
-    /** The top part &gt; Hold &gt; A check box that you select to give the purchase order the On hold status. */
-    #[Property]
-    public ?bool $hold;
-
-    /** The top part &gt; Status &gt; The system-generated status of the purchase order, which can be one of the following options: On hold, Open, Pending approval, Rejected, Pending printing, Pending e-mail, Closed, Cancelled. */
-    #[Property]
-    public ?string $status;
-
-    /** Mandatory field: The top part &gt; Date* &gt; The date when the purchase order was created. */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $date;
-
-    /** The top part &gt; Delivery date &gt; The date when the supplier promised that the items listed in the order will be received at their destination location. */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $promisedOn;
-
-    /** The top part &gt; Description &gt; A brief description of the purchase order. */
-    #[Property]
-    public ?string $description;
-
-    #[Property]
-    public ?supplierInPurchaseOrderDto $supplier;
-
-    #[Property]
-    public ?locationInPurchaseOrderDto $location;
-
-    #[Property]
-    public ?ownerInPurchaseOrderDto $owner;
-
-    /** The top part &gt; Currency &gt; The currency the purchase order will be paid in. */
-    #[Property]
-    public ?string $currency;
-
-    /** The top part &gt; Supplier ref. &gt; The reference number of the supplier document related to this purchase order. */
-    #[Property]
-    public ?string $supplierRef;
-
-    #[Property]
-    public ?float $exchangeRate;
-
-    /** The top part &gt; Line total &gt; The total sum of the Extended amount entries for all lines in the current purchase order. This value is calculated by the system and users cannot manually change it. */
-    #[Property]
-    public ?float $lineTotal;
-
-    /** The top part &gt; View base &gt; A button that recalculates the Line total to your base currency if the amount on the purchase order is in another currency then base currency. When you click the button, the button toggles to View currency. */
-    #[Property]
-    public ?float $lineTotalInBaseCurrency;
-
-    /** The Top part &gt; VAT exempt total &gt; The document total that is exempt from VAT. This total is calculated as the taxable amount for the VAT with the Include in VAT exempt total check box selected in the TX205000 window. */
-    #[Property]
-    public ?float $vatExemptTotal;
-
-    /** The top part &gt; View base &gt; A button that recalculates the VAT exempt total to your base currency if the amount on the purchase order is in another currency then base currency. When you click the button, the button toggles to View currency. */
-    #[Property]
-    public ?float $vatExemptTotalInBaseCurrency;
-
-    /** The Top part &gt; VAT total &gt; The total VAT amount for all lines added to the current purchase order. This value, also calculated by the system, is the sum of the VAT amounts for each line. */
-    #[Property]
-    public ?float $taxTotal;
-
-    /** The top part &gt; View base &gt; A button that recalculates the VAT total to your base currency if the amount on the purchase order is in another currency then base currency. When you click the button, the button toggles to View currency. */
-    #[Property]
-    public ?float $taxTotalInBaseCurrency;
-
-    /** The Top part &gt; Order total &gt; The total sum for the purchase order, including VAT. This read-only value is the sum of the Line total and VAT total values. */
-    #[Property]
-    public ?float $orderTotal;
-
-    /** The top part &gt; View base &gt; A button that recalculates the Order total to your base currency if the amount on the purchase order is in another currency then base currency. When you click the button, the button toggles to View currency. */
-    #[Property]
-    public ?float $orderTotalInBaseCurrency;
-
-    /** The top part &gt; Control total &gt; The order's total amount (including VAT), which you must enter manually when you attempt to save the order with the Balanced status. */
-    #[Property]
-    public ?float $controlTotal;
-
-    /** The top part &gt; View base &gt; A button that recalculates the Control total to your base currency if the amount on the purchase order is in another currency then base currency. When you click the button, the button toggles to View currency. */
-    #[Property]
-    public ?float $controlTotalInBaseCurrency;
-
-    #[Property]
-    public ?branchInPurchaseOrderDto $branch;
-
-    /** Document details tab &gt; The table &gt; */
-    #[Property]
-    public ?array $lines;
-
-    /** VAT details tab &gt; */
-    #[Property]
-    public ?array $taxDetails;
-
-    /** Purchase receipts tab &gt; */
-    #[Property]
-    public ?array $purchaseReceipts;
-
-    /** System generated information. */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    /** Icon Notes on top of the window &gt; Pop-up window for providing any user-defined text connected to the document. */
-    #[Property]
-    public ?string $note;
-
-    /** A free custom colum of type string with max length 100. */
-    #[Property]
-    public ?string $customStr1;
-
-    /** A free custom colum of type string with max length 100. */
-    #[Property]
-    public ?string $customStr2;
-
-    /** A free custom colum of type string with max length 100. */
-    #[Property]
-    public ?string $customStr3;
-
-    /** A free custom colum of type string with max length 100. */
-    #[Property]
-    public ?string $customStr4;
-
-    /** A free custom colum of type string with max length 100. */
-    #[Property]
-    public ?string $customStr5;
-
-    /** A free custom colum of type decimal with max 4 decimals. */
-    #[Property]
-    public ?float $customDec1;
-
-    /** A free custom colum of type decimal with max 4 decimals. */
-    #[Property]
-    public ?float $customDec2;
-
-    /** A free custom colum of type int */
-    #[Property]
-    public ?int $customInt1;
-
-    /** A free custom colum of type int */
-    #[Property]
-    public ?int $customInt2;
-
-    /** A free custom colum of type DateTime - in UTC timezone */
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $customDateTimeUtc1;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $timeStamp;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        public ?string $shippingDestinationType = null,
+        public ?ShipToInPurchaseOrderDto $shipTo = null,
+        public ?ShippingLocationInPurchaseOrderDto $shippingLocation = null,
+        public ?WarehouseInPurchaseOrderDto $warehouse = null,
+        public ?ShippingContactInPurchaseOrderDto $shippingContact = null,
+        public ?ShippingAddressInPurchaseOrderDto $shippingAddress = null,
+        public ?string $fobPoint = null,
+        public ?string $shipVia = null,
+        public ?string $shipTerms = null,
+        public ?RemitContactInPurchaseOrderDto $remitContact = null,
+        public ?RemitAddressInPurchaseOrderDto $remitAddress = null,
+        public ?TermsInPurchaseOrderDto $terms = null,
+        public ?SupplierVatZoneInPurchaseOrderDto $supplierVatZone = null,
+        public ?array $discountDetails = null,
+        public ?string $salesOrderType = null,
+        public ?string $salesOrderNbr = null,
+        public ?string $requisitionRefNbr = null,
+        public ?string $paymentRefNbr = null,
+        #[MapName('workgroupID')]
+        public ?int $workgroupId = null,
+        public ?bool $dontPrint = null,
+        public ?bool $printed = null,
+        public ?bool $dontEmail = null,
+        public ?bool $emailed = null,
+        public int|float|null $openQuantity = null,
+        public int|float|null $openBalance = null,
+        public ?string $orderType = null,
+        public ?string $orderNbr = null,
+        public ?bool $hold = null,
+        public ?string $status = null,
+        public ?\Carbon\Carbon $date = null,
+        public ?\Carbon\Carbon $promisedOn = null,
+        public ?string $description = null,
+        public ?SupplierInPurchaseOrderDto $supplier = null,
+        public ?LocationInPurchaseOrderDto $location = null,
+        public ?OwnerInPurchaseOrderDto $owner = null,
+        public ?string $currency = null,
+        public ?string $supplierRef = null,
+        public int|float|null $exchangeRate = null,
+        public int|float|null $lineTotal = null,
+        public int|float|null $lineTotalInBaseCurrency = null,
+        public int|float|null $vatExemptTotal = null,
+        public int|float|null $vatExemptTotalInBaseCurrency = null,
+        public int|float|null $taxTotal = null,
+        public int|float|null $taxTotalInBaseCurrency = null,
+        public int|float|null $orderTotal = null,
+        public int|float|null $orderTotalInBaseCurrency = null,
+        public int|float|null $controlTotal = null,
+        public int|float|null $controlTotalInBaseCurrency = null,
+        public ?BranchInPurchaseOrderDto $branch = null,
+        public ?array $lines = null,
+        public ?array $taxDetails = null,
+        public ?array $purchaseReceipts = null,
+        public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        public ?string $note = null,
+        public ?string $customStr1 = null,
+        public ?string $customStr2 = null,
+        public ?string $customStr3 = null,
+        public ?string $customStr4 = null,
+        public ?string $customStr5 = null,
+        public int|float|null $customDec1 = null,
+        public int|float|null $customDec2 = null,
+        public ?int $customInt1 = null,
+        public ?int $customInt2 = null,
+        #[MapName('customDateTimeUTC1')]
+        public ?\Carbon\Carbon $customDateTimeUtc1 = null,
+        public ?string $timeStamp = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

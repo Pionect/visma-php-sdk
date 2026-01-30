@@ -3,7 +3,6 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
@@ -14,19 +13,12 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class TimeCardUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $refNbr;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $employee;
-
-    /** Time Card summary information */
-    #[Property]
-    public ?array $summary;
-
-    /** Time Card Materials information */
-    #[Property]
-    public ?array $materials;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $refNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $employee = null,
+        public ?array $summary = null,
+        public ?array $materials = null,
+    ) {}
 }

@@ -2,9 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\KitAssemblyDtoFactory>
@@ -13,75 +12,29 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class KitAssemblyDto extends Model
 {
-    /** Type, possible values: P - Production, D - Disassembly */
-    #[Property]
-    public ?string $type;
-
-    #[Property]
-    public ?string $refNo;
-
-    /** Status, possible values: H - On Hold, B - Balanced, R - Released */
-    #[Property]
-    public ?string $status;
-
-    #[Property]
-    public ?bool $hold;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $date;
-
-    #[Property]
-    public ?string $postPeriod;
-
-    #[Property]
-    public ?string $itemId;
-
-    #[Property]
-    public ?string $revision;
-
-    #[Property]
-    public ?string $reasonCode;
-
-    #[Property]
-    public ?string $description;
-
-    #[Property]
-    public ?string $warehouse;
-
-    #[Property]
-    public ?string $location;
-
-    #[Property]
-    public ?string $uoM;
-
-    #[Property]
-    public ?float $quantity;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $createdDateTime;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    #[Property]
-    public ?string $salesOrderLink;
-
-    #[Property]
-    public ?array $stockComponentLines;
-
-    #[Property]
-    public ?array $nonStockComponentLines;
-
-    #[Property]
-    public ?array $kitAllocations;
-
-    /** Timestamp of the kit assembly record */
-    #[Property]
-    public ?string $timestamp;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        public ?string $type = null,
+        public ?string $refNo = null,
+        public ?string $status = null,
+        public ?bool $hold = null,
+        public ?\Carbon\Carbon $date = null,
+        public ?string $postPeriod = null,
+        #[MapName('itemID')]
+        public ?string $itemId = null,
+        public ?string $revision = null,
+        public ?string $reasonCode = null,
+        public ?string $description = null,
+        public ?string $warehouse = null,
+        public ?string $location = null,
+        public ?string $uoM = null,
+        public int|float|null $quantity = null,
+        public ?\Carbon\Carbon $createdDateTime = null,
+        public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        public ?string $salesOrderLink = null,
+        public ?array $stockComponentLines = null,
+        public ?array $nonStockComponentLines = null,
+        public ?array $kitAllocations = null,
+        public ?string $timestamp = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

@@ -3,9 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -15,188 +14,93 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class ShipmentUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $shipmentType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $operation;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $shipmentDate;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $location;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $customer;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $owner;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $hold;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $fromWarehouse;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $toWarehouse;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $controlQuantity;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $overrideContact;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $businessName;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $attention;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $phone1;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $email;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $overrideAddress;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $addressLine1;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $addressLine2;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $addressLine3;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $city;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $country;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $county;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $postalCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $shipVia;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $fobPoint;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $shippingTerms;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $shippingZone;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $residentialDelivery;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $saturdayDelivery;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $useCustomerAccount;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $insurance;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $freightAmt;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $freightCost;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $transactionType;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $modeOfTrasport;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $container;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
-
-    #[Property]
-    public ?array $shipmentDetailLines;
-
-    #[Property]
-    public ?array $shipmentPackageLines;
-
-    #[Property]
-    public ?customStr1InShipmentUpdateDto $customStr1;
-
-    #[Property]
-    public ?customStr2InShipmentUpdateDto $customStr2;
-
-    #[Property]
-    public ?customStr3InShipmentUpdateDto $customStr3;
-
-    #[Property]
-    public ?customStr4InShipmentUpdateDto $customStr4;
-
-    #[Property]
-    public ?customStr5InShipmentUpdateDto $customStr5;
-
-    #[Property]
-    public ?customDec1InShipmentUpdateDto $customDec1;
-
-    #[Property]
-    public ?customDec2InShipmentUpdateDto $customDec2;
-
-    #[Property]
-    public ?customInt1InShipmentUpdateDto $customInt1;
-
-    #[Property]
-    public ?customInt2InShipmentUpdateDto $customInt2;
-
-    #[Property]
-    public ?customDateTimeUTC1InShipmentUpdateDto $customDateTimeUtc1;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $shipmentType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $operation = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $shipmentDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $owner = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $fromWarehouse = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $toWarehouse = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlQuantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideContact = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $businessName = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $attention = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $phone1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $email = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideAddress = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $addressLine1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $addressLine2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $addressLine3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $city = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $country = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $county = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postalCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $shipVia = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $fobPoint = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $shippingTerms = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $shippingZone = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $residentialDelivery = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $saturdayDelivery = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $useCustomerAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $insurance = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $freightAmt = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $freightCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $transactionType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $modeOfTrasport = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $container = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+        public ?array $shipmentDetailLines = null,
+        public ?array $shipmentPackageLines = null,
+        public ?CustomStr1inShipmentUpdateDto $customStr1 = null,
+        public ?CustomStr2inShipmentUpdateDto $customStr2 = null,
+        public ?CustomStr3inShipmentUpdateDto $customStr3 = null,
+        public ?CustomStr4inShipmentUpdateDto $customStr4 = null,
+        public ?CustomStr5inShipmentUpdateDto $customStr5 = null,
+        public ?CustomDec1inShipmentUpdateDto $customDec1 = null,
+        public ?CustomDec2inShipmentUpdateDto $customDec2 = null,
+        public ?CustomInt1inShipmentUpdateDto $customInt1 = null,
+        public ?CustomInt2inShipmentUpdateDto $customInt2 = null,
+        #[MapName('customDateTimeUTC1')]
+        public ?CustomDateTimeUtc1inShipmentUpdateDto $customDateTimeUtc1 = null,
+    ) {}
 }

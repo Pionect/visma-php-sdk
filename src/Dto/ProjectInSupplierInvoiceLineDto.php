@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,15 +13,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ProjectInSupplierInvoiceLineDto extends Model
 {
-    /** The internal identifier. */
-    #[Property]
-    public ?int $internalId;
-
-    /** Click on the magnifier. &gt; The identifier. */
-    #[Property]
-    public ?string $id;
-
-    /** Click on the magnifier. &gt; The description. */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        public ?int $internalId = null,
+        public ?string $id = null,
+        public ?string $description = null,
+    ) {}
 }

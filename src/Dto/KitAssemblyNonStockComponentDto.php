@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,39 +11,18 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class KitAssemblyNonStockComponentDto extends Model
 {
-    #[Property]
-    public ?int $lineNbr;
-
-    #[Property]
-    public ?string $itemId;
-
-    #[Property]
-    public ?string $description;
-
-    #[Property]
-    public ?string $uoM;
-
-    #[Property]
-    public ?float $quantity;
-
-    #[Property]
-    public ?float $unitCost;
-
-    #[Property]
-    public ?string $reasonCode;
-
-    #[Property]
-    public ?float $componentQty;
-
-    #[Property]
-    public ?bool $allowComponentQtyVariance;
-
-    #[Property]
-    public ?float $minComponentQty;
-
-    #[Property]
-    public ?float $maxComponentQty;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        public ?int $lineNbr = null,
+        public ?string $itemId = null,
+        public ?string $description = null,
+        public ?string $uoM = null,
+        public int|float|null $quantity = null,
+        public int|float|null $unitCost = null,
+        public ?string $reasonCode = null,
+        public int|float|null $componentQty = null,
+        public ?bool $allowComponentQtyVariance = null,
+        public int|float|null $minComponentQty = null,
+        public int|float|null $maxComponentQty = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,19 +11,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ContractUsageQueryParameters extends Model
 {
-    #[Property]
-    public ?string $greaterThanValue;
-
-    #[Property]
-    public ?int $numberToRead;
-
-    #[Property]
-    public ?int $skipRecords;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    #[Property]
-    public ?string $lastModifiedDateTimeCondition;
+    public function __construct(
+        public ?string $greaterThanValue = null,
+        public ?int $numberToRead = null,
+        public ?int $skipRecords = null,
+        public ?string $lastModifiedDateTime = null,
+        public ?string $lastModifiedDateTimeCondition = null,
+    ) {}
 }

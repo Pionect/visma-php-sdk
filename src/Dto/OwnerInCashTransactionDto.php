@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,14 +13,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class OwnerInCashTransactionDto extends Model
 {
-    #[Property]
-    public ?string $internalId;
-
-    /** The identifier of the particular destination of the selected type. */
-    #[Property]
-    public ?string $number;
-
-    /** The name of the particular destination of the selected type. */
-    #[Property]
-    public ?string $name;
+    public function __construct(
+        public ?string $internalId = null,
+        public ?string $number = null,
+        public ?string $name = null,
+    ) {}
 }

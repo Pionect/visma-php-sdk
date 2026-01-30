@@ -3,9 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -17,161 +16,83 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class SupplierUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $number;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $name;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $status;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $accountReference;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?int $numberOfEmployees;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $parentRecordNumber;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $supplierClassId;
-
-    #[Property]
-    public ?bool $overrideWithClassValues;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $creditTermsId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $documentLanguage;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $currencyId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $currencyOverride;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $currencyRateOverride;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $paymentMethodId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $cashAccount;
-
-    #[Property]
-    #[DateTime]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?\Carbon\Carbon $paymentLeadTime;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $paymentRefDisplayMask;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $paySeparately;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $vatRegistrationId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $corporateId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $vatZoneId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $chargeBearer;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $accountUsedForPayment;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $paymentBy;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?AddressUpdateDto $mainAddress;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?ContactInfoUpdateDto $mainContact;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?AddressUpdateDto $remitAddress;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?ContactInfoUpdateDto $remitContact;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?AddressUpdateDto $supplierAddress;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?ContactInfoUpdateDto $supplierContact;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?SupplierGlAccountsUpdateDto $glAccounts;
-
-    #[Property]
-    public ?array $supplierPaymentMethodDetails;
-
-    #[Property]
-    public ?array $attributeLines;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $retainageCashAccountId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $retainageApply;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?float $retainagePct;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $note;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $overrideNumberSeries;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $naceCode;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?bool $landedCostSupplier;
+    public function __construct(
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $number = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $name = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $status = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountReference = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $numberOfEmployees = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $parentRecordNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $supplierClassId = null,
+        public ?bool $overrideWithClassValues = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $creditTermsId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $documentLanguage = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currencyId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $currencyOverride = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $currencyRateOverride = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $paymentMethodId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $cashAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $paymentLeadTime = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $paymentRefDisplayMask = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $paySeparately = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatRegistrationId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $corporateId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatZoneId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $chargeBearer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountUsedForPayment = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $paymentBy = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\AddressUpdateDto $mainAddress = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\ContactInfoUpdateDto $mainContact = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\AddressUpdateDto $remitAddress = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\ContactInfoUpdateDto $remitContact = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\AddressUpdateDto $supplierAddress = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\ContactInfoUpdateDto $supplierContact = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\SupplierGlAccountsUpdateDto $glAccounts = null,
+        public ?array $supplierPaymentMethodDetails = null,
+        public ?array $attributeLines = null,
+        #[MapName('retainageCashAccountID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $retainageCashAccountId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $retainageApply = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $retainagePct = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideNumberSeries = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $naceCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $landedCostSupplier = null,
+    ) {}
 }

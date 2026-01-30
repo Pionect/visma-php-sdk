@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,34 +13,16 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class InventoryAdjustmentUpdateDto extends Model
 {
-    #[Property]
-    public ?controlCostInInventoryAdjustmentUpdateDto $controlCost;
-
-    /** The inventory adjustment lines */
-    #[Property]
-    public ?array $adjustmentLines;
-
-    #[Property]
-    public ?referenceNumberInInventoryAdjustmentUpdateDto $referenceNumber;
-
-    #[Property]
-    public ?holdInInventoryAdjustmentUpdateDto $hold;
-
-    #[Property]
-    public ?dateInInventoryAdjustmentUpdateDto $date;
-
-    #[Property]
-    public ?postPeriodInInventoryAdjustmentUpdateDto $postPeriod;
-
-    #[Property]
-    public ?externalReferenceInInventoryAdjustmentUpdateDto $externalReference;
-
-    #[Property]
-    public ?descriptionInInventoryAdjustmentUpdateDto $description;
-
-    #[Property]
-    public ?controlQuantityInInventoryAdjustmentUpdateDto $controlQuantity;
-
-    #[Property]
-    public ?branchNumberInInventoryAdjustmentUpdateDto $branchNumber;
+    public function __construct(
+        public ?ControlCostInInventoryAdjustmentUpdateDto $controlCost = null,
+        public ?array $adjustmentLines = null,
+        public ?ReferenceNumberInInventoryAdjustmentUpdateDto $referenceNumber = null,
+        public ?HoldInInventoryAdjustmentUpdateDto $hold = null,
+        public ?DateInInventoryAdjustmentUpdateDto $date = null,
+        public ?PostPeriodInInventoryAdjustmentUpdateDto $postPeriod = null,
+        public ?ExternalReferenceInInventoryAdjustmentUpdateDto $externalReference = null,
+        public ?DescriptionInInventoryAdjustmentUpdateDto $description = null,
+        public ?ControlQuantityInInventoryAdjustmentUpdateDto $controlQuantity = null,
+        public ?BranchNumberInInventoryAdjustmentUpdateDto $branchNumber = null,
+    ) {}
 }

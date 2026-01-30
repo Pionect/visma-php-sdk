@@ -3,8 +3,8 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
@@ -14,11 +14,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  */
 class ApprovalDetailsUpdateDto extends Model
 {
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $attachmentId;
-
-    #[Property]
-    #[WithTransformer(ValueWrapperTransformer::class)]
-    public ?string $comment;
+    public function __construct(
+        #[MapName('attachmentID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $attachmentId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $comment = null,
+    ) {}
 }

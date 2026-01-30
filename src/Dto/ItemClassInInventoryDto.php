@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,20 +14,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ItemClassInInventoryDto extends Model
 {
-    #[Property]
-    public ?string $type;
-
-    #[Property]
-    public ?array $attributes;
-
-    /** The identifier. */
-    #[Property]
-    public ?string $id;
-
-    /** The description. */
-    #[Property]
-    public ?string $description;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        public ?string $type = null,
+        public ?array $attributes = null,
+        public ?string $id = null,
+        public ?string $description = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

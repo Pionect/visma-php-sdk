@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectBudgetDtoFactory>
@@ -12,69 +12,31 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class ProjectBudgetDto extends Model
 {
-    #[Property]
-    public ?string $projectId;
-
-    #[Property]
-    public ?string $projectTaskId;
-
-    #[Property]
-    public ?string $accountGroupId;
-
-    #[Property]
-    public ?string $inventoryNumber;
-
-    #[Property]
-    public ?string $description;
-
-    #[Property]
-    public ?string $uom;
-
-    #[Property]
-    public ?float $rate;
-
-    #[Property]
-    public ?float $originalBudgetQty;
-
-    #[Property]
-    public ?float $originalBudgetAmount;
-
-    #[Property]
-    public ?float $revisedBudgetQty;
-
-    #[Property]
-    public ?float $revisedBudgetAmount;
-
-    #[Property]
-    public ?float $actualQty;
-
-    #[Property]
-    public ?float $actualAmount;
-
-    #[Property]
-    public ?string $type;
-
-    #[Property]
-    public ?float $committedQty;
-
-    #[Property]
-    public ?float $committedAmount;
-
-    #[Property]
-    public ?float $committedOpenQty;
-
-    #[Property]
-    public ?float $committedOpenAmount;
-
-    #[Property]
-    public ?float $committedReceivedQty;
-
-    #[Property]
-    public ?float $committedInvoicedQty;
-
-    #[Property]
-    public ?float $committedInvoicedAmount;
-
-    #[Property]
-    public ?string $errorInfo;
+    public function __construct(
+        #[MapName('projectID')]
+        public ?string $projectId = null,
+        #[MapName('projectTaskID')]
+        public ?string $projectTaskId = null,
+        #[MapName('accountGroupID')]
+        public ?string $accountGroupId = null,
+        public ?string $inventoryNumber = null,
+        public ?string $description = null,
+        public ?string $uom = null,
+        public int|float|null $rate = null,
+        public int|float|null $originalBudgetQty = null,
+        public int|float|null $originalBudgetAmount = null,
+        public int|float|null $revisedBudgetQty = null,
+        public int|float|null $revisedBudgetAmount = null,
+        public int|float|null $actualQty = null,
+        public int|float|null $actualAmount = null,
+        public ?string $type = null,
+        public int|float|null $committedQty = null,
+        public int|float|null $committedAmount = null,
+        public int|float|null $committedOpenQty = null,
+        public int|float|null $committedOpenAmount = null,
+        public int|float|null $committedReceivedQty = null,
+        public int|float|null $committedInvoicedQty = null,
+        public int|float|null $committedInvoicedAmount = null,
+        public ?string $errorInfo = null,
+    ) {}
 }

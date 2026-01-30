@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,15 +13,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class GlAccountsInVatInformationDto extends Model
 {
-    #[Property]
-    public ?vatPayableAccountInVatGlAccountsDto $vatPayableAccount;
-
-    #[Property]
-    public ?vatPayableSubaccountInVatGlAccountsDto $vatPayableSubaccount;
-
-    #[Property]
-    public ?vatClaimableAccountInVatGlAccountsDto $vatClaimableAccount;
-
-    #[Property]
-    public ?vatClaimableSubccountInVatGlAccountsDto $vatClaimableSubccount;
+    public function __construct(
+        public ?VatPayableAccountInVatGlAccountsDto $vatPayableAccount = null,
+        public ?VatPayableSubaccountInVatGlAccountsDto $vatPayableSubaccount = null,
+        public ?VatClaimableAccountInVatGlAccountsDto $vatClaimableAccount = null,
+        public ?VatClaimableSubccountInVatGlAccountsDto $vatClaimableSubccount = null,
+    ) {}
 }

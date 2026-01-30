@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TypeDtoFactory>
@@ -12,11 +12,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class TypeDto extends Model
 {
-    /** The type id of this fixed asset */
-    #[Property]
-    public ?string $assetTypeId;
-
-    /** The type description */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        #[MapName('assetTypeID')]
+        public ?string $assetTypeId = null,
+        public ?string $description = null,
+    ) {}
 }

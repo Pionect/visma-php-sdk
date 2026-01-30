@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,14 +11,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class AllocationRuleIdDescriptionDto extends Model
 {
-    #[Property]
-    public ?bool $active;
-
-    /** Click on the magnifier. &gt; The identifier. */
-    #[Property]
-    public ?string $id;
-
-    /** Click on the magnifier. &gt; The description. */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        public ?bool $active = null,
+        public ?string $id = null,
+        public ?string $description = null,
+    ) {}
 }

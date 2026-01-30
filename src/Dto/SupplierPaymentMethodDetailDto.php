@@ -2,8 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\MapName;
 
 /**
  * This class represents a Payment Method Detail in SupplierController. Used to get data for
@@ -15,19 +15,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class SupplierPaymentMethodDetailDto extends Model
 {
-    /** The description of the payment method detail. */
-    #[Property]
-    public ?string $paymentMethodDetailDescription;
-
-    /** The ID of the payment method detail. */
-    #[Property]
-    public ?string $paymentMethodDetailValue;
-
-    /** Payment method banking detail type */
-    #[Property]
-    public ?string $paymentMethodDetailBankingDetailType;
-
-    /** payment method detail ID */
-    #[Property]
-    public ?string $paymentMethodDetailId;
+    public function __construct(
+        public ?string $paymentMethodDetailDescription = null,
+        public ?string $paymentMethodDetailValue = null,
+        public ?string $paymentMethodDetailBankingDetailType = null,
+        #[MapName('paymentMethodDetailID')]
+        public ?string $paymentMethodDetailId = null,
+    ) {}
 }

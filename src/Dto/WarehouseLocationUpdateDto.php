@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,48 +11,21 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class WarehouseLocationUpdateDto extends Model
 {
-    #[Property]
-    public ?locationIdInWarehouseLocationUpdateDto $locationId;
-
-    #[Property]
-    public ?descriptionInWarehouseLocationUpdateDto $description;
-
-    #[Property]
-    public ?activeInWarehouseLocationUpdateDto $active;
-
-    #[Property]
-    public ?inclQtyAvailInWarehouseLocationUpdateDto $inclQtyAvail;
-
-    #[Property]
-    public ?isCostedInWarehouseLocationUpdateDto $isCosted;
-
-    #[Property]
-    public ?salesValidInWarehouseLocationUpdateDto $salesValid;
-
-    #[Property]
-    public ?receiptsValidInWarehouseLocationUpdateDto $receiptsValid;
-
-    #[Property]
-    public ?transfersValidInWarehouseLocationUpdateDto $transfersValid;
-
-    #[Property]
-    public ?assemblyValidInWarehouseLocationUpdateDto $assemblyValid;
-
-    #[Property]
-    public ?pickPriorityInWarehouseLocationUpdateDto $pickPriority;
-
-    #[Property]
-    public ?primaryItemValidInWarehouseLocationUpdateDto $primaryItemValid;
-
-    #[Property]
-    public ?primaryItemIdInWarehouseLocationUpdateDto $primaryItemId;
-
-    #[Property]
-    public ?primaryItemClassIdInWarehouseLocationUpdateDto $primaryItemClassId;
-
-    #[Property]
-    public ?projectIdInWarehouseLocationUpdateDto $projectId;
-
-    #[Property]
-    public ?projectTaskIdInWarehouseLocationUpdateDto $projectTaskId;
+    public function __construct(
+        public ?LocationIdInWarehouseLocationUpdateDto $locationId = null,
+        public ?DescriptionInWarehouseLocationUpdateDto $description = null,
+        public ?ActiveInWarehouseLocationUpdateDto $active = null,
+        public ?InclQtyAvailInWarehouseLocationUpdateDto $inclQtyAvail = null,
+        public ?IsCostedInWarehouseLocationUpdateDto $isCosted = null,
+        public ?SalesValidInWarehouseLocationUpdateDto $salesValid = null,
+        public ?ReceiptsValidInWarehouseLocationUpdateDto $receiptsValid = null,
+        public ?TransfersValidInWarehouseLocationUpdateDto $transfersValid = null,
+        public ?AssemblyValidInWarehouseLocationUpdateDto $assemblyValid = null,
+        public ?PickPriorityInWarehouseLocationUpdateDto $pickPriority = null,
+        public ?PrimaryItemValidInWarehouseLocationUpdateDto $primaryItemValid = null,
+        public ?PrimaryItemIdInWarehouseLocationUpdateDto $primaryItemId = null,
+        public ?PrimaryItemClassIdInWarehouseLocationUpdateDto $primaryItemClassId = null,
+        public ?ProjectIdInWarehouseLocationUpdateDto $projectId = null,
+        public ?ProjectTaskIdInWarehouseLocationUpdateDto $projectTaskId = null,
+    ) {}
 }

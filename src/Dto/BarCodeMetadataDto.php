@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,6 +11,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class BarCodeMetadataDto extends Model
 {
-    #[Property]
-    public ?int $totalCount;
+    public function __construct(
+        public ?int $totalCount = null,
+    ) {}
 }

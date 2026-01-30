@@ -2,8 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\DateTime;
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -13,49 +11,19 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CustomerContractQueryParameters extends Model
 {
-    #[Property]
-    public ?string $greaterThanValue;
-
-    #[Property]
-    public ?int $numberToRead;
-
-    #[Property]
-    public ?int $skipRecords;
-
-    #[Property]
-    public ?string $orderBy;
-
-    #[Property]
-    #[DateTime]
-    public ?\Carbon\Carbon $lastModifiedDateTime;
-
-    #[Property]
-    public ?string $lastModifiedDateTimeCondition;
-
-    #[Property]
-    public ?string $contractTemplate;
-
-    #[Property]
-    public ?string $status;
-
-    #[Property]
-    public ?string $customer;
-
-    #[Property]
-    public ?bool $expandSummary;
-
-    #[Property]
-    public ?bool $expandDetails;
-
-    /**
-     * Attributes (additional information) connected to the entity.
-     *  Examples:
-     * {{base}}/customerContract?attributes={"AttributeID":"ValueID","AttributeID":"ValueID"}
-     * {{base}}/customerContract?attributes={"AttributeID":"ValueID1,ValueID2"}
-     */
-    #[Property]
-    public ?string $attributes;
-
-    #[Property]
-    public ?bool $expandAttributes;
+    public function __construct(
+        public ?string $greaterThanValue = null,
+        public ?int $numberToRead = null,
+        public ?int $skipRecords = null,
+        public ?string $orderBy = null,
+        public ?string $lastModifiedDateTime = null,
+        public ?string $lastModifiedDateTimeCondition = null,
+        public ?string $contractTemplate = null,
+        public ?string $status = null,
+        public ?string $customer = null,
+        public ?bool $expandSummary = null,
+        public ?bool $expandDetails = null,
+        public ?string $attributes = null,
+        public ?bool $expandAttributes = null,
+    ) {}
 }

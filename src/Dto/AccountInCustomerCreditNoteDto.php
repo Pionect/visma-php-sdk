@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,26 +13,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class AccountInCustomerCreditNoteDto extends Model
 {
-    /** Account &gt; The account number. */
-    #[Property]
-    public ?string $type;
-
-    /** Account class &gt; The identifier of the account class. */
-    #[Property]
-    public ?string $externalCode1;
-
-    /** Account class &gt; The name of the account class. */
-    #[Property]
-    public ?string $externalCode2;
-
-    #[Property]
-    public ?bool $active;
-
-    /** Number of item */
-    #[Property]
-    public ?string $number;
-
-    /** Name of item/description */
-    #[Property]
-    public ?string $description;
+    public function __construct(
+        public ?string $type = null,
+        public ?string $externalCode1 = null,
+        public ?string $externalCode2 = null,
+        public ?bool $active = null,
+        public ?string $number = null,
+        public ?string $description = null,
+    ) {}
 }

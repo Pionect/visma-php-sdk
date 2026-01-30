@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -15,15 +14,10 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class RotRutDistributionDto extends Model
 {
-    #[Property]
-    public ?int $lineNbr;
-
-    #[Property]
-    public ?string $personalId;
-
-    #[Property]
-    public ?float $amount;
-
-    #[Property]
-    public ?bool $extra;
+    public function __construct(
+        public ?int $lineNbr = null,
+        public ?string $personalId = null,
+        public int|float|null $amount = null,
+        public ?bool $extra = null,
+    ) {}
 }

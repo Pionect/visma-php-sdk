@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -12,12 +11,9 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class CreateCurrencyRateTypeDto extends Model
 {
-    #[Property]
-    public ?idInCreateCurrencyRateTypeDto $id;
-
-    #[Property]
-    public ?descriptionInCreateCurrencyRateTypeDto $description;
-
-    #[Property]
-    public ?daysEffectiveInCreateCurrencyRateTypeDto $daysEffective;
+    public function __construct(
+        public ?IdInCreateCurrencyRateTypeDto $id = null,
+        public ?DescriptionInCreateCurrencyRateTypeDto $description = null,
+        public ?DaysEffectiveInCreateCurrencyRateTypeDto $daysEffective = null,
+    ) {}
 }

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Attributes\Property;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 
 /**
@@ -14,7 +13,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  */
 class PurchaseReceiptOrderLineNbrUpdateDto extends Model
 {
-    /** The line number of the Purchase Order line. */
-    #[Property]
-    public ?string $lineNbr;
+    public function __construct(
+        public ?string $lineNbr = null,
+    ) {}
 }
