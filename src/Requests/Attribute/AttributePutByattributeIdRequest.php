@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\Attribute;
 use Pionect\VismaSdk\Dto\AttributeUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * Attribute_PutByattributeId
@@ -40,7 +41,7 @@ class AttributePutByattributeIdRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

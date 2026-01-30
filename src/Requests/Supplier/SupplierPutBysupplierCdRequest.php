@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\Supplier;
 use Pionect\VismaSdk\Dto\SupplierUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * Supplier_PutBysupplierCd
@@ -49,7 +50,7 @@ class SupplierPutBysupplierCdRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

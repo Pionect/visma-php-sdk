@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\InventoryTransfer;
 use Pionect\VismaSdk\Dto\InventoryTransferUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * InventoryTransfer_PutByinventoryTransferNumber
@@ -40,7 +41,7 @@ class InventoryTransferPutByinventoryTransferNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

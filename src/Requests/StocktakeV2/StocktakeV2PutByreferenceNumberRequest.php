@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\StocktakeV2;
 use Pionect\VismaSdk\Dto\StocktakeUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * StocktakeV2_PutByreferenceNumber
@@ -48,7 +49,7 @@ class StocktakeV2PutByreferenceNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

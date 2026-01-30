@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\KitAssembly;
 use Pionect\VismaSdk\Dto\KitAssemblyUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * KitAssembly_PutBytyperefNo
@@ -42,7 +43,7 @@ class KitAssemblyPutBytyperefNoRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

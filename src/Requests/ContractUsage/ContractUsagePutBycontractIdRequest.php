@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\ContractUsage;
 use Pionect\VismaSdk\Dto\ContractUsageUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * ContractUsage_PutBycontractId
@@ -40,7 +41,7 @@ class ContractUsagePutBycontractIdRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

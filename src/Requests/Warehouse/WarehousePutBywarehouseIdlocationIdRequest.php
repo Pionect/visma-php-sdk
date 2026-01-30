@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\Warehouse;
 use Pionect\VismaSdk\Dto\WarehouseLocationUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * Warehouse_PutBywarehouseIDlocationID
@@ -38,7 +39,7 @@ class WarehousePutBywarehouseIdlocationIdRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

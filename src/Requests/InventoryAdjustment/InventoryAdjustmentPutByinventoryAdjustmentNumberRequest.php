@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\InventoryAdjustment;
 use Pionect\VismaSdk\Dto\InventoryAdjustmentUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * InventoryAdjustment_PutByinventoryAdjustmentNumber
@@ -40,7 +41,7 @@ class InventoryAdjustmentPutByinventoryAdjustmentNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

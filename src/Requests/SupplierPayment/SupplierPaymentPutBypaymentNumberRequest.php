@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\SupplierPayment;
 use Pionect\VismaSdk\Dto\SupplierPaymentUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * SupplierPayment_PutBypaymentNumber
@@ -49,7 +50,7 @@ class SupplierPaymentPutBypaymentNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

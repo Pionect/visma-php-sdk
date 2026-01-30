@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\KitSpecifications;
 use Pionect\VismaSdk\Dto\KitSpecificationUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * KitSpecifications_PutBykitInventoryIDrevisionID
@@ -42,7 +43,7 @@ class KitSpecificationsPutBykitInventoryIdrevisionIdRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\CustomerCreditNote;
 use Pionect\VismaSdk\Dto\CustomerCreditNoteUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * CustomerCreditNote_UpdateBycreditNoteNumber
@@ -49,7 +50,7 @@ class CustomerCreditNoteUpdateBycreditNoteNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

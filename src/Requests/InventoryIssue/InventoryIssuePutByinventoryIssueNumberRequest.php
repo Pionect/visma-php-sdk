@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\InventoryIssue;
 use Pionect\VismaSdk\Dto\InventoryIssueUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * InventoryIssue_PutByinventoryIssueNumber
@@ -40,7 +41,7 @@ class InventoryIssuePutByinventoryIssueNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

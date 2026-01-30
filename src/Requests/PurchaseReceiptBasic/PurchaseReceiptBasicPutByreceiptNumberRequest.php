@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\PurchaseReceiptBasic;
 use Pionect\VismaSdk\Dto\PurchaseReceiptBasicUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * PurchaseReceiptBasic_PutByreceiptNumber
@@ -49,7 +50,7 @@ class PurchaseReceiptBasicPutByreceiptNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

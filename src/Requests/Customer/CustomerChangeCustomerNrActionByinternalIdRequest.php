@@ -9,6 +9,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * Customer_ChangeCustomerNrActionByinternalId
@@ -53,7 +54,7 @@ class CustomerChangeCustomerNrActionByinternalIdRequest extends Request implemen
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

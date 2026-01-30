@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\Organization;
 use Pionect\VismaSdk\Dto\BankSettingsUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * Organization_PutBankSettingsForOrganizationByorganizationNumber
@@ -49,7 +50,7 @@ class OrganizationPutBankSettingsForOrganizationByorganizationNumberRequest exte
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

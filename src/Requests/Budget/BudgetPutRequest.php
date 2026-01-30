@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\Budget;
 use Pionect\VismaSdk\Dto\BudgetUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * Budget_Put
@@ -47,7 +48,7 @@ class BudgetPutRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\Branch;
 use Pionect\VismaSdk\Dto\BankSettingsUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * Branch_PutBankSettingsForBranchBybranchNumber
@@ -40,7 +41,7 @@ class BranchPutBankSettingsForBranchBybranchNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

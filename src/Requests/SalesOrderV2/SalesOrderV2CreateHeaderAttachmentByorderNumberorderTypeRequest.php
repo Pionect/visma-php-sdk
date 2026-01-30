@@ -45,7 +45,7 @@ class SalesOrderV2CreateHeaderAttachmentByorderNumberorderTypeRequest extends Re
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

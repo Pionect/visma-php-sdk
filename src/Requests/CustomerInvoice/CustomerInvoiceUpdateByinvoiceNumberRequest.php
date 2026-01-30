@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\CustomerInvoice;
 use Pionect\VismaSdk\Dto\CustomerInvoiceUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * CustomerInvoice_UpdateByinvoiceNumber
@@ -49,7 +50,7 @@ class CustomerInvoiceUpdateByinvoiceNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

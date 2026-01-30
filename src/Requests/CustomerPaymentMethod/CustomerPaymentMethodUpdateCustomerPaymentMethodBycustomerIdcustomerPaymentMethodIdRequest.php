@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\CustomerPaymentMethod;
 use Pionect\VismaSdk\Dto\CustomerPaymentMethodUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * CustomerPaymentMethod_UpdateCustomerPaymentMethodBycustomerIdcustomerPaymentMethodId
@@ -51,7 +52,7 @@ class CustomerPaymentMethodUpdateCustomerPaymentMethodBycustomerIdcustomerPaymen
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

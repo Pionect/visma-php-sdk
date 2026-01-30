@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\CustomerOverdueCharge;
 use Pionect\VismaSdk\Dto\CustomerOverdueChargeUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * CustomerOverdueCharge_UpdateByoverdueChargeNumber
@@ -49,7 +50,7 @@ class CustomerOverdueChargeUpdateByoverdueChargeNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

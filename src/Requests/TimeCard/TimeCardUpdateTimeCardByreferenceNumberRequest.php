@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\TimeCard;
 use Pionect\VismaSdk\Dto\TimeCardUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * TimeCard_UpdateTimeCardByreferenceNumber
@@ -49,7 +50,7 @@ class TimeCardUpdateTimeCardByreferenceNumberRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

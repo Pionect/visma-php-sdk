@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\Shipment;
 use Pionect\VismaSdk\Dto\ShipmentUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * Shipment_PutByshipmentNbr
@@ -49,7 +50,7 @@ class ShipmentPutByshipmentNbrRequest extends Request
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

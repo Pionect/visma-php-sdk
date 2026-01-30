@@ -7,6 +7,7 @@ use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * Shipment_AddSOOrderByshipmentNumber
@@ -44,7 +45,7 @@ class ShipmentAddSoorderByshipmentNumberRequest extends Request implements HasBo
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

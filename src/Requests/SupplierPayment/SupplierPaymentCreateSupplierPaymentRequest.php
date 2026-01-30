@@ -7,6 +7,7 @@ use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
+use Spatie\LaravelData\Data;
 
 /**
  * SupplierPayment_CreateSupplierPayment
@@ -46,7 +47,7 @@ class SupplierPaymentCreateSupplierPaymentRequest extends Request implements Has
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 

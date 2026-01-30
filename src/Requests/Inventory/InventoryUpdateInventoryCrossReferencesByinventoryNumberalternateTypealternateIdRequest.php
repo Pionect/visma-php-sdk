@@ -5,6 +5,7 @@ namespace Pionect\VismaSdk\Requests\Inventory;
 use Pionect\VismaSdk\Dto\InventoryCrossReferenceUpdateDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Spatie\LaravelData\Data;
 
 /**
  * Inventory_UpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateId
@@ -39,7 +40,7 @@ class InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealter
 
     protected function defaultBody(): array
     {
-        if ($this->data instanceof Model) {
+        if ($this->data instanceof Data) {
             return $this->data->toArray();
         }
 
