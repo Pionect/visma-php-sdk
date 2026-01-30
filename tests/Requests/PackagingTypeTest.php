@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\PackagingType\PackagingTypeGetAllPackagingTypesRequest;
 use Pionect\VismaSdk\Requests\PackagingType\PackagingTypeGetByboxIdRequest;
 use Saloon\Http\Faking\MockResponse;

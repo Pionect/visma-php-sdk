@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\SalesOrderType\SalesOrderTypeGetAllSalesOrderTypesRequest;
 use Pionect\VismaSdk\Requests\SalesOrderType\SalesOrderTypeGetSalesOrderTypeByorderTypeRequest;
 use Saloon\Http\Faking\MockResponse;

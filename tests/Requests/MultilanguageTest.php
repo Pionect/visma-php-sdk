@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\MultilanguageDto;
 use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageAddDefaultLanguageRequest;
 use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest;

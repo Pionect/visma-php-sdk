@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\CustomerDebitNoteUpdateDto;
 use Pionect\VismaSdk\Requests\CustomerDebitNote\CustomerDebitNoteCreateHeaderAttachmentBydebitNoteNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerDebitNote\CustomerDebitNoteCreateLineAttachmentBydebitNoteNumberlineNumberRequest;

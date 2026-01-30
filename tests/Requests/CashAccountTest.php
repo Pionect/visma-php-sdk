@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\CashAccount\CashAccountGetAllRequest;
 use Pionect\VismaSdk\Requests\CashAccount\CashAccountGetByaccountNumberRequest;
 use Saloon\Http\Faking\MockResponse;

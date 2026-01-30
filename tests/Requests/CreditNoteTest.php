@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\CreditNoteUpdateDto;
 use Pionect\VismaSdk\Requests\CreditNote\CreditNoteCreateCreditNoteRequest;
 use Pionect\VismaSdk\Requests\CreditNote\CreditNoteCreateHeaderAttachmentBycreditNoteNumberRequest;

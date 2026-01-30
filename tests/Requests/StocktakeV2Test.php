@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2GetAllStocktakesRequest;
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2GetByreferenceNumberRequest;
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2PutByreferenceNumberRequest;

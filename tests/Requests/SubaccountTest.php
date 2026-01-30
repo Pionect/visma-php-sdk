@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\Subaccount\SubaccountGetAllSubaccountsRequest;
 use Pionect\VismaSdk\Requests\Subaccount\SubaccountGetSubaccountBysubAccountNumberRequest;
 use Pionect\VismaSdk\Requests\Subaccount\SubaccountPostRequest;

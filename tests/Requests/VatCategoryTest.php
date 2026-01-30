@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\VatCategory\VatCategoryGetAllVatCategoriesRequest;
 use Pionect\VismaSdk\Requests\VatCategory\VatCategoryGetVatCategoryBytaxCategoryIdRequest;
 use Saloon\Http\Faking\MockResponse;

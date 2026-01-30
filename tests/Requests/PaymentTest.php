@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\PaymentUpdateDto;
 use Pionect\VismaSdk\Requests\Payment\PaymentCreatePaymentRequest;
 use Pionect\VismaSdk\Requests\Payment\PaymentGetAllPaymentsRequest;

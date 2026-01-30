@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\AccountUpdateDto;
 use Pionect\VismaSdk\Requests\Account\AccountGetAllRequest;
 use Pionect\VismaSdk\Requests\Account\AccountGetByaccountCdRequest;

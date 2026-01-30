@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\SalesOrderBasicV2\SalesOrderBasicV2CreateHeaderAttachmentByorderNumberorderTypeRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasicV2\SalesOrderBasicV2CreateHeaderAttachmentByorderNumberRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasicV2\SalesOrderBasicV2CreateLineAttachmentByorderNumberlineNumberRequest;

@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\CustomerOverdueChargeUpdateDto;
 use Pionect\VismaSdk\Requests\CustomerOverdueCharge\CustomerOverdueChargeCreateHeaderAttachmentByoverdueChargeNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerOverdueCharge\CustomerOverdueChargeCreateLineAttachmentByoverdueChargeNumberlineNumberRequest;

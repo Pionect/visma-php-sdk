@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\Country\CountryGetCountriesRequest;
 use Pionect\VismaSdk\Requests\Country\CountryGetCountryBycountryIdRequest;
 use Saloon\Http\Faking\MockResponse;

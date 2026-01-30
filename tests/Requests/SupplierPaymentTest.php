@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\SupplierPaymentUpdateDto;
 use Pionect\VismaSdk\Requests\SupplierPayment\SupplierPaymentCreateSupplierPaymentRequest;
 use Pionect\VismaSdk\Requests\SupplierPayment\SupplierPaymentGetAllPaymentsRequest;

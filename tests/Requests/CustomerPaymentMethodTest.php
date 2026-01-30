@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\CustomerPaymentMethodUpdateDto;
 use Pionect\VismaSdk\Requests\CustomerPaymentMethod\CustomerPaymentMethodCreateCustomerPaymentMethodRequest;
 use Pionect\VismaSdk\Requests\CustomerPaymentMethod\CustomerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodIdRequest;

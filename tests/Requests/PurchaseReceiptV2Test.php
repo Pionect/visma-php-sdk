@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\PurchaseReceiptV2\PurchaseReceiptV2GetAllReceiptsRequest;
 use Pionect\VismaSdk\Requests\PurchaseReceiptV2\PurchaseReceiptV2GetPurchaseReceiptByreceiptNumberRequest;
 use Saloon\Http\Faking\MockResponse;

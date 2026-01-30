@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\CustomerContractUpdateDto;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractActivateContractBycontractIdRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractActivateUpgradeBycontractIdRequest;

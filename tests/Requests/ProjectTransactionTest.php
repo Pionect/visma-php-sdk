@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetAllRequest;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetByrefNbrRequest;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionPostRequest;

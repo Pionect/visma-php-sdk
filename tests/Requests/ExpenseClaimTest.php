@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\ExpenseClaimUpdateDto;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimCreateExpenseClaimRequest;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimDeleteByexpenseClaimNbrRequest;

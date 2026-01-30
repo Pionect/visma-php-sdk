@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\WebhookNotificationFeedbackDto;
 use Pionect\VismaSdk\Requests\WebhookNotificationFeedback\WebhookNotificationFeedbackPostRequest;
 use Saloon\Http\Faking\MockResponse;

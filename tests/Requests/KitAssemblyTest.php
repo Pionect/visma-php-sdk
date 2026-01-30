@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\KitAssemblyUpdateDto;
 use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyDeleteBytyperefNoRequest;
 use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyGetKitAssembliesRequest;

@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2AddHeaderAttachmentBymodulejournalTransactionNumberRequest;
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2AddLineAttachmentBymodulejournalTransactionNumberlineNumberRequest;
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2GetAllJournalTransactionsRequest;

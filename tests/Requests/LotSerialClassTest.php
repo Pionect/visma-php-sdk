@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\LotSerialClass\LotSerialClassGetAllLotSerialClassRequest;
 use Pionect\VismaSdk\Requests\LotSerialClass\LotSerialClassGetByidRequest;
 use Saloon\Http\Faking\MockResponse;

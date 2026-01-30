@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\CustomerPayment\CustomerPaymentCreatePaymentRequest;
 use Pionect\VismaSdk\Requests\CustomerPayment\CustomerPaymentGetAllPaymentsRequest;
 use Pionect\VismaSdk\Requests\CustomerPayment\CustomerPaymentGetBypaymentNumberRequest;

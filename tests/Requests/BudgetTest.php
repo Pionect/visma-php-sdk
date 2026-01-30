@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\BudgetUpdateDto;
 use Pionect\VismaSdk\Requests\Budget\BudgetCreateBudgetRequest;
 use Pionect\VismaSdk\Requests\Budget\BudgetGetAllRequest;

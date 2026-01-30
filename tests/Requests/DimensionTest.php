@@ -1,7 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
-
 use Pionect\VismaSdk\Requests\Dimension\DimensionGetDimensionBydimensionIdRequest;
 use Pionect\VismaSdk\Requests\Dimension\DimensionGetDimensionListRequest;
 use Pionect\VismaSdk\Requests\Dimension\DimensionGetSegmentBydimensionIdsegmentIdRequest;

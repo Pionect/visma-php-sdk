@@ -1,6 +1,5 @@
 <?php
 
-// Generated 2026-01-30 15:19:40
 use Pionect\VismaSdk\Dto\InventoryReceiptUpdateDto;
 use Pionect\VismaSdk\Requests\InventoryReceipt\InventoryReceiptGetAllRequest;
 use Pionect\VismaSdk\Requests\InventoryReceipt\InventoryReceiptGetByinventoryReceiptNumberRequest;
