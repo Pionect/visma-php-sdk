@@ -125,12 +125,8 @@ it('calls the warehouseGetAllRequest method in the Warehouse resource', function
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->warehouseId->toBe('mock-id-123')
         ->branch->toBeNull()
         ->replenishmentClass->toBeNull()

@@ -273,12 +273,8 @@ it('calls the purchaseReceiptGetAllReceiptBasicRequest method in the PurchaseRec
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->note->toBe('String value')
         ->timeStamp->toBe('String value')
         ->receiptType->toBe('String value')

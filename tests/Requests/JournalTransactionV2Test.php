@@ -208,12 +208,8 @@ it('calls the journalTransactionV2getAllJournalTransactionsRequest method in the
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->module->toBe('String value')
         ->batchNumber->toBe('String value')
         ->status->toBe('String value')

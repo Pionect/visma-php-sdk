@@ -216,12 +216,8 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->displayName->toBe('String value')
         ->active->toBe(true)
         ->title->toBe('String value')

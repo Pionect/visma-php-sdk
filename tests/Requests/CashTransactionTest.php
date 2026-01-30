@@ -198,12 +198,8 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->tranType->toBe('String value')
         ->referenceNbr->toBe('String value')
         ->status->toBe('String value')

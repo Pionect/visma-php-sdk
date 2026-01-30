@@ -87,12 +87,8 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBeNull()

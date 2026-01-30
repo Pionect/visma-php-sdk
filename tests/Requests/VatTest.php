@@ -151,12 +151,8 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->vatCategoryId->toBe('mock-id-123')
         ->vatId->toBe('mock-id-123')
         ->description->toBe('String value')

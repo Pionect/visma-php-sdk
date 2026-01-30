@@ -141,12 +141,8 @@ it('calls the organizationGetAllRequest method in the Organization resource', fu
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->organizationCd->toBe('String value')
         ->name->toBe('String value')
         ->organizationType->toBe('String value')

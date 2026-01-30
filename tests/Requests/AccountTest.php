@@ -188,12 +188,8 @@ it('calls the accountGetAllRequest method in the Account resource', function () 
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->accountId->toBe(42)
         ->accountCd->toBe('String value')
         ->accountGroupCd->toBe('String value')

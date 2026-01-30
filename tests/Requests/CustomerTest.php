@@ -60,12 +60,8 @@ it('calls the customerGetCustomerClassesRequest method in the Customer resource'
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->description->toBe('String value')
         ->taxZoneId->toBe('mock-id-123')
         ->requiredTaxzoneId->toBe(true)
@@ -620,12 +616,8 @@ it('calls the customerGetAllCustomerBalanceRequest method in the Customer resour
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->customer->toBeNull()
         ->balance->toBe(42)
         ->totalOrder->toBe(42)
@@ -1138,12 +1130,8 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')

@@ -646,12 +646,8 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->projectCd->toBe('String value')
         ->printDescriptionOnInvoice->toBe(true)
         ->printNoteOnExternalDocuments->toBe(true)

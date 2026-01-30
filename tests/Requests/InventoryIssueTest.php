@@ -166,12 +166,8 @@ it('calls the inventoryIssueGetAllRequest method in the InventoryIssue resource'
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->totalAmount->toBe(42)
         ->controlAmount->toBe(42)
         ->referenceNumber->toBe('String value')

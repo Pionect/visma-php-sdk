@@ -225,12 +225,8 @@ it('calls the paymentGetAllPaymentsRequest method in the Payment resource', func
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->type->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')

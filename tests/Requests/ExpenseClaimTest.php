@@ -189,12 +189,8 @@ it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', fu
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->approvalStatus->toBe('String value')

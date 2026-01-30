@@ -227,12 +227,8 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->hold->toBe(true)
         ->roundingDiff->toBe(42)
         ->customerVatZone->toBeNull()

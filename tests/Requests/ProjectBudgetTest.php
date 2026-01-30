@@ -80,12 +80,8 @@ it('calls the projectBudgetGetAllRequest method in the ProjectBudget resource', 
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->projectId->toBe('mock-id-123')
         ->projectTaskId->toBe('mock-id-123')
         ->accountGroupId->toBe('mock-id-123')

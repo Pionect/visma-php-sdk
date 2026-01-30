@@ -35,12 +35,8 @@ it('calls the currencyRateTypeGetAllRequest method in the CurrencyRateType resou
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->description->toBe('String value')
         ->daysEffective->toBe(42);
 });

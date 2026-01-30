@@ -69,12 +69,8 @@ it('calls the carrierGetAllCarriersRequest method in the Carrier resource', func
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->carrierId->toBe('mock-id-123')
         ->carrierDescription->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));

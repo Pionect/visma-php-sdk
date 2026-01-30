@@ -136,12 +136,8 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsRequest method in th
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->customerId->toBe('mock-id-123');
 });
 

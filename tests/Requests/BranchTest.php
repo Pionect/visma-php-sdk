@@ -153,12 +153,8 @@ it('calls the branchGetAllBranchesRequest method in the Branch resource', functi
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->branchId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')

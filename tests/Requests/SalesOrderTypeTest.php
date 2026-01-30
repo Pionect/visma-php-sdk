@@ -84,12 +84,8 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesRequest method in the SalesOrde
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->orderType->toBe('String value')
         ->active->toBe(true)
         ->description->toBe('String value')

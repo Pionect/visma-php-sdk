@@ -647,12 +647,8 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->approvalDetails->toBeNull()
         ->hold->toBe(true)
         ->exchangeRate->toBe(42)
@@ -919,12 +915,8 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->approvalDetails->toBeNull()
         ->hold->toBe(true)
         ->exchangeRate->toBe(42)

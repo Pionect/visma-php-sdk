@@ -349,12 +349,8 @@ it('calls the creditNoteGetAllCreditNotesDtoRequest method in the CreditNote res
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->externalReference->toBe('String value')
         ->contact->toBeNull()
         ->hold->toBe(true)

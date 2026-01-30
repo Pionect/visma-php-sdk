@@ -45,12 +45,8 @@ it('calls the discountGetDiscountsRequest method in the Discount resource', func
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->name->toBe('Mock value');
 });
 

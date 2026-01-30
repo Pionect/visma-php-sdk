@@ -53,12 +53,8 @@ it('calls the currencyRateGetAllRequest method in the CurrencyRate resource', fu
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->fromCurrencyId->toBe('mock-id-123')
         ->toCurrencyId->toBe('mock-id-123')
         ->rateType->toBe('String value')

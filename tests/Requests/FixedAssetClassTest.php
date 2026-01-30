@@ -122,12 +122,8 @@ it('calls the fixedAssetClassGetAllRequest method in the FixedAssetClass resourc
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->classId->toBe('mock-id-123')
         ->recordType->toBe('String value')
         ->description->toBe('String value')

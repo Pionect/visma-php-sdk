@@ -103,12 +103,8 @@ it('calls the salesPersonV2getSalespersonsRequest method in the SalesPersonV2 re
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->salespersonId->toBe('mock-id-123')
         ->name->toBe('String value')
         ->isActive->toBe(true)

@@ -310,12 +310,8 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
         ->status->toBe('String value')

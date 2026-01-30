@@ -343,12 +343,8 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->creditTerms->toBeNull()
         ->timeStamp->toBe('String value')
         ->hold->toBe(true)

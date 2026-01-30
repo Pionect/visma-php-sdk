@@ -74,12 +74,8 @@ it('calls the fixedAssetPropertyTaxGroupGetAllRequest method in the FixedAssetPr
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->propertyTaxId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->active->toBe(true)

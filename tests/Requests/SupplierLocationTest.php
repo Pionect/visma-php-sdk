@@ -212,12 +212,8 @@ it('calls the supplierLocationGetLocationsRequest method in the SupplierLocation
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->baccount->toBeNull()
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('String value')

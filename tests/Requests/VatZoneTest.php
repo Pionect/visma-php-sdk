@@ -69,12 +69,8 @@ it('calls the vatZoneGetVatZonesRequest method in the VatZone resource', functio
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->description->toBe('String value')
         ->defaultVatCategory->toBe('String value')
         ->defaultTaxCategory->toBeNull()

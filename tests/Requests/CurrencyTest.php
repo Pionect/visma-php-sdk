@@ -71,12 +71,8 @@ it('calls the currencyGetAllRequest method in the Currency resource', function (
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->description->toBe('String value')
         ->symbol->toBe('String value')
         ->isBaseCurrency->toBe(true)

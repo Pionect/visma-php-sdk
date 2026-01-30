@@ -107,12 +107,8 @@ it('calls the packagingTypeGetAllPackagingTypesRequest method in the PackagingTy
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->boxId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->boxWeight->toBe(42)

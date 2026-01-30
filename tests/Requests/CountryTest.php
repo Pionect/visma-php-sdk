@@ -61,12 +61,8 @@ it('calls the countryGetCountriesRequest method in the Country resource', functi
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->name->toBe('String value')
         ->errorInfo->toBe('String value');
 });

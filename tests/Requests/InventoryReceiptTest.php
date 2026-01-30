@@ -171,12 +171,8 @@ it('calls the inventoryReceiptGetAllRequest method in the InventoryReceipt resou
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->totalCost->toBe(42)
         ->controlCost->toBe(42)
         ->transferNumber->toBe('String value')

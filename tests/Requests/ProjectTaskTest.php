@@ -234,12 +234,8 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->internalId->toBe(42)
         ->projectInternalId->toBe(42)
         ->defAccount->toBeNull()

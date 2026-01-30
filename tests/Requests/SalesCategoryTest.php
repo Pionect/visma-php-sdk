@@ -71,12 +71,8 @@ it('calls the salesCategoryGetRequest method in the SalesCategory resource', fun
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->categoryId->toBe(42)
         ->description->toBe('String value')
         ->parentId->toBe(42)

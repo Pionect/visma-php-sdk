@@ -83,12 +83,8 @@ it('calls the vatCategoryGetAllVatCategoriesRequest method in the VatCategory re
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->vatCategoryId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->active->toBe(true)

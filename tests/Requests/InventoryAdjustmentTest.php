@@ -166,12 +166,8 @@ it('calls the inventoryAdjustmentGetAllRequest method in the InventoryAdjustment
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->totalCost->toBe(42)
         ->controlCost->toBe(42)
         ->referenceNumber->toBe('String value')

@@ -55,12 +55,8 @@ it('calls the financialPeriodGetAllRequest method in the FinancialPeriod resourc
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->year->toBe(42)
         ->period->toBe('String value')
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))

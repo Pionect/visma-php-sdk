@@ -245,12 +245,8 @@ it('calls the expenseReceiptGetAllRequest method in the ExpenseReceipt resource'
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->internalId->toBe(42)
         ->receiptId->toBe('mock-id-123')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))

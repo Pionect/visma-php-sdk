@@ -342,12 +342,8 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBeNull()
@@ -531,12 +527,8 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->internalId->toBe(42)
         ->projectInternalId->toBe(42)
         ->defAccount->toBeNull()

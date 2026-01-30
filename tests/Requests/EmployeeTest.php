@@ -159,12 +159,8 @@ it('calls the employeeGetAllEmployeesRequest method in the Employee resource', f
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->employeeUserId->toBe('mock-id-123')
         ->employeeId->toBe(42)
         ->employeeNumber->toBe('String value')
@@ -279,12 +275,8 @@ it('calls the employeeGetEmployeeTimeCardsRequest method in the Employee resourc
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->approvalStatus->toBe('String value')

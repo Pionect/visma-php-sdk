@@ -111,12 +111,8 @@ it('calls the lotSerialClassGetAllLotSerialClassRequest method in the LotSerialC
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->description->toBe('String value')
         ->trackingMethod->toBe('String value')
         ->trackExpirationDate->toBe(true)

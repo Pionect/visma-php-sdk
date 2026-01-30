@@ -92,12 +92,8 @@ it('calls the generalLedgerTransactionsGetAllRequest method in the GeneralLedger
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->lineNumber->toBe(42)
         ->module->toBe('String value')
         ->batchNumber->toBe('String value')

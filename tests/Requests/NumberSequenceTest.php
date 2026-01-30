@@ -70,12 +70,8 @@ it('calls the numberSequenceGetAllRequest method in the NumberSequence resource'
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->numberingId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->manualNumbering->toBe(true)

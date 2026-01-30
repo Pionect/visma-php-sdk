@@ -93,11 +93,7 @@ it('calls the stocktakeV2getAllStocktakesRequest method in the StocktakeV2 resou
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->name->toBe('Mock value');
 });

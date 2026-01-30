@@ -129,12 +129,8 @@ it('calls the customerDocumentGetAllDocumentsRequest method in the CustomerDocum
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branch->toBeNull()
         ->customer->toBeNull()

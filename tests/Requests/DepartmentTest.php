@@ -116,12 +116,8 @@ it('calls the departmentGetAllDepartmentDtosRequest method in the Department res
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->departmentId->toBe('mock-id-123')
         ->publicId->toBe('mock-id-123')
         ->description->toBe('String value')

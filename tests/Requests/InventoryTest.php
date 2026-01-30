@@ -58,12 +58,8 @@ it('calls the inventoryGetItemClassesRequest method in the Inventory resource', 
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->type->toBe('String value')
         ->description->toBe('String value')
         ->errorInfo->toBe('String value');
@@ -122,12 +118,8 @@ it('calls the inventoryGetItemPostClassesRequest method in the Inventory resourc
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->description->toBe('String value');
 });
 
@@ -536,12 +528,8 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
         ->status->toBe('String value')

@@ -78,12 +78,8 @@ it('calls the customerSalesPriceGetCustomerSalesPricesRequest method in the Cust
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->recordId->toBe(42)
         ->priceType->toBe('String value')
         ->priceCode->toBe('String value')

@@ -52,12 +52,8 @@ it('calls the supplierGetAllSupplierClassesRequest method in the Supplier resour
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->paymentMethodId->toBe('mock-id-123')
         ->paymentMethodDescription->toBe('String value')
         ->timeStamp->toBe('String value')
@@ -137,12 +133,8 @@ it('calls the supplierGetAllSupplierBalanceRequest method in the Supplier resour
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->branchNumber->toBe('String value')
         ->supplier->toBeNull()
         ->balance->toBe(42)
@@ -182,12 +174,8 @@ it('calls the supplierGetAllSupplierPobalanceRequest method in the Supplier reso
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->name->toBe('Mock value');
 });
 
@@ -479,12 +467,8 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')

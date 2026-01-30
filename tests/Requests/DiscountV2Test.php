@@ -87,12 +87,8 @@ it('calls the discountV2getDiscountsRequest method in the DiscountV2 resource', 
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->discountCode->toBe('String value')
         ->series->toBe('String value')
         ->description->toBe('String value')

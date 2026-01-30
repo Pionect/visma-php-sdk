@@ -79,12 +79,8 @@ it('calls the paymentMethodGetAllPaymentMethodRequest method in the PaymentMetho
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->paymentMethodId->toBe('mock-id-123')
         ->active->toBe(true)
         ->meansOfPayment->toBe('String value')

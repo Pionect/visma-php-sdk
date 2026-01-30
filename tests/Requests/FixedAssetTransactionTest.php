@@ -130,12 +130,8 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
 
     $collection = $response->dto();
 
-    expect($collection)->toBeArray()
-        ->and($collection)->toHaveCount(2);
-
-    $firstItem = $collection[0];
-
-    expect($firstItem)
+    expect($collection)->toHaveCount(2);
+    expect($collection->first())
         ->refNo->toBe('String value')
         ->lineNo->toBe(42)
         ->branchId->toBe('mock-id-123')
