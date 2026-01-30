@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Ledger\LedgerGetAllLedgersCollectionRequest;
+use Pionect\VismaSdk\Requests\Ledger\LedgerGetAllLedgersRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,9 +10,9 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the ledgerGetAllLedgersCollection method in the Ledger resource', function () {
+it('calls the ledgerGetAllLedgersRequest method in the Ledger resource', function () {
     Saloon::fake([
-        LedgerGetAllLedgersCollectionRequest::class => MockResponse::make([
+        LedgerGetAllLedgersRequest::class => MockResponse::make([
             0 => [
                 'internalId' => 42,
                 'number' => 'String value',
@@ -23,7 +22,7 @@ it('calls the ledgerGetAllLedgersCollection method in the Ledger resource', func
                 'consolidationSource' => true,
                 'consolBranch' => null,
                 'branchAccounting' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'postInterCompany' => true,
             ],
             1 => [
@@ -35,33 +34,42 @@ it('calls the ledgerGetAllLedgersCollection method in the Ledger resource', func
                 'consolidationSource' => true,
                 'consolBranch' => null,
                 'branchAccounting' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'postInterCompany' => true,
             ],
         ], 200),
     ]);
 
-    $request = (new LedgerGetAllLedgersCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new LedgerGetAllLedgersRequest(
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(LedgerGetAllLedgersRequest::class);
 
-    Saloon::assertSent(function (LedgerGetAllLedgersCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->description->toBe('String value')
         ->balanceType->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->consolidationSource->toBeTrue()
+        ->consolidationSource->toBe(true)
         ->consolBranch->toBeNull()
-        ->branchAccounting->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postInterCompany->toBeTrue();
+        ->branchAccounting->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->postInterCompany->toBe(true);
 });

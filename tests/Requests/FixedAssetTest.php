@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\FixedAsset\FixedAssetGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\FixedAsset\FixedAssetGetAllRequest;
 use Pionect\VismaSdk\Requests\FixedAsset\FixedAssetGetByFixedAssetIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -12,7 +11,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', function () {
+it('calls the fixedAssetGetByFixedAssetIdRequest method in the FixedAsset resource', function () {
     Saloon::fake([
         FixedAssetGetByFixedAssetIdRequest::class => MockResponse::make([
             'assetId' => 'mock-id-123',
@@ -21,16 +20,16 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
             'description' => 'String value',
             'classId' => 'mock-id-123',
             'isTangible' => true,
-            'quantity' => 3.14,
+            'quantity' => 42,
             'depreciable' => true,
-            'usefulLife' => 3.14,
+            'usefulLife' => 42,
             'accounts' => null,
             'details' => null,
             'bookBalance' => null,
             'location' => null,
             'propertyTax' => null,
             'type' => null,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -54,23 +53,23 @@ it('calls the fixedAssetGetByFixedAssetId method in the FixedAsset resource', fu
         ->parentAssetId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->classId->toBe('mock-id-123')
-        ->isTangible->toBeTrue()
-        ->quantity->toBe(3.14)
-        ->depreciable->toBeTrue()
-        ->usefulLife->toBe(3.14)
+        ->isTangible->toBe(true)
+        ->quantity->toBe(42)
+        ->depreciable->toBe(true)
+        ->usefulLife->toBe(42)
         ->accounts->toBeNull()
         ->details->toBeNull()
         ->bookBalance->toBeNull()
         ->location->toBeNull()
         ->propertyTax->toBeNull()
         ->type->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
 
-it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', function () {
+it('calls the fixedAssetGetAllRequest method in the FixedAsset resource', function () {
     Saloon::fake([
-        FixedAssetGetAllCollectionRequest::class => MockResponse::make([
+        FixedAssetGetAllRequest::class => MockResponse::make([
             0 => [
                 'assetId' => 'mock-id-123',
                 'recordType' => 'String value',
@@ -78,21 +77,17 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
                 'description' => 'String value',
                 'classId' => 'mock-id-123',
                 'isTangible' => true,
-                'quantity' => 3.14,
+                'quantity' => 42,
                 'depreciable' => true,
-                'usefulLife' => 3.14,
+                'usefulLife' => 42,
                 'accounts' => null,
                 'details' => null,
                 'bookBalance' => null,
                 'location' => null,
                 'propertyTax' => null,
                 'type' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'assetId' => 'mock-id-123',
@@ -101,53 +96,63 @@ it('calls the fixedAssetGetAllCollection method in the FixedAsset resource', fun
                 'description' => 'String value',
                 'classId' => 'mock-id-123',
                 'isTangible' => true,
-                'quantity' => 3.14,
+                'quantity' => 42,
                 'depreciable' => true,
-                'usefulLife' => 3.14,
+                'usefulLife' => 42,
                 'accounts' => null,
                 'details' => null,
                 'bookBalance' => null,
                 'location' => null,
                 'propertyTax' => null,
                 'type' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new FixedAssetGetAllCollectionRequest(assetId: 'test string', classId: 'test string', status: 'test string', fromDate: 'test string', toDate: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', expandAccounts: true, pageNumber: 123, pageSize: 123));
+    $request = new FixedAssetGetAllRequest(
+        assetId: 'test string',
+        classId: 'test string',
+        status: 'test string',
+        fromDate: 'test string',
+        toDate: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        expandAccounts: true,
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(FixedAssetGetAllRequest::class);
 
-    Saloon::assertSent(function (FixedAssetGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->assetId->toBe('mock-id-123')
         ->recordType->toBe('String value')
         ->parentAssetId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->classId->toBe('mock-id-123')
-        ->isTangible->toBeTrue()
-        ->quantity->toBe(3.14)
-        ->depreciable->toBeTrue()
-        ->usefulLife->toBe(3.14)
+        ->isTangible->toBe(true)
+        ->quantity->toBe(42)
+        ->depreciable->toBe(true)
+        ->usefulLife->toBe(42)
         ->accounts->toBeNull()
         ->details->toBeNull()
         ->bookBalance->toBeNull()
         ->location->toBeNull()
         ->propertyTax->toBeNull()
         ->type->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });

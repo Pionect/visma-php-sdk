@@ -1,28 +1,28 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Payment\PaymentGetAllPaymentsCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\PaymentUpdateDto;
+use Pionect\VismaSdk\Requests\Payment\PaymentCreatePaymentRequest;
+use Pionect\VismaSdk\Requests\Payment\PaymentGetAllPaymentsRequest;
 use Pionect\VismaSdk\Requests\Payment\PaymentGetBypaymentNumberRequest;
+use Pionect\VismaSdk\Requests\Payment\PaymentPutBypaymentNumberRequest;
 use Pionect\VismaSdk\Requests\Payment\PaymentReleasePaymentBypaymentNumberRequest;
 use Pionect\VismaSdk\Requests\Payment\PaymentVoidPaymentBypaymentNumberRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the paymentGetBypaymentNumber method in the Payment resource', function () {
+it('calls the paymentGetBypaymentNumberRequest method in the Payment resource', function () {
     Saloon::fake([
         PaymentGetBypaymentNumberRequest::class => MockResponse::make([
             'type' => 'String value',
             'refNbr' => 'String value',
             'status' => 'String value',
             'hold' => true,
-            'applicationDate' => '2025-11-22T10:40:04.065Z',
+            'applicationDate' => '2025-11-22T10:40:04+00:00',
             'applicationPeriod' => 'String value',
             'paymentRef' => 'String value',
             'customer' => null,
@@ -30,22 +30,22 @@ it('calls the paymentGetBypaymentNumber method in the Payment resource', functio
             'paymentMethod' => null,
             'cashAccount' => 'String value',
             'currency' => 'String value',
-            'paymentAmount' => 3.14,
+            'paymentAmount' => 42,
             'invoiceText' => 'String value',
-            'appliedToDocuments' => 3.14,
-            'appliedToOrders' => 3.14,
-            'availableBalance' => 3.14,
-            'writeOffAmount' => 3.14,
-            'financeCharges' => 3.14,
-            'deductedCharges' => 3.14,
+            'appliedToDocuments' => 42,
+            'appliedToOrders' => 42,
+            'availableBalance' => 42,
+            'writeOffAmount' => 42,
+            'financeCharges' => 42,
+            'deductedCharges' => 42,
             'branch' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'paymentLines' => [],
             'ordersToApply' => [],
             'financialDetails' => null,
-            'paymentAmountInCurrency' => 3.14,
-            'availableBalanceInCurrency' => 3.14,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'paymentAmountInCurrency' => 42,
+            'availableBalanceInCurrency' => 42,
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -66,8 +66,8 @@ it('calls the paymentGetBypaymentNumber method in the Payment resource', functio
         ->type->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
         ->paymentRef->toBe('String value')
         ->customer->toBeNull()
@@ -75,32 +75,70 @@ it('calls the paymentGetBypaymentNumber method in the Payment resource', functio
         ->paymentMethod->toBeNull()
         ->cashAccount->toBe('String value')
         ->currency->toBe('String value')
-        ->paymentAmount->toBe(3.14)
+        ->paymentAmount->toBe(42)
         ->invoiceText->toBe('String value')
-        ->appliedToDocuments->toBe(3.14)
-        ->appliedToOrders->toBe(3.14)
-        ->availableBalance->toBe(3.14)
-        ->writeOffAmount->toBe(3.14)
-        ->financeCharges->toBe(3.14)
-        ->deductedCharges->toBe(3.14)
+        ->appliedToDocuments->toBe(42)
+        ->appliedToOrders->toBe(42)
+        ->availableBalance->toBe(42)
+        ->writeOffAmount->toBe(42)
+        ->financeCharges->toBe(42)
+        ->deductedCharges->toBe(42)
         ->branch->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->financialDetails->toBeNull()
-        ->paymentAmountInCurrency->toBe(3.14)
-        ->availableBalanceInCurrency->toBe(3.14)
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->paymentAmountInCurrency->toBe(42)
+        ->availableBalanceInCurrency->toBe(42)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the paymentGetAllPaymentsCollection method in the Payment resource', function () {
+it('calls the paymentPutBypaymentNumberRequest method in the Payment resource', function () {
+    $bodyData = new PaymentUpdateDto(
+        referenceNumber: null,
+        type: null,
+        hold: null,
+        applicationDate: null,
+        applicationPeriod: null,
+        paymentRef: null,
+        customer: null,
+        location: null,
+        paymentMethod: null,
+        cashAccount: null,
+        currency: null,
+        paymentAmount: null,
+        invoiceText: null,
+        branch: 'String value',
+        overrideNumberSeries: true,
+        ordersToApply: [],
+        financeCharges: [],
+        paymentLines: []
+    );
+
     Saloon::fake([
-        PaymentGetAllPaymentsCollectionRequest::class => MockResponse::make([
+        PaymentPutBypaymentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new PaymentPutBypaymentNumberRequest(
+        paymentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(PaymentPutBypaymentNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the paymentGetAllPaymentsRequest method in the Payment resource', function () {
+    Saloon::fake([
+        PaymentGetAllPaymentsRequest::class => MockResponse::make([
             0 => [
                 'type' => 'String value',
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
-                'applicationDate' => '2025-11-22T10:40:04.065Z',
+                'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
                 'paymentRef' => 'String value',
                 'customer' => null,
@@ -108,34 +146,30 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
                 'paymentMethod' => null,
                 'cashAccount' => 'String value',
                 'currency' => 'String value',
-                'paymentAmount' => 3.14,
+                'paymentAmount' => 42,
                 'invoiceText' => 'String value',
-                'appliedToDocuments' => 3.14,
-                'appliedToOrders' => 3.14,
-                'availableBalance' => 3.14,
-                'writeOffAmount' => 3.14,
-                'financeCharges' => 3.14,
-                'deductedCharges' => 3.14,
+                'appliedToDocuments' => 42,
+                'appliedToOrders' => 42,
+                'availableBalance' => 42,
+                'writeOffAmount' => 42,
+                'financeCharges' => 42,
+                'deductedCharges' => 42,
                 'branch' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'paymentLines' => [],
                 'ordersToApply' => [],
                 'financialDetails' => null,
-                'paymentAmountInCurrency' => 3.14,
-                'availableBalanceInCurrency' => 3.14,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'paymentAmountInCurrency' => 42,
+                'availableBalanceInCurrency' => 42,
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'type' => 'String value',
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
-                'applicationDate' => '2025-11-22T10:40:04.065Z',
+                'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
                 'paymentRef' => 'String value',
                 'customer' => null,
@@ -143,49 +177,66 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
                 'paymentMethod' => null,
                 'cashAccount' => 'String value',
                 'currency' => 'String value',
-                'paymentAmount' => 3.14,
+                'paymentAmount' => 42,
                 'invoiceText' => 'String value',
-                'appliedToDocuments' => 3.14,
-                'appliedToOrders' => 3.14,
-                'availableBalance' => 3.14,
-                'writeOffAmount' => 3.14,
-                'financeCharges' => 3.14,
-                'deductedCharges' => 3.14,
+                'appliedToDocuments' => 42,
+                'appliedToOrders' => 42,
+                'availableBalance' => 42,
+                'writeOffAmount' => 42,
+                'financeCharges' => 42,
+                'deductedCharges' => 42,
                 'branch' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'paymentLines' => [],
                 'ordersToApply' => [],
                 'financialDetails' => null,
-                'paymentAmountInCurrency' => 3.14,
-                'availableBalanceInCurrency' => 3.14,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'paymentAmountInCurrency' => 42,
+                'availableBalanceInCurrency' => 42,
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new PaymentGetAllPaymentsCollectionRequest(paymentNbr: 'test string', paymentType: 'test string', customer: 'test string', greaterThanValue: 'test string', invoiceRefNbr: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', branch: 'test string', docDate: 'test string', docDateCondition: 'test string', financialPeriod: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new PaymentGetAllPaymentsRequest(
+        paymentNbr: 'test string',
+        paymentType: 'test string',
+        customer: 'test string',
+        greaterThanValue: 'test string',
+        invoiceRefNbr: 'test string',
+        status: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        branch: 'test string',
+        docDate: 'test string',
+        docDateCondition: 'test string',
+        financialPeriod: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(PaymentGetAllPaymentsRequest::class);
 
-    Saloon::assertSent(function (PaymentGetAllPaymentsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->type->toBe('String value')
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->applicationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
         ->paymentRef->toBe('String value')
         ->customer->toBeNull()
@@ -193,75 +244,132 @@ it('calls the paymentGetAllPaymentsCollection method in the Payment resource', f
         ->paymentMethod->toBeNull()
         ->cashAccount->toBe('String value')
         ->currency->toBe('String value')
-        ->paymentAmount->toBe(3.14)
+        ->paymentAmount->toBe(42)
         ->invoiceText->toBe('String value')
-        ->appliedToDocuments->toBe(3.14)
-        ->appliedToOrders->toBe(3.14)
-        ->availableBalance->toBe(3.14)
-        ->writeOffAmount->toBe(3.14)
-        ->financeCharges->toBe(3.14)
-        ->deductedCharges->toBe(3.14)
+        ->appliedToDocuments->toBe(42)
+        ->appliedToOrders->toBe(42)
+        ->availableBalance->toBe(42)
+        ->writeOffAmount->toBe(42)
+        ->financeCharges->toBe(42)
+        ->deductedCharges->toBe(42)
         ->branch->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->financialDetails->toBeNull()
-        ->paymentAmountInCurrency->toBe(3.14)
-        ->availableBalanceInCurrency->toBe(3.14)
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->paymentAmountInCurrency->toBe(42)
+        ->availableBalanceInCurrency->toBe(42)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the paymentReleasePaymentBypaymentNumber method in the Payment resource', function () {
-    $mockClient = Saloon::fake([
-        PaymentReleasePaymentBypaymentNumberRequest::class => MockResponse::make([], 200),
+it('calls the paymentCreatePaymentRequest method in the Payment resource', function () {
+    $bodyData = new PaymentUpdateDto(
+        referenceNumber: null,
+        type: null,
+        hold: null,
+        applicationDate: null,
+        applicationPeriod: null,
+        paymentRef: null,
+        customer: null,
+        location: null,
+        paymentMethod: null,
+        cashAccount: null,
+        currency: null,
+        paymentAmount: null,
+        invoiceText: null,
+        branch: 'String value',
+        overrideNumberSeries: true,
+        ordersToApply: [],
+        financeCharges: [],
+        paymentLines: []
+    );
+
+    Saloon::fake([
+        PaymentCreatePaymentRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ReleasePaymentActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new PaymentCreatePaymentRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new PaymentReleasePaymentBypaymentNumberRequest(paymentNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(PaymentCreatePaymentRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the paymentReleasePaymentBypaymentNumberRequest method in the Payment resource', function () {
+    $bodyData = new PaymentUpdateDto(
+        referenceNumber: null,
+        type: null,
+        hold: null,
+        applicationDate: null,
+        applicationPeriod: null,
+        paymentRef: null,
+        customer: null,
+        location: null,
+        paymentMethod: null,
+        cashAccount: null,
+        currency: null,
+        paymentAmount: null,
+        invoiceText: null,
+        branch: 'String value',
+        overrideNumberSeries: true,
+        ordersToApply: [],
+        financeCharges: [],
+        paymentLines: []
+    );
+
+    Saloon::fake([
+        PaymentReleasePaymentBypaymentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new PaymentReleasePaymentBypaymentNumberRequest(
+        paymentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(PaymentReleasePaymentBypaymentNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the paymentVoidPaymentBypaymentNumber method in the Payment resource', function () {
-    $mockClient = Saloon::fake([
-        PaymentVoidPaymentBypaymentNumberRequest::class => MockResponse::make([], 200),
+it('calls the paymentVoidPaymentBypaymentNumberRequest method in the Payment resource', function () {
+    $bodyData = new PaymentUpdateDto(
+        referenceNumber: null,
+        type: null,
+        hold: null,
+        applicationDate: null,
+        applicationPeriod: null,
+        paymentRef: null,
+        customer: null,
+        location: null,
+        paymentMethod: null,
+        cashAccount: null,
+        currency: null,
+        paymentAmount: null,
+        invoiceText: null,
+        branch: 'String value',
+        overrideNumberSeries: true,
+        ordersToApply: [],
+        financeCharges: [],
+        paymentLines: []
+    );
+
+    Saloon::fake([
+        PaymentVoidPaymentBypaymentNumberRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\VoidPaymentActionResultDto::factory()->state([
-        'type' => 'test value',
-        'refNbr' => 'test value',
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-    ])->make();
-
-    $request = new PaymentVoidPaymentBypaymentNumberRequest(paymentNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new PaymentVoidPaymentBypaymentNumberRequest(
+        paymentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(PaymentVoidPaymentBypaymentNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->type->toBe('test value')
-            ->refNbr->toBe('test value')
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });

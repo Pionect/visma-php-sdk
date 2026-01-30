@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Subaccount\SubaccountGetAllSubaccountsCollectionRequest;
+use Pionect\VismaSdk\Requests\Subaccount\SubaccountGetAllSubaccountsRequest;
 use Pionect\VismaSdk\Requests\Subaccount\SubaccountGetSubaccountBysubAccountNumberRequest;
+use Pionect\VismaSdk\Requests\Subaccount\SubaccountPostRequest;
+use Pionect\VismaSdk\Requests\Subaccount\SubaccountPutBysubAccountNumberRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,16 +13,16 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the subaccountGetSubaccountBysubAccountNumber method in the Subaccount resource', function () {
+it('calls the subaccountGetSubaccountBysubAccountNumberRequest method in the Subaccount resource', function () {
     Saloon::fake([
         SubaccountGetSubaccountBysubAccountNumberRequest::class => MockResponse::make([
             'subaccountNumber' => 'String value',
             'subaccountId' => 42,
             'description' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'active' => true,
             'segments' => [],
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -42,64 +43,107 @@ it('calls the subaccountGetSubaccountBysubAccountNumber method in the Subaccount
         ->subaccountNumber->toBe('String value')
         ->subaccountId->toBe(42)
         ->description->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->active->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->active->toBe(true)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the subaccountGetAllSubaccountsCollection method in the Subaccount resource', function () {
+it('calls the subaccountPutBysubAccountNumberRequest method in the Subaccount resource', function () {
+    $bodyData = [
+        'name' => 'Test value',
+    ];
+
     Saloon::fake([
-        SubaccountGetAllSubaccountsCollectionRequest::class => MockResponse::make([
+        SubaccountPutBysubAccountNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SubaccountPutBysubAccountNumberRequest(
+        subAccountNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SubaccountPutBysubAccountNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the subaccountGetAllSubaccountsRequest method in the Subaccount resource', function () {
+    Saloon::fake([
+        SubaccountGetAllSubaccountsRequest::class => MockResponse::make([
             0 => [
                 'subaccountNumber' => 'String value',
                 'subaccountId' => 42,
                 'description' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'active' => true,
                 'segments' => [],
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'subaccountNumber' => 'String value',
                 'subaccountId' => 42,
                 'description' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'active' => true,
                 'segments' => [],
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new SubaccountGetAllSubaccountsCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', active: true, pageNumber: 123, pageSize: 123));
+    $request = new SubaccountGetAllSubaccountsRequest(
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        active: true,
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(SubaccountGetAllSubaccountsRequest::class);
 
-    Saloon::assertSent(function (SubaccountGetAllSubaccountsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->subaccountNumber->toBe('String value')
         ->subaccountId->toBe(42)
         ->description->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->active->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->active->toBe(true)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
+});
+
+it('calls the subaccountPostRequest method in the Subaccount resource', function () {
+    $bodyData = [
+        'name' => 'Test value',
+    ];
+
+    Saloon::fake([
+        SubaccountPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SubaccountPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SubaccountPostRequest::class);
+
+    expect($response->status())->toBe(201);
 });

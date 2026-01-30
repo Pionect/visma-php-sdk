@@ -1,10 +1,10 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Branch\BranchGetAllBranchesCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\BranchDto;
+use Pionect\VismaSdk\Requests\Branch\BranchGetAllBranchesRequest;
 use Pionect\VismaSdk\Requests\Branch\BranchGetSpecificBranchBybranchNumberRequest;
+use Pionect\VismaSdk\Requests\Branch\BranchPutBankSettingsForBranchBybranchNumberRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +12,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resource', function () {
+it('calls the branchGetSpecificBranchBybranchNumberRequest method in the Branch resource', function () {
     Saloon::fake([
         BranchGetSpecificBranchBybranchNumberRequest::class => MockResponse::make([
             'branchId' => 42,
@@ -21,7 +21,7 @@ it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resourc
             'organizationId' => 42,
             'isMainBranch' => true,
             'isActive' => true,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'corporateId' => 'mock-id-123',
             'vatRegistrationId' => 'mock-id-123',
             'mainAddress' => null,
@@ -64,9 +64,9 @@ it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resourc
         ->number->toBe('String value')
         ->name->toBe('String value')
         ->organizationId->toBe(42)
-        ->isMainBranch->toBeTrue()
-        ->isActive->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->isMainBranch->toBe(true)
+        ->isActive->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->corporateId->toBe('mock-id-123')
         ->vatRegistrationId->toBe('mock-id-123')
         ->mainAddress->toBeNull()
@@ -81,9 +81,9 @@ it('calls the branchGetSpecificBranchBybranchNumber method in the Branch resourc
         ->bankSettings->toBeNull();
 });
 
-it('calls the branchGetAllBranchesCollection method in the Branch resource', function () {
+it('calls the branchGetAllBranchesRequest method in the Branch resource', function () {
     Saloon::fake([
-        BranchGetAllBranchesCollectionRequest::class => MockResponse::make([
+        BranchGetAllBranchesRequest::class => MockResponse::make([
             0 => [
                 'branchId' => 42,
                 'number' => 'String value',
@@ -91,7 +91,7 @@ it('calls the branchGetAllBranchesCollection method in the Branch resource', fun
                 'organizationId' => 42,
                 'isMainBranch' => true,
                 'isActive' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'corporateId' => 'mock-id-123',
                 'vatRegistrationId' => 'mock-id-123',
                 'mainAddress' => null,
@@ -112,7 +112,7 @@ it('calls the branchGetAllBranchesCollection method in the Branch resource', fun
                 'organizationId' => 42,
                 'isMainBranch' => true,
                 'isActive' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'corporateId' => 'mock-id-123',
                 'vatRegistrationId' => 'mock-id-123',
                 'mainAddress' => null,
@@ -129,26 +129,44 @@ it('calls the branchGetAllBranchesCollection method in the Branch resource', fun
         ], 200),
     ]);
 
-    $request = (new BranchGetAllBranchesCollectionRequest(greaterThanValue: 'test string', orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', expandAddress: true, expandContact: true, expandCurrency: true, expandVatZone: true, expandLedger: true, expandIndustryCode: true, expandDeliveryAddress: true, expandDeliveryContact: true, expandDefaultCountry: true, expandBankSettings: true));
+    $request = new BranchGetAllBranchesRequest(
+        greaterThanValue: 'test string',
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        expandAddress: true,
+        expandContact: true,
+        expandCurrency: true,
+        expandVatZone: true,
+        expandLedger: true,
+        expandIndustryCode: true,
+        expandDeliveryAddress: true,
+        expandDeliveryContact: true,
+        expandDefaultCountry: true,
+        expandBankSettings: true,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(BranchGetAllBranchesRequest::class);
 
-    Saloon::assertSent(function (BranchGetAllBranchesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->branchId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')
         ->organizationId->toBe(42)
-        ->isMainBranch->toBeTrue()
-        ->isActive->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->isMainBranch->toBe(true)
+        ->isActive->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->corporateId->toBe('mock-id-123')
         ->vatRegistrationId->toBe('mock-id-123')
         ->mainAddress->toBeNull()
@@ -161,4 +179,43 @@ it('calls the branchGetAllBranchesCollection method in the Branch resource', fun
         ->vatZone->toBeNull()
         ->ledger->toBeNull()
         ->bankSettings->toBeNull();
+});
+
+it('calls the branchPutBankSettingsForBranchBybranchNumberRequest method in the Branch resource', function () {
+    $bodyData = new BranchDto(
+        branchId: 42,
+        number: 'String value',
+        name: 'String value',
+        organizationId: 42,
+        isMainBranch: true,
+        isActive: true,
+        lastModifiedDateTime: '2025-11-22T10:40:04+00:00',
+        corporateId: 'mock-id-123',
+        vatRegistrationId: 'mock-id-123',
+        mainAddress: null,
+        mainContact: null,
+        deliveryAddress: null,
+        deliveryContact: null,
+        defaultCountry: null,
+        industryCode: null,
+        currency: null,
+        vatZone: null,
+        ledger: null,
+        bankSettings: null
+    );
+
+    Saloon::fake([
+        BranchPutBankSettingsForBranchBybranchNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new BranchPutBankSettingsForBranchBybranchNumberRequest(
+        branchNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(BranchPutBankSettingsForBranchBybranchNumberRequest::class);
+
+    expect($response->status())->toBe(201);
 });

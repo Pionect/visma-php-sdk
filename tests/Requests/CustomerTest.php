@@ -1,37 +1,38 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\CustomerUpdateDto;
 use Pionect\VismaSdk\Requests\Customer\CustomerChangeCustomerNrActionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerCreateDunningLetterActionBycustomerRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCashSalesForCustomerBycustomerNumberRequest;
-use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetAllContactsForCustomerBycustomerCdRequest;
-use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCustomerBalanceCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCustomerBalanceRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetAllDocumentsForCustomerBycustomerNumberRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetAllInvoicesForCustomerBycustomerNumberRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetAllOrderForCustomerBycustomerCdRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetAllSalesOrderBasicForCustomerBycustomerCdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetBycustomerCdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetCustomerBalanceBycustomerCdRequest;
-use Pionect\VismaSdk\Requests\Customer\CustomerGetCustomerClassesCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetCustomerClassesRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetCustomerDirectDebitBycustomerCdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetCustomerNoteBycustomerCdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetSalesPersonsForCustomerBycustomerCdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetSpecificCustomerClassBycustomerClassIdRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerPostRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerPutBycustomerCdRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerPutByinternalIdRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the customerGetCustomerClassesCollection method in the Customer resource', function () {
+it('calls the customerGetCustomerClassesRequest method in the Customer resource', function () {
     Saloon::fake([
-        CustomerGetCustomerClassesCollectionRequest::class => MockResponse::make([
+        CustomerGetCustomerClassesRequest::class => MockResponse::make([
             0 => [
                 'description' => 'String value',
                 'taxZoneId' => 'mock-id-123',
@@ -49,26 +50,30 @@ it('calls the customerGetCustomerClassesCollection method in the Customer resour
         ], 200),
     ]);
 
-    $request = (new CustomerGetCustomerClassesCollectionRequest);
+    $request = new CustomerGetCustomerClassesRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CustomerGetCustomerClassesRequest::class);
 
-    Saloon::assertSent(function (CustomerGetCustomerClassesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->description->toBe('String value')
         ->taxZoneId->toBe('mock-id-123')
-        ->requiredTaxzoneId->toBeTrue()
+        ->requiredTaxzoneId->toBe(true)
         ->paymentMethodId->toBe('mock-id-123');
 });
 
-it('calls the customerGetSpecificCustomerClassBycustomerClassId method in the Customer resource', function () {
+it('calls the customerGetSpecificCustomerClassBycustomerClassIdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetSpecificCustomerClassBycustomerClassIdRequest::class => MockResponse::make([
             'description' => 'String value',
@@ -94,22 +99,22 @@ it('calls the customerGetSpecificCustomerClassBycustomerClassId method in the Cu
     expect($dto)
         ->description->toBe('String value')
         ->taxZoneId->toBe('mock-id-123')
-        ->requiredTaxzoneId->toBeTrue()
+        ->requiredTaxzoneId->toBe(true)
         ->paymentMethodId->toBe('mock-id-123');
 });
 
-it('calls the customerGetCustomerBalanceBycustomerCd method in the Customer resource', function () {
+it('calls the customerGetCustomerBalanceBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerBalanceBycustomerCdRequest::class => MockResponse::make([
             'customer' => null,
-            'balance' => 3.14,
-            'totalOrder' => 3.14,
-            'totalLoan' => 3.14,
-            'totalSalePeriod' => 3.14,
-            'totalSaleYear' => 3.14,
-            'totalDiscountPeriod' => 3.14,
-            'totalDiscountYear' => 3.14,
-            'lastModified' => '2025-11-22T10:40:04.065Z',
+            'balance' => 42,
+            'totalOrder' => 42,
+            'totalLoan' => 42,
+            'totalSalePeriod' => 42,
+            'totalSaleYear' => 42,
+            'totalDiscountPeriod' => 42,
+            'totalDiscountYear' => 42,
+            'lastModified' => '2025-11-22T10:40:04+00:00',
         ], 200),
     ]);
 
@@ -127,29 +132,29 @@ it('calls the customerGetCustomerBalanceBycustomerCd method in the Customer reso
 
     expect($dto)
         ->customer->toBeNull()
-        ->balance->toBe(3.14)
-        ->totalOrder->toBe(3.14)
-        ->totalLoan->toBe(3.14)
-        ->totalSalePeriod->toBe(3.14)
-        ->totalSaleYear->toBe(3.14)
-        ->totalDiscountPeriod->toBe(3.14)
-        ->totalDiscountYear->toBe(3.14)
-        ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->balance->toBe(42)
+        ->totalOrder->toBe(42)
+        ->totalLoan->toBe(42)
+        ->totalSalePeriod->toBe(42)
+        ->totalSaleYear->toBe(42)
+        ->totalDiscountPeriod->toBe(42)
+        ->totalDiscountYear->toBe(42)
+        ->lastModified->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });
 
-it('calls the customerGetCustomerDirectDebitBycustomerCd method in the Customer resource', function () {
+it('calls the customerGetCustomerDirectDebitBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerDirectDebitBycustomerCdRequest::class => MockResponse::make([
             'mandateId' => 'mock-id-123',
             'mandateDescription' => 'String value',
-            'dateOfSignature' => '2025-11-22T10:40:04.065Z',
+            'dateOfSignature' => '2025-11-22T10:40:04+00:00',
             'isDefault' => true,
-            'oneTime' => '2025-11-22T10:40:04.065Z',
+            'oneTime' => true,
             'bic' => 'String value',
             'iban' => 'String value',
-            'lastCollectionDate' => '2025-11-22T10:40:04.065Z',
-            'maxAmount' => 3.14,
-            'expirationDate' => '2025-11-22T10:40:04.065Z',
+            'lastCollectionDate' => '2025-11-22T10:40:04+00:00',
+            'maxAmount' => 42,
+            'expirationDate' => '2025-11-22T10:40:04+00:00',
             'branch' => 'String value',
         ], 200),
     ]);
@@ -169,18 +174,18 @@ it('calls the customerGetCustomerDirectDebitBycustomerCd method in the Customer 
     expect($dto)
         ->mandateId->toBe('mock-id-123')
         ->mandateDescription->toBe('String value')
-        ->dateOfSignature->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->isDefault->toBeTrue()
-        ->oneTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->dateOfSignature->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->isDefault->toBe(true)
+        ->oneTime->toBe(true)
         ->bic->toBe('String value')
         ->iban->toBe('String value')
-        ->lastCollectionDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->maxAmount->toBe(3.14)
-        ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastCollectionDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->maxAmount->toBe(42)
+        ->expirationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branch->toBe('String value');
 });
 
-it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer resource', function () {
+it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllOrderForCustomerBycustomerCdRequest::class => MockResponse::make([
             'projectCd' => 'String value',
@@ -192,10 +197,10 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
             'customerVatzone' => null,
             'invoiceSeparately' => true,
             'invoiceNbr' => 'String value',
-            'invoiceDate' => '2025-11-22T10:40:04.065Z',
+            'invoiceDate' => '2025-11-22T10:40:04+00:00',
             'terms' => null,
-            'dueDate' => '2025-11-22T10:40:04.065Z',
-            'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
+            'dueDate' => '2025-11-22T10:40:04+00:00',
+            'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
             'salesPerson' => null,
             'commissionPercent' => 'String value',
@@ -206,10 +211,10 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
             'origOrderNbr' => 'String value',
             'soShippingContact' => null,
             'soShippingAddress' => null,
-            'schedShipment' => '2025-11-22T10:40:04.065Z',
+            'schedShipment' => '2025-11-22T10:40:04+00:00',
             'shipSeparately' => true,
             'shipComplete' => 'String value',
-            'cancelBy' => '2025-11-22T10:40:04.065Z',
+            'cancelBy' => '2025-11-22T10:40:04+00:00',
             'canceled' => true,
             'preferredWarehouse' => null,
             'shipVia' => null,
@@ -232,8 +237,8 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
             'orderNo' => 'String value',
             'status' => 'String value',
             'hold' => true,
-            'date' => '2025-11-22T10:40:04.065Z',
-            'requestOn' => '2025-11-22T10:40:04.065Z',
+            'date' => '2025-11-22T10:40:04+00:00',
+            'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
             'customer' => null,
@@ -241,18 +246,18 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
             'location' => null,
             'currency' => 'String value',
             'description' => 'String value',
-            'orderTotal' => 3.14,
-            'orderTotalInBaseCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInBaseCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInBaseCurrency' => 3.14,
-            'taxTotal' => 3.14,
-            'taxTotalInBaseCurrency' => 3.14,
-            'exchangeRate' => 3.14,
-            'discountTotal' => 3.14,
-            'discountTotalInBaseCurrency' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'orderTotal' => 42,
+            'orderTotalInBaseCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInBaseCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInBaseCurrency' => 42,
+            'taxTotal' => 42,
+            'taxTotalInBaseCurrency' => 42,
+            'exchangeRate' => 42,
+            'discountTotal' => 42,
+            'discountTotalInBaseCurrency' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'branchNumber' => null,
             'note' => 'String value',
             'attachments' => [],
@@ -285,18 +290,18 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
 
     expect($dto)
         ->projectCd->toBe('String value')
-        ->printDescriptionOnInvoice->toBeTrue()
-        ->printNoteOnExternalDocuments->toBeTrue()
-        ->printNoteOnInternalDocuments->toBeTrue()
+        ->printDescriptionOnInvoice->toBe(true)
+        ->printNoteOnExternalDocuments->toBe(true)
+        ->printNoteOnInternalDocuments->toBe(true)
         ->soBillingContact->toBeNull()
         ->soBillingAddress->toBeNull()
         ->customerVatzone->toBeNull()
-        ->invoiceSeparately->toBeTrue()
+        ->invoiceSeparately->toBe(true)
         ->invoiceNbr->toBe('String value')
-        ->invoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->invoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->terms->toBeNull()
-        ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
         ->salesPerson->toBeNull()
         ->commissionPercent->toBe('String value')
@@ -307,32 +312,32 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
         ->origOrderNbr->toBe('String value')
         ->soShippingContact->toBeNull()
         ->soShippingAddress->toBeNull()
-        ->schedShipment->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->shipSeparately->toBeTrue()
+        ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->shipSeparately->toBe(true)
         ->shipComplete->toBe('String value')
-        ->cancelBy->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->canceled->toBeTrue()
+        ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->canceled->toBe(true)
         ->preferredWarehouse->toBeNull()
         ->shipVia->toBeNull()
         ->fobPoint->toBeNull()
         ->priority->toBe(42)
         ->shippingTerms->toBeNull()
         ->shippingZone->toBeNull()
-        ->residentialDelivery->toBeTrue()
-        ->saturdayDelivery->toBeTrue()
-        ->insurance->toBeTrue()
+        ->residentialDelivery->toBe(true)
+        ->saturdayDelivery->toBe(true)
+        ->insurance->toBe(true)
         ->transactionType->toBeNull()
         ->paymentMethod->toBeNull()
         ->cashAccount->toBe('String value')
         ->paymentRef->toBe('String value')
-        ->isRotRutDeductible->toBeTrue()
-        ->emailed->toBeTrue()
+        ->isRotRutDeductible->toBe(true)
+        ->emailed->toBe(true)
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
         ->customer->toBeNull()
@@ -340,24 +345,24 @@ it('calls the customerGetAllOrderForCustomerBycustomerCd method in the Customer 
         ->location->toBeNull()
         ->currency->toBe('String value')
         ->description->toBe('String value')
-        ->orderTotal->toBe(3.14)
-        ->orderTotalInBaseCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInBaseCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInBaseCurrency->toBe(3.14)
-        ->taxTotal->toBe(3.14)
-        ->taxTotalInBaseCurrency->toBe(3.14)
-        ->exchangeRate->toBe(3.14)
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInBaseCurrency->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->orderTotal->toBe(42)
+        ->orderTotalInBaseCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInBaseCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInBaseCurrency->toBe(42)
+        ->taxTotal->toBe(42)
+        ->taxTotalInBaseCurrency->toBe(42)
+        ->exchangeRate->toBe(42)
+        ->discountTotal->toBe(42)
+        ->discountTotalInBaseCurrency->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the Customer resource', function () {
+it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllSalesOrderBasicForCustomerBycustomerCdRequest::class => MockResponse::make([
             'lines' => [],
@@ -365,8 +370,8 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the
             'orderNo' => 'String value',
             'status' => 'String value',
             'hold' => true,
-            'date' => '2025-11-22T10:40:04.065Z',
-            'requestOn' => '2025-11-22T10:40:04.065Z',
+            'date' => '2025-11-22T10:40:04+00:00',
+            'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
             'customer' => null,
@@ -374,18 +379,18 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the
             'location' => null,
             'currency' => 'String value',
             'description' => 'String value',
-            'orderTotal' => 3.14,
-            'orderTotalInBaseCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInBaseCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInBaseCurrency' => 3.14,
-            'taxTotal' => 3.14,
-            'taxTotalInBaseCurrency' => 3.14,
-            'exchangeRate' => 3.14,
-            'discountTotal' => 3.14,
-            'discountTotalInBaseCurrency' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'orderTotal' => 42,
+            'orderTotalInBaseCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInBaseCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInBaseCurrency' => 42,
+            'taxTotal' => 42,
+            'taxTotalInBaseCurrency' => 42,
+            'exchangeRate' => 42,
+            'discountTotal' => 42,
+            'discountTotalInBaseCurrency' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'branchNumber' => null,
             'note' => 'String value',
             'attachments' => [],
@@ -420,9 +425,9 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
         ->customer->toBeNull()
@@ -430,24 +435,24 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCd method in the
         ->location->toBeNull()
         ->currency->toBe('String value')
         ->description->toBe('String value')
-        ->orderTotal->toBe(3.14)
-        ->orderTotalInBaseCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInBaseCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInBaseCurrency->toBe(3.14)
-        ->taxTotal->toBe(3.14)
-        ->taxTotalInBaseCurrency->toBe(3.14)
-        ->exchangeRate->toBe(3.14)
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInBaseCurrency->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->orderTotal->toBe(42)
+        ->orderTotalInBaseCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInBaseCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInBaseCurrency->toBe(42)
+        ->taxTotal->toBe(42)
+        ->taxTotalInBaseCurrency->toBe(42)
+        ->exchangeRate->toBe(42)
+        ->discountTotal->toBe(42)
+        ->discountTotalInBaseCurrency->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Customer resource', function () {
+it('calls the customerGetAllContactsForCustomerBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllContactsForCustomerBycustomerCdRequest::class => MockResponse::make([
             'displayName' => 'String value',
@@ -473,9 +478,9 @@ it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Custom
             'doNotMail' => true,
             'noMassMail' => true,
             'noMarketing' => true,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'contactId' => 42,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -506,14 +511,14 @@ it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Custom
 
     expect($dto)
         ->displayName->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->title->toBe('String value')
         ->firstName->toBe('String value')
         ->lastName->toBe('String value')
         ->position->toBe('String value')
         ->businessAccount->toBe('String value')
         ->businessAccountType->toBe('String value')
-        ->sameAsAccount->toBeTrue()
+        ->sameAsAccount->toBe(true)
         ->address->toBeNull()
         ->email->toBe('test@example.com')
         ->web->toBe('String value')
@@ -522,26 +527,26 @@ it('calls the customerGetAllContactsForCustomerBycustomerCd method in the Custom
         ->phone3->toBe('String value')
         ->fax->toBe('String value')
         ->contactMethod->toBe('String value')
-        ->doNotCall->toBeTrue()
-        ->doNotFax->toBeTrue()
-        ->doNotEmail->toBeTrue()
-        ->doNotMail->toBeTrue()
-        ->noMassMail->toBeTrue()
-        ->noMarketing->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->doNotCall->toBe(true)
+        ->doNotFax->toBe(true)
+        ->doNotEmail->toBe(true)
+        ->doNotMail->toBe(true)
+        ->noMassMail->toBe(true)
+        ->noMarketing->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->contactId->toBe(42)
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetSalesPersonsForCustomerBycustomerCd method in the Customer resource', function () {
+it('calls the customerGetSalesPersonsForCustomerBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetSalesPersonsForCustomerBycustomerCdRequest::class => MockResponse::make([
             'salePersonId' => 'mock-id-123',
             'name' => 'String value',
             'locationId' => 'mock-id-123',
             'locationName' => 'String value',
-            'commisionPct' => 3.14,
+            'commisionPct' => 42,
             'isDefault' => true,
             'errorInfo' => 'String value',
         ], 200),
@@ -566,64 +571,74 @@ it('calls the customerGetSalesPersonsForCustomerBycustomerCd method in the Custo
         ->name->toBe('String value')
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('String value')
-        ->commisionPct->toBe(3.14)
-        ->isDefault->toBeTrue()
+        ->commisionPct->toBe(42)
+        ->isDefault->toBe(true)
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetAllCustomerBalanceCollection method in the Customer resource', function () {
+it('calls the customerGetAllCustomerBalanceRequest method in the Customer resource', function () {
     Saloon::fake([
-        CustomerGetAllCustomerBalanceCollectionRequest::class => MockResponse::make([
+        CustomerGetAllCustomerBalanceRequest::class => MockResponse::make([
             0 => [
                 'customer' => null,
-                'balance' => 3.14,
-                'totalOrder' => 3.14,
-                'totalLoan' => 3.14,
-                'totalSalePeriod' => 3.14,
-                'totalSaleYear' => 3.14,
-                'totalDiscountPeriod' => 3.14,
-                'totalDiscountYear' => 3.14,
-                'lastModified' => '2025-11-22T10:40:04.065Z',
+                'balance' => 42,
+                'totalOrder' => 42,
+                'totalLoan' => 42,
+                'totalSalePeriod' => 42,
+                'totalSaleYear' => 42,
+                'totalDiscountPeriod' => 42,
+                'totalDiscountYear' => 42,
+                'lastModified' => '2025-11-22T10:40:04+00:00',
             ],
             1 => [
                 'customer' => null,
-                'balance' => 3.14,
-                'totalOrder' => 3.14,
-                'totalLoan' => 3.14,
-                'totalSalePeriod' => 3.14,
-                'totalSaleYear' => 3.14,
-                'totalDiscountPeriod' => 3.14,
-                'totalDiscountYear' => 3.14,
-                'lastModified' => '2025-11-22T10:40:04.065Z',
+                'balance' => 42,
+                'totalOrder' => 42,
+                'totalLoan' => 42,
+                'totalSalePeriod' => 42,
+                'totalSaleYear' => 42,
+                'totalDiscountPeriod' => 42,
+                'totalDiscountYear' => 42,
+                'lastModified' => '2025-11-22T10:40:04+00:00',
             ],
         ], 200),
     ]);
 
-    $request = (new CustomerGetAllCustomerBalanceCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new CustomerGetAllCustomerBalanceRequest(
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CustomerGetAllCustomerBalanceRequest::class);
 
-    Saloon::assertSent(function (CustomerGetAllCustomerBalanceCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->customer->toBeNull()
-        ->balance->toBe(3.14)
-        ->totalOrder->toBe(3.14)
-        ->totalLoan->toBe(3.14)
-        ->totalSalePeriod->toBe(3.14)
-        ->totalSaleYear->toBe(3.14)
-        ->totalDiscountPeriod->toBe(3.14)
-        ->totalDiscountYear->toBe(3.14)
-        ->lastModified->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->balance->toBe(42)
+        ->totalOrder->toBe(42)
+        ->totalLoan->toBe(42)
+        ->totalSalePeriod->toBe(42)
+        ->totalSaleYear->toBe(42)
+        ->totalDiscountPeriod->toBe(42)
+        ->totalDiscountYear->toBe(42)
+        ->lastModified->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });
 
-it('calls the customerGetCustomerNoteBycustomerCd method in the Customer resource', function () {
+it('calls the customerGetCustomerNoteBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerNoteBycustomerCdRequest::class => MockResponse::make([
             'note' => 'String value',
@@ -646,7 +661,7 @@ it('calls the customerGetCustomerNoteBycustomerCd method in the Customer resourc
         ->note->toBe('String value');
 });
 
-it('calls the customerGetByinternalId method in the Customer resource', function () {
+it('calls the customerGetByinternalIdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetByinternalIdRequest::class => MockResponse::make([
             'internalId' => 42,
@@ -661,7 +676,7 @@ it('calls the customerGetByinternalId method in the Customer resource', function
             'creditTerms' => null,
             'currencyId' => 'mock-id-123',
             'creditVerification' => 'String value',
-            'creditLimit' => 3.14,
+            'creditLimit' => 42,
             'creditDaysPastDue' => 42,
             'invoiceAddress' => null,
             'invoiceContact' => null,
@@ -682,8 +697,8 @@ it('calls the customerGetByinternalId method in the Customer resource', function
             'vatZone' => null,
             'location' => null,
             'attributes' => [],
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'directDebitLines' => [],
             'priceClass' => null,
             'glAccounts' => null,
@@ -693,7 +708,7 @@ it('calls the customerGetByinternalId method in the Customer resource', function
             'defaultPaymentMethodId' => 'mock-id-123',
             'numberOfEmployees' => 42,
             'excludeDebtCollection' => true,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -723,18 +738,18 @@ it('calls the customerGetByinternalId method in the Customer resource', function
         ->creditTerms->toBeNull()
         ->currencyId->toBe('mock-id-123')
         ->creditVerification->toBe('String value')
-        ->creditLimit->toBe(3.14)
+        ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->printInvoices->toBeTrue()
-        ->acceptAutoInvoices->toBeTrue()
-        ->sendInvoicesByEmail->toBeTrue()
-        ->sendDunningLettersViaEmail->toBeTrue()
-        ->printDunningLetters->toBeTrue()
-        ->printStatements->toBeTrue()
-        ->sendStatementsByEmail->toBeTrue()
-        ->printMultiCurrencyStatements->toBeTrue()
+        ->printInvoices->toBe(true)
+        ->acceptAutoInvoices->toBe(true)
+        ->sendInvoicesByEmail->toBe(true)
+        ->sendDunningLettersViaEmail->toBe(true)
+        ->printDunningLetters->toBe(true)
+        ->printStatements->toBe(true)
+        ->sendStatementsByEmail->toBe(true)
+        ->printMultiCurrencyStatements->toBe(true)
         ->statementType->toBe('String value')
         ->deliveryAddress->toBeNull()
         ->deliveryContact->toBeNull()
@@ -743,20 +758,83 @@ it('calls the customerGetByinternalId method in the Customer resource', function
         ->gln->toBe('String value')
         ->vatZone->toBeNull()
         ->location->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->priceClass->toBeNull()
         ->glAccounts->toBeNull()
-        ->invoiceToDefaultLocation->toBeTrue()
+        ->invoiceToDefaultLocation->toBe(true)
         ->eInvoiceContract->toBeNull()
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
-        ->excludeDebtCollection->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->excludeDebtCollection->toBe(true)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetBycustomerCd method in the Customer resource', function () {
+it('calls the customerPutByinternalIdRequest method in the Customer resource', function () {
+    $bodyData = new CustomerUpdateDto(
+        number: 'String value',
+        name: 'String value',
+        status: 'String value',
+        accountReference: 'String value',
+        numberOfEmployees: 42,
+        parentRecordNumber: 'String value',
+        currencyId: 'mock-id-123',
+        creditLimit: 42,
+        creditDaysPastDue: 42,
+        overrideWithClassValues: true,
+        customerClassId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        printInvoices: true,
+        acceptAutoInvoices: true,
+        sendInvoicesByEmail: true,
+        sendDunningLettersViaEmail: true,
+        printDunningLetters: true,
+        printStatements: true,
+        sendStatementsByEmail: true,
+        printMultiCurrencyStatements: true,
+        invoiceToDefaultLocation: true,
+        vatRegistrationId: 'mock-id-123',
+        corporateId: 'mock-id-123',
+        vatZoneId: 'mock-id-123',
+        gln: 'String value',
+        note: 'String value',
+        mainAddress: null,
+        mainContact: null,
+        creditVerification: 'String value',
+        invoiceAddress: null,
+        invoiceContact: null,
+        statementType: 'String value',
+        deliveryAddress: null,
+        deliveryContact: null,
+        priceClassId: 'mock-id-123',
+        eInvoiceContract: null,
+        defaultPaymentMethod: null,
+        glAccounts: null,
+        directDebitLines: [],
+        attributeLines: [],
+        overrideNumberSeries: true,
+        excludeDebtCollection: true
+    );
+
+    Saloon::fake([
+        CustomerPutByinternalIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerPutByinternalIdRequest(
+        internalId: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerPutByinternalIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerGetBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetBycustomerCdRequest::class => MockResponse::make([
             'internalId' => 42,
@@ -771,7 +849,7 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
             'creditTerms' => null,
             'currencyId' => 'mock-id-123',
             'creditVerification' => 'String value',
-            'creditLimit' => 3.14,
+            'creditLimit' => 42,
             'creditDaysPastDue' => 42,
             'invoiceAddress' => null,
             'invoiceContact' => null,
@@ -792,8 +870,8 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
             'vatZone' => null,
             'location' => null,
             'attributes' => [],
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'directDebitLines' => [],
             'priceClass' => null,
             'glAccounts' => null,
@@ -803,7 +881,7 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
             'defaultPaymentMethodId' => 'mock-id-123',
             'numberOfEmployees' => 42,
             'excludeDebtCollection' => true,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -833,18 +911,18 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
         ->creditTerms->toBeNull()
         ->currencyId->toBe('mock-id-123')
         ->creditVerification->toBe('String value')
-        ->creditLimit->toBe(3.14)
+        ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->printInvoices->toBeTrue()
-        ->acceptAutoInvoices->toBeTrue()
-        ->sendInvoicesByEmail->toBeTrue()
-        ->sendDunningLettersViaEmail->toBeTrue()
-        ->printDunningLetters->toBeTrue()
-        ->printStatements->toBeTrue()
-        ->sendStatementsByEmail->toBeTrue()
-        ->printMultiCurrencyStatements->toBeTrue()
+        ->printInvoices->toBe(true)
+        ->acceptAutoInvoices->toBe(true)
+        ->sendInvoicesByEmail->toBe(true)
+        ->sendDunningLettersViaEmail->toBe(true)
+        ->printDunningLetters->toBe(true)
+        ->printStatements->toBe(true)
+        ->sendStatementsByEmail->toBe(true)
+        ->printMultiCurrencyStatements->toBe(true)
         ->statementType->toBe('String value')
         ->deliveryAddress->toBeNull()
         ->deliveryContact->toBeNull()
@@ -853,22 +931,85 @@ it('calls the customerGetBycustomerCd method in the Customer resource', function
         ->gln->toBe('String value')
         ->vatZone->toBeNull()
         ->location->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->priceClass->toBeNull()
         ->glAccounts->toBeNull()
-        ->invoiceToDefaultLocation->toBeTrue()
+        ->invoiceToDefaultLocation->toBe(true)
         ->eInvoiceContract->toBeNull()
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
-        ->excludeDebtCollection->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->excludeDebtCollection->toBe(true)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetAllCollection method in the Customer resource', function () {
+it('calls the customerPutBycustomerCdRequest method in the Customer resource', function () {
+    $bodyData = new CustomerUpdateDto(
+        number: 'String value',
+        name: 'String value',
+        status: 'String value',
+        accountReference: 'String value',
+        numberOfEmployees: 42,
+        parentRecordNumber: 'String value',
+        currencyId: 'mock-id-123',
+        creditLimit: 42,
+        creditDaysPastDue: 42,
+        overrideWithClassValues: true,
+        customerClassId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        printInvoices: true,
+        acceptAutoInvoices: true,
+        sendInvoicesByEmail: true,
+        sendDunningLettersViaEmail: true,
+        printDunningLetters: true,
+        printStatements: true,
+        sendStatementsByEmail: true,
+        printMultiCurrencyStatements: true,
+        invoiceToDefaultLocation: true,
+        vatRegistrationId: 'mock-id-123',
+        corporateId: 'mock-id-123',
+        vatZoneId: 'mock-id-123',
+        gln: 'String value',
+        note: 'String value',
+        mainAddress: null,
+        mainContact: null,
+        creditVerification: 'String value',
+        invoiceAddress: null,
+        invoiceContact: null,
+        statementType: 'String value',
+        deliveryAddress: null,
+        deliveryContact: null,
+        priceClassId: 'mock-id-123',
+        eInvoiceContract: null,
+        defaultPaymentMethod: null,
+        glAccounts: null,
+        directDebitLines: [],
+        attributeLines: [],
+        overrideNumberSeries: true,
+        excludeDebtCollection: true
+    );
+
     Saloon::fake([
-        CustomerGetAllCollectionRequest::class => MockResponse::make([
+        CustomerPutBycustomerCdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerPutBycustomerCdRequest(
+        customerCd: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerPutBycustomerCdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerGetAllRequest method in the Customer resource', function () {
+    Saloon::fake([
+        CustomerGetAllRequest::class => MockResponse::make([
             0 => [
                 'internalId' => 42,
                 'number' => 'String value',
@@ -882,7 +1023,7 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
                 'creditTerms' => null,
                 'currencyId' => 'mock-id-123',
                 'creditVerification' => 'String value',
-                'creditLimit' => 3.14,
+                'creditLimit' => 42,
                 'creditDaysPastDue' => 42,
                 'invoiceAddress' => null,
                 'invoiceContact' => null,
@@ -903,8 +1044,8 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
                 'vatZone' => null,
                 'location' => null,
                 'attributes' => [],
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'directDebitLines' => [],
                 'priceClass' => null,
                 'glAccounts' => null,
@@ -914,12 +1055,8 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
                 'defaultPaymentMethodId' => 'mock-id-123',
                 'numberOfEmployees' => 42,
                 'excludeDebtCollection' => true,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'internalId' => 42,
@@ -934,7 +1071,7 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
                 'creditTerms' => null,
                 'currencyId' => 'mock-id-123',
                 'creditVerification' => 'String value',
-                'creditLimit' => 3.14,
+                'creditLimit' => 42,
                 'creditDaysPastDue' => 42,
                 'invoiceAddress' => null,
                 'invoiceContact' => null,
@@ -955,8 +1092,8 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
                 'vatZone' => null,
                 'location' => null,
                 'attributes' => [],
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'directDebitLines' => [],
                 'priceClass' => null,
                 'glAccounts' => null,
@@ -966,29 +1103,48 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
                 'defaultPaymentMethodId' => 'mock-id-123',
                 'numberOfEmployees' => 42,
                 'excludeDebtCollection' => true,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new CustomerGetAllCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, name: 'test string', status: 'test string', corporateId: 'test string', vatRegistrationId: 'test string', email: 'test string', phone: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', expandAccountInformation: true, expandPaymentMethods: true, expandDirectDebit: true, attributes: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new CustomerGetAllRequest(
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        name: 'test string',
+        status: 'test string',
+        corporateId: 'test string',
+        vatRegistrationId: 'test string',
+        email: 'test string',
+        phone: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        expandAccountInformation: true,
+        expandPaymentMethods: true,
+        expandDirectDebit: true,
+        attributes: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CustomerGetAllRequest::class);
 
-    Saloon::assertSent(function (CustomerGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')
@@ -1001,18 +1157,18 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
         ->creditTerms->toBeNull()
         ->currencyId->toBe('mock-id-123')
         ->creditVerification->toBe('String value')
-        ->creditLimit->toBe(3.14)
+        ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->printInvoices->toBeTrue()
-        ->acceptAutoInvoices->toBeTrue()
-        ->sendInvoicesByEmail->toBeTrue()
-        ->sendDunningLettersViaEmail->toBeTrue()
-        ->printDunningLetters->toBeTrue()
-        ->printStatements->toBeTrue()
-        ->sendStatementsByEmail->toBeTrue()
-        ->printMultiCurrencyStatements->toBeTrue()
+        ->printInvoices->toBe(true)
+        ->acceptAutoInvoices->toBe(true)
+        ->sendInvoicesByEmail->toBe(true)
+        ->sendDunningLettersViaEmail->toBe(true)
+        ->printDunningLetters->toBe(true)
+        ->printStatements->toBe(true)
+        ->sendStatementsByEmail->toBe(true)
+        ->printMultiCurrencyStatements->toBe(true)
         ->statementType->toBe('String value')
         ->deliveryAddress->toBeNull()
         ->deliveryContact->toBeNull()
@@ -1021,39 +1177,100 @@ it('calls the customerGetAllCollection method in the Customer resource', functio
         ->gln->toBe('String value')
         ->vatZone->toBeNull()
         ->location->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->priceClass->toBeNull()
         ->glAccounts->toBeNull()
-        ->invoiceToDefaultLocation->toBeTrue()
+        ->invoiceToDefaultLocation->toBe(true)
         ->eInvoiceContract->toBeNull()
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
-        ->excludeDebtCollection->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->excludeDebtCollection->toBe(true)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Customer resource', function () {
+it('calls the customerPostRequest method in the Customer resource', function () {
+    $bodyData = new CustomerUpdateDto(
+        number: 'String value',
+        name: 'String value',
+        status: 'String value',
+        accountReference: 'String value',
+        numberOfEmployees: 42,
+        parentRecordNumber: 'String value',
+        currencyId: 'mock-id-123',
+        creditLimit: 42,
+        creditDaysPastDue: 42,
+        overrideWithClassValues: true,
+        customerClassId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        printInvoices: true,
+        acceptAutoInvoices: true,
+        sendInvoicesByEmail: true,
+        sendDunningLettersViaEmail: true,
+        printDunningLetters: true,
+        printStatements: true,
+        sendStatementsByEmail: true,
+        printMultiCurrencyStatements: true,
+        invoiceToDefaultLocation: true,
+        vatRegistrationId: 'mock-id-123',
+        corporateId: 'mock-id-123',
+        vatZoneId: 'mock-id-123',
+        gln: 'String value',
+        note: 'String value',
+        mainAddress: null,
+        mainContact: null,
+        creditVerification: 'String value',
+        invoiceAddress: null,
+        invoiceContact: null,
+        statementType: 'String value',
+        deliveryAddress: null,
+        deliveryContact: null,
+        priceClassId: 'mock-id-123',
+        eInvoiceContract: null,
+        defaultPaymentMethod: null,
+        glAccounts: null,
+        directDebitLines: [],
+        attributeLines: [],
+        overrideNumberSeries: true,
+        excludeDebtCollection: true
+    );
+
+    Saloon::fake([
+        CustomerPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllInvoicesForCustomerBycustomerNumberRequest::class => MockResponse::make([
             'creditTerms' => null,
-            'documentDueDate' => '2025-11-22T10:40:04.065Z',
-            'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
+            'documentDueDate' => '2025-11-22T10:40:04+00:00',
+            'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'externalReference' => 'String value',
             'isRotRutDeductible' => true,
-            'exchangeRate' => 3.14,
-            'dunningLetterDate' => '2025-11-22T10:40:04.065Z',
+            'exchangeRate' => 42,
+            'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
             'dunningLetterLevel' => 42,
             'contact' => null,
             'attachments' => [],
             'taxDetails' => [],
             'invoiceLines' => [],
             'sendToAutoInvoice' => true,
-            'roundingDiff' => 3.14,
+            'roundingDiff' => 42,
             'customerVatZone' => null,
-            'startDate' => '2025-11-22T10:40:04.065Z',
-            'endDate' => '2025-11-22T10:40:04.065Z',
+            'startDate' => '2025-11-22T10:40:04+00:00',
+            'endDate' => '2025-11-22T10:40:04+00:00',
             'accountingCostRef' => 'String value',
             'originatorDocRef' => 'String value',
             'contractDocRef' => 'String value',
@@ -1061,16 +1278,16 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
             'directDebitMandate' => null,
             'excludeDebtCollection' => true,
             'debtCollection' => null,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'hold' => true,
-            'discountTotal' => 3.14,
-            'discountTotalInCurrency' => 3.14,
-            'detailTotal' => 3.14,
-            'detailTotalInCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInCurrency' => 3.14,
+            'discountTotal' => 42,
+            'discountTotalInCurrency' => 42,
+            'detailTotal' => 42,
+            'detailTotalInCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
             'salesPerson' => null,
@@ -1087,24 +1304,24 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'documentDate' => '2025-11-22T10:40:04.065Z',
-            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'documentDate' => '2025-11-22T10:40:04+00:00',
+            'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'status' => 'String value',
             'currencyId' => 'mock-id-123',
-            'amount' => 3.14,
-            'amountInCurrency' => 3.14,
-            'balance' => 3.14,
-            'balanceInCurrency' => 3.14,
-            'cashDiscount' => 3.14,
-            'cashDiscountInCurrency' => 3.14,
+            'amount' => 42,
+            'amountInCurrency' => 42,
+            'balance' => 42,
+            'balanceInCurrency' => 42,
+            'cashDiscount' => 42,
+            'cashDiscountInCurrency' => 42,
             'paymentMethod' => null,
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
-            'vatTotal' => 3.14,
-            'vatTotalInCurrency' => 3.14,
+            'vatTotal' => 42,
+            'vatTotalInCurrency' => 42,
             'location' => null,
             'branchNumber' => null,
             'cashAccount' => 'String value',
@@ -1162,69 +1379,69 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
 
     expect($dto)
         ->creditTerms->toBeNull()
-        ->documentDueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalReference->toBe('String value')
-        ->isRotRutDeductible->toBeTrue()
-        ->exchangeRate->toBe(3.14)
-        ->dunningLetterDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->isRotRutDeductible->toBe(true)
+        ->exchangeRate->toBe(42)
+        ->dunningLetterDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dunningLetterLevel->toBe(42)
         ->contact->toBeNull()
-        ->sendToAutoInvoice->toBeTrue()
-        ->roundingDiff->toBe(3.14)
+        ->sendToAutoInvoice->toBe(true)
+        ->roundingDiff->toBe(42)
         ->customerVatZone->toBeNull()
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->accountingCostRef->toBe('String value')
         ->originatorDocRef->toBe('String value')
         ->contractDocRef->toBe('String value')
         ->childRecord->toBeNull()
         ->directDebitMandate->toBeNull()
-        ->excludeDebtCollection->toBeTrue()
+        ->excludeDebtCollection->toBe(true)
         ->debtCollection->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->hold->toBeTrue()
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInCurrency->toBe(3.14)
-        ->detailTotal->toBe(3.14)
-        ->detailTotalInCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInCurrency->toBe(3.14)
+        ->timeStamp->toBe('String value')
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
         ->salesPerson->toBeNull()
         ->paymentReference->toBe('String value')
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->dontPrint->toBeTrue()
-        ->dontEmail->toBeTrue()
-        ->revoked->toBeTrue()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -1235,21 +1452,21 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumber method in the Cu
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the Customer resource', function () {
+it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllCashSalesForCustomerBycustomerNumberRequest::class => MockResponse::make([
             'creditTerms' => null,
             'cashSaleLines' => [],
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'hold' => true,
-            'discountTotal' => 3.14,
-            'discountTotalInCurrency' => 3.14,
-            'detailTotal' => 3.14,
-            'detailTotalInCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInCurrency' => 3.14,
+            'discountTotal' => 42,
+            'discountTotalInCurrency' => 42,
+            'detailTotal' => 42,
+            'detailTotalInCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
             'salesPerson' => null,
@@ -1266,24 +1483,24 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the C
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'documentDate' => '2025-11-22T10:40:04.065Z',
-            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'documentDate' => '2025-11-22T10:40:04+00:00',
+            'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'status' => 'String value',
             'currencyId' => 'mock-id-123',
-            'amount' => 3.14,
-            'amountInCurrency' => 3.14,
-            'balance' => 3.14,
-            'balanceInCurrency' => 3.14,
-            'cashDiscount' => 3.14,
-            'cashDiscountInCurrency' => 3.14,
+            'amount' => 42,
+            'amountInCurrency' => 42,
+            'balance' => 42,
+            'balanceInCurrency' => 42,
+            'cashDiscount' => 42,
+            'cashDiscountInCurrency' => 42,
             'paymentMethod' => null,
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
-            'vatTotal' => 3.14,
-            'vatTotalInCurrency' => 3.14,
+            'vatTotal' => 42,
+            'vatTotalInCurrency' => 42,
             'location' => null,
             'branchNumber' => null,
             'cashAccount' => 'String value',
@@ -1341,49 +1558,49 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the C
 
     expect($dto)
         ->creditTerms->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->hold->toBeTrue()
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInCurrency->toBe(3.14)
-        ->detailTotal->toBe(3.14)
-        ->detailTotalInCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInCurrency->toBe(3.14)
+        ->timeStamp->toBe('String value')
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
         ->salesPerson->toBeNull()
         ->paymentReference->toBe('String value')
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->dontPrint->toBeTrue()
-        ->dontEmail->toBeTrue()
-        ->revoked->toBeTrue()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -1394,10 +1611,10 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumber method in the C
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the Customer resource', function () {
+it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllDocumentsForCustomerBycustomerNumberRequest::class => MockResponse::make([
-            'documentDueDate' => '2025-11-22T10:40:04.065Z',
+            'documentDueDate' => '2025-11-22T10:40:04+00:00',
             'branch' => null,
             'customer' => null,
             'documentType' => 'String value',
@@ -1405,24 +1622,24 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the C
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'documentDate' => '2025-11-22T10:40:04.065Z',
-            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'documentDate' => '2025-11-22T10:40:04+00:00',
+            'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'status' => 'String value',
             'currencyId' => 'mock-id-123',
-            'amount' => 3.14,
-            'amountInCurrency' => 3.14,
-            'balance' => 3.14,
-            'balanceInCurrency' => 3.14,
-            'cashDiscount' => 3.14,
-            'cashDiscountInCurrency' => 3.14,
+            'amount' => 42,
+            'amountInCurrency' => 42,
+            'balance' => 42,
+            'balanceInCurrency' => 42,
+            'cashDiscount' => 42,
+            'cashDiscountInCurrency' => 42,
             'paymentMethod' => null,
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
-            'vatTotal' => 3.14,
-            'vatTotalInCurrency' => 3.14,
+            'vatTotal' => 42,
+            'vatTotalInCurrency' => 42,
             'location' => null,
             'branchNumber' => null,
             'cashAccount' => 'String value',
@@ -1479,7 +1696,7 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the C
     $dto = $response->dto();
 
     expect($dto)
-        ->documentDueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branch->toBeNull()
         ->customer->toBeNull()
         ->documentType->toBe('String value')
@@ -1487,24 +1704,24 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the C
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -1515,56 +1732,126 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumber method in the C
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerCreateDunningLetterActionBycustomer method in the Customer resource', function () {
-    $mockClient = Saloon::fake([
-        CustomerCreateDunningLetterActionBycustomerRequest::class => MockResponse::make([], 200),
+it('calls the customerCreateDunningLetterActionBycustomerRequest method in the Customer resource', function () {
+    $bodyData = new CustomerUpdateDto(
+        number: 'String value',
+        name: 'String value',
+        status: 'String value',
+        accountReference: 'String value',
+        numberOfEmployees: 42,
+        parentRecordNumber: 'String value',
+        currencyId: 'mock-id-123',
+        creditLimit: 42,
+        creditDaysPastDue: 42,
+        overrideWithClassValues: true,
+        customerClassId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        printInvoices: true,
+        acceptAutoInvoices: true,
+        sendInvoicesByEmail: true,
+        sendDunningLettersViaEmail: true,
+        printDunningLetters: true,
+        printStatements: true,
+        sendStatementsByEmail: true,
+        printMultiCurrencyStatements: true,
+        invoiceToDefaultLocation: true,
+        vatRegistrationId: 'mock-id-123',
+        corporateId: 'mock-id-123',
+        vatZoneId: 'mock-id-123',
+        gln: 'String value',
+        note: 'String value',
+        mainAddress: null,
+        mainContact: null,
+        creditVerification: 'String value',
+        invoiceAddress: null,
+        invoiceContact: null,
+        statementType: 'String value',
+        deliveryAddress: null,
+        deliveryContact: null,
+        priceClassId: 'mock-id-123',
+        eInvoiceContract: null,
+        defaultPaymentMethod: null,
+        glAccounts: null,
+        directDebitLines: [],
+        attributeLines: [],
+        overrideNumberSeries: true,
+        excludeDebtCollection: true
+    );
+
+    Saloon::fake([
+        CustomerCreateDunningLetterActionBycustomerRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\CreateDunningLetterActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new CustomerCreateDunningLetterActionBycustomerRequest(customer: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new CustomerCreateDunningLetterActionBycustomerRequest(
+        customer: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(CustomerCreateDunningLetterActionBycustomerRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the customerChangeCustomerNrActionByinternalId method in the Customer resource', function () {
-    $mockClient = Saloon::fake([
-        CustomerChangeCustomerNrActionByinternalIdRequest::class => MockResponse::make([], 200),
+it('calls the customerChangeCustomerNrActionByinternalIdRequest method in the Customer resource', function () {
+    $bodyData = new CustomerUpdateDto(
+        number: 'String value',
+        name: 'String value',
+        status: 'String value',
+        accountReference: 'String value',
+        numberOfEmployees: 42,
+        parentRecordNumber: 'String value',
+        currencyId: 'mock-id-123',
+        creditLimit: 42,
+        creditDaysPastDue: 42,
+        overrideWithClassValues: true,
+        customerClassId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        printInvoices: true,
+        acceptAutoInvoices: true,
+        sendInvoicesByEmail: true,
+        sendDunningLettersViaEmail: true,
+        printDunningLetters: true,
+        printStatements: true,
+        sendStatementsByEmail: true,
+        printMultiCurrencyStatements: true,
+        invoiceToDefaultLocation: true,
+        vatRegistrationId: 'mock-id-123',
+        corporateId: 'mock-id-123',
+        vatZoneId: 'mock-id-123',
+        gln: 'String value',
+        note: 'String value',
+        mainAddress: null,
+        mainContact: null,
+        creditVerification: 'String value',
+        invoiceAddress: null,
+        invoiceContact: null,
+        statementType: 'String value',
+        deliveryAddress: null,
+        deliveryContact: null,
+        priceClassId: 'mock-id-123',
+        eInvoiceContract: null,
+        defaultPaymentMethod: null,
+        glAccounts: null,
+        directDebitLines: [],
+        attributeLines: [],
+        overrideNumberSeries: true,
+        excludeDebtCollection: true
+    );
+
+    Saloon::fake([
+        CustomerChangeCustomerNrActionByinternalIdRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ChangeCustomerCdActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new CustomerChangeCustomerNrActionByinternalIdRequest(internalId: 42, data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new CustomerChangeCustomerNrActionByinternalIdRequest(
+        internalId: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(CustomerChangeCustomerNrActionByinternalIdRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });

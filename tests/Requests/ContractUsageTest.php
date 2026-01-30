@@ -1,10 +1,10 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\ContractUsage\ContractUsageGetAllCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\ContractUsageUpdateDto;
+use Pionect\VismaSdk\Requests\ContractUsage\ContractUsageGetAllRequest;
 use Pionect\VismaSdk\Requests\ContractUsage\ContractUsageGetSpecificBycontractIdRequest;
+use Pionect\VismaSdk\Requests\ContractUsage\ContractUsagePutBycontractIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,12 +12,12 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the contractUsageGetSpecificBycontractId method in the ContractUsage resource', function () {
+it('calls the contractUsageGetSpecificBycontractIdRequest method in the ContractUsage resource', function () {
     Saloon::fake([
         ContractUsageGetSpecificBycontractIdRequest::class => MockResponse::make([
             'contract' => 'String value',
             'transaction' => [],
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
         ], 200),
     ]);
 
@@ -35,38 +35,68 @@ it('calls the contractUsageGetSpecificBycontractId method in the ContractUsage r
 
     expect($dto)
         ->contract->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });
 
-it('calls the contractUsageGetAllCollection method in the ContractUsage resource', function () {
+it('calls the contractUsagePutBycontractIdRequest method in the ContractUsage resource', function () {
+    $bodyData = new ContractUsageUpdateDto(
+        lines: []
+    );
+
     Saloon::fake([
-        ContractUsageGetAllCollectionRequest::class => MockResponse::make([
+        ContractUsagePutBycontractIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ContractUsagePutBycontractIdRequest(
+        contractId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ContractUsagePutBycontractIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the contractUsageGetAllRequest method in the ContractUsage resource', function () {
+    Saloon::fake([
+        ContractUsageGetAllRequest::class => MockResponse::make([
             0 => [
                 'contract' => 'String value',
                 'transaction' => [],
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             ],
             1 => [
                 'contract' => 'String value',
                 'transaction' => [],
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             ],
         ], 200),
     ]);
 
-    $request = (new ContractUsageGetAllCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new ContractUsageGetAllRequest(
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ContractUsageGetAllRequest::class);
 
-    Saloon::assertSent(function (ContractUsageGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->contract->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });

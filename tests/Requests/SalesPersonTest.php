@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\SalesPersonUpdateDto;
+use Pionect\VismaSdk\Requests\SalesPerson\SalesPersonCreateSalespersonRequest;
 use Pionect\VismaSdk\Requests\SalesPerson\SalesPersonGetSalespersonBysalespersonCdRequest;
-use Pionect\VismaSdk\Requests\SalesPerson\SalesPersonGetSalespersonsCollectionRequest;
+use Pionect\VismaSdk\Requests\SalesPerson\SalesPersonGetSalespersonsRequest;
+use Pionect\VismaSdk\Requests\SalesPerson\SalesPersonUpdateSalespersonBysalespersonCdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,18 +13,18 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the salesPersonGetSalespersonBysalespersonCd method in the SalesPerson resource', function () {
+it('calls the salesPersonGetSalespersonBysalespersonCdRequest method in the SalesPerson resource', function () {
     Saloon::fake([
         SalesPersonGetSalespersonBysalespersonCdRequest::class => MockResponse::make([
             'salespersonId' => 'mock-id-123',
             'name' => 'String value',
             'isActive' => true,
-            'commissionPct' => 3.14,
+            'commissionPct' => 42,
             'salesSub' => null,
             'customers' => [],
             'commissionHistory' => [],
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -43,65 +44,107 @@ it('calls the salesPersonGetSalespersonBysalespersonCd method in the SalesPerson
     expect($dto)
         ->salespersonId->toBe('mock-id-123')
         ->name->toBe('String value')
-        ->isActive->toBeTrue()
-        ->commissionPct->toBe(3.14)
+        ->isActive->toBe(true)
+        ->commissionPct->toBe(42)
         ->salesSub->toBeNull()
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
 
-it('calls the salesPersonGetSalespersonsCollection method in the SalesPerson resource', function () {
+it('calls the salesPersonUpdateSalespersonBysalespersonCdRequest method in the SalesPerson resource', function () {
+    $bodyData = new SalesPersonUpdateDto(
+        salespersonId: 'mock-id-123',
+        name: 'String value',
+        isActive: true,
+        commissionPct: 42,
+        salesSub: 'String value',
+        customers: []
+    );
+
     Saloon::fake([
-        SalesPersonGetSalespersonsCollectionRequest::class => MockResponse::make([
-            'records' => [
-                0 => [
-                    'salespersonId' => 'mock-id-123',
-                    'name' => 'String value',
-                    'isActive' => true,
-                    'commissionPct' => 3.14,
-                    'salesSub' => null,
-                    'customers' => [],
-                    'commissionHistory' => [],
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'String value',
-                ],
-                1 => [
-                    'salespersonId' => 'mock-id-123',
-                    'name' => 'String value',
-                    'isActive' => true,
-                    'commissionPct' => 3.14,
-                    'salesSub' => null,
-                    'customers' => [],
-                    'commissionHistory' => [],
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'errorInfo' => 'String value',
-                ],
+        SalesPersonUpdateSalespersonBysalespersonCdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SalesPersonUpdateSalespersonBysalespersonCdRequest(
+        salespersonCd: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesPersonUpdateSalespersonBysalespersonCdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the salesPersonGetSalespersonsRequest method in the SalesPerson resource', function () {
+    Saloon::fake([
+        SalesPersonGetSalespersonsRequest::class => MockResponse::make([
+            0 => [
+                'name' => 'Mock value',
+            ],
+            1 => [
+                'name' => 'Mock value',
             ],
         ], 200),
     ]);
 
-    $request = (new SalesPersonGetSalespersonsCollectionRequest(salespersonCd: 'test string', name: 'test string', isActive: true, commissionPct: null, salesSub: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new SalesPersonGetSalespersonsRequest(
+        salespersonCd: 'test string',
+        name: 'test string',
+        isActive: true,
+        commissionPct: 123.45,
+        salesSub: 'test string',
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(SalesPersonGetSalespersonsRequest::class);
 
-    Saloon::assertSent(function (SalesPersonGetSalespersonsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->salespersonId->toBe('mock-id-123')
-        ->name->toBe('String value')
-        ->isActive->toBeTrue()
-        ->commissionPct->toBe(3.14)
-        ->salesSub->toBeNull()
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->name->toBe('Mock value');
+});
+
+it('calls the salesPersonCreateSalespersonRequest method in the SalesPerson resource', function () {
+    $bodyData = new SalesPersonUpdateDto(
+        salespersonId: 'mock-id-123',
+        name: 'String value',
+        isActive: true,
+        commissionPct: 42,
+        salesSub: 'String value',
+        customers: []
+    );
+
+    Saloon::fake([
+        SalesPersonCreateSalespersonRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SalesPersonCreateSalespersonRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesPersonCreateSalespersonRequest::class);
+
+    expect($response->status())->toBe(201);
 });

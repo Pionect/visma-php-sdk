@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\GeneralLedgerTransactions\GeneralLedgerTransactionsGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\GeneralLedgerTransactions\GeneralLedgerTransactionsGetAllRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,14 +10,14 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the generalLedgerTransactionsGetAllCollection method in the GeneralLedgerTransactions resource', function () {
+it('calls the generalLedgerTransactionsGetAllRequest method in the GeneralLedgerTransactions resource', function () {
     Saloon::fake([
-        GeneralLedgerTransactionsGetAllCollectionRequest::class => MockResponse::make([
+        GeneralLedgerTransactionsGetAllRequest::class => MockResponse::make([
             0 => [
                 'lineNumber' => 42,
                 'module' => 'String value',
                 'batchNumber' => 'String value',
-                'tranDate' => '2025-11-22T10:40:04.065Z',
+                'tranDate' => '2025-11-22T10:40:04+00:00',
                 'period' => 'String value',
                 'description' => 'String value',
                 'refNumber' => 'String value',
@@ -26,27 +25,23 @@ it('calls the generalLedgerTransactionsGetAllCollection method in the GeneralLed
                 'account' => null,
                 'ledger' => null,
                 'subaccount' => 'String value',
-                'begBalance' => 3.14,
-                'debitAmount' => 3.14,
-                'creditAmount' => 3.14,
-                'endingBalance' => 3.14,
+                'begBalance' => 42,
+                'debitAmount' => 42,
+                'creditAmount' => 42,
+                'endingBalance' => 42,
                 'currency' => 'String value',
-                'currBegBalance' => 3.14,
-                'currDebitAmount' => 3.14,
-                'currCreditAmount' => 3.14,
-                'currEndingBalance' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'currBegBalance' => 42,
+                'currDebitAmount' => 42,
+                'currCreditAmount' => 42,
+                'currEndingBalance' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'lineNumber' => 42,
                 'module' => 'String value',
                 'batchNumber' => 'String value',
-                'tranDate' => '2025-11-22T10:40:04.065Z',
+                'tranDate' => '2025-11-22T10:40:04+00:00',
                 'period' => 'String value',
                 'description' => 'String value',
                 'refNumber' => 'String value',
@@ -54,42 +49,61 @@ it('calls the generalLedgerTransactionsGetAllCollection method in the GeneralLed
                 'account' => null,
                 'ledger' => null,
                 'subaccount' => 'String value',
-                'begBalance' => 3.14,
-                'debitAmount' => 3.14,
-                'creditAmount' => 3.14,
-                'endingBalance' => 3.14,
+                'begBalance' => 42,
+                'debitAmount' => 42,
+                'creditAmount' => 42,
+                'endingBalance' => 42,
                 'currency' => 'String value',
-                'currBegBalance' => 3.14,
-                'currDebitAmount' => 3.14,
-                'currCreditAmount' => 3.14,
-                'currEndingBalance' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'currBegBalance' => 42,
+                'currDebitAmount' => 42,
+                'currCreditAmount' => 42,
+                'currEndingBalance' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new GeneralLedgerTransactionsGetAllCollectionRequest(branch: 'test string', ledger: 'test string', fromPeriod: 'test string', toPeriod: 'test string', account: 'test string', subaccountId: 'test string', fromDate: 'test string', toDate: 'test string', includeUnposted: true, includeUnreleased: true, skipRecords: 123, numberToRead: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', expandAccountInfo: true, expandBranchInfo: true, includeTransactionBalance: true, pageNumber: 123, pageSize: 123));
+    $request = new GeneralLedgerTransactionsGetAllRequest(
+        branch: 'test string',
+        ledger: 'test string',
+        fromPeriod: 'test string',
+        toPeriod: 'test string',
+        account: 'test string',
+        subaccountId: 'test string',
+        fromDate: 'test string',
+        toDate: 'test string',
+        includeUnposted: true,
+        includeUnreleased: true,
+        skipRecords: 123,
+        numberToRead: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        expandAccountInfo: true,
+        expandBranchInfo: true,
+        includeTransactionBalance: true,
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(GeneralLedgerTransactionsGetAllRequest::class);
 
-    Saloon::assertSent(function (GeneralLedgerTransactionsGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->lineNumber->toBe(42)
         ->module->toBe('String value')
         ->batchNumber->toBe('String value')
-        ->tranDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->tranDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->period->toBe('String value')
         ->description->toBe('String value')
         ->refNumber->toBe('String value')
@@ -97,15 +111,15 @@ it('calls the generalLedgerTransactionsGetAllCollection method in the GeneralLed
         ->account->toBeNull()
         ->ledger->toBeNull()
         ->subaccount->toBe('String value')
-        ->begBalance->toBe(3.14)
-        ->debitAmount->toBe(3.14)
-        ->creditAmount->toBe(3.14)
-        ->endingBalance->toBe(3.14)
+        ->begBalance->toBe(42)
+        ->debitAmount->toBe(42)
+        ->creditAmount->toBe(42)
+        ->endingBalance->toBe(42)
         ->currency->toBe('String value')
-        ->currBegBalance->toBe(3.14)
-        ->currDebitAmount->toBe(3.14)
-        ->currCreditAmount->toBe(3.14)
-        ->currEndingBalance->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->currBegBalance->toBe(42)
+        ->currDebitAmount->toBe(42)
+        ->currCreditAmount->toBe(42)
+        ->currEndingBalance->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });

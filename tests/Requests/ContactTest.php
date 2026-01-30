@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Contact\ContactGetAllContactsCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\ContactUpdateDto;
+use Pionect\VismaSdk\Requests\Contact\ContactCreateContactRequest;
+use Pionect\VismaSdk\Requests\Contact\ContactGetAllContactsRequest;
 use Pionect\VismaSdk\Requests\Contact\ContactGetBycontactIdRequest;
+use Pionect\VismaSdk\Requests\Contact\ContactPutBycontactIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +13,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the contactGetBycontactId method in the Contact resource', function () {
+it('calls the contactGetBycontactIdRequest method in the Contact resource', function () {
     Saloon::fake([
         ContactGetBycontactIdRequest::class => MockResponse::make([
             'displayName' => 'String value',
@@ -38,9 +39,9 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
             'doNotMail' => true,
             'noMassMail' => true,
             'noMarketing' => true,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'contactId' => 42,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -59,14 +60,14 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
 
     expect($dto)
         ->displayName->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->title->toBe('String value')
         ->firstName->toBe('String value')
         ->lastName->toBe('String value')
         ->position->toBe('String value')
         ->businessAccount->toBe('String value')
         ->businessAccountType->toBe('String value')
-        ->sameAsAccount->toBeTrue()
+        ->sameAsAccount->toBe(true)
         ->address->toBeNull()
         ->email->toBe('test@example.com')
         ->web->toBe('String value')
@@ -75,21 +76,63 @@ it('calls the contactGetBycontactId method in the Contact resource', function ()
         ->phone3->toBe('String value')
         ->fax->toBe('String value')
         ->contactMethod->toBe('String value')
-        ->doNotCall->toBeTrue()
-        ->doNotFax->toBeTrue()
-        ->doNotEmail->toBeTrue()
-        ->doNotMail->toBeTrue()
-        ->noMassMail->toBeTrue()
-        ->noMarketing->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->doNotCall->toBe(true)
+        ->doNotFax->toBe(true)
+        ->doNotEmail->toBe(true)
+        ->doNotMail->toBe(true)
+        ->noMassMail->toBe(true)
+        ->noMarketing->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->contactId->toBe(42)
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the contactGetAllContactsCollection method in the Contact resource', function () {
+it('calls the contactPutBycontactIdRequest method in the Contact resource', function () {
+    $bodyData = new ContactUpdateDto(
+        active: true,
+        title: 'String value',
+        firstName: 'String value',
+        lastName: 'String value',
+        position: 'String value',
+        businessAccount: 'String value',
+        sameAsAccount: true,
+        address: null,
+        email: 'test@example.com',
+        web: 'String value',
+        phone1: 'String value',
+        phone2: 'String value',
+        phone3: 'String value',
+        fax: 'String value',
+        contactMethod: 'String value',
+        doNotCall: true,
+        doNotFax: true,
+        doNotEmail: true,
+        doNotMail: true,
+        noMassMail: true,
+        noMarketing: true
+    );
+
     Saloon::fake([
-        ContactGetAllContactsCollectionRequest::class => MockResponse::make([
+        ContactPutBycontactIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ContactPutBycontactIdRequest(
+        contactId: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ContactPutBycontactIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the contactGetAllContactsRequest method in the Contact resource', function () {
+    Saloon::fake([
+        ContactGetAllContactsRequest::class => MockResponse::make([
             0 => [
                 'displayName' => 'String value',
                 'active' => true,
@@ -114,14 +157,10 @@ it('calls the contactGetAllContactsCollection method in the Contact resource', f
                 'doNotMail' => true,
                 'noMassMail' => true,
                 'noMarketing' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'contactId' => 42,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'displayName' => 'String value',
@@ -147,40 +186,52 @@ it('calls the contactGetAllContactsCollection method in the Contact resource', f
                 'doNotMail' => true,
                 'noMassMail' => true,
                 'noMarketing' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'contactId' => 42,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new ContactGetAllContactsCollectionRequest(displayName: 'test string', active: 'test string', firstName: 'test string', lastName: 'test string', businessAccount: 'test string', email: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new ContactGetAllContactsRequest(
+        displayName: 'test string',
+        active: 'test string',
+        firstName: 'test string',
+        lastName: 'test string',
+        businessAccount: 'test string',
+        email: 'test string',
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ContactGetAllContactsRequest::class);
 
-    Saloon::assertSent(function (ContactGetAllContactsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->displayName->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->title->toBe('String value')
         ->firstName->toBe('String value')
         ->lastName->toBe('String value')
         ->position->toBe('String value')
         ->businessAccount->toBe('String value')
         ->businessAccountType->toBe('String value')
-        ->sameAsAccount->toBeTrue()
+        ->sameAsAccount->toBe(true)
         ->address->toBeNull()
         ->email->toBe('test@example.com')
         ->web->toBe('String value')
@@ -189,14 +240,54 @@ it('calls the contactGetAllContactsCollection method in the Contact resource', f
         ->phone3->toBe('String value')
         ->fax->toBe('String value')
         ->contactMethod->toBe('String value')
-        ->doNotCall->toBeTrue()
-        ->doNotFax->toBeTrue()
-        ->doNotEmail->toBeTrue()
-        ->doNotMail->toBeTrue()
-        ->noMassMail->toBeTrue()
-        ->noMarketing->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->doNotCall->toBe(true)
+        ->doNotFax->toBe(true)
+        ->doNotEmail->toBe(true)
+        ->doNotMail->toBe(true)
+        ->noMassMail->toBe(true)
+        ->noMarketing->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->contactId->toBe(42)
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
+});
+
+it('calls the contactCreateContactRequest method in the Contact resource', function () {
+    $bodyData = new ContactUpdateDto(
+        active: true,
+        title: 'String value',
+        firstName: 'String value',
+        lastName: 'String value',
+        position: 'String value',
+        businessAccount: 'String value',
+        sameAsAccount: true,
+        address: null,
+        email: 'test@example.com',
+        web: 'String value',
+        phone1: 'String value',
+        phone2: 'String value',
+        phone3: 'String value',
+        fax: 'String value',
+        contactMethod: 'String value',
+        doNotCall: true,
+        doNotFax: true,
+        doNotEmail: true,
+        doNotMail: true,
+        noMassMail: true,
+        noMarketing: true
+    );
+
+    Saloon::fake([
+        ContactCreateContactRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ContactCreateContactRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ContactCreateContactRequest::class);
+
+    expect($response->status())->toBe(201);
 });

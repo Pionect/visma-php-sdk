@@ -1,11 +1,10 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Requests\Blob\BlobGetByblobIdRequest;
 use Pionect\VismaSdk\Requests\Blob\BlobGetMetadataByblobIdRequest;
-use Pionect\VismaSdk\Requests\Blob\BlobGetPresignedUrlCollectionRequest;
+use Pionect\VismaSdk\Requests\Blob\BlobGetPresignedUrlRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -13,7 +12,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the blobGetByblobId method in the Blob resource', function () {
+it('calls the blobGetByblobIdRequest method in the Blob resource', function () {
     Saloon::fake([
         BlobGetByblobIdRequest::class => MockResponse::make([
             'canRead' => true,
@@ -40,53 +39,51 @@ it('calls the blobGetByblobId method in the Blob resource', function () {
     $dto = $response->dto();
 
     expect($dto)
-        ->canRead->toBeTrue()
-        ->canSeek->toBeTrue()
-        ->canTimeout->toBeTrue()
-        ->canWrite->toBeTrue()
+        ->canRead->toBe(true)
+        ->canSeek->toBe(true)
+        ->canTimeout->toBe(true)
+        ->canWrite->toBe(true)
         ->length->toBe(42)
         ->position->toBe(42)
         ->readTimeout->toBe(42)
         ->writeTimeout->toBe(42);
 });
 
-it('calls the blobGetPresignedUrlCollection method in the Blob resource', function () {
+it('calls the blobGetPresignedUrlRequest method in the Blob resource', function () {
     Saloon::fake([
-        BlobGetPresignedUrlCollectionRequest::class => MockResponse::make([
+        BlobGetPresignedUrlRequest::class => MockResponse::make([
             0 => [
                 'preSignedUrl' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'preSignedUrl' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new BlobGetPresignedUrlCollectionRequest(blobId: 'test string', includeMetadata: true));
+    $request = new BlobGetPresignedUrlRequest(
+        blobId: 'test string',
+        includeMetadata: true,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(BlobGetPresignedUrlRequest::class);
 
-    Saloon::assertSent(function (BlobGetPresignedUrlCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->preSignedUrl->toBe('String value');
 });
 
-it('calls the blobGetMetadataByblobId method in the Blob resource', function () {
+it('calls the blobGetMetadataByblobIdRequest method in the Blob resource', function () {
     Saloon::fake([
         BlobGetMetadataByblobIdRequest::class => MockResponse::make([
             'blobId' => 'mock-id-123',
@@ -96,7 +93,7 @@ it('calls the blobGetMetadataByblobId method in the Blob resource', function () 
             'fileChecksum' => 'String value',
             'size' => 42,
             'countryCode' => 'String value',
-            'createdDateTimeUtc' => '2025-11-22T10:40:04.065Z',
+            'createdDateTimeUtc' => '2025-11-22T10:40:04+00:00',
         ], 200),
     ]);
 
@@ -120,5 +117,5 @@ it('calls the blobGetMetadataByblobId method in the Blob resource', function () 
         ->fileChecksum->toBe('String value')
         ->size->toBe(42)
         ->countryCode->toBe('String value')
-        ->createdDateTimeUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->createdDateTimeUtc->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });

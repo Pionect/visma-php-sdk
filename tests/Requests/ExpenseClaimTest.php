@@ -1,42 +1,43 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimGetAllCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\ExpenseClaimUpdateDto;
+use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimCreateExpenseClaimRequest;
+use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimDeleteByexpenseClaimNbrRequest;
+use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimGetAllRequest;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimGetExpenseClaimByexpenseClaimNbrRequest;
+use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimPutByexpenseClaimNbrRequest;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbr method in the ExpenseClaim resource', function () {
+it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbrRequest method in the ExpenseClaim resource', function () {
     Saloon::fake([
         ExpenseClaimGetExpenseClaimByexpenseClaimNbrRequest::class => MockResponse::make([
             'refNbr' => 'String value',
             'status' => 'String value',
             'approvalStatus' => 'String value',
-            'date' => '2025-11-22T10:40:04.065Z',
+            'date' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
             'claimedBy' => null,
-            'claimTotal' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatExemptTotal' => 3.14,
+            'claimTotal' => 42,
+            'vatTaxableTotal' => 42,
+            'vatExemptTotal' => 42,
             'customer' => null,
             'currency' => 'String value',
-            'approvalDate' => '2025-11-22T10:40:04.065Z',
+            'approvalDate' => '2025-11-22T10:40:04+00:00',
             'department' => null,
             'location' => null,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'details' => [],
             'approvalStatusText' => 'String value',
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -57,189 +58,270 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbr method in the Expense
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->approvalStatus->toBe('String value')
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
         ->claimedBy->toBeNull()
-        ->claimTotal->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
+        ->claimTotal->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatExemptTotal->toBe(42)
         ->customer->toBeNull()
         ->currency->toBe('String value')
-        ->approvalDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->approvalDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->department->toBeNull()
         ->location->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->approvalStatusText->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the expenseClaimGetAllCollection method in the ExpenseClaim resource', function () {
+it('calls the expenseClaimPutByexpenseClaimNbrRequest method in the ExpenseClaim resource', function () {
+    $bodyData = new ExpenseClaimUpdateDto(
+        date: null,
+        description: null,
+        claimedBy: null,
+        customer: null,
+        customerUpdateAnswer: 'String value',
+        location: null,
+        details: []
+    );
+
     Saloon::fake([
-        ExpenseClaimGetAllCollectionRequest::class => MockResponse::make([
+        ExpenseClaimPutByexpenseClaimNbrRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ExpenseClaimPutByexpenseClaimNbrRequest(
+        expenseClaimNbr: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ExpenseClaimPutByexpenseClaimNbrRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the expenseClaimDeleteByexpenseClaimNbrRequest method in the ExpenseClaim resource', function () {
+    Saloon::fake([
+        ExpenseClaimDeleteByexpenseClaimNbrRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new ExpenseClaimDeleteByexpenseClaimNbrRequest(
+        expenseClaimNbr: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ExpenseClaimDeleteByexpenseClaimNbrRequest::class);
+
+    expect($response->status())->toBe(204);
+});
+
+it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', function () {
+    Saloon::fake([
+        ExpenseClaimGetAllRequest::class => MockResponse::make([
             0 => [
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'approvalStatus' => 'String value',
-                'date' => '2025-11-22T10:40:04.065Z',
+                'date' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
                 'claimedBy' => null,
-                'claimTotal' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatExemptTotal' => 3.14,
+                'claimTotal' => 42,
+                'vatTaxableTotal' => 42,
+                'vatExemptTotal' => 42,
                 'customer' => null,
                 'currency' => 'String value',
-                'approvalDate' => '2025-11-22T10:40:04.065Z',
+                'approvalDate' => '2025-11-22T10:40:04+00:00',
                 'department' => null,
                 'location' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'details' => [],
                 'approvalStatusText' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'approvalStatus' => 'String value',
-                'date' => '2025-11-22T10:40:04.065Z',
+                'date' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
                 'claimedBy' => null,
-                'claimTotal' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatExemptTotal' => 3.14,
+                'claimTotal' => 42,
+                'vatTaxableTotal' => 42,
+                'vatExemptTotal' => 42,
                 'customer' => null,
                 'currency' => 'String value',
-                'approvalDate' => '2025-11-22T10:40:04.065Z',
+                'approvalDate' => '2025-11-22T10:40:04+00:00',
                 'department' => null,
                 'location' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'details' => [],
                 'approvalStatusText' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new ExpenseClaimGetAllCollectionRequest(status: 'test string', date: 'test string', customer: 'test string', departmentId: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new ExpenseClaimGetAllRequest(
+        status: 'test string',
+        date: 'test string',
+        customer: 'test string',
+        departmentId: 'test string',
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ExpenseClaimGetAllRequest::class);
 
-    Saloon::assertSent(function (ExpenseClaimGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->approvalStatus->toBe('String value')
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
         ->claimedBy->toBeNull()
-        ->claimTotal->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
+        ->claimTotal->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatExemptTotal->toBe(42)
         ->customer->toBeNull()
         ->currency->toBe('String value')
-        ->approvalDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->approvalDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->department->toBeNull()
         ->location->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->approvalStatusText->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaim method in the ExpenseClaim resource', function () {
-    $mockClient = Saloon::fake([
-        ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest::class => MockResponse::make([], 200),
+it('calls the expenseClaimCreateExpenseClaimRequest method in the ExpenseClaim resource', function () {
+    $bodyData = new ExpenseClaimUpdateDto(
+        date: null,
+        description: null,
+        claimedBy: null,
+        customer: null,
+        customerUpdateAnswer: 'String value',
+        location: null,
+        details: []
+    );
+
+    Saloon::fake([
+        ExpenseClaimCreateExpenseClaimRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\PutExpenseClaimOnHoldActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new ExpenseClaimCreateExpenseClaimRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest(expenseClaim: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(ExpenseClaimCreateExpenseClaimRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the expenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest method in the ExpenseClaim resource', function () {
+    $bodyData = new ExpenseClaimUpdateDto(
+        date: null,
+        description: null,
+        claimedBy: null,
+        customer: null,
+        customerUpdateAnswer: 'String value',
+        location: null,
+        details: []
+    );
+
+    Saloon::fake([
+        ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest(
+        expenseClaim: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the expenseClaimSubmitExpenseClaimByexpenseClaim method in the ExpenseClaim resource', function () {
-    $mockClient = Saloon::fake([
-        ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest::class => MockResponse::make([], 200),
+it('calls the expenseClaimSubmitExpenseClaimByexpenseClaimRequest method in the ExpenseClaim resource', function () {
+    $bodyData = new ExpenseClaimUpdateDto(
+        date: null,
+        description: null,
+        claimedBy: null,
+        customer: null,
+        customerUpdateAnswer: 'String value',
+        location: null,
+        details: []
+    );
+
+    Saloon::fake([
+        ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\SubmitExpenseClaimActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest(expenseClaim: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest(
+        expenseClaim: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the expenseClaimSendExpenseClaimToApprovalByexpenseClaim method in the ExpenseClaim resource', function () {
-    $mockClient = Saloon::fake([
-        ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest::class => MockResponse::make([], 200),
+it('calls the expenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest method in the ExpenseClaim resource', function () {
+    $bodyData = new ExpenseClaimUpdateDto(
+        date: null,
+        description: null,
+        claimedBy: null,
+        customer: null,
+        customerUpdateAnswer: 'String value',
+        location: null,
+        details: []
+    );
+
+    Saloon::fake([
+        ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\SendExpenseClaimToApprovalActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest(expenseClaim: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest(
+        expenseClaim: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });

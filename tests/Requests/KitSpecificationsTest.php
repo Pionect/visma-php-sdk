@@ -1,11 +1,12 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetAllRequest;
 use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetBykitInventoryIdRequest;
 use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetBykitInventoryIdrevisionIdRequest;
+use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsPostRequest;
+use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsPutBykitInventoryIdrevisionIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -13,68 +14,67 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the kitSpecificationsGetAllCollection method in the KitSpecifications resource', function () {
+it('calls the kitSpecificationsGetAllRequest method in the KitSpecifications resource', function () {
     Saloon::fake([
-        KitSpecificationsGetAllCollectionRequest::class => MockResponse::make([
-            'records' => [
-                0 => [
-                    'kitInventoryId' => 'mock-id-123',
-                    'revision' => 'String value',
-                    'description' => 'String value',
-                    'isActive' => true,
-                    'allowComponentAddition' => true,
-                    'isNonStock' => true,
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'stockComponentLines' => [],
-                    'nonStockComponentLines' => [],
-                    'timestamp' => 'String value',
-                    'errorInfo' => 'String value',
-                ],
-                1 => [
-                    'kitInventoryId' => 'mock-id-123',
-                    'revision' => 'String value',
-                    'description' => 'String value',
-                    'isActive' => true,
-                    'allowComponentAddition' => true,
-                    'isNonStock' => true,
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'stockComponentLines' => [],
-                    'nonStockComponentLines' => [],
-                    'timestamp' => 'String value',
-                    'errorInfo' => 'String value',
-                ],
+        KitSpecificationsGetAllRequest::class => MockResponse::make([
+            0 => [
+                'name' => 'Mock value',
+            ],
+            1 => [
+                'name' => 'Mock value',
             ],
         ], 200),
     ]);
 
-    $request = (new KitSpecificationsGetAllCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', kitInventoryId: 'test string', revisionId: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new KitSpecificationsGetAllRequest(
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        kitInventoryId: 'test string',
+        revisionId: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(KitSpecificationsGetAllRequest::class);
 
-    Saloon::assertSent(function (KitSpecificationsGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->kitInventoryId->toBe('mock-id-123')
-        ->revision->toBe('String value')
-        ->description->toBe('String value')
-        ->isActive->toBeTrue()
-        ->allowComponentAddition->toBeTrue()
-        ->isNonStock->toBeTrue()
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value');
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->name->toBe('Mock value');
 });
 
-it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSpecifications resource', function () {
+it('calls the kitSpecificationsPostRequest method in the KitSpecifications resource', function () {
+    $bodyData = [
+        'name' => 'Test value',
+    ];
+
+    Saloon::fake([
+        KitSpecificationsPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new KitSpecificationsPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(KitSpecificationsPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the kitSpecificationsGetBykitInventoryIdrevisionIdRequest method in the KitSpecifications resource', function () {
     Saloon::fake([
         KitSpecificationsGetBykitInventoryIdrevisionIdRequest::class => MockResponse::make([
             'kitInventoryId' => 'mock-id-123',
@@ -83,8 +83,8 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSp
             'isActive' => true,
             'allowComponentAddition' => true,
             'isNonStock' => true,
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'stockComponentLines' => [],
             'nonStockComponentLines' => [],
             'timestamp' => 'String value',
@@ -109,16 +109,38 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionId method in the KitSp
         ->kitInventoryId->toBe('mock-id-123')
         ->revision->toBe('String value')
         ->description->toBe('String value')
-        ->isActive->toBeTrue()
-        ->allowComponentAddition->toBeTrue()
-        ->isNonStock->toBeTrue()
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->isActive->toBe(true)
+        ->allowComponentAddition->toBe(true)
+        ->isNonStock->toBe(true)
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->timestamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the kitSpecificationsGetBykitInventoryId method in the KitSpecifications resource', function () {
+it('calls the kitSpecificationsPutBykitInventoryIdrevisionIdRequest method in the KitSpecifications resource', function () {
+    $bodyData = [
+        'name' => 'Test value',
+    ];
+
+    Saloon::fake([
+        KitSpecificationsPutBykitInventoryIdrevisionIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new KitSpecificationsPutBykitInventoryIdrevisionIdRequest(
+        kitInventoryId: 'test string',
+        revisionId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(KitSpecificationsPutBykitInventoryIdrevisionIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the kitSpecificationsGetBykitInventoryIdRequest method in the KitSpecifications resource', function () {
     Saloon::fake([
         KitSpecificationsGetBykitInventoryIdRequest::class => MockResponse::make([
             'pageNumber' => 42,

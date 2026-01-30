@@ -1,23 +1,23 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\EmployeeUpdateDto;
 use Pionect\VismaSdk\Requests\Employee\EmployeeChangeEmployeeNrActionByinternalIdRequest;
-use Pionect\VismaSdk\Requests\Employee\EmployeeGetAllEmployeesCollectionRequest;
+use Pionect\VismaSdk\Requests\Employee\EmployeeCreateEmployeeRequest;
+use Pionect\VismaSdk\Requests\Employee\EmployeeGetAllEmployeesRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeByemployeeCdRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeExpenseClaimsByemployeeCdRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeExpenseReceiptsByemployeeCdRequest;
-use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeTimeCardsCollectionRequest;
+use Pionect\VismaSdk\Requests\Employee\EmployeeGetEmployeeTimeCardsRequest;
+use Pionect\VismaSdk\Requests\Employee\EmployeePutByemployeeCdRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the employeeGetEmployeeByemployeeCd method in the Employee resource', function () {
+it('calls the employeeGetEmployeeByemployeeCdRequest method in the Employee resource', function () {
     Saloon::fake([
         EmployeeGetEmployeeByemployeeCdRequest::class => MockResponse::make([
             'employeeUserId' => 'mock-id-123',
@@ -28,13 +28,13 @@ it('calls the employeeGetEmployeeByemployeeCd method in the Employee resource', 
             'department' => 'String value',
             'contact' => null,
             'address' => null,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'employeeClass' => null,
             'branch' => null,
             'calendarId' => 'mock-id-123',
             'employeeLogin' => 'String value',
             'workGroupDescription' => [],
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -60,18 +60,47 @@ it('calls the employeeGetEmployeeByemployeeCd method in the Employee resource', 
         ->department->toBe('String value')
         ->contact->toBeNull()
         ->address->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->employeeClass->toBeNull()
         ->branch->toBeNull()
         ->calendarId->toBe('mock-id-123')
         ->employeeLogin->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the employeeGetAllEmployeesCollection method in the Employee resource', function () {
+it('calls the employeePutByemployeeCdRequest method in the Employee resource', function () {
+    $bodyData = new EmployeeUpdateDto(
+        employeeClass: 'String value',
+        status: null,
+        department: null,
+        contact: null,
+        address: null,
+        branch: 'String value',
+        calendar: 'String value',
+        companyTreeInfo: []
+    );
+
     Saloon::fake([
-        EmployeeGetAllEmployeesCollectionRequest::class => MockResponse::make([
+        EmployeePutByemployeeCdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new EmployeePutByemployeeCdRequest(
+        employeeCd: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(EmployeePutByemployeeCdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the employeeGetAllEmployeesRequest method in the Employee resource', function () {
+    Saloon::fake([
+        EmployeeGetAllEmployeesRequest::class => MockResponse::make([
             0 => [
                 'employeeUserId' => 'mock-id-123',
                 'employeeId' => 42,
@@ -81,18 +110,14 @@ it('calls the employeeGetAllEmployeesCollection method in the Employee resource'
                 'department' => 'String value',
                 'contact' => null,
                 'address' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'employeeClass' => null,
                 'branch' => null,
                 'calendarId' => 'mock-id-123',
                 'employeeLogin' => 'String value',
                 'workGroupDescription' => [],
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'employeeUserId' => 'mock-id-123',
@@ -103,35 +128,44 @@ it('calls the employeeGetAllEmployeesCollection method in the Employee resource'
                 'department' => 'String value',
                 'contact' => null,
                 'address' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'employeeClass' => null,
                 'branch' => null,
                 'calendarId' => 'mock-id-123',
                 'employeeLogin' => 'String value',
                 'workGroupDescription' => [],
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new EmployeeGetAllEmployeesCollectionRequest(linkedToUser: true, greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new EmployeeGetAllEmployeesRequest(
+        linkedToUser: true,
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(EmployeeGetAllEmployeesRequest::class);
 
-    Saloon::assertSent(function (EmployeeGetAllEmployeesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->employeeUserId->toBe('mock-id-123')
         ->employeeId->toBe(42)
         ->employeeNumber->toBe('String value')
@@ -140,18 +174,45 @@ it('calls the employeeGetAllEmployeesCollection method in the Employee resource'
         ->department->toBe('String value')
         ->contact->toBeNull()
         ->address->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->employeeClass->toBeNull()
         ->branch->toBeNull()
         ->calendarId->toBe('mock-id-123')
         ->employeeLogin->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee resource', function () {
+it('calls the employeeCreateEmployeeRequest method in the Employee resource', function () {
+    $bodyData = new EmployeeUpdateDto(
+        employeeClass: 'String value',
+        status: null,
+        department: null,
+        contact: null,
+        address: null,
+        branch: 'String value',
+        calendar: 'String value',
+        companyTreeInfo: []
+    );
+
     Saloon::fake([
-        EmployeeGetEmployeeTimeCardsCollectionRequest::class => MockResponse::make([
+        EmployeeCreateEmployeeRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new EmployeeCreateEmployeeRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(EmployeeCreateEmployeeRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the employeeGetEmployeeTimeCardsRequest method in the Employee resource', function () {
+    Saloon::fake([
+        EmployeeGetEmployeeTimeCardsRequest::class => MockResponse::make([
             0 => [
                 'refNbr' => 'String value',
                 'status' => 'String value',
@@ -160,22 +221,18 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
                 'employee' => null,
                 'type' => 'String value',
                 'origRefNbr' => 'String value',
-                'timeSpent' => '2025-11-22T10:40:04.065Z',
+                'timeSpent' => 42,
                 'invoiceable' => 42,
                 'overtimeSpent' => 42,
                 'invoiceableOvertime' => 42,
                 'totalTimeSpent' => 42,
-                'invoiceableTotalTime' => '2025-11-22T10:40:04.065Z',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'invoiceableTotalTime' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'summary' => [],
                 'materials' => [],
                 'approvalStatusText' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'refNbr' => 'String value',
@@ -185,39 +242,50 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
                 'employee' => null,
                 'type' => 'String value',
                 'origRefNbr' => 'String value',
-                'timeSpent' => '2025-11-22T10:40:04.065Z',
+                'timeSpent' => 42,
                 'invoiceable' => 42,
                 'overtimeSpent' => 42,
                 'invoiceableOvertime' => 42,
                 'totalTimeSpent' => 42,
-                'invoiceableTotalTime' => '2025-11-22T10:40:04.065Z',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'invoiceableTotalTime' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'summary' => [],
                 'materials' => [],
                 'approvalStatusText' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new EmployeeGetEmployeeTimeCardsCollectionRequest(employeeCd: 'test string', status: 'test string', week: 'test string', type: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new EmployeeGetEmployeeTimeCardsRequest(
+        employeeCd: 'test string',
+        status: 'test string',
+        week: 'test string',
+        type: 'test string',
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        employeeCd: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(EmployeeGetEmployeeTimeCardsRequest::class);
 
-    Saloon::assertSent(function (EmployeeGetEmployeeTimeCardsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->approvalStatus->toBe('String value')
@@ -225,39 +293,39 @@ it('calls the employeeGetEmployeeTimeCardsCollection method in the Employee reso
         ->employee->toBeNull()
         ->type->toBe('String value')
         ->origRefNbr->toBe('String value')
-        ->timeSpent->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeSpent->toBe(42)
         ->invoiceable->toBe(42)
         ->overtimeSpent->toBe(42)
         ->invoiceableOvertime->toBe(42)
         ->totalTimeSpent->toBe(42)
-        ->invoiceableTotalTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->invoiceableTotalTime->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->approvalStatusText->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the employeeGetEmployeeExpenseClaimsByemployeeCd method in the Employee resource', function () {
+it('calls the employeeGetEmployeeExpenseClaimsByemployeeCdRequest method in the Employee resource', function () {
     Saloon::fake([
         EmployeeGetEmployeeExpenseClaimsByemployeeCdRequest::class => MockResponse::make([
             'refNbr' => 'String value',
             'status' => 'String value',
             'approvalStatus' => 'String value',
-            'date' => '2025-11-22T10:40:04.065Z',
+            'date' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
             'claimedBy' => null,
-            'claimTotal' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatExemptTotal' => 3.14,
+            'claimTotal' => 42,
+            'vatTaxableTotal' => 42,
+            'vatExemptTotal' => 42,
             'customer' => null,
             'currency' => 'String value',
-            'approvalDate' => '2025-11-22T10:40:04.065Z',
+            'approvalDate' => '2025-11-22T10:40:04+00:00',
             'department' => null,
             'location' => null,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'details' => [],
             'approvalStatusText' => 'String value',
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -290,40 +358,40 @@ it('calls the employeeGetEmployeeExpenseClaimsByemployeeCd method in the Employe
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->approvalStatus->toBe('String value')
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
         ->claimedBy->toBeNull()
-        ->claimTotal->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
+        ->claimTotal->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatExemptTotal->toBe(42)
         ->customer->toBeNull()
         ->currency->toBe('String value')
-        ->approvalDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->approvalDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->department->toBeNull()
         ->location->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->approvalStatusText->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCd method in the Employee resource', function () {
+it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCdRequest method in the Employee resource', function () {
     Saloon::fake([
         EmployeeGetEmployeeExpenseReceiptsByemployeeCdRequest::class => MockResponse::make([
             'internalId' => 42,
             'receiptId' => 'mock-id-123',
-            'date' => '2025-11-22T10:40:04.065Z',
-            'taxTotal' => 3.14,
+            'date' => '2025-11-22T10:40:04+00:00',
+            'taxTotal' => 42,
             'currency' => null,
             'refNbr' => 'String value',
             'inventory' => null,
             'description' => 'String value',
             'uom' => 'String value',
-            'quantity' => 3.14,
-            'unitCost' => 3.14,
-            'totalAmount' => 3.14,
-            'employeePart' => 3.14,
-            'claimAmount' => 3.14,
+            'quantity' => 42,
+            'unitCost' => 42,
+            'totalAmount' => 42,
+            'employeePart' => 42,
+            'claimAmount' => 42,
             'status' => 'String value',
             'claimedBy' => null,
             'branch' => null,
@@ -339,7 +407,7 @@ it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCd method in the Emplo
             'salesSub' => null,
             'taxCategory' => null,
             'image' => null,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
         ], 200),
     ]);
 
@@ -367,23 +435,23 @@ it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCd method in the Emplo
     expect($dto)
         ->internalId->toBe(42)
         ->receiptId->toBe('mock-id-123')
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->taxTotal->toBe(3.14)
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->taxTotal->toBe(42)
         ->currency->toBeNull()
         ->refNbr->toBe('String value')
         ->inventory->toBeNull()
         ->description->toBe('String value')
         ->uom->toBe('String value')
-        ->quantity->toBe(3.14)
-        ->unitCost->toBe(3.14)
-        ->totalAmount->toBe(3.14)
-        ->employeePart->toBe(3.14)
-        ->claimAmount->toBe(3.14)
+        ->quantity->toBe(42)
+        ->unitCost->toBe(42)
+        ->totalAmount->toBe(42)
+        ->employeePart->toBe(42)
+        ->claimAmount->toBe(42)
         ->status->toBe('String value')
         ->claimedBy->toBeNull()
         ->branch->toBeNull()
         ->expenseClaim->toBeNull()
-        ->invoiceable->toBeTrue()
+        ->invoiceable->toBe(true)
         ->project->toBeNull()
         ->projectTask->toBeNull()
         ->customer->toBeNull()
@@ -394,32 +462,34 @@ it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCd method in the Emplo
         ->salesSub->toBeNull()
         ->taxCategory->toBeNull()
         ->image->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toBe('String value');
 });
 
-it('calls the employeeChangeEmployeeNrActionByinternalId method in the Employee resource', function () {
-    $mockClient = Saloon::fake([
-        EmployeeChangeEmployeeNrActionByinternalIdRequest::class => MockResponse::make([], 200),
+it('calls the employeeChangeEmployeeNrActionByinternalIdRequest method in the Employee resource', function () {
+    $bodyData = new EmployeeUpdateDto(
+        employeeClass: 'String value',
+        status: null,
+        department: null,
+        contact: null,
+        address: null,
+        branch: 'String value',
+        calendar: 'String value',
+        companyTreeInfo: []
+    );
+
+    Saloon::fake([
+        EmployeeChangeEmployeeNrActionByinternalIdRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ChangeEmployeeNrActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new EmployeeChangeEmployeeNrActionByinternalIdRequest(internalId: 42, data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new EmployeeChangeEmployeeNrActionByinternalIdRequest(
+        internalId: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(EmployeeChangeEmployeeNrActionByinternalIdRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });

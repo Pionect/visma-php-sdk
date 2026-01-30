@@ -1,9 +1,9 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
 use Pionect\VismaSdk\Requests\DeferralCode\DeferralCodeGetDeferralCodeBydeferralCodeIdRequest;
-use Pionect\VismaSdk\Requests\DeferralCode\DeferralCodeGetDeferralCodesCollectionRequest;
+use Pionect\VismaSdk\Requests\DeferralCode\DeferralCodeGetDeferralCodesRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,7 +11,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the DeferralCode resource', function () {
+it('calls the deferralCodeGetDeferralCodeBydeferralCodeIdRequest method in the DeferralCode resource', function () {
     Saloon::fake([
         DeferralCodeGetDeferralCodeBydeferralCodeIdRequest::class => MockResponse::make([
             'deferralCode' => 'String value',
@@ -40,7 +40,7 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the Deferral
     expect($dto)
         ->deferralCode->toBe('String value')
         ->description->toBe('String value')
-        ->deferredRevenueFromItem->toBeTrue()
+        ->deferredRevenueFromItem->toBe(true)
         ->recognitionMethod->toBe('String value')
         ->codeType->toBe('String value')
         ->deferralAccount->toBeNull()
@@ -48,9 +48,9 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeId method in the Deferral
         ->errorInfo->toBe('String value');
 });
 
-it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode resource', function () {
+it('calls the deferralCodeGetDeferralCodesRequest method in the DeferralCode resource', function () {
     Saloon::fake([
-        DeferralCodeGetDeferralCodesCollectionRequest::class => MockResponse::make([
+        DeferralCodeGetDeferralCodesRequest::class => MockResponse::make([
             0 => [
                 'deferralCode' => 'String value',
                 'description' => 'String value',
@@ -60,10 +60,6 @@ it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode 
                 'deferralAccount' => null,
                 'deferralSub' => null,
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'deferralCode' => 'String value',
@@ -74,30 +70,32 @@ it('calls the deferralCodeGetDeferralCodesCollection method in the DeferralCode 
                 'deferralAccount' => null,
                 'deferralSub' => null,
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new DeferralCodeGetDeferralCodesCollectionRequest(pageNumber: 123, pageSize: 123));
+    $request = new DeferralCodeGetDeferralCodesRequest(
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(DeferralCodeGetDeferralCodesRequest::class);
 
-    Saloon::assertSent(function (DeferralCodeGetDeferralCodesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->deferralCode->toBe('String value')
         ->description->toBe('String value')
-        ->deferredRevenueFromItem->toBeTrue()
+        ->deferredRevenueFromItem->toBe(true)
         ->recognitionMethod->toBe('String value')
         ->codeType->toBe('String value')
         ->deferralAccount->toBeNull()

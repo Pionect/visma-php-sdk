@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\NumberSequence\NumberSequenceGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\NumberSequence\NumberSequenceGetAllRequest;
 use Pionect\VismaSdk\Requests\NumberSequence\NumberSequenceGetBynumberingIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -11,7 +11,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the numberSequenceGetBynumberingId method in the NumberSequence resource', function () {
+it('calls the numberSequenceGetBynumberingIdRequest method in the NumberSequence resource', function () {
     Saloon::fake([
         NumberSequenceGetBynumberingIdRequest::class => MockResponse::make([
             'numberingId' => 'mock-id-123',
@@ -37,13 +37,13 @@ it('calls the numberSequenceGetBynumberingId method in the NumberSequence resour
     expect($dto)
         ->numberingId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->manualNumbering->toBeTrue()
+        ->manualNumbering->toBe(true)
         ->newNumberSymbol->toBe('String value');
 });
 
-it('calls the numberSequenceGetAllCollection method in the NumberSequence resource', function () {
+it('calls the numberSequenceGetAllRequest method in the NumberSequence resource', function () {
     Saloon::fake([
-        NumberSequenceGetAllCollectionRequest::class => MockResponse::make([
+        NumberSequenceGetAllRequest::class => MockResponse::make([
             0 => [
                 'numberingId' => 'mock-id-123',
                 'description' => 'String value',
@@ -61,21 +61,25 @@ it('calls the numberSequenceGetAllCollection method in the NumberSequence resour
         ], 200),
     ]);
 
-    $request = (new NumberSequenceGetAllCollectionRequest);
+    $request = new NumberSequenceGetAllRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(NumberSequenceGetAllRequest::class);
 
-    Saloon::assertSent(function (NumberSequenceGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->numberingId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->manualNumbering->toBeTrue()
+        ->manualNumbering->toBe(true)
         ->newNumberSymbol->toBe('String value');
 });

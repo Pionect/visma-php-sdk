@@ -1,24 +1,32 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceGetAllCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\CustomerInvoiceUpdateDto;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCorrectInvoiceByinvoiceNumberRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCreateRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceDeleteByinvoiceNumberRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceGetAllRequest;
 use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceGetByinvoiceNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceGetRotRutByrefNbrRequest;
-use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceGetWorkTypesCollectionRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceGetWorkTypesRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoicePrintInvoiceByrefNbrRequest;
 use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceReverseInvoiceAndApplyToNoteByinvoiceNumberRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceReverseInvoiceByinvoiceNumberRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceSendToAutoInvoiceByinvoiceNumberRequest;
+use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceUpdateByinvoiceNumberRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the customerInvoiceGetWorkTypesCollection method in the CustomerInvoice resource', function () {
+it('calls the customerInvoiceGetWorkTypesRequest method in the CustomerInvoice resource', function () {
     Saloon::fake([
-        CustomerInvoiceGetWorkTypesCollectionRequest::class => MockResponse::make([
+        CustomerInvoiceGetWorkTypesRequest::class => MockResponse::make([
             0 => [
                 'rutRotType' => 'String value',
                 'description' => 'String value',
@@ -32,44 +40,48 @@ it('calls the customerInvoiceGetWorkTypesCollection method in the CustomerInvoic
         ], 200),
     ]);
 
-    $request = (new CustomerInvoiceGetWorkTypesCollectionRequest);
+    $request = new CustomerInvoiceGetWorkTypesRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CustomerInvoiceGetWorkTypesRequest::class);
 
-    Saloon::assertSent(function (CustomerInvoiceGetWorkTypesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->rutRotType->toBe('String value')
         ->description->toBe('String value')
         ->xmlTag->toBe('String value');
 });
 
-it('calls the customerInvoiceGetByinvoiceNumber method in the CustomerInvoice resource', function () {
+it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
     Saloon::fake([
         CustomerInvoiceGetByinvoiceNumberRequest::class => MockResponse::make([
             'creditTerms' => null,
-            'documentDueDate' => '2025-11-22T10:40:04.065Z',
-            'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
+            'documentDueDate' => '2025-11-22T10:40:04+00:00',
+            'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'externalReference' => 'String value',
             'isRotRutDeductible' => true,
-            'exchangeRate' => 3.14,
-            'dunningLetterDate' => '2025-11-22T10:40:04.065Z',
+            'exchangeRate' => 42,
+            'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
             'dunningLetterLevel' => 42,
             'contact' => null,
             'attachments' => [],
             'taxDetails' => [],
             'invoiceLines' => [],
             'sendToAutoInvoice' => true,
-            'roundingDiff' => 3.14,
+            'roundingDiff' => 42,
             'customerVatZone' => null,
-            'startDate' => '2025-11-22T10:40:04.065Z',
-            'endDate' => '2025-11-22T10:40:04.065Z',
+            'startDate' => '2025-11-22T10:40:04+00:00',
+            'endDate' => '2025-11-22T10:40:04+00:00',
             'accountingCostRef' => 'String value',
             'originatorDocRef' => 'String value',
             'contractDocRef' => 'String value',
@@ -77,16 +89,16 @@ it('calls the customerInvoiceGetByinvoiceNumber method in the CustomerInvoice re
             'directDebitMandate' => null,
             'excludeDebtCollection' => true,
             'debtCollection' => null,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'hold' => true,
-            'discountTotal' => 3.14,
-            'discountTotalInCurrency' => 3.14,
-            'detailTotal' => 3.14,
-            'detailTotalInCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInCurrency' => 3.14,
+            'discountTotal' => 42,
+            'discountTotalInCurrency' => 42,
+            'detailTotal' => 42,
+            'detailTotalInCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
             'salesPerson' => null,
@@ -103,24 +115,24 @@ it('calls the customerInvoiceGetByinvoiceNumber method in the CustomerInvoice re
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'documentDate' => '2025-11-22T10:40:04.065Z',
-            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'documentDate' => '2025-11-22T10:40:04+00:00',
+            'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'status' => 'String value',
             'currencyId' => 'mock-id-123',
-            'amount' => 3.14,
-            'amountInCurrency' => 3.14,
-            'balance' => 3.14,
-            'balanceInCurrency' => 3.14,
-            'cashDiscount' => 3.14,
-            'cashDiscountInCurrency' => 3.14,
+            'amount' => 42,
+            'amountInCurrency' => 42,
+            'balance' => 42,
+            'balanceInCurrency' => 42,
+            'cashDiscount' => 42,
+            'cashDiscountInCurrency' => 42,
             'paymentMethod' => null,
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
-            'vatTotal' => 3.14,
-            'vatTotalInCurrency' => 3.14,
+            'vatTotal' => 42,
+            'vatTotalInCurrency' => 42,
             'location' => null,
             'branchNumber' => null,
             'cashAccount' => 'String value',
@@ -146,69 +158,69 @@ it('calls the customerInvoiceGetByinvoiceNumber method in the CustomerInvoice re
 
     expect($dto)
         ->creditTerms->toBeNull()
-        ->documentDueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalReference->toBe('String value')
-        ->isRotRutDeductible->toBeTrue()
-        ->exchangeRate->toBe(3.14)
-        ->dunningLetterDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->isRotRutDeductible->toBe(true)
+        ->exchangeRate->toBe(42)
+        ->dunningLetterDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dunningLetterLevel->toBe(42)
         ->contact->toBeNull()
-        ->sendToAutoInvoice->toBeTrue()
-        ->roundingDiff->toBe(3.14)
+        ->sendToAutoInvoice->toBe(true)
+        ->roundingDiff->toBe(42)
         ->customerVatZone->toBeNull()
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->accountingCostRef->toBe('String value')
         ->originatorDocRef->toBe('String value')
         ->contractDocRef->toBe('String value')
         ->childRecord->toBeNull()
         ->directDebitMandate->toBeNull()
-        ->excludeDebtCollection->toBeTrue()
+        ->excludeDebtCollection->toBe(true)
         ->debtCollection->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->hold->toBeTrue()
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInCurrency->toBe(3.14)
-        ->detailTotal->toBe(3.14)
-        ->detailTotalInCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInCurrency->toBe(3.14)
+        ->timeStamp->toBe('String value')
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
         ->salesPerson->toBeNull()
         ->paymentReference->toBe('String value')
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->dontPrint->toBeTrue()
-        ->dontEmail->toBeTrue()
-        ->revoked->toBeTrue()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -219,18 +231,106 @@ it('calls the customerInvoiceGetByinvoiceNumber method in the CustomerInvoice re
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerInvoiceGetRotRutByrefNbr method in the CustomerInvoice resource', function () {
+it('calls the customerInvoiceUpdateByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceUpdateByinvoiceNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceUpdateByinvoiceNumberRequest(
+        invoiceNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceUpdateByinvoiceNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerInvoiceDeleteByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
+    Saloon::fake([
+        CustomerInvoiceDeleteByinvoiceNumberRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new CustomerInvoiceDeleteByinvoiceNumberRequest(
+        invoiceNumber: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceDeleteByinvoiceNumberRequest::class);
+
+    expect($response->status())->toBe(204);
+});
+
+it('calls the customerInvoiceGetRotRutByrefNbrRequest method in the CustomerInvoice resource', function () {
     Saloon::fake([
         CustomerInvoiceGetRotRutByrefNbrRequest::class => MockResponse::make([
             'docType' => 'String value',
             'refNbr' => 'String value',
             'distributedAutomaticaly' => true,
             'type' => 'String value',
-            'totalDeductableAmount' => 3.14,
-            'otherCost' => 3.14,
-            'materialCost' => 3.14,
-            'workPrice' => 3.14,
-            'distributedAmount' => 3.14,
+            'totalDeductableAmount' => 42,
+            'otherCost' => 42,
+            'materialCost' => 42,
+            'workPrice' => 42,
+            'distributedAmount' => 42,
             'appartment' => 'String value',
             'estate' => 'String value',
             'organizationNbr' => 'String value',
@@ -253,265 +353,177 @@ it('calls the customerInvoiceGetRotRutByrefNbr method in the CustomerInvoice res
     expect($dto)
         ->docType->toBe('String value')
         ->refNbr->toBe('String value')
-        ->distributedAutomaticaly->toBeTrue()
+        ->distributedAutomaticaly->toBe(true)
         ->type->toBe('String value')
-        ->totalDeductableAmount->toBe(3.14)
-        ->otherCost->toBe(3.14)
-        ->materialCost->toBe(3.14)
-        ->workPrice->toBe(3.14)
-        ->distributedAmount->toBe(3.14)
+        ->totalDeductableAmount->toBe(42)
+        ->otherCost->toBe(42)
+        ->materialCost->toBe(42)
+        ->workPrice->toBe(42)
+        ->distributedAmount->toBe(42)
         ->appartment->toBe('String value')
         ->estate->toBe('String value')
         ->organizationNbr->toBe('String value');
 });
 
-it('calls the customerInvoiceGetAllCollection method in the CustomerInvoice resource', function () {
+it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerInvoice resource', function () {
     Saloon::fake([
-        CustomerInvoiceGetAllCollectionRequest::class => MockResponse::make([
-            0 => [
-                'creditTerms' => null,
-                'documentDueDate' => '2025-11-22T10:40:04.065Z',
-                'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
-                'externalReference' => 'String value',
-                'isRotRutDeductible' => true,
-                'exchangeRate' => 3.14,
-                'dunningLetterDate' => '2025-11-22T10:40:04.065Z',
-                'dunningLetterLevel' => 42,
-                'contact' => null,
-                'attachments' => [],
-                'taxDetails' => [],
-                'invoiceLines' => [],
-                'sendToAutoInvoice' => true,
-                'roundingDiff' => 3.14,
-                'customerVatZone' => null,
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
-                'accountingCostRef' => 'String value',
-                'originatorDocRef' => 'String value',
-                'contractDocRef' => 'String value',
-                'childRecord' => null,
-                'directDebitMandate' => null,
-                'excludeDebtCollection' => true,
-                'debtCollection' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'hold' => true,
-                'discountTotal' => 3.14,
-                'discountTotalInCurrency' => 3.14,
-                'detailTotal' => 3.14,
-                'detailTotalInCurrency' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatTaxableTotalInCurrency' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatExemptTotalInCurrency' => 3.14,
-                'salesPersonId' => 42,
-                'salesPersonDescr' => 'String value',
-                'salesPerson' => null,
-                'paymentReference' => 'String value',
-                'invoiceAddress' => null,
-                'invoiceContact' => null,
-                'applications' => [],
-                'dontPrint' => true,
-                'dontEmail' => true,
-                'revoked' => true,
-                'customer' => null,
-                'documentType' => 'String value',
-                'referenceNumber' => 'String value',
-                'postPeriod' => 'String value',
-                'financialPeriod' => 'String value',
-                'closedFinancialPeriod' => 'String value',
-                'documentDate' => '2025-11-22T10:40:04.065Z',
-                'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
-                'status' => 'String value',
-                'currencyId' => 'mock-id-123',
-                'amount' => 3.14,
-                'amountInCurrency' => 3.14,
-                'balance' => 3.14,
-                'balanceInCurrency' => 3.14,
-                'cashDiscount' => 3.14,
-                'cashDiscountInCurrency' => 3.14,
-                'paymentMethod' => null,
-                'customerRefNumber' => 'String value',
-                'invoiceText' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                'note' => 'String value',
-                'vatTotal' => 3.14,
-                'vatTotalInCurrency' => 3.14,
-                'location' => null,
-                'branchNumber' => null,
-                'cashAccount' => 'String value',
-                'project' => null,
-                'account' => null,
-                'subaccount' => null,
-                'customerProject' => 'String value',
-                'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
-            ],
-            1 => [
-                'creditTerms' => null,
-                'documentDueDate' => '2025-11-22T10:40:04.065Z',
-                'cashDiscountDate' => '2025-11-22T10:40:04.065Z',
-                'externalReference' => 'String value',
-                'isRotRutDeductible' => true,
-                'exchangeRate' => 3.14,
-                'dunningLetterDate' => '2025-11-22T10:40:04.065Z',
-                'dunningLetterLevel' => 42,
-                'contact' => null,
-                'attachments' => [],
-                'taxDetails' => [],
-                'invoiceLines' => [],
-                'sendToAutoInvoice' => true,
-                'roundingDiff' => 3.14,
-                'customerVatZone' => null,
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
-                'accountingCostRef' => 'String value',
-                'originatorDocRef' => 'String value',
-                'contractDocRef' => 'String value',
-                'childRecord' => null,
-                'directDebitMandate' => null,
-                'excludeDebtCollection' => true,
-                'debtCollection' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
-                'hold' => true,
-                'discountTotal' => 3.14,
-                'discountTotalInCurrency' => 3.14,
-                'detailTotal' => 3.14,
-                'detailTotalInCurrency' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatTaxableTotalInCurrency' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatExemptTotalInCurrency' => 3.14,
-                'salesPersonId' => 42,
-                'salesPersonDescr' => 'String value',
-                'salesPerson' => null,
-                'paymentReference' => 'String value',
-                'invoiceAddress' => null,
-                'invoiceContact' => null,
-                'applications' => [],
-                'dontPrint' => true,
-                'dontEmail' => true,
-                'revoked' => true,
-                'customer' => null,
-                'documentType' => 'String value',
-                'referenceNumber' => 'String value',
-                'postPeriod' => 'String value',
-                'financialPeriod' => 'String value',
-                'closedFinancialPeriod' => 'String value',
-                'documentDate' => '2025-11-22T10:40:04.065Z',
-                'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
-                'status' => 'String value',
-                'currencyId' => 'mock-id-123',
-                'amount' => 3.14,
-                'amountInCurrency' => 3.14,
-                'balance' => 3.14,
-                'balanceInCurrency' => 3.14,
-                'cashDiscount' => 3.14,
-                'cashDiscountInCurrency' => 3.14,
-                'paymentMethod' => null,
-                'customerRefNumber' => 'String value',
-                'invoiceText' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                'note' => 'String value',
-                'vatTotal' => 3.14,
-                'vatTotalInCurrency' => 3.14,
-                'location' => null,
-                'branchNumber' => null,
-                'cashAccount' => 'String value',
-                'project' => null,
-                'account' => null,
-                'subaccount' => null,
-                'customerProject' => 'String value',
-                'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
-            ],
+        CustomerInvoicePrintInvoiceByrefNbrRequest::class => MockResponse::make([
+            'creditTerms' => null,
+            'documentDueDate' => '2025-11-22T10:40:04+00:00',
+            'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
+            'externalReference' => 'String value',
+            'isRotRutDeductible' => true,
+            'exchangeRate' => 42,
+            'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
+            'dunningLetterLevel' => 42,
+            'contact' => null,
+            'attachments' => [],
+            'taxDetails' => [],
+            'invoiceLines' => [],
+            'sendToAutoInvoice' => true,
+            'roundingDiff' => 42,
+            'customerVatZone' => null,
+            'startDate' => '2025-11-22T10:40:04+00:00',
+            'endDate' => '2025-11-22T10:40:04+00:00',
+            'accountingCostRef' => 'String value',
+            'originatorDocRef' => 'String value',
+            'contractDocRef' => 'String value',
+            'childRecord' => null,
+            'directDebitMandate' => null,
+            'excludeDebtCollection' => true,
+            'debtCollection' => null,
+            'timeStamp' => 'String value',
+            'hold' => true,
+            'discountTotal' => 42,
+            'discountTotalInCurrency' => 42,
+            'detailTotal' => 42,
+            'detailTotalInCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInCurrency' => 42,
+            'salesPersonId' => 42,
+            'salesPersonDescr' => 'String value',
+            'salesPerson' => null,
+            'paymentReference' => 'String value',
+            'invoiceAddress' => null,
+            'invoiceContact' => null,
+            'applications' => [],
+            'dontPrint' => true,
+            'dontEmail' => true,
+            'revoked' => true,
+            'customer' => null,
+            'documentType' => 'String value',
+            'referenceNumber' => 'String value',
+            'postPeriod' => 'String value',
+            'financialPeriod' => 'String value',
+            'closedFinancialPeriod' => 'String value',
+            'documentDate' => '2025-11-22T10:40:04+00:00',
+            'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
+            'status' => 'String value',
+            'currencyId' => 'mock-id-123',
+            'amount' => 42,
+            'amountInCurrency' => 42,
+            'balance' => 42,
+            'balanceInCurrency' => 42,
+            'cashDiscount' => 42,
+            'cashDiscountInCurrency' => 42,
+            'paymentMethod' => null,
+            'customerRefNumber' => 'String value',
+            'invoiceText' => 'String value',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
+            'note' => 'String value',
+            'vatTotal' => 42,
+            'vatTotalInCurrency' => 42,
+            'location' => null,
+            'branchNumber' => null,
+            'cashAccount' => 'String value',
+            'project' => null,
+            'account' => null,
+            'subaccount' => null,
+            'customerProject' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
-    $request = (new CustomerInvoiceGetAllCollectionRequest(documentType: 'test string', released: 123, dunningLevel: 123, closedFinancialPeriod: 'test string', dunningLetterDateTime: 'test string', dunningLetterDateTimeCondition: 'test string', project: 'test string', expandApplications: true, expandDunningInformation: true, expandAttachments: true, expandTaxDetails: true, expandInvoiceAddress: true, financialPeriod: 'test string', documentDueDate: 'test string', documentDueDateCondition: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, externalReference: 'test string', paymentReference: 'test string', customerRefNumber: 'test string', customer: 'test string', branch: 'test string', documentDate: 'test string', documentDateCondition: 'test string', greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new CustomerInvoicePrintInvoiceByrefNbrRequest(
+        refNbr: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CustomerInvoicePrintInvoiceByrefNbrRequest::class);
 
-    Saloon::assertSent(function (CustomerInvoiceGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $dto = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
-
-    expect($dtoCollection->first())
+    expect($dto)
         ->creditTerms->toBeNull()
-        ->documentDueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->cashDiscountDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalReference->toBe('String value')
-        ->isRotRutDeductible->toBeTrue()
-        ->exchangeRate->toBe(3.14)
-        ->dunningLetterDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->isRotRutDeductible->toBe(true)
+        ->exchangeRate->toBe(42)
+        ->dunningLetterDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dunningLetterLevel->toBe(42)
         ->contact->toBeNull()
-        ->sendToAutoInvoice->toBeTrue()
-        ->roundingDiff->toBe(3.14)
+        ->sendToAutoInvoice->toBe(true)
+        ->roundingDiff->toBe(42)
         ->customerVatZone->toBeNull()
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->accountingCostRef->toBe('String value')
         ->originatorDocRef->toBe('String value')
         ->contractDocRef->toBe('String value')
         ->childRecord->toBeNull()
         ->directDebitMandate->toBeNull()
-        ->excludeDebtCollection->toBeTrue()
+        ->excludeDebtCollection->toBe(true)
         ->debtCollection->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->hold->toBeTrue()
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInCurrency->toBe(3.14)
-        ->detailTotal->toBe(3.14)
-        ->detailTotalInCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInCurrency->toBe(3.14)
+        ->timeStamp->toBe('String value')
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
         ->salesPerson->toBeNull()
         ->paymentReference->toBe('String value')
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->dontPrint->toBeTrue()
-        ->dontEmail->toBeTrue()
-        ->revoked->toBeTrue()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -522,29 +534,862 @@ it('calls the customerInvoiceGetAllCollection method in the CustomerInvoice reso
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerInvoiceReleaseInvoiceByinvoiceNumber method in the CustomerInvoice resource', function () {
-    $mockClient = Saloon::fake([
-        CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest::class => MockResponse::make([], 200),
+it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resource', function () {
+    Saloon::fake([
+        CustomerInvoiceGetAllRequest::class => MockResponse::make([
+            0 => [
+                'creditTerms' => null,
+                'documentDueDate' => '2025-11-22T10:40:04+00:00',
+                'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
+                'externalReference' => 'String value',
+                'isRotRutDeductible' => true,
+                'exchangeRate' => 42,
+                'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
+                'dunningLetterLevel' => 42,
+                'contact' => null,
+                'attachments' => [],
+                'taxDetails' => [],
+                'invoiceLines' => [],
+                'sendToAutoInvoice' => true,
+                'roundingDiff' => 42,
+                'customerVatZone' => null,
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
+                'accountingCostRef' => 'String value',
+                'originatorDocRef' => 'String value',
+                'contractDocRef' => 'String value',
+                'childRecord' => null,
+                'directDebitMandate' => null,
+                'excludeDebtCollection' => true,
+                'debtCollection' => null,
+                'timeStamp' => 'String value',
+                'hold' => true,
+                'discountTotal' => 42,
+                'discountTotalInCurrency' => 42,
+                'detailTotal' => 42,
+                'detailTotalInCurrency' => 42,
+                'vatTaxableTotal' => 42,
+                'vatTaxableTotalInCurrency' => 42,
+                'vatExemptTotal' => 42,
+                'vatExemptTotalInCurrency' => 42,
+                'salesPersonId' => 42,
+                'salesPersonDescr' => 'String value',
+                'salesPerson' => null,
+                'paymentReference' => 'String value',
+                'invoiceAddress' => null,
+                'invoiceContact' => null,
+                'applications' => [],
+                'dontPrint' => true,
+                'dontEmail' => true,
+                'revoked' => true,
+                'customer' => null,
+                'documentType' => 'String value',
+                'referenceNumber' => 'String value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
+                'closedFinancialPeriod' => 'String value',
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
+                'status' => 'String value',
+                'currencyId' => 'mock-id-123',
+                'amount' => 42,
+                'amountInCurrency' => 42,
+                'balance' => 42,
+                'balanceInCurrency' => 42,
+                'cashDiscount' => 42,
+                'cashDiscountInCurrency' => 42,
+                'paymentMethod' => null,
+                'customerRefNumber' => 'String value',
+                'invoiceText' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                'note' => 'String value',
+                'vatTotal' => 42,
+                'vatTotalInCurrency' => 42,
+                'location' => null,
+                'branchNumber' => null,
+                'cashAccount' => 'String value',
+                'project' => null,
+                'account' => null,
+                'subaccount' => null,
+                'customerProject' => 'String value',
+                'errorInfo' => 'String value',
+            ],
+            1 => [
+                'creditTerms' => null,
+                'documentDueDate' => '2025-11-22T10:40:04+00:00',
+                'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
+                'externalReference' => 'String value',
+                'isRotRutDeductible' => true,
+                'exchangeRate' => 42,
+                'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
+                'dunningLetterLevel' => 42,
+                'contact' => null,
+                'attachments' => [],
+                'taxDetails' => [],
+                'invoiceLines' => [],
+                'sendToAutoInvoice' => true,
+                'roundingDiff' => 42,
+                'customerVatZone' => null,
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
+                'accountingCostRef' => 'String value',
+                'originatorDocRef' => 'String value',
+                'contractDocRef' => 'String value',
+                'childRecord' => null,
+                'directDebitMandate' => null,
+                'excludeDebtCollection' => true,
+                'debtCollection' => null,
+                'timeStamp' => 'String value',
+                'hold' => true,
+                'discountTotal' => 42,
+                'discountTotalInCurrency' => 42,
+                'detailTotal' => 42,
+                'detailTotalInCurrency' => 42,
+                'vatTaxableTotal' => 42,
+                'vatTaxableTotalInCurrency' => 42,
+                'vatExemptTotal' => 42,
+                'vatExemptTotalInCurrency' => 42,
+                'salesPersonId' => 42,
+                'salesPersonDescr' => 'String value',
+                'salesPerson' => null,
+                'paymentReference' => 'String value',
+                'invoiceAddress' => null,
+                'invoiceContact' => null,
+                'applications' => [],
+                'dontPrint' => true,
+                'dontEmail' => true,
+                'revoked' => true,
+                'customer' => null,
+                'documentType' => 'String value',
+                'referenceNumber' => 'String value',
+                'postPeriod' => 'String value',
+                'financialPeriod' => 'String value',
+                'closedFinancialPeriod' => 'String value',
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
+                'status' => 'String value',
+                'currencyId' => 'mock-id-123',
+                'amount' => 42,
+                'amountInCurrency' => 42,
+                'balance' => 42,
+                'balanceInCurrency' => 42,
+                'cashDiscount' => 42,
+                'cashDiscountInCurrency' => 42,
+                'paymentMethod' => null,
+                'customerRefNumber' => 'String value',
+                'invoiceText' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                'note' => 'String value',
+                'vatTotal' => 42,
+                'vatTotalInCurrency' => 42,
+                'location' => null,
+                'branchNumber' => null,
+                'cashAccount' => 'String value',
+                'project' => null,
+                'account' => null,
+                'subaccount' => null,
+                'customerProject' => 'String value',
+                'errorInfo' => 'String value',
+            ],
+        ], 200),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ReleaseInvoiceActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new CustomerInvoiceGetAllRequest(
+        documentType: 'test string',
+        released: 123,
+        dunningLevel: 123,
+        closedFinancialPeriod: 'test string',
+        dunningLetterDateTime: 'test string',
+        dunningLetterDateTimeCondition: 'test string',
+        project: 'test string',
+        expandApplications: true,
+        expandDunningInformation: true,
+        expandAttachments: true,
+        expandTaxDetails: true,
+        expandInvoiceAddress: true,
+        financialPeriod: 'test string',
+        documentDueDate: 'test string',
+        documentDueDateCondition: 'test string',
+        status: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        externalReference: 'test string',
+        paymentReference: 'test string',
+        customerRefNumber: 'test string',
+        customer: 'test string',
+        branch: 'test string',
+        documentDate: 'test string',
+        documentDateCondition: 'test string',
+        greaterThanValue: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest(invoiceNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(CustomerInvoiceGetAllRequest::class);
+
+    expect($response->status())->toBe(200);
+
+    $collection = $response->dto();
+
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
+
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->creditTerms->toBeNull()
+        ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->externalReference->toBe('String value')
+        ->isRotRutDeductible->toBe(true)
+        ->exchangeRate->toBe(42)
+        ->dunningLetterDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->dunningLetterLevel->toBe(42)
+        ->contact->toBeNull()
+        ->sendToAutoInvoice->toBe(true)
+        ->roundingDiff->toBe(42)
+        ->customerVatZone->toBeNull()
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->accountingCostRef->toBe('String value')
+        ->originatorDocRef->toBe('String value')
+        ->contractDocRef->toBe('String value')
+        ->childRecord->toBeNull()
+        ->directDebitMandate->toBeNull()
+        ->excludeDebtCollection->toBe(true)
+        ->debtCollection->toBeNull()
+        ->timeStamp->toBe('String value')
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
+        ->salesPersonId->toBe(42)
+        ->salesPersonDescr->toBe('String value')
+        ->salesPerson->toBeNull()
+        ->paymentReference->toBe('String value')
+        ->invoiceAddress->toBeNull()
+        ->invoiceContact->toBeNull()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
+        ->customer->toBeNull()
+        ->documentType->toBe('String value')
+        ->referenceNumber->toBe('String value')
+        ->postPeriod->toBe('String value')
+        ->financialPeriod->toBe('String value')
+        ->closedFinancialPeriod->toBe('String value')
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->status->toBe('String value')
+        ->currencyId->toBe('mock-id-123')
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
+        ->paymentMethod->toBeNull()
+        ->customerRefNumber->toBe('String value')
+        ->invoiceText->toBe('String value')
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->note->toBe('String value')
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
+        ->location->toBeNull()
+        ->branchNumber->toBeNull()
+        ->cashAccount->toBe('String value')
+        ->project->toBeNull()
+        ->account->toBeNull()
+        ->subaccount->toBeNull()
+        ->customerProject->toBe('String value')
+        ->errorInfo->toBe('String value');
+});
+
+it('calls the customerInvoiceCreateRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceCreateRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceCreateRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceCreateRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest(
+        invoiceNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest(
+        invoiceNumber: 'test string',
+        lineNumber: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerInvoiceReleaseInvoiceByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest(
+        invoiceNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
+    expect($response->status())->toBe(201);
+});
 
-        return true;
-    });
+it('calls the customerInvoiceSendToAutoInvoiceByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceSendToAutoInvoiceByinvoiceNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceSendToAutoInvoiceByinvoiceNumberRequest(
+        invoiceNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceSendToAutoInvoiceByinvoiceNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerInvoiceCorrectInvoiceByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceCorrectInvoiceByinvoiceNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceCorrectInvoiceByinvoiceNumberRequest(
+        invoiceNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceCorrectInvoiceByinvoiceNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerInvoiceReverseInvoiceByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceReverseInvoiceByinvoiceNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceReverseInvoiceByinvoiceNumberRequest(
+        invoiceNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceReverseInvoiceByinvoiceNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerInvoiceReverseInvoiceAndApplyToNoteByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
+    $bodyData = new CustomerInvoiceUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        cashDiscountDate: '2025-11-22T10:40:04+00:00',
+        documentDueDate: '2025-11-22T10:40:04+00:00',
+        externalReference: 'String value',
+        customerProject: 'String value',
+        exchangeRate: 42,
+        domesticServicesDeductibleDocument: true,
+        rotRutDetails: null,
+        paymentReference: 'String value',
+        contact: 42,
+        project: 'String value',
+        taxDetailLines: [],
+        invoiceLines: [],
+        sendToAutoInvoice: true,
+        customerVatZoneId: 'mock-id-123',
+        billingAddress: null,
+        invoiceContact: null,
+        startDate: '2025-11-22T10:40:04+00:00',
+        endDate: '2025-11-22T10:40:04+00:00',
+        accountingCostRef: 'String value',
+        originatorDocRef: 'String value',
+        contractDocRef: 'String value',
+        revoked: true,
+        overrideNumberSeries: null,
+        directDebitMandateId: 'mock-id-123',
+        excludeDebtCollection: true,
+        debtCollectionCaseNbr: 'String value',
+        debtCollectionCaseStatus: 'String value',
+        debtCollectionCaseType: 'String value',
+        debtCollectionCaseUrl: 'String value',
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CustomerInvoiceReverseInvoiceAndApplyToNoteByinvoiceNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerInvoiceReverseInvoiceAndApplyToNoteByinvoiceNumberRequest(
+        invoiceNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerInvoiceReverseInvoiceAndApplyToNoteByinvoiceNumberRequest::class);
+
+    expect($response->status())->toBe(201);
 });

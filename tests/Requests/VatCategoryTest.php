@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\VatCategory\VatCategoryGetAllVatCategoriesCollectionRequest;
+use Pionect\VismaSdk\Requests\VatCategory\VatCategoryGetAllVatCategoriesRequest;
 use Pionect\VismaSdk\Requests\VatCategory\VatCategoryGetVatCategoryBytaxCategoryIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -12,14 +11,14 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory resource', function () {
+it('calls the vatCategoryGetVatCategoryBytaxCategoryIdRequest method in the VatCategory resource', function () {
     Saloon::fake([
         VatCategoryGetVatCategoryBytaxCategoryIdRequest::class => MockResponse::make([
             'vatCategoryId' => 'mock-id-123',
             'description' => 'String value',
             'active' => true,
             'excludeListedTaxes' => true,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'vatCategoryLines' => [],
         ], 200),
     ]);
@@ -40,20 +39,20 @@ it('calls the vatCategoryGetVatCategoryBytaxCategoryId method in the VatCategory
     expect($dto)
         ->vatCategoryId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->active->toBeTrue()
-        ->excludeListedTaxes->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->active->toBe(true)
+        ->excludeListedTaxes->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });
 
-it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory resource', function () {
+it('calls the vatCategoryGetAllVatCategoriesRequest method in the VatCategory resource', function () {
     Saloon::fake([
-        VatCategoryGetAllVatCategoriesCollectionRequest::class => MockResponse::make([
+        VatCategoryGetAllVatCategoriesRequest::class => MockResponse::make([
             0 => [
                 'vatCategoryId' => 'mock-id-123',
                 'description' => 'String value',
                 'active' => true,
                 'excludeListedTaxes' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'vatCategoryLines' => [],
             ],
             1 => [
@@ -61,28 +60,40 @@ it('calls the vatCategoryGetAllVatCategoriesCollection method in the VatCategory
                 'description' => 'String value',
                 'active' => true,
                 'excludeListedTaxes' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'vatCategoryLines' => [],
             ],
         ], 200),
     ]);
 
-    $request = (new VatCategoryGetAllVatCategoriesCollectionRequest(vendorCd: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string'));
+    $request = new VatCategoryGetAllVatCategoriesRequest(
+        vendorCd: 'test string',
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(VatCategoryGetAllVatCategoriesRequest::class);
 
-    Saloon::assertSent(function (VatCategoryGetAllVatCategoriesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->vatCategoryId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->active->toBeTrue()
-        ->excludeListedTaxes->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->active->toBe(true)
+        ->excludeListedTaxes->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });

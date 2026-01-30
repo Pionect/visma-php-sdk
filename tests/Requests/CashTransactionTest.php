@@ -1,29 +1,29 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\CashTransactionUpdateDto;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionCreateAttachmentByreferenceNbrRequest;
-use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionCreateCashTransactionRequest;
+use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionGetAllRequest;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionGetByreferenceNbrRequest;
+use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionPutByreferenceNbrRequest;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionReleaseByreferenceNbrRequest;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionReverseByreferenceNbrRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction resource', function () {
+it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransaction resource', function () {
     Saloon::fake([
         CashTransactionGetByreferenceNbrRequest::class => MockResponse::make([
             'tranType' => 'String value',
             'referenceNbr' => 'String value',
             'status' => 'String value',
             'hold' => true,
-            'tranDate' => '2025-11-22T10:40:04.065Z',
+            'tranDate' => '2025-11-22T10:40:04+00:00',
             'finPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'cashAccount' => null,
@@ -33,17 +33,17 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
             'documentRef' => 'String value',
             'owner' => null,
             'description' => 'String value',
-            'amount' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'taxTotal' => 3.14,
-            'controlTotal' => 3.14,
-            'taxAmount' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'amount' => 42,
+            'vatTaxableTotal' => 42,
+            'vatExemptTotal' => 42,
+            'taxTotal' => 42,
+            'controlTotal' => 42,
+            'taxAmount' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'transactionDetails' => [],
             'taxDetails' => [],
             'financialsDetail' => null,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
         ], 200),
     ]);
 
@@ -63,8 +63,8 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
         ->tranType->toBe('String value')
         ->referenceNbr->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->tranDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->tranDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->finPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->cashAccount->toBeNull()
@@ -74,26 +74,63 @@ it('calls the cashTransactionGetByreferenceNbr method in the CashTransaction res
         ->documentRef->toBe('String value')
         ->owner->toBeNull()
         ->description->toBe('String value')
-        ->amount->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->taxTotal->toBe(3.14)
-        ->controlTotal->toBe(3.14)
-        ->taxAmount->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->amount->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->taxTotal->toBe(42)
+        ->controlTotal->toBe(42)
+        ->taxAmount->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->financialsDetail->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toBe('String value');
 });
 
-it('calls the cashTransactionGetAllCollection method in the CashTransaction resource', function () {
+it('calls the cashTransactionPutByreferenceNbrRequest method in the CashTransaction resource', function () {
+    $bodyData = new CashTransactionUpdateDto(
+        referenceNumber: 'String value',
+        hold: true,
+        tranDate: '2025-11-22T10:40:04+00:00',
+        finanacialPeriod: null,
+        financialPeriod: null,
+        description: 'String value',
+        cashAccount: 'String value',
+        entryType: 'String value',
+        documentRef: 'String value',
+        controlTotal: 42,
+        vatAmount: 42,
+        vatZone: 'String value',
+        taxCalculationMode: 'String value',
+        overrideNumberSeries: true,
+        cashTransactionDetails: [],
+        cashTransactionTaxDetails: []
+    );
+
     Saloon::fake([
-        CashTransactionGetAllCollectionRequest::class => MockResponse::make([
+        CashTransactionPutByreferenceNbrRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CashTransactionPutByreferenceNbrRequest(
+        referenceNbr: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CashTransactionPutByreferenceNbrRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the cashTransactionGetAllRequest method in the CashTransaction resource', function () {
+    Saloon::fake([
+        CashTransactionGetAllRequest::class => MockResponse::make([
             0 => [
                 'tranType' => 'String value',
                 'referenceNbr' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
-                'tranDate' => '2025-11-22T10:40:04.065Z',
+                'tranDate' => '2025-11-22T10:40:04+00:00',
                 'finPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'cashAccount' => null,
@@ -103,24 +140,24 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
                 'documentRef' => 'String value',
                 'owner' => null,
                 'description' => 'String value',
-                'amount' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'taxTotal' => 3.14,
-                'controlTotal' => 3.14,
-                'taxAmount' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'amount' => 42,
+                'vatTaxableTotal' => 42,
+                'vatExemptTotal' => 42,
+                'taxTotal' => 42,
+                'controlTotal' => 42,
+                'taxAmount' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'transactionDetails' => [],
                 'taxDetails' => [],
                 'financialsDetail' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
             ],
             1 => [
                 'tranType' => 'String value',
                 'referenceNbr' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
-                'tranDate' => '2025-11-22T10:40:04.065Z',
+                'tranDate' => '2025-11-22T10:40:04+00:00',
                 'finPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'cashAccount' => null,
@@ -130,39 +167,49 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
                 'documentRef' => 'String value',
                 'owner' => null,
                 'description' => 'String value',
-                'amount' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'taxTotal' => 3.14,
-                'controlTotal' => 3.14,
-                'taxAmount' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'amount' => 42,
+                'vatTaxableTotal' => 42,
+                'vatExemptTotal' => 42,
+                'taxTotal' => 42,
+                'controlTotal' => 42,
+                'taxAmount' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'transactionDetails' => [],
                 'taxDetails' => [],
                 'financialsDetail' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
             ],
         ], 200),
     ]);
 
-    $request = (new CashTransactionGetAllCollectionRequest(numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new CashTransactionGetAllRequest(
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CashTransactionGetAllRequest::class);
 
-    Saloon::assertSent(function (CashTransactionGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->tranType->toBe('String value')
         ->referenceNbr->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->tranDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->tranDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->finPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->cashAccount->toBeNull()
@@ -172,92 +219,159 @@ it('calls the cashTransactionGetAllCollection method in the CashTransaction reso
         ->documentRef->toBe('String value')
         ->owner->toBeNull()
         ->description->toBe('String value')
-        ->amount->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->taxTotal->toBe(3.14)
-        ->controlTotal->toBe(3.14)
-        ->taxAmount->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->amount->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->taxTotal->toBe(42)
+        ->controlTotal->toBe(42)
+        ->taxAmount->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->financialsDetail->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toBe('String value');
 });
 
-it('calls the cashTransactionReleaseByreferenceNbr method in the CashTransaction resource', function () {
-    $mockClient = Saloon::fake([
-        CashTransactionReleaseByreferenceNbrRequest::class => MockResponse::make([], 200),
+it('calls the cashTransactionCreateCashTransactionRequest method in the CashTransaction resource', function () {
+    $bodyData = new CashTransactionUpdateDto(
+        referenceNumber: 'String value',
+        hold: true,
+        tranDate: '2025-11-22T10:40:04+00:00',
+        finanacialPeriod: null,
+        financialPeriod: null,
+        description: 'String value',
+        cashAccount: 'String value',
+        entryType: 'String value',
+        documentRef: 'String value',
+        controlTotal: 42,
+        vatAmount: 42,
+        vatZone: 'String value',
+        taxCalculationMode: 'String value',
+        overrideNumberSeries: true,
+        cashTransactionDetails: [],
+        cashTransactionTaxDetails: []
+    );
+
+    Saloon::fake([
+        CashTransactionCreateCashTransactionRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ReleaseCashTransactionActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new CashTransactionCreateCashTransactionRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new CashTransactionReleaseByreferenceNbrRequest(referenceNbr: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(CashTransactionCreateCashTransactionRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the cashTransactionReleaseByreferenceNbrRequest method in the CashTransaction resource', function () {
+    $bodyData = new CashTransactionUpdateDto(
+        referenceNumber: 'String value',
+        hold: true,
+        tranDate: '2025-11-22T10:40:04+00:00',
+        finanacialPeriod: null,
+        financialPeriod: null,
+        description: 'String value',
+        cashAccount: 'String value',
+        entryType: 'String value',
+        documentRef: 'String value',
+        controlTotal: 42,
+        vatAmount: 42,
+        vatZone: 'String value',
+        taxCalculationMode: 'String value',
+        overrideNumberSeries: true,
+        cashTransactionDetails: [],
+        cashTransactionTaxDetails: []
+    );
+
+    Saloon::fake([
+        CashTransactionReleaseByreferenceNbrRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CashTransactionReleaseByreferenceNbrRequest(
+        referenceNbr: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(CashTransactionReleaseByreferenceNbrRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the cashTransactionReverseByreferenceNbr method in the CashTransaction resource', function () {
-    $mockClient = Saloon::fake([
-        CashTransactionReverseByreferenceNbrRequest::class => MockResponse::make([], 200),
+it('calls the cashTransactionReverseByreferenceNbrRequest method in the CashTransaction resource', function () {
+    $bodyData = new CashTransactionUpdateDto(
+        referenceNumber: 'String value',
+        hold: true,
+        tranDate: '2025-11-22T10:40:04+00:00',
+        finanacialPeriod: null,
+        financialPeriod: null,
+        description: 'String value',
+        cashAccount: 'String value',
+        entryType: 'String value',
+        documentRef: 'String value',
+        controlTotal: 42,
+        vatAmount: 42,
+        vatZone: 'String value',
+        taxCalculationMode: 'String value',
+        overrideNumberSeries: true,
+        cashTransactionDetails: [],
+        cashTransactionTaxDetails: []
+    );
+
+    Saloon::fake([
+        CashTransactionReverseByreferenceNbrRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ReverseCashTransactionActionResultDto::factory()->state([
-        'referenceNbr' => 'test value',
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new CashTransactionReverseByreferenceNbrRequest(referenceNbr: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new CashTransactionReverseByreferenceNbrRequest(
+        referenceNbr: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(CashTransactionReverseByreferenceNbrRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->referenceNbr->toBe('test value')
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the cashTransactionCreateAttachmentByreferenceNbr method in the CashTransaction resource', function () {
-    $mockClient = Saloon::fake([
-        CashTransactionCreateAttachmentByreferenceNbrRequest::class => MockResponse::make([], 200),
+it('calls the cashTransactionCreateAttachmentByreferenceNbrRequest method in the CashTransaction resource', function () {
+    $bodyData = new CashTransactionUpdateDto(
+        referenceNumber: 'String value',
+        hold: true,
+        tranDate: '2025-11-22T10:40:04+00:00',
+        finanacialPeriod: null,
+        financialPeriod: null,
+        description: 'String value',
+        cashAccount: 'String value',
+        entryType: 'String value',
+        documentRef: 'String value',
+        controlTotal: 42,
+        vatAmount: 42,
+        vatZone: 'String value',
+        taxCalculationMode: 'String value',
+        overrideNumberSeries: true,
+        cashTransactionDetails: [],
+        cashTransactionTaxDetails: []
+    );
+
+    Saloon::fake([
+        CashTransactionCreateAttachmentByreferenceNbrRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\BackgroundApiAcceptedDto::factory()->state([
-        'stateLocation' => 'test value',
-    ])->make();
-
-    $request = new CashTransactionCreateAttachmentByreferenceNbrRequest(referenceNbr: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new CashTransactionCreateAttachmentByreferenceNbrRequest(
+        referenceNbr: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(CashTransactionCreateAttachmentByreferenceNbrRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->stateLocation->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });

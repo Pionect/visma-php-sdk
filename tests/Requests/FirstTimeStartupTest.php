@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\FirstTimeStartup\FirstTimeStartupGetCollectionRequest;
+use Pionect\VismaSdk\Requests\FirstTimeStartup\FirstTimeStartupGetRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -10,44 +10,40 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the firstTimeStartupGetCollection method in the FirstTimeStartup resource', function () {
+it('calls the firstTimeStartupGetRequest method in the FirstTimeStartup resource', function () {
     Saloon::fake([
-        FirstTimeStartupGetCollectionRequest::class => MockResponse::make([
+        FirstTimeStartupGetRequest::class => MockResponse::make([
             0 => [
                 'financials' => true,
                 'message' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'financials' => true,
                 'message' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new FirstTimeStartupGetCollectionRequest);
+    $request = new FirstTimeStartupGetRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(FirstTimeStartupGetRequest::class);
 
-    Saloon::assertSent(function (FirstTimeStartupGetCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->financials->toBeTrue()
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->financials->toBe(true)
         ->message->toBe('String value')
         ->errorInfo->toBe('String value');
 });

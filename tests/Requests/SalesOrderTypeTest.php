@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\SalesOrderType\SalesOrderTypeGetAllSalesOrderTypesCollectionRequest;
+use Pionect\VismaSdk\Requests\SalesOrderType\SalesOrderTypeGetAllSalesOrderTypesRequest;
 use Pionect\VismaSdk\Requests\SalesOrderType\SalesOrderTypeGetSalesOrderTypeByorderTypeRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -11,7 +11,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrderType resource', function () {
+it('calls the salesOrderTypeGetSalesOrderTypeByorderTypeRequest method in the SalesOrderType resource', function () {
     Saloon::fake([
         SalesOrderTypeGetSalesOrderTypeByorderTypeRequest::class => MockResponse::make([
             'orderType' => 'String value',
@@ -38,7 +38,7 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrde
 
     expect($dto)
         ->orderType->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->description->toBe('String value')
         ->behavior->toBe('String value')
         ->defaultOperation->toBe('String value')
@@ -46,9 +46,9 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderType method in the SalesOrde
         ->errorInfo->toBe('String value');
 });
 
-it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesOrderType resource', function () {
+it('calls the salesOrderTypeGetAllSalesOrderTypesRequest method in the SalesOrderType resource', function () {
     Saloon::fake([
-        SalesOrderTypeGetAllSalesOrderTypesCollectionRequest::class => MockResponse::make([
+        SalesOrderTypeGetAllSalesOrderTypesRequest::class => MockResponse::make([
             0 => [
                 'orderType' => 'String value',
                 'active' => true,
@@ -57,10 +57,6 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesO
                 'defaultOperation' => 'String value',
                 'customerDocumentType' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'orderType' => 'String value',
@@ -70,29 +66,34 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesCollection method in the SalesO
                 'defaultOperation' => 'String value',
                 'customerDocumentType' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new SalesOrderTypeGetAllSalesOrderTypesCollectionRequest(orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new SalesOrderTypeGetAllSalesOrderTypesRequest(
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(SalesOrderTypeGetAllSalesOrderTypesRequest::class);
 
-    Saloon::assertSent(function (SalesOrderTypeGetAllSalesOrderTypesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->orderType->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->description->toBe('String value')
         ->behavior->toBe('String value')
         ->defaultOperation->toBe('String value')

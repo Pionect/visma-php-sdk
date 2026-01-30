@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\FixedAssetClass\FixedAssetClassGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\FixedAssetClass\FixedAssetClassGetAllRequest;
 use Pionect\VismaSdk\Requests\FixedAssetClass\FixedAssetClassGetByClassIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -11,7 +11,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource', function () {
+it('calls the fixedAssetClassGetByClassIdRequest method in the FixedAssetClass resource', function () {
     Saloon::fake([
         FixedAssetClassGetByClassIdRequest::class => MockResponse::make([
             'classId' => 'mock-id-123',
@@ -21,7 +21,7 @@ it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource
             'assetTypeId' => 'mock-id-123',
             'isTangible' => true,
             'depreciable' => true,
-            'usefulLife' => 3.14,
+            'usefulLife' => 42,
             'acceleratedDepreciation' => true,
             'bookSettings' => null,
             'accounts' => null,
@@ -50,12 +50,12 @@ it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource
         ->classId->toBe('mock-id-123')
         ->recordType->toBe('String value')
         ->description->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->assetTypeId->toBe('mock-id-123')
-        ->isTangible->toBeTrue()
-        ->depreciable->toBeTrue()
-        ->usefulLife->toBe(3.14)
-        ->acceleratedDepreciation->toBeTrue()
+        ->isTangible->toBe(true)
+        ->depreciable->toBe(true)
+        ->usefulLife->toBe(42)
+        ->acceleratedDepreciation->toBe(true)
         ->bookSettings->toBeNull()
         ->accounts->toBeNull()
         ->subAccountMask->toBe('String value')
@@ -66,9 +66,9 @@ it('calls the fixedAssetClassGetByClassId method in the FixedAssetClass resource
         ->errorInfo->toBe('String value');
 });
 
-it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass resource', function () {
+it('calls the fixedAssetClassGetAllRequest method in the FixedAssetClass resource', function () {
     Saloon::fake([
-        FixedAssetClassGetAllCollectionRequest::class => MockResponse::make([
+        FixedAssetClassGetAllRequest::class => MockResponse::make([
             0 => [
                 'classId' => 'mock-id-123',
                 'recordType' => 'String value',
@@ -77,7 +77,7 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
                 'assetTypeId' => 'mock-id-123',
                 'isTangible' => true,
                 'depreciable' => true,
-                'usefulLife' => 3.14,
+                'usefulLife' => 42,
                 'acceleratedDepreciation' => true,
                 'bookSettings' => null,
                 'accounts' => null,
@@ -87,10 +87,6 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
                 'proceedSubAccountMask' => 'String value',
                 'gainLossSubAccountMask' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'classId' => 'mock-id-123',
@@ -100,7 +96,7 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
                 'assetTypeId' => 'mock-id-123',
                 'isTangible' => true,
                 'depreciable' => true,
-                'usefulLife' => 3.14,
+                'usefulLife' => 42,
                 'acceleratedDepreciation' => true,
                 'bookSettings' => null,
                 'accounts' => null,
@@ -110,36 +106,39 @@ it('calls the fixedAssetClassGetAllCollection method in the FixedAssetClass reso
                 'proceedSubAccountMask' => 'String value',
                 'gainLossSubAccountMask' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new FixedAssetClassGetAllCollectionRequest(classId: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new FixedAssetClassGetAllRequest(
+        classId: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(FixedAssetClassGetAllRequest::class);
 
-    Saloon::assertSent(function (FixedAssetClassGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->classId->toBe('mock-id-123')
         ->recordType->toBe('String value')
         ->description->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->assetTypeId->toBe('mock-id-123')
-        ->isTangible->toBeTrue()
-        ->depreciable->toBeTrue()
-        ->usefulLife->toBe(3.14)
-        ->acceleratedDepreciation->toBeTrue()
+        ->isTangible->toBe(true)
+        ->depreciable->toBe(true)
+        ->usefulLife->toBe(42)
+        ->acceleratedDepreciation->toBe(true)
         ->bookSettings->toBeNull()
         ->accounts->toBeNull()
         ->subAccountMask->toBe('String value')

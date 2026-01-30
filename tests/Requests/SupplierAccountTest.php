@@ -1,6 +1,6 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
 use Pionect\VismaSdk\Requests\SupplierAccount\SupplierAccountGetBysupplierIdRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -10,7 +10,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the supplierAccountGetBysupplierId method in the SupplierAccount resource', function () {
+it('calls the supplierAccountGetBysupplierIdRequest method in the SupplierAccount resource', function () {
     Saloon::fake([
         SupplierAccountGetBysupplierIdRequest::class => MockResponse::make([
             'supplierAccount' => null,

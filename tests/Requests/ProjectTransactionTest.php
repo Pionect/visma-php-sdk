@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetAllRequest;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetByrefNbrRequest;
+use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionPostRequest;
+use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionPutByrefNbrRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +13,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction resource', function () {
+it('calls the projectTransactionGetByrefNbrRequest method in the ProjectTransaction resource', function () {
     Saloon::fake([
         ProjectTransactionGetByrefNbrRequest::class => MockResponse::make([
             'refNbr' => 'String value',
@@ -22,7 +23,7 @@ it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction res
             'module' => 'String value',
             'origDocType' => 'String value',
             'note' => 'String value',
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'lines' => [],
             'errorInfo' => 'String value',
         ], 200),
@@ -48,13 +49,35 @@ it('calls the projectTransactionGetByrefNbr method in the ProjectTransaction res
         ->module->toBe('String value')
         ->origDocType->toBe('String value')
         ->note->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the projectTransactionGetAllCollection method in the ProjectTransaction resource', function () {
+it('calls the projectTransactionPutByrefNbrRequest method in the ProjectTransaction resource', function () {
+    $bodyData = [
+        'name' => 'Test value',
+    ];
+
     Saloon::fake([
-        ProjectTransactionGetAllCollectionRequest::class => MockResponse::make([
+        ProjectTransactionPutByrefNbrRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ProjectTransactionPutByrefNbrRequest(
+        refNbr: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ProjectTransactionPutByrefNbrRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the projectTransactionGetAllRequest method in the ProjectTransaction resource', function () {
+    Saloon::fake([
+        ProjectTransactionGetAllRequest::class => MockResponse::make([
             0 => [
                 'refNbr' => 'String value',
                 'description' => 'String value',
@@ -63,13 +86,9 @@ it('calls the projectTransactionGetAllCollection method in the ProjectTransactio
                 'module' => 'String value',
                 'origDocType' => 'String value',
                 'note' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'lines' => [],
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'refNbr' => 'String value',
@@ -79,30 +98,49 @@ it('calls the projectTransactionGetAllCollection method in the ProjectTransactio
                 'module' => 'String value',
                 'origDocType' => 'String value',
                 'note' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'lines' => [],
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new ProjectTransactionGetAllCollectionRequest(module: 'test string', status: 'test string', project: 'test string', projectTask: 'test string', billable: true, branch: 'test string', date: 'test string', fromPeriod: 'test string', toPeriod: 'test string', numberToRead: 123, skipRecords: 123, expandNote: true, greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new ProjectTransactionGetAllRequest(
+        module: 'test string',
+        status: 'test string',
+        project: 'test string',
+        projectTask: 'test string',
+        billable: true,
+        branch: 'test string',
+        date: 'test string',
+        fromPeriod: 'test string',
+        toPeriod: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        expandNote: true,
+        greaterThanValue: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ProjectTransactionGetAllRequest::class);
 
-    Saloon::assertSent(function (ProjectTransactionGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->refNbr->toBe('String value')
         ->description->toBe('String value')
         ->origDocNbr->toBe('String value')
@@ -110,6 +148,26 @@ it('calls the projectTransactionGetAllCollection method in the ProjectTransactio
         ->module->toBe('String value')
         ->origDocType->toBe('String value')
         ->note->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
+});
+
+it('calls the projectTransactionPostRequest method in the ProjectTransaction resource', function () {
+    $bodyData = [
+        'name' => 'Test value',
+    ];
+
+    Saloon::fake([
+        ProjectTransactionPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ProjectTransactionPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ProjectTransactionPostRequest::class);
+
+    expect($response->status())->toBe(201);
 });

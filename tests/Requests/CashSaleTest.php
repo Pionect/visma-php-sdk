@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\CashSale\CashSaleGetAllCashSalesCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\CashSaleUpdateDto;
+use Pionect\VismaSdk\Requests\CashSale\CashSaleGetAllCashSalesRequest;
 use Pionect\VismaSdk\Requests\CashSale\CashSaleGetBydocumentNumberRequest;
+use Pionect\VismaSdk\Requests\CashSale\CashSalePostRequest;
+use Pionect\VismaSdk\Requests\CashSale\CashSalePutBydocumentNumberRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,21 +13,21 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the cashSaleGetBydocumentNumber method in the CashSale resource', function () {
+it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource', function () {
     Saloon::fake([
         CashSaleGetBydocumentNumberRequest::class => MockResponse::make([
             'creditTerms' => null,
             'cashSaleLines' => [],
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'hold' => true,
-            'discountTotal' => 3.14,
-            'discountTotalInCurrency' => 3.14,
-            'detailTotal' => 3.14,
-            'detailTotalInCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInCurrency' => 3.14,
+            'discountTotal' => 42,
+            'discountTotalInCurrency' => 42,
+            'detailTotal' => 42,
+            'detailTotalInCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
             'salesPerson' => null,
@@ -43,24 +44,24 @@ it('calls the cashSaleGetBydocumentNumber method in the CashSale resource', func
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'documentDate' => '2025-11-22T10:40:04.065Z',
-            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'documentDate' => '2025-11-22T10:40:04+00:00',
+            'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'status' => 'String value',
             'currencyId' => 'mock-id-123',
-            'amount' => 3.14,
-            'amountInCurrency' => 3.14,
-            'balance' => 3.14,
-            'balanceInCurrency' => 3.14,
-            'cashDiscount' => 3.14,
-            'cashDiscountInCurrency' => 3.14,
+            'amount' => 42,
+            'amountInCurrency' => 42,
+            'balance' => 42,
+            'balanceInCurrency' => 42,
+            'cashDiscount' => 42,
+            'cashDiscountInCurrency' => 42,
             'paymentMethod' => null,
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
-            'vatTotal' => 3.14,
-            'vatTotalInCurrency' => 3.14,
+            'vatTotal' => 42,
+            'vatTotalInCurrency' => 42,
             'location' => null,
             'branchNumber' => null,
             'cashAccount' => 'String value',
@@ -86,49 +87,49 @@ it('calls the cashSaleGetBydocumentNumber method in the CashSale resource', func
 
     expect($dto)
         ->creditTerms->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->hold->toBeTrue()
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInCurrency->toBe(3.14)
-        ->detailTotal->toBe(3.14)
-        ->detailTotalInCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInCurrency->toBe(3.14)
+        ->timeStamp->toBe('String value')
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
         ->salesPerson->toBeNull()
         ->paymentReference->toBe('String value')
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->dontPrint->toBeTrue()
-        ->dontEmail->toBeTrue()
-        ->revoked->toBeTrue()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -139,22 +140,65 @@ it('calls the cashSaleGetBydocumentNumber method in the CashSale resource', func
         ->errorInfo->toBe('String value');
 });
 
-it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource', function () {
+it('calls the cashSalePutBydocumentNumberRequest method in the CashSale resource', function () {
+    $bodyData = new CashSaleUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        paymentReference: null,
+        cashSaleLines: [],
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
     Saloon::fake([
-        CashSaleGetAllCashSalesCollectionRequest::class => MockResponse::make([
+        CashSalePutBydocumentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CashSalePutBydocumentNumberRequest(
+        documentNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CashSalePutBydocumentNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', function () {
+    Saloon::fake([
+        CashSaleGetAllCashSalesRequest::class => MockResponse::make([
             0 => [
                 'creditTerms' => null,
                 'cashSaleLines' => [],
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'hold' => true,
-                'discountTotal' => 3.14,
-                'discountTotalInCurrency' => 3.14,
-                'detailTotal' => 3.14,
-                'detailTotalInCurrency' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatTaxableTotalInCurrency' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatExemptTotalInCurrency' => 3.14,
+                'discountTotal' => 42,
+                'discountTotalInCurrency' => 42,
+                'detailTotal' => 42,
+                'detailTotalInCurrency' => 42,
+                'vatTaxableTotal' => 42,
+                'vatTaxableTotalInCurrency' => 42,
+                'vatExemptTotal' => 42,
+                'vatExemptTotalInCurrency' => 42,
                 'salesPersonId' => 42,
                 'salesPersonDescr' => 'String value',
                 'salesPerson' => null,
@@ -171,24 +215,24 @@ it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource'
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'documentDate' => '2025-11-22T10:40:04.065Z',
-                'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'status' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'amount' => 3.14,
-                'amountInCurrency' => 3.14,
-                'balance' => 3.14,
-                'balanceInCurrency' => 3.14,
-                'cashDiscount' => 3.14,
-                'cashDiscountInCurrency' => 3.14,
+                'amount' => 42,
+                'amountInCurrency' => 42,
+                'balance' => 42,
+                'balanceInCurrency' => 42,
+                'cashDiscount' => 42,
+                'cashDiscountInCurrency' => 42,
                 'paymentMethod' => null,
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
-                'vatTotal' => 3.14,
-                'vatTotalInCurrency' => 3.14,
+                'vatTotal' => 42,
+                'vatTotalInCurrency' => 42,
                 'location' => null,
                 'branchNumber' => null,
                 'cashAccount' => 'String value',
@@ -197,24 +241,20 @@ it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource'
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'creditTerms' => null,
                 'cashSaleLines' => [],
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'hold' => true,
-                'discountTotal' => 3.14,
-                'discountTotalInCurrency' => 3.14,
-                'detailTotal' => 3.14,
-                'detailTotalInCurrency' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatTaxableTotalInCurrency' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatExemptTotalInCurrency' => 3.14,
+                'discountTotal' => 42,
+                'discountTotalInCurrency' => 42,
+                'detailTotal' => 42,
+                'detailTotalInCurrency' => 42,
+                'vatTaxableTotal' => 42,
+                'vatTaxableTotalInCurrency' => 42,
+                'vatExemptTotal' => 42,
+                'vatExemptTotalInCurrency' => 42,
                 'salesPersonId' => 42,
                 'salesPersonDescr' => 'String value',
                 'salesPerson' => null,
@@ -231,24 +271,24 @@ it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource'
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'documentDate' => '2025-11-22T10:40:04.065Z',
-                'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'status' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'amount' => 3.14,
-                'amountInCurrency' => 3.14,
-                'balance' => 3.14,
-                'balanceInCurrency' => 3.14,
-                'cashDiscount' => 3.14,
-                'cashDiscountInCurrency' => 3.14,
+                'amount' => 42,
+                'amountInCurrency' => 42,
+                'balance' => 42,
+                'balanceInCurrency' => 42,
+                'cashDiscount' => 42,
+                'cashDiscountInCurrency' => 42,
                 'paymentMethod' => null,
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
-                'vatTotal' => 3.14,
-                'vatTotalInCurrency' => 3.14,
+                'vatTotal' => 42,
+                'vatTotalInCurrency' => 42,
                 'location' => null,
                 'branchNumber' => null,
                 'cashAccount' => 'String value',
@@ -257,71 +297,103 @@ it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource'
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new CashSaleGetAllCashSalesCollectionRequest(documentType: 'test string', released: 123, dunningLevel: 123, closedFinancialPeriod: 'test string', dunningLetterDateTime: 'test string', dunningLetterDateTimeCondition: 'test string', project: 'test string', expandApplications: true, expandDunningInformation: true, expandAttachments: true, expandTaxDetails: true, expandInvoiceAddress: true, financialPeriod: 'test string', documentDueDate: 'test string', documentDueDateCondition: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, externalReference: 'test string', paymentReference: 'test string', customerRefNumber: 'test string', customer: 'test string', branch: 'test string', documentDate: 'test string', documentDateCondition: 'test string', greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new CashSaleGetAllCashSalesRequest(
+        documentType: 'test string',
+        released: 123,
+        dunningLevel: 123,
+        closedFinancialPeriod: 'test string',
+        dunningLetterDateTime: 'test string',
+        dunningLetterDateTimeCondition: 'test string',
+        project: 'test string',
+        expandApplications: true,
+        expandDunningInformation: true,
+        expandAttachments: true,
+        expandTaxDetails: true,
+        expandInvoiceAddress: true,
+        financialPeriod: 'test string',
+        documentDueDate: 'test string',
+        documentDueDateCondition: 'test string',
+        status: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        externalReference: 'test string',
+        paymentReference: 'test string',
+        customerRefNumber: 'test string',
+        customer: 'test string',
+        branch: 'test string',
+        documentDate: 'test string',
+        documentDateCondition: 'test string',
+        greaterThanValue: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CashSaleGetAllCashSalesRequest::class);
 
-    Saloon::assertSent(function (CashSaleGetAllCashSalesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->creditTerms->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->hold->toBeTrue()
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInCurrency->toBe(3.14)
-        ->detailTotal->toBe(3.14)
-        ->detailTotalInCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInCurrency->toBe(3.14)
+        ->timeStamp->toBe('String value')
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
         ->salesPerson->toBeNull()
         ->paymentReference->toBe('String value')
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->dontPrint->toBeTrue()
-        ->dontEmail->toBeTrue()
-        ->revoked->toBeTrue()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -330,4 +402,45 @@ it('calls the cashSaleGetAllCashSalesCollection method in the CashSale resource'
         ->subaccount->toBeNull()
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
+});
+
+it('calls the cashSalePostRequest method in the CashSale resource', function () {
+    $bodyData = new CashSaleUpdateDto(
+        paymentMethodId: 'mock-id-123',
+        creditTermsId: 'mock-id-123',
+        paymentReference: null,
+        cashSaleLines: [],
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CashSalePostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CashSalePostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CashSalePostRequest::class);
+
+    expect($response->status())->toBe(201);
 });

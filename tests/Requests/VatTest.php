@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Vat\VatGetAllVatsCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\VatDto;
+use Pionect\VismaSdk\Requests\Vat\VatGetAllVatsRequest;
 use Pionect\VismaSdk\Requests\Vat\VatGetVatByvatIdRequest;
+use Pionect\VismaSdk\Requests\Vat\VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest;
+use Pionect\VismaSdk\Requests\Vat\VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +13,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the vatGetVatByvatId method in the Vat resource', function () {
+it('calls the vatGetVatByvatIdRequest method in the Vat resource', function () {
     Saloon::fake([
         VatGetVatByvatIdRequest::class => MockResponse::make([
             'vatCategoryId' => 'mock-id-123',
@@ -29,12 +30,12 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
             'calculateOn' => 'String value',
             'cashDiscount' => 'String value',
             'vatAgencyId' => null,
-            'notValidAfter' => '2025-11-22T10:40:04.065Z',
+            'notValidAfter' => '2025-11-22T10:40:04+00:00',
             'euReportCode' => 'String value',
             'documentText' => 'String value',
             'defaultNonStockItem' => null,
             'vismaXmlVatType' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'glAccounts' => null,
             'schedules' => [],
             'categories' => [],
@@ -59,28 +60,28 @@ it('calls the vatGetVatByvatId method in the Vat resource', function () {
         ->vatId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->type->toBe('String value')
-        ->deductibleVat->toBeTrue()
-        ->reverseVat->toBeTrue()
-        ->statisticalVat->toBeTrue()
-        ->pendingVat->toBeTrue()
-        ->includeinVatExemptTotal->toBeTrue()
-        ->includeinVatTotal->toBeTrue()
-        ->enterFromVatInvoice->toBeTrue()
+        ->deductibleVat->toBe(true)
+        ->reverseVat->toBe(true)
+        ->statisticalVat->toBe(true)
+        ->pendingVat->toBe(true)
+        ->includeinVatExemptTotal->toBe(true)
+        ->includeinVatTotal->toBe(true)
+        ->enterFromVatInvoice->toBe(true)
         ->calculateOn->toBe('String value')
         ->cashDiscount->toBe('String value')
         ->vatAgencyId->toBeNull()
-        ->notValidAfter->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->notValidAfter->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->euReportCode->toBe('String value')
         ->documentText->toBe('String value')
         ->defaultNonStockItem->toBeNull()
         ->vismaXmlVatType->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->glAccounts->toBeNull();
 });
 
-it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
+it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
     Saloon::fake([
-        VatGetAllVatsCollectionRequest::class => MockResponse::make([
+        VatGetAllVatsRequest::class => MockResponse::make([
             0 => [
                 'vatCategoryId' => 'mock-id-123',
                 'vatId' => 'mock-id-123',
@@ -96,12 +97,12 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
                 'calculateOn' => 'String value',
                 'cashDiscount' => 'String value',
                 'vatAgencyId' => null,
-                'notValidAfter' => '2025-11-22T10:40:04.065Z',
+                'notValidAfter' => '2025-11-22T10:40:04+00:00',
                 'euReportCode' => 'String value',
                 'documentText' => 'String value',
                 'defaultNonStockItem' => null,
                 'vismaXmlVatType' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'glAccounts' => null,
                 'schedules' => [],
                 'categories' => [],
@@ -122,12 +123,12 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
                 'calculateOn' => 'String value',
                 'cashDiscount' => 'String value',
                 'vatAgencyId' => null,
-                'notValidAfter' => '2025-11-22T10:40:04.065Z',
+                'notValidAfter' => '2025-11-22T10:40:04+00:00',
                 'euReportCode' => 'String value',
                 'documentText' => 'String value',
                 'defaultNonStockItem' => null,
                 'vismaXmlVatType' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'glAccounts' => null,
                 'schedules' => [],
                 'categories' => [],
@@ -136,38 +137,93 @@ it('calls the vatGetAllVatsCollection method in the Vat resource', function () {
         ], 200),
     ]);
 
-    $request = (new VatGetAllVatsCollectionRequest(numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new VatGetAllVatsRequest(
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(VatGetAllVatsRequest::class);
 
-    Saloon::assertSent(function (VatGetAllVatsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->vatCategoryId->toBe('mock-id-123')
         ->vatId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->type->toBe('String value')
-        ->deductibleVat->toBeTrue()
-        ->reverseVat->toBeTrue()
-        ->statisticalVat->toBeTrue()
-        ->pendingVat->toBeTrue()
-        ->includeinVatExemptTotal->toBeTrue()
-        ->includeinVatTotal->toBeTrue()
-        ->enterFromVatInvoice->toBeTrue()
+        ->deductibleVat->toBe(true)
+        ->reverseVat->toBe(true)
+        ->statisticalVat->toBe(true)
+        ->pendingVat->toBe(true)
+        ->includeinVatExemptTotal->toBe(true)
+        ->includeinVatTotal->toBe(true)
+        ->enterFromVatInvoice->toBe(true)
         ->calculateOn->toBe('String value')
         ->cashDiscount->toBe('String value')
         ->vatAgencyId->toBeNull()
-        ->notValidAfter->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->notValidAfter->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->euReportCode->toBe('String value')
         ->documentText->toBe('String value')
         ->defaultNonStockItem->toBeNull()
         ->vismaXmlVatType->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->glAccounts->toBeNull();
+});
+
+it('calls the vatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest method in the Vat resource', function () {
+    $bodyData = new VatDto(
+        description: 'String value'
+    );
+
+    Saloon::fake([
+        VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest(
+        vendorCd: 'test string',
+        taxPeriodId: 'test string',
+        revisionId: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the vatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest method in the Vat resource', function () {
+    $bodyData = new VatDto(
+        description: 'String value'
+    );
+
+    Saloon::fake([
+        VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest(
+        vendorCd: 'test string',
+        taxPeriodId: 'test string',
+        revisionId: 123,
+        lineNumber: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest::class);
+
+    expect($response->status())->toBe(201);
 });

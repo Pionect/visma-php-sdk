@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\InventoryUpdateDto;
 use Pionect\VismaSdk\Requests\Inventory\InventoryChangeInventoryNbrActionByinternalIdRequest;
-use Pionect\VismaSdk\Requests\Inventory\InventoryGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryCreateInventoryAttachmentByinventoryNumberRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryCreateInventoryCrossReferencesByinventoryNumberRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryGetAllRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetByinventoryIdRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetByinventoryNumberRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventoryCrossReferencesByinventoryNumberRequest;
@@ -12,63 +13,64 @@ use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventoryPoreceiptTakeBarCod
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventorySalesOrderBarCodesByorderNbrRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest;
-use Pionect\VismaSdk\Requests\Inventory\InventoryGetItemClassesCollectionRequest;
-use Pionect\VismaSdk\Requests\Inventory\InventoryGetItemPostClassesCollectionRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryGetItemClassesRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryGetItemPostClassesRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryGetSpecificItemClassByitemClassNumberRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryPostRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryPutByinventoryIdRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryPutByinventoryNumberRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryUpdateCostNonStockItemByinventoryCdRequest;
+use Pionect\VismaSdk\Requests\Inventory\InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the inventoryGetItemClassesCollection method in the Inventory resource', function () {
+it('calls the inventoryGetItemClassesRequest method in the Inventory resource', function () {
     Saloon::fake([
-        InventoryGetItemClassesCollectionRequest::class => MockResponse::make([
+        InventoryGetItemClassesRequest::class => MockResponse::make([
             0 => [
                 'type' => 'String value',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'type' => 'String value',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new InventoryGetItemClassesCollectionRequest(pageNumber: 123, pageSize: 123));
+    $request = new InventoryGetItemClassesRequest(
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(InventoryGetItemClassesRequest::class);
 
-    Saloon::assertSent(function (InventoryGetItemClassesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->type->toBe('String value')
         ->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inventory resource', function () {
+it('calls the inventoryGetSpecificItemClassByitemClassNumberRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetSpecificItemClassByitemClassNumberRequest::class => MockResponse::make([
             'type' => 'String value',
@@ -96,43 +98,41 @@ it('calls the inventoryGetSpecificItemClassByitemClassNumber method in the Inven
         ->errorInfo->toBe('String value');
 });
 
-it('calls the inventoryGetItemPostClassesCollection method in the Inventory resource', function () {
+it('calls the inventoryGetItemPostClassesRequest method in the Inventory resource', function () {
     Saloon::fake([
-        InventoryGetItemPostClassesCollectionRequest::class => MockResponse::make([
+        InventoryGetItemPostClassesRequest::class => MockResponse::make([
             0 => [
                 'description' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'description' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new InventoryGetItemPostClassesCollectionRequest(pageNumber: 123, pageSize: 123));
+    $request = new InventoryGetItemPostClassesRequest(
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(InventoryGetItemPostClassesRequest::class);
 
-    Saloon::assertSent(function (InventoryGetItemPostClassesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->description->toBe('String value');
 });
 
-it('calls the inventoryGetByinventoryId method in the Inventory resource', function () {
+it('calls the inventoryGetByinventoryIdRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetByinventoryIdRequest::class => MockResponse::make([
             'inventoryId' => 42,
@@ -145,13 +145,13 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
             'postingClass' => null,
             'vatCode' => null,
             'lotSerialClass' => null,
-            'defaultPrice' => 3.14,
-            'pendingCost' => 3.14,
-            'pendingCostDate' => '2025-11-22T10:40:04.065Z',
-            'currentCost' => 3.14,
-            'effectiveDate' => '2025-11-22T10:40:04.065Z',
-            'lastCost' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'defaultPrice' => 42,
+            'pendingCost' => 42,
+            'pendingCostDate' => '2025-11-22T10:40:04+00:00',
+            'currentCost' => 42,
+            'effectiveDate' => '2025-11-22T10:40:04+00:00',
+            'lastCost' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'baseUnit' => 'String value',
             'salesUnit' => 'String value',
             'purchaseUnit' => 'String value',
@@ -171,7 +171,7 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
             'salesCategories' => [],
             'packaging' => null,
             'intrastat' => null,
-            'recommendedPrice' => 3.14,
+            'recommendedPrice' => 42,
             'priceManagerId' => 'mock-id-123',
             'priceManager' => null,
             'priceClass' => null,
@@ -206,18 +206,18 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
         ->postingClass->toBeNull()
         ->vatCode->toBeNull()
         ->lotSerialClass->toBeNull()
-        ->defaultPrice->toBe(3.14)
-        ->pendingCost->toBe(3.14)
-        ->pendingCostDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->currentCost->toBe(3.14)
-        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastCost->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->defaultPrice->toBe(42)
+        ->pendingCost->toBe(42)
+        ->pendingCostDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->currentCost->toBe(42)
+        ->effectiveDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastCost->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->baseUnit->toBe('String value')
         ->salesUnit->toBe('String value')
         ->purchaseUnit->toBe('String value')
-        ->stockItem->toBeTrue()
-        ->kitItem->toBeTrue()
+        ->stockItem->toBe(true)
+        ->kitItem->toBe(true)
         ->accountInformation->toBeNull()
         ->costPriceStatistics->toBeNull()
         ->defaultWarehouse->toBeNull()
@@ -225,7 +225,7 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
         ->defaultReceiptTo->toBeNull()
         ->packaging->toBeNull()
         ->intrastat->toBeNull()
-        ->recommendedPrice->toBe(3.14)
+        ->recommendedPrice->toBe(42)
         ->priceManagerId->toBe('mock-id-123')
         ->priceManager->toBeNull()
         ->priceClass->toBeNull()
@@ -236,7 +236,7 @@ it('calls the inventoryGetByinventoryId method in the Inventory resource', funct
         ->errorInfo->toBe('String value');
 });
 
-it('calls the inventoryGetByinventoryNumber method in the Inventory resource', function () {
+it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetByinventoryNumberRequest::class => MockResponse::make([
             'inventoryId' => 42,
@@ -249,13 +249,13 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
             'postingClass' => null,
             'vatCode' => null,
             'lotSerialClass' => null,
-            'defaultPrice' => 3.14,
-            'pendingCost' => 3.14,
-            'pendingCostDate' => '2025-11-22T10:40:04.065Z',
-            'currentCost' => 3.14,
-            'effectiveDate' => '2025-11-22T10:40:04.065Z',
-            'lastCost' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'defaultPrice' => 42,
+            'pendingCost' => 42,
+            'pendingCostDate' => '2025-11-22T10:40:04+00:00',
+            'currentCost' => 42,
+            'effectiveDate' => '2025-11-22T10:40:04+00:00',
+            'lastCost' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'baseUnit' => 'String value',
             'salesUnit' => 'String value',
             'purchaseUnit' => 'String value',
@@ -275,7 +275,7 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
             'salesCategories' => [],
             'packaging' => null,
             'intrastat' => null,
-            'recommendedPrice' => 3.14,
+            'recommendedPrice' => 42,
             'priceManagerId' => 'mock-id-123',
             'priceManager' => null,
             'priceClass' => null,
@@ -310,18 +310,18 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
         ->postingClass->toBeNull()
         ->vatCode->toBeNull()
         ->lotSerialClass->toBeNull()
-        ->defaultPrice->toBe(3.14)
-        ->pendingCost->toBe(3.14)
-        ->pendingCostDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->currentCost->toBe(3.14)
-        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastCost->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->defaultPrice->toBe(42)
+        ->pendingCost->toBe(42)
+        ->pendingCostDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->currentCost->toBe(42)
+        ->effectiveDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastCost->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->baseUnit->toBe('String value')
         ->salesUnit->toBe('String value')
         ->purchaseUnit->toBe('String value')
-        ->stockItem->toBeTrue()
-        ->kitItem->toBeTrue()
+        ->stockItem->toBe(true)
+        ->kitItem->toBe(true)
         ->accountInformation->toBeNull()
         ->costPriceStatistics->toBeNull()
         ->defaultWarehouse->toBeNull()
@@ -329,7 +329,7 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
         ->defaultReceiptTo->toBeNull()
         ->packaging->toBeNull()
         ->intrastat->toBeNull()
-        ->recommendedPrice->toBe(3.14)
+        ->recommendedPrice->toBe(42)
         ->priceManagerId->toBe('mock-id-123')
         ->priceManager->toBeNull()
         ->priceClass->toBeNull()
@@ -340,9 +340,65 @@ it('calls the inventoryGetByinventoryNumber method in the Inventory resource', f
         ->errorInfo->toBe('String value');
 });
 
-it('calls the inventoryGetAllCollection method in the Inventory resource', function () {
+it('calls the inventoryPutByinventoryNumberRequest method in the Inventory resource', function () {
+    $bodyData = new InventoryUpdateDto(
+        inventoryNumber: null,
+        status: 'String value',
+        type: 'String value',
+        description: 'String value',
+        body: 'String value',
+        itemClass: null,
+        postingClass: null,
+        vatCode: null,
+        defaultPrice: null,
+        baseUnit: 'String value',
+        salesUnit: 'String value',
+        purchaseUnit: 'String value',
+        expenseAccrualAccount: null,
+        inventoryAccount: null,
+        expenseAccount: null,
+        cogsAccount: null,
+        expenseNonTaxableAccount: 'String value',
+        expenseEuAccount: 'String value',
+        expenseImportAccount: 'String value',
+        expenseSubaccount: [],
+        cogsSubaccount: [],
+        salesAccount: 'String value',
+        salesNonTaxableAccount: 'String value',
+        salesEuAccount: 'String value',
+        salesExportAccount: 'String value',
+        salesSubaccount: [],
+        attributeLines: [],
+        packaging: null,
+        supplierDetails: [],
+        intrastat: null,
+        crossReferences: [],
+        defaultWarehouse: null,
+        defaultIssueFrom: null,
+        defaultReceiptTo: null,
+        kitItem: true,
+        note: 'String value'
+    );
+
     Saloon::fake([
-        InventoryGetAllCollectionRequest::class => MockResponse::make([
+        InventoryPutByinventoryNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new InventoryPutByinventoryNumberRequest(
+        inventoryNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(InventoryPutByinventoryNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the inventoryGetAllRequest method in the Inventory resource', function () {
+    Saloon::fake([
+        InventoryGetAllRequest::class => MockResponse::make([
             0 => [
                 'inventoryId' => 42,
                 'inventoryNumber' => 'String value',
@@ -354,13 +410,13 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'postingClass' => null,
                 'vatCode' => null,
                 'lotSerialClass' => null,
-                'defaultPrice' => 3.14,
-                'pendingCost' => 3.14,
-                'pendingCostDate' => '2025-11-22T10:40:04.065Z',
-                'currentCost' => 3.14,
-                'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                'lastCost' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'defaultPrice' => 42,
+                'pendingCost' => 42,
+                'pendingCostDate' => '2025-11-22T10:40:04+00:00',
+                'currentCost' => 42,
+                'effectiveDate' => '2025-11-22T10:40:04+00:00',
+                'lastCost' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'baseUnit' => 'String value',
                 'salesUnit' => 'String value',
                 'purchaseUnit' => 'String value',
@@ -380,7 +436,7 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'salesCategories' => [],
                 'packaging' => null,
                 'intrastat' => null,
-                'recommendedPrice' => 3.14,
+                'recommendedPrice' => 42,
                 'priceManagerId' => 'mock-id-123',
                 'priceManager' => null,
                 'priceClass' => null,
@@ -389,10 +445,6 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'note' => 'String value',
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'inventoryId' => 42,
@@ -405,13 +457,13 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'postingClass' => null,
                 'vatCode' => null,
                 'lotSerialClass' => null,
-                'defaultPrice' => 3.14,
-                'pendingCost' => 3.14,
-                'pendingCostDate' => '2025-11-22T10:40:04.065Z',
-                'currentCost' => 3.14,
-                'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                'lastCost' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'defaultPrice' => 42,
+                'pendingCost' => 42,
+                'pendingCostDate' => '2025-11-22T10:40:04+00:00',
+                'currentCost' => 42,
+                'effectiveDate' => '2025-11-22T10:40:04+00:00',
+                'lastCost' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'baseUnit' => 'String value',
                 'salesUnit' => 'String value',
                 'purchaseUnit' => 'String value',
@@ -431,7 +483,7 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'salesCategories' => [],
                 'packaging' => null,
                 'intrastat' => null,
-                'recommendedPrice' => 3.14,
+                'recommendedPrice' => 42,
                 'priceManagerId' => 'mock-id-123',
                 'priceManager' => null,
                 'priceClass' => null,
@@ -440,27 +492,57 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
                 'note' => 'String value',
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new InventoryGetAllCollectionRequest(pageSize: 123, alternateId: 'test string', inventoryNumber: 'test string', salesCategory: 123, addCostPriceStatistics: true, attributes: 'test string', description: 'test string', availabilityLastModifiedDateTime: 'test string', availabilityLastModifiedDateTimeCondition: 'test string', inventoryTypes: [], expandCrossReference: true, expandAttachment: true, expandAttribute: true, expandWarehouseDetail: true, expandAccountInformation: true, expandInventoryUnits: true, expandSupplierDetails: true, expandSalesCategories: true, expandNote: true, attachmentLastModifiedDateTime: 'test string', attachmentLastModifiedDateTimeCondition: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123));
+    $request = new InventoryGetAllRequest(
+        pageSize: 123,
+        alternateId: 'test string',
+        inventoryNumber: 'test string',
+        salesCategory: 123,
+        addCostPriceStatistics: true,
+        attributes: 'test string',
+        description: 'test string',
+        availabilityLastModifiedDateTime: 'test string',
+        availabilityLastModifiedDateTimeCondition: 'test string',
+        inventoryTypes: [],
+        expandCrossReference: true,
+        expandAttachment: true,
+        expandAttribute: true,
+        expandWarehouseDetail: true,
+        expandAccountInformation: true,
+        expandInventoryUnits: true,
+        expandSupplierDetails: true,
+        expandSalesCategories: true,
+        expandNote: true,
+        attachmentLastModifiedDateTime: 'test string',
+        attachmentLastModifiedDateTimeCondition: 'test string',
+        status: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        greaterThanValue: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(InventoryGetAllRequest::class);
 
-    Saloon::assertSent(function (InventoryGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
         ->status->toBe('String value')
@@ -471,18 +553,18 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
         ->postingClass->toBeNull()
         ->vatCode->toBeNull()
         ->lotSerialClass->toBeNull()
-        ->defaultPrice->toBe(3.14)
-        ->pendingCost->toBe(3.14)
-        ->pendingCostDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->currentCost->toBe(3.14)
-        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastCost->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->defaultPrice->toBe(42)
+        ->pendingCost->toBe(42)
+        ->pendingCostDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->currentCost->toBe(42)
+        ->effectiveDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastCost->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->baseUnit->toBe('String value')
         ->salesUnit->toBe('String value')
         ->purchaseUnit->toBe('String value')
-        ->stockItem->toBeTrue()
-        ->kitItem->toBeTrue()
+        ->stockItem->toBe(true)
+        ->kitItem->toBe(true)
         ->accountInformation->toBeNull()
         ->costPriceStatistics->toBeNull()
         ->defaultWarehouse->toBeNull()
@@ -490,7 +572,7 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
         ->defaultReceiptTo->toBeNull()
         ->packaging->toBeNull()
         ->intrastat->toBeNull()
-        ->recommendedPrice->toBe(3.14)
+        ->recommendedPrice->toBe(42)
         ->priceManagerId->toBe('mock-id-123')
         ->priceManager->toBeNull()
         ->priceClass->toBeNull()
@@ -501,7 +583,62 @@ it('calls the inventoryGetAllCollection method in the Inventory resource', funct
         ->errorInfo->toBe('String value');
 });
 
-it('calls the inventoryGetInventoryShipmentBarCodesByshipmentNbr method in the Inventory resource', function () {
+it('calls the inventoryPostRequest method in the Inventory resource', function () {
+    $bodyData = new InventoryUpdateDto(
+        inventoryNumber: null,
+        status: 'String value',
+        type: 'String value',
+        description: 'String value',
+        body: 'String value',
+        itemClass: null,
+        postingClass: null,
+        vatCode: null,
+        defaultPrice: null,
+        baseUnit: 'String value',
+        salesUnit: 'String value',
+        purchaseUnit: 'String value',
+        expenseAccrualAccount: null,
+        inventoryAccount: null,
+        expenseAccount: null,
+        cogsAccount: null,
+        expenseNonTaxableAccount: 'String value',
+        expenseEuAccount: 'String value',
+        expenseImportAccount: 'String value',
+        expenseSubaccount: [],
+        cogsSubaccount: [],
+        salesAccount: 'String value',
+        salesNonTaxableAccount: 'String value',
+        salesEuAccount: 'String value',
+        salesExportAccount: 'String value',
+        salesSubaccount: [],
+        attributeLines: [],
+        packaging: null,
+        supplierDetails: [],
+        intrastat: null,
+        crossReferences: [],
+        defaultWarehouse: null,
+        defaultIssueFrom: null,
+        defaultReceiptTo: null,
+        kitItem: true,
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        InventoryPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new InventoryPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(InventoryPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the inventoryGetInventoryShipmentBarCodesByshipmentNbrRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest::class => MockResponse::make([
             'barCode' => 'String value',
@@ -526,7 +663,7 @@ it('calls the inventoryGetInventoryShipmentBarCodesByshipmentNbr method in the I
         ->inventoryNumber->toBe('String value');
 });
 
-it('calls the inventoryGetInventorySalesOrderBarCodesByorderNbr method in the Inventory resource', function () {
+it('calls the inventoryGetInventorySalesOrderBarCodesByorderNbrRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetInventorySalesOrderBarCodesByorderNbrRequest::class => MockResponse::make([
             'barCode' => 'String value',
@@ -551,7 +688,7 @@ it('calls the inventoryGetInventorySalesOrderBarCodesByorderNbr method in the In
         ->inventoryNumber->toBe('String value');
 });
 
-it('calls the inventoryGetInventoryStockTakeBarCodesByreferenceNumber method in the Inventory resource', function () {
+it('calls the inventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest::class => MockResponse::make([
             'barCode' => 'String value',
@@ -576,7 +713,7 @@ it('calls the inventoryGetInventoryStockTakeBarCodesByreferenceNumber method in 
         ->inventoryNumber->toBe('String value');
 });
 
-it('calls the inventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbr method in the Inventory resource', function () {
+it('calls the inventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbrRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbrRequest::class => MockResponse::make([
             'barCode' => 'String value',
@@ -601,7 +738,7 @@ it('calls the inventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbr method in t
         ->inventoryNumber->toBe('String value');
 });
 
-it('calls the inventoryGetInventoryCrossReferencesByinventoryNumber method in the Inventory resource', function () {
+it('calls the inventoryGetInventoryCrossReferencesByinventoryNumberRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetInventoryCrossReferencesByinventoryNumberRequest::class => MockResponse::make([
             'alternateType' => 'String value',
@@ -634,56 +771,340 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumber method in th
         ->timestamp->toBe('String value');
 });
 
-it('calls the inventoryUpdateCostNonStockItemByinventoryCd method in the Inventory resource', function () {
-    $mockClient = Saloon::fake([
-        InventoryUpdateCostNonStockItemByinventoryCdRequest::class => MockResponse::make([], 200),
+it('calls the inventoryCreateInventoryCrossReferencesByinventoryNumberRequest method in the Inventory resource', function () {
+    $bodyData = new InventoryUpdateDto(
+        inventoryNumber: null,
+        status: 'String value',
+        type: 'String value',
+        description: 'String value',
+        body: 'String value',
+        itemClass: null,
+        postingClass: null,
+        vatCode: null,
+        defaultPrice: null,
+        baseUnit: 'String value',
+        salesUnit: 'String value',
+        purchaseUnit: 'String value',
+        expenseAccrualAccount: null,
+        inventoryAccount: null,
+        expenseAccount: null,
+        cogsAccount: null,
+        expenseNonTaxableAccount: 'String value',
+        expenseEuAccount: 'String value',
+        expenseImportAccount: 'String value',
+        expenseSubaccount: [],
+        cogsSubaccount: [],
+        salesAccount: 'String value',
+        salesNonTaxableAccount: 'String value',
+        salesEuAccount: 'String value',
+        salesExportAccount: 'String value',
+        salesSubaccount: [],
+        attributeLines: [],
+        packaging: null,
+        supplierDetails: [],
+        intrastat: null,
+        crossReferences: [],
+        defaultWarehouse: null,
+        defaultIssueFrom: null,
+        defaultReceiptTo: null,
+        kitItem: true,
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        InventoryCreateInventoryCrossReferencesByinventoryNumberRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\UpdateCostActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new InventoryCreateInventoryCrossReferencesByinventoryNumberRequest(
+        inventoryNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new InventoryUpdateCostNonStockItemByinventoryCdRequest(inventoryCd: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(InventoryCreateInventoryCrossReferencesByinventoryNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the inventoryUpdateCostNonStockItemByinventoryCdRequest method in the Inventory resource', function () {
+    $bodyData = new InventoryUpdateDto(
+        inventoryNumber: null,
+        status: 'String value',
+        type: 'String value',
+        description: 'String value',
+        body: 'String value',
+        itemClass: null,
+        postingClass: null,
+        vatCode: null,
+        defaultPrice: null,
+        baseUnit: 'String value',
+        salesUnit: 'String value',
+        purchaseUnit: 'String value',
+        expenseAccrualAccount: null,
+        inventoryAccount: null,
+        expenseAccount: null,
+        cogsAccount: null,
+        expenseNonTaxableAccount: 'String value',
+        expenseEuAccount: 'String value',
+        expenseImportAccount: 'String value',
+        expenseSubaccount: [],
+        cogsSubaccount: [],
+        salesAccount: 'String value',
+        salesNonTaxableAccount: 'String value',
+        salesEuAccount: 'String value',
+        salesExportAccount: 'String value',
+        salesSubaccount: [],
+        attributeLines: [],
+        packaging: null,
+        supplierDetails: [],
+        intrastat: null,
+        crossReferences: [],
+        defaultWarehouse: null,
+        defaultIssueFrom: null,
+        defaultReceiptTo: null,
+        kitItem: true,
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        InventoryUpdateCostNonStockItemByinventoryCdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new InventoryUpdateCostNonStockItemByinventoryCdRequest(
+        inventoryCd: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(InventoryUpdateCostNonStockItemByinventoryCdRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the inventoryChangeInventoryNbrActionByinternalId method in the Inventory resource', function () {
-    $mockClient = Saloon::fake([
-        InventoryChangeInventoryNbrActionByinternalIdRequest::class => MockResponse::make([], 200),
+it('calls the inventoryCreateInventoryAttachmentByinventoryNumberRequest method in the Inventory resource', function () {
+    $bodyData = new InventoryUpdateDto(
+        inventoryNumber: null,
+        status: 'String value',
+        type: 'String value',
+        description: 'String value',
+        body: 'String value',
+        itemClass: null,
+        postingClass: null,
+        vatCode: null,
+        defaultPrice: null,
+        baseUnit: 'String value',
+        salesUnit: 'String value',
+        purchaseUnit: 'String value',
+        expenseAccrualAccount: null,
+        inventoryAccount: null,
+        expenseAccount: null,
+        cogsAccount: null,
+        expenseNonTaxableAccount: 'String value',
+        expenseEuAccount: 'String value',
+        expenseImportAccount: 'String value',
+        expenseSubaccount: [],
+        cogsSubaccount: [],
+        salesAccount: 'String value',
+        salesNonTaxableAccount: 'String value',
+        salesEuAccount: 'String value',
+        salesExportAccount: 'String value',
+        salesSubaccount: [],
+        attributeLines: [],
+        packaging: null,
+        supplierDetails: [],
+        intrastat: null,
+        crossReferences: [],
+        defaultWarehouse: null,
+        defaultIssueFrom: null,
+        defaultReceiptTo: null,
+        kitItem: true,
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        InventoryCreateInventoryAttachmentByinventoryNumberRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ChangeInventoryNbrActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new InventoryCreateInventoryAttachmentByinventoryNumberRequest(
+        inventoryNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new InventoryChangeInventoryNbrActionByinternalIdRequest(internalId: 42, data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(InventoryCreateInventoryAttachmentByinventoryNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the inventoryChangeInventoryNbrActionByinternalIdRequest method in the Inventory resource', function () {
+    $bodyData = new InventoryUpdateDto(
+        inventoryNumber: null,
+        status: 'String value',
+        type: 'String value',
+        description: 'String value',
+        body: 'String value',
+        itemClass: null,
+        postingClass: null,
+        vatCode: null,
+        defaultPrice: null,
+        baseUnit: 'String value',
+        salesUnit: 'String value',
+        purchaseUnit: 'String value',
+        expenseAccrualAccount: null,
+        inventoryAccount: null,
+        expenseAccount: null,
+        cogsAccount: null,
+        expenseNonTaxableAccount: 'String value',
+        expenseEuAccount: 'String value',
+        expenseImportAccount: 'String value',
+        expenseSubaccount: [],
+        cogsSubaccount: [],
+        salesAccount: 'String value',
+        salesNonTaxableAccount: 'String value',
+        salesEuAccount: 'String value',
+        salesExportAccount: 'String value',
+        salesSubaccount: [],
+        attributeLines: [],
+        packaging: null,
+        supplierDetails: [],
+        intrastat: null,
+        crossReferences: [],
+        defaultWarehouse: null,
+        defaultIssueFrom: null,
+        defaultReceiptTo: null,
+        kitItem: true,
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        InventoryChangeInventoryNbrActionByinternalIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new InventoryChangeInventoryNbrActionByinternalIdRequest(
+        internalId: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(InventoryChangeInventoryNbrActionByinternalIdRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
+    expect($response->status())->toBe(201);
+});
 
-        return true;
-    });
+it('calls the inventoryPutByinventoryIdRequest method in the Inventory resource', function () {
+    $bodyData = new InventoryUpdateDto(
+        inventoryNumber: null,
+        status: 'String value',
+        type: 'String value',
+        description: 'String value',
+        body: 'String value',
+        itemClass: null,
+        postingClass: null,
+        vatCode: null,
+        defaultPrice: null,
+        baseUnit: 'String value',
+        salesUnit: 'String value',
+        purchaseUnit: 'String value',
+        expenseAccrualAccount: null,
+        inventoryAccount: null,
+        expenseAccount: null,
+        cogsAccount: null,
+        expenseNonTaxableAccount: 'String value',
+        expenseEuAccount: 'String value',
+        expenseImportAccount: 'String value',
+        expenseSubaccount: [],
+        cogsSubaccount: [],
+        salesAccount: 'String value',
+        salesNonTaxableAccount: 'String value',
+        salesEuAccount: 'String value',
+        salesExportAccount: 'String value',
+        salesSubaccount: [],
+        attributeLines: [],
+        packaging: null,
+        supplierDetails: [],
+        intrastat: null,
+        crossReferences: [],
+        defaultWarehouse: null,
+        defaultIssueFrom: null,
+        defaultReceiptTo: null,
+        kitItem: true,
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        InventoryPutByinventoryIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new InventoryPutByinventoryIdRequest(
+        inventoryId: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(InventoryPutByinventoryIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the inventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest method in the Inventory resource', function () {
+    $bodyData = new InventoryUpdateDto(
+        inventoryNumber: null,
+        status: 'String value',
+        type: 'String value',
+        description: 'String value',
+        body: 'String value',
+        itemClass: null,
+        postingClass: null,
+        vatCode: null,
+        defaultPrice: null,
+        baseUnit: 'String value',
+        salesUnit: 'String value',
+        purchaseUnit: 'String value',
+        expenseAccrualAccount: null,
+        inventoryAccount: null,
+        expenseAccount: null,
+        cogsAccount: null,
+        expenseNonTaxableAccount: 'String value',
+        expenseEuAccount: 'String value',
+        expenseImportAccount: 'String value',
+        expenseSubaccount: [],
+        cogsSubaccount: [],
+        salesAccount: 'String value',
+        salesNonTaxableAccount: 'String value',
+        salesEuAccount: 'String value',
+        salesExportAccount: 'String value',
+        salesSubaccount: [],
+        attributeLines: [],
+        packaging: null,
+        supplierDetails: [],
+        intrastat: null,
+        crossReferences: [],
+        defaultWarehouse: null,
+        defaultIssueFrom: null,
+        defaultReceiptTo: null,
+        kitItem: true,
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest(
+        inventoryNumber: 'test string',
+        alternateType: 'test string',
+        alternateId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest::class);
+
+    expect($response->status())->toBe(201);
 });

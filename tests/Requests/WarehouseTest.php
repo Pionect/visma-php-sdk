@@ -1,9 +1,11 @@
 <?php
 
-// auto-generated
-
-use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetAllCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\WarehouseDto;
+use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetAllRequest;
 use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetBywarehouseIdRequest;
+use Pionect\VismaSdk\Requests\Warehouse\WarehousePostBywarehouseIdRequest;
+use Pionect\VismaSdk\Requests\Warehouse\WarehousePutBywarehouseIdlocationIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,7 +13,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the warehouseGetBywarehouseId method in the Warehouse resource', function () {
+it('calls the warehouseGetBywarehouseIdRequest method in the Warehouse resource', function () {
     Saloon::fake([
         WarehouseGetBywarehouseIdRequest::class => MockResponse::make([
             'warehouseId' => 'mock-id-123',
@@ -50,8 +52,8 @@ it('calls the warehouseGetBywarehouseId method in the Warehouse resource', funct
         ->warehouseId->toBe('mock-id-123')
         ->branch->toBeNull()
         ->replenishmentClass->toBeNull()
-        ->active->toBeTrue()
-        ->lockSitePicountEntry->toBeTrue()
+        ->active->toBe(true)
+        ->lockSitePicountEntry->toBe(true)
         ->description->toBe('String value')
         ->locationEntry->toBe('String value')
         ->avgDefaultCost->toBe('String value')
@@ -65,9 +67,9 @@ it('calls the warehouseGetBywarehouseId method in the Warehouse resource', funct
         ->timestamp->toBe('String value');
 });
 
-it('calls the warehouseGetAllCollection method in the Warehouse resource', function () {
+it('calls the warehouseGetAllRequest method in the Warehouse resource', function () {
     Saloon::fake([
-        WarehouseGetAllCollectionRequest::class => MockResponse::make([
+        WarehouseGetAllRequest::class => MockResponse::make([
             0 => [
                 'warehouseId' => 'mock-id-123',
                 'branch' => null,
@@ -86,10 +88,6 @@ it('calls the warehouseGetAllCollection method in the Warehouse resource', funct
                 'address' => null,
                 'locations' => [],
                 'timestamp' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'warehouseId' => 'mock-id-123',
@@ -109,32 +107,36 @@ it('calls the warehouseGetAllCollection method in the Warehouse resource', funct
                 'address' => null,
                 'locations' => [],
                 'timestamp' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new WarehouseGetAllCollectionRequest(active: true, branch: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new WarehouseGetAllRequest(
+        active: true,
+        branch: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(WarehouseGetAllRequest::class);
 
-    Saloon::assertSent(function (WarehouseGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->warehouseId->toBe('mock-id-123')
         ->branch->toBeNull()
         ->replenishmentClass->toBeNull()
-        ->active->toBeTrue()
-        ->lockSitePicountEntry->toBeTrue()
+        ->active->toBe(true)
+        ->lockSitePicountEntry->toBe(true)
         ->description->toBe('String value')
         ->locationEntry->toBe('String value')
         ->avgDefaultCost->toBe('String value')
@@ -146,4 +148,79 @@ it('calls the warehouseGetAllCollection method in the Warehouse resource', funct
         ->contact->toBeNull()
         ->address->toBeNull()
         ->timestamp->toBe('String value');
+});
+
+it('calls the warehousePostBywarehouseIdRequest method in the Warehouse resource', function () {
+    $bodyData = new WarehouseDto(
+        warehouseId: 'mock-id-123',
+        branch: null,
+        replenishmentClass: null,
+        active: true,
+        lockSitePicountEntry: true,
+        description: 'String value',
+        locationEntry: 'String value',
+        avgDefaultCost: 'String value',
+        fifoDefaultCost: 'String value',
+        receiptLocation: null,
+        shipLocation: null,
+        returnLocation: null,
+        dropShipLocation: null,
+        contact: null,
+        address: null,
+        locations: [],
+        timestamp: 'String value'
+    );
+
+    Saloon::fake([
+        WarehousePostBywarehouseIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new WarehousePostBywarehouseIdRequest(
+        warehouseId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(WarehousePostBywarehouseIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the warehousePutBywarehouseIdlocationIdRequest method in the Warehouse resource', function () {
+    $bodyData = new WarehouseDto(
+        warehouseId: 'mock-id-123',
+        branch: null,
+        replenishmentClass: null,
+        active: true,
+        lockSitePicountEntry: true,
+        description: 'String value',
+        locationEntry: 'String value',
+        avgDefaultCost: 'String value',
+        fifoDefaultCost: 'String value',
+        receiptLocation: null,
+        shipLocation: null,
+        returnLocation: null,
+        dropShipLocation: null,
+        contact: null,
+        address: null,
+        locations: [],
+        timestamp: 'String value'
+    );
+
+    Saloon::fake([
+        WarehousePutBywarehouseIdlocationIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new WarehousePutBywarehouseIdlocationIdRequest(
+        warehouseId: 'test string',
+        locationId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(WarehousePutBywarehouseIdlocationIdRequest::class);
+
+    expect($response->status())->toBe(201);
 });

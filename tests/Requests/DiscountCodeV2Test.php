@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\DiscountCodeV2\DiscountCodeV2GetDiscountCodesCollectionRequest;
+use Pionect\VismaSdk\Requests\DiscountCodeV2\DiscountCodeV2GetDiscountCodesRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,9 +10,9 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCodeV2 resource', function () {
+it('calls the discountCodeV2getDiscountCodesRequest method in the DiscountCodeV2 resource', function () {
     Saloon::fake([
-        DiscountCodeV2GetDiscountCodesCollectionRequest::class => MockResponse::make([
+        DiscountCodeV2GetDiscountCodesRequest::class => MockResponse::make([
             0 => [
                 'discountCode' => 'String value',
                 'description' => 'String value',
@@ -25,13 +24,9 @@ it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCod
                 'skipDocumentDiscounts' => true,
                 'autoNumbering' => true,
                 'lastNumber' => 'String value',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'discountCode' => 'String value',
@@ -44,41 +39,48 @@ it('calls the discountCodeV2getDiscountCodesCollection method in the DiscountCod
                 'skipDocumentDiscounts' => true,
                 'autoNumbering' => true,
                 'lastNumber' => 'String value',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new DiscountCodeV2GetDiscountCodesCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', discountCode: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new DiscountCodeV2GetDiscountCodesRequest(
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        discountCode: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(DiscountCodeV2GetDiscountCodesRequest::class);
 
-    Saloon::assertSent(function (DiscountCodeV2GetDiscountCodesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->discountCode->toBe('String value')
         ->description->toBe('String value')
         ->discountType->toBe('String value')
         ->applicableTo->toBe('String value')
-        ->applyToDeferredRevenue->toBeTrue()
-        ->manual->toBeTrue()
-        ->excludeFromDiscountableAmount->toBeTrue()
-        ->skipDocumentDiscounts->toBeTrue()
-        ->autoNumbering->toBeTrue()
+        ->applyToDeferredRevenue->toBe(true)
+        ->manual->toBe(true)
+        ->excludeFromDiscountableAmount->toBe(true)
+        ->skipDocumentDiscounts->toBe(true)
+        ->autoNumbering->toBe(true)
         ->lastNumber->toBe('String value')
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });

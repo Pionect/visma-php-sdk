@@ -1,164 +1,201 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Discount\DiscountGetDiscountsCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\DiscountUpdateDto;
+use Pionect\VismaSdk\Requests\Discount\DiscountDeleteBydiscountCodeseriesRequest;
+use Pionect\VismaSdk\Requests\Discount\DiscountGetDiscountsRequest;
+use Pionect\VismaSdk\Requests\Discount\DiscountPostRequest;
+use Pionect\VismaSdk\Requests\Discount\DiscountPutBydiscountCodeseriesRequest;
 use Pionect\VismaSdk\Requests\Discount\DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest;
 use Pionect\VismaSdk\Requests\Discount\DiscountUpdateDiscountsBydiscountCodeseriesRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the discountGetDiscountsCollection method in the Discount resource', function () {
+it('calls the discountGetDiscountsRequest method in the Discount resource', function () {
     Saloon::fake([
-        DiscountGetDiscountsCollectionRequest::class => MockResponse::make([
-            'records' => [
-                0 => [
-                    'discountCode' => 'String value',
-                    'series' => 'String value',
-                    'description' => 'String value',
-                    'discountBy' => 'String value',
-                    'breakBy' => 'String value',
-                    'promotional' => true,
-                    'active' => true,
-                    'prorateDiscount' => true,
-                    'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                    'expirationDate' => '2025-11-22T10:40:04.065Z',
-                    'lastUpdateDate' => '2025-11-22T10:40:04.065Z',
-                    'freeItem' => 42,
-                    'pendingFreeItem' => 42,
-                    'lastFreeItem' => 42,
-                    'lineCntr' => 42,
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'discountBreakpoints' => [],
-                    'customers' => [],
-                    'items' => [],
-                    'warehouses' => [],
-                    'customerPriceClasses' => [],
-                    'itemPriceClasses' => [],
-                    'branches' => [],
-                    'errorInfo' => 'String value',
-                ],
-                1 => [
-                    'discountCode' => 'String value',
-                    'series' => 'String value',
-                    'description' => 'String value',
-                    'discountBy' => 'String value',
-                    'breakBy' => 'String value',
-                    'promotional' => true,
-                    'active' => true,
-                    'prorateDiscount' => true,
-                    'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                    'expirationDate' => '2025-11-22T10:40:04.065Z',
-                    'lastUpdateDate' => '2025-11-22T10:40:04.065Z',
-                    'freeItem' => 42,
-                    'pendingFreeItem' => 42,
-                    'lastFreeItem' => 42,
-                    'lineCntr' => 42,
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'discountBreakpoints' => [],
-                    'customers' => [],
-                    'items' => [],
-                    'warehouses' => [],
-                    'customerPriceClasses' => [],
-                    'itemPriceClasses' => [],
-                    'branches' => [],
-                    'errorInfo' => 'String value',
-                ],
+        DiscountGetDiscountsRequest::class => MockResponse::make([
+            0 => [
+                'name' => 'Mock value',
+            ],
+            1 => [
+                'name' => 'Mock value',
             ],
         ], 200),
     ]);
 
-    $request = (new DiscountGetDiscountsCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', discountCode: 'test string', series: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new DiscountGetDiscountsRequest(
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        discountCode: 'test string',
+        series: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(DiscountGetDiscountsRequest::class);
 
-    Saloon::assertSent(function (DiscountGetDiscountsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->discountCode->toBe('String value')
-        ->series->toBe('String value')
-        ->description->toBe('String value')
-        ->discountBy->toBe('String value')
-        ->breakBy->toBe('String value')
-        ->promotional->toBeTrue()
-        ->active->toBeTrue()
-        ->prorateDiscount->toBeTrue()
-        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastUpdateDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->freeItem->toBe(42)
-        ->pendingFreeItem->toBe(42)
-        ->lastFreeItem->toBe(42)
-        ->lineCntr->toBe(42)
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->errorInfo->toBe('String value');
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->name->toBe('Mock value');
 });
 
-it('calls the discountUpdateDiscountsBydiscountCodeseriesfilerDate method in the Discount resource', function () {
-    $mockClient = Saloon::fake([
-        DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest::class => MockResponse::make([], 200),
+it('calls the discountPostRequest method in the Discount resource', function () {
+    $bodyData = new DiscountUpdateDto(
+        discountCode: 'String value',
+        series: 'String value',
+        description: 'String value',
+        discountBy: 'String value',
+        breakBy: 'String value',
+        promotional: true,
+        active: true,
+        prorateDiscount: true,
+        effectiveDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        discountBreakpoints: []
+    );
+
+    Saloon::fake([
+        DiscountPostRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\UpdateDiscountsActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new DiscountPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest(discountCode: 'test value', series: 'test value', filerDate: '2025-01-15T10:30:00Z', filterDate: '2025-01-15T10:30:00Z', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(DiscountPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the discountPutBydiscountCodeseriesRequest method in the Discount resource', function () {
+    $bodyData = new DiscountUpdateDto(
+        discountCode: 'String value',
+        series: 'String value',
+        description: 'String value',
+        discountBy: 'String value',
+        breakBy: 'String value',
+        promotional: true,
+        active: true,
+        prorateDiscount: true,
+        effectiveDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        discountBreakpoints: []
+    );
+
+    Saloon::fake([
+        DiscountPutBydiscountCodeseriesRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new DiscountPutBydiscountCodeseriesRequest(
+        discountCode: 'test string',
+        series: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(DiscountPutBydiscountCodeseriesRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the discountDeleteBydiscountCodeseriesRequest method in the Discount resource', function () {
+    Saloon::fake([
+        DiscountDeleteBydiscountCodeseriesRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new DiscountDeleteBydiscountCodeseriesRequest(
+        discountCode: 'test string',
+        series: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(DiscountDeleteBydiscountCodeseriesRequest::class);
+
+    expect($response->status())->toBe(204);
+});
+
+it('calls the discountUpdateDiscountsBydiscountCodeseriesfilerDateRequest method in the Discount resource', function () {
+    $bodyData = new DiscountUpdateDto(
+        discountCode: 'String value',
+        series: 'String value',
+        description: 'String value',
+        discountBy: 'String value',
+        breakBy: 'String value',
+        promotional: true,
+        active: true,
+        prorateDiscount: true,
+        effectiveDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        discountBreakpoints: []
+    );
+
+    Saloon::fake([
+        DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest(
+        discountCode: 'test string',
+        series: 'test string',
+        filerDate: 'test string',
+        filterDate: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the discountUpdateDiscountsBydiscountCodeseries method in the Discount resource', function () {
-    $mockClient = Saloon::fake([
-        DiscountUpdateDiscountsBydiscountCodeseriesRequest::class => MockResponse::make([], 200),
+it('calls the discountUpdateDiscountsBydiscountCodeseriesRequest method in the Discount resource', function () {
+    $bodyData = new DiscountUpdateDto(
+        discountCode: 'String value',
+        series: 'String value',
+        description: 'String value',
+        discountBy: 'String value',
+        breakBy: 'String value',
+        promotional: true,
+        active: true,
+        prorateDiscount: true,
+        effectiveDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        discountBreakpoints: []
+    );
+
+    Saloon::fake([
+        DiscountUpdateDiscountsBydiscountCodeseriesRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\UpdateDiscountsActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new DiscountUpdateDiscountsBydiscountCodeseriesRequest(discountCode: 'test value', series: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new DiscountUpdateDiscountsBydiscountCodeseriesRequest(
+        discountCode: 'test string',
+        series: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(DiscountUpdateDiscountsBydiscountCodeseriesRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });

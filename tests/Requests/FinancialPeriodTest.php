@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\FinancialPeriod\FinancialPeriodGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\FinancialPeriod\FinancialPeriodGetAllRequest;
 use Pionect\VismaSdk\Requests\FinancialPeriod\FinancialPeriodGetByfinancialPeriodIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -12,14 +11,14 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the financialPeriodGetAllCollection method in the FinancialPeriod resource', function () {
+it('calls the financialPeriodGetAllRequest method in the FinancialPeriod resource', function () {
     Saloon::fake([
-        FinancialPeriodGetAllCollectionRequest::class => MockResponse::make([
+        FinancialPeriodGetAllRequest::class => MockResponse::make([
             0 => [
                 'year' => 42,
                 'period' => 'String value',
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
                 'active' => true,
                 'closedInSupplierLedger' => true,
@@ -32,8 +31,8 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
             1 => [
                 'year' => 42,
                 'period' => 'String value',
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
                 'active' => true,
                 'closedInSupplierLedger' => true,
@@ -46,40 +45,45 @@ it('calls the financialPeriodGetAllCollection method in the FinancialPeriod reso
         ], 200),
     ]);
 
-    $request = (new FinancialPeriodGetAllCollectionRequest(greaterThanValue: 'test string'));
+    $request = new FinancialPeriodGetAllRequest(
+        greaterThanValue: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(FinancialPeriodGetAllRequest::class);
 
-    Saloon::assertSent(function (FinancialPeriodGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->year->toBe(42)
         ->period->toBe('String value')
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
-        ->active->toBeTrue()
-        ->closedInSupplierLedger->toBeTrue()
-        ->closedInCustomerLedger->toBeTrue()
-        ->closedInInventoryManagement->toBeTrue()
-        ->closedInGeneralLedger->toBeTrue()
-        ->closedInCashManagement->toBeTrue()
-        ->closedInFixedAssets->toBeTrue();
+        ->active->toBe(true)
+        ->closedInSupplierLedger->toBe(true)
+        ->closedInCustomerLedger->toBe(true)
+        ->closedInInventoryManagement->toBe(true)
+        ->closedInGeneralLedger->toBe(true)
+        ->closedInCashManagement->toBe(true)
+        ->closedInFixedAssets->toBe(true);
 });
 
-it('calls the financialPeriodGetByfinancialPeriodId method in the FinancialPeriod resource', function () {
+it('calls the financialPeriodGetByfinancialPeriodIdRequest method in the FinancialPeriod resource', function () {
     Saloon::fake([
         FinancialPeriodGetByfinancialPeriodIdRequest::class => MockResponse::make([
             'year' => 42,
             'period' => 'String value',
-            'startDate' => '2025-11-22T10:40:04.065Z',
-            'endDate' => '2025-11-22T10:40:04.065Z',
+            'startDate' => '2025-11-22T10:40:04+00:00',
+            'endDate' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
             'active' => true,
             'closedInSupplierLedger' => true,
@@ -106,14 +110,14 @@ it('calls the financialPeriodGetByfinancialPeriodId method in the FinancialPerio
     expect($dto)
         ->year->toBe(42)
         ->period->toBe('String value')
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
-        ->active->toBeTrue()
-        ->closedInSupplierLedger->toBeTrue()
-        ->closedInCustomerLedger->toBeTrue()
-        ->closedInInventoryManagement->toBeTrue()
-        ->closedInGeneralLedger->toBeTrue()
-        ->closedInCashManagement->toBeTrue()
-        ->closedInFixedAssets->toBeTrue();
+        ->active->toBe(true)
+        ->closedInSupplierLedger->toBe(true)
+        ->closedInCustomerLedger->toBe(true)
+        ->closedInInventoryManagement->toBe(true)
+        ->closedInGeneralLedger->toBe(true)
+        ->closedInCashManagement->toBe(true)
+        ->closedInFixedAssets->toBe(true);
 });

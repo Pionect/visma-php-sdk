@@ -1,10 +1,13 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyGetKitAssembliesCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\KitAssemblyUpdateDto;
+use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyDeleteBytyperefNoRequest;
+use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyGetKitAssembliesRequest;
 use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyGetKitAssemblyBytyperefNoRequest;
+use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyPostRequest;
+use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyPutBytyperefNoRequest;
+use Pionect\VismaSdk\Requests\KitAssembly\KitAssemblyReleaseKitAssemblyBytyperefNoRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,104 +15,94 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the kitAssemblyGetKitAssembliesCollection method in the KitAssembly resource', function () {
+it('calls the kitAssemblyGetKitAssembliesRequest method in the KitAssembly resource', function () {
     Saloon::fake([
-        KitAssemblyGetKitAssembliesCollectionRequest::class => MockResponse::make([
-            'records' => [
-                0 => [
-                    'type' => 'String value',
-                    'refNo' => 'String value',
-                    'status' => 'String value',
-                    'hold' => true,
-                    'date' => '2025-11-22T10:40:04.065Z',
-                    'postPeriod' => 'String value',
-                    'itemId' => 'mock-id-123',
-                    'revision' => 'String value',
-                    'reasonCode' => 'String value',
-                    'description' => 'String value',
-                    'warehouse' => 'String value',
-                    'location' => 'String value',
-                    'uoM' => 'String value',
-                    'quantity' => 3.14,
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'salesOrderLink' => 'String value',
-                    'stockComponentLines' => [],
-                    'nonStockComponentLines' => [],
-                    'kitAllocations' => [],
-                    'timestamp' => 'String value',
-                    'errorInfo' => 'String value',
-                ],
-                1 => [
-                    'type' => 'String value',
-                    'refNo' => 'String value',
-                    'status' => 'String value',
-                    'hold' => true,
-                    'date' => '2025-11-22T10:40:04.065Z',
-                    'postPeriod' => 'String value',
-                    'itemId' => 'mock-id-123',
-                    'revision' => 'String value',
-                    'reasonCode' => 'String value',
-                    'description' => 'String value',
-                    'warehouse' => 'String value',
-                    'location' => 'String value',
-                    'uoM' => 'String value',
-                    'quantity' => 3.14,
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                    'salesOrderLink' => 'String value',
-                    'stockComponentLines' => [],
-                    'nonStockComponentLines' => [],
-                    'kitAllocations' => [],
-                    'timestamp' => 'String value',
-                    'errorInfo' => 'String value',
-                ],
+        KitAssemblyGetKitAssembliesRequest::class => MockResponse::make([
+            0 => [
+                'name' => 'Mock value',
+            ],
+            1 => [
+                'name' => 'Mock value',
             ],
         ], 200),
     ]);
 
-    $request = (new KitAssemblyGetKitAssembliesCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', type: 'test string', refNo: 'test string', status: 'test string', expandStockComponents: true, expandNonStockComponents: true, expandKitAllocations: true, pageNumber: 123, pageSize: 123));
+    $request = new KitAssemblyGetKitAssembliesRequest(
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        type: 'test string',
+        refNo: 'test string',
+        status: 'test string',
+        expandStockComponents: true,
+        expandNonStockComponents: true,
+        expandKitAllocations: true,
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(KitAssemblyGetKitAssembliesRequest::class);
 
-    Saloon::assertSent(function (KitAssemblyGetKitAssembliesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->type->toBe('String value')
-        ->refNo->toBe('String value')
-        ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->postPeriod->toBe('String value')
-        ->itemId->toBe('mock-id-123')
-        ->revision->toBe('String value')
-        ->reasonCode->toBe('String value')
-        ->description->toBe('String value')
-        ->warehouse->toBe('String value')
-        ->location->toBe('String value')
-        ->uoM->toBe('String value')
-        ->quantity->toBe(3.14)
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->salesOrderLink->toBe('String value')
-        ->timestamp->toBe('String value')
-        ->errorInfo->toBe('String value');
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->name->toBe('Mock value');
 });
 
-it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly resource', function () {
+it('calls the kitAssemblyPostRequest method in the KitAssembly resource', function () {
+    $bodyData = new KitAssemblyUpdateDto(
+        type: 'String value',
+        refNo: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: 'String value',
+        itemId: 'mock-id-123',
+        revision: 'String value',
+        reasonCode: 'String value',
+        description: 'String value',
+        warehouse: 'String value',
+        location: 'String value',
+        uoM: 'String value',
+        quantity: 42,
+        stockComponentLines: [],
+        stockComponentAllocations: [],
+        nonStockComponentLines: [],
+        kitAllocations: []
+    );
+
+    Saloon::fake([
+        KitAssemblyPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new KitAssemblyPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(KitAssemblyPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the kitAssemblyGetKitAssemblyBytyperefNoRequest method in the KitAssembly resource', function () {
     Saloon::fake([
         KitAssemblyGetKitAssemblyBytyperefNoRequest::class => MockResponse::make([
             'type' => 'String value',
             'refNo' => 'String value',
             'status' => 'String value',
             'hold' => true,
-            'date' => '2025-11-22T10:40:04.065Z',
+            'date' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
             'itemId' => 'mock-id-123',
             'revision' => 'String value',
@@ -118,9 +111,9 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
             'warehouse' => 'String value',
             'location' => 'String value',
             'uoM' => 'String value',
-            'quantity' => 3.14,
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'quantity' => 42,
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'salesOrderLink' => 'String value',
             'stockComponentLines' => [],
             'nonStockComponentLines' => [],
@@ -147,8 +140,8 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
         ->type->toBe('String value')
         ->refNo->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
         ->itemId->toBe('mock-id-123')
         ->revision->toBe('String value')
@@ -157,10 +150,103 @@ it('calls the kitAssemblyGetKitAssemblyBytyperefNo method in the KitAssembly res
         ->warehouse->toBe('String value')
         ->location->toBe('String value')
         ->uoM->toBe('String value')
-        ->quantity->toBe(3.14)
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->quantity->toBe(42)
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->salesOrderLink->toBe('String value')
         ->timestamp->toBe('String value')
         ->errorInfo->toBe('String value');
+});
+
+it('calls the kitAssemblyPutBytyperefNoRequest method in the KitAssembly resource', function () {
+    $bodyData = new KitAssemblyUpdateDto(
+        type: 'String value',
+        refNo: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: 'String value',
+        itemId: 'mock-id-123',
+        revision: 'String value',
+        reasonCode: 'String value',
+        description: 'String value',
+        warehouse: 'String value',
+        location: 'String value',
+        uoM: 'String value',
+        quantity: 42,
+        stockComponentLines: [],
+        stockComponentAllocations: [],
+        nonStockComponentLines: [],
+        kitAllocations: []
+    );
+
+    Saloon::fake([
+        KitAssemblyPutBytyperefNoRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new KitAssemblyPutBytyperefNoRequest(
+        type: 'test string',
+        refNo: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(KitAssemblyPutBytyperefNoRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the kitAssemblyDeleteBytyperefNoRequest method in the KitAssembly resource', function () {
+    Saloon::fake([
+        KitAssemblyDeleteBytyperefNoRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new KitAssemblyDeleteBytyperefNoRequest(
+        type: 'test string',
+        refNo: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(KitAssemblyDeleteBytyperefNoRequest::class);
+
+    expect($response->status())->toBe(204);
+});
+
+it('calls the kitAssemblyReleaseKitAssemblyBytyperefNoRequest method in the KitAssembly resource', function () {
+    $bodyData = new KitAssemblyUpdateDto(
+        type: 'String value',
+        refNo: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: 'String value',
+        itemId: 'mock-id-123',
+        revision: 'String value',
+        reasonCode: 'String value',
+        description: 'String value',
+        warehouse: 'String value',
+        location: 'String value',
+        uoM: 'String value',
+        quantity: 42,
+        stockComponentLines: [],
+        stockComponentAllocations: [],
+        nonStockComponentLines: [],
+        kitAllocations: []
+    );
+
+    Saloon::fake([
+        KitAssemblyReleaseKitAssemblyBytyperefNoRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new KitAssemblyReleaseKitAssemblyBytyperefNoRequest(
+        type: 'test string',
+        refNo: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(KitAssemblyReleaseKitAssemblyBytyperefNoRequest::class);
+
+    expect($response->status())->toBe(201);
 });

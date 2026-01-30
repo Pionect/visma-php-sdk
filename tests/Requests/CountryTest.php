@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\Country\CountryGetCountriesCollectionRequest;
+use Pionect\VismaSdk\Requests\Country\CountryGetCountriesRequest;
 use Pionect\VismaSdk\Requests\Country\CountryGetCountryBycountryIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -11,7 +11,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the countryGetCountryBycountryId method in the Country resource', function () {
+it('calls the countryGetCountryBycountryIdRequest method in the Country resource', function () {
     Saloon::fake([
         CountryGetCountryBycountryIdRequest::class => MockResponse::make([
             'name' => 'String value',
@@ -36,41 +36,39 @@ it('calls the countryGetCountryBycountryId method in the Country resource', func
         ->errorInfo->toBe('String value');
 });
 
-it('calls the countryGetCountriesCollection method in the Country resource', function () {
+it('calls the countryGetCountriesRequest method in the Country resource', function () {
     Saloon::fake([
-        CountryGetCountriesCollectionRequest::class => MockResponse::make([
+        CountryGetCountriesRequest::class => MockResponse::make([
             0 => [
                 'name' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'name' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new CountryGetCountriesCollectionRequest(pageNumber: 123, pageSize: 123));
+    $request = new CountryGetCountriesRequest(
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CountryGetCountriesRequest::class);
 
-    Saloon::assertSent(function (CountryGetCountriesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->name->toBe('String value')
         ->errorInfo->toBe('String value');
 });

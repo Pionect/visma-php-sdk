@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\PaymentMethod\PaymentMethodGetAllPaymentMethodCollectionRequest;
+use Pionect\VismaSdk\Requests\PaymentMethod\PaymentMethodGetAllPaymentMethodRequest;
 use Pionect\VismaSdk\Requests\PaymentMethod\PaymentMethodGetBypaymentMethodNumberRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -11,7 +11,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod resource', function () {
+it('calls the paymentMethodGetBypaymentMethodNumberRequest method in the PaymentMethod resource', function () {
     Saloon::fake([
         PaymentMethodGetBypaymentMethodNumberRequest::class => MockResponse::make([
             'paymentMethodId' => 'mock-id-123',
@@ -37,15 +37,15 @@ it('calls the paymentMethodGetBypaymentMethodNumber method in the PaymentMethod 
 
     expect($dto)
         ->paymentMethodId->toBe('mock-id-123')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->meansOfPayment->toBe('String value')
         ->description->toBe('String value')
-        ->useInAp->toBeTrue();
+        ->useInAp->toBe(true);
 });
 
-it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMethod resource', function () {
+it('calls the paymentMethodGetAllPaymentMethodRequest method in the PaymentMethod resource', function () {
     Saloon::fake([
-        PaymentMethodGetAllPaymentMethodCollectionRequest::class => MockResponse::make([
+        PaymentMethodGetAllPaymentMethodRequest::class => MockResponse::make([
             0 => [
                 'paymentMethodId' => 'mock-id-123',
                 'active' => true,
@@ -65,22 +65,31 @@ it('calls the paymentMethodGetAllPaymentMethodCollection method in the PaymentMe
         ], 200),
     ]);
 
-    $request = (new PaymentMethodGetAllPaymentMethodCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new PaymentMethodGetAllPaymentMethodRequest(
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(PaymentMethodGetAllPaymentMethodRequest::class);
 
-    Saloon::assertSent(function (PaymentMethodGetAllPaymentMethodCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->paymentMethodId->toBe('mock-id-123')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->meansOfPayment->toBe('String value')
         ->description->toBe('String value')
-        ->useInAp->toBeTrue();
+        ->useInAp->toBe(true);
 });

@@ -1,10 +1,10 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Organization\OrganizationGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Organization\OrganizationGetAllRequest;
 use Pionect\VismaSdk\Requests\Organization\OrganizationGetByOrganizationCdByorganizationNumberRequest;
+use Pionect\VismaSdk\Requests\Organization\OrganizationPutBankSettingsForOrganizationByorganizationNumberRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +12,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the organizationGetByOrganizationCdByorganizationNumber method in the Organization resource', function () {
+it('calls the organizationGetByOrganizationCdByorganizationNumberRequest method in the Organization resource', function () {
     Saloon::fake([
         OrganizationGetByOrganizationCdByorganizationNumberRequest::class => MockResponse::make([
             'organizationCd' => 'String value',
@@ -30,11 +30,11 @@ it('calls the organizationGetByOrganizationCdByorganizationNumber method in the 
             'industryCode' => null,
             'currency' => null,
             'vatZone' => null,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'ledger' => null,
             'bankSettings' => null,
             'branches' => [],
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
         ], 200),
     ]);
 
@@ -59,7 +59,7 @@ it('calls the organizationGetByOrganizationCdByorganizationNumber method in the 
         ->organizationCd->toBe('String value')
         ->name->toBe('String value')
         ->organizationType->toBe('String value')
-        ->fileTaxByBranches->toBeTrue()
+        ->fileTaxByBranches->toBe(true)
         ->baseCurrency->toBe('String value')
         ->mainAddress->toBeNull()
         ->mainContact->toBeNull()
@@ -71,15 +71,15 @@ it('calls the organizationGetByOrganizationCdByorganizationNumber method in the 
         ->industryCode->toBeNull()
         ->currency->toBeNull()
         ->vatZone->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->ledger->toBeNull()
         ->bankSettings->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toBe('String value');
 });
 
-it('calls the organizationGetAllCollection method in the Organization resource', function () {
+it('calls the organizationGetAllRequest method in the Organization resource', function () {
     Saloon::fake([
-        OrganizationGetAllCollectionRequest::class => MockResponse::make([
+        OrganizationGetAllRequest::class => MockResponse::make([
             0 => [
                 'organizationCd' => 'String value',
                 'name' => 'String value',
@@ -96,11 +96,11 @@ it('calls the organizationGetAllCollection method in the Organization resource',
                 'industryCode' => null,
                 'currency' => null,
                 'vatZone' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'ledger' => null,
                 'bankSettings' => null,
                 'branches' => [],
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
             ],
             1 => [
                 'organizationCd' => 'String value',
@@ -118,32 +118,41 @@ it('calls the organizationGetAllCollection method in the Organization resource',
                 'industryCode' => null,
                 'currency' => null,
                 'vatZone' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'ledger' => null,
                 'bankSettings' => null,
                 'branches' => [],
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
             ],
         ], 200),
     ]);
 
-    $request = (new OrganizationGetAllCollectionRequest(expandBranches: true, expandBankSettings: true, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', greaterThanValue: 'test string'));
+    $request = new OrganizationGetAllRequest(
+        expandBranches: true,
+        expandBankSettings: true,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        greaterThanValue: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(OrganizationGetAllRequest::class);
 
-    Saloon::assertSent(function (OrganizationGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->organizationCd->toBe('String value')
         ->name->toBe('String value')
         ->organizationType->toBe('String value')
-        ->fileTaxByBranches->toBeTrue()
+        ->fileTaxByBranches->toBe(true)
         ->baseCurrency->toBe('String value')
         ->mainAddress->toBeNull()
         ->mainContact->toBeNull()
@@ -155,8 +164,30 @@ it('calls the organizationGetAllCollection method in the Organization resource',
         ->industryCode->toBeNull()
         ->currency->toBeNull()
         ->vatZone->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->ledger->toBeNull()
         ->bankSettings->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toBe('String value');
+});
+
+it('calls the organizationPutBankSettingsForOrganizationByorganizationNumberRequest method in the Organization resource', function () {
+    $bodyData = [
+        'name' => 'Test value',
+    ];
+
+    Saloon::fake([
+        OrganizationPutBankSettingsForOrganizationByorganizationNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new OrganizationPutBankSettingsForOrganizationByorganizationNumberRequest(
+        organizationNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(OrganizationPutBankSettingsForOrganizationByorganizationNumberRequest::class);
+
+    expect($response->status())->toBe(201);
 });

@@ -1,9 +1,9 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Requests\Background\BackgroundGetBackgroundApiOperationByrequestIdRequest;
+use Pionect\VismaSdk\Requests\Background\BackgroundGetBackgroundApiOperationContentByrequestIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,14 +11,14 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Background resource', function () {
+it('calls the backgroundGetBackgroundApiOperationByrequestIdRequest method in the Background resource', function () {
     Saloon::fake([
         BackgroundGetBackgroundApiOperationByrequestIdRequest::class => MockResponse::make([
             'status' => 'String value',
             'statusCode' => 42,
-            'receivedUtc' => '2025-11-22T10:40:04.065Z',
-            'startedUtc' => '2025-11-22T10:40:04.065Z',
-            'finishedUtc' => '2025-11-22T10:40:04.065Z',
+            'receivedUtc' => '2025-11-22T10:40:04+00:00',
+            'startedUtc' => '2025-11-22T10:40:04+00:00',
+            'finishedUtc' => '2025-11-22T10:40:04+00:00',
             'webhookAddress' => 'String value',
             'errorMessage' => 'String value',
             'reference' => 'String value',
@@ -26,6 +26,7 @@ it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Backg
             'hasResponseContent' => true,
             'hasRequestContent' => true,
             'contentLocation' => 'String value',
+            'responseHeaders' => [],
         ], 200),
     ]);
 
@@ -43,14 +44,36 @@ it('calls the backgroundGetBackgroundApiOperationByrequestId method in the Backg
     expect($dto)
         ->status->toBe('String value')
         ->statusCode->toBe(42)
-        ->receivedUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->startedUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->finishedUtc->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->receivedUtc->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->startedUtc->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->finishedUtc->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->webhookAddress->toBe('String value')
         ->errorMessage->toBe('String value')
         ->reference->toBe('String value')
         ->originalUri->toBe('String value')
-        ->hasResponseContent->toBeTrue()
-        ->hasRequestContent->toBeTrue()
+        ->hasResponseContent->toBe(true)
+        ->hasRequestContent->toBe(true)
         ->contentLocation->toBe('String value');
+});
+
+it('calls the backgroundGetBackgroundApiOperationContentByrequestIdRequest method in the Background resource', function () {
+    Saloon::fake([
+        BackgroundGetBackgroundApiOperationContentByrequestIdRequest::class => MockResponse::make([
+            'name' => 'Mock value',
+        ], 200),
+    ]);
+
+    $request = new BackgroundGetBackgroundApiOperationContentByrequestIdRequest(
+        requestId: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(BackgroundGetBackgroundApiOperationContentByrequestIdRequest::class);
+
+    expect($response->status())->toBe(200);
+
+    $dto = $response->dto();
+
+    expect($dto)
+        ->name->toBe('Mock value');
 });

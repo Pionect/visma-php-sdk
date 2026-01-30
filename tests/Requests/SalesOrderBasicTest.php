@@ -1,21 +1,27 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\SalesOrderBasicUpdateDto;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateHeaderAttachmentByorderNumberRequest;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateLineAttachmentByorderNumberorderTypelineNumberRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest;
-use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicGetAllOrdersCollectionRequest;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicDeleteLineAttachmentByorderNumberorderTypelineNumberfileIdRequest;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicDeleteOrderAttachmentByorderNumberorderTypefileIdRequest;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicGetAllOrdersRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicGetByorderNbrRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicPostRequest;
+use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicPutByorderNbrRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resource', function () {
+it('calls the salesOrderBasicGetByorderNbrRequest method in the SalesOrderBasic resource', function () {
     Saloon::fake([
         SalesOrderBasicGetByorderNbrRequest::class => MockResponse::make([
             'lines' => [],
@@ -23,8 +29,8 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
             'orderNo' => 'String value',
             'status' => 'String value',
             'hold' => true,
-            'date' => '2025-11-22T10:40:04.065Z',
-            'requestOn' => '2025-11-22T10:40:04.065Z',
+            'date' => '2025-11-22T10:40:04+00:00',
+            'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
             'customer' => null,
@@ -32,18 +38,18 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
             'location' => null,
             'currency' => 'String value',
             'description' => 'String value',
-            'orderTotal' => 3.14,
-            'orderTotalInBaseCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInBaseCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInBaseCurrency' => 3.14,
-            'taxTotal' => 3.14,
-            'taxTotalInBaseCurrency' => 3.14,
-            'exchangeRate' => 3.14,
-            'discountTotal' => 3.14,
-            'discountTotalInBaseCurrency' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'orderTotal' => 42,
+            'orderTotalInBaseCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInBaseCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInBaseCurrency' => 42,
+            'taxTotal' => 42,
+            'taxTotalInBaseCurrency' => 42,
+            'exchangeRate' => 42,
+            'discountTotal' => 42,
+            'discountTotalInBaseCurrency' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'branchNumber' => null,
             'note' => 'String value',
             'attachments' => [],
@@ -67,9 +73,9 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
         ->customer->toBeNull()
@@ -77,24 +83,63 @@ it('calls the salesOrderBasicGetByorderNbr method in the SalesOrderBasic resourc
         ->location->toBeNull()
         ->currency->toBe('String value')
         ->description->toBe('String value')
-        ->orderTotal->toBe(3.14)
-        ->orderTotalInBaseCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInBaseCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInBaseCurrency->toBe(3.14)
-        ->taxTotal->toBe(3.14)
-        ->taxTotalInBaseCurrency->toBe(3.14)
-        ->exchangeRate->toBe(3.14)
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInBaseCurrency->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->orderTotal->toBe(42)
+        ->orderTotalInBaseCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInBaseCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInBaseCurrency->toBe(42)
+        ->taxTotal->toBe(42)
+        ->taxTotalInBaseCurrency->toBe(42)
+        ->exchangeRate->toBe(42)
+        ->discountTotal->toBe(42)
+        ->discountTotalInBaseCurrency->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the SalesOrderBasic resource', function () {
+it('calls the salesOrderBasicPutByorderNbrRequest method in the SalesOrderBasic resource', function () {
+    $bodyData = new SalesOrderBasicUpdateDto(
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        requestOn: '2025-11-22T10:40:04+00:00',
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
+
+    Saloon::fake([
+        SalesOrderBasicPutByorderNbrRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SalesOrderBasicPutByorderNbrRequest(
+        orderNbr: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesOrderBasicPutByorderNbrRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest method in the SalesOrderBasic resource', function () {
     Saloon::fake([
         SalesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest::class => MockResponse::make([
             'lines' => [],
@@ -102,8 +147,8 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
             'orderNo' => 'String value',
             'status' => 'String value',
             'hold' => true,
-            'date' => '2025-11-22T10:40:04.065Z',
-            'requestOn' => '2025-11-22T10:40:04.065Z',
+            'date' => '2025-11-22T10:40:04+00:00',
+            'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
             'customer' => null,
@@ -111,18 +156,18 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
             'location' => null,
             'currency' => 'String value',
             'description' => 'String value',
-            'orderTotal' => 3.14,
-            'orderTotalInBaseCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInBaseCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInBaseCurrency' => 3.14,
-            'taxTotal' => 3.14,
-            'taxTotalInBaseCurrency' => 3.14,
-            'exchangeRate' => 3.14,
-            'discountTotal' => 3.14,
-            'discountTotalInBaseCurrency' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'orderTotal' => 42,
+            'orderTotalInBaseCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInBaseCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInBaseCurrency' => 42,
+            'taxTotal' => 42,
+            'taxTotalInBaseCurrency' => 42,
+            'exchangeRate' => 42,
+            'discountTotal' => 42,
+            'discountTotalInBaseCurrency' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'branchNumber' => null,
             'note' => 'String value',
             'attachments' => [],
@@ -147,9 +192,9 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
         ->customer->toBeNull()
@@ -157,34 +202,34 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbr method in the Sal
         ->location->toBeNull()
         ->currency->toBe('String value')
         ->description->toBe('String value')
-        ->orderTotal->toBe(3.14)
-        ->orderTotalInBaseCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInBaseCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInBaseCurrency->toBe(3.14)
-        ->taxTotal->toBe(3.14)
-        ->taxTotalInBaseCurrency->toBe(3.14)
-        ->exchangeRate->toBe(3.14)
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInBaseCurrency->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->orderTotal->toBe(42)
+        ->orderTotalInBaseCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInBaseCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInBaseCurrency->toBe(42)
+        ->taxTotal->toBe(42)
+        ->taxTotalInBaseCurrency->toBe(42)
+        ->exchangeRate->toBe(42)
+        ->discountTotal->toBe(42)
+        ->discountTotalInBaseCurrency->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasic resource', function () {
+it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic resource', function () {
     Saloon::fake([
-        SalesOrderBasicGetAllOrdersCollectionRequest::class => MockResponse::make([
+        SalesOrderBasicGetAllOrdersRequest::class => MockResponse::make([
             0 => [
                 'lines' => [],
                 'orderType' => 'String value',
                 'orderNo' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
-                'date' => '2025-11-22T10:40:04.065Z',
-                'requestOn' => '2025-11-22T10:40:04.065Z',
+                'date' => '2025-11-22T10:40:04+00:00',
+                'requestOn' => '2025-11-22T10:40:04+00:00',
                 'customerOrder' => 'String value',
                 'customerRefNo' => 'String value',
                 'customer' => null,
@@ -192,26 +237,22 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'location' => null,
                 'currency' => 'String value',
                 'description' => 'String value',
-                'orderTotal' => 3.14,
-                'orderTotalInBaseCurrency' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatTaxableTotalInBaseCurrency' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatExemptTotalInBaseCurrency' => 3.14,
-                'taxTotal' => 3.14,
-                'taxTotalInBaseCurrency' => 3.14,
-                'exchangeRate' => 3.14,
-                'discountTotal' => 3.14,
-                'discountTotalInBaseCurrency' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'orderTotal' => 42,
+                'orderTotalInBaseCurrency' => 42,
+                'vatTaxableTotal' => 42,
+                'vatTaxableTotalInBaseCurrency' => 42,
+                'vatExemptTotal' => 42,
+                'vatExemptTotalInBaseCurrency' => 42,
+                'taxTotal' => 42,
+                'taxTotalInBaseCurrency' => 42,
+                'exchangeRate' => 42,
+                'discountTotal' => 42,
+                'discountTotalInBaseCurrency' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'branchNumber' => null,
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'lines' => [],
@@ -219,8 +260,8 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'orderNo' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
-                'date' => '2025-11-22T10:40:04.065Z',
-                'requestOn' => '2025-11-22T10:40:04.065Z',
+                'date' => '2025-11-22T10:40:04+00:00',
+                'requestOn' => '2025-11-22T10:40:04+00:00',
                 'customerOrder' => 'String value',
                 'customerRefNo' => 'String value',
                 'customer' => null,
@@ -228,49 +269,60 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
                 'location' => null,
                 'currency' => 'String value',
                 'description' => 'String value',
-                'orderTotal' => 3.14,
-                'orderTotalInBaseCurrency' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatTaxableTotalInBaseCurrency' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatExemptTotalInBaseCurrency' => 3.14,
-                'taxTotal' => 3.14,
-                'taxTotalInBaseCurrency' => 3.14,
-                'exchangeRate' => 3.14,
-                'discountTotal' => 3.14,
-                'discountTotalInBaseCurrency' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'orderTotal' => 42,
+                'orderTotalInBaseCurrency' => 42,
+                'vatTaxableTotal' => 42,
+                'vatTaxableTotalInBaseCurrency' => 42,
+                'vatExemptTotal' => 42,
+                'vatExemptTotalInBaseCurrency' => 42,
+                'taxTotal' => 42,
+                'taxTotalInBaseCurrency' => 42,
+                'exchangeRate' => 42,
+                'discountTotal' => 42,
+                'discountTotalInBaseCurrency' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'branchNumber' => null,
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new SalesOrderBasicGetAllOrdersCollectionRequest(orderType: 'test string', status: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', showNotes: true, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new SalesOrderBasicGetAllOrdersRequest(
+        orderType: 'test string',
+        status: 'test string',
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        showNotes: true,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(SalesOrderBasicGetAllOrdersRequest::class);
 
-    Saloon::assertSent(function (SalesOrderBasicGetAllOrdersCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requestOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->hold->toBe(true)
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
         ->customer->toBeNull()
@@ -278,48 +330,293 @@ it('calls the salesOrderBasicGetAllOrdersCollection method in the SalesOrderBasi
         ->location->toBeNull()
         ->currency->toBe('String value')
         ->description->toBe('String value')
-        ->orderTotal->toBe(3.14)
-        ->orderTotalInBaseCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInBaseCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInBaseCurrency->toBe(3.14)
-        ->taxTotal->toBe(3.14)
-        ->taxTotalInBaseCurrency->toBe(3.14)
-        ->exchangeRate->toBe(3.14)
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInBaseCurrency->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->orderTotal->toBe(42)
+        ->orderTotalInBaseCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInBaseCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInBaseCurrency->toBe(42)
+        ->taxTotal->toBe(42)
+        ->taxTotalInBaseCurrency->toBe(42)
+        ->exchangeRate->toBe(42)
+        ->discountTotal->toBe(42)
+        ->discountTotalInBaseCurrency->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branchNumber->toBeNull()
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumber method in the SalesOrderBasic resource', function () {
-    $mockClient = Saloon::fake([
-        SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest::class => MockResponse::make([], 200),
+it('calls the salesOrderBasicPostRequest method in the SalesOrderBasic resource', function () {
+    $bodyData = new SalesOrderBasicUpdateDto(
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        requestOn: '2025-11-22T10:40:04+00:00',
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
+
+    Saloon::fake([
+        SalesOrderBasicPostRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\CreateShipmentActionResultDto::factory()->state([
-        'referenceNumber' => 'test value',
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new SalesOrderBasicPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest(saleOrderNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(SalesOrderBasicPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the salesOrderBasicCreateShipmentActionBysaleOrderNumberRequest method in the SalesOrderBasic resource', function () {
+    $bodyData = new SalesOrderBasicUpdateDto(
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        requestOn: '2025-11-22T10:40:04+00:00',
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
+
+    Saloon::fake([
+        SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest(
+        saleOrderNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(SalesOrderBasicCreateShipmentActionBysaleOrderNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->referenceNumber->toBe('test value')
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
+    expect($response->status())->toBe(201);
+});
 
-        return true;
-    });
+it('calls the salesOrderBasicCreateHeaderAttachmentByorderNumberRequest method in the SalesOrderBasic resource', function () {
+    $bodyData = new SalesOrderBasicUpdateDto(
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        requestOn: '2025-11-22T10:40:04+00:00',
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
+
+    Saloon::fake([
+        SalesOrderBasicCreateHeaderAttachmentByorderNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SalesOrderBasicCreateHeaderAttachmentByorderNumberRequest(
+        orderNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesOrderBasicCreateHeaderAttachmentByorderNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the salesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest method in the SalesOrderBasic resource', function () {
+    $bodyData = new SalesOrderBasicUpdateDto(
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        requestOn: '2025-11-22T10:40:04+00:00',
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
+
+    Saloon::fake([
+        SalesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SalesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest(
+        orderNumber: 'test string',
+        orderType: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the salesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest method in the SalesOrderBasic resource', function () {
+    $bodyData = new SalesOrderBasicUpdateDto(
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        requestOn: '2025-11-22T10:40:04+00:00',
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
+
+    Saloon::fake([
+        SalesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SalesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest(
+        orderNumber: 'test string',
+        lineNumber: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the salesOrderBasicCreateLineAttachmentByorderNumberorderTypelineNumberRequest method in the SalesOrderBasic resource', function () {
+    $bodyData = new SalesOrderBasicUpdateDto(
+        lines: [],
+        orderType: null,
+        orderNumber: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        requestOn: '2025-11-22T10:40:04+00:00',
+        customerOrder: 'String value',
+        customerRefNo: 'String value',
+        customer: null,
+        location: 'String value',
+        contactId: 42,
+        gln: null,
+        vatRegistrationId: null,
+        currency: 'String value',
+        description: 'String value',
+        recalculateShipment: true,
+        branchNumber: 'String value',
+        note: 'String value',
+        overrideNumberSeries: true
+    );
+
+    Saloon::fake([
+        SalesOrderBasicCreateLineAttachmentByorderNumberorderTypelineNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new SalesOrderBasicCreateLineAttachmentByorderNumberorderTypelineNumberRequest(
+        orderNumber: 'test string',
+        orderType: 'test string',
+        lineNumber: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesOrderBasicCreateLineAttachmentByorderNumberorderTypelineNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the salesOrderBasicDeleteLineAttachmentByorderNumberorderTypelineNumberfileIdRequest method in the SalesOrderBasic resource', function () {
+    Saloon::fake([
+        SalesOrderBasicDeleteLineAttachmentByorderNumberorderTypelineNumberfileIdRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new SalesOrderBasicDeleteLineAttachmentByorderNumberorderTypelineNumberfileIdRequest(
+        orderNumber: 'test string',
+        orderType: 'test string',
+        lineNumber: 123,
+        fileId: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesOrderBasicDeleteLineAttachmentByorderNumberorderTypelineNumberfileIdRequest::class);
+
+    expect($response->status())->toBe(204);
+});
+
+it('calls the salesOrderBasicDeleteOrderAttachmentByorderNumberorderTypefileIdRequest method in the SalesOrderBasic resource', function () {
+    Saloon::fake([
+        SalesOrderBasicDeleteOrderAttachmentByorderNumberorderTypefileIdRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new SalesOrderBasicDeleteOrderAttachmentByorderNumberorderTypefileIdRequest(
+        orderNumber: 'test string',
+        orderType: 'test string',
+        fileId: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(SalesOrderBasicDeleteOrderAttachmentByorderNumberorderTypefileIdRequest::class);
+
+    expect($response->status())->toBe(204);
 });

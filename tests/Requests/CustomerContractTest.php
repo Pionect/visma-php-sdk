@@ -1,13 +1,20 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetAllCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\CustomerContractUpdateDto;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractActivateContractBycontractIdRequest;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractActivateUpgradeBycontractIdRequest;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractCreateCustomerContractRequest;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetAllRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetCustomerContractBycontractIdRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetCustomerContractDetailsBycontractIdRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetCustomerContractRecurringSummaryBycontractIdRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractGetCustomerContractSummaryBycontractIdRequest;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractPutBycontractIdRequest;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractSetupAndActivateContractBycontractIdRequest;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractSetupContractBycontractIdRequest;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractTerminateContractBycontractIdRequest;
+use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractUpgradeContractBycontractIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -15,7 +22,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the customerContractGetCustomerContractBycontractId method in the CustomerContract resource', function () {
+it('calls the customerContractGetCustomerContractBycontractIdRequest method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractBycontractIdRequest::class => MockResponse::make([
             'contractId' => 'mock-id-123',
@@ -24,8 +31,8 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
             'customer' => null,
             'location' => null,
             'description' => 'String value',
-            'balance' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'balance' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'summary' => null,
             'details' => null,
             'attributes' => [],
@@ -51,15 +58,54 @@ it('calls the customerContractGetCustomerContractBycontractId method in the Cust
         ->customer->toBeNull()
         ->location->toBeNull()
         ->description->toBe('String value')
-        ->balance->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->balance->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->summary->toBeNull()
         ->details->toBeNull();
 });
 
-it('calls the customerContractGetAllCollection method in the CustomerContract resource', function () {
+it('calls the customerContractPutBycontractIdRequest method in the CustomerContract resource', function () {
+    $bodyData = new CustomerContractUpdateDto(
+        contractId: null,
+        contractTemplate: null,
+        customer: null,
+        location: 'String value',
+        description: 'String value',
+        setupDate: '2025-11-22T10:40:04+00:00',
+        activationDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        massRenewal: true,
+        renewalPoint: 42,
+        gracePeriod: 42,
+        currency: 'String value',
+        invoiceTo: 'String value',
+        invoiceAccount: 'String value',
+        invoiceLocation: 'String value',
+        owner: 'String value',
+        salesPerson: 'String value',
+        details: [],
+        attributeLines: []
+    );
+
     Saloon::fake([
-        CustomerContractGetAllCollectionRequest::class => MockResponse::make([
+        CustomerContractPutBycontractIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerContractPutBycontractIdRequest(
+        contractId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerContractPutBycontractIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerContractGetAllRequest method in the CustomerContract resource', function () {
+    Saloon::fake([
+        CustomerContractGetAllRequest::class => MockResponse::make([
             0 => [
                 'contractId' => 'mock-id-123',
                 'contractTemplate' => null,
@@ -67,8 +113,8 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
                 'customer' => null,
                 'location' => null,
                 'description' => 'String value',
-                'balance' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'balance' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'summary' => null,
                 'details' => null,
                 'attributes' => [],
@@ -80,8 +126,8 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
                 'customer' => null,
                 'location' => null,
                 'description' => 'String value',
-                'balance' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'balance' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'summary' => null,
                 'details' => null,
                 'attributes' => [],
@@ -89,46 +135,101 @@ it('calls the customerContractGetAllCollection method in the CustomerContract re
         ], 200),
     ]);
 
-    $request = (new CustomerContractGetAllCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', contractTemplate: 'test string', status: 'test string', customer: 'test string', expandSummary: true, expandDetails: true, attributes: 'test string', expandAttributes: true));
+    $request = new CustomerContractGetAllRequest(
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        contractTemplate: 'test string',
+        status: 'test string',
+        customer: 'test string',
+        expandSummary: true,
+        expandDetails: true,
+        attributes: 'test string',
+        expandAttributes: true,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CustomerContractGetAllRequest::class);
 
-    Saloon::assertSent(function (CustomerContractGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->contractId->toBe('mock-id-123')
         ->contractTemplate->toBeNull()
         ->status->toBe('String value')
         ->customer->toBeNull()
         ->location->toBeNull()
         ->description->toBe('String value')
-        ->balance->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->balance->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->summary->toBeNull()
         ->details->toBeNull();
 });
 
-it('calls the customerContractGetCustomerContractSummaryBycontractId method in the CustomerContract resource', function () {
+it('calls the customerContractCreateCustomerContractRequest method in the CustomerContract resource', function () {
+    $bodyData = new CustomerContractUpdateDto(
+        contractId: null,
+        contractTemplate: null,
+        customer: null,
+        location: 'String value',
+        description: 'String value',
+        setupDate: '2025-11-22T10:40:04+00:00',
+        activationDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        massRenewal: true,
+        renewalPoint: 42,
+        gracePeriod: 42,
+        currency: 'String value',
+        invoiceTo: 'String value',
+        invoiceAccount: 'String value',
+        invoiceLocation: 'String value',
+        owner: 'String value',
+        salesPerson: 'String value',
+        details: [],
+        attributeLines: []
+    );
+
+    Saloon::fake([
+        CustomerContractCreateCustomerContractRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerContractCreateCustomerContractRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerContractCreateCustomerContractRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerContractGetCustomerContractSummaryBycontractIdRequest method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractSummaryBycontractIdRequest::class => MockResponse::make([
-            'setupDate' => '2025-11-22T10:40:04.065Z',
-            'activationDate' => '2025-11-22T10:40:04.065Z',
-            'expirationDate' => '2025-11-22T10:40:04.065Z',
-            'terminationDate' => '2025-11-22T10:40:04.065Z',
+            'setupDate' => '2025-11-22T10:40:04+00:00',
+            'activationDate' => '2025-11-22T10:40:04+00:00',
+            'expirationDate' => '2025-11-22T10:40:04+00:00',
+            'terminationDate' => '2025-11-22T10:40:04+00:00',
             'massRenewal' => true,
             'renewalPoint' => 42,
             'gracePeriod' => 42,
             'currency' => 'String value',
-            'invoicingScheduleStartsOn' => '2025-11-22T10:40:04.065Z',
+            'invoicingScheduleStartsOn' => '2025-11-22T10:40:04+00:00',
             'invoicingPeriod' => 'String value',
-            'lastInvoicingDate' => '2025-11-22T10:40:04.065Z',
-            'nextInvoicingDate' => '2025-11-22T10:40:04.065Z',
+            'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
+            'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
             'invoiceTo' => 'String value',
             'invoiceAccount' => null,
             'invoiceLocation' => null,
@@ -151,18 +252,18 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
     $dto = $response->dto();
 
     expect($dto)
-        ->setupDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->activationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->terminationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->massRenewal->toBeTrue()
+        ->setupDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->activationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->expirationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->terminationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->massRenewal->toBe(true)
         ->renewalPoint->toBe(42)
         ->gracePeriod->toBe(42)
         ->currency->toBe('String value')
-        ->invoicingScheduleStartsOn->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->invoicingScheduleStartsOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->invoicingPeriod->toBe('String value')
-        ->lastInvoicingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->nextInvoicingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->nextInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->invoiceTo->toBe('String value')
         ->invoiceAccount->toBeNull()
         ->invoiceLocation->toBeNull()
@@ -171,18 +272,18 @@ it('calls the customerContractGetCustomerContractSummaryBycontractId method in t
         ->caseCountItem->toBeNull();
 });
 
-it('calls the customerContractGetCustomerContractDetailsBycontractId method in the CustomerContract resource', function () {
+it('calls the customerContractGetCustomerContractDetailsBycontractIdRequest method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractDetailsBycontractIdRequest::class => MockResponse::make([
-            'effectiveFrom' => '2025-11-22T10:40:04.065Z',
+            'effectiveFrom' => '2025-11-22T10:40:04+00:00',
             'promoCode' => null,
-            'pendingSetup' => 3.14,
-            'pendingRecurring' => 3.14,
-            'pendingRenewal' => 3.14,
-            'totalPending' => 3.14,
-            'currentSetup' => 3.14,
-            'currentRecurring' => 3.14,
-            'currentRenewal' => 3.14,
+            'pendingSetup' => 42,
+            'pendingRecurring' => 42,
+            'pendingRenewal' => 42,
+            'totalPending' => 42,
+            'currentSetup' => 42,
+            'currentRecurring' => 42,
+            'currentRenewal' => 42,
             'lines' => [],
         ], 200),
     ]);
@@ -200,23 +301,23 @@ it('calls the customerContractGetCustomerContractDetailsBycontractId method in t
     $dto = $response->dto();
 
     expect($dto)
-        ->effectiveFrom->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->effectiveFrom->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->promoCode->toBeNull()
-        ->pendingSetup->toBe(3.14)
-        ->pendingRecurring->toBe(3.14)
-        ->pendingRenewal->toBe(3.14)
-        ->totalPending->toBe(3.14)
-        ->currentSetup->toBe(3.14)
-        ->currentRecurring->toBe(3.14)
-        ->currentRenewal->toBe(3.14);
+        ->pendingSetup->toBe(42)
+        ->pendingRecurring->toBe(42)
+        ->pendingRenewal->toBe(42)
+        ->totalPending->toBe(42)
+        ->currentSetup->toBe(42)
+        ->currentRecurring->toBe(42)
+        ->currentRenewal->toBe(42);
 });
 
-it('calls the customerContractGetCustomerContractRecurringSummaryBycontractId method in the CustomerContract resource', function () {
+it('calls the customerContractGetCustomerContractRecurringSummaryBycontractIdRequest method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractRecurringSummaryBycontractIdRequest::class => MockResponse::make([
-            'recurringTotal' => 3.14,
-            'extraUsageTotal' => 3.14,
-            'totalDue' => 3.14,
+            'recurringTotal' => 42,
+            'extraUsageTotal' => 42,
+            'totalDue' => 42,
             'lines' => [],
         ], 200),
     ]);
@@ -234,7 +335,246 @@ it('calls the customerContractGetCustomerContractRecurringSummaryBycontractId me
     $dto = $response->dto();
 
     expect($dto)
-        ->recurringTotal->toBe(3.14)
-        ->extraUsageTotal->toBe(3.14)
-        ->totalDue->toBe(3.14);
+        ->recurringTotal->toBe(42)
+        ->extraUsageTotal->toBe(42)
+        ->totalDue->toBe(42);
+});
+
+it('calls the customerContractSetupContractBycontractIdRequest method in the CustomerContract resource', function () {
+    $bodyData = new CustomerContractUpdateDto(
+        contractId: null,
+        contractTemplate: null,
+        customer: null,
+        location: 'String value',
+        description: 'String value',
+        setupDate: '2025-11-22T10:40:04+00:00',
+        activationDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        massRenewal: true,
+        renewalPoint: 42,
+        gracePeriod: 42,
+        currency: 'String value',
+        invoiceTo: 'String value',
+        invoiceAccount: 'String value',
+        invoiceLocation: 'String value',
+        owner: 'String value',
+        salesPerson: 'String value',
+        details: [],
+        attributeLines: []
+    );
+
+    Saloon::fake([
+        CustomerContractSetupContractBycontractIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerContractSetupContractBycontractIdRequest(
+        contractId: 'test string',
+        setupDate: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerContractSetupContractBycontractIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerContractActivateContractBycontractIdRequest method in the CustomerContract resource', function () {
+    $bodyData = new CustomerContractUpdateDto(
+        contractId: null,
+        contractTemplate: null,
+        customer: null,
+        location: 'String value',
+        description: 'String value',
+        setupDate: '2025-11-22T10:40:04+00:00',
+        activationDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        massRenewal: true,
+        renewalPoint: 42,
+        gracePeriod: 42,
+        currency: 'String value',
+        invoiceTo: 'String value',
+        invoiceAccount: 'String value',
+        invoiceLocation: 'String value',
+        owner: 'String value',
+        salesPerson: 'String value',
+        details: [],
+        attributeLines: []
+    );
+
+    Saloon::fake([
+        CustomerContractActivateContractBycontractIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerContractActivateContractBycontractIdRequest(
+        contractId: 'test string',
+        activationDate: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerContractActivateContractBycontractIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerContractSetupAndActivateContractBycontractIdRequest method in the CustomerContract resource', function () {
+    $bodyData = new CustomerContractUpdateDto(
+        contractId: null,
+        contractTemplate: null,
+        customer: null,
+        location: 'String value',
+        description: 'String value',
+        setupDate: '2025-11-22T10:40:04+00:00',
+        activationDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        massRenewal: true,
+        renewalPoint: 42,
+        gracePeriod: 42,
+        currency: 'String value',
+        invoiceTo: 'String value',
+        invoiceAccount: 'String value',
+        invoiceLocation: 'String value',
+        owner: 'String value',
+        salesPerson: 'String value',
+        details: [],
+        attributeLines: []
+    );
+
+    Saloon::fake([
+        CustomerContractSetupAndActivateContractBycontractIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerContractSetupAndActivateContractBycontractIdRequest(
+        contractId: 'test string',
+        activationDate: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerContractSetupAndActivateContractBycontractIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerContractTerminateContractBycontractIdRequest method in the CustomerContract resource', function () {
+    $bodyData = new CustomerContractUpdateDto(
+        contractId: null,
+        contractTemplate: null,
+        customer: null,
+        location: 'String value',
+        description: 'String value',
+        setupDate: '2025-11-22T10:40:04+00:00',
+        activationDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        massRenewal: true,
+        renewalPoint: 42,
+        gracePeriod: 42,
+        currency: 'String value',
+        invoiceTo: 'String value',
+        invoiceAccount: 'String value',
+        invoiceLocation: 'String value',
+        owner: 'String value',
+        salesPerson: 'String value',
+        details: [],
+        attributeLines: []
+    );
+
+    Saloon::fake([
+        CustomerContractTerminateContractBycontractIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerContractTerminateContractBycontractIdRequest(
+        contractId: 'test string',
+        terminationDate: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerContractTerminateContractBycontractIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerContractUpgradeContractBycontractIdRequest method in the CustomerContract resource', function () {
+    $bodyData = new CustomerContractUpdateDto(
+        contractId: null,
+        contractTemplate: null,
+        customer: null,
+        location: 'String value',
+        description: 'String value',
+        setupDate: '2025-11-22T10:40:04+00:00',
+        activationDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        massRenewal: true,
+        renewalPoint: 42,
+        gracePeriod: 42,
+        currency: 'String value',
+        invoiceTo: 'String value',
+        invoiceAccount: 'String value',
+        invoiceLocation: 'String value',
+        owner: 'String value',
+        salesPerson: 'String value',
+        details: [],
+        attributeLines: []
+    );
+
+    Saloon::fake([
+        CustomerContractUpgradeContractBycontractIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerContractUpgradeContractBycontractIdRequest(
+        contractId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerContractUpgradeContractBycontractIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerContractActivateUpgradeBycontractIdRequest method in the CustomerContract resource', function () {
+    $bodyData = new CustomerContractUpdateDto(
+        contractId: null,
+        contractTemplate: null,
+        customer: null,
+        location: 'String value',
+        description: 'String value',
+        setupDate: '2025-11-22T10:40:04+00:00',
+        activationDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        massRenewal: true,
+        renewalPoint: 42,
+        gracePeriod: 42,
+        currency: 'String value',
+        invoiceTo: 'String value',
+        invoiceAccount: 'String value',
+        invoiceLocation: 'String value',
+        owner: 'String value',
+        salesPerson: 'String value',
+        details: [],
+        attributeLines: []
+    );
+
+    Saloon::fake([
+        CustomerContractActivateUpgradeBycontractIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerContractActivateUpgradeBycontractIdRequest(
+        contractId: 'test string',
+        activationDate: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerContractActivateUpgradeBycontractIdRequest::class);
+
+    expect($response->status())->toBe(201);
 });

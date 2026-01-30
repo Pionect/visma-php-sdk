@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\ProjectAccountGroup\ProjectAccountGroupGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\ProjectAccountGroup\ProjectAccountGroupGetAllRequest;
 use Pionect\VismaSdk\Requests\ProjectAccountGroup\ProjectAccountGroupGetByaccountGroupIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -11,19 +11,15 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the projectAccountGroupGetAllCollection method in the ProjectAccountGroup resource', function () {
+it('calls the projectAccountGroupGetAllRequest method in the ProjectAccountGroup resource', function () {
     Saloon::fake([
-        ProjectAccountGroupGetAllCollectionRequest::class => MockResponse::make([
+        ProjectAccountGroupGetAllRequest::class => MockResponse::make([
             0 => [
                 'accountGroupId' => 'mock-id-123',
                 'active' => true,
                 'description' => 'String value',
                 'attributes' => [],
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'accountGroupId' => 'mock-id-123',
@@ -31,34 +27,44 @@ it('calls the projectAccountGroupGetAllCollection method in the ProjectAccountGr
                 'description' => 'String value',
                 'attributes' => [],
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new ProjectAccountGroupGetAllCollectionRequest(expandAttribute: true, greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new ProjectAccountGroupGetAllRequest(
+        expandAttribute: true,
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ProjectAccountGroupGetAllRequest::class);
 
-    Saloon::assertSent(function (ProjectAccountGroupGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->accountGroupId->toBe('mock-id-123')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the projectAccountGroupGetByaccountGroupId method in the ProjectAccountGroup resource', function () {
+it('calls the projectAccountGroupGetByaccountGroupIdRequest method in the ProjectAccountGroup resource', function () {
     Saloon::fake([
         ProjectAccountGroupGetByaccountGroupIdRequest::class => MockResponse::make([
             'accountGroupId' => 'mock-id-123',
@@ -83,7 +89,7 @@ it('calls the projectAccountGroupGetByaccountGroupId method in the ProjectAccoun
 
     expect($dto)
         ->accountGroupId->toBe('mock-id-123')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });

@@ -1,22 +1,23 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\ProjectUpdateDto;
 use Pionect\VismaSdk\Requests\Project\ProjectChangeProjectIdactionByinternalIdRequest;
-use Pionect\VismaSdk\Requests\Project\ProjectGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Project\ProjectGetAllRequest;
 use Pionect\VismaSdk\Requests\Project\ProjectGetByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Project\ProjectGetByprojectIdRequest;
-use Pionect\VismaSdk\Requests\Project\ProjectGetTasksCollectionRequest;
+use Pionect\VismaSdk\Requests\Project\ProjectGetTasksRequest;
+use Pionect\VismaSdk\Requests\Project\ProjectPostRequest;
+use Pionect\VismaSdk\Requests\Project\ProjectPutByinternalIdRequest;
+use Pionect\VismaSdk\Requests\Project\ProjectPutByprojectIdRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the projectGetByprojectId method in the Project resource', function () {
+it('calls the projectGetByprojectIdRequest method in the Project resource', function () {
     Saloon::fake([
         ProjectGetByprojectIdRequest::class => MockResponse::make([
             'internalId' => 42,
@@ -26,12 +27,12 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
             'status' => 'String value',
             'template' => null,
             'description' => 'String value',
-            'assets' => 3.14,
-            'liability' => 3.14,
-            'income' => 3.14,
-            'expenses' => 3.14,
-            'startDate' => '2025-11-22T10:40:04.065Z',
-            'endDate' => '2025-11-22T10:40:04.065Z',
+            'assets' => 42,
+            'liability' => 42,
+            'income' => 42,
+            'expenses' => 42,
+            'startDate' => '2025-11-22T10:40:04+00:00',
+            'endDate' => '2025-11-22T10:40:04+00:00',
             'projectManager' => null,
             'restrictEmployees' => true,
             'restrictEquipment' => true,
@@ -41,8 +42,8 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
             'defAccrualAccount' => null,
             'defAccrualSub' => null,
             'billingPeriod' => 'String value',
-            'nextBillingDate' => '2025-11-22T10:40:04.065Z',
-            'lastBillingDate' => '2025-11-22T10:40:04.065Z',
+            'nextBillingDate' => '2025-11-22T10:40:04+00:00',
+            'lastBillingDate' => '2025-11-22T10:40:04+00:00',
             'customerLocation' => null,
             'allocationRule' => null,
             'billingRule' => null,
@@ -50,12 +51,12 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
             'rateTable' => null,
             'autoAllocate' => true,
             'automaticReleaseAr' => true,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'tasks' => [],
             'employees' => [],
             'publicId' => 'mock-id-123',
             'systemTemplate' => true,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'attributes' => [],
             'note' => 'String value',
             'errorInfo' => 'String value',
@@ -78,43 +79,43 @@ it('calls the projectGetByprojectId method in the Project resource', function ()
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBeNull()
-        ->hold->toBeTrue()
+        ->hold->toBe(true)
         ->status->toBe('String value')
         ->template->toBeNull()
         ->description->toBe('String value')
-        ->assets->toBe(3.14)
-        ->liability->toBe(3.14)
-        ->income->toBe(3.14)
-        ->expenses->toBe(3.14)
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->assets->toBe(42)
+        ->liability->toBe(42)
+        ->income->toBe(42)
+        ->expenses->toBe(42)
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->projectManager->toBeNull()
-        ->restrictEmployees->toBeTrue()
-        ->restrictEquipment->toBeTrue()
+        ->restrictEmployees->toBe(true)
+        ->restrictEquipment->toBe(true)
         ->visibility->toBeNull()
         ->defAccount->toBeNull()
         ->defSub->toBeNull()
         ->defAccrualAccount->toBeNull()
         ->defAccrualSub->toBeNull()
         ->billingPeriod->toBe('String value')
-        ->nextBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerLocation->toBeNull()
         ->allocationRule->toBeNull()
         ->billingRule->toBeNull()
         ->branch->toBeNull()
         ->rateTable->toBeNull()
-        ->autoAllocate->toBeTrue()
-        ->automaticReleaseAr->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->autoAllocate->toBe(true)
+        ->automaticReleaseAr->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->publicId->toBe('mock-id-123')
-        ->systemTemplate->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->systemTemplate->toBe(true)
+        ->timeStamp->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the projectGetByinternalId method in the Project resource', function () {
+it('calls the projectGetByinternalIdRequest method in the Project resource', function () {
     Saloon::fake([
         ProjectGetByinternalIdRequest::class => MockResponse::make([
             'internalId' => 42,
@@ -124,12 +125,12 @@ it('calls the projectGetByinternalId method in the Project resource', function (
             'status' => 'String value',
             'template' => null,
             'description' => 'String value',
-            'assets' => 3.14,
-            'liability' => 3.14,
-            'income' => 3.14,
-            'expenses' => 3.14,
-            'startDate' => '2025-11-22T10:40:04.065Z',
-            'endDate' => '2025-11-22T10:40:04.065Z',
+            'assets' => 42,
+            'liability' => 42,
+            'income' => 42,
+            'expenses' => 42,
+            'startDate' => '2025-11-22T10:40:04+00:00',
+            'endDate' => '2025-11-22T10:40:04+00:00',
             'projectManager' => null,
             'restrictEmployees' => true,
             'restrictEquipment' => true,
@@ -139,8 +140,8 @@ it('calls the projectGetByinternalId method in the Project resource', function (
             'defAccrualAccount' => null,
             'defAccrualSub' => null,
             'billingPeriod' => 'String value',
-            'nextBillingDate' => '2025-11-22T10:40:04.065Z',
-            'lastBillingDate' => '2025-11-22T10:40:04.065Z',
+            'nextBillingDate' => '2025-11-22T10:40:04+00:00',
+            'lastBillingDate' => '2025-11-22T10:40:04+00:00',
             'customerLocation' => null,
             'allocationRule' => null,
             'billingRule' => null,
@@ -148,12 +149,12 @@ it('calls the projectGetByinternalId method in the Project resource', function (
             'rateTable' => null,
             'autoAllocate' => true,
             'automaticReleaseAr' => true,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'tasks' => [],
             'employees' => [],
             'publicId' => 'mock-id-123',
             'systemTemplate' => true,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'attributes' => [],
             'note' => 'String value',
             'errorInfo' => 'String value',
@@ -176,45 +177,45 @@ it('calls the projectGetByinternalId method in the Project resource', function (
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBeNull()
-        ->hold->toBeTrue()
+        ->hold->toBe(true)
         ->status->toBe('String value')
         ->template->toBeNull()
         ->description->toBe('String value')
-        ->assets->toBe(3.14)
-        ->liability->toBe(3.14)
-        ->income->toBe(3.14)
-        ->expenses->toBe(3.14)
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->assets->toBe(42)
+        ->liability->toBe(42)
+        ->income->toBe(42)
+        ->expenses->toBe(42)
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->projectManager->toBeNull()
-        ->restrictEmployees->toBeTrue()
-        ->restrictEquipment->toBeTrue()
+        ->restrictEmployees->toBe(true)
+        ->restrictEquipment->toBe(true)
         ->visibility->toBeNull()
         ->defAccount->toBeNull()
         ->defSub->toBeNull()
         ->defAccrualAccount->toBeNull()
         ->defAccrualSub->toBeNull()
         ->billingPeriod->toBe('String value')
-        ->nextBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerLocation->toBeNull()
         ->allocationRule->toBeNull()
         ->billingRule->toBeNull()
         ->branch->toBeNull()
         ->rateTable->toBeNull()
-        ->autoAllocate->toBeTrue()
-        ->automaticReleaseAr->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->autoAllocate->toBe(true)
+        ->automaticReleaseAr->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->publicId->toBe('mock-id-123')
-        ->systemTemplate->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->systemTemplate->toBe(true)
+        ->timeStamp->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the projectGetAllCollection method in the Project resource', function () {
+it('calls the projectGetAllRequest method in the Project resource', function () {
     Saloon::fake([
-        ProjectGetAllCollectionRequest::class => MockResponse::make([
+        ProjectGetAllRequest::class => MockResponse::make([
             0 => [
                 'internalId' => 42,
                 'projectId' => 'mock-id-123',
@@ -223,12 +224,12 @@ it('calls the projectGetAllCollection method in the Project resource', function 
                 'status' => 'String value',
                 'template' => null,
                 'description' => 'String value',
-                'assets' => 3.14,
-                'liability' => 3.14,
-                'income' => 3.14,
-                'expenses' => 3.14,
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
+                'assets' => 42,
+                'liability' => 42,
+                'income' => 42,
+                'expenses' => 42,
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
                 'projectManager' => null,
                 'restrictEmployees' => true,
                 'restrictEquipment' => true,
@@ -238,8 +239,8 @@ it('calls the projectGetAllCollection method in the Project resource', function 
                 'defAccrualAccount' => null,
                 'defAccrualSub' => null,
                 'billingPeriod' => 'String value',
-                'nextBillingDate' => '2025-11-22T10:40:04.065Z',
-                'lastBillingDate' => '2025-11-22T10:40:04.065Z',
+                'nextBillingDate' => '2025-11-22T10:40:04+00:00',
+                'lastBillingDate' => '2025-11-22T10:40:04+00:00',
                 'customerLocation' => null,
                 'allocationRule' => null,
                 'billingRule' => null,
@@ -247,19 +248,15 @@ it('calls the projectGetAllCollection method in the Project resource', function 
                 'rateTable' => null,
                 'autoAllocate' => true,
                 'automaticReleaseAr' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'tasks' => [],
                 'employees' => [],
                 'publicId' => 'mock-id-123',
                 'systemTemplate' => true,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'attributes' => [],
                 'note' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'internalId' => 42,
@@ -269,12 +266,12 @@ it('calls the projectGetAllCollection method in the Project resource', function 
                 'status' => 'String value',
                 'template' => null,
                 'description' => 'String value',
-                'assets' => 3.14,
-                'liability' => 3.14,
-                'income' => 3.14,
-                'expenses' => 3.14,
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
+                'assets' => 42,
+                'liability' => 42,
+                'income' => 42,
+                'expenses' => 42,
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
                 'projectManager' => null,
                 'restrictEmployees' => true,
                 'restrictEquipment' => true,
@@ -284,8 +281,8 @@ it('calls the projectGetAllCollection method in the Project resource', function 
                 'defAccrualAccount' => null,
                 'defAccrualSub' => null,
                 'billingPeriod' => 'String value',
-                'nextBillingDate' => '2025-11-22T10:40:04.065Z',
-                'lastBillingDate' => '2025-11-22T10:40:04.065Z',
+                'nextBillingDate' => '2025-11-22T10:40:04+00:00',
+                'lastBillingDate' => '2025-11-22T10:40:04+00:00',
                 'customerLocation' => null,
                 'allocationRule' => null,
                 'billingRule' => null,
@@ -293,78 +290,155 @@ it('calls the projectGetAllCollection method in the Project resource', function 
                 'rateTable' => null,
                 'autoAllocate' => true,
                 'automaticReleaseAr' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'tasks' => [],
                 'employees' => [],
                 'publicId' => 'mock-id-123',
                 'systemTemplate' => true,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'attributes' => [],
                 'note' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new ProjectGetAllCollectionRequest(status: 'test string', systemTemplate: true, visibleInAp: true, startDate: 'test string', expandAttribute: true, attributes: 'test string', taskStatus: 'test string', taskVisibleInAp: true, taskVisibleInAr: true, taskVisibleInCa: true, taskVisibleInCr: true, taskVisibleInEa: true, taskVisibleInGl: true, taskVisibleInIn: true, taskVisibleInPo: true, taskVisibleInSo: true, taskVisibleInTa: true, nonProject: true, publicId: 'test string', restrictedEmployee: 'test string', restrictedUser: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', branch: 'test string', onHold: true, pageNumber: 123, pageSize: 123));
+    $request = new ProjectGetAllRequest(
+        status: 'test string',
+        systemTemplate: true,
+        visibleInAp: true,
+        startDate: 'test string',
+        expandAttribute: true,
+        attributes: 'test string',
+        taskStatus: 'test string',
+        taskVisibleInAp: true,
+        taskVisibleInAr: true,
+        taskVisibleInCa: true,
+        taskVisibleInCr: true,
+        taskVisibleInEa: true,
+        taskVisibleInGl: true,
+        taskVisibleInIn: true,
+        taskVisibleInPo: true,
+        taskVisibleInSo: true,
+        taskVisibleInTa: true,
+        nonProject: true,
+        publicId: 'test string',
+        restrictedEmployee: 'test string',
+        restrictedUser: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        branch: 'test string',
+        onHold: true,
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ProjectGetAllRequest::class);
 
-    Saloon::assertSent(function (ProjectGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
         ->customer->toBeNull()
-        ->hold->toBeTrue()
+        ->hold->toBe(true)
         ->status->toBe('String value')
         ->template->toBeNull()
         ->description->toBe('String value')
-        ->assets->toBe(3.14)
-        ->liability->toBe(3.14)
-        ->income->toBe(3.14)
-        ->expenses->toBe(3.14)
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->assets->toBe(42)
+        ->liability->toBe(42)
+        ->income->toBe(42)
+        ->expenses->toBe(42)
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->projectManager->toBeNull()
-        ->restrictEmployees->toBeTrue()
-        ->restrictEquipment->toBeTrue()
+        ->restrictEmployees->toBe(true)
+        ->restrictEquipment->toBe(true)
         ->visibility->toBeNull()
         ->defAccount->toBeNull()
         ->defSub->toBeNull()
         ->defAccrualAccount->toBeNull()
         ->defAccrualSub->toBeNull()
         ->billingPeriod->toBe('String value')
-        ->nextBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastBillingDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerLocation->toBeNull()
         ->allocationRule->toBeNull()
         ->billingRule->toBeNull()
         ->branch->toBeNull()
         ->rateTable->toBeNull()
-        ->autoAllocate->toBeTrue()
-        ->automaticReleaseAr->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->autoAllocate->toBe(true)
+        ->automaticReleaseAr->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->publicId->toBe('mock-id-123')
-        ->systemTemplate->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->systemTemplate->toBe(true)
+        ->timeStamp->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the projectGetTasksCollection method in the Project resource', function () {
+it('calls the projectPostRequest method in the Project resource', function () {
+    $bodyData = new ProjectUpdateDto(
+        projectId: 'mock-id-123',
+        internalId: 42,
+        customer: 'String value',
+        description: null,
+        hold: true,
+        template: 'String value',
+        status: 'String value',
+        defAccount: 'String value',
+        defSub: [],
+        defAccrualAccount: 'String value',
+        defAccrualSub: [],
+        startDate: null,
+        endDate: '2025-11-22T10:40:04+00:00',
+        billingPeriod: 'String value',
+        allocationRule: 'String value',
+        billingRule: 'String value',
+        branch: null,
+        rateTable: 'String value',
+        projectManger: 'String value',
+        projectManagerInternalId: 42,
+        autoAllocate: true,
+        automaticReleaseArDoc: true,
+        restricEmployees: true,
+        restricEquipment: true,
+        customerLocation: 'String value',
+        visibility: null,
+        tasks: [],
+        employees: [],
+        note: 'String value'
+    );
+
     Saloon::fake([
-        ProjectGetTasksCollectionRequest::class => MockResponse::make([
+        ProjectPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ProjectPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ProjectPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the projectGetTasksRequest method in the Project resource', function () {
+    Saloon::fake([
+        ProjectGetTasksRequest::class => MockResponse::make([
             0 => [
                 'internalId' => 42,
                 'projectInternalId' => 42,
@@ -373,20 +447,20 @@ it('calls the projectGetTasksCollection method in the Project resource', functio
                 'defAccrualAccount' => null,
                 'defAccrualSub' => null,
                 'taxCategory' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'taskId' => 'mock-id-123',
                 'description' => 'String value',
-                'plannedStart' => '2025-11-22T10:40:04.065Z',
-                'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
+                'plannedStart' => '2025-11-22T10:40:04+00:00',
+                'plannedEnd' => '2025-11-22T10:40:04+00:00',
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
                 'branch' => null,
                 'rateTable' => null,
                 'status' => 'String value',
                 'restrictEmployees' => true,
                 'visibility' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'employees' => [],
                 'attributes' => [],
             ],
@@ -398,39 +472,72 @@ it('calls the projectGetTasksCollection method in the Project resource', functio
                 'defAccrualAccount' => null,
                 'defAccrualSub' => null,
                 'taxCategory' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'taskId' => 'mock-id-123',
                 'description' => 'String value',
-                'plannedStart' => '2025-11-22T10:40:04.065Z',
-                'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
+                'plannedStart' => '2025-11-22T10:40:04+00:00',
+                'plannedEnd' => '2025-11-22T10:40:04+00:00',
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
                 'branch' => null,
                 'rateTable' => null,
                 'status' => 'String value',
                 'restrictEmployees' => true,
                 'visibility' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'employees' => [],
                 'attributes' => [],
             ],
         ], 200),
     ]);
 
-    $request = (new ProjectGetTasksCollectionRequest(projectId: 'test string', publicId: 'test string', projectInternalId: 123, description: 'test string', taskCd: 'test string', taskCdDesc: 'test string', status: 'test string', expandAttribute: true, visibleInAp: true, visibleInAr: true, visibleInCa: true, visibleInCr: true, visibleInEa: true, visibleInGl: true, visibleInIn: true, visibleInPo: true, visibleInSo: true, visibleInTa: true, restrictedEmployee: 'test string', restrictedUser: 123, greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new ProjectGetTasksRequest(
+        projectId: 'test string',
+        publicId: 'test string',
+        projectInternalId: 123,
+        description: 'test string',
+        taskCd: 'test string',
+        taskCdDesc: 'test string',
+        status: 'test string',
+        expandAttribute: true,
+        visibleInAp: true,
+        visibleInAr: true,
+        visibleInCa: true,
+        visibleInCr: true,
+        visibleInEa: true,
+        visibleInGl: true,
+        visibleInIn: true,
+        visibleInPo: true,
+        visibleInSo: true,
+        visibleInTa: true,
+        restrictedEmployee: 'test string',
+        restrictedUser: 123,
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ProjectGetTasksRequest::class);
 
-    Saloon::assertSent(function (ProjectGetTasksCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->internalId->toBe(42)
         ->projectInternalId->toBe(42)
         ->defAccount->toBeNull()
@@ -438,45 +545,168 @@ it('calls the projectGetTasksCollection method in the Project resource', functio
         ->defAccrualAccount->toBeNull()
         ->defAccrualSub->toBeNull()
         ->taxCategory->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->taskId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->plannedStart->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->plannedEnd->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->plannedStart->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->plannedEnd->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branch->toBeNull()
         ->rateTable->toBeNull()
         ->status->toBe('String value')
-        ->restrictEmployees->toBeTrue()
+        ->restrictEmployees->toBe(true)
         ->visibility->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toBe('String value');
 });
 
-it('calls the projectChangeProjectIdactionByinternalId method in the Project resource', function () {
-    $mockClient = Saloon::fake([
-        ProjectChangeProjectIdactionByinternalIdRequest::class => MockResponse::make([], 200),
+it('calls the projectChangeProjectIdactionByinternalIdRequest method in the Project resource', function () {
+    $bodyData = new ProjectUpdateDto(
+        projectId: 'mock-id-123',
+        internalId: 42,
+        customer: 'String value',
+        description: null,
+        hold: true,
+        template: 'String value',
+        status: 'String value',
+        defAccount: 'String value',
+        defSub: [],
+        defAccrualAccount: 'String value',
+        defAccrualSub: [],
+        startDate: null,
+        endDate: '2025-11-22T10:40:04+00:00',
+        billingPeriod: 'String value',
+        allocationRule: 'String value',
+        billingRule: 'String value',
+        branch: null,
+        rateTable: 'String value',
+        projectManger: 'String value',
+        projectManagerInternalId: 42,
+        autoAllocate: true,
+        automaticReleaseArDoc: true,
+        restricEmployees: true,
+        restricEquipment: true,
+        customerLocation: 'String value',
+        visibility: null,
+        tasks: [],
+        employees: [],
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        ProjectChangeProjectIdactionByinternalIdRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ChangeProjectIdActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new ProjectChangeProjectIdactionByinternalIdRequest(internalId: 42, data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new ProjectChangeProjectIdactionByinternalIdRequest(
+        internalId: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(ProjectChangeProjectIdactionByinternalIdRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
+    expect($response->status())->toBe(201);
+});
 
-        return true;
-    });
+it('calls the projectPutByprojectIdRequest method in the Project resource', function () {
+    $bodyData = new ProjectUpdateDto(
+        projectId: 'mock-id-123',
+        internalId: 42,
+        customer: 'String value',
+        description: null,
+        hold: true,
+        template: 'String value',
+        status: 'String value',
+        defAccount: 'String value',
+        defSub: [],
+        defAccrualAccount: 'String value',
+        defAccrualSub: [],
+        startDate: null,
+        endDate: '2025-11-22T10:40:04+00:00',
+        billingPeriod: 'String value',
+        allocationRule: 'String value',
+        billingRule: 'String value',
+        branch: null,
+        rateTable: 'String value',
+        projectManger: 'String value',
+        projectManagerInternalId: 42,
+        autoAllocate: true,
+        automaticReleaseArDoc: true,
+        restricEmployees: true,
+        restricEquipment: true,
+        customerLocation: 'String value',
+        visibility: null,
+        tasks: [],
+        employees: [],
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        ProjectPutByprojectIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ProjectPutByprojectIdRequest(
+        projectId: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ProjectPutByprojectIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the projectPutByinternalIdRequest method in the Project resource', function () {
+    $bodyData = new ProjectUpdateDto(
+        projectId: 'mock-id-123',
+        internalId: 42,
+        customer: 'String value',
+        description: null,
+        hold: true,
+        template: 'String value',
+        status: 'String value',
+        defAccount: 'String value',
+        defSub: [],
+        defAccrualAccount: 'String value',
+        defAccrualSub: [],
+        startDate: null,
+        endDate: '2025-11-22T10:40:04+00:00',
+        billingPeriod: 'String value',
+        allocationRule: 'String value',
+        billingRule: 'String value',
+        branch: null,
+        rateTable: 'String value',
+        projectManger: 'String value',
+        projectManagerInternalId: 42,
+        autoAllocate: true,
+        automaticReleaseArDoc: true,
+        restricEmployees: true,
+        restricEquipment: true,
+        customerLocation: 'String value',
+        visibility: null,
+        tasks: [],
+        employees: [],
+        note: 'String value'
+    );
+
+    Saloon::fake([
+        ProjectPutByinternalIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ProjectPutByinternalIdRequest(
+        internalId: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ProjectPutByinternalIdRequest::class);
+
+    expect($response->status())->toBe(201);
 });

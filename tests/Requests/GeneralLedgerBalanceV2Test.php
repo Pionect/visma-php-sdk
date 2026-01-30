@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\GeneralLedgerBalanceV2\GeneralLedgerBalanceV2GetGeneralLedgerBalancesCollectionRequest;
+use Pionect\VismaSdk\Requests\GeneralLedgerBalanceV2\GeneralLedgerBalanceV2GetGeneralLedgerBalancesRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,9 +10,9 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in the GeneralLedgerBalanceV2 resource', function () {
+it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesRequest method in the GeneralLedgerBalanceV2 resource', function () {
     Saloon::fake([
-        GeneralLedgerBalanceV2GetGeneralLedgerBalancesCollectionRequest::class => MockResponse::make([
+        GeneralLedgerBalanceV2GetGeneralLedgerBalancesRequest::class => MockResponse::make([
             0 => [
                 'branch' => null,
                 'ledger' => null,
@@ -23,21 +22,17 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
                 'subaccountId' => 'mock-id-123',
                 'subAccountCd' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'periodToDateDebit' => 3.14,
-                'periodToDateCredit' => 3.14,
-                'beginningBalance' => 3.14,
-                'yearToDateBalance' => 3.14,
-                'periodToDateDebitInCurrency' => 3.14,
-                'periodToDateCreditInCurrency' => 3.14,
-                'beginningBalanceInCurrency' => 3.14,
-                'yearToDateBalanceInCurrency' => 3.14,
+                'periodToDateDebit' => 42,
+                'periodToDateCredit' => 42,
+                'beginningBalance' => 42,
+                'yearToDateBalance' => 42,
+                'periodToDateDebitInCurrency' => 42,
+                'periodToDateCreditInCurrency' => 42,
+                'beginningBalanceInCurrency' => 42,
+                'yearToDateBalanceInCurrency' => 42,
                 'yearClosed' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'branch' => null,
@@ -48,38 +43,48 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
                 'subaccountId' => 'mock-id-123',
                 'subAccountCd' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'periodToDateDebit' => 3.14,
-                'periodToDateCredit' => 3.14,
-                'beginningBalance' => 3.14,
-                'yearToDateBalance' => 3.14,
-                'periodToDateDebitInCurrency' => 3.14,
-                'periodToDateCreditInCurrency' => 3.14,
-                'beginningBalanceInCurrency' => 3.14,
-                'yearToDateBalanceInCurrency' => 3.14,
+                'periodToDateDebit' => 42,
+                'periodToDateCredit' => 42,
+                'beginningBalance' => 42,
+                'yearToDateBalance' => 42,
+                'periodToDateDebitInCurrency' => 42,
+                'periodToDateCreditInCurrency' => 42,
+                'beginningBalanceInCurrency' => 42,
+                'yearToDateBalanceInCurrency' => 42,
                 'yearClosed' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new GeneralLedgerBalanceV2GetGeneralLedgerBalancesCollectionRequest(periodId: 'test string', account: 'test string', ledger: 'test string', branch: 'test string', balanceType: 'test string', toggleBalanceSigns: true, lastModifiedDateTime: 'test string', excludeYtdaccount: true, pageNumber: 123, pageSize: 123));
+    $request = new GeneralLedgerBalanceV2GetGeneralLedgerBalancesRequest(
+        periodId: 'test string',
+        account: 'test string',
+        ledger: 'test string',
+        branch: 'test string',
+        balanceType: 'test string',
+        toggleBalanceSigns: true,
+        lastModifiedDateTime: 'test string',
+        excludeYtdaccount: true,
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(GeneralLedgerBalanceV2GetGeneralLedgerBalancesRequest::class);
 
-    Saloon::assertSent(function (GeneralLedgerBalanceV2GetGeneralLedgerBalancesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->branch->toBeNull()
         ->ledger->toBeNull()
         ->balanceType->toBe('String value')
@@ -88,15 +93,15 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesCollection method in
         ->subaccountId->toBe('mock-id-123')
         ->subAccountCd->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->periodToDateDebit->toBe(3.14)
-        ->periodToDateCredit->toBe(3.14)
-        ->beginningBalance->toBe(3.14)
-        ->yearToDateBalance->toBe(3.14)
-        ->periodToDateDebitInCurrency->toBe(3.14)
-        ->periodToDateCreditInCurrency->toBe(3.14)
-        ->beginningBalanceInCurrency->toBe(3.14)
-        ->yearToDateBalanceInCurrency->toBe(3.14)
-        ->yearClosed->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->periodToDateDebit->toBe(42)
+        ->periodToDateCredit->toBe(42)
+        ->beginningBalance->toBe(42)
+        ->yearToDateBalance->toBe(42)
+        ->periodToDateDebitInCurrency->toBe(42)
+        ->periodToDateCreditInCurrency->toBe(42)
+        ->beginningBalanceInCurrency->toBe(42)
+        ->yearToDateBalanceInCurrency->toBe(42)
+        ->yearClosed->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });

@@ -1,20 +1,22 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\CreditNote\CreditNoteGetAllCreditNotesDtoCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\CreditNoteUpdateDto;
+use Pionect\VismaSdk\Requests\CreditNote\CreditNoteCreateCreditNoteRequest;
+use Pionect\VismaSdk\Requests\CreditNote\CreditNoteCreateHeaderAttachmentBycreditNoteNumberRequest;
+use Pionect\VismaSdk\Requests\CreditNote\CreditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest;
+use Pionect\VismaSdk\Requests\CreditNote\CreditNoteGetAllCreditNotesDtoRequest;
 use Pionect\VismaSdk\Requests\CreditNote\CreditNoteGetBycreditNoteNumberRequest;
+use Pionect\VismaSdk\Requests\CreditNote\CreditNotePutBycreditNoteNumberRequest;
 use Pionect\VismaSdk\Requests\CreditNote\CreditNoteReleaseInvoiceBycreditNoteNumberRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the creditNoteGetBycreditNoteNumber method in the CreditNote resource', function () {
+it('calls the creditNoteGetBycreditNoteNumberRequest method in the CreditNote resource', function () {
     Saloon::fake([
         CreditNoteGetBycreditNoteNumberRequest::class => MockResponse::make([
             'externalReference' => 'String value',
@@ -22,14 +24,14 @@ it('calls the creditNoteGetBycreditNoteNumber method in the CreditNote resource'
             'attachments' => [],
             'invoiceLines' => [],
             'hold' => true,
-            'discountTotal' => 3.14,
-            'discountTotalInCurrency' => 3.14,
-            'detailTotal' => 3.14,
-            'detailTotalInCurrency' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'vatTaxableTotalInCurrency' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatExemptTotalInCurrency' => 3.14,
+            'discountTotal' => 42,
+            'discountTotalInCurrency' => 42,
+            'detailTotal' => 42,
+            'detailTotalInCurrency' => 42,
+            'vatTaxableTotal' => 42,
+            'vatTaxableTotalInCurrency' => 42,
+            'vatExemptTotal' => 42,
+            'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
             'salesPerson' => null,
@@ -46,24 +48,24 @@ it('calls the creditNoteGetBycreditNoteNumber method in the CreditNote resource'
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'documentDate' => '2025-11-22T10:40:04.065Z',
-            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'documentDate' => '2025-11-22T10:40:04+00:00',
+            'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'status' => 'String value',
             'currencyId' => 'mock-id-123',
-            'amount' => 3.14,
-            'amountInCurrency' => 3.14,
-            'balance' => 3.14,
-            'balanceInCurrency' => 3.14,
-            'cashDiscount' => 3.14,
-            'cashDiscountInCurrency' => 3.14,
+            'amount' => 42,
+            'amountInCurrency' => 42,
+            'balance' => 42,
+            'balanceInCurrency' => 42,
+            'cashDiscount' => 42,
+            'cashDiscountInCurrency' => 42,
             'paymentMethod' => null,
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
-            'vatTotal' => 3.14,
-            'vatTotalInCurrency' => 3.14,
+            'vatTotal' => 42,
+            'vatTotalInCurrency' => 42,
             'location' => null,
             'branchNumber' => null,
             'cashAccount' => 'String value',
@@ -90,48 +92,48 @@ it('calls the creditNoteGetBycreditNoteNumber method in the CreditNote resource'
     expect($dto)
         ->externalReference->toBe('String value')
         ->contact->toBeNull()
-        ->hold->toBeTrue()
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInCurrency->toBe(3.14)
-        ->detailTotal->toBe(3.14)
-        ->detailTotalInCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInCurrency->toBe(3.14)
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
         ->salesPerson->toBeNull()
         ->paymentReference->toBe('String value')
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->dontPrint->toBeTrue()
-        ->dontEmail->toBeTrue()
-        ->revoked->toBeTrue()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -142,23 +144,66 @@ it('calls the creditNoteGetBycreditNoteNumber method in the CreditNote resource'
         ->errorInfo->toBe('String value');
 });
 
-it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote resource', function () {
+it('calls the creditNotePutBycreditNoteNumberRequest method in the CreditNote resource', function () {
+    $bodyData = new CreditNoteUpdateDto(
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        externalReference: 'String value',
+        contact: 42,
+        invoiceLines: [],
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
     Saloon::fake([
-        CreditNoteGetAllCreditNotesDtoCollectionRequest::class => MockResponse::make([
+        CreditNotePutBycreditNoteNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CreditNotePutBycreditNoteNumberRequest(
+        creditNoteNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CreditNotePutBycreditNoteNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the creditNoteGetAllCreditNotesDtoRequest method in the CreditNote resource', function () {
+    Saloon::fake([
+        CreditNoteGetAllCreditNotesDtoRequest::class => MockResponse::make([
             0 => [
                 'externalReference' => 'String value',
                 'contact' => null,
                 'attachments' => [],
                 'invoiceLines' => [],
                 'hold' => true,
-                'discountTotal' => 3.14,
-                'discountTotalInCurrency' => 3.14,
-                'detailTotal' => 3.14,
-                'detailTotalInCurrency' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatTaxableTotalInCurrency' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatExemptTotalInCurrency' => 3.14,
+                'discountTotal' => 42,
+                'discountTotalInCurrency' => 42,
+                'detailTotal' => 42,
+                'detailTotalInCurrency' => 42,
+                'vatTaxableTotal' => 42,
+                'vatTaxableTotalInCurrency' => 42,
+                'vatExemptTotal' => 42,
+                'vatExemptTotalInCurrency' => 42,
                 'salesPersonId' => 42,
                 'salesPersonDescr' => 'String value',
                 'salesPerson' => null,
@@ -175,24 +220,24 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'documentDate' => '2025-11-22T10:40:04.065Z',
-                'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'status' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'amount' => 3.14,
-                'amountInCurrency' => 3.14,
-                'balance' => 3.14,
-                'balanceInCurrency' => 3.14,
-                'cashDiscount' => 3.14,
-                'cashDiscountInCurrency' => 3.14,
+                'amount' => 42,
+                'amountInCurrency' => 42,
+                'balance' => 42,
+                'balanceInCurrency' => 42,
+                'cashDiscount' => 42,
+                'cashDiscountInCurrency' => 42,
                 'paymentMethod' => null,
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
-                'vatTotal' => 3.14,
-                'vatTotalInCurrency' => 3.14,
+                'vatTotal' => 42,
+                'vatTotalInCurrency' => 42,
                 'location' => null,
                 'branchNumber' => null,
                 'cashAccount' => 'String value',
@@ -201,10 +246,6 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'externalReference' => 'String value',
@@ -212,14 +253,14 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
                 'attachments' => [],
                 'invoiceLines' => [],
                 'hold' => true,
-                'discountTotal' => 3.14,
-                'discountTotalInCurrency' => 3.14,
-                'detailTotal' => 3.14,
-                'detailTotalInCurrency' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'vatTaxableTotalInCurrency' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatExemptTotalInCurrency' => 3.14,
+                'discountTotal' => 42,
+                'discountTotalInCurrency' => 42,
+                'detailTotal' => 42,
+                'detailTotalInCurrency' => 42,
+                'vatTaxableTotal' => 42,
+                'vatTaxableTotalInCurrency' => 42,
+                'vatExemptTotal' => 42,
+                'vatExemptTotalInCurrency' => 42,
                 'salesPersonId' => 42,
                 'salesPersonDescr' => 'String value',
                 'salesPerson' => null,
@@ -236,24 +277,24 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'documentDate' => '2025-11-22T10:40:04.065Z',
-                'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'status' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'amount' => 3.14,
-                'amountInCurrency' => 3.14,
-                'balance' => 3.14,
-                'balanceInCurrency' => 3.14,
-                'cashDiscount' => 3.14,
-                'cashDiscountInCurrency' => 3.14,
+                'amount' => 42,
+                'amountInCurrency' => 42,
+                'balance' => 42,
+                'balanceInCurrency' => 42,
+                'cashDiscount' => 42,
+                'cashDiscountInCurrency' => 42,
                 'paymentMethod' => null,
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
-                'vatTotal' => 3.14,
-                'vatTotalInCurrency' => 3.14,
+                'vatTotal' => 42,
+                'vatTotalInCurrency' => 42,
                 'location' => null,
                 'branchNumber' => null,
                 'cashAccount' => 'String value',
@@ -262,71 +303,103 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new CreditNoteGetAllCreditNotesDtoCollectionRequest(documentType: 'test string', released: 123, dunningLevel: 123, closedFinancialPeriod: 'test string', dunningLetterDateTime: 'test string', dunningLetterDateTimeCondition: 'test string', project: 'test string', expandApplications: true, expandDunningInformation: true, expandAttachments: true, expandTaxDetails: true, expandInvoiceAddress: true, financialPeriod: 'test string', documentDueDate: 'test string', documentDueDateCondition: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, externalReference: 'test string', paymentReference: 'test string', customerRefNumber: 'test string', customer: 'test string', branch: 'test string', documentDate: 'test string', documentDateCondition: 'test string', greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new CreditNoteGetAllCreditNotesDtoRequest(
+        documentType: 'test string',
+        released: 123,
+        dunningLevel: 123,
+        closedFinancialPeriod: 'test string',
+        dunningLetterDateTime: 'test string',
+        dunningLetterDateTimeCondition: 'test string',
+        project: 'test string',
+        expandApplications: true,
+        expandDunningInformation: true,
+        expandAttachments: true,
+        expandTaxDetails: true,
+        expandInvoiceAddress: true,
+        financialPeriod: 'test string',
+        documentDueDate: 'test string',
+        documentDueDateCondition: 'test string',
+        status: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        externalReference: 'test string',
+        paymentReference: 'test string',
+        customerRefNumber: 'test string',
+        customer: 'test string',
+        branch: 'test string',
+        documentDate: 'test string',
+        documentDateCondition: 'test string',
+        greaterThanValue: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CreditNoteGetAllCreditNotesDtoRequest::class);
 
-    Saloon::assertSent(function (CreditNoteGetAllCreditNotesDtoCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->externalReference->toBe('String value')
         ->contact->toBeNull()
-        ->hold->toBeTrue()
-        ->discountTotal->toBe(3.14)
-        ->discountTotalInCurrency->toBe(3.14)
-        ->detailTotal->toBe(3.14)
-        ->detailTotalInCurrency->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->vatTaxableTotalInCurrency->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatExemptTotalInCurrency->toBe(3.14)
+        ->hold->toBe(true)
+        ->discountTotal->toBe(42)
+        ->discountTotalInCurrency->toBe(42)
+        ->detailTotal->toBe(42)
+        ->detailTotalInCurrency->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->vatTaxableTotalInCurrency->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
         ->salesPerson->toBeNull()
         ->paymentReference->toBe('String value')
         ->invoiceAddress->toBeNull()
         ->invoiceContact->toBeNull()
-        ->dontPrint->toBeTrue()
-        ->dontEmail->toBeTrue()
-        ->revoked->toBeTrue()
+        ->dontPrint->toBe(true)
+        ->dontEmail->toBe(true)
+        ->revoked->toBe(true)
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -337,29 +410,174 @@ it('calls the creditNoteGetAllCreditNotesDtoCollection method in the CreditNote 
         ->errorInfo->toBe('String value');
 });
 
-it('calls the creditNoteReleaseInvoiceBycreditNoteNumber method in the CreditNote resource', function () {
-    $mockClient = Saloon::fake([
-        CreditNoteReleaseInvoiceBycreditNoteNumberRequest::class => MockResponse::make([], 200),
+it('calls the creditNoteCreateCreditNoteRequest method in the CreditNote resource', function () {
+    $bodyData = new CreditNoteUpdateDto(
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        externalReference: 'String value',
+        contact: 42,
+        invoiceLines: [],
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CreditNoteCreateCreditNoteRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ReleaseInvoiceActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new CreditNoteCreateCreditNoteRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new CreditNoteReleaseInvoiceBycreditNoteNumberRequest(creditNoteNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(CreditNoteCreateCreditNoteRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the creditNoteCreateHeaderAttachmentBycreditNoteNumberRequest method in the CreditNote resource', function () {
+    $bodyData = new CreditNoteUpdateDto(
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        externalReference: 'String value',
+        contact: 42,
+        invoiceLines: [],
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CreditNoteCreateHeaderAttachmentBycreditNoteNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CreditNoteCreateHeaderAttachmentBycreditNoteNumberRequest(
+        creditNoteNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CreditNoteCreateHeaderAttachmentBycreditNoteNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the creditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest method in the CreditNote resource', function () {
+    $bodyData = new CreditNoteUpdateDto(
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        externalReference: 'String value',
+        contact: 42,
+        invoiceLines: [],
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CreditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CreditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest(
+        creditNoteNumber: 'test string',
+        lineNumber: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CreditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the creditNoteReleaseInvoiceBycreditNoteNumberRequest method in the CreditNote resource', function () {
+    $bodyData = new CreditNoteUpdateDto(
+        currencyId: 'mock-id-123',
+        customerRefNumber: 'String value',
+        externalReference: 'String value',
+        contact: 42,
+        invoiceLines: [],
+        referenceNumber: 'String value',
+        customerNumber: 'String value',
+        childCustomerNumber: 'String value',
+        consolidateInvoices: true,
+        documentDate: '2025-11-22T10:40:04+00:00',
+        origInvoiceDate: '2025-11-22T10:40:04+00:00',
+        hold: true,
+        postPeriod: null,
+        financialPeriod: null,
+        invoiceText: 'String value',
+        locationId: 'mock-id-123',
+        salesPersonId: null,
+        salesperson: null,
+        note: 'String value',
+        branchNumber: 'String value',
+        cashAccount: 'String value',
+        dontPrint: true,
+        dontEmail: true
+    );
+
+    Saloon::fake([
+        CreditNoteReleaseInvoiceBycreditNoteNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CreditNoteReleaseInvoiceBycreditNoteNumberRequest(
+        creditNoteNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(CreditNoteReleaseInvoiceBycreditNoteNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });

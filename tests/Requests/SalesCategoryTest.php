@@ -1,11 +1,10 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
 use Pionect\VismaSdk\Requests\SalesCategory\SalesCategoryGetCategoryBycategoryIdRequest;
-use Pionect\VismaSdk\Requests\SalesCategory\SalesCategoryGetCollectionRequest;
 use Pionect\VismaSdk\Requests\SalesCategory\SalesCategoryGetItemsForCategoryBycategoryIdRequest;
+use Pionect\VismaSdk\Requests\SalesCategory\SalesCategoryGetRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -13,7 +12,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory resource', function () {
+it('calls the salesCategoryGetCategoryBycategoryIdRequest method in the SalesCategory resource', function () {
     Saloon::fake([
         SalesCategoryGetCategoryBycategoryIdRequest::class => MockResponse::make([
             'categoryId' => 42,
@@ -43,9 +42,9 @@ it('calls the salesCategoryGetCategoryBycategoryId method in the SalesCategory r
         ->sortOrder->toBe(42);
 });
 
-it('calls the salesCategoryGetCollection method in the SalesCategory resource', function () {
+it('calls the salesCategoryGetRequest method in the SalesCategory resource', function () {
     Saloon::fake([
-        SalesCategoryGetCollectionRequest::class => MockResponse::make([
+        SalesCategoryGetRequest::class => MockResponse::make([
             0 => [
                 'categoryId' => 42,
                 'description' => 'String value',
@@ -63,26 +62,30 @@ it('calls the salesCategoryGetCollection method in the SalesCategory resource', 
         ], 200),
     ]);
 
-    $request = (new SalesCategoryGetCollectionRequest);
+    $request = new SalesCategoryGetRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(SalesCategoryGetRequest::class);
 
-    Saloon::assertSent(function (SalesCategoryGetCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->categoryId->toBe(42)
         ->description->toBe('String value')
         ->parentId->toBe(42)
         ->sortOrder->toBe(42);
 });
 
-it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCategory resource', function () {
+it('calls the salesCategoryGetItemsForCategoryBycategoryIdRequest method in the SalesCategory resource', function () {
     Saloon::fake([
         SalesCategoryGetItemsForCategoryBycategoryIdRequest::class => MockResponse::make([
             'inventoryId' => 42,
@@ -95,13 +98,13 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
             'postingClass' => null,
             'vatCode' => null,
             'lotSerialClass' => null,
-            'defaultPrice' => 3.14,
-            'pendingCost' => 3.14,
-            'pendingCostDate' => '2025-11-22T10:40:04.065Z',
-            'currentCost' => 3.14,
-            'effectiveDate' => '2025-11-22T10:40:04.065Z',
-            'lastCost' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'defaultPrice' => 42,
+            'pendingCost' => 42,
+            'pendingCostDate' => '2025-11-22T10:40:04+00:00',
+            'currentCost' => 42,
+            'effectiveDate' => '2025-11-22T10:40:04+00:00',
+            'lastCost' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'baseUnit' => 'String value',
             'salesUnit' => 'String value',
             'purchaseUnit' => 'String value',
@@ -121,7 +124,7 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
             'salesCategories' => [],
             'packaging' => null,
             'intrastat' => null,
-            'recommendedPrice' => 3.14,
+            'recommendedPrice' => 42,
             'priceManagerId' => 'mock-id-123',
             'priceManager' => null,
             'priceClass' => null,
@@ -156,18 +159,18 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
         ->postingClass->toBeNull()
         ->vatCode->toBeNull()
         ->lotSerialClass->toBeNull()
-        ->defaultPrice->toBe(3.14)
-        ->pendingCost->toBe(3.14)
-        ->pendingCostDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->currentCost->toBe(3.14)
-        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastCost->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->defaultPrice->toBe(42)
+        ->pendingCost->toBe(42)
+        ->pendingCostDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->currentCost->toBe(42)
+        ->effectiveDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastCost->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->baseUnit->toBe('String value')
         ->salesUnit->toBe('String value')
         ->purchaseUnit->toBe('String value')
-        ->stockItem->toBeTrue()
-        ->kitItem->toBeTrue()
+        ->stockItem->toBe(true)
+        ->kitItem->toBe(true)
         ->accountInformation->toBeNull()
         ->costPriceStatistics->toBeNull()
         ->defaultWarehouse->toBeNull()
@@ -175,7 +178,7 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryId method in the SalesCa
         ->defaultReceiptTo->toBeNull()
         ->packaging->toBeNull()
         ->intrastat->toBeNull()
-        ->recommendedPrice->toBe(3.14)
+        ->recommendedPrice->toBe(42)
         ->priceManagerId->toBe('mock-id-123')
         ->priceManager->toBeNull()
         ->priceClass->toBeNull()

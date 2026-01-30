@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Department\DepartmentGetAllDepartmentDtosCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\DepartmentDto;
+use Pionect\VismaSdk\Requests\Department\DepartmentCreateDepartmentRequest;
+use Pionect\VismaSdk\Requests\Department\DepartmentGetAllDepartmentDtosRequest;
 use Pionect\VismaSdk\Requests\Department\DepartmentGetDepartmentBydepartmentIdRequest;
+use Pionect\VismaSdk\Requests\Department\DepartmentUpdateDepartmentBydepartmentIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +13,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the departmentGetDepartmentBydepartmentId method in the Department resource', function () {
+it('calls the departmentGetDepartmentBydepartmentIdRequest method in the Department resource', function () {
     Saloon::fake([
         DepartmentGetDepartmentBydepartmentIdRequest::class => MockResponse::make([
             'departmentId' => 'mock-id-123',
@@ -20,8 +21,8 @@ it('calls the departmentGetDepartmentBydepartmentId method in the Department res
             'description' => 'String value',
             'expenseAccount' => null,
             'expenseSubaccount' => null,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'timeStamp' => 'String value',
         ], 200),
     ]);
 
@@ -43,21 +44,49 @@ it('calls the departmentGetDepartmentBydepartmentId method in the Department res
         ->description->toBe('String value')
         ->expenseAccount->toBeNull()
         ->expenseSubaccount->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->timeStamp->toBe('String value');
 });
 
-it('calls the departmentGetAllDepartmentDtosCollection method in the Department resource', function () {
+it('calls the departmentUpdateDepartmentBydepartmentIdRequest method in the Department resource', function () {
+    $bodyData = new DepartmentDto(
+        departmentId: 'mock-id-123',
+        publicId: 'mock-id-123',
+        description: 'String value',
+        expenseAccount: null,
+        expenseSubaccount: null,
+        lastModifiedDateTime: '2025-11-22T10:40:04+00:00',
+        timeStamp: 'String value'
+    );
+
     Saloon::fake([
-        DepartmentGetAllDepartmentDtosCollectionRequest::class => MockResponse::make([
+        DepartmentUpdateDepartmentBydepartmentIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new DepartmentUpdateDepartmentBydepartmentIdRequest(
+        departmentId: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(DepartmentUpdateDepartmentBydepartmentIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the departmentGetAllDepartmentDtosRequest method in the Department resource', function () {
+    Saloon::fake([
+        DepartmentGetAllDepartmentDtosRequest::class => MockResponse::make([
             0 => [
                 'departmentId' => 'mock-id-123',
                 'publicId' => 'mock-id-123',
                 'description' => 'String value',
                 'expenseAccount' => null,
                 'expenseSubaccount' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'timeStamp' => 'String value',
             ],
             1 => [
                 'departmentId' => 'mock-id-123',
@@ -65,30 +94,66 @@ it('calls the departmentGetAllDepartmentDtosCollection method in the Department 
                 'description' => 'String value',
                 'expenseAccount' => null,
                 'expenseSubaccount' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'timeStamp' => 'String value',
             ],
         ], 200),
     ]);
 
-    $request = (new DepartmentGetAllDepartmentDtosCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new DepartmentGetAllDepartmentDtosRequest(
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(DepartmentGetAllDepartmentDtosRequest::class);
 
-    Saloon::assertSent(function (DepartmentGetAllDepartmentDtosCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->departmentId->toBe('mock-id-123')
         ->publicId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->expenseAccount->toBeNull()
         ->expenseSubaccount->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->timeStamp->toBe('String value');
+});
+
+it('calls the departmentCreateDepartmentRequest method in the Department resource', function () {
+    $bodyData = new DepartmentDto(
+        departmentId: 'mock-id-123',
+        publicId: 'mock-id-123',
+        description: 'String value',
+        expenseAccount: null,
+        expenseSubaccount: null,
+        lastModifiedDateTime: '2025-11-22T10:40:04+00:00',
+        timeStamp: 'String value'
+    );
+
+    Saloon::fake([
+        DepartmentCreateDepartmentRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new DepartmentCreateDepartmentRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(DepartmentCreateDepartmentRequest::class);
+
+    expect($response->status())->toBe(201);
 });

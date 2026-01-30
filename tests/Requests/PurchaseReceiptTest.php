@@ -1,60 +1,62 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\PurchaseReceiptUpdateDto;
 use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest;
 use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptAddPurchaseOrdersByreceiptNumberRequest;
-use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptGetAllReceiptBasicCollectionRequest;
+use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptCancelReceiptByreceiptNumberRequest;
+use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptGetAllReceiptBasicRequest;
 use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptGetPurchaseReceiptBasicByreceiptNumberRequest;
+use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptPostRequest;
+use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest;
+use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptPutByreceiptNumberRequest;
 use Pionect\VismaSdk\Requests\PurchaseReceipt\PurchaseReceiptReleaseReceiptByreceiptNumberRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the purchaseReceiptGetPurchaseReceiptBasicByreceiptNumber method in the PurchaseReceipt resource', function () {
+it('calls the purchaseReceiptGetPurchaseReceiptBasicByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
     Saloon::fake([
         PurchaseReceiptGetPurchaseReceiptBasicByreceiptNumberRequest::class => MockResponse::make([
             'landedCost' => [],
             'note' => 'String value',
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'receiptType' => 'String value',
             'receiptNbr' => 'String value',
             'hold' => true,
             'status' => 'String value',
-            'date' => '2025-11-22T10:40:04.065Z',
+            'date' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
             'warehouse' => null,
             'supplier' => null,
             'location' => null,
             'currency' => 'String value',
-            'exchangeRate' => 3.14,
+            'exchangeRate' => 42,
             'createBill' => true,
             'supplierRef' => 'String value',
-            'totalQty' => 3.14,
-            'controlQty' => 3.14,
-            'vatExemptTotal' => 3.14,
-            'vatTaxableTotal' => 3.14,
-            'totalAmt' => 3.14,
-            'controlTotal' => 3.14,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'totalQty' => 42,
+            'controlQty' => 42,
+            'vatExemptTotal' => 42,
+            'vatTaxableTotal' => 42,
+            'totalAmt' => 42,
+            'controlTotal' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'branchNumber' => null,
             'lines' => [],
-            'dueDate' => '2025-11-22T10:40:04.065Z',
+            'dueDate' => '2025-11-22T10:40:04+00:00',
             'customStr1' => 'String value',
             'customStr2' => 'String value',
             'customStr3' => 'String value',
             'customStr4' => 'String value',
             'customStr5' => 'String value',
-            'customDec1' => 3.14,
-            'customDec2' => 3.14,
+            'customDec1' => 42,
+            'customDec2' => 42,
             'customInt1' => 42,
             'customInt2' => 42,
-            'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+            'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -73,261 +75,581 @@ it('calls the purchaseReceiptGetPurchaseReceiptBasicByreceiptNumber method in th
 
     expect($dto)
         ->note->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->receiptType->toBe('String value')
         ->receiptNbr->toBe('String value')
-        ->hold->toBeTrue()
+        ->hold->toBe(true)
         ->status->toBe('String value')
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
         ->warehouse->toBeNull()
         ->supplier->toBeNull()
         ->location->toBeNull()
         ->currency->toBe('String value')
-        ->exchangeRate->toBe(3.14)
-        ->createBill->toBeTrue()
+        ->exchangeRate->toBe(42)
+        ->createBill->toBe(true)
         ->supplierRef->toBe('String value')
-        ->totalQty->toBe(3.14)
-        ->controlQty->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->totalAmt->toBe(3.14)
-        ->controlTotal->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->totalQty->toBe(42)
+        ->controlQty->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->totalAmt->toBe(42)
+        ->controlTotal->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branchNumber->toBeNull()
-        ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customStr1->toBe('String value')
         ->customStr2->toBe('String value')
         ->customStr3->toBe('String value')
         ->customStr4->toBe('String value')
         ->customStr5->toBe('String value')
-        ->customDec1->toBe(3.14)
-        ->customDec2->toBe(3.14)
+        ->customDec1->toBe(42)
+        ->customDec2->toBe(42)
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
-        ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
 
-it('calls the purchaseReceiptGetAllReceiptBasicCollection method in the PurchaseReceipt resource', function () {
+it('calls the purchaseReceiptPutByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
+    $bodyData = new PurchaseReceiptUpdateDto(
+        lines: [],
+        landedCost: [],
+        note: 'String value',
+        receiptType: 'String value',
+        receiptNbr: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: null,
+        warehouseId: 'mock-id-123',
+        supplierId: 'mock-id-123',
+        locationId: 'mock-id-123',
+        currency: 'String value',
+        exchangeRate: 42,
+        createBill: true,
+        supplierRef: 'String value',
+        controlQty: 42,
+        controlAmount: 42,
+        branchNumber: 'String value',
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        timeStamp: 'String value'
+    );
+
     Saloon::fake([
-        PurchaseReceiptGetAllReceiptBasicCollectionRequest::class => MockResponse::make([
+        PurchaseReceiptPutByreceiptNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new PurchaseReceiptPutByreceiptNumberRequest(
+        receiptNumber: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(PurchaseReceiptPutByreceiptNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the purchaseReceiptGetAllReceiptBasicRequest method in the PurchaseReceipt resource', function () {
+    Saloon::fake([
+        PurchaseReceiptGetAllReceiptBasicRequest::class => MockResponse::make([
             0 => [
                 'landedCost' => [],
                 'note' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'receiptType' => 'String value',
                 'receiptNbr' => 'String value',
                 'hold' => true,
                 'status' => 'String value',
-                'date' => '2025-11-22T10:40:04.065Z',
+                'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
                 'warehouse' => null,
                 'supplier' => null,
                 'location' => null,
                 'currency' => 'String value',
-                'exchangeRate' => 3.14,
+                'exchangeRate' => 42,
                 'createBill' => true,
                 'supplierRef' => 'String value',
-                'totalQty' => 3.14,
-                'controlQty' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'totalAmt' => 3.14,
-                'controlTotal' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'totalQty' => 42,
+                'controlQty' => 42,
+                'vatExemptTotal' => 42,
+                'vatTaxableTotal' => 42,
+                'totalAmt' => 42,
+                'controlTotal' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'branchNumber' => null,
                 'lines' => [],
-                'dueDate' => '2025-11-22T10:40:04.065Z',
+                'dueDate' => '2025-11-22T10:40:04+00:00',
                 'customStr1' => 'String value',
                 'customStr2' => 'String value',
                 'customStr3' => 'String value',
                 'customStr4' => 'String value',
                 'customStr5' => 'String value',
-                'customDec1' => 3.14,
-                'customDec2' => 3.14,
+                'customDec1' => 42,
+                'customDec2' => 42,
                 'customInt1' => 42,
                 'customInt2' => 42,
-                'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+                'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'landedCost' => [],
                 'note' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'receiptType' => 'String value',
                 'receiptNbr' => 'String value',
                 'hold' => true,
                 'status' => 'String value',
-                'date' => '2025-11-22T10:40:04.065Z',
+                'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
                 'warehouse' => null,
                 'supplier' => null,
                 'location' => null,
                 'currency' => 'String value',
-                'exchangeRate' => 3.14,
+                'exchangeRate' => 42,
                 'createBill' => true,
                 'supplierRef' => 'String value',
-                'totalQty' => 3.14,
-                'controlQty' => 3.14,
-                'vatExemptTotal' => 3.14,
-                'vatTaxableTotal' => 3.14,
-                'totalAmt' => 3.14,
-                'controlTotal' => 3.14,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'totalQty' => 42,
+                'controlQty' => 42,
+                'vatExemptTotal' => 42,
+                'vatTaxableTotal' => 42,
+                'totalAmt' => 42,
+                'controlTotal' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'branchNumber' => null,
                 'lines' => [],
-                'dueDate' => '2025-11-22T10:40:04.065Z',
+                'dueDate' => '2025-11-22T10:40:04+00:00',
                 'customStr1' => 'String value',
                 'customStr2' => 'String value',
                 'customStr3' => 'String value',
                 'customStr4' => 'String value',
                 'customStr5' => 'String value',
-                'customDec1' => 3.14,
-                'customDec2' => 3.14,
+                'customDec1' => 42,
+                'customDec2' => 42,
                 'customInt1' => 42,
                 'customInt2' => 42,
-                'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+                'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new PurchaseReceiptGetAllReceiptBasicCollectionRequest(receiptType: 'test string', status: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', supplier: 'test string', poOrderNbr: 'test string', branch: 'test string', finPeriod: 'test string', receiptDate: 'test string', receiptDateCondition: 'test string', dueDate: 'test string', dueDateCondition: 'test string', includeCustomFreeFields: true, pageNumber: 123, pageSize: 123));
+    $request = new PurchaseReceiptGetAllReceiptBasicRequest(
+        receiptType: 'test string',
+        status: 'test string',
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        supplier: 'test string',
+        poOrderNbr: 'test string',
+        branch: 'test string',
+        finPeriod: 'test string',
+        receiptDate: 'test string',
+        receiptDateCondition: 'test string',
+        dueDate: 'test string',
+        dueDateCondition: 'test string',
+        includeCustomFreeFields: true,
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(PurchaseReceiptGetAllReceiptBasicRequest::class);
 
-    Saloon::assertSent(function (PurchaseReceiptGetAllReceiptBasicCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->note->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->receiptType->toBe('String value')
         ->receiptNbr->toBe('String value')
-        ->hold->toBeTrue()
+        ->hold->toBe(true)
         ->status->toBe('String value')
-        ->date->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
         ->warehouse->toBeNull()
         ->supplier->toBeNull()
         ->location->toBeNull()
         ->currency->toBe('String value')
-        ->exchangeRate->toBe(3.14)
-        ->createBill->toBeTrue()
+        ->exchangeRate->toBe(42)
+        ->createBill->toBe(true)
         ->supplierRef->toBe('String value')
-        ->totalQty->toBe(3.14)
-        ->controlQty->toBe(3.14)
-        ->vatExemptTotal->toBe(3.14)
-        ->vatTaxableTotal->toBe(3.14)
-        ->totalAmt->toBe(3.14)
-        ->controlTotal->toBe(3.14)
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->totalQty->toBe(42)
+        ->controlQty->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->totalAmt->toBe(42)
+        ->controlTotal->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branchNumber->toBeNull()
-        ->dueDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customStr1->toBe('String value')
         ->customStr2->toBe('String value')
         ->customStr3->toBe('String value')
         ->customStr4->toBe('String value')
         ->customStr5->toBe('String value')
-        ->customDec1->toBe(3.14)
-        ->customDec2->toBe(3.14)
+        ->customDec1->toBe(42)
+        ->customDec2->toBe(42)
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
-        ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
 
-it('calls the purchaseReceiptReleaseReceiptByreceiptNumber method in the PurchaseReceipt resource', function () {
-    $mockClient = Saloon::fake([
-        PurchaseReceiptReleaseReceiptByreceiptNumberRequest::class => MockResponse::make([], 200),
+it('calls the purchaseReceiptPostRequest method in the PurchaseReceipt resource', function () {
+    $bodyData = new PurchaseReceiptUpdateDto(
+        lines: [],
+        landedCost: [],
+        note: 'String value',
+        receiptType: 'String value',
+        receiptNbr: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: null,
+        warehouseId: 'mock-id-123',
+        supplierId: 'mock-id-123',
+        locationId: 'mock-id-123',
+        currency: 'String value',
+        exchangeRate: 42,
+        createBill: true,
+        supplierRef: 'String value',
+        controlQty: 42,
+        controlAmount: 42,
+        branchNumber: 'String value',
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        timeStamp: 'String value'
+    );
+
+    Saloon::fake([
+        PurchaseReceiptPostRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ReleasePurchaseReceiptActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new PurchaseReceiptPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new PurchaseReceiptReleaseReceiptByreceiptNumberRequest(receiptNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(PurchaseReceiptPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the purchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
+    Saloon::fake([
+        PurchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest::class => MockResponse::make([
+            'landedCost' => [],
+            'note' => 'String value',
+            'timeStamp' => 'String value',
+            'receiptType' => 'String value',
+            'receiptNbr' => 'String value',
+            'hold' => true,
+            'status' => 'String value',
+            'date' => '2025-11-22T10:40:04+00:00',
+            'postPeriod' => 'String value',
+            'warehouse' => null,
+            'supplier' => null,
+            'location' => null,
+            'currency' => 'String value',
+            'exchangeRate' => 42,
+            'createBill' => true,
+            'supplierRef' => 'String value',
+            'totalQty' => 42,
+            'controlQty' => 42,
+            'vatExemptTotal' => 42,
+            'vatTaxableTotal' => 42,
+            'totalAmt' => 42,
+            'controlTotal' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'branchNumber' => null,
+            'lines' => [],
+            'dueDate' => '2025-11-22T10:40:04+00:00',
+            'customStr1' => 'String value',
+            'customStr2' => 'String value',
+            'customStr3' => 'String value',
+            'customStr4' => 'String value',
+            'customStr5' => 'String value',
+            'customDec1' => 42,
+            'customDec2' => 42,
+            'customInt1' => 42,
+            'customInt2' => 42,
+            'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
+            'errorInfo' => 'String value',
+        ], 200),
+    ]);
+
+    $request = new PurchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest(
+        receiptNumber: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(PurchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest::class);
+
+    expect($response->status())->toBe(200);
+
+    $dto = $response->dto();
+
+    expect($dto)
+        ->note->toBe('String value')
+        ->timeStamp->toBe('String value')
+        ->receiptType->toBe('String value')
+        ->receiptNbr->toBe('String value')
+        ->hold->toBe(true)
+        ->status->toBe('String value')
+        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->postPeriod->toBe('String value')
+        ->warehouse->toBeNull()
+        ->supplier->toBeNull()
+        ->location->toBeNull()
+        ->currency->toBe('String value')
+        ->exchangeRate->toBe(42)
+        ->createBill->toBe(true)
+        ->supplierRef->toBe('String value')
+        ->totalQty->toBe(42)
+        ->controlQty->toBe(42)
+        ->vatExemptTotal->toBe(42)
+        ->vatTaxableTotal->toBe(42)
+        ->totalAmt->toBe(42)
+        ->controlTotal->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->branchNumber->toBeNull()
+        ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->customStr1->toBe('String value')
+        ->customStr2->toBe('String value')
+        ->customStr3->toBe('String value')
+        ->customStr4->toBe('String value')
+        ->customStr5->toBe('String value')
+        ->customDec1->toBe(42)
+        ->customDec2->toBe(42)
+        ->customInt1->toBe(42)
+        ->customInt2->toBe(42)
+        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->errorInfo->toBe('String value');
+});
+
+it('calls the purchaseReceiptReleaseReceiptByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
+    $bodyData = new PurchaseReceiptUpdateDto(
+        lines: [],
+        landedCost: [],
+        note: 'String value',
+        receiptType: 'String value',
+        receiptNbr: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: null,
+        warehouseId: 'mock-id-123',
+        supplierId: 'mock-id-123',
+        locationId: 'mock-id-123',
+        currency: 'String value',
+        exchangeRate: 42,
+        createBill: true,
+        supplierRef: 'String value',
+        controlQty: 42,
+        controlAmount: 42,
+        branchNumber: 'String value',
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        timeStamp: 'String value'
+    );
+
+    Saloon::fake([
+        PurchaseReceiptReleaseReceiptByreceiptNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new PurchaseReceiptReleaseReceiptByreceiptNumberRequest(
+        receiptNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(PurchaseReceiptReleaseReceiptByreceiptNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the purchaseReceiptAddPurchaseOrdersByreceiptNumber method in the PurchaseReceipt resource', function () {
-    $mockClient = Saloon::fake([
-        PurchaseReceiptAddPurchaseOrdersByreceiptNumberRequest::class => MockResponse::make([], 200),
+it('calls the purchaseReceiptCancelReceiptByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
+    $bodyData = new PurchaseReceiptUpdateDto(
+        lines: [],
+        landedCost: [],
+        note: 'String value',
+        receiptType: 'String value',
+        receiptNbr: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: null,
+        warehouseId: 'mock-id-123',
+        supplierId: 'mock-id-123',
+        locationId: 'mock-id-123',
+        currency: 'String value',
+        exchangeRate: 42,
+        createBill: true,
+        supplierRef: 'String value',
+        controlQty: 42,
+        controlAmount: 42,
+        branchNumber: 'String value',
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        timeStamp: 'String value'
+    );
+
+    Saloon::fake([
+        PurchaseReceiptCancelReceiptByreceiptNumberRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\AddOrdersToPurchaseReceiptActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new PurchaseReceiptCancelReceiptByreceiptNumberRequest(
+        receiptNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new PurchaseReceiptAddPurchaseOrdersByreceiptNumberRequest(receiptNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(PurchaseReceiptCancelReceiptByreceiptNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the purchaseReceiptAddPurchaseOrdersByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
+    $bodyData = new PurchaseReceiptUpdateDto(
+        lines: [],
+        landedCost: [],
+        note: 'String value',
+        receiptType: 'String value',
+        receiptNbr: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: null,
+        warehouseId: 'mock-id-123',
+        supplierId: 'mock-id-123',
+        locationId: 'mock-id-123',
+        currency: 'String value',
+        exchangeRate: 42,
+        createBill: true,
+        supplierRef: 'String value',
+        controlQty: 42,
+        controlAmount: 42,
+        branchNumber: 'String value',
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        timeStamp: 'String value'
+    );
+
+    Saloon::fake([
+        PurchaseReceiptAddPurchaseOrdersByreceiptNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new PurchaseReceiptAddPurchaseOrdersByreceiptNumberRequest(
+        receiptNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(PurchaseReceiptAddPurchaseOrdersByreceiptNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });
 
-it('calls the purchaseReceiptAddPurchaseOrderLinesByreceiptNumber method in the PurchaseReceipt resource', function () {
-    $mockClient = Saloon::fake([
-        PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest::class => MockResponse::make([], 200),
+it('calls the purchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
+    $bodyData = new PurchaseReceiptUpdateDto(
+        lines: [],
+        landedCost: [],
+        note: 'String value',
+        receiptType: 'String value',
+        receiptNbr: 'String value',
+        hold: true,
+        date: '2025-11-22T10:40:04+00:00',
+        postPeriod: null,
+        warehouseId: 'mock-id-123',
+        supplierId: 'mock-id-123',
+        locationId: 'mock-id-123',
+        currency: 'String value',
+        exchangeRate: 42,
+        createBill: true,
+        supplierRef: 'String value',
+        controlQty: 42,
+        controlAmount: 42,
+        branchNumber: 'String value',
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00',
+        timeStamp: 'String value'
+    );
+
+    Saloon::fake([
+        PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\AddOrderLinesToPurchaseReceiptActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
-
-    $request = new PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest(receiptNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    $request = new PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest(
+        receiptNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
-
-        return true;
-    });
+    expect($response->status())->toBe(201);
 });

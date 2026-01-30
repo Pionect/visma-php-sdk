@@ -1,10 +1,14 @@
 <?php
 
-// auto-generated
-
-use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageGetAllActiveLanguagesCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\MultilanguageDto;
+use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageAddDefaultLanguageRequest;
+use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest;
+use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageGetAllActiveLanguagesRequest;
 use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageGetInventoryTranslationsByinventoryNumberRequest;
 use Pionect\VismaSdk\Requests\Multilanguage\MultilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest;
+use Pionect\VismaSdk\Requests\Multilanguage\MultilanguagePostSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest;
+use Pionect\VismaSdk\Requests\Multilanguage\MultilanguagePutSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +16,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIso method in the Multilanguage resource', function () {
+it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest method in the Multilanguage resource', function () {
     Saloon::fake([
         MultilanguageGetSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class => MockResponse::make([
             'languageIso' => 'String value',
@@ -37,10 +41,75 @@ it('calls the multilanguageGetSpecificInventoryDescrTranslationByinventoryNumber
     expect($dto)
         ->languageIso->toBe('String value')
         ->translation->toBe('String value')
-        ->isTranslated->toBeTrue();
+        ->isTranslated->toBe(true);
 });
 
-it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in the Multilanguage resource', function () {
+it('calls the multilanguagePutSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest method in the Multilanguage resource', function () {
+    $bodyData = new MultilanguageDto(
+        languageIso: 'String value',
+        translation: 'String value',
+        isTranslated: true
+    );
+
+    Saloon::fake([
+        MultilanguagePutSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new MultilanguagePutSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest(
+        inventoryNumber: 'test string',
+        languageIso: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(MultilanguagePutSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the multilanguagePostSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest method in the Multilanguage resource', function () {
+    $bodyData = new MultilanguageDto(
+        languageIso: 'String value',
+        translation: 'String value',
+        isTranslated: true
+    );
+
+    Saloon::fake([
+        MultilanguagePostSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new MultilanguagePostSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest(
+        inventoryNumber: 'test string',
+        languageIso: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(MultilanguagePostSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the multilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest method in the Multilanguage resource', function () {
+    Saloon::fake([
+        MultilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new MultilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest(
+        inventoryNumber: 'test string',
+        languageIso: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(MultilanguageDeleteSpecificInventoryDescrTranslationByinventoryNumberlanguageIsoRequest::class);
+
+    expect($response->status())->toBe(204);
+});
+
+it('calls the multilanguageGetInventoryTranslationsByinventoryNumberRequest method in the Multilanguage resource', function () {
     Saloon::fake([
         MultilanguageGetInventoryTranslationsByinventoryNumberRequest::class => MockResponse::make([
             'languageIso' => 'String value',
@@ -64,12 +133,12 @@ it('calls the multilanguageGetInventoryTranslationsByinventoryNumber method in t
     expect($dto)
         ->languageIso->toBe('String value')
         ->translation->toBe('String value')
-        ->isTranslated->toBeTrue();
+        ->isTranslated->toBe(true);
 });
 
-it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multilanguage resource', function () {
+it('calls the multilanguageGetAllActiveLanguagesRequest method in the Multilanguage resource', function () {
     Saloon::fake([
-        MultilanguageGetAllActiveLanguagesCollectionRequest::class => MockResponse::make([
+        MultilanguageGetAllActiveLanguagesRequest::class => MockResponse::make([
             0 => [
                 'isDefault' => true,
                 'languageIso' => 'String value',
@@ -85,21 +154,47 @@ it('calls the multilanguageGetAllActiveLanguagesCollection method in the Multila
         ], 200),
     ]);
 
-    $request = (new MultilanguageGetAllActiveLanguagesCollectionRequest);
+    $request = new MultilanguageGetAllActiveLanguagesRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(MultilanguageGetAllActiveLanguagesRequest::class);
 
-    Saloon::assertSent(function (MultilanguageGetAllActiveLanguagesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->isDefault->toBeTrue()
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->isDefault->toBe(true)
         ->languageIso->toBe('String value')
         ->nativeName->toBe('String value')
-        ->isActive->toBeTrue();
+        ->isActive->toBe(true);
+});
+
+it('calls the multilanguageAddDefaultLanguageRequest method in the Multilanguage resource', function () {
+    $bodyData = new MultilanguageDto(
+        languageIso: 'String value',
+        translation: 'String value',
+        isTranslated: true
+    );
+
+    Saloon::fake([
+        MultilanguageAddDefaultLanguageRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new MultilanguageAddDefaultLanguageRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(MultilanguageAddDefaultLanguageRequest::class);
+
+    expect($response->status())->toBe(201);
 });

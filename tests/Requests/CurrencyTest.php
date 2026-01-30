@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\Currency\CurrencyGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Currency\CurrencyGetAllRequest;
 use Pionect\VismaSdk\Requests\Currency\CurrencyGetSpecificCurrencyBycuryIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -11,7 +11,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the currencyGetSpecificCurrencyBycuryId method in the Currency resource', function () {
+it('calls the currencyGetSpecificCurrencyBycuryIdRequest method in the Currency resource', function () {
     Saloon::fake([
         CurrencyGetSpecificCurrencyBycuryIdRequest::class => MockResponse::make([
             'description' => 'String value',
@@ -37,14 +37,14 @@ it('calls the currencyGetSpecificCurrencyBycuryId method in the Currency resourc
     expect($dto)
         ->description->toBe('String value')
         ->symbol->toBe('String value')
-        ->isBaseCurrency->toBeTrue()
+        ->isBaseCurrency->toBe(true)
         ->decimalPrecision->toBe(42)
-        ->isUsedForAccounting->toBeTrue();
+        ->isUsedForAccounting->toBe(true);
 });
 
-it('calls the currencyGetAllCollection method in the Currency resource', function () {
+it('calls the currencyGetAllRequest method in the Currency resource', function () {
     Saloon::fake([
-        CurrencyGetAllCollectionRequest::class => MockResponse::make([
+        CurrencyGetAllRequest::class => MockResponse::make([
             0 => [
                 'description' => 'String value',
                 'symbol' => 'String value',
@@ -62,22 +62,26 @@ it('calls the currencyGetAllCollection method in the Currency resource', functio
         ], 200),
     ]);
 
-    $request = (new CurrencyGetAllCollectionRequest);
+    $request = new CurrencyGetAllRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CurrencyGetAllRequest::class);
 
-    Saloon::assertSent(function (CurrencyGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->description->toBe('String value')
         ->symbol->toBe('String value')
-        ->isBaseCurrency->toBeTrue()
+        ->isBaseCurrency->toBe(true)
         ->decimalPrecision->toBe(42)
-        ->isUsedForAccounting->toBeTrue();
+        ->isUsedForAccounting->toBe(true);
 });

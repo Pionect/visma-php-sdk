@@ -1,9 +1,12 @@
 <?php
 
-// auto-generated
-
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\UiExtensionUpdateDto;
+use Pionect\VismaSdk\Requests\UiExtension\UiExtensionDeleteByownerIdinternalIdRequest;
+use Pionect\VismaSdk\Requests\UiExtension\UiExtensionDeleteByownerIdinternalIdscreenIdstepIdRequest;
 use Pionect\VismaSdk\Requests\UiExtension\UiExtensionGetAllUiExtensionsByownerIdRequest;
-use Pionect\VismaSdk\Requests\UiExtension\UiExtensionGetAllUiExtensionsCollectionRequest;
+use Pionect\VismaSdk\Requests\UiExtension\UiExtensionGetAllUiExtensionsRequest;
+use Pionect\VismaSdk\Requests\UiExtension\UiExtensionPostRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,9 +14,9 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension resource', function () {
+it('calls the uiExtensionGetAllUiExtensionsRequest method in the UiExtension resource', function () {
     Saloon::fake([
-        UiExtensionGetAllUiExtensionsCollectionRequest::class => MockResponse::make([
+        UiExtensionGetAllUiExtensionsRequest::class => MockResponse::make([
             0 => [
                 'screenId' => 'mock-id-123',
                 'stepIds' => [],
@@ -25,23 +28,27 @@ it('calls the uiExtensionGetAllUiExtensionsCollection method in the UiExtension 
         ], 200),
     ]);
 
-    $request = (new UiExtensionGetAllUiExtensionsCollectionRequest);
+    $request = new UiExtensionGetAllUiExtensionsRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(UiExtensionGetAllUiExtensionsRequest::class);
 
-    Saloon::assertSent(function (UiExtensionGetAllUiExtensionsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->screenId->toBe('mock-id-123');
 });
 
-it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension resource', function () {
+it('calls the uiExtensionGetAllUiExtensionsByownerIdRequest method in the UiExtension resource', function () {
     Saloon::fake([
         UiExtensionGetAllUiExtensionsByownerIdRequest::class => MockResponse::make([
             'internalId' => 'mock-id-123',
@@ -77,5 +84,67 @@ it('calls the uiExtensionGetAllUiExtensionsByownerId method in the UiExtension r
         ->screenId->toBe('mock-id-123')
         ->stepId->toBe('mock-id-123')
         ->ownerName->toBe('String value')
-        ->enabled->toBeTrue();
+        ->enabled->toBe(true);
+});
+
+it('calls the uiExtensionPostRequest method in the UiExtension resource', function () {
+    $bodyData = new UiExtensionUpdateDto(
+        title: 'String value',
+        url: 'String value',
+        type: 'String value',
+        screenId: 'mock-id-123',
+        stepId: 'mock-id-123',
+        ownerId: 'mock-id-123',
+        ownerName: 'String value'
+    );
+
+    Saloon::fake([
+        UiExtensionPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new UiExtensionPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(UiExtensionPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the uiExtensionDeleteByownerIdinternalIdRequest method in the UiExtension resource', function () {
+    Saloon::fake([
+        UiExtensionDeleteByownerIdinternalIdRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new UiExtensionDeleteByownerIdinternalIdRequest(
+        ownerId: 'test string',
+        internalId: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(UiExtensionDeleteByownerIdinternalIdRequest::class);
+
+    expect($response->status())->toBe(204);
+});
+
+it('calls the uiExtensionDeleteByownerIdinternalIdscreenIdstepIdRequest method in the UiExtension resource', function () {
+    Saloon::fake([
+        UiExtensionDeleteByownerIdinternalIdscreenIdstepIdRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new UiExtensionDeleteByownerIdinternalIdscreenIdstepIdRequest(
+        ownerId: 'test string',
+        internalId: 'test string',
+        screenId: 'test string',
+        stepId: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(UiExtensionDeleteByownerIdinternalIdscreenIdstepIdRequest::class);
+
+    expect($response->status())->toBe(204);
 });

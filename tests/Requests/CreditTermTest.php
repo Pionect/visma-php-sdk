@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\CreditTerm\CreditTermGetCreditTermsCollectionRequest;
+use Pionect\VismaSdk\Requests\CreditTerm\CreditTermGetCreditTermsRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,97 +10,41 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the creditTermGetCreditTermsCollection method in the CreditTerm resource', function () {
+it('calls the creditTermGetCreditTermsRequest method in the CreditTerm resource', function () {
     Saloon::fake([
-        CreditTermGetCreditTermsCollectionRequest::class => MockResponse::make([
-            'records' => [
-                0 => [
-                    'termsId' => 'mock-id-123',
-                    'description' => 'String value',
-                    'visibleTo' => 'String value',
-                    'dueDateType' => 'String value',
-                    'moveDueDateIfOnTheWeekend' => 'String value',
-                    'dueDay1' => 42,
-                    'dueDay1dayFrom1' => 42,
-                    'dueDay1dayTo1' => 42,
-                    'dueDay2' => 42,
-                    'dueDay2dayFrom1' => 42,
-                    'dueDay2dayTo1' => 42,
-                    'discountType' => 'String value',
-                    'discountDay' => 42,
-                    'discountPercent' => 3.14,
-                    'delayDays' => 42,
-                    'calculationType' => 'String value',
-                    'instalmentType' => 'String value',
-                    'numberOfInstalments' => 42,
-                    'instalmentFrequency' => 'String value',
-                    'instalmentMethod' => 'String value',
-                    'instalmentsSchedule' => [],
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                ],
-                1 => [
-                    'termsId' => 'mock-id-123',
-                    'description' => 'String value',
-                    'visibleTo' => 'String value',
-                    'dueDateType' => 'String value',
-                    'moveDueDateIfOnTheWeekend' => 'String value',
-                    'dueDay1' => 42,
-                    'dueDay1dayFrom1' => 42,
-                    'dueDay1dayTo1' => 42,
-                    'dueDay2' => 42,
-                    'dueDay2dayFrom1' => 42,
-                    'dueDay2dayTo1' => 42,
-                    'discountType' => 'String value',
-                    'discountDay' => 42,
-                    'discountPercent' => 3.14,
-                    'delayDays' => 42,
-                    'calculationType' => 'String value',
-                    'instalmentType' => 'String value',
-                    'numberOfInstalments' => 42,
-                    'instalmentFrequency' => 'String value',
-                    'instalmentMethod' => 'String value',
-                    'instalmentsSchedule' => [],
-                    'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                    'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                ],
+        CreditTermGetCreditTermsRequest::class => MockResponse::make([
+            0 => [
+                'name' => 'Mock value',
+            ],
+            1 => [
+                'name' => 'Mock value',
             ],
         ], 200),
     ]);
 
-    $request = (new CreditTermGetCreditTermsCollectionRequest(lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', termsId: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new CreditTermGetCreditTermsRequest(
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        termsId: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CreditTermGetCreditTermsRequest::class);
 
-    Saloon::assertSent(function (CreditTermGetCreditTermsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->termsId->toBe('mock-id-123')
-        ->description->toBe('String value')
-        ->visibleTo->toBe('String value')
-        ->dueDateType->toBe('String value')
-        ->moveDueDateIfOnTheWeekend->toBe('String value')
-        ->dueDay1->toBe(42)
-        ->dueDay1dayFrom1->toBe(42)
-        ->dueDay1dayTo1->toBe(42)
-        ->dueDay2->toBe(42)
-        ->dueDay2dayFrom1->toBe(42)
-        ->dueDay2dayTo1->toBe(42)
-        ->discountType->toBe('String value')
-        ->discountDay->toBe(42)
-        ->discountPercent->toBe(3.14)
-        ->delayDays->toBe(42)
-        ->calculationType->toBe('String value')
-        ->instalmentType->toBe('String value')
-        ->numberOfInstalments->toBe(42)
-        ->instalmentFrequency->toBe('String value')
-        ->instalmentMethod->toBe('String value')
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->name->toBe('Mock value');
 });

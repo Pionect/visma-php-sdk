@@ -1,8 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\UnitOfMeasure\UnitOfMeasureGetAllUnitsOfMeasureCollectionRequest;
+use Pionect\VismaSdk\Requests\UnitOfMeasure\UnitOfMeasureGetAllUnitsOfMeasureRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -10,42 +10,46 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the unitOfMeasureGetAllUnitsOfMeasureCollection method in the UnitOfMeasure resource', function () {
+it('calls the unitOfMeasureGetAllUnitsOfMeasureRequest method in the UnitOfMeasure resource', function () {
     Saloon::fake([
-        UnitOfMeasureGetAllUnitsOfMeasureCollectionRequest::class => MockResponse::make([
+        UnitOfMeasureGetAllUnitsOfMeasureRequest::class => MockResponse::make([
             0 => [
                 'fromUnit' => 'String value',
                 'toUnit' => 'String value',
                 'unitMultDiv' => 'String value',
-                'unitRate' => 3.14,
+                'unitRate' => 42,
                 'supplementaryMeasureUnit' => 'String value',
             ],
             1 => [
                 'fromUnit' => 'String value',
                 'toUnit' => 'String value',
                 'unitMultDiv' => 'String value',
-                'unitRate' => 3.14,
+                'unitRate' => 42,
                 'supplementaryMeasureUnit' => 'String value',
             ],
         ], 200),
     ]);
 
-    $request = (new UnitOfMeasureGetAllUnitsOfMeasureCollectionRequest);
+    $request = new UnitOfMeasureGetAllUnitsOfMeasureRequest(
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(UnitOfMeasureGetAllUnitsOfMeasureRequest::class);
 
-    Saloon::assertSent(function (UnitOfMeasureGetAllUnitsOfMeasureCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->fromUnit->toBe('String value')
         ->toUnit->toBe('String value')
         ->unitMultDiv->toBe('String value')
-        ->unitRate->toBe(3.14)
+        ->unitRate->toBe(42)
         ->supplementaryMeasureUnit->toBe('String value');
 });

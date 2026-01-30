@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\Account\AccountGetAllCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\AccountUpdateDto;
+use Pionect\VismaSdk\Requests\Account\AccountGetAllRequest;
 use Pionect\VismaSdk\Requests\Account\AccountGetByaccountCdRequest;
+use Pionect\VismaSdk\Requests\Account\AccountPostRequest;
+use Pionect\VismaSdk\Requests\Account\AccountPutByaccountCdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +13,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the accountGetByaccountCd method in the Account resource', function () {
+it('calls the accountGetByaccountCdRequest method in the Account resource', function () {
     Saloon::fake([
         AccountGetByaccountCdRequest::class => MockResponse::make([
             'accountId' => 42,
@@ -29,13 +30,13 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
             'taxCategory' => 'String value',
             'cashAccount' => true,
             'publicCode1' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'externalCode1info' => null,
             'externalCode2info' => null,
             'analisysCodeInfo' => null,
             'controlAccountModule' => 'String value',
             'allowManualEntry' => true,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -58,28 +59,63 @@ it('calls the accountGetByaccountCd method in the Account resource', function ()
         ->accountGroupCd->toBe('String value')
         ->accountClass->toBe('String value')
         ->type->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->description->toBe('String value')
         ->accountClassDescription->toBe('String value')
-        ->useDefaultSub->toBeTrue()
+        ->useDefaultSub->toBe(true)
         ->postOption->toBe('String value')
         ->currency->toBe('String value')
         ->taxCategory->toBe('String value')
-        ->cashAccount->toBeTrue()
+        ->cashAccount->toBe(true)
         ->publicCode1->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalCode1info->toBeNull()
         ->externalCode2info->toBeNull()
         ->analisysCodeInfo->toBeNull()
         ->controlAccountModule->toBe('String value')
-        ->allowManualEntry->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->allowManualEntry->toBe(true)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the accountGetAllCollection method in the Account resource', function () {
+it('calls the accountPutByaccountCdRequest method in the Account resource', function () {
+    $bodyData = new AccountUpdateDto(
+        accountCd: 'String value',
+        active: true,
+        accountClass: 'String value',
+        analysisCode: 'String value',
+        currency: 'String value',
+        description: 'String value',
+        extenalCode1: 'String value',
+        externalCode2: 'String value',
+        accountGroupCd: 'String value',
+        postOption: 'String value',
+        publicCode1: 'String value',
+        type: 'String value',
+        useDefaultSub: true,
+        taxCategory: 'String value'
+    );
+
     Saloon::fake([
-        AccountGetAllCollectionRequest::class => MockResponse::make([
+        AccountPutByaccountCdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new AccountPutByaccountCdRequest(
+        accountCd: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(AccountPutByaccountCdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the accountGetAllRequest method in the Account resource', function () {
+    Saloon::fake([
+        AccountGetAllRequest::class => MockResponse::make([
             0 => [
                 'accountId' => 42,
                 'accountCd' => 'String value',
@@ -95,18 +131,14 @@ it('calls the accountGetAllCollection method in the Account resource', function 
                 'taxCategory' => 'String value',
                 'cashAccount' => true,
                 'publicCode1' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'externalCode1info' => null,
                 'externalCode2info' => null,
                 'analisysCodeInfo' => null,
                 'controlAccountModule' => 'String value',
                 'allowManualEntry' => true,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'accountId' => 42,
@@ -123,55 +155,99 @@ it('calls the accountGetAllCollection method in the Account resource', function 
                 'taxCategory' => 'String value',
                 'cashAccount' => true,
                 'publicCode1' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'externalCode1info' => null,
                 'externalCode2info' => null,
                 'analisysCodeInfo' => null,
                 'controlAccountModule' => 'String value',
                 'allowManualEntry' => true,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new AccountGetAllCollectionRequest(active: true, includeAccountClassDescription: true, greaterThanValue: 'test string', publicCode: 'test string', externalCode1: 'test string', externalCode2: 'test string', analysisCode: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string'));
+    $request = new AccountGetAllRequest(
+        active: true,
+        includeAccountClassDescription: true,
+        greaterThanValue: 'test string',
+        publicCode: 'test string',
+        externalCode1: 'test string',
+        externalCode2: 'test string',
+        analysisCode: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(AccountGetAllRequest::class);
 
-    Saloon::assertSent(function (AccountGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->accountId->toBe(42)
         ->accountCd->toBe('String value')
         ->accountGroupCd->toBe('String value')
         ->accountClass->toBe('String value')
         ->type->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->description->toBe('String value')
         ->accountClassDescription->toBe('String value')
-        ->useDefaultSub->toBeTrue()
+        ->useDefaultSub->toBe(true)
         ->postOption->toBe('String value')
         ->currency->toBe('String value')
         ->taxCategory->toBe('String value')
-        ->cashAccount->toBeTrue()
+        ->cashAccount->toBe(true)
         ->publicCode1->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalCode1info->toBeNull()
         ->externalCode2info->toBeNull()
         ->analisysCodeInfo->toBeNull()
         ->controlAccountModule->toBe('String value')
-        ->allowManualEntry->toBeTrue()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->allowManualEntry->toBe(true)
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
+});
+
+it('calls the accountPostRequest method in the Account resource', function () {
+    $bodyData = new AccountUpdateDto(
+        accountCd: 'String value',
+        active: true,
+        accountClass: 'String value',
+        analysisCode: 'String value',
+        currency: 'String value',
+        description: 'String value',
+        extenalCode1: 'String value',
+        externalCode2: 'String value',
+        accountGroupCd: 'String value',
+        postOption: 'String value',
+        publicCode1: 'String value',
+        type: 'String value',
+        useDefaultSub: true,
+        taxCategory: 'String value'
+    );
+
+    Saloon::fake([
+        AccountPostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new AccountPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(AccountPostRequest::class);
+
+    expect($response->status())->toBe(201);
 });

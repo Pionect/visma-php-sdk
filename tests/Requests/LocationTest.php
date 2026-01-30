@@ -1,11 +1,12 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\LocationUpdateDto;
+use Pionect\VismaSdk\Requests\Location\LocationCreateRequest;
 use Pionect\VismaSdk\Requests\Location\LocationGetLocationBybAccountIdlocationIdRequest;
-use Pionect\VismaSdk\Requests\Location\LocationGetLocationsCollectionRequest;
 use Pionect\VismaSdk\Requests\Location\LocationGetLocationsForBaccountBybAccountIdRequest;
+use Pionect\VismaSdk\Requests\Location\LocationGetLocationsRequest;
+use Pionect\VismaSdk\Requests\Location\LocationUpdateBybAccountIdlocationIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -13,7 +14,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the locationGetLocationBybAccountIdlocationId method in the Location resource', function () {
+it('calls the locationGetLocationBybAccountIdlocationIdRequest method in the Location resource', function () {
     Saloon::fake([
         LocationGetLocationBybAccountIdlocationIdRequest::class => MockResponse::make([
             'baccount' => null,
@@ -27,7 +28,7 @@ it('calls the locationGetLocationBybAccountIdlocationId method in the Location r
             'ediCode' => 'String value',
             'gln' => 'String value',
             'corporateId' => 'mock-id-123',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'peppolScheme' => null,
             'internalId' => 42,
             'errorInfo' => 'String value',
@@ -51,7 +52,7 @@ it('calls the locationGetLocationBybAccountIdlocationId method in the Location r
         ->baccount->toBeNull()
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->address->toBeNull()
         ->contact->toBeNull()
         ->vatRegistrationId->toBe('mock-id-123')
@@ -59,13 +60,48 @@ it('calls the locationGetLocationBybAccountIdlocationId method in the Location r
         ->ediCode->toBe('String value')
         ->gln->toBe('String value')
         ->corporateId->toBe('mock-id-123')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->peppolScheme->toBeNull()
         ->internalId->toBe(42)
         ->errorInfo->toBe('String value');
 });
 
-it('calls the locationGetLocationsForBaccountBybAccountId method in the Location resource', function () {
+it('calls the locationUpdateBybAccountIdlocationIdRequest method in the Location resource', function () {
+    $bodyData = new LocationUpdateDto(
+        baccountId: null,
+        locationId: null,
+        locationName: 'String value',
+        active: true,
+        addressIsSameAsMain: true,
+        address: null,
+        contactIsSameAsMain: true,
+        contact: null,
+        vatRegistrationId: 'mock-id-123',
+        vatZone: 'String value',
+        ediCode: 'String value',
+        gln: 'String value',
+        corporateId: 'mock-id-123',
+        peppolScheme: null
+    );
+
+    Saloon::fake([
+        LocationUpdateBybAccountIdlocationIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new LocationUpdateBybAccountIdlocationIdRequest(
+        bAccountId: 'test string',
+        locationId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(LocationUpdateBybAccountIdlocationIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the locationGetLocationsForBaccountBybAccountIdRequest method in the Location resource', function () {
     Saloon::fake([
         LocationGetLocationsForBaccountBybAccountIdRequest::class => MockResponse::make([
             'baccount' => null,
@@ -79,7 +115,7 @@ it('calls the locationGetLocationsForBaccountBybAccountId method in the Location
             'ediCode' => 'String value',
             'gln' => 'String value',
             'corporateId' => 'mock-id-123',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'peppolScheme' => null,
             'internalId' => 42,
             'errorInfo' => 'String value',
@@ -113,7 +149,7 @@ it('calls the locationGetLocationsForBaccountBybAccountId method in the Location
         ->baccount->toBeNull()
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->address->toBeNull()
         ->contact->toBeNull()
         ->vatRegistrationId->toBe('mock-id-123')
@@ -121,15 +157,15 @@ it('calls the locationGetLocationsForBaccountBybAccountId method in the Location
         ->ediCode->toBe('String value')
         ->gln->toBe('String value')
         ->corporateId->toBe('mock-id-123')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->peppolScheme->toBeNull()
         ->internalId->toBe(42)
         ->errorInfo->toBe('String value');
 });
 
-it('calls the locationGetLocationsCollection method in the Location resource', function () {
+it('calls the locationGetLocationsRequest method in the Location resource', function () {
     Saloon::fake([
-        LocationGetLocationsCollectionRequest::class => MockResponse::make([
+        LocationGetLocationsRequest::class => MockResponse::make([
             0 => [
                 'baccount' => null,
                 'locationId' => 'mock-id-123',
@@ -142,14 +178,10 @@ it('calls the locationGetLocationsCollection method in the Location resource', f
                 'ediCode' => 'String value',
                 'gln' => 'String value',
                 'corporateId' => 'mock-id-123',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'peppolScheme' => null,
                 'internalId' => 42,
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'baccount' => null,
@@ -163,35 +195,46 @@ it('calls the locationGetLocationsCollection method in the Location resource', f
                 'ediCode' => 'String value',
                 'gln' => 'String value',
                 'corporateId' => 'mock-id-123',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'peppolScheme' => null,
                 'internalId' => 42,
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new LocationGetLocationsCollectionRequest(locationId: 'test string', gln: 'test string', numberToRead: 123, skipRecords: 123, greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new LocationGetLocationsRequest(
+        locationId: 'test string',
+        gln: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        greaterThanValue: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(LocationGetLocationsRequest::class);
 
-    Saloon::assertSent(function (LocationGetLocationsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->baccount->toBeNull()
         ->locationId->toBe('mock-id-123')
         ->locationName->toBe('String value')
-        ->active->toBeTrue()
+        ->active->toBe(true)
         ->address->toBeNull()
         ->contact->toBeNull()
         ->vatRegistrationId->toBe('mock-id-123')
@@ -199,8 +242,41 @@ it('calls the locationGetLocationsCollection method in the Location resource', f
         ->ediCode->toBe('String value')
         ->gln->toBe('String value')
         ->corporateId->toBe('mock-id-123')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->peppolScheme->toBeNull()
         ->internalId->toBe(42)
         ->errorInfo->toBe('String value');
+});
+
+it('calls the locationCreateRequest method in the Location resource', function () {
+    $bodyData = new LocationUpdateDto(
+        baccountId: null,
+        locationId: null,
+        locationName: 'String value',
+        active: true,
+        addressIsSameAsMain: true,
+        address: null,
+        contactIsSameAsMain: true,
+        contact: null,
+        vatRegistrationId: 'mock-id-123',
+        vatZone: 'String value',
+        ediCode: 'String value',
+        gln: 'String value',
+        corporateId: 'mock-id-123',
+        peppolScheme: null
+    );
+
+    Saloon::fake([
+        LocationCreateRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new LocationCreateRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(LocationCreateRequest::class);
+
+    expect($response->status())->toBe(201);
 });

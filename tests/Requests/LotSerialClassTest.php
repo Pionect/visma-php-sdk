@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\LotSerialClass\LotSerialClassGetAllLotSerialClassCollectionRequest;
+use Pionect\VismaSdk\Requests\LotSerialClass\LotSerialClassGetAllLotSerialClassRequest;
 use Pionect\VismaSdk\Requests\LotSerialClass\LotSerialClassGetByidRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -12,19 +11,19 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the lotSerialClassGetByid method in the LotSerialClass resource', function () {
+it('calls the lotSerialClassGetByidRequest method in the LotSerialClass resource', function () {
     Saloon::fake([
         LotSerialClassGetByidRequest::class => MockResponse::make([
             'description' => 'String value',
             'trackingMethod' => 'String value',
-            'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
+            'trackExpirationDate' => true,
             'requiredForDropShip' => true,
             'assignmentMethod' => 'String value',
             'issueMethod' => 'String value',
             'autoIncrementalValueBetweenClasses' => true,
             'autoIncrementalValue' => 'String value',
             'autoGenerateNextNumber' => true,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'details' => [],
             'errorInfo' => 'String value',
         ], 200),
@@ -45,81 +44,90 @@ it('calls the lotSerialClassGetByid method in the LotSerialClass resource', func
     expect($dto)
         ->description->toBe('String value')
         ->trackingMethod->toBe('String value')
-        ->trackExpirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requiredForDropShip->toBeTrue()
+        ->trackExpirationDate->toBe(true)
+        ->requiredForDropShip->toBe(true)
         ->assignmentMethod->toBe('String value')
         ->issueMethod->toBe('String value')
-        ->autoIncrementalValueBetweenClasses->toBeTrue()
+        ->autoIncrementalValueBetweenClasses->toBe(true)
         ->autoIncrementalValue->toBe('String value')
-        ->autoGenerateNextNumber->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->autoGenerateNextNumber->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
 
-it('calls the lotSerialClassGetAllLotSerialClassCollection method in the LotSerialClass resource', function () {
+it('calls the lotSerialClassGetAllLotSerialClassRequest method in the LotSerialClass resource', function () {
     Saloon::fake([
-        LotSerialClassGetAllLotSerialClassCollectionRequest::class => MockResponse::make([
+        LotSerialClassGetAllLotSerialClassRequest::class => MockResponse::make([
             0 => [
                 'description' => 'String value',
                 'trackingMethod' => 'String value',
-                'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
+                'trackExpirationDate' => true,
                 'requiredForDropShip' => true,
                 'assignmentMethod' => 'String value',
                 'issueMethod' => 'String value',
                 'autoIncrementalValueBetweenClasses' => true,
                 'autoIncrementalValue' => 'String value',
                 'autoGenerateNextNumber' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'details' => [],
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'description' => 'String value',
                 'trackingMethod' => 'String value',
-                'trackExpirationDate' => '2025-11-22T10:40:04.065Z',
+                'trackExpirationDate' => true,
                 'requiredForDropShip' => true,
                 'assignmentMethod' => 'String value',
                 'issueMethod' => 'String value',
                 'autoIncrementalValueBetweenClasses' => true,
                 'autoIncrementalValue' => 'String value',
                 'autoGenerateNextNumber' => true,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'details' => [],
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new LotSerialClassGetAllLotSerialClassCollectionRequest(description: 'test string', trackingMethod: 'test string', trackExpirationDate: true, requiredForDropShip: true, assignmentMethod: 'test string', issueMethod: 'test string', autoIncrementalValueBetweenClasses: true, autoIncrementalValue: 'test string', autoGenerateNextNumber: true, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new LotSerialClassGetAllLotSerialClassRequest(
+        description: 'test string',
+        trackingMethod: 'test string',
+        trackExpirationDate: true,
+        requiredForDropShip: true,
+        assignmentMethod: 'test string',
+        issueMethod: 'test string',
+        autoIncrementalValueBetweenClasses: true,
+        autoIncrementalValue: 'test string',
+        autoGenerateNextNumber: true,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(LotSerialClassGetAllLotSerialClassRequest::class);
 
-    Saloon::assertSent(function (LotSerialClassGetAllLotSerialClassCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->description->toBe('String value')
         ->trackingMethod->toBe('String value')
-        ->trackExpirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->requiredForDropShip->toBeTrue()
+        ->trackExpirationDate->toBe(true)
+        ->requiredForDropShip->toBe(true)
         ->assignmentMethod->toBe('String value')
         ->issueMethod->toBe('String value')
-        ->autoIncrementalValueBetweenClasses->toBeTrue()
+        ->autoIncrementalValueBetweenClasses->toBe(true)
         ->autoIncrementalValue->toBe('String value')
-        ->autoGenerateNextNumber->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->autoGenerateNextNumber->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });

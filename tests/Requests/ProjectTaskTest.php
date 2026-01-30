@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\ProjectTask\ProjectTaskGetAllTasksCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\ProjectTaskUpdateDto;
+use Pionect\VismaSdk\Requests\ProjectTask\ProjectTaskGetAllTasksRequest;
 use Pionect\VismaSdk\Requests\ProjectTask\ProjectTaskGetTaskByinternalIdRequest;
+use Pionect\VismaSdk\Requests\ProjectTask\ProjectTaskPostByinternalIdRequest;
+use Pionect\VismaSdk\Requests\ProjectTask\ProjectTaskPutByinternalIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +13,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource', function () {
+it('calls the projectTaskGetTaskByinternalIdRequest method in the ProjectTask resource', function () {
     Saloon::fake([
         ProjectTaskGetTaskByinternalIdRequest::class => MockResponse::make([
             'internalId' => 42,
@@ -22,20 +23,20 @@ it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource'
             'defAccrualAccount' => null,
             'defAccrualSub' => null,
             'taxCategory' => null,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'taskId' => 'mock-id-123',
             'description' => 'String value',
-            'plannedStart' => '2025-11-22T10:40:04.065Z',
-            'plannedEnd' => '2025-11-22T10:40:04.065Z',
-            'startDate' => '2025-11-22T10:40:04.065Z',
-            'endDate' => '2025-11-22T10:40:04.065Z',
+            'plannedStart' => '2025-11-22T10:40:04+00:00',
+            'plannedEnd' => '2025-11-22T10:40:04+00:00',
+            'startDate' => '2025-11-22T10:40:04+00:00',
+            'endDate' => '2025-11-22T10:40:04+00:00',
             'branch' => null,
             'rateTable' => null,
             'status' => 'String value',
             'restrictEmployees' => true,
             'visibility' => null,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'employees' => [],
             'attributes' => [],
         ], 200),
@@ -61,25 +62,86 @@ it('calls the projectTaskGetTaskByinternalId method in the ProjectTask resource'
         ->defAccrualAccount->toBeNull()
         ->defAccrualSub->toBeNull()
         ->taxCategory->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->taskId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->plannedStart->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->plannedEnd->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->plannedStart->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->plannedEnd->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branch->toBeNull()
         ->rateTable->toBeNull()
         ->status->toBe('String value')
-        ->restrictEmployees->toBeTrue()
+        ->restrictEmployees->toBe(true)
         ->visibility->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toBe('String value');
 });
 
-it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resource', function () {
+it('calls the projectTaskPutByinternalIdRequest method in the ProjectTask resource', function () {
+    $bodyData = new ProjectTaskUpdateDto(
+        taskId: 'mock-id-123',
+        description: 'String value',
+        plannedStart: '2025-11-22T10:40:04+00:00',
+        plannedEnd: '2025-11-22T10:40:04+00:00',
+        startDate: '2025-11-22T10:40:04+00:00',
+        rateTable: 'String value',
+        status: 'String value',
+        visibility: null,
+        restrictEmployees: true,
+        employees: []
+    );
+
     Saloon::fake([
-        ProjectTaskGetAllTasksCollectionRequest::class => MockResponse::make([
+        ProjectTaskPutByinternalIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ProjectTaskPutByinternalIdRequest(
+        internalId: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ProjectTaskPutByinternalIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the projectTaskPostByinternalIdRequest method in the ProjectTask resource', function () {
+    $bodyData = new ProjectTaskUpdateDto(
+        taskId: 'mock-id-123',
+        description: 'String value',
+        plannedStart: '2025-11-22T10:40:04+00:00',
+        plannedEnd: '2025-11-22T10:40:04+00:00',
+        startDate: '2025-11-22T10:40:04+00:00',
+        rateTable: 'String value',
+        status: 'String value',
+        visibility: null,
+        restrictEmployees: true,
+        employees: []
+    );
+
+    Saloon::fake([
+        ProjectTaskPostByinternalIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ProjectTaskPostByinternalIdRequest(
+        internalId: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ProjectTaskPostByinternalIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource', function () {
+    Saloon::fake([
+        ProjectTaskGetAllTasksRequest::class => MockResponse::make([
             0 => [
                 'internalId' => 42,
                 'projectInternalId' => 42,
@@ -88,20 +150,20 @@ it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resourc
                 'defAccrualAccount' => null,
                 'defAccrualSub' => null,
                 'taxCategory' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'taskId' => 'mock-id-123',
                 'description' => 'String value',
-                'plannedStart' => '2025-11-22T10:40:04.065Z',
-                'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
+                'plannedStart' => '2025-11-22T10:40:04+00:00',
+                'plannedEnd' => '2025-11-22T10:40:04+00:00',
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
                 'branch' => null,
                 'rateTable' => null,
                 'status' => 'String value',
                 'restrictEmployees' => true,
                 'visibility' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'employees' => [],
                 'attributes' => [],
             ],
@@ -113,39 +175,72 @@ it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resourc
                 'defAccrualAccount' => null,
                 'defAccrualSub' => null,
                 'taxCategory' => null,
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'taskId' => 'mock-id-123',
                 'description' => 'String value',
-                'plannedStart' => '2025-11-22T10:40:04.065Z',
-                'plannedEnd' => '2025-11-22T10:40:04.065Z',
-                'startDate' => '2025-11-22T10:40:04.065Z',
-                'endDate' => '2025-11-22T10:40:04.065Z',
+                'plannedStart' => '2025-11-22T10:40:04+00:00',
+                'plannedEnd' => '2025-11-22T10:40:04+00:00',
+                'startDate' => '2025-11-22T10:40:04+00:00',
+                'endDate' => '2025-11-22T10:40:04+00:00',
                 'branch' => null,
                 'rateTable' => null,
                 'status' => 'String value',
                 'restrictEmployees' => true,
                 'visibility' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'employees' => [],
                 'attributes' => [],
             ],
         ], 200),
     ]);
 
-    $request = (new ProjectTaskGetAllTasksCollectionRequest(projectId: 'test string', publicId: 'test string', projectInternalId: 123, description: 'test string', taskCd: 'test string', taskCdDesc: 'test string', status: 'test string', expandAttribute: true, visibleInAp: true, visibleInAr: true, visibleInCa: true, visibleInCr: true, visibleInEa: true, visibleInGl: true, visibleInIn: true, visibleInPo: true, visibleInSo: true, visibleInTa: true, restrictedEmployee: 'test string', restrictedUser: 123, greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new ProjectTaskGetAllTasksRequest(
+        projectId: 'test string',
+        publicId: 'test string',
+        projectInternalId: 123,
+        description: 'test string',
+        taskCd: 'test string',
+        taskCdDesc: 'test string',
+        status: 'test string',
+        expandAttribute: true,
+        visibleInAp: true,
+        visibleInAr: true,
+        visibleInCa: true,
+        visibleInCr: true,
+        visibleInEa: true,
+        visibleInGl: true,
+        visibleInIn: true,
+        visibleInPo: true,
+        visibleInSo: true,
+        visibleInTa: true,
+        restrictedEmployee: 'test string',
+        restrictedUser: 123,
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ProjectTaskGetAllTasksRequest::class);
 
-    Saloon::assertSent(function (ProjectTaskGetAllTasksCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->internalId->toBe(42)
         ->projectInternalId->toBe(42)
         ->defAccount->toBeNull()
@@ -153,18 +248,18 @@ it('calls the projectTaskGetAllTasksCollection method in the ProjectTask resourc
         ->defAccrualAccount->toBeNull()
         ->defAccrualSub->toBeNull()
         ->taxCategory->toBeNull()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->taskId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->plannedStart->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->plannedEnd->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->startDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->endDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->plannedStart->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->plannedEnd->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->branch->toBeNull()
         ->rateTable->toBeNull()
         ->status->toBe('String value')
-        ->restrictEmployees->toBeTrue()
+        ->restrictEmployees->toBe(true)
         ->visibility->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->timeStamp->toBe('String value');
 });

@@ -1,42 +1,50 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\ShipmentUpdateDto;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentAddLineByshipmentNumberRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentAddSolineByshipmentNumberRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentAddSoorderByshipmentNumberRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentCancelShipmentByshipmentNumberRequest;
 use Pionect\VismaSdk\Requests\Shipment\ShipmentConfirmShipmentByshipmentNumberRequest;
-use Pionect\VismaSdk\Requests\Shipment\ShipmentGetAllShipmentsCollectionRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentCorrectShipmentByshipmentNumberRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentDeleteLineByshipmentNumberlineNumberRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentGetAllShipmentsRequest;
 use Pionect\VismaSdk\Requests\Shipment\ShipmentGetByshipmentNbrRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentPostRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentPrintPickListByshipmentNbrRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentPrintShipmentConfirmationByshipmentNbrRequest;
+use Pionect\VismaSdk\Requests\Shipment\ShipmentPutByshipmentNbrRequest;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
 use Saloon\Laravel\Facades\Saloon;
 
 beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the shipmentGetByshipmentNbr method in the Shipment resource', function () {
+it('calls the shipmentGetByshipmentNbrRequest method in the Shipment resource', function () {
     Saloon::fake([
         ShipmentGetByshipmentNbrRequest::class => MockResponse::make([
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'shipmentNumber' => 'String value',
             'shipmentType' => 'String value',
             'status' => 'String value',
             'hold' => true,
             'operation' => 'String value',
-            'shipmentDate' => '2025-11-22T10:40:04.065Z',
+            'shipmentDate' => '2025-11-22T10:40:04+00:00',
             'customer' => null,
             'location' => null,
             'fromWarehouse' => null,
             'toWarehouse' => null,
             'currencyId' => 'mock-id-123',
             'owner' => null,
-            'shippedQuantity' => 3.14,
-            'shippedWeight' => 3.14,
-            'shippedVolume' => 3.14,
+            'shippedQuantity' => 42,
+            'shippedWeight' => 42,
+            'shippedVolume' => 42,
             'packages' => 42,
-            'packagesWeight' => 3.14,
-            'packagesVolume' => 3.14,
-            'controlQuantity' => 3.14,
+            'packagesWeight' => 42,
+            'packagesVolume' => 42,
+            'controlQuantity' => 42,
             'deliveryAddress' => null,
             'deliveryContact' => null,
             'shipVia' => null,
@@ -47,26 +55,26 @@ it('calls the shipmentGetByshipmentNbr method in the Shipment resource', functio
             'saturdayDelivery' => true,
             'useCustomerAccount' => true,
             'insurance' => true,
-            'freightCost' => 3.14,
-            'freightAmt' => 3.14,
+            'freightCost' => 42,
+            'freightAmt' => 42,
             'transactionType' => null,
             'modeOfTrasport' => null,
             'container' => true,
             'shipmentDetailLines' => [],
             'shipmentOrderLines' => [],
             'shipmentPackageLines' => [],
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
             'customStr1' => 'String value',
             'customStr2' => 'String value',
             'customStr3' => 'String value',
             'customStr4' => 'String value',
             'customStr5' => 'String value',
-            'customDec1' => 3.14,
-            'customDec2' => 3.14,
+            'customDec1' => 42,
+            'customDec2' => 42,
             'customInt1' => 42,
             'customInt2' => 42,
-            'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+            'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -85,80 +93,150 @@ it('calls the shipmentGetByshipmentNbr method in the Shipment resource', functio
     $dto = $response->dto();
 
     expect($dto)
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->shipmentNumber->toBe('String value')
         ->shipmentType->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
+        ->hold->toBe(true)
         ->operation->toBe('String value')
-        ->shipmentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->shipmentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customer->toBeNull()
         ->location->toBeNull()
         ->fromWarehouse->toBeNull()
         ->toWarehouse->toBeNull()
         ->currencyId->toBe('mock-id-123')
         ->owner->toBeNull()
-        ->shippedQuantity->toBe(3.14)
-        ->shippedWeight->toBe(3.14)
-        ->shippedVolume->toBe(3.14)
+        ->shippedQuantity->toBe(42)
+        ->shippedWeight->toBe(42)
+        ->shippedVolume->toBe(42)
         ->packages->toBe(42)
-        ->packagesWeight->toBe(3.14)
-        ->packagesVolume->toBe(3.14)
-        ->controlQuantity->toBe(3.14)
+        ->packagesWeight->toBe(42)
+        ->packagesVolume->toBe(42)
+        ->controlQuantity->toBe(42)
         ->deliveryAddress->toBeNull()
         ->deliveryContact->toBeNull()
         ->shipVia->toBeNull()
         ->fobPoint->toBeNull()
         ->shippingTerms->toBeNull()
         ->shippingZone->toBeNull()
-        ->residentialDelivery->toBeTrue()
-        ->saturdayDelivery->toBeTrue()
-        ->useCustomerAccount->toBeTrue()
-        ->insurance->toBeTrue()
-        ->freightCost->toBe(3.14)
-        ->freightAmt->toBe(3.14)
+        ->residentialDelivery->toBe(true)
+        ->saturdayDelivery->toBe(true)
+        ->useCustomerAccount->toBe(true)
+        ->insurance->toBe(true)
+        ->freightCost->toBe(42)
+        ->freightAmt->toBe(42)
         ->transactionType->toBeNull()
         ->modeOfTrasport->toBeNull()
-        ->container->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->container->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->customStr1->toBe('String value')
         ->customStr2->toBe('String value')
         ->customStr3->toBe('String value')
         ->customStr4->toBe('String value')
         ->customStr5->toBe('String value')
-        ->customDec1->toBe(3.14)
-        ->customDec2->toBe(3.14)
+        ->customDec1->toBe(42)
+        ->customDec2->toBe(42)
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
-        ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
 
-it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource', function () {
+it('calls the shipmentPutByshipmentNbrRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
     Saloon::fake([
-        ShipmentGetAllShipmentsCollectionRequest::class => MockResponse::make([
+        ShipmentPutByshipmentNbrRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ShipmentPutByshipmentNbrRequest(
+        shipmentNbr: 'test string',
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentPutByshipmentNbrRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the shipmentGetAllShipmentsRequest method in the Shipment resource', function () {
+    Saloon::fake([
+        ShipmentGetAllShipmentsRequest::class => MockResponse::make([
             0 => [
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'shipmentNumber' => 'String value',
                 'shipmentType' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
                 'operation' => 'String value',
-                'shipmentDate' => '2025-11-22T10:40:04.065Z',
+                'shipmentDate' => '2025-11-22T10:40:04+00:00',
                 'customer' => null,
                 'location' => null,
                 'fromWarehouse' => null,
                 'toWarehouse' => null,
                 'currencyId' => 'mock-id-123',
                 'owner' => null,
-                'shippedQuantity' => 3.14,
-                'shippedWeight' => 3.14,
-                'shippedVolume' => 3.14,
+                'shippedQuantity' => 42,
+                'shippedWeight' => 42,
+                'shippedVolume' => 42,
                 'packages' => 42,
-                'packagesWeight' => 3.14,
-                'packagesVolume' => 3.14,
-                'controlQuantity' => 3.14,
+                'packagesWeight' => 42,
+                'packagesVolume' => 42,
+                'controlQuantity' => 42,
                 'deliveryAddress' => null,
                 'deliveryContact' => null,
                 'shipVia' => null,
@@ -169,53 +247,49 @@ it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource'
                 'saturdayDelivery' => true,
                 'useCustomerAccount' => true,
                 'insurance' => true,
-                'freightCost' => 3.14,
-                'freightAmt' => 3.14,
+                'freightCost' => 42,
+                'freightAmt' => 42,
                 'transactionType' => null,
                 'modeOfTrasport' => null,
                 'container' => true,
                 'shipmentDetailLines' => [],
                 'shipmentOrderLines' => [],
                 'shipmentPackageLines' => [],
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
                 'customStr1' => 'String value',
                 'customStr2' => 'String value',
                 'customStr3' => 'String value',
                 'customStr4' => 'String value',
                 'customStr5' => 'String value',
-                'customDec1' => 3.14,
-                'customDec2' => 3.14,
+                'customDec1' => 42,
+                'customDec2' => 42,
                 'customInt1' => 42,
                 'customInt2' => 42,
-                'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+                'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'shipmentNumber' => 'String value',
                 'shipmentType' => 'String value',
                 'status' => 'String value',
                 'hold' => true,
                 'operation' => 'String value',
-                'shipmentDate' => '2025-11-22T10:40:04.065Z',
+                'shipmentDate' => '2025-11-22T10:40:04+00:00',
                 'customer' => null,
                 'location' => null,
                 'fromWarehouse' => null,
                 'toWarehouse' => null,
                 'currencyId' => 'mock-id-123',
                 'owner' => null,
-                'shippedQuantity' => 3.14,
-                'shippedWeight' => 3.14,
-                'shippedVolume' => 3.14,
+                'shippedQuantity' => 42,
+                'shippedWeight' => 42,
+                'shippedVolume' => 42,
                 'packages' => 42,
-                'packagesWeight' => 3.14,
-                'packagesVolume' => 3.14,
-                'controlQuantity' => 3.14,
+                'packagesWeight' => 42,
+                'packagesVolume' => 42,
+                'controlQuantity' => 42,
                 'deliveryAddress' => null,
                 'deliveryContact' => null,
                 'shipVia' => null,
@@ -226,121 +300,901 @@ it('calls the shipmentGetAllShipmentsCollection method in the Shipment resource'
                 'saturdayDelivery' => true,
                 'useCustomerAccount' => true,
                 'insurance' => true,
-                'freightCost' => 3.14,
-                'freightAmt' => 3.14,
+                'freightCost' => 42,
+                'freightAmt' => 42,
                 'transactionType' => null,
                 'modeOfTrasport' => null,
                 'container' => true,
                 'shipmentDetailLines' => [],
                 'shipmentOrderLines' => [],
                 'shipmentPackageLines' => [],
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
                 'customStr1' => 'String value',
                 'customStr2' => 'String value',
                 'customStr3' => 'String value',
                 'customStr4' => 'String value',
                 'customStr5' => 'String value',
-                'customDec1' => 3.14,
-                'customDec2' => 3.14,
+                'customDec1' => 42,
+                'customDec2' => 42,
                 'customInt1' => 42,
                 'customInt2' => 42,
-                'customDateTimeUtc1' => '2025-11-22T10:40:04.065Z',
+                'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new ShipmentGetAllShipmentsCollectionRequest(customerId: 123, customerNumber: 'test string', greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, orderBy: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', status: 'test string', pageSize: 123, pageNumber: 123, shipmentType: 'test string', shipmentDate: 'test string', shipmentDateCondition: 'test string', includeCustomFreeFields: true));
+    $request = new ShipmentGetAllShipmentsRequest(
+        customerId: 123,
+        customerNumber: 'test string',
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        orderBy: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        status: 'test string',
+        pageSize: 123,
+        pageNumber: 123,
+        shipmentType: 'test string',
+        shipmentDate: 'test string',
+        shipmentDateCondition: 'test string',
+        includeCustomFreeFields: true,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(ShipmentGetAllShipmentsRequest::class);
 
-    Saloon::assertSent(function (ShipmentGetAllShipmentsCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->timeStamp->toBe('String value')
         ->shipmentNumber->toBe('String value')
         ->shipmentType->toBe('String value')
         ->status->toBe('String value')
-        ->hold->toBeTrue()
+        ->hold->toBe(true)
         ->operation->toBe('String value')
-        ->shipmentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->shipmentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customer->toBeNull()
         ->location->toBeNull()
         ->fromWarehouse->toBeNull()
         ->toWarehouse->toBeNull()
         ->currencyId->toBe('mock-id-123')
         ->owner->toBeNull()
-        ->shippedQuantity->toBe(3.14)
-        ->shippedWeight->toBe(3.14)
-        ->shippedVolume->toBe(3.14)
+        ->shippedQuantity->toBe(42)
+        ->shippedWeight->toBe(42)
+        ->shippedVolume->toBe(42)
         ->packages->toBe(42)
-        ->packagesWeight->toBe(3.14)
-        ->packagesVolume->toBe(3.14)
-        ->controlQuantity->toBe(3.14)
+        ->packagesWeight->toBe(42)
+        ->packagesVolume->toBe(42)
+        ->controlQuantity->toBe(42)
         ->deliveryAddress->toBeNull()
         ->deliveryContact->toBeNull()
         ->shipVia->toBeNull()
         ->fobPoint->toBeNull()
         ->shippingTerms->toBeNull()
         ->shippingZone->toBeNull()
-        ->residentialDelivery->toBeTrue()
-        ->saturdayDelivery->toBeTrue()
-        ->useCustomerAccount->toBeTrue()
-        ->insurance->toBeTrue()
-        ->freightCost->toBe(3.14)
-        ->freightAmt->toBe(3.14)
+        ->residentialDelivery->toBe(true)
+        ->saturdayDelivery->toBe(true)
+        ->useCustomerAccount->toBe(true)
+        ->insurance->toBe(true)
+        ->freightCost->toBe(42)
+        ->freightAmt->toBe(42)
         ->transactionType->toBeNull()
         ->modeOfTrasport->toBeNull()
-        ->container->toBeTrue()
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->container->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->customStr1->toBe('String value')
         ->customStr2->toBe('String value')
         ->customStr3->toBe('String value')
         ->customStr4->toBe('String value')
         ->customStr5->toBe('String value')
-        ->customDec1->toBe(3.14)
-        ->customDec2->toBe(3.14)
+        ->customDec1->toBe(42)
+        ->customDec2->toBe(42)
         ->customInt1->toBe(42)
         ->customInt2->toBe(42)
-        ->customDateTimeUtc1->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
 
-it('calls the shipmentConfirmShipmentByshipmentNumber method in the Shipment resource', function () {
-    $mockClient = Saloon::fake([
-        ShipmentConfirmShipmentByshipmentNumberRequest::class => MockResponse::make([], 200),
+it('calls the shipmentPostRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
+    Saloon::fake([
+        ShipmentPostRequest::class => MockResponse::make([], 201),
     ]);
 
-    // Create DTO with sample data
-    $dto = \Pionect\VismaSdk\Dto\ConfirmShipmentActionResultDto::factory()->state([
-        'actionId' => 'action_id-123',
-        'actionResult' => 'test value',
-        'errorInfo' => 'test value',
-    ])->make();
+    $request = new ShipmentPostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $request = new ShipmentConfirmShipmentByshipmentNumberRequest(shipmentNumber: 'test value', data: $dto);
-    $this->vismaConnector->send($request);
+    Saloon::assertSent(ShipmentPostRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the shipmentPrintShipmentConfirmationByshipmentNbrRequest method in the Shipment resource', function () {
+    Saloon::fake([
+        ShipmentPrintShipmentConfirmationByshipmentNbrRequest::class => MockResponse::make([
+            'timeStamp' => 'String value',
+            'shipmentNumber' => 'String value',
+            'shipmentType' => 'String value',
+            'status' => 'String value',
+            'hold' => true,
+            'operation' => 'String value',
+            'shipmentDate' => '2025-11-22T10:40:04+00:00',
+            'customer' => null,
+            'location' => null,
+            'fromWarehouse' => null,
+            'toWarehouse' => null,
+            'currencyId' => 'mock-id-123',
+            'owner' => null,
+            'shippedQuantity' => 42,
+            'shippedWeight' => 42,
+            'shippedVolume' => 42,
+            'packages' => 42,
+            'packagesWeight' => 42,
+            'packagesVolume' => 42,
+            'controlQuantity' => 42,
+            'deliveryAddress' => null,
+            'deliveryContact' => null,
+            'shipVia' => null,
+            'fobPoint' => null,
+            'shippingTerms' => null,
+            'shippingZone' => null,
+            'residentialDelivery' => true,
+            'saturdayDelivery' => true,
+            'useCustomerAccount' => true,
+            'insurance' => true,
+            'freightCost' => 42,
+            'freightAmt' => 42,
+            'transactionType' => null,
+            'modeOfTrasport' => null,
+            'container' => true,
+            'shipmentDetailLines' => [],
+            'shipmentOrderLines' => [],
+            'shipmentPackageLines' => [],
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'note' => 'String value',
+            'customStr1' => 'String value',
+            'customStr2' => 'String value',
+            'customStr3' => 'String value',
+            'customStr4' => 'String value',
+            'customStr5' => 'String value',
+            'customDec1' => 42,
+            'customDec2' => 42,
+            'customInt1' => 42,
+            'customInt2' => 42,
+            'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
+            'errorInfo' => 'String value',
+        ], 200),
+    ]);
+
+    $request = new ShipmentPrintShipmentConfirmationByshipmentNbrRequest(
+        shipmentNbr: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentPrintShipmentConfirmationByshipmentNbrRequest::class);
+
+    expect($response->status())->toBe(200);
+
+    $dto = $response->dto();
+
+    expect($dto)
+        ->timeStamp->toBe('String value')
+        ->shipmentNumber->toBe('String value')
+        ->shipmentType->toBe('String value')
+        ->status->toBe('String value')
+        ->hold->toBe(true)
+        ->operation->toBe('String value')
+        ->shipmentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->customer->toBeNull()
+        ->location->toBeNull()
+        ->fromWarehouse->toBeNull()
+        ->toWarehouse->toBeNull()
+        ->currencyId->toBe('mock-id-123')
+        ->owner->toBeNull()
+        ->shippedQuantity->toBe(42)
+        ->shippedWeight->toBe(42)
+        ->shippedVolume->toBe(42)
+        ->packages->toBe(42)
+        ->packagesWeight->toBe(42)
+        ->packagesVolume->toBe(42)
+        ->controlQuantity->toBe(42)
+        ->deliveryAddress->toBeNull()
+        ->deliveryContact->toBeNull()
+        ->shipVia->toBeNull()
+        ->fobPoint->toBeNull()
+        ->shippingTerms->toBeNull()
+        ->shippingZone->toBeNull()
+        ->residentialDelivery->toBe(true)
+        ->saturdayDelivery->toBe(true)
+        ->useCustomerAccount->toBe(true)
+        ->insurance->toBe(true)
+        ->freightCost->toBe(42)
+        ->freightAmt->toBe(42)
+        ->transactionType->toBeNull()
+        ->modeOfTrasport->toBeNull()
+        ->container->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->note->toBe('String value')
+        ->customStr1->toBe('String value')
+        ->customStr2->toBe('String value')
+        ->customStr3->toBe('String value')
+        ->customStr4->toBe('String value')
+        ->customStr5->toBe('String value')
+        ->customDec1->toBe(42)
+        ->customDec2->toBe(42)
+        ->customInt1->toBe(42)
+        ->customInt2->toBe(42)
+        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->errorInfo->toBe('String value');
+});
+
+it('calls the shipmentPrintPickListByshipmentNbrRequest method in the Shipment resource', function () {
+    Saloon::fake([
+        ShipmentPrintPickListByshipmentNbrRequest::class => MockResponse::make([
+            'timeStamp' => 'String value',
+            'shipmentNumber' => 'String value',
+            'shipmentType' => 'String value',
+            'status' => 'String value',
+            'hold' => true,
+            'operation' => 'String value',
+            'shipmentDate' => '2025-11-22T10:40:04+00:00',
+            'customer' => null,
+            'location' => null,
+            'fromWarehouse' => null,
+            'toWarehouse' => null,
+            'currencyId' => 'mock-id-123',
+            'owner' => null,
+            'shippedQuantity' => 42,
+            'shippedWeight' => 42,
+            'shippedVolume' => 42,
+            'packages' => 42,
+            'packagesWeight' => 42,
+            'packagesVolume' => 42,
+            'controlQuantity' => 42,
+            'deliveryAddress' => null,
+            'deliveryContact' => null,
+            'shipVia' => null,
+            'fobPoint' => null,
+            'shippingTerms' => null,
+            'shippingZone' => null,
+            'residentialDelivery' => true,
+            'saturdayDelivery' => true,
+            'useCustomerAccount' => true,
+            'insurance' => true,
+            'freightCost' => 42,
+            'freightAmt' => 42,
+            'transactionType' => null,
+            'modeOfTrasport' => null,
+            'container' => true,
+            'shipmentDetailLines' => [],
+            'shipmentOrderLines' => [],
+            'shipmentPackageLines' => [],
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'note' => 'String value',
+            'customStr1' => 'String value',
+            'customStr2' => 'String value',
+            'customStr3' => 'String value',
+            'customStr4' => 'String value',
+            'customStr5' => 'String value',
+            'customDec1' => 42,
+            'customDec2' => 42,
+            'customInt1' => 42,
+            'customInt2' => 42,
+            'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
+            'errorInfo' => 'String value',
+        ], 200),
+    ]);
+
+    $request = new ShipmentPrintPickListByshipmentNbrRequest(
+        shipmentNbr: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentPrintPickListByshipmentNbrRequest::class);
+
+    expect($response->status())->toBe(200);
+
+    $dto = $response->dto();
+
+    expect($dto)
+        ->timeStamp->toBe('String value')
+        ->shipmentNumber->toBe('String value')
+        ->shipmentType->toBe('String value')
+        ->status->toBe('String value')
+        ->hold->toBe(true)
+        ->operation->toBe('String value')
+        ->shipmentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->customer->toBeNull()
+        ->location->toBeNull()
+        ->fromWarehouse->toBeNull()
+        ->toWarehouse->toBeNull()
+        ->currencyId->toBe('mock-id-123')
+        ->owner->toBeNull()
+        ->shippedQuantity->toBe(42)
+        ->shippedWeight->toBe(42)
+        ->shippedVolume->toBe(42)
+        ->packages->toBe(42)
+        ->packagesWeight->toBe(42)
+        ->packagesVolume->toBe(42)
+        ->controlQuantity->toBe(42)
+        ->deliveryAddress->toBeNull()
+        ->deliveryContact->toBeNull()
+        ->shipVia->toBeNull()
+        ->fobPoint->toBeNull()
+        ->shippingTerms->toBeNull()
+        ->shippingZone->toBeNull()
+        ->residentialDelivery->toBe(true)
+        ->saturdayDelivery->toBe(true)
+        ->useCustomerAccount->toBe(true)
+        ->insurance->toBe(true)
+        ->freightCost->toBe(42)
+        ->freightAmt->toBe(42)
+        ->transactionType->toBeNull()
+        ->modeOfTrasport->toBeNull()
+        ->container->toBe(true)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->note->toBe('String value')
+        ->customStr1->toBe('String value')
+        ->customStr2->toBe('String value')
+        ->customStr3->toBe('String value')
+        ->customStr4->toBe('String value')
+        ->customStr5->toBe('String value')
+        ->customDec1->toBe(42)
+        ->customDec2->toBe(42)
+        ->customInt1->toBe(42)
+        ->customInt2->toBe(42)
+        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->errorInfo->toBe('String value');
+});
+
+it('calls the shipmentAddSolineByshipmentNumberRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
+    Saloon::fake([
+        ShipmentAddSolineByshipmentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ShipmentAddSolineByshipmentNumberRequest(
+        shipmentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentAddSolineByshipmentNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the shipmentAddSoorderByshipmentNumberRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
+    Saloon::fake([
+        ShipmentAddSoorderByshipmentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ShipmentAddSoorderByshipmentNumberRequest(
+        shipmentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentAddSoorderByshipmentNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the shipmentConfirmShipmentByshipmentNumberRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
+    Saloon::fake([
+        ShipmentConfirmShipmentByshipmentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ShipmentConfirmShipmentByshipmentNumberRequest(
+        shipmentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
 
     Saloon::assertSent(ShipmentConfirmShipmentByshipmentNumberRequest::class);
 
-    $mockClient->assertSent(function (Request $request) {
-        expect($request->body()->all())
-            ->actionId->toBe('action_id-123')
-            ->actionResult->toBe('test value')
-            ->errorInfo->toBe('test value');
+    expect($response->status())->toBe(201);
+});
 
-        return true;
-    });
+it('calls the shipmentCorrectShipmentByshipmentNumberRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
+    Saloon::fake([
+        ShipmentCorrectShipmentByshipmentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ShipmentCorrectShipmentByshipmentNumberRequest(
+        shipmentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentCorrectShipmentByshipmentNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the shipmentAddLineByshipmentNumberRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
+    Saloon::fake([
+        ShipmentAddLineByshipmentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ShipmentAddLineByshipmentNumberRequest(
+        shipmentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentAddLineByshipmentNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the shipmentDeleteLineByshipmentNumberlineNumberRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
+    Saloon::fake([
+        ShipmentDeleteLineByshipmentNumberlineNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ShipmentDeleteLineByshipmentNumberlineNumberRequest(
+        shipmentNumber: 'test string',
+        lineNumber: 123,
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentDeleteLineByshipmentNumberlineNumberRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the shipmentCancelShipmentByshipmentNumberRequest method in the Shipment resource', function () {
+    $bodyData = new ShipmentUpdateDto(
+        shipmentType: 'String value',
+        operation: 'String value',
+        shipmentDate: '2025-11-22T10:40:04+00:00',
+        location: 'String value',
+        customer: 'String value',
+        owner: 'String value',
+        hold: true,
+        fromWarehouse: 'String value',
+        toWarehouse: 'String value',
+        controlQuantity: 42,
+        overrideContact: true,
+        businessName: 'String value',
+        attention: 'String value',
+        phone1: 'String value',
+        email: 'test@example.com',
+        overrideAddress: true,
+        addressLine1: 'String value',
+        addressLine2: 'String value',
+        addressLine3: 'String value',
+        city: 'String value',
+        country: 'String value',
+        county: 'String value',
+        postalCode: 'String value',
+        shipVia: 'String value',
+        fobPoint: 'String value',
+        shippingTerms: 'String value',
+        shippingZone: 'String value',
+        residentialDelivery: true,
+        saturdayDelivery: true,
+        useCustomerAccount: true,
+        insurance: true,
+        freightAmt: 42,
+        freightCost: 42,
+        transactionType: 42,
+        modeOfTrasport: 'String value',
+        container: true,
+        note: 'String value',
+        shipmentDetailLines: [],
+        shipmentPackageLines: [],
+        customStr1: null,
+        customStr2: null,
+        customStr3: null,
+        customStr4: null,
+        customStr5: null,
+        customDec1: null,
+        customDec2: null,
+        customInt1: null,
+        customInt2: null,
+        customDateTimeUtc1: '2025-11-22T10:40:04+00:00'
+    );
+
+    Saloon::fake([
+        ShipmentCancelShipmentByshipmentNumberRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new ShipmentCancelShipmentByshipmentNumberRequest(
+        shipmentNumber: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(ShipmentCancelShipmentByshipmentNumberRequest::class);
+
+    expect($response->status())->toBe(201);
 });

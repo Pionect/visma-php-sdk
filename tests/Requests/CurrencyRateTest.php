@@ -1,9 +1,10 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRateGetAllCollectionRequest;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\CurrencyRateDto;
+use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRateGetAllRequest;
+use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRatePostCurrencyRateRequest;
+use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRatePutCurrencyRateBycurrencyRateIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -11,51 +12,116 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the currencyRateGetAllCollection method in the CurrencyRate resource', function () {
+it('calls the currencyRateGetAllRequest method in the CurrencyRate resource', function () {
     Saloon::fake([
-        CurrencyRateGetAllCollectionRequest::class => MockResponse::make([
+        CurrencyRateGetAllRequest::class => MockResponse::make([
             0 => [
                 'fromCurrencyId' => 'mock-id-123',
                 'toCurrencyId' => 'mock-id-123',
                 'rateType' => 'String value',
-                'rate' => 3.14,
-                'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                'rate' => 42,
+                'effectiveDate' => '2025-11-22T10:40:04+00:00',
                 'multDiv' => 'String value',
-                'rateReciprocal' => 3.14,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'rateReciprocal' => 42,
+                'timeStamp' => 'String value',
             ],
             1 => [
                 'fromCurrencyId' => 'mock-id-123',
                 'toCurrencyId' => 'mock-id-123',
                 'rateType' => 'String value',
-                'rate' => 3.14,
-                'effectiveDate' => '2025-11-22T10:40:04.065Z',
+                'rate' => 42,
+                'effectiveDate' => '2025-11-22T10:40:04+00:00',
                 'multDiv' => 'String value',
-                'rateReciprocal' => 3.14,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'rateReciprocal' => 42,
+                'timeStamp' => 'String value',
             ],
         ], 200),
     ]);
 
-    $request = (new CurrencyRateGetAllCollectionRequest(fromDate: 'test string', toDate: 'test string', fromCurrency: 'test string', toCurrency: 'test string', rateType: 'test string'));
+    $request = new CurrencyRateGetAllRequest(
+        fromDate: 'test string',
+        toDate: 'test string',
+        fromCurrency: 'test string',
+        toCurrency: 'test string',
+        rateType: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CurrencyRateGetAllRequest::class);
 
-    Saloon::assertSent(function (CurrencyRateGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->fromCurrencyId->toBe('mock-id-123')
         ->toCurrencyId->toBe('mock-id-123')
         ->rateType->toBe('String value')
-        ->rate->toBe(3.14)
-        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->rate->toBe(42)
+        ->effectiveDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->multDiv->toBe('String value')
-        ->rateReciprocal->toBe(3.14)
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'));
+        ->rateReciprocal->toBe(42)
+        ->timeStamp->toBe('String value');
+});
+
+it('calls the currencyRatePostCurrencyRateRequest method in the CurrencyRate resource', function () {
+    $bodyData = new CurrencyRateDto(
+        fromCurrencyId: 'mock-id-123',
+        toCurrencyId: 'mock-id-123',
+        rateType: 'String value',
+        rate: 42,
+        effectiveDate: '2025-11-22T10:40:04+00:00',
+        multDiv: 'String value',
+        rateReciprocal: 42,
+        timeStamp: 'String value'
+    );
+
+    Saloon::fake([
+        CurrencyRatePostCurrencyRateRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CurrencyRatePostCurrencyRateRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CurrencyRatePostCurrencyRateRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the currencyRatePutCurrencyRateBycurrencyRateIdRequest method in the CurrencyRate resource', function () {
+    $bodyData = new CurrencyRateDto(
+        fromCurrencyId: 'mock-id-123',
+        toCurrencyId: 'mock-id-123',
+        rateType: 'String value',
+        rate: 42,
+        effectiveDate: '2025-11-22T10:40:04+00:00',
+        multDiv: 'String value',
+        rateReciprocal: 42,
+        timeStamp: 'String value'
+    );
+
+    Saloon::fake([
+        CurrencyRatePutCurrencyRateBycurrencyRateIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CurrencyRatePutCurrencyRateBycurrencyRateIdRequest(
+        currencyRateId: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CurrencyRatePutCurrencyRateBycurrencyRateIdRequest::class);
+
+    expect($response->status())->toBe(201);
 });

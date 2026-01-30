@@ -1,10 +1,11 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\CustomerSalesPriceUpdateDto;
 use Pionect\VismaSdk\Requests\CustomerSalesPrice\CustomerSalesPriceGetCustomerSalesPriceByrecordIdRequest;
-use Pionect\VismaSdk\Requests\CustomerSalesPrice\CustomerSalesPriceGetCustomerSalesPricesCollectionRequest;
+use Pionect\VismaSdk\Requests\CustomerSalesPrice\CustomerSalesPriceGetCustomerSalesPricesRequest;
+use Pionect\VismaSdk\Requests\CustomerSalesPrice\CustomerSalesPricePostCustomerSalesPriceRequest;
+use Pionect\VismaSdk\Requests\CustomerSalesPrice\CustomerSalesPricePutCustomerSalesPriceByrecordIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,9 +13,9 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the CustomerSalesPrice resource', function () {
+it('calls the customerSalesPriceGetCustomerSalesPricesRequest method in the CustomerSalesPrice resource', function () {
     Saloon::fake([
-        CustomerSalesPriceGetCustomerSalesPricesCollectionRequest::class => MockResponse::make([
+        CustomerSalesPriceGetCustomerSalesPricesRequest::class => MockResponse::make([
             0 => [
                 'recordId' => 42,
                 'priceType' => 'String value',
@@ -23,20 +24,16 @@ it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the C
                 'description' => 'String value',
                 'uoM' => 'String value',
                 'promotion' => true,
-                'breakQty' => 3.14,
-                'price' => 3.14,
+                'breakQty' => 42,
+                'price' => 42,
                 'currency' => 'String value',
                 'vat' => 'String value',
-                'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                'expirationDate' => '2025-11-22T10:40:04.065Z',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'effectiveDate' => '2025-11-22T10:40:04+00:00',
+                'expirationDate' => '2025-11-22T10:40:04+00:00',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'warehouse' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'recordId' => 42,
@@ -46,57 +43,99 @@ it('calls the customerSalesPriceGetCustomerSalesPricesCollection method in the C
                 'description' => 'String value',
                 'uoM' => 'String value',
                 'promotion' => true,
-                'breakQty' => 3.14,
-                'price' => 3.14,
+                'breakQty' => 42,
+                'price' => 42,
                 'currency' => 'String value',
                 'vat' => 'String value',
-                'effectiveDate' => '2025-11-22T10:40:04.065Z',
-                'expirationDate' => '2025-11-22T10:40:04.065Z',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'effectiveDate' => '2025-11-22T10:40:04+00:00',
+                'expirationDate' => '2025-11-22T10:40:04+00:00',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'warehouse' => 'String value',
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new CustomerSalesPriceGetCustomerSalesPricesCollectionRequest(greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, priceType: 'test string', priceCode: 'test string', inventoryId: 'test string', effectiveAsOf: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new CustomerSalesPriceGetCustomerSalesPricesRequest(
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        priceType: 'test string',
+        priceCode: 'test string',
+        inventoryId: 'test string',
+        effectiveAsOf: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CustomerSalesPriceGetCustomerSalesPricesRequest::class);
 
-    Saloon::assertSent(function (CustomerSalesPriceGetCustomerSalesPricesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->recordId->toBe(42)
         ->priceType->toBe('String value')
         ->priceCode->toBe('String value')
         ->inventoryId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->uoM->toBe('String value')
-        ->promotion->toBeTrue()
-        ->breakQty->toBe(3.14)
-        ->price->toBe(3.14)
+        ->promotion->toBe(true)
+        ->breakQty->toBe(42)
+        ->price->toBe(42)
         ->currency->toBe('String value')
         ->vat->toBe('String value')
-        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->effectiveDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->expirationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->warehouse->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the CustomerSalesPrice resource', function () {
+it('calls the customerSalesPricePostCustomerSalesPriceRequest method in the CustomerSalesPrice resource', function () {
+    $bodyData = new CustomerSalesPriceUpdateDto(
+        priceType: 'String value',
+        priceCode: 'String value',
+        inventoryId: 'mock-id-123',
+        uoM: 'String value',
+        promotion: true,
+        breakQty: 42,
+        price: 42,
+        currency: 'String value',
+        vat: 'String value',
+        effectiveDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        warehouse: 'String value'
+    );
+
+    Saloon::fake([
+        CustomerSalesPricePostCustomerSalesPriceRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerSalesPricePostCustomerSalesPriceRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerSalesPricePostCustomerSalesPriceRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the customerSalesPriceGetCustomerSalesPriceByrecordIdRequest method in the CustomerSalesPrice resource', function () {
     Saloon::fake([
         CustomerSalesPriceGetCustomerSalesPriceByrecordIdRequest::class => MockResponse::make([
             'recordId' => 42,
@@ -106,15 +145,15 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the Cu
             'description' => 'String value',
             'uoM' => 'String value',
             'promotion' => true,
-            'breakQty' => 3.14,
-            'price' => 3.14,
+            'breakQty' => 42,
+            'price' => 42,
             'currency' => 'String value',
             'vat' => 'String value',
-            'effectiveDate' => '2025-11-22T10:40:04.065Z',
-            'expirationDate' => '2025-11-22T10:40:04.065Z',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'effectiveDate' => '2025-11-22T10:40:04+00:00',
+            'expirationDate' => '2025-11-22T10:40:04+00:00',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'warehouse' => 'String value',
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -138,15 +177,48 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordId method in the Cu
         ->inventoryId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->uoM->toBe('String value')
-        ->promotion->toBeTrue()
-        ->breakQty->toBe(3.14)
-        ->price->toBe(3.14)
+        ->promotion->toBe(true)
+        ->breakQty->toBe(42)
+        ->price->toBe(42)
         ->currency->toBe('String value')
         ->vat->toBe('String value')
-        ->effectiveDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->expirationDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->effectiveDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->expirationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->warehouse->toBe('String value')
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
+});
+
+it('calls the customerSalesPricePutCustomerSalesPriceByrecordIdRequest method in the CustomerSalesPrice resource', function () {
+    $bodyData = new CustomerSalesPriceUpdateDto(
+        priceType: 'String value',
+        priceCode: 'String value',
+        inventoryId: 'mock-id-123',
+        uoM: 'String value',
+        promotion: true,
+        breakQty: 42,
+        price: 42,
+        currency: 'String value',
+        vat: 'String value',
+        effectiveDate: '2025-11-22T10:40:04+00:00',
+        expirationDate: '2025-11-22T10:40:04+00:00',
+        warehouse: 'String value'
+    );
+
+    Saloon::fake([
+        CustomerSalesPricePutCustomerSalesPriceByrecordIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new CustomerSalesPricePutCustomerSalesPriceByrecordIdRequest(
+        recordId: 123,
+        erpApiBackground: 'test string',
+        ifMatch: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(CustomerSalesPricePutCustomerSalesPriceByrecordIdRequest::class);
+
+    expect($response->status())->toBe(201);
 });

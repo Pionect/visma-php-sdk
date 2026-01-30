@@ -1,6 +1,6 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
 use Pionect\VismaSdk\Requests\InventorySummary\InventorySummaryGetAllInventorySummaryByinventoryNumberRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -10,40 +10,40 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in the InventorySummary resource', function () {
+it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumberRequest method in the InventorySummary resource', function () {
     Saloon::fake([
         InventorySummaryGetAllInventorySummaryByinventoryNumberRequest::class => MockResponse::make([
             'inventory' => null,
             'warehouse' => null,
             'location' => null,
-            'available' => 3.14,
-            'availableForShipment' => 3.14,
-            'notAvailable' => 3.14,
-            'soBooked' => 3.14,
-            'soAllocated' => 3.14,
-            'soShipped' => 3.14,
-            'soBackOrdered' => 3.14,
-            'inIssues' => 3.14,
-            'inReceipts' => 3.14,
-            'inTransit' => 3.14,
-            'inAssemblyDemand' => 3.14,
-            'inAssemblySupply' => 3.14,
-            'purchasePrepared' => 3.14,
-            'purchaseOrders' => 3.14,
-            'poReceipts' => 3.14,
-            'expired' => 3.14,
-            'onHand' => 3.14,
-            'soToPurchase' => 3.14,
-            'purchaseForSo' => 3.14,
-            'purchaseForSoprepared' => 3.14,
-            'purchaseForSoreceipts' => 3.14,
-            'soToDropShip' => 3.14,
-            'dropShipForSo' => 3.14,
-            'dropShipForSoprepared' => 3.14,
-            'dropShipForSoreceipts' => 3.14,
+            'available' => 42,
+            'availableForShipment' => 42,
+            'notAvailable' => 42,
+            'soBooked' => 42,
+            'soAllocated' => 42,
+            'soShipped' => 42,
+            'soBackOrdered' => 42,
+            'inIssues' => 42,
+            'inReceipts' => 42,
+            'inTransit' => 42,
+            'inAssemblyDemand' => 42,
+            'inAssemblySupply' => 42,
+            'purchasePrepared' => 42,
+            'purchaseOrders' => 42,
+            'poReceipts' => 42,
+            'expired' => 42,
+            'onHand' => 42,
+            'soToPurchase' => 42,
+            'purchaseForSo' => 42,
+            'purchaseForSoprepared' => 42,
+            'purchaseForSoreceipts' => 42,
+            'soToDropShip' => 42,
+            'dropShipForSo' => 42,
+            'dropShipForSoprepared' => 42,
+            'dropShipForSoreceipts' => 42,
             'baseUnit' => 'String value',
-            'estimatedUnitCost' => 3.14,
-            'estimatedTotalCost' => 3.14,
+            'estimatedUnitCost' => 42,
+            'estimatedTotalCost' => 42,
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -66,33 +66,33 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumber method in 
         ->inventory->toBeNull()
         ->warehouse->toBeNull()
         ->location->toBeNull()
-        ->available->toBe(3.14)
-        ->availableForShipment->toBe(3.14)
-        ->notAvailable->toBe(3.14)
-        ->soBooked->toBe(3.14)
-        ->soAllocated->toBe(3.14)
-        ->soShipped->toBe(3.14)
-        ->soBackOrdered->toBe(3.14)
-        ->inIssues->toBe(3.14)
-        ->inReceipts->toBe(3.14)
-        ->inTransit->toBe(3.14)
-        ->inAssemblyDemand->toBe(3.14)
-        ->inAssemblySupply->toBe(3.14)
-        ->purchasePrepared->toBe(3.14)
-        ->purchaseOrders->toBe(3.14)
-        ->poReceipts->toBe(3.14)
-        ->expired->toBe(3.14)
-        ->onHand->toBe(3.14)
-        ->soToPurchase->toBe(3.14)
-        ->purchaseForSo->toBe(3.14)
-        ->purchaseForSoprepared->toBe(3.14)
-        ->purchaseForSoreceipts->toBe(3.14)
-        ->soToDropShip->toBe(3.14)
-        ->dropShipForSo->toBe(3.14)
-        ->dropShipForSoprepared->toBe(3.14)
-        ->dropShipForSoreceipts->toBe(3.14)
+        ->available->toBe(42)
+        ->availableForShipment->toBe(42)
+        ->notAvailable->toBe(42)
+        ->soBooked->toBe(42)
+        ->soAllocated->toBe(42)
+        ->soShipped->toBe(42)
+        ->soBackOrdered->toBe(42)
+        ->inIssues->toBe(42)
+        ->inReceipts->toBe(42)
+        ->inTransit->toBe(42)
+        ->inAssemblyDemand->toBe(42)
+        ->inAssemblySupply->toBe(42)
+        ->purchasePrepared->toBe(42)
+        ->purchaseOrders->toBe(42)
+        ->poReceipts->toBe(42)
+        ->expired->toBe(42)
+        ->onHand->toBe(42)
+        ->soToPurchase->toBe(42)
+        ->purchaseForSo->toBe(42)
+        ->purchaseForSoprepared->toBe(42)
+        ->purchaseForSoreceipts->toBe(42)
+        ->soToDropShip->toBe(42)
+        ->dropShipForSo->toBe(42)
+        ->dropShipForSoprepared->toBe(42)
+        ->dropShipForSoreceipts->toBe(42)
         ->baseUnit->toBe('String value')
-        ->estimatedUnitCost->toBe(3.14)
-        ->estimatedTotalCost->toBe(3.14)
+        ->estimatedUnitCost->toBe(42)
+        ->estimatedTotalCost->toBe(42)
         ->errorInfo->toBe('String value');
 });

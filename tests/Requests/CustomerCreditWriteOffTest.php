@@ -1,9 +1,8 @@
 <?php
 
-// auto-generated
+// Generated 2026-01-30 14:10:14
 
-use Carbon\Carbon;
-use Pionect\VismaSdk\Requests\CustomerCreditWriteOff\CustomerCreditWriteOffGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\CustomerCreditWriteOff\CustomerCreditWriteOffGetAllRequest;
 use Pionect\VismaSdk\Requests\CustomerCreditWriteOff\CustomerCreditWriteOffGetBycreditWriteOffNumberRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -12,37 +11,37 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the CustomerCreditWriteOff resource', function () {
+it('calls the customerCreditWriteOffGetBycreditWriteOffNumberRequest method in the CustomerCreditWriteOff resource', function () {
     Saloon::fake([
         CustomerCreditWriteOffGetBycreditWriteOffNumberRequest::class => MockResponse::make([
             'hold' => true,
-            'roundingDiff' => 3.14,
+            'roundingDiff' => 42,
             'customerVatZone' => null,
-            'timeStamp' => '2025-11-22T10:40:04.065Z',
+            'timeStamp' => 'String value',
             'customer' => null,
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'documentDate' => '2025-11-22T10:40:04.065Z',
-            'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+            'documentDate' => '2025-11-22T10:40:04+00:00',
+            'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'status' => 'String value',
             'currencyId' => 'mock-id-123',
-            'amount' => 3.14,
-            'amountInCurrency' => 3.14,
-            'balance' => 3.14,
-            'balanceInCurrency' => 3.14,
-            'cashDiscount' => 3.14,
-            'cashDiscountInCurrency' => 3.14,
+            'amount' => 42,
+            'amountInCurrency' => 42,
+            'balance' => 42,
+            'balanceInCurrency' => 42,
+            'cashDiscount' => 42,
+            'cashDiscountInCurrency' => 42,
             'paymentMethod' => null,
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
-            'vatTotal' => 3.14,
-            'vatTotalInCurrency' => 3.14,
+            'vatTotal' => 42,
+            'vatTotalInCurrency' => 42,
             'location' => null,
             'branchNumber' => null,
             'cashAccount' => 'String value',
@@ -67,34 +66,34 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the Cust
     $dto = $response->dto();
 
     expect($dto)
-        ->hold->toBeTrue()
-        ->roundingDiff->toBe(3.14)
+        ->hold->toBe(true)
+        ->roundingDiff->toBe(42)
         ->customerVatZone->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')
@@ -105,38 +104,38 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumber method in the Cust
         ->errorInfo->toBe('String value');
 });
 
-it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCreditWriteOff resource', function () {
+it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWriteOff resource', function () {
     Saloon::fake([
-        CustomerCreditWriteOffGetAllCollectionRequest::class => MockResponse::make([
+        CustomerCreditWriteOffGetAllRequest::class => MockResponse::make([
             0 => [
                 'hold' => true,
-                'roundingDiff' => 3.14,
+                'roundingDiff' => 42,
                 'customerVatZone' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'customer' => null,
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'documentDate' => '2025-11-22T10:40:04.065Z',
-                'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'status' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'amount' => 3.14,
-                'amountInCurrency' => 3.14,
-                'balance' => 3.14,
-                'balanceInCurrency' => 3.14,
-                'cashDiscount' => 3.14,
-                'cashDiscountInCurrency' => 3.14,
+                'amount' => 42,
+                'amountInCurrency' => 42,
+                'balance' => 42,
+                'balanceInCurrency' => 42,
+                'cashDiscount' => 42,
+                'cashDiscountInCurrency' => 42,
                 'paymentMethod' => null,
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
-                'vatTotal' => 3.14,
-                'vatTotalInCurrency' => 3.14,
+                'vatTotal' => 42,
+                'vatTotalInCurrency' => 42,
                 'location' => null,
                 'branchNumber' => null,
                 'cashAccount' => 'String value',
@@ -145,40 +144,36 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'hold' => true,
-                'roundingDiff' => 3.14,
+                'roundingDiff' => 42,
                 'customerVatZone' => null,
-                'timeStamp' => '2025-11-22T10:40:04.065Z',
+                'timeStamp' => 'String value',
                 'customer' => null,
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'documentDate' => '2025-11-22T10:40:04.065Z',
-                'origInvoiceDate' => '2025-11-22T10:40:04.065Z',
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'status' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'amount' => 3.14,
-                'amountInCurrency' => 3.14,
-                'balance' => 3.14,
-                'balanceInCurrency' => 3.14,
-                'cashDiscount' => 3.14,
-                'cashDiscountInCurrency' => 3.14,
+                'amount' => 42,
+                'amountInCurrency' => 42,
+                'balance' => 42,
+                'balanceInCurrency' => 42,
+                'cashDiscount' => 42,
+                'cashDiscountInCurrency' => 42,
                 'paymentMethod' => null,
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
-                'vatTotal' => 3.14,
-                'vatTotalInCurrency' => 3.14,
+                'vatTotal' => 42,
+                'vatTotalInCurrency' => 42,
                 'location' => null,
                 'branchNumber' => null,
                 'cashAccount' => 'String value',
@@ -187,55 +182,87 @@ it('calls the customerCreditWriteOffGetAllCollection method in the CustomerCredi
                 'subaccount' => null,
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new CustomerCreditWriteOffGetAllCollectionRequest(documentType: 'test string', released: 123, dunningLevel: 123, closedFinancialPeriod: 'test string', dunningLetterDateTime: 'test string', dunningLetterDateTimeCondition: 'test string', project: 'test string', expandApplications: true, expandDunningInformation: true, expandAttachments: true, expandTaxDetails: true, expandInvoiceAddress: true, financialPeriod: 'test string', documentDueDate: 'test string', documentDueDateCondition: 'test string', status: 'test string', numberToRead: 123, skipRecords: 123, externalReference: 'test string', paymentReference: 'test string', customerRefNumber: 'test string', customer: 'test string', branch: 'test string', documentDate: 'test string', documentDateCondition: 'test string', greaterThanValue: 'test string', lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new CustomerCreditWriteOffGetAllRequest(
+        documentType: 'test string',
+        released: 123,
+        dunningLevel: 123,
+        closedFinancialPeriod: 'test string',
+        dunningLetterDateTime: 'test string',
+        dunningLetterDateTimeCondition: 'test string',
+        project: 'test string',
+        expandApplications: true,
+        expandDunningInformation: true,
+        expandAttachments: true,
+        expandTaxDetails: true,
+        expandInvoiceAddress: true,
+        financialPeriod: 'test string',
+        documentDueDate: 'test string',
+        documentDueDateCondition: 'test string',
+        status: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        externalReference: 'test string',
+        paymentReference: 'test string',
+        customerRefNumber: 'test string',
+        customer: 'test string',
+        branch: 'test string',
+        documentDate: 'test string',
+        documentDateCondition: 'test string',
+        greaterThanValue: 'test string',
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(CustomerCreditWriteOffGetAllRequest::class);
 
-    Saloon::assertSent(function (CustomerCreditWriteOffGetAllCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
-        ->hold->toBeTrue()
-        ->roundingDiff->toBe(3.14)
+    $firstItem = $collection[0];
+
+    expect($firstItem)
+        ->hold->toBe(true)
+        ->roundingDiff->toBe(42)
         ->customerVatZone->toBeNull()
-        ->timeStamp->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->timeStamp->toBe('String value')
         ->customer->toBeNull()
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->documentDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->origInvoiceDate->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->status->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->amount->toBe(3.14)
-        ->amountInCurrency->toBe(3.14)
-        ->balance->toBe(3.14)
-        ->balanceInCurrency->toBe(3.14)
-        ->cashDiscount->toBe(3.14)
-        ->cashDiscountInCurrency->toBe(3.14)
+        ->amount->toBe(42)
+        ->amountInCurrency->toBe(42)
+        ->balance->toBe(42)
+        ->balanceInCurrency->toBe(42)
+        ->cashDiscount->toBe(42)
+        ->cashDiscountInCurrency->toBe(42)
         ->paymentMethod->toBeNull()
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
-        ->vatTotal->toBe(3.14)
-        ->vatTotalInCurrency->toBe(3.14)
+        ->vatTotal->toBe(42)
+        ->vatTotalInCurrency->toBe(42)
         ->location->toBeNull()
         ->branchNumber->toBeNull()
         ->cashAccount->toBe('String value')

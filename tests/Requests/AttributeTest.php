@@ -1,10 +1,12 @@
 <?php
 
-// auto-generated
-
-use Carbon\Carbon;
+// Generated 2026-01-30 14:10:14
+use Pionect\VismaSdk\Dto\AttributeUpdateDto;
+use Pionect\VismaSdk\Requests\Attribute\AttributeDeleteByattributeIdRequest;
 use Pionect\VismaSdk\Requests\Attribute\AttributeGetAttributeByattributeIdRequest;
-use Pionect\VismaSdk\Requests\Attribute\AttributeGetAttributesCollectionRequest;
+use Pionect\VismaSdk\Requests\Attribute\AttributeGetAttributesRequest;
+use Pionect\VismaSdk\Requests\Attribute\AttributePostRequest;
+use Pionect\VismaSdk\Requests\Attribute\AttributePutByattributeIdRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -12,7 +14,7 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the attributeGetAttributeByattributeId method in the Attribute resource', function () {
+it('calls the attributeGetAttributeByattributeIdRequest method in the Attribute resource', function () {
     Saloon::fake([
         AttributeGetAttributeByattributeIdRequest::class => MockResponse::make([
             'attributeId' => 'mock-id-123',
@@ -22,8 +24,8 @@ it('calls the attributeGetAttributeByattributeId method in the Attribute resourc
             'entryMask' => 'String value',
             'regExp' => 'String value',
             'details' => [],
-            'createdDateTime' => '2025-11-22T10:40:04.065Z',
-            'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -44,17 +46,60 @@ it('calls the attributeGetAttributeByattributeId method in the Attribute resourc
         ->attributeId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->controlType->toBe('String value')
-        ->internal->toBeTrue()
+        ->internal->toBe(true)
         ->entryMask->toBe('String value')
         ->regExp->toBe('String value')
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
 
-it('calls the attributeGetAttributesCollection method in the Attribute resource', function () {
+it('calls the attributePutByattributeIdRequest method in the Attribute resource', function () {
+    $bodyData = new AttributeUpdateDto(
+        attributeId: 'mock-id-123',
+        description: 'String value',
+        internal: true,
+        controlType: 'String value',
+        entryMask: 'String value',
+        regExp: 'String value',
+        details: []
+    );
+
     Saloon::fake([
-        AttributeGetAttributesCollectionRequest::class => MockResponse::make([
+        AttributePutByattributeIdRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new AttributePutByattributeIdRequest(
+        attributeId: 'test string',
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(AttributePutByattributeIdRequest::class);
+
+    expect($response->status())->toBe(201);
+});
+
+it('calls the attributeDeleteByattributeIdRequest method in the Attribute resource', function () {
+    Saloon::fake([
+        AttributeDeleteByattributeIdRequest::class => MockResponse::make([], 204),
+    ]);
+
+    $request = new AttributeDeleteByattributeIdRequest(
+        attributeId: 'test string',
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(AttributeDeleteByattributeIdRequest::class);
+
+    expect($response->status())->toBe(204);
+});
+
+it('calls the attributeGetAttributesRequest method in the Attribute resource', function () {
+    Saloon::fake([
+        AttributeGetAttributesRequest::class => MockResponse::make([
             0 => [
                 'attributeId' => 'mock-id-123',
                 'description' => 'String value',
@@ -63,13 +108,9 @@ it('calls the attributeGetAttributesCollection method in the Attribute resource'
                 'entryMask' => 'String value',
                 'regExp' => 'String value',
                 'details' => [],
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
             1 => [
                 'attributeId' => 'mock-id-123',
@@ -79,37 +120,75 @@ it('calls the attributeGetAttributesCollection method in the Attribute resource'
                 'entryMask' => 'String value',
                 'regExp' => 'String value',
                 'details' => [],
-                'createdDateTime' => '2025-11-22T10:40:04.065Z',
-                'lastModifiedDateTime' => '2025-11-22T10:40:04.065Z',
+                'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
-                'metadata' => [
-                    'totalCount' => 2,
-                    'maxPageSize' => 100,
-                ],
             ],
         ], 200),
     ]);
 
-    $request = (new AttributeGetAttributesCollectionRequest(attributeId: 'test string', controlType: 'test string', internal: true, greaterThanValue: 'test string', numberToRead: 123, skipRecords: 123, lastModifiedDateTime: 'test string', lastModifiedDateTimeCondition: 'test string', createdDateTime: 'test string', createdDateTimeCondition: 'test string', pageNumber: 123, pageSize: 123));
+    $request = new AttributeGetAttributesRequest(
+        attributeId: 'test string',
+        controlType: 'test string',
+        internal: true,
+        greaterThanValue: 'test string',
+        numberToRead: 123,
+        skipRecords: 123,
+        lastModifiedDateTime: 'test string',
+        lastModifiedDateTimeCondition: 'test string',
+        createdDateTime: 'test string',
+        createdDateTimeCondition: 'test string',
+        pageNumber: 123,
+        pageSize: 123,
+        erpApiBackground: 'test string'
+    );
+    $response = $this->vismaConnector->send($request);
 
-    $dtoCollection = $this->vismaConnector->paginate($request)->dtoCollection();
+    Saloon::assertSent(AttributeGetAttributesRequest::class);
 
-    Saloon::assertSent(function (AttributeGetAttributesCollectionRequest $request) {
-        $query = $request->query()->all();
+    expect($response->status())->toBe(200);
 
-        return true;
-    });
+    $collection = $response->dto();
 
-    expect($dtoCollection)->toHaveCount(2);
+    expect($collection)->toBeArray()
+        ->and($collection)->toHaveCount(2);
 
-    expect($dtoCollection->first())
+    $firstItem = $collection[0];
+
+    expect($firstItem)
         ->attributeId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->controlType->toBe('String value')
-        ->internal->toBeTrue()
+        ->internal->toBe(true)
         ->entryMask->toBe('String value')
         ->regExp->toBe('String value')
-        ->createdDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
-        ->lastModifiedDateTime->toEqual(new Carbon('2025-11-22T10:40:04.065Z'))
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
+});
+
+it('calls the attributePostRequest method in the Attribute resource', function () {
+    $bodyData = new AttributeUpdateDto(
+        attributeId: 'mock-id-123',
+        description: 'String value',
+        internal: true,
+        controlType: 'String value',
+        entryMask: 'String value',
+        regExp: 'String value',
+        details: []
+    );
+
+    Saloon::fake([
+        AttributePostRequest::class => MockResponse::make([], 201),
+    ]);
+
+    $request = new AttributePostRequest(
+        erpApiBackground: 'test string',
+        data: $bodyData
+    );
+    $response = $this->vismaConnector->send($request);
+
+    Saloon::assertSent(AttributePostRequest::class);
+
+    expect($response->status())->toBe(201);
 });

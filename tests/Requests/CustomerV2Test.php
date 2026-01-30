@@ -2,7 +2,7 @@
 
 // Generated 2026-01-30 14:10:14
 
-use Pionect\VismaSdk\Requests\DiscountCode\DiscountCodeGetDiscountCodesRequest;
+use Pionect\VismaSdk\Requests\CustomerV2\CustomerV2GetAllCustomerBalanceRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
 
@@ -10,9 +10,9 @@ beforeEach(function () {
     $this->vismaConnector = new Pionect\VismaSdk\VismaConnector;
 });
 
-it('calls the discountCodeGetDiscountCodesRequest method in the DiscountCode resource', function () {
+it('calls the customerV2getAllCustomerBalanceRequest method in the CustomerV2 resource', function () {
     Saloon::fake([
-        DiscountCodeGetDiscountCodesRequest::class => MockResponse::make([
+        CustomerV2GetAllCustomerBalanceRequest::class => MockResponse::make([
             0 => [
                 'name' => 'Mock value',
             ],
@@ -22,19 +22,18 @@ it('calls the discountCodeGetDiscountCodesRequest method in the DiscountCode res
         ], 200),
     ]);
 
-    $request = new DiscountCodeGetDiscountCodesRequest(
-        lastModifiedDateTime: 'test string',
-        lastModifiedDateTimeCondition: 'test string',
-        createdDateTime: 'test string',
-        createdDateTimeCondition: 'test string',
-        discountCode: 'test string',
+    $request = new CustomerV2GetAllCustomerBalanceRequest(
+        branchNumber: 'test string',
+        customer: 'test string',
+        fromFinPeriod: 'test string',
+        toFinPeriod: 'test string',
         pageNumber: 123,
         pageSize: 123,
         erpApiBackground: 'test string'
     );
     $response = $this->vismaConnector->send($request);
 
-    Saloon::assertSent(DiscountCodeGetDiscountCodesRequest::class);
+    Saloon::assertSent(CustomerV2GetAllCustomerBalanceRequest::class);
 
     expect($response->status())->toBe(200);
 
