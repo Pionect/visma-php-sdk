@@ -14,7 +14,8 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class AttributeLineUpdateDto extends Model
 {
     public function __construct(
-        public ?AttributeIdInAttributeLineUpdateDto $attributeId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $attributeId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $attributeValue = null,
     ) {}

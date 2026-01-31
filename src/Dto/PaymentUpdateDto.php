@@ -14,19 +14,32 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class PaymentUpdateDto extends Model
 {
     public function __construct(
-        public ?ReferenceNumberInPaymentUpdateDto $referenceNumber = null,
-        public ?TypeInPaymentUpdateDto $type = null,
-        public ?HoldInPaymentUpdateDto $hold = null,
-        public ?ApplicationDateInPaymentUpdateDto $applicationDate = null,
-        public ?ApplicationPeriodInPaymentUpdateDto $applicationPeriod = null,
-        public ?PaymentRefInPaymentUpdateDto $paymentRef = null,
-        public ?CustomerInPaymentUpdateDto $customer = null,
-        public ?LocationInPaymentUpdateDto $location = null,
-        public ?PaymentMethodInPaymentUpdateDto $paymentMethod = null,
-        public ?CashAccountInPaymentUpdateDto $cashAccount = null,
-        public ?CurrencyInPaymentUpdateDto $currency = null,
-        public ?PaymentAmountInPaymentUpdateDto $paymentAmount = null,
-        public ?InvoiceTextInPaymentUpdateDto $invoiceText = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $referenceNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $type = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $applicationDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $applicationPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $paymentRef = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $paymentMethod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $cashAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $currency = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $paymentAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $invoiceText = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branch = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

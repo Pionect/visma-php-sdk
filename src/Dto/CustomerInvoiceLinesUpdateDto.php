@@ -18,8 +18,10 @@ class CustomerInvoiceLinesUpdateDto extends Model
         public ?string $discountCode = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $domesticServicesDeductible = null,
-        public ?ItemTypeInCustomerInvoiceLinesUpdateDto $itemType = null,
-        public ?TypeOfWorkInCustomerInvoiceLinesUpdateDto $typeOfWork = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $itemType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $typeOfWork = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $taskId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

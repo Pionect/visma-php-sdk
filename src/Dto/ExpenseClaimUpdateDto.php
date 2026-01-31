@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseClaimUpdateDtoFactory>
@@ -12,12 +14,17 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class ExpenseClaimUpdateDto extends Model
 {
     public function __construct(
-        public ?DateInExpenseClaimUpdateDto $date = null,
-        public ?DescriptionInExpenseClaimUpdateDto $description = null,
-        public ?ClaimedByInExpenseClaimUpdateDto $claimedBy = null,
-        public ?CustomerInExpenseClaimUpdateDto $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $claimedBy = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
         public ?string $customerUpdateAnswer = null,
-        public ?LocationInExpenseClaimUpdateDto $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
         public ?array $details = null,
     ) {}
 }

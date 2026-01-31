@@ -15,7 +15,8 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class InventoryCrossReferenceUpdateDto extends Model
 {
     public function __construct(
-        public ?AlternateTypeInInventoryCrossReferenceUpdateDto $alternateType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $alternateType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $bAccount = null,
         #[MapName('alternateID'), WithTransformer(ValueWrapperTransformer::class)]

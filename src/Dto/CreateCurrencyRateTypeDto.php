@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreateCurrencyRateTypeDtoFactory>
@@ -12,8 +14,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class CreateCurrencyRateTypeDto extends Model
 {
     public function __construct(
-        public ?IdInCreateCurrencyRateTypeDto $id = null,
-        public ?DescriptionInCreateCurrencyRateTypeDto $description = null,
-        public ?DaysEffectiveInCreateCurrencyRateTypeDto $daysEffective = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $id = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $daysEffective = null,
     ) {}
 }

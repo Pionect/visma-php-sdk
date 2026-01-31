@@ -17,17 +17,29 @@ class TimeCardMaterialsUpdateDto extends Model
         public ?string $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNumber = null,
-        public ?ItemIdInTimeCardMaterialsUpdateDto $itemId = null,
-        public ?DescriptionInTimeCardMaterialsUpdateDto $description = null,
-        public ?UoMinTimeCardMaterialsUpdateDto $uoM = null,
-        public ?ProjectInTimeCardMaterialsUpdateDto $project = null,
-        public ?ProjectTaskInTimeCardMaterialsUpdateDto $projectTask = null,
-        public ?MonInTimeCardMaterialsUpdateDto $mon = null,
-        public ?TueInTimeCardMaterialsUpdateDto $tue = null,
-        public ?WedInTimeCardMaterialsUpdateDto $wed = null,
-        public ?ThuInTimeCardMaterialsUpdateDto $thu = null,
-        public ?FriInTimeCardMaterialsUpdateDto $fri = null,
-        public ?SatInTimeCardMaterialsUpdateDto $sat = null,
-        public ?SunInTimeCardMaterialsUpdateDto $sun = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $itemId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uoM = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $project = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectTask = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $mon = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $tue = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $wed = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $thu = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $fri = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $sat = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $sun = null,
     ) {}
 }

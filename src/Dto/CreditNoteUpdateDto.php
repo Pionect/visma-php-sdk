@@ -38,15 +38,18 @@ class CreditNoteUpdateDto extends Model
         public ?\Carbon\Carbon $origInvoiceDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $hold = null,
-        public ?PostPeriodInCreditNoteUpdateDto $postPeriod = null,
-        public ?FinancialPeriodInCreditNoteUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $financialPeriod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $invoiceText = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $locationId = null,
-        #[MapName('salesPersonID')]
-        public ?SalesPersonIdinCreditNoteUpdateDto $salesPersonId = null,
-        public ?SalespersonInCreditNoteUpdateDto $salesperson = null,
+        #[MapName('salesPersonID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $salesPersonId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesperson = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

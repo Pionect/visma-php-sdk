@@ -91,16 +91,25 @@ class ShipmentCreateDto extends Model
         public ?string $note = null,
         public ?array $shipmentDetailLines = null,
         public ?array $shipmentPackageLines = null,
-        public ?CustomStr1inShipmentCreateDto $customStr1 = null,
-        public ?CustomStr2inShipmentCreateDto $customStr2 = null,
-        public ?CustomStr3inShipmentCreateDto $customStr3 = null,
-        public ?CustomStr4inShipmentCreateDto $customStr4 = null,
-        public ?CustomStr5inShipmentCreateDto $customStr5 = null,
-        public ?CustomDec1inShipmentCreateDto $customDec1 = null,
-        public ?CustomDec2inShipmentCreateDto $customDec2 = null,
-        public ?CustomInt1inShipmentCreateDto $customInt1 = null,
-        public ?CustomInt2inShipmentCreateDto $customInt2 = null,
-        #[MapName('customDateTimeUTC1')]
-        public ?CustomDateTimeUtc1inShipmentCreateDto $customDateTimeUtc1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr4 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr5 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt2 = null,
+        #[MapName('customDateTimeUTC1'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $customDateTimeUtc1 = null,
     ) {}
 }

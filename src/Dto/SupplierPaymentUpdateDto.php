@@ -14,7 +14,8 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class SupplierPaymentUpdateDto extends Model
 {
     public function __construct(
-        public ?TypeInSupplierPaymentUpdateDto $type = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $type = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

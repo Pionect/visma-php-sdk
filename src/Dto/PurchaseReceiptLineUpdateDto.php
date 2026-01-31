@@ -21,51 +21,91 @@ class PurchaseReceiptLineUpdateDto extends Model
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
         public ?string $operation = null,
-        public ?LineNbrInPurchaseReceiptLineUpdateDto $lineNbr = null,
-        public ?LineTypeInPurchaseReceiptLineUpdateDto $lineType = null,
-        public ?BranchIdInPurchaseReceiptLineUpdateDto $branchId = null,
-        public ?BranchNumberInPurchaseReceiptLineUpdateDto $branchNumber = null,
-        public ?InventoryIdInPurchaseReceiptLineUpdateDto $inventoryId = null,
-        public ?WarehouseIdInPurchaseReceiptLineUpdateDto $warehouseId = null,
-        public ?LocationIdInPurchaseReceiptLineUpdateDto $locationId = null,
-        public ?TransactionDescriptionInPurchaseReceiptLineUpdateDto $transactionDescription = null,
-        public ?UomInPurchaseReceiptLineUpdateDto $uom = null,
-        public ?ReceiptQtyInPurchaseReceiptLineUpdateDto $receiptQty = null,
-        public ?UnitCostInPurchaseReceiptLineUpdateDto $unitCost = null,
-        public ?ExtCostInPurchaseReceiptLineUpdateDto $extCost = null,
-        public ?DiscountPercentInPurchaseReceiptLineUpdateDto $discountPercent = null,
-        public ?DiscountAmountInPurchaseReceiptLineUpdateDto $discountAmount = null,
-        public ?ManualDiscountInPurchaseReceiptLineUpdateDto $manualDiscount = null,
-        public ?DiscountCodeIdInPurchaseReceiptLineUpdateDto $discountCodeId = null,
-        public ?AmountInPurchaseReceiptLineUpdateDto $amount = null,
-        public ?TaxCategoryIdInPurchaseReceiptLineUpdateDto $taxCategoryId = null,
-        public ?AccountIdInPurchaseReceiptLineUpdateDto $accountId = null,
-        public ?AccountDescriptionInPurchaseReceiptLineUpdateDto $accountDescription = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $lineNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $lineType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $warehouseId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $locationId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $transactionDescription = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $receiptQty = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $unitCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $extCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountPercent = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $discountAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $manualDiscount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $discountCodeId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $amount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $taxCategoryId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountDescription = null,
         public ?array $subaccount = null,
-        public ?ActualAccountIdInPurchaseReceiptLineUpdateDto $actualAccountId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $actualAccountId = null,
         public ?array $actualSubaccount = null,
-        public ?ProjectIdInPurchaseReceiptLineUpdateDto $projectId = null,
-        public ?ProjectTaskIdInPurchaseReceiptLineUpdateDto $projectTaskId = null,
-        public ?ExpirationDateInPurchaseReceiptLineUpdateDto $expirationDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectTaskId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $expirationDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $lotSerialNumber = null,
-        public ?PoOrderTypeInPurchaseReceiptLineUpdateDto $poOrderType = null,
-        public ?PoOrderNbrInPurchaseReceiptLineUpdateDto $poOrderNbr = null,
-        public ?PoOrderLineNbrInPurchaseReceiptLineUpdateDto $poOrderLineNbr = null,
-        public ?TransferOrderTypeInPurchaseReceiptLineUpdateDto $transferOrderType = null,
-        public ?TransferOrderNbrInPurchaseReceiptLineUpdateDto $transferOrderNbr = null,
-        public ?TransferOrderLineNbrInPurchaseReceiptLineUpdateDto $transferOrderLineNbr = null,
-        public ?CompletePoLineInPurchaseReceiptLineUpdateDto $completePoLine = null,
-        public ?CustomStr1inPurchaseReceiptLineUpdateDto $customStr1 = null,
-        public ?CustomStr2inPurchaseReceiptLineUpdateDto $customStr2 = null,
-        public ?CustomStr3inPurchaseReceiptLineUpdateDto $customStr3 = null,
-        public ?CustomStr4inPurchaseReceiptLineUpdateDto $customStr4 = null,
-        public ?CustomStr5inPurchaseReceiptLineUpdateDto $customStr5 = null,
-        public ?CustomDec1inPurchaseReceiptLineUpdateDto $customDec1 = null,
-        public ?CustomDec2inPurchaseReceiptLineUpdateDto $customDec2 = null,
-        public ?CustomInt1inPurchaseReceiptLineUpdateDto $customInt1 = null,
-        public ?CustomInt2inPurchaseReceiptLineUpdateDto $customInt2 = null,
-        #[MapName('customDateTimeUTC1')]
-        public ?CustomDateTimeUtc1inPurchaseReceiptLineUpdateDto $customDateTimeUtc1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $poOrderType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $poOrderNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $poOrderLineNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $transferOrderType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $transferOrderNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $transferOrderLineNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $completePoLine = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr4 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr5 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt2 = null,
+        #[MapName('customDateTimeUTC1'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $customDateTimeUtc1 = null,
     ) {}
 }

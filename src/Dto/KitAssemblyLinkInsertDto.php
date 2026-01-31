@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\KitAssemblyLinkInsertDtoFactory>
@@ -12,8 +14,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class KitAssemblyLinkInsertDto extends Model
 {
     public function __construct(
-        public ?OrderTypeInKitAssemblyLinkInsertDto $orderType = null,
-        public ?OrderNumberInKitAssemblyLinkInsertDto $orderNumber = null,
-        public ?OrderLineNumberInKitAssemblyLinkInsertDto $orderLineNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $orderType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $orderNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $orderLineNumber = null,
     ) {}
 }

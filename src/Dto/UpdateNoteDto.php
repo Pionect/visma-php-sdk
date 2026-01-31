@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\UpdateNoteDtoFactory>
@@ -12,6 +14,7 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class UpdateNoteDto extends Model
 {
     public function __construct(
-        public ?NoteInUpdateNoteDto $note = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $note = null,
     ) {}
 }

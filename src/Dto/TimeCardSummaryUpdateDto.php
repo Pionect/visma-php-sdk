@@ -17,17 +17,29 @@ class TimeCardSummaryUpdateDto extends Model
         public ?string $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNumber = null,
-        public ?EarningTypeInTimeCardSummaryUpdateDto $earningType = null,
-        public ?ProjectInTimeCardSummaryUpdateDto $project = null,
-        public ?ProjectTaskInTimeCardSummaryUpdateDto $projectTask = null,
-        public ?MonInTimeCardSummaryUpdateDto $mon = null,
-        public ?TueInTimeCardSummaryUpdateDto $tue = null,
-        public ?WedInTimeCardSummaryUpdateDto $wed = null,
-        public ?ThuInTimeCardSummaryUpdateDto $thu = null,
-        public ?FriInTimeCardSummaryUpdateDto $fri = null,
-        public ?SatInTimeCardSummaryUpdateDto $sat = null,
-        public ?SunInTimeCardSummaryUpdateDto $sun = null,
-        public ?InvoiceableInTimeCardSummaryUpdateDto $invoiceable = null,
-        public ?DescriptionInTimeCardSummaryUpdateDto $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $earningType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $project = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectTask = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $mon = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $tue = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $wed = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $thu = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $fri = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $sat = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $sun = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $invoiceable = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
     ) {}
 }

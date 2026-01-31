@@ -28,16 +28,25 @@ class ShipmentDetailLineAddDto extends Model
         public ?string $uom = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $shippedQty = null,
-        public ?CustomStr1inShipmentDetailLineAddDto $customStr1 = null,
-        public ?CustomStr2inShipmentDetailLineAddDto $customStr2 = null,
-        public ?CustomStr3inShipmentDetailLineAddDto $customStr3 = null,
-        public ?CustomStr4inShipmentDetailLineAddDto $customStr4 = null,
-        public ?CustomStr5inShipmentDetailLineAddDto $customStr5 = null,
-        public ?CustomDec1inShipmentDetailLineAddDto $customDec1 = null,
-        public ?CustomDec2inShipmentDetailLineAddDto $customDec2 = null,
-        public ?CustomInt1inShipmentDetailLineAddDto $customInt1 = null,
-        public ?CustomInt2inShipmentDetailLineAddDto $customInt2 = null,
-        #[MapName('customDateTimeUTC1')]
-        public ?CustomDateTimeUtc1inShipmentDetailLineAddDto $customDateTimeUtc1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr4 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr5 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt2 = null,
+        #[MapName('customDateTimeUTC1'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $customDateTimeUtc1 = null,
     ) {}
 }

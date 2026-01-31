@@ -64,7 +64,8 @@ class CustomerInvoiceUpdateDto extends Model
         public ?string $contractDocRef = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $revoked = null,
-        public ?OverrideNumberSeriesInCustomerInvoiceUpdateDto $overrideNumberSeries = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $overrideNumberSeries = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $directDebitMandateId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -91,15 +92,18 @@ class CustomerInvoiceUpdateDto extends Model
         public ?\Carbon\Carbon $origInvoiceDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $hold = null,
-        public ?PostPeriodInCustomerInvoiceUpdateDto $postPeriod = null,
-        public ?FinancialPeriodInCustomerInvoiceUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $financialPeriod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $invoiceText = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $locationId = null,
-        #[MapName('salesPersonID')]
-        public ?SalesPersonIdinCustomerInvoiceUpdateDto $salesPersonId = null,
-        public ?SalespersonInCustomerInvoiceUpdateDto $salesperson = null,
+        #[MapName('salesPersonID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $salesPersonId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesperson = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

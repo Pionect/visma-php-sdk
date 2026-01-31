@@ -66,8 +66,10 @@ class SalesOrderLineUpdateDto extends Model
         public ?string $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNbr = null,
-        public ?InventoryIdInSalesOrderLineUpdateDto $inventoryId = null,
-        public ?InventoryNumberInSalesOrderLineUpdateDto $inventoryNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $warehouse = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

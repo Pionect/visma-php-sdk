@@ -20,8 +20,10 @@ class CashTransactionUpdateDto extends Model
         public ?bool $hold = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $tranDate = null,
-        public ?FinanacialPeriodInCashTransactionUpdateDto $finanacialPeriod = null,
-        public ?FinancialPeriodInCashTransactionUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $finanacialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $financialPeriod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $description = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

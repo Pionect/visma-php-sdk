@@ -29,7 +29,8 @@ class PurchaseReceiptUpdateDto extends Model
         public ?bool $hold = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $date = null,
-        public ?PostPeriodInPurchaseReceiptUpdateDto $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $warehouseId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -50,17 +51,26 @@ class PurchaseReceiptUpdateDto extends Model
         public int|float|null $controlAmount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branchNumber = null,
-        public ?CustomStr1inPurchaseReceiptUpdateDto $customStr1 = null,
-        public ?CustomStr2inPurchaseReceiptUpdateDto $customStr2 = null,
-        public ?CustomStr3inPurchaseReceiptUpdateDto $customStr3 = null,
-        public ?CustomStr4inPurchaseReceiptUpdateDto $customStr4 = null,
-        public ?CustomStr5inPurchaseReceiptUpdateDto $customStr5 = null,
-        public ?CustomDec1inPurchaseReceiptUpdateDto $customDec1 = null,
-        public ?CustomDec2inPurchaseReceiptUpdateDto $customDec2 = null,
-        public ?CustomInt1inPurchaseReceiptUpdateDto $customInt1 = null,
-        public ?CustomInt2inPurchaseReceiptUpdateDto $customInt2 = null,
-        #[MapName('customDateTimeUTC1')]
-        public ?CustomDateTimeUtc1inPurchaseReceiptUpdateDto $customDateTimeUtc1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr4 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr5 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt2 = null,
+        #[MapName('customDateTimeUTC1'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $customDateTimeUtc1 = null,
         public ?string $timeStamp = null,
     ) {}
 }

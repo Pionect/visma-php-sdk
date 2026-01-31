@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PrebookingUpdateDtoFactory>
@@ -12,7 +14,8 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class PrebookingUpdateDto extends Model
 {
     public function __construct(
-        public ?AccountNumberInPrebookingUpdateDto $accountNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $accountNumber = null,
         public ?array $subaccount = null,
     ) {}
 }

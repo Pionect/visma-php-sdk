@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseClaimDetailUpdateDtoFactory>
@@ -13,23 +15,40 @@ class ExpenseClaimDetailUpdateDto extends Model
 {
     public function __construct(
         public ?string $operation = null,
-        public ?ClaimDetailIdInExpenseClaimDetailUpdateDto $claimDetailId = null,
-        public ?DateInExpenseClaimDetailUpdateDto $date = null,
-        public ?ExpenseItemInExpenseClaimDetailUpdateDto $expenseItem = null,
-        public ?DescriptionInExpenseClaimDetailUpdateDto $description = null,
-        public ?QuantityInExpenseClaimDetailUpdateDto $quantity = null,
-        public ?UomInExpenseClaimDetailUpdateDto $uom = null,
-        public ?UnitCostInExpenseClaimDetailUpdateDto $unitCost = null,
-        public ?InvoiceableInExpenseClaimDetailUpdateDto $invoiceable = null,
-        public ?ProjectInExpenseClaimDetailUpdateDto $project = null,
-        public ?ProjectTaskInExpenseClaimDetailUpdateDto $projectTask = null,
-        public ?ExpenseAccountInExpenseClaimDetailUpdateDto $expenseAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $claimDetailId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseItem = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $quantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $uom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $unitCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $invoiceable = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $project = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $projectTask = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseAccount = null,
         public ?array $expenseSubaccount = null,
-        public ?BranchInExpenseClaimDetailUpdateDto $branch = null,
-        public ?TaxCategoryInExpenseClaimDetailUpdateDto $taxCategory = null,
-        public ?RefNbrInExpenseClaimDetailUpdateDto $refNbr = null,
-        public ?EmployeePartInExpenseClaimDetailUpdateDto $employeePart = null,
-        public ?CustomerInExpenseClaimDetailUpdateDto $customer = null,
-        public ?LocationInExpenseClaimDetailUpdateDto $location = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $taxCategory = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $refNbr = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $employeePart = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $location = null,
     ) {}
 }

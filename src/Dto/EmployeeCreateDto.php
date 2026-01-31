@@ -26,6 +26,7 @@ class EmployeeCreateDto extends Model
         public ?string $calendar = null,
         public ?EmployeeContactUpdateDto $contact = null,
         public ?AddressUpdateDto $address = null,
-        public ?StatusInEmployeeCreateDto $status = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $status = null,
     ) {}
 }

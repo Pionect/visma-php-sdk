@@ -16,8 +16,10 @@ class EmployeeUpdateDto extends Model
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $employeeClass = null,
-        public ?StatusInEmployeeUpdateDto $status = null,
-        public ?DepartmentInEmployeeUpdateDto $department = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $status = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $department = null,
         public ?ContactInEmployeeUpdateDto $contact = null,
         public ?AddressInEmployeeUpdateDto $address = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

@@ -25,8 +25,10 @@ class SupplierInvoiceUpdateDto extends Model
         public ?\Carbon\Carbon $date = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $origInvoiceDate = null,
-        public ?PostPeriodInSupplierInvoiceUpdateDto $postPeriod = null,
-        public ?FinancialPeriodInSupplierInvoiceUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $financialPeriod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $supplierReference = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -78,9 +80,11 @@ class SupplierInvoiceUpdateDto extends Model
         public ?array $addPoreceiptLines = null,
         public ?array $addPurchaseOrders = null,
         public ?array $landedCosts = null,
-        public ?PaySelectedInSupplierInvoiceUpdateDto $paySelected = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $paySelected = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,
-        public ?ValidateLineDetailsInSupplierInvoiceUpdateDto $validateLineDetails = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $validateLineDetails = null,
     ) {}
 }

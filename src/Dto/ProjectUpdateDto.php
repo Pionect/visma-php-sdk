@@ -24,7 +24,8 @@ class ProjectUpdateDto extends Model
         public ?int $internalId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customer = null,
-        public ?DescriptionInProjectUpdateDto $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $hold = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -37,7 +38,8 @@ class ProjectUpdateDto extends Model
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $defAccrualAccount = null,
         public ?array $defAccrualSub = null,
-        public ?StartDateInProjectUpdateDto $startDate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $startDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $endDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -46,7 +48,8 @@ class ProjectUpdateDto extends Model
         public ?string $allocationRule = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $billingRule = null,
-        public ?BranchInProjectUpdateDto $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $rateTable = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

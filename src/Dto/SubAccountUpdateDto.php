@@ -14,8 +14,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class SubAccountUpdateDto extends Model
 {
     public function __construct(
-        public ?SubaccountNumberInSubAccountUpdateDto $subaccountNumber = null,
-        public ?SubaccountIdInSubAccountUpdateDto $subaccountId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $subaccountNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $subaccountId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $description = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

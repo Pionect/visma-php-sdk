@@ -14,9 +14,12 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class CustomerContractUpdateDto extends Model
 {
     public function __construct(
-        public ?ContractIdInCustomerContractUpdateDto $contractId = null,
-        public ?ContractTemplateInCustomerContractUpdateDto $contractTemplate = null,
-        public ?CustomerInCustomerContractUpdateDto $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $contractId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $contractTemplate = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $location = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

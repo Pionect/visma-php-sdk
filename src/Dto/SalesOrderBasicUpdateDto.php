@@ -18,7 +18,8 @@ class SalesOrderBasicUpdateDto extends Model
 {
     public function __construct(
         public ?array $lines = null,
-        public ?OrderTypeInSalesOrderBasicUpdateDto $orderType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $orderType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $orderNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -31,13 +32,16 @@ class SalesOrderBasicUpdateDto extends Model
         public ?string $customerOrder = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerRefNo = null,
-        public ?CustomerInSalesOrderBasicUpdateDto $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $location = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $contactId = null,
-        public ?GlnInSalesOrderBasicUpdateDto $gln = null,
-        public ?VatRegistrationIdInSalesOrderBasicUpdateDto $vatRegistrationId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $gln = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatRegistrationId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $currency = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

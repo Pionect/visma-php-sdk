@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a inventory issue in InventoryIssueController. Used by getting data.
@@ -14,15 +16,24 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryIssueUpdateDto extends Model
 {
     public function __construct(
-        public ?ControlAmountInInventoryIssueUpdateDto $controlAmount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlAmount = null,
         public ?array $issueLines = null,
-        public ?ReferenceNumberInInventoryIssueUpdateDto $referenceNumber = null,
-        public ?HoldInInventoryIssueUpdateDto $hold = null,
-        public ?DateInInventoryIssueUpdateDto $date = null,
-        public ?PostPeriodInInventoryIssueUpdateDto $postPeriod = null,
-        public ?ExternalReferenceInInventoryIssueUpdateDto $externalReference = null,
-        public ?DescriptionInInventoryIssueUpdateDto $description = null,
-        public ?ControlQuantityInInventoryIssueUpdateDto $controlQuantity = null,
-        public ?BranchNumberInInventoryIssueUpdateDto $branchNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $referenceNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $externalReference = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlQuantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
     ) {}
 }

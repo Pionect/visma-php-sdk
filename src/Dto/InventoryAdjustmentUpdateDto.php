@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a inventory issue in InventoryIssueController. Used by getting data.
@@ -14,15 +16,24 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class InventoryAdjustmentUpdateDto extends Model
 {
     public function __construct(
-        public ?ControlCostInInventoryAdjustmentUpdateDto $controlCost = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlCost = null,
         public ?array $adjustmentLines = null,
-        public ?ReferenceNumberInInventoryAdjustmentUpdateDto $referenceNumber = null,
-        public ?HoldInInventoryAdjustmentUpdateDto $hold = null,
-        public ?DateInInventoryAdjustmentUpdateDto $date = null,
-        public ?PostPeriodInInventoryAdjustmentUpdateDto $postPeriod = null,
-        public ?ExternalReferenceInInventoryAdjustmentUpdateDto $externalReference = null,
-        public ?DescriptionInInventoryAdjustmentUpdateDto $description = null,
-        public ?ControlQuantityInInventoryAdjustmentUpdateDto $controlQuantity = null,
-        public ?BranchNumberInInventoryAdjustmentUpdateDto $branchNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $referenceNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $externalReference = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlQuantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
     ) {}
 }

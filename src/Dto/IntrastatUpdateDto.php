@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Intrastat part of InventoryItem in InventoryItemController. Used for
@@ -15,8 +17,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class IntrastatUpdateDto extends Model
 {
     public function __construct(
-        public ?CN8inIntrastatUpdateDto $cN8 = null,
-        public ?CountryOfOriginInIntrastatUpdateDto $countryOfOrigin = null,
-        public ?SupplementaryMeasureUnitInIntrastatUpdateDto $supplementaryMeasureUnit = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $cN8 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $countryOfOrigin = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $supplementaryMeasureUnit = null,
     ) {}
 }

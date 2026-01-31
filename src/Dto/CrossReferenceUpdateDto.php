@@ -16,7 +16,8 @@ class CrossReferenceUpdateDto extends Model
 {
     public function __construct(
         public ?string $operation = null,
-        public ?AlternateTypeInCrossReferenceUpdateDto $alternateType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $alternateType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $bAccount = null,
         #[MapName('alternateID'), WithTransformer(ValueWrapperTransformer::class)]

@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * SupplierInvoiceCommentUpdateDto
@@ -14,8 +16,11 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class SupplierInvoiceCommentUpdateDto extends Model
 {
     public function __construct(
-        public ?UserEmailInSupplierInvoiceCommentUpdateDto $userEmail = null,
-        public ?CommentTextInSupplierInvoiceCommentUpdateDto $commentText = null,
-        public ?CommentDateTimeInSupplierInvoiceCommentUpdateDto $commentDateTime = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $userEmail = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $commentText = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $commentDateTime = null,
     ) {}
 }

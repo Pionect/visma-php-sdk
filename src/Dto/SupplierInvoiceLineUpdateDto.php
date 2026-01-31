@@ -46,7 +46,8 @@ class SupplierInvoiceLineUpdateDto extends Model
         public ?string $deferralCode = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $vatCodeId = null,
-        public ?BranchInSupplierInvoiceLineUpdateDto $branch = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branch = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branchNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -76,7 +77,8 @@ class SupplierInvoiceLineUpdateDto extends Model
         public ?\Carbon\Carbon $termEndDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $externalInventoryId = null,
-        public ?PrebookAccountNumberInSupplierInvoiceLineUpdateDto $prebookAccountNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $prebookAccountNumber = null,
         public ?array $prebookSubaccount = null,
     ) {}
 }

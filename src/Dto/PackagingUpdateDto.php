@@ -2,8 +2,10 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * This class represents a Packaging part of InventoryItem in InventoryItemController. Used for
@@ -16,11 +18,13 @@ use Spatie\LaravelData\Attributes\MapName;
 class PackagingUpdateDto extends Model
 {
     public function __construct(
-        public ?BaseItemWeightInPackagingUpdateDto $baseItemWeight = null,
-        #[MapName('weightUOM')]
-        public ?WeightUominPackagingUpdateDto $weightUom = null,
-        public ?BaseItemVolumeInPackagingUpdateDto $baseItemVolume = null,
-        #[MapName('volumeUOM')]
-        public ?VolumeUominPackagingUpdateDto $volumeUom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $baseItemWeight = null,
+        #[MapName('weightUOM'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $weightUom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $baseItemVolume = null,
+        #[MapName('volumeUOM'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $volumeUom = null,
     ) {}
 }

@@ -74,17 +74,26 @@ class PurchaseOrderLineUpdateDto extends Model
         public ?\Carbon\Carbon $promised = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
-        public ?CustomStr1inPurchaseOrderLineUpdateDto $customStr1 = null,
-        public ?CustomStr2inPurchaseOrderLineUpdateDto $customStr2 = null,
-        public ?CustomStr3inPurchaseOrderLineUpdateDto $customStr3 = null,
-        public ?CustomStr4inPurchaseOrderLineUpdateDto $customStr4 = null,
-        public ?CustomStr5inPurchaseOrderLineUpdateDto $customStr5 = null,
-        public ?CustomDec1inPurchaseOrderLineUpdateDto $customDec1 = null,
-        public ?CustomDec2inPurchaseOrderLineUpdateDto $customDec2 = null,
-        public ?CustomInt1inPurchaseOrderLineUpdateDto $customInt1 = null,
-        public ?CustomInt2inPurchaseOrderLineUpdateDto $customInt2 = null,
-        #[MapName('customDateTimeUTC1')]
-        public ?CustomDateTimeUtc1inPurchaseOrderLineUpdateDto $customDateTimeUtc1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr4 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customStr5 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $customDec2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $customInt2 = null,
+        #[MapName('customDateTimeUTC1'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $customDateTimeUtc1 = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $completed = null,
     ) {}

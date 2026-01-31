@@ -19,11 +19,17 @@ class PlainJsonDtoGenerator extends DtoGenerator
 {
     /**
      * Determine if a schema should be included in generation.
-     * Skip DtoValueOf wrapper classes entirely.
+     * Skip wrapper classes that only have a single 'value' property.
      */
     protected function shouldIncludeSchema(string $className, Schema $schema): bool
     {
-        return ! str_starts_with($className, 'DtoValueOf');
+        $properties = $schema->properties ?? [];
+
+        // Remove metadata property for consistency with extractProperties
+        unset($properties['metadata']);
+
+        // Skip schemas that only contain a 'value' property (wrapper objects)
+        return ! (count($properties) === 1 && isset($schema->properties['value']));
     }
 
     /**
@@ -42,20 +48,26 @@ class PlainJsonDtoGenerator extends DtoGenerator
     }
 
     /**
-     * Check if property references a DtoValueOf wrapper and unwrap it.
+     * Check if property references a wrapper object (single 'value' property) and unwrap it.
      */
     protected function unwrappedSpecType(Schema|Reference $propertySpec): Schema|Reference|null
     {
         if ($propertySpec instanceof Reference) {
             $referenceName = Str::afterLast($propertySpec->getReference(), '/');
+            $wrapperSchema = $this->specification->components->schemas[$referenceName] ?? null;
 
-            if (str_starts_with($referenceName, 'DtoValueOf')) {
-                $wrapperSchema = $this->specification->components->schemas[$referenceName];
+            if (! $wrapperSchema) {
+                return null;
+            }
 
-                // Now wrapperSchema should be a Schema with properties
-                if (isset($wrapperSchema->properties['value'])) {
-                    return $wrapperSchema->properties['value'];
-                }
+            $properties = $wrapperSchema->properties ?? [];
+
+            // Remove metadata property for consistency with extractProperties
+            unset($properties['metadata']);
+
+            // Check if schema only has a single 'value' property (wrapper object)
+            if (count($properties) === 1 && isset($wrapperSchema->properties['value'])) {
+                return $wrapperSchema->properties['value'];
             }
         }
 

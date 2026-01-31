@@ -19,7 +19,8 @@ class CashSaleUpdateDto extends Model
         public ?string $paymentMethodId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $creditTermsId = null,
-        public ?PaymentReferenceInCashSaleUpdateDto $paymentReference = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $paymentReference = null,
         public ?array $cashSaleLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,
@@ -35,15 +36,18 @@ class CashSaleUpdateDto extends Model
         public ?\Carbon\Carbon $origInvoiceDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $hold = null,
-        public ?PostPeriodInCashSaleUpdateDto $postPeriod = null,
-        public ?FinancialPeriodInCashSaleUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $financialPeriod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $invoiceText = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $locationId = null,
-        #[MapName('salesPersonID')]
-        public ?SalesPersonIdinCashSaleUpdateDto $salesPersonId = null,
-        public ?SalespersonInCashSaleUpdateDto $salesperson = null,
+        #[MapName('salesPersonID'), WithTransformer(ValueWrapperTransformer::class)]
+        public ?int $salesPersonId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $salesperson = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

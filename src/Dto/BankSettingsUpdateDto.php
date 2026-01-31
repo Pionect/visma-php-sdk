@@ -2,7 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 /**
  * Bank settings update Dto
@@ -14,16 +16,27 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
 class BankSettingsUpdateDto extends Model
 {
     public function __construct(
-        public ?BankNameInBankSettingsUpdateDto $bankName = null,
-        public ?BankAddress1inBankSettingsUpdateDto $bankAddress1 = null,
-        public ?BankAddress2inBankSettingsUpdateDto $bankAddress2 = null,
-        public ?BankAddress3inBankSettingsUpdateDto $bankAddress3 = null,
-        public ?BankCountryInBankSettingsUpdateDto $bankCountry = null,
-        public ?IbanInBankSettingsUpdateDto $iban = null,
-        public ?BbanInBankSettingsUpdateDto $bban = null,
-        public ?BbaN2inBankSettingsUpdateDto $bbaN2 = null,
-        public ?BbaN3inBankSettingsUpdateDto $bbaN3 = null,
-        public ?BicInBankSettingsUpdateDto $bic = null,
-        public ?CreditorIdInBankSettingsUpdateDto $creditorId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bankName = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bankAddress1 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bankAddress2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bankAddress3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bankCountry = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $iban = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bban = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bbaN2 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bbaN3 = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $bic = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $creditorId = null,
     ) {}
 }

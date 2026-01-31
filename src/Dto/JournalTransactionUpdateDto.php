@@ -23,8 +23,10 @@ class JournalTransactionUpdateDto extends Model
         public ?bool $hold = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $transactionDate = null,
-        public ?PostPeriodInJournalTransactionUpdateDto $postPeriod = null,
-        public ?FinancialPeriodInJournalTransactionUpdateDto $financialPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $financialPeriod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $ledger = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

@@ -89,7 +89,8 @@ class SaleOrderUpdateDtoInReopenSalesOrderActionDto extends Model
         public ?bool $emailed = null,
         public ?RotRutUpdateDto $rotRutDetails = null,
         public ?array $lines = null,
-        public ?OrderTypeInSalesOrderUpdateDto $orderType = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $orderType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $orderNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -102,13 +103,16 @@ class SaleOrderUpdateDtoInReopenSalesOrderActionDto extends Model
         public ?string $customerOrder = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerRefNo = null,
-        public ?CustomerInSalesOrderUpdateDto $customer = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $customer = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $location = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $contactId = null,
-        public ?GlnInSalesOrderUpdateDto $gln = null,
-        public ?VatRegistrationIdInSalesOrderUpdateDto $vatRegistrationId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $gln = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatRegistrationId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $currency = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

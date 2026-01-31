@@ -21,13 +21,21 @@ class InventoryTransferUpdateDto extends Model
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $toWarehouseId = null,
         public ?array $transferLines = null,
-        public ?ReferenceNumberInInventoryTransferUpdateDto $referenceNumber = null,
-        public ?HoldInInventoryTransferUpdateDto $hold = null,
-        public ?DateInInventoryTransferUpdateDto $date = null,
-        public ?PostPeriodInInventoryTransferUpdateDto $postPeriod = null,
-        public ?ExternalReferenceInInventoryTransferUpdateDto $externalReference = null,
-        public ?DescriptionInInventoryTransferUpdateDto $description = null,
-        public ?ControlQuantityInInventoryTransferUpdateDto $controlQuantity = null,
-        public ?BranchNumberInInventoryTransferUpdateDto $branchNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $referenceNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?bool $hold = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?\Carbon\Carbon $date = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postPeriod = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $externalReference = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $description = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $controlQuantity = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $branchNumber = null,
     ) {}
 }

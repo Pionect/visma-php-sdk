@@ -14,7 +14,8 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class InventoryUpdateDto extends Model
 {
     public function __construct(
-        public ?InventoryNumberInInventoryUpdateDto $inventoryNumber = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -23,20 +24,28 @@ class InventoryUpdateDto extends Model
         public ?string $description = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $body = null,
-        public ?ItemClassInInventoryUpdateDto $itemClass = null,
-        public ?PostingClassInInventoryUpdateDto $postingClass = null,
-        public ?VatCodeInInventoryUpdateDto $vatCode = null,
-        public ?DefaultPriceInInventoryUpdateDto $defaultPrice = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $itemClass = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $postingClass = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $vatCode = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public int|float|null $defaultPrice = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $baseUnit = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesUnit = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $purchaseUnit = null,
-        public ?ExpenseAccrualAccountInInventoryUpdateDto $expenseAccrualAccount = null,
-        public ?InventoryAccountInInventoryUpdateDto $inventoryAccount = null,
-        public ?ExpenseAccountInInventoryUpdateDto $expenseAccount = null,
-        public ?CogsAccountInInventoryUpdateDto $cogsAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseAccrualAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $inventoryAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $expenseAccount = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $cogsAccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $expenseNonTaxableAccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -59,9 +68,12 @@ class InventoryUpdateDto extends Model
         public ?array $supplierDetails = null,
         public ?IntrastatUpdateDto $intrastat = null,
         public ?array $crossReferences = null,
-        public ?DefaultWarehouseInInventoryUpdateDto $defaultWarehouse = null,
-        public ?DefaultIssueFromInInventoryUpdateDto $defaultIssueFrom = null,
-        public ?DefaultReceiptToInInventoryUpdateDto $defaultReceiptTo = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $defaultWarehouse = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $defaultIssueFrom = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $defaultReceiptTo = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $kitItem = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

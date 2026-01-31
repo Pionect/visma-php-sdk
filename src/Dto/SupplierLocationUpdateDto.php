@@ -16,8 +16,10 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 class SupplierLocationUpdateDto extends Model
 {
     public function __construct(
-        public ?BaccountIdInSupplierLocationUpdateDto $baccountId = null,
-        public ?LocationIdInSupplierLocationUpdateDto $locationId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $baccountId = null,
+        #[WithTransformer(ValueWrapperTransformer::class)]
+        public ?string $locationId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $locationName = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
