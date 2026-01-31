@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\StocktakeV2;
 
-use Pionect\VismaSdk\Dto\StocktakeV2Dto;
+use Pionect\VismaSdk\Dto\StocktakeV2dto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -20,7 +20,7 @@ class StocktakeV2GetAllStocktakesRequest extends Request implements Paginatable
         $data = $response->json();
 
         return collect($data)->map(
-            fn (array $item) => StocktakeV2Dto::from($item)
+            fn (array $item) => StocktakeV2dto::from($item)
         );
     }
 

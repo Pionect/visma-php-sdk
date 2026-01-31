@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Supplier;
 
-use Pionect\VismaSdk\Dto\SupplierPOBalanceDto;
+use Pionect\VismaSdk\Dto\SupplierPobalanceDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -16,7 +16,7 @@ class SupplierGetSupplierPobalanceBysupplierCdRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return SupplierPOBalanceDto::from($response->json());
+        return SupplierPobalanceDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\SalesOrder;
 
-use Pionect\VismaSdk\Dto\SOCommissionDto;
+use Pionect\VismaSdk\Dto\SocommissionDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -18,7 +18,7 @@ class SalesOrderGetCommissionsByorderTypeorderNbrRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return SOCommissionDto::from($response->json());
+        return SocommissionDto::from($response->json());
     }
 
     public function resolveEndpoint(): string

@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\StocktakeV2;
 
-use Pionect\VismaSdk\Dto\StocktakeV2Dto;
+use Pionect\VismaSdk\Dto\StocktakeV2dto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -16,7 +16,7 @@ class StocktakeV2GetByreferenceNumberRequest extends Request
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return StocktakeV2Dto::from($response->json());
+        return StocktakeV2dto::from($response->json());
     }
 
     public function resolveEndpoint(): string

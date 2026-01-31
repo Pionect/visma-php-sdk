@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\SupplierV2;
 
-use Pionect\VismaSdk\Dto\SupplierBalanceV2Dto;
+use Pionect\VismaSdk\Dto\SupplierBalanceV2dto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -20,7 +20,7 @@ class SupplierV2GetAllSupplierBalanceRequest extends Request implements Paginata
         $data = $response->json();
 
         return collect($data)->map(
-            fn (array $item) => SupplierBalanceV2Dto::from($item)
+            fn (array $item) => SupplierBalanceV2dto::from($item)
         );
     }
 

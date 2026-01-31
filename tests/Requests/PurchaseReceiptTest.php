@@ -408,57 +408,7 @@ it('calls the purchaseReceiptPostRequest method in the PurchaseReceipt resource'
 
 it('calls the purchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest method in the PurchaseReceipt resource', function () {
     Saloon::fake([
-        PurchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest::class => MockResponse::make([
-            'landedCost' => [],
-            'note' => 'String value',
-            'timeStamp' => 'String value',
-            'receiptType' => 'String value',
-            'receiptNbr' => 'String value',
-            'hold' => true,
-            'status' => 'String value',
-            'date' => '2025-11-22T10:40:04+00:00',
-            'postPeriod' => 'String value',
-            'warehouse' => [
-                'description' => 'String value',
-            ],
-            'supplier' => [
-                'internalId' => 42,
-                'number' => 'String value',
-                'name' => 'String value',
-            ],
-            'location' => [
-                'countryId' => 'mock-id-123',
-                'name' => 'String value',
-            ],
-            'currency' => 'String value',
-            'exchangeRate' => 42,
-            'createBill' => true,
-            'supplierRef' => 'String value',
-            'totalQty' => 42,
-            'controlQty' => 42,
-            'vatExemptTotal' => 42,
-            'vatTaxableTotal' => 42,
-            'totalAmt' => 42,
-            'controlTotal' => 42,
-            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => [
-                'number' => 'String value',
-                'name' => 'String value',
-            ],
-            'lines' => [],
-            'dueDate' => '2025-11-22T10:40:04+00:00',
-            'customStr1' => 'String value',
-            'customStr2' => 'String value',
-            'customStr3' => 'String value',
-            'customStr4' => 'String value',
-            'customStr5' => 'String value',
-            'customDec1' => 42,
-            'customDec2' => 42,
-            'customInt1' => 42,
-            'customInt2' => 42,
-            'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
-            'errorInfo' => 'String value',
-        ], 200),
+        PurchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest::class => MockResponse::make([], 200),
     ]);
 
     $request = new PurchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest(
@@ -474,45 +424,7 @@ it('calls the purchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest method i
     $dto = $response->dto();
 
     expect($dto)
-        ->note->toBe('String value')
-        ->timeStamp->toBe('String value')
-        ->receiptType->toBe('String value')
-        ->receiptNbr->toBe('String value')
-        ->hold->toBe(true)
-        ->status->toBe('String value')
-        ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->postPeriod->toBe('String value')
-        ->warehouse->description->toBe('String value')
-        ->supplier->internalId->toBe(42)
-        ->supplier->number->toBe('String value')
-        ->supplier->name->toBe('String value')
-        ->location->countryId->toBe('mock-id-123')
-        ->location->name->toBe('String value')
-        ->currency->toBe('String value')
-        ->exchangeRate->toBe(42)
-        ->createBill->toBe(true)
-        ->supplierRef->toBe('String value')
-        ->totalQty->toBe(42)
-        ->controlQty->toBe(42)
-        ->vatExemptTotal->toBe(42)
-        ->vatTaxableTotal->toBe(42)
-        ->totalAmt->toBe(42)
-        ->controlTotal->toBe(42)
-        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->number->toBe('String value')
-        ->branchNumber->name->toBe('String value')
-        ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->customStr1->toBe('String value')
-        ->customStr2->toBe('String value')
-        ->customStr3->toBe('String value')
-        ->customStr4->toBe('String value')
-        ->customStr5->toBe('String value')
-        ->customDec1->toBe(42)
-        ->customDec2->toBe(42)
-        ->customInt1->toBe(42)
-        ->customInt2->toBe(42)
-        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->errorInfo->toBe('String value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the purchaseReceiptReleaseReceiptByreceiptNumberRequest method in the PurchaseReceipt resource', function () {

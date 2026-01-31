@@ -1,7 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\ChangeEmployeeNrActionDto;
-use Pionect\VismaSdk\Dto\EmployeeCreateDTO;
+use Pionect\VismaSdk\Dto\EmployeeCreateDto;
 use Pionect\VismaSdk\Dto\EmployeeUpdateDto;
 use Pionect\VismaSdk\Requests\Employee\EmployeeChangeEmployeeNrActionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeCreateEmployeeRequest;
@@ -344,7 +344,7 @@ it('calls the employeeGetAllEmployeesRequest method in the Employee resource', f
 });
 
 it('calls the employeeCreateEmployeeRequest method in the Employee resource', function () {
-    $bodyData = new EmployeeCreateDTO(
+    $bodyData = new EmployeeCreateDto(
         employeeCd: 'String value',
         department: 'String value',
         employeeClass: 'String value',

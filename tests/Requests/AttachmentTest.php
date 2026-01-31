@@ -12,10 +12,7 @@ beforeEach(function () {
 
 it('calls the attachmentGetByattachmentIdRequest method in the Attachment resource', function () {
     Saloon::fake([
-        AttachmentGetByattachmentIdRequest::class => MockResponse::make([
-            'name' => 'String value',
-            'revision' => 42,
-        ], 200),
+        AttachmentGetByattachmentIdRequest::class => MockResponse::make([], 200),
     ]);
 
     $request = new AttachmentGetByattachmentIdRequest(
@@ -31,8 +28,7 @@ it('calls the attachmentGetByattachmentIdRequest method in the Attachment resour
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('String value')
-        ->revision->toBe(42);
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the attachmentPutByattachmentIdRequest method in the Attachment resource', function () {

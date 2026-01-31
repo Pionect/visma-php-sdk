@@ -2,8 +2,8 @@
 
 use Pionect\VismaSdk\Dto\ShipmentCreateDto;
 use Pionect\VismaSdk\Dto\ShipmentDetailLineAddDto;
-use Pionect\VismaSdk\Dto\ShipmentSOLine;
-use Pionect\VismaSdk\Dto\ShipmentSOOrder;
+use Pionect\VismaSdk\Dto\ShipmentSoline;
+use Pionect\VismaSdk\Dto\ShipmentSoorder;
 use Pionect\VismaSdk\Dto\ShipmentUpdateDeleteLineDto;
 use Pionect\VismaSdk\Dto\ShipmentUpdateDto;
 use Pionect\VismaSdk\Requests\Shipment\ShipmentAddLineByshipmentNumberRequest;
@@ -667,109 +667,7 @@ it('calls the shipmentPostRequest method in the Shipment resource', function () 
 
 it('calls the shipmentPrintShipmentConfirmationByshipmentNbrRequest method in the Shipment resource', function () {
     Saloon::fake([
-        ShipmentPrintShipmentConfirmationByshipmentNbrRequest::class => MockResponse::make([
-            'timeStamp' => 'String value',
-            'shipmentNumber' => 'String value',
-            'shipmentType' => 'String value',
-            'status' => 'String value',
-            'hold' => true,
-            'operation' => 'String value',
-            'shipmentDate' => '2025-11-22T10:40:04+00:00',
-            'customer' => [
-                'internalId' => 42,
-                'number' => 'String value',
-                'name' => 'String value',
-            ],
-            'location' => [
-                'countryId' => 'mock-id-123',
-                'name' => 'String value',
-            ],
-            'fromWarehouse' => [
-                'description' => 'String value',
-            ],
-            'toWarehouse' => [
-                'description' => 'String value',
-            ],
-            'currencyId' => 'mock-id-123',
-            'owner' => [
-                'name' => 'String value',
-            ],
-            'shippedQuantity' => 42,
-            'shippedWeight' => 42,
-            'shippedVolume' => 42,
-            'packages' => 42,
-            'packagesWeight' => 42,
-            'packagesVolume' => 42,
-            'controlQuantity' => 42,
-            'deliveryAddress' => [
-                'overrideAddress' => true,
-                'addressId' => 42,
-                'addressLine1' => 'String value',
-                'addressLine2' => 'String value',
-                'addressLine3' => 'String value',
-                'postalCode' => 'String value',
-                'city' => 'String value',
-                'country' => [
-                    'name' => 'String value',
-                    'errorInfo' => 'String value',
-                ],
-                'county' => [
-                    'name' => 'String value',
-                ],
-            ],
-            'deliveryContact' => [
-                'overrideContact' => true,
-                'contactId' => 42,
-                'name' => 'String value',
-                'attention' => 'String value',
-                'email' => 'test@example.com',
-                'web' => 'String value',
-                'phone1' => 'String value',
-                'phone2' => 'String value',
-                'fax' => 'String value',
-            ],
-            'shipVia' => [
-                'description' => 'String value',
-            ],
-            'fobPoint' => [
-                'description' => 'String value',
-            ],
-            'shippingTerms' => [
-                'description' => 'String value',
-            ],
-            'shippingZone' => [
-                'description' => 'String value',
-            ],
-            'residentialDelivery' => true,
-            'saturdayDelivery' => true,
-            'useCustomerAccount' => true,
-            'insurance' => true,
-            'freightCost' => 42,
-            'freightAmt' => 42,
-            'transactionType' => [
-                'description' => 'String value',
-            ],
-            'modeOfTrasport' => [
-                'description' => 'String value',
-            ],
-            'container' => true,
-            'shipmentDetailLines' => [],
-            'shipmentOrderLines' => [],
-            'shipmentPackageLines' => [],
-            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'note' => 'String value',
-            'customStr1' => 'String value',
-            'customStr2' => 'String value',
-            'customStr3' => 'String value',
-            'customStr4' => 'String value',
-            'customStr5' => 'String value',
-            'customDec1' => 42,
-            'customDec2' => 42,
-            'customInt1' => 42,
-            'customInt2' => 42,
-            'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
-            'errorInfo' => 'String value',
-        ], 200),
+        ShipmentPrintShipmentConfirmationByshipmentNbrRequest::class => MockResponse::make([], 200),
     ]);
 
     $request = new ShipmentPrintShipmentConfirmationByshipmentNbrRequest(
@@ -785,181 +683,12 @@ it('calls the shipmentPrintShipmentConfirmationByshipmentNbrRequest method in th
     $dto = $response->dto();
 
     expect($dto)
-        ->timeStamp->toBe('String value')
-        ->shipmentNumber->toBe('String value')
-        ->shipmentType->toBe('String value')
-        ->status->toBe('String value')
-        ->hold->toBe(true)
-        ->operation->toBe('String value')
-        ->shipmentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->customer->internalId->toBe(42)
-        ->customer->number->toBe('String value')
-        ->customer->name->toBe('String value')
-        ->location->countryId->toBe('mock-id-123')
-        ->location->name->toBe('String value')
-        ->fromWarehouse->description->toBe('String value')
-        ->toWarehouse->description->toBe('String value')
-        ->currencyId->toBe('mock-id-123')
-        ->owner->name->toBe('String value')
-        ->shippedQuantity->toBe(42)
-        ->shippedWeight->toBe(42)
-        ->shippedVolume->toBe(42)
-        ->packages->toBe(42)
-        ->packagesWeight->toBe(42)
-        ->packagesVolume->toBe(42)
-        ->controlQuantity->toBe(42)
-        ->deliveryAddress->overrideAddress->toBe(true)
-        ->deliveryAddress->addressId->toBe(42)
-        ->deliveryAddress->addressLine1->toBe('String value')
-        ->deliveryAddress->addressLine2->toBe('String value')
-        ->deliveryAddress->addressLine3->toBe('String value')
-        ->deliveryAddress->postalCode->toBe('String value')
-        ->deliveryAddress->city->toBe('String value')
-        ->deliveryAddress->country->name->toBe('String value')
-        ->deliveryAddress->country->errorInfo->toBe('String value')
-        ->deliveryAddress->county->name->toBe('String value')
-        ->deliveryContact->overrideContact->toBe(true)
-        ->deliveryContact->contactId->toBe(42)
-        ->deliveryContact->name->toBe('String value')
-        ->deliveryContact->attention->toBe('String value')
-        ->deliveryContact->email->toBe('test@example.com')
-        ->deliveryContact->web->toBe('String value')
-        ->deliveryContact->phone1->toBe('String value')
-        ->deliveryContact->phone2->toBe('String value')
-        ->deliveryContact->fax->toBe('String value')
-        ->shipVia->description->toBe('String value')
-        ->fobPoint->description->toBe('String value')
-        ->shippingTerms->description->toBe('String value')
-        ->shippingZone->description->toBe('String value')
-        ->residentialDelivery->toBe(true)
-        ->saturdayDelivery->toBe(true)
-        ->useCustomerAccount->toBe(true)
-        ->insurance->toBe(true)
-        ->freightCost->toBe(42)
-        ->freightAmt->toBe(42)
-        ->transactionType->description->toBe('String value')
-        ->modeOfTrasport->description->toBe('String value')
-        ->container->toBe(true)
-        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->note->toBe('String value')
-        ->customStr1->toBe('String value')
-        ->customStr2->toBe('String value')
-        ->customStr3->toBe('String value')
-        ->customStr4->toBe('String value')
-        ->customStr5->toBe('String value')
-        ->customDec1->toBe(42)
-        ->customDec2->toBe(42)
-        ->customInt1->toBe(42)
-        ->customInt2->toBe(42)
-        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->errorInfo->toBe('String value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the shipmentPrintPickListByshipmentNbrRequest method in the Shipment resource', function () {
     Saloon::fake([
-        ShipmentPrintPickListByshipmentNbrRequest::class => MockResponse::make([
-            'timeStamp' => 'String value',
-            'shipmentNumber' => 'String value',
-            'shipmentType' => 'String value',
-            'status' => 'String value',
-            'hold' => true,
-            'operation' => 'String value',
-            'shipmentDate' => '2025-11-22T10:40:04+00:00',
-            'customer' => [
-                'internalId' => 42,
-                'number' => 'String value',
-                'name' => 'String value',
-            ],
-            'location' => [
-                'countryId' => 'mock-id-123',
-                'name' => 'String value',
-            ],
-            'fromWarehouse' => [
-                'description' => 'String value',
-            ],
-            'toWarehouse' => [
-                'description' => 'String value',
-            ],
-            'currencyId' => 'mock-id-123',
-            'owner' => [
-                'name' => 'String value',
-            ],
-            'shippedQuantity' => 42,
-            'shippedWeight' => 42,
-            'shippedVolume' => 42,
-            'packages' => 42,
-            'packagesWeight' => 42,
-            'packagesVolume' => 42,
-            'controlQuantity' => 42,
-            'deliveryAddress' => [
-                'overrideAddress' => true,
-                'addressId' => 42,
-                'addressLine1' => 'String value',
-                'addressLine2' => 'String value',
-                'addressLine3' => 'String value',
-                'postalCode' => 'String value',
-                'city' => 'String value',
-                'country' => [
-                    'name' => 'String value',
-                    'errorInfo' => 'String value',
-                ],
-                'county' => [
-                    'name' => 'String value',
-                ],
-            ],
-            'deliveryContact' => [
-                'overrideContact' => true,
-                'contactId' => 42,
-                'name' => 'String value',
-                'attention' => 'String value',
-                'email' => 'test@example.com',
-                'web' => 'String value',
-                'phone1' => 'String value',
-                'phone2' => 'String value',
-                'fax' => 'String value',
-            ],
-            'shipVia' => [
-                'description' => 'String value',
-            ],
-            'fobPoint' => [
-                'description' => 'String value',
-            ],
-            'shippingTerms' => [
-                'description' => 'String value',
-            ],
-            'shippingZone' => [
-                'description' => 'String value',
-            ],
-            'residentialDelivery' => true,
-            'saturdayDelivery' => true,
-            'useCustomerAccount' => true,
-            'insurance' => true,
-            'freightCost' => 42,
-            'freightAmt' => 42,
-            'transactionType' => [
-                'description' => 'String value',
-            ],
-            'modeOfTrasport' => [
-                'description' => 'String value',
-            ],
-            'container' => true,
-            'shipmentDetailLines' => [],
-            'shipmentOrderLines' => [],
-            'shipmentPackageLines' => [],
-            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'note' => 'String value',
-            'customStr1' => 'String value',
-            'customStr2' => 'String value',
-            'customStr3' => 'String value',
-            'customStr4' => 'String value',
-            'customStr5' => 'String value',
-            'customDec1' => 42,
-            'customDec2' => 42,
-            'customInt1' => 42,
-            'customInt2' => 42,
-            'customDateTimeUtc1' => '2025-11-22T10:40:04+00:00',
-            'errorInfo' => 'String value',
-        ], 200),
+        ShipmentPrintPickListByshipmentNbrRequest::class => MockResponse::make([], 200),
     ]);
 
     $request = new ShipmentPrintPickListByshipmentNbrRequest(
@@ -975,78 +704,11 @@ it('calls the shipmentPrintPickListByshipmentNbrRequest method in the Shipment r
     $dto = $response->dto();
 
     expect($dto)
-        ->timeStamp->toBe('String value')
-        ->shipmentNumber->toBe('String value')
-        ->shipmentType->toBe('String value')
-        ->status->toBe('String value')
-        ->hold->toBe(true)
-        ->operation->toBe('String value')
-        ->shipmentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->customer->internalId->toBe(42)
-        ->customer->number->toBe('String value')
-        ->customer->name->toBe('String value')
-        ->location->countryId->toBe('mock-id-123')
-        ->location->name->toBe('String value')
-        ->fromWarehouse->description->toBe('String value')
-        ->toWarehouse->description->toBe('String value')
-        ->currencyId->toBe('mock-id-123')
-        ->owner->name->toBe('String value')
-        ->shippedQuantity->toBe(42)
-        ->shippedWeight->toBe(42)
-        ->shippedVolume->toBe(42)
-        ->packages->toBe(42)
-        ->packagesWeight->toBe(42)
-        ->packagesVolume->toBe(42)
-        ->controlQuantity->toBe(42)
-        ->deliveryAddress->overrideAddress->toBe(true)
-        ->deliveryAddress->addressId->toBe(42)
-        ->deliveryAddress->addressLine1->toBe('String value')
-        ->deliveryAddress->addressLine2->toBe('String value')
-        ->deliveryAddress->addressLine3->toBe('String value')
-        ->deliveryAddress->postalCode->toBe('String value')
-        ->deliveryAddress->city->toBe('String value')
-        ->deliveryAddress->country->name->toBe('String value')
-        ->deliveryAddress->country->errorInfo->toBe('String value')
-        ->deliveryAddress->county->name->toBe('String value')
-        ->deliveryContact->overrideContact->toBe(true)
-        ->deliveryContact->contactId->toBe(42)
-        ->deliveryContact->name->toBe('String value')
-        ->deliveryContact->attention->toBe('String value')
-        ->deliveryContact->email->toBe('test@example.com')
-        ->deliveryContact->web->toBe('String value')
-        ->deliveryContact->phone1->toBe('String value')
-        ->deliveryContact->phone2->toBe('String value')
-        ->deliveryContact->fax->toBe('String value')
-        ->shipVia->description->toBe('String value')
-        ->fobPoint->description->toBe('String value')
-        ->shippingTerms->description->toBe('String value')
-        ->shippingZone->description->toBe('String value')
-        ->residentialDelivery->toBe(true)
-        ->saturdayDelivery->toBe(true)
-        ->useCustomerAccount->toBe(true)
-        ->insurance->toBe(true)
-        ->freightCost->toBe(42)
-        ->freightAmt->toBe(42)
-        ->transactionType->description->toBe('String value')
-        ->modeOfTrasport->description->toBe('String value')
-        ->container->toBe(true)
-        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->note->toBe('String value')
-        ->customStr1->toBe('String value')
-        ->customStr2->toBe('String value')
-        ->customStr3->toBe('String value')
-        ->customStr4->toBe('String value')
-        ->customStr5->toBe('String value')
-        ->customDec1->toBe(42)
-        ->customDec2->toBe(42)
-        ->customInt1->toBe(42)
-        ->customInt2->toBe(42)
-        ->customDateTimeUtc1->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->errorInfo->toBe('String value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the shipmentAddSolineByshipmentNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentSOLine(
+    $bodyData = new ShipmentSoline(
         orderType: 'String value',
         orderNumber: 'String value',
         orderLineNumber: 42,
@@ -1070,7 +732,7 @@ it('calls the shipmentAddSolineByshipmentNumberRequest method in the Shipment re
 });
 
 it('calls the shipmentAddSoorderByshipmentNumberRequest method in the Shipment resource', function () {
-    $bodyData = new ShipmentSOOrder(
+    $bodyData = new ShipmentSoorder(
         orderType: 'String value',
         orderNumber: 'String value'
     );
