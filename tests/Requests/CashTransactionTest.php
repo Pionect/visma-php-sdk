@@ -26,12 +26,22 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
             'tranDate' => '2025-11-22T10:40:04+00:00',
             'finPeriod' => 'String value',
             'financialPeriod' => 'String value',
-            'cashAccount' => null,
+            'cashAccount' => [
+                'type' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
             'currency' => 'String value',
-            'entryType' => null,
+            'entryType' => [
+                'description' => 'String value',
+            ],
             'disbReceipt' => 'String value',
             'documentRef' => 'String value',
-            'owner' => null,
+            'owner' => [
+                'internalId' => 'mock-id-123',
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'description' => 'String value',
             'amount' => 42,
             'vatTaxableTotal' => 42,
@@ -42,7 +52,25 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'transactionDetails' => [],
             'taxDetails' => [],
-            'financialsDetail' => null,
+            'financialsDetail' => [
+                'batchNumber' => 'String value',
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'cleared' => true,
+                'clearDate' => '2025-11-22T10:40:04+00:00',
+                'taxZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
+                'taxCalcMode' => 'String value',
+            ],
             'timeStamp' => 'String value',
         ], 200),
     ]);
@@ -67,12 +95,16 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
         ->tranDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->finPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
-        ->cashAccount->toBeNull()
+        ->cashAccount->type->toBe('String value')
+        ->cashAccount->number->toBe('String value')
+        ->cashAccount->description->toBe('String value')
         ->currency->toBe('String value')
-        ->entryType->toBeNull()
+        ->entryType->description->toBe('String value')
         ->disbReceipt->toBe('String value')
         ->documentRef->toBe('String value')
-        ->owner->toBeNull()
+        ->owner->internalId->toBe('mock-id-123')
+        ->owner->number->toBe('String value')
+        ->owner->name->toBe('String value')
         ->description->toBe('String value')
         ->amount->toBe(42)
         ->vatTaxableTotal->toBe(42)
@@ -81,7 +113,17 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
         ->controlTotal->toBe(42)
         ->taxAmount->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->financialsDetail->toBeNull()
+        ->financialsDetail->batchNumber->toBe('String value')
+        ->financialsDetail->branch->number->toBe('String value')
+        ->financialsDetail->branch->name->toBe('String value')
+        ->financialsDetail->cleared->toBe(true)
+        ->financialsDetail->clearDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->financialsDetail->taxZone->description->toBe('String value')
+        ->financialsDetail->taxZone->defaultVatCategory->toBe('String value')
+        ->financialsDetail->taxZone->defaultTaxCategory->number->toBe('String value')
+        ->financialsDetail->taxZone->defaultTaxCategory->description->toBe('String value')
+        ->financialsDetail->taxZone->errorInfo->toBe('String value')
+        ->financialsDetail->taxCalcMode->toBe('String value')
         ->timeStamp->toBe('String value');
 });
 
@@ -90,8 +132,8 @@ it('calls the cashTransactionPutByreferenceNbrRequest method in the CashTransact
         referenceNumber: 'String value',
         hold: true,
         tranDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
-        finanacialPeriod: null,
-        financialPeriod: null,
+        finanacialPeriod: 'String value',
+        financialPeriod: 'String value',
         description: 'String value',
         cashAccount: 'String value',
         entryType: 'String value',
@@ -133,12 +175,22 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
                 'tranDate' => '2025-11-22T10:40:04+00:00',
                 'finPeriod' => 'String value',
                 'financialPeriod' => 'String value',
-                'cashAccount' => null,
+                'cashAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'currency' => 'String value',
-                'entryType' => null,
+                'entryType' => [
+                    'description' => 'String value',
+                ],
                 'disbReceipt' => 'String value',
                 'documentRef' => 'String value',
-                'owner' => null,
+                'owner' => [
+                    'internalId' => 'mock-id-123',
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'description' => 'String value',
                 'amount' => 42,
                 'vatTaxableTotal' => 42,
@@ -149,7 +201,25 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'transactionDetails' => [],
                 'taxDetails' => [],
-                'financialsDetail' => null,
+                'financialsDetail' => [
+                    'batchNumber' => 'String value',
+                    'branch' => [
+                        'number' => 'String value',
+                        'name' => 'String value',
+                    ],
+                    'cleared' => true,
+                    'clearDate' => '2025-11-22T10:40:04+00:00',
+                    'taxZone' => [
+                        'description' => 'String value',
+                        'defaultVatCategory' => 'String value',
+                        'defaultTaxCategory' => [
+                            'number' => 'String value',
+                            'description' => 'String value',
+                        ],
+                        'errorInfo' => 'String value',
+                    ],
+                    'taxCalcMode' => 'String value',
+                ],
                 'timeStamp' => 'String value',
             ],
             1 => [
@@ -160,12 +230,22 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
                 'tranDate' => '2025-11-22T10:40:04+00:00',
                 'finPeriod' => 'String value',
                 'financialPeriod' => 'String value',
-                'cashAccount' => null,
+                'cashAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'currency' => 'String value',
-                'entryType' => null,
+                'entryType' => [
+                    'description' => 'String value',
+                ],
                 'disbReceipt' => 'String value',
                 'documentRef' => 'String value',
-                'owner' => null,
+                'owner' => [
+                    'internalId' => 'mock-id-123',
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'description' => 'String value',
                 'amount' => 42,
                 'vatTaxableTotal' => 42,
@@ -176,7 +256,25 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'transactionDetails' => [],
                 'taxDetails' => [],
-                'financialsDetail' => null,
+                'financialsDetail' => [
+                    'batchNumber' => 'String value',
+                    'branch' => [
+                        'number' => 'String value',
+                        'name' => 'String value',
+                    ],
+                    'cleared' => true,
+                    'clearDate' => '2025-11-22T10:40:04+00:00',
+                    'taxZone' => [
+                        'description' => 'String value',
+                        'defaultVatCategory' => 'String value',
+                        'defaultTaxCategory' => [
+                            'number' => 'String value',
+                            'description' => 'String value',
+                        ],
+                        'errorInfo' => 'String value',
+                    ],
+                    'taxCalcMode' => 'String value',
+                ],
                 'timeStamp' => 'String value',
             ],
         ], 200),
@@ -208,12 +306,16 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
         ->tranDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->finPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
-        ->cashAccount->toBeNull()
+        ->cashAccount->type->toBe('String value')
+        ->cashAccount->number->toBe('String value')
+        ->cashAccount->description->toBe('String value')
         ->currency->toBe('String value')
-        ->entryType->toBeNull()
+        ->entryType->description->toBe('String value')
         ->disbReceipt->toBe('String value')
         ->documentRef->toBe('String value')
-        ->owner->toBeNull()
+        ->owner->internalId->toBe('mock-id-123')
+        ->owner->number->toBe('String value')
+        ->owner->name->toBe('String value')
         ->description->toBe('String value')
         ->amount->toBe(42)
         ->vatTaxableTotal->toBe(42)
@@ -222,7 +324,17 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
         ->controlTotal->toBe(42)
         ->taxAmount->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->financialsDetail->toBeNull()
+        ->financialsDetail->batchNumber->toBe('String value')
+        ->financialsDetail->branch->number->toBe('String value')
+        ->financialsDetail->branch->name->toBe('String value')
+        ->financialsDetail->cleared->toBe(true)
+        ->financialsDetail->clearDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->financialsDetail->taxZone->description->toBe('String value')
+        ->financialsDetail->taxZone->defaultVatCategory->toBe('String value')
+        ->financialsDetail->taxZone->defaultTaxCategory->number->toBe('String value')
+        ->financialsDetail->taxZone->defaultTaxCategory->description->toBe('String value')
+        ->financialsDetail->taxZone->errorInfo->toBe('String value')
+        ->financialsDetail->taxCalcMode->toBe('String value')
         ->timeStamp->toBe('String value');
 });
 
@@ -231,8 +343,8 @@ it('calls the cashTransactionCreateCashTransactionRequest method in the CashTran
         referenceNumber: 'String value',
         hold: true,
         tranDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
-        finanacialPeriod: null,
-        financialPeriod: null,
+        finanacialPeriod: 'String value',
+        financialPeriod: 'String value',
         description: 'String value',
         cashAccount: 'String value',
         entryType: 'String value',

@@ -27,11 +27,24 @@ it('calls the supplierPaymentGetBypaymentNumberRequest method in the SupplierPay
             'applicationDate' => '2025-11-22T10:40:04+00:00',
             'applicationPeriod' => 'String value',
             'paymentRef' => 'String value',
-            'supplier' => null,
-            'location' => null,
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'paymentMethod' => 'String value',
             'cashAccount' => 'String value',
-            'currency' => null,
+            'currency' => [
+                'description' => 'String value',
+                'symbol' => 'String value',
+                'isBaseCurrency' => true,
+                'decimalPrecision' => 42,
+                'isUsedForAccounting' => true,
+            ],
             'description' => 'String value',
             'paymentAmount' => 42,
             'financeCharges' => 42,
@@ -68,11 +81,18 @@ it('calls the supplierPaymentGetBypaymentNumberRequest method in the SupplierPay
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
         ->paymentRef->toBe('String value')
-        ->supplier->toBeNull()
-        ->location->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->paymentMethod->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->currency->toBeNull()
+        ->currency->description->toBe('String value')
+        ->currency->symbol->toBe('String value')
+        ->currency->isBaseCurrency->toBe(true)
+        ->currency->decimalPrecision->toBe(42)
+        ->currency->isUsedForAccounting->toBe(true)
         ->description->toBe('String value')
         ->paymentAmount->toBe(42)
         ->financeCharges->toBe(42)
@@ -88,7 +108,7 @@ it('calls the supplierPaymentGetBypaymentNumberRequest method in the SupplierPay
 
 it('calls the supplierPaymentPutBypaymentNumberRequest method in the SupplierPayment resource', function () {
     $bodyData = new SupplierPaymentUpdateDto(
-        type: null,
+        type: 'String value',
         referenceNumber: 'String value',
         hold: true,
         applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -134,11 +154,24 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumberRequest method i
             'applicationDate' => '2025-11-22T10:40:04+00:00',
             'applicationPeriod' => 'String value',
             'paymentRef' => 'String value',
-            'supplier' => null,
-            'location' => null,
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'paymentMethod' => 'String value',
             'cashAccount' => 'String value',
-            'currency' => null,
+            'currency' => [
+                'description' => 'String value',
+                'symbol' => 'String value',
+                'isBaseCurrency' => true,
+                'decimalPrecision' => 42,
+                'isUsedForAccounting' => true,
+            ],
             'description' => 'String value',
             'paymentAmount' => 42,
             'financeCharges' => 42,
@@ -176,11 +209,18 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumberRequest method i
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
         ->paymentRef->toBe('String value')
-        ->supplier->toBeNull()
-        ->location->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->paymentMethod->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->currency->toBeNull()
+        ->currency->description->toBe('String value')
+        ->currency->symbol->toBe('String value')
+        ->currency->isBaseCurrency->toBe(true)
+        ->currency->decimalPrecision->toBe(42)
+        ->currency->isUsedForAccounting->toBe(true)
         ->description->toBe('String value')
         ->paymentAmount->toBe(42)
         ->financeCharges->toBe(42)
@@ -206,11 +246,24 @@ it('calls the supplierPaymentGetAllPaymentsRequest method in the SupplierPayment
                 'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
                 'paymentRef' => 'String value',
-                'supplier' => null,
-                'location' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'paymentMethod' => 'String value',
                 'cashAccount' => 'String value',
-                'currency' => null,
+                'currency' => [
+                    'description' => 'String value',
+                    'symbol' => 'String value',
+                    'isBaseCurrency' => true,
+                    'decimalPrecision' => 42,
+                    'isUsedForAccounting' => true,
+                ],
                 'description' => 'String value',
                 'paymentAmount' => 42,
                 'financeCharges' => 42,
@@ -233,11 +286,24 @@ it('calls the supplierPaymentGetAllPaymentsRequest method in the SupplierPayment
                 'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
                 'paymentRef' => 'String value',
-                'supplier' => null,
-                'location' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'paymentMethod' => 'String value',
                 'cashAccount' => 'String value',
-                'currency' => null,
+                'currency' => [
+                    'description' => 'String value',
+                    'symbol' => 'String value',
+                    'isBaseCurrency' => true,
+                    'decimalPrecision' => 42,
+                    'isUsedForAccounting' => true,
+                ],
                 'description' => 'String value',
                 'paymentAmount' => 42,
                 'financeCharges' => 42,
@@ -292,11 +358,18 @@ it('calls the supplierPaymentGetAllPaymentsRequest method in the SupplierPayment
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
         ->paymentRef->toBe('String value')
-        ->supplier->toBeNull()
-        ->location->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->paymentMethod->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->currency->toBeNull()
+        ->currency->description->toBe('String value')
+        ->currency->symbol->toBe('String value')
+        ->currency->isBaseCurrency->toBe(true)
+        ->currency->decimalPrecision->toBe(42)
+        ->currency->isUsedForAccounting->toBe(true)
         ->description->toBe('String value')
         ->paymentAmount->toBe(42)
         ->financeCharges->toBe(42)
@@ -312,7 +385,7 @@ it('calls the supplierPaymentGetAllPaymentsRequest method in the SupplierPayment
 
 it('calls the supplierPaymentCreateSupplierPaymentRequest method in the SupplierPayment resource', function () {
     $bodyData = new SupplierPaymentUpdateDto(
-        type: null,
+        type: 'String value',
         referenceNumber: 'String value',
         hold: true,
         applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),

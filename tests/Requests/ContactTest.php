@@ -24,7 +24,21 @@ it('calls the contactGetBycontactIdRequest method in the Contact resource', func
             'businessAccount' => 'String value',
             'businessAccountType' => 'String value',
             'sameAsAccount' => true,
-            'address' => null,
+            'address' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
             'email' => 'test@example.com',
             'web' => 'String value',
             'phone1' => 'String value',
@@ -67,7 +81,15 @@ it('calls the contactGetBycontactIdRequest method in the Contact resource', func
         ->businessAccount->toBe('String value')
         ->businessAccountType->toBe('String value')
         ->sameAsAccount->toBe(true)
-        ->address->toBeNull()
+        ->address->addressId->toBe(42)
+        ->address->addressLine1->toBe('String value')
+        ->address->addressLine2->toBe('String value')
+        ->address->addressLine3->toBe('String value')
+        ->address->postalCode->toBe('String value')
+        ->address->city->toBe('String value')
+        ->address->country->name->toBe('String value')
+        ->address->country->errorInfo->toBe('String value')
+        ->address->county->name->toBe('String value')
         ->email->toBe('test@example.com')
         ->web->toBe('String value')
         ->phone1->toBe('String value')
@@ -142,7 +164,21 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
                 'businessAccount' => 'String value',
                 'businessAccountType' => 'String value',
                 'sameAsAccount' => true,
-                'address' => null,
+                'address' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
                 'email' => 'test@example.com',
                 'web' => 'String value',
                 'phone1' => 'String value',
@@ -171,7 +207,21 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
                 'businessAccount' => 'String value',
                 'businessAccountType' => 'String value',
                 'sameAsAccount' => true,
-                'address' => null,
+                'address' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
                 'email' => 'test@example.com',
                 'web' => 'String value',
                 'phone1' => 'String value',
@@ -227,7 +277,15 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
         ->businessAccount->toBe('String value')
         ->businessAccountType->toBe('String value')
         ->sameAsAccount->toBe(true)
-        ->address->toBeNull()
+        ->address->addressId->toBe(42)
+        ->address->addressLine1->toBe('String value')
+        ->address->addressLine2->toBe('String value')
+        ->address->addressLine3->toBe('String value')
+        ->address->postalCode->toBe('String value')
+        ->address->city->toBe('String value')
+        ->address->country->name->toBe('String value')
+        ->address->country->errorInfo->toBe('String value')
+        ->address->county->name->toBe('String value')
         ->email->toBe('test@example.com')
         ->web->toBe('String value')
         ->phone1->toBe('String value')

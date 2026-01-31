@@ -12,12 +12,35 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
     Saloon::fake([
         SupplierDocumentGetAllDocumentsForSupplierRequest::class => MockResponse::make([
             0 => [
-                'account' => null,
-                'subaccount' => null,
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'amount' => 42,
                 'amountInCurrency' => 42,
-                'branch' => null,
-                'supplier' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -32,17 +55,25 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'supplierReference' => 'String value',
                 'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'payDate' => '2025-11-22T10:40:04+00:00',
                 'paymentMessage' => 'String value',
                 'cashAccount' => 'String value',
@@ -50,12 +81,35 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'account' => null,
-                'subaccount' => null,
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'amount' => 42,
                 'amountInCurrency' => 42,
-                'branch' => null,
-                'supplier' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -70,17 +124,25 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'supplierReference' => 'String value',
                 'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'payDate' => '2025-11-22T10:40:04+00:00',
                 'paymentMessage' => 'String value',
                 'cashAccount' => 'String value',
@@ -129,12 +191,26 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
-        ->branch->toBeNull()
-        ->supplier->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -149,17 +225,19 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->supplierReference->toBe('String value')
         ->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->payDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')

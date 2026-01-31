@@ -17,11 +17,28 @@ it('calls the projectTaskGetTaskByinternalIdRequest method in the ProjectTask re
         ProjectTaskGetTaskByinternalIdRequest::class => MockResponse::make([
             'internalId' => 42,
             'projectInternalId' => 42,
-            'defAccount' => null,
-            'defSub' => null,
-            'defAccrualAccount' => null,
-            'defAccrualSub' => null,
-            'taxCategory' => null,
+            'defAccount' => [
+                'type' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'defSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
+            'defAccrualAccount' => [
+                'type' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'defAccrualSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
+            'taxCategory' => [
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'taskId' => 'mock-id-123',
@@ -30,11 +47,27 @@ it('calls the projectTaskGetTaskByinternalIdRequest method in the ProjectTask re
             'plannedEnd' => '2025-11-22T10:40:04+00:00',
             'startDate' => '2025-11-22T10:40:04+00:00',
             'endDate' => '2025-11-22T10:40:04+00:00',
-            'branch' => null,
-            'rateTable' => null,
+            'branch' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'rateTable' => [
+                'description' => 'String value',
+            ],
             'status' => 'String value',
             'restrictEmployees' => true,
-            'visibility' => null,
+            'visibility' => [
+                'visibleInGl' => true,
+                'visibleInAp' => true,
+                'visibleInAr' => true,
+                'visibleInSo' => true,
+                'visibleInPo' => true,
+                'visibleInEa' => true,
+                'visibleInTa' => true,
+                'visibleInIn' => true,
+                'visibleInCa' => true,
+                'visibleInCr' => true,
+            ],
             'timeStamp' => 'String value',
             'employees' => [],
             'attributes' => [],
@@ -56,11 +89,18 @@ it('calls the projectTaskGetTaskByinternalIdRequest method in the ProjectTask re
     expect($dto)
         ->internalId->toBe(42)
         ->projectInternalId->toBe(42)
-        ->defAccount->toBeNull()
-        ->defSub->toBeNull()
-        ->defAccrualAccount->toBeNull()
-        ->defAccrualSub->toBeNull()
-        ->taxCategory->toBeNull()
+        ->defAccount->type->toBe('String value')
+        ->defAccount->number->toBe('String value')
+        ->defAccount->description->toBe('String value')
+        ->defSub->active->toBe(true)
+        ->defSub->description->toBe('String value')
+        ->defAccrualAccount->type->toBe('String value')
+        ->defAccrualAccount->number->toBe('String value')
+        ->defAccrualAccount->description->toBe('String value')
+        ->defAccrualSub->active->toBe(true)
+        ->defAccrualSub->description->toBe('String value')
+        ->taxCategory->number->toBe('String value')
+        ->taxCategory->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->taskId->toBe('mock-id-123')
@@ -69,11 +109,21 @@ it('calls the projectTaskGetTaskByinternalIdRequest method in the ProjectTask re
         ->plannedEnd->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branch->toBeNull()
-        ->rateTable->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->rateTable->description->toBe('String value')
         ->status->toBe('String value')
         ->restrictEmployees->toBe(true)
-        ->visibility->toBeNull()
+        ->visibility->visibleInGl->toBe(true)
+        ->visibility->visibleInAp->toBe(true)
+        ->visibility->visibleInAr->toBe(true)
+        ->visibility->visibleInSo->toBe(true)
+        ->visibility->visibleInPo->toBe(true)
+        ->visibility->visibleInEa->toBe(true)
+        ->visibility->visibleInTa->toBe(true)
+        ->visibility->visibleInIn->toBe(true)
+        ->visibility->visibleInCa->toBe(true)
+        ->visibility->visibleInCr->toBe(true)
         ->timeStamp->toBe('String value');
 });
 
@@ -86,7 +136,18 @@ it('calls the projectTaskPutByinternalIdRequest method in the ProjectTask resour
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rateTable: 'String value',
         status: 'String value',
-        visibility: null,
+        visibility: [
+            'visibleInGl' => true,
+            'visibleInAp' => true,
+            'visibleInAr' => true,
+            'visibleInSo' => true,
+            'visibleInPo' => true,
+            'visibleInEa' => true,
+            'visibleInTa' => true,
+            'visibleInIn' => true,
+            'visibleInCa' => true,
+            'visibleInCr' => true,
+        ],
         restrictEmployees: true,
         employees: []
     );
@@ -117,7 +178,18 @@ it('calls the projectTaskPostByinternalIdRequest method in the ProjectTask resou
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rateTable: 'String value',
         status: 'String value',
-        visibility: null,
+        visibility: [
+            'visibleInGl' => true,
+            'visibleInAp' => true,
+            'visibleInAr' => true,
+            'visibleInSo' => true,
+            'visibleInPo' => true,
+            'visibleInEa' => true,
+            'visibleInTa' => true,
+            'visibleInIn' => true,
+            'visibleInCa' => true,
+            'visibleInCr' => true,
+        ],
         restrictEmployees: true,
         employees: []
     );
@@ -144,11 +216,28 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
             0 => [
                 'internalId' => 42,
                 'projectInternalId' => 42,
-                'defAccount' => null,
-                'defSub' => null,
-                'defAccrualAccount' => null,
-                'defAccrualSub' => null,
-                'taxCategory' => null,
+                'defAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'defAccrualAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defAccrualSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'taxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'taskId' => 'mock-id-123',
@@ -157,11 +246,27 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
                 'plannedEnd' => '2025-11-22T10:40:04+00:00',
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
-                'branch' => null,
-                'rateTable' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'rateTable' => [
+                    'description' => 'String value',
+                ],
                 'status' => 'String value',
                 'restrictEmployees' => true,
-                'visibility' => null,
+                'visibility' => [
+                    'visibleInGl' => true,
+                    'visibleInAp' => true,
+                    'visibleInAr' => true,
+                    'visibleInSo' => true,
+                    'visibleInPo' => true,
+                    'visibleInEa' => true,
+                    'visibleInTa' => true,
+                    'visibleInIn' => true,
+                    'visibleInCa' => true,
+                    'visibleInCr' => true,
+                ],
                 'timeStamp' => 'String value',
                 'employees' => [],
                 'attributes' => [],
@@ -169,11 +274,28 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
             1 => [
                 'internalId' => 42,
                 'projectInternalId' => 42,
-                'defAccount' => null,
-                'defSub' => null,
-                'defAccrualAccount' => null,
-                'defAccrualSub' => null,
-                'taxCategory' => null,
+                'defAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'defAccrualAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defAccrualSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'taxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'taskId' => 'mock-id-123',
@@ -182,11 +304,27 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
                 'plannedEnd' => '2025-11-22T10:40:04+00:00',
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
-                'branch' => null,
-                'rateTable' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'rateTable' => [
+                    'description' => 'String value',
+                ],
                 'status' => 'String value',
                 'restrictEmployees' => true,
-                'visibility' => null,
+                'visibility' => [
+                    'visibleInGl' => true,
+                    'visibleInAp' => true,
+                    'visibleInAr' => true,
+                    'visibleInSo' => true,
+                    'visibleInPo' => true,
+                    'visibleInEa' => true,
+                    'visibleInTa' => true,
+                    'visibleInIn' => true,
+                    'visibleInCa' => true,
+                    'visibleInCr' => true,
+                ],
                 'timeStamp' => 'String value',
                 'employees' => [],
                 'attributes' => [],
@@ -238,11 +376,18 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
     expect($collection->first())
         ->internalId->toBe(42)
         ->projectInternalId->toBe(42)
-        ->defAccount->toBeNull()
-        ->defSub->toBeNull()
-        ->defAccrualAccount->toBeNull()
-        ->defAccrualSub->toBeNull()
-        ->taxCategory->toBeNull()
+        ->defAccount->type->toBe('String value')
+        ->defAccount->number->toBe('String value')
+        ->defAccount->description->toBe('String value')
+        ->defSub->active->toBe(true)
+        ->defSub->description->toBe('String value')
+        ->defAccrualAccount->type->toBe('String value')
+        ->defAccrualAccount->number->toBe('String value')
+        ->defAccrualAccount->description->toBe('String value')
+        ->defAccrualSub->active->toBe(true)
+        ->defAccrualSub->description->toBe('String value')
+        ->taxCategory->number->toBe('String value')
+        ->taxCategory->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->taskId->toBe('mock-id-123')
@@ -251,10 +396,20 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
         ->plannedEnd->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branch->toBeNull()
-        ->rateTable->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->rateTable->description->toBe('String value')
         ->status->toBe('String value')
         ->restrictEmployees->toBe(true)
-        ->visibility->toBeNull()
+        ->visibility->visibleInGl->toBe(true)
+        ->visibility->visibleInAp->toBe(true)
+        ->visibility->visibleInAr->toBe(true)
+        ->visibility->visibleInSo->toBe(true)
+        ->visibility->visibleInPo->toBe(true)
+        ->visibility->visibleInEa->toBe(true)
+        ->visibility->visibleInTa->toBe(true)
+        ->visibility->visibleInIn->toBe(true)
+        ->visibility->visibleInCa->toBe(true)
+        ->visibility->visibleInCr->toBe(true)
         ->timeStamp->toBe('String value');
 });

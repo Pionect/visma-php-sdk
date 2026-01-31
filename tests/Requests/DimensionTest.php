@@ -17,12 +17,8 @@ beforeEach(function () {
 it('calls the dimensionGetDimensionListRequest method in the Dimension resource', function () {
     Saloon::fake([
         DimensionGetDimensionListRequest::class => MockResponse::make([
-            0 => [
-                'name' => 'Mock value',
-            ],
-            1 => [
-                'name' => 'Mock value',
-            ],
+            0 => [],
+            1 => [],
         ], 200),
     ]);
 
@@ -39,7 +35,7 @@ it('calls the dimensionGetDimensionListRequest method in the Dimension resource'
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the dimensionGetDimensionBydimensionIdRequest method in the Dimension resource', function () {

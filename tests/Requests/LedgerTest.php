@@ -18,7 +18,10 @@ it('calls the ledgerGetAllLedgersRequest method in the Ledger resource', functio
                 'balanceType' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'consolidationSource' => true,
-                'consolBranch' => null,
+                'consolBranch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'branchAccounting' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'postInterCompany' => true,
@@ -30,7 +33,10 @@ it('calls the ledgerGetAllLedgersRequest method in the Ledger resource', functio
                 'balanceType' => 'String value',
                 'currencyId' => 'mock-id-123',
                 'consolidationSource' => true,
-                'consolBranch' => null,
+                'consolBranch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'branchAccounting' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'postInterCompany' => true,
@@ -62,7 +68,8 @@ it('calls the ledgerGetAllLedgersRequest method in the Ledger resource', functio
         ->balanceType->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->consolidationSource->toBe(true)
-        ->consolBranch->toBeNull()
+        ->consolBranch->number->toBe('String value')
+        ->consolBranch->name->toBe('String value')
         ->branchAccounting->toBe(true)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postInterCompany->toBe(true);

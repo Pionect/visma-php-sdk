@@ -18,28 +18,54 @@ it('calls the budgetGetAllRequest method in the Budget resource', function () {
                 'financialYear' => 'String value',
                 'released' => true,
                 'releasedAmount' => 42,
-                'account' => null,
-                'subaccount' => null,
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'description' => 'String value',
                 'amount' => 42,
                 'distributedAmount' => 42,
                 'periods' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'timeStamp' => 'String value',
             ],
             1 => [
                 'financialYear' => 'String value',
                 'released' => true,
                 'releasedAmount' => 42,
-                'account' => null,
-                'subaccount' => null,
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'description' => 'String value',
                 'amount' => 42,
                 'distributedAmount' => 42,
                 'periods' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'timeStamp' => 'String value',
             ],
         ], 200),
@@ -72,13 +98,20 @@ it('calls the budgetGetAllRequest method in the Budget resource', function () {
         ->financialYear->toBe('String value')
         ->released->toBe(true)
         ->releasedAmount->toBe(42)
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->active->toBe(true)
+        ->subaccount->description->toBe('String value')
         ->description->toBe('String value')
         ->amount->toBe(42)
         ->distributedAmount->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->timeStamp->toBe('String value');
 });
 

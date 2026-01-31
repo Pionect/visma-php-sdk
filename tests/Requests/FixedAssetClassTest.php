@@ -21,8 +21,30 @@ it('calls the fixedAssetClassGetByClassIdRequest method in the FixedAssetClass r
             'depreciable' => true,
             'usefulLife' => 42,
             'acceleratedDepreciation' => true,
-            'bookSettings' => null,
-            'accounts' => null,
+            'bookSettings' => [
+                'bookId' => 'mock-id-123',
+                'depreciationMethodId' => 'mock-id-123',
+            ],
+            'accounts' => [
+                'accountId' => 'mock-id-123',
+                'subAccountId' => 'mock-id-123',
+                'accrualAccountId' => 'mock-id-123',
+                'accrualSubAccountId' => 'mock-id-123',
+                'accumulatedDepreciationAccountId' => 'mock-id-123',
+                'accumulatedDepreciationSubAccountId' => 'mock-id-123',
+                'depreciatedExpenseAccountId' => 'mock-id-123',
+                'depreciatedExpenseSubAccountId' => 'mock-id-123',
+                'disposalAccountId' => 'mock-id-123',
+                'disposalSubAccountId' => 'mock-id-123',
+                'gainAccountId' => 'mock-id-123',
+                'gainSubAccountId' => 'mock-id-123',
+                'lossAccountId' => 'mock-id-123',
+                'lossSubAccountId' => 'mock-id-123',
+                'debitAccountId' => 'mock-id-123',
+                'debitSubAccountId' => 'mock-id-123',
+                'creditAccountId' => 'mock-id-123',
+                'creditSubAccountId' => 'mock-id-123',
+            ],
             'subAccountMask' => 'String value',
             'accumulatedDepreciationSubAccountMask' => 'String value',
             'depreciatedExpenseSubAccountMask' => 'String value',
@@ -54,8 +76,26 @@ it('calls the fixedAssetClassGetByClassIdRequest method in the FixedAssetClass r
         ->depreciable->toBe(true)
         ->usefulLife->toBe(42)
         ->acceleratedDepreciation->toBe(true)
-        ->bookSettings->toBeNull()
-        ->accounts->toBeNull()
+        ->bookSettings->bookId->toBe('mock-id-123')
+        ->bookSettings->depreciationMethodId->toBe('mock-id-123')
+        ->accounts->accountId->toBe('mock-id-123')
+        ->accounts->subAccountId->toBe('mock-id-123')
+        ->accounts->accrualAccountId->toBe('mock-id-123')
+        ->accounts->accrualSubAccountId->toBe('mock-id-123')
+        ->accounts->accumulatedDepreciationAccountId->toBe('mock-id-123')
+        ->accounts->accumulatedDepreciationSubAccountId->toBe('mock-id-123')
+        ->accounts->depreciatedExpenseAccountId->toBe('mock-id-123')
+        ->accounts->depreciatedExpenseSubAccountId->toBe('mock-id-123')
+        ->accounts->disposalAccountId->toBe('mock-id-123')
+        ->accounts->disposalSubAccountId->toBe('mock-id-123')
+        ->accounts->gainAccountId->toBe('mock-id-123')
+        ->accounts->gainSubAccountId->toBe('mock-id-123')
+        ->accounts->lossAccountId->toBe('mock-id-123')
+        ->accounts->lossSubAccountId->toBe('mock-id-123')
+        ->accounts->debitAccountId->toBe('mock-id-123')
+        ->accounts->debitSubAccountId->toBe('mock-id-123')
+        ->accounts->creditAccountId->toBe('mock-id-123')
+        ->accounts->creditSubAccountId->toBe('mock-id-123')
         ->subAccountMask->toBe('String value')
         ->accumulatedDepreciationSubAccountMask->toBe('String value')
         ->depreciatedExpenseSubAccountMask->toBe('String value')
@@ -77,8 +117,30 @@ it('calls the fixedAssetClassGetAllRequest method in the FixedAssetClass resourc
                 'depreciable' => true,
                 'usefulLife' => 42,
                 'acceleratedDepreciation' => true,
-                'bookSettings' => null,
-                'accounts' => null,
+                'bookSettings' => [
+                    'bookId' => 'mock-id-123',
+                    'depreciationMethodId' => 'mock-id-123',
+                ],
+                'accounts' => [
+                    'accountId' => 'mock-id-123',
+                    'subAccountId' => 'mock-id-123',
+                    'accrualAccountId' => 'mock-id-123',
+                    'accrualSubAccountId' => 'mock-id-123',
+                    'accumulatedDepreciationAccountId' => 'mock-id-123',
+                    'accumulatedDepreciationSubAccountId' => 'mock-id-123',
+                    'depreciatedExpenseAccountId' => 'mock-id-123',
+                    'depreciatedExpenseSubAccountId' => 'mock-id-123',
+                    'disposalAccountId' => 'mock-id-123',
+                    'disposalSubAccountId' => 'mock-id-123',
+                    'gainAccountId' => 'mock-id-123',
+                    'gainSubAccountId' => 'mock-id-123',
+                    'lossAccountId' => 'mock-id-123',
+                    'lossSubAccountId' => 'mock-id-123',
+                    'debitAccountId' => 'mock-id-123',
+                    'debitSubAccountId' => 'mock-id-123',
+                    'creditAccountId' => 'mock-id-123',
+                    'creditSubAccountId' => 'mock-id-123',
+                ],
                 'subAccountMask' => 'String value',
                 'accumulatedDepreciationSubAccountMask' => 'String value',
                 'depreciatedExpenseSubAccountMask' => 'String value',
@@ -96,8 +158,30 @@ it('calls the fixedAssetClassGetAllRequest method in the FixedAssetClass resourc
                 'depreciable' => true,
                 'usefulLife' => 42,
                 'acceleratedDepreciation' => true,
-                'bookSettings' => null,
-                'accounts' => null,
+                'bookSettings' => [
+                    'bookId' => 'mock-id-123',
+                    'depreciationMethodId' => 'mock-id-123',
+                ],
+                'accounts' => [
+                    'accountId' => 'mock-id-123',
+                    'subAccountId' => 'mock-id-123',
+                    'accrualAccountId' => 'mock-id-123',
+                    'accrualSubAccountId' => 'mock-id-123',
+                    'accumulatedDepreciationAccountId' => 'mock-id-123',
+                    'accumulatedDepreciationSubAccountId' => 'mock-id-123',
+                    'depreciatedExpenseAccountId' => 'mock-id-123',
+                    'depreciatedExpenseSubAccountId' => 'mock-id-123',
+                    'disposalAccountId' => 'mock-id-123',
+                    'disposalSubAccountId' => 'mock-id-123',
+                    'gainAccountId' => 'mock-id-123',
+                    'gainSubAccountId' => 'mock-id-123',
+                    'lossAccountId' => 'mock-id-123',
+                    'lossSubAccountId' => 'mock-id-123',
+                    'debitAccountId' => 'mock-id-123',
+                    'debitSubAccountId' => 'mock-id-123',
+                    'creditAccountId' => 'mock-id-123',
+                    'creditSubAccountId' => 'mock-id-123',
+                ],
                 'subAccountMask' => 'String value',
                 'accumulatedDepreciationSubAccountMask' => 'String value',
                 'depreciatedExpenseSubAccountMask' => 'String value',
@@ -133,8 +217,26 @@ it('calls the fixedAssetClassGetAllRequest method in the FixedAssetClass resourc
         ->depreciable->toBe(true)
         ->usefulLife->toBe(42)
         ->acceleratedDepreciation->toBe(true)
-        ->bookSettings->toBeNull()
-        ->accounts->toBeNull()
+        ->bookSettings->bookId->toBe('mock-id-123')
+        ->bookSettings->depreciationMethodId->toBe('mock-id-123')
+        ->accounts->accountId->toBe('mock-id-123')
+        ->accounts->subAccountId->toBe('mock-id-123')
+        ->accounts->accrualAccountId->toBe('mock-id-123')
+        ->accounts->accrualSubAccountId->toBe('mock-id-123')
+        ->accounts->accumulatedDepreciationAccountId->toBe('mock-id-123')
+        ->accounts->accumulatedDepreciationSubAccountId->toBe('mock-id-123')
+        ->accounts->depreciatedExpenseAccountId->toBe('mock-id-123')
+        ->accounts->depreciatedExpenseSubAccountId->toBe('mock-id-123')
+        ->accounts->disposalAccountId->toBe('mock-id-123')
+        ->accounts->disposalSubAccountId->toBe('mock-id-123')
+        ->accounts->gainAccountId->toBe('mock-id-123')
+        ->accounts->gainSubAccountId->toBe('mock-id-123')
+        ->accounts->lossAccountId->toBe('mock-id-123')
+        ->accounts->lossSubAccountId->toBe('mock-id-123')
+        ->accounts->debitAccountId->toBe('mock-id-123')
+        ->accounts->debitSubAccountId->toBe('mock-id-123')
+        ->accounts->creditAccountId->toBe('mock-id-123')
+        ->accounts->creditSubAccountId->toBe('mock-id-123')
         ->subAccountMask->toBe('String value')
         ->accumulatedDepreciationSubAccountMask->toBe('String value')
         ->depreciatedExpenseSubAccountMask->toBe('String value')

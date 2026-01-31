@@ -11,12 +11,8 @@ beforeEach(function () {
 it('calls the creditTermGetCreditTermsRequest method in the CreditTerm resource', function () {
     Saloon::fake([
         CreditTermGetCreditTermsRequest::class => MockResponse::make([
-            0 => [
-                'name' => 'Mock value',
-            ],
-            1 => [
-                'name' => 'Mock value',
-            ],
+            0 => [],
+            1 => [],
         ], 200),
     ]);
 
@@ -40,5 +36,5 @@ it('calls the creditTermGetCreditTermsRequest method in the CreditTerm resource'
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });

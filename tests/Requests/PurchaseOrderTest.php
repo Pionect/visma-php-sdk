@@ -18,18 +18,86 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
     Saloon::fake([
         PurchaseOrderGetOrderBypurchaseOrderNumberRequest::class => MockResponse::make([
             'shippingDestinationType' => 'String value',
-            'shipTo' => null,
-            'shippingLocation' => null,
-            'warehouse' => null,
-            'shippingContact' => null,
-            'shippingAddress' => null,
+            'shipTo' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'shippingLocation' => [
+                'name' => 'String value',
+            ],
+            'warehouse' => [
+                'description' => 'String value',
+            ],
+            'shippingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'shippingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
             'fobPoint' => 'String value',
             'shipVia' => 'String value',
             'shipTerms' => 'String value',
-            'remitContact' => null,
-            'remitAddress' => null,
-            'terms' => null,
-            'supplierVatZone' => null,
+            'remitContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'remitAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'terms' => [
+                'description' => 'String value',
+            ],
+            'supplierVatZone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
             'discountDetails' => [],
             'salesOrderType' => 'String value',
             'salesOrderNbr' => 'String value',
@@ -49,9 +117,17 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
             'date' => '2025-11-22T10:40:04+00:00',
             'promisedOn' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
-            'supplier' => null,
-            'location' => null,
-            'owner' => null,
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'location' => [
+                'name' => 'String value',
+            ],
+            'owner' => [
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'supplierRef' => 'String value',
             'exchangeRate' => 42,
@@ -65,7 +141,10 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
             'orderTotalInBaseCurrency' => 42,
             'controlTotal' => 42,
             'controlTotalInBaseCurrency' => 42,
-            'branch' => null,
+            'branch' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'lines' => [],
             'taxDetails' => [],
             'purchaseReceipts' => [],
@@ -101,18 +180,58 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
 
     expect($dto)
         ->shippingDestinationType->toBe('String value')
-        ->shipTo->toBeNull()
-        ->shippingLocation->toBeNull()
-        ->warehouse->toBeNull()
-        ->shippingContact->toBeNull()
-        ->shippingAddress->toBeNull()
+        ->shipTo->internalId->toBe(42)
+        ->shipTo->number->toBe('String value')
+        ->shipTo->name->toBe('String value')
+        ->shippingLocation->name->toBe('String value')
+        ->warehouse->description->toBe('String value')
+        ->shippingContact->overrideContact->toBe(true)
+        ->shippingContact->contactId->toBe(42)
+        ->shippingContact->name->toBe('String value')
+        ->shippingContact->attention->toBe('String value')
+        ->shippingContact->email->toBe('test@example.com')
+        ->shippingContact->web->toBe('String value')
+        ->shippingContact->phone1->toBe('String value')
+        ->shippingContact->phone2->toBe('String value')
+        ->shippingContact->fax->toBe('String value')
+        ->shippingAddress->overrideAddress->toBe(true)
+        ->shippingAddress->addressId->toBe(42)
+        ->shippingAddress->addressLine1->toBe('String value')
+        ->shippingAddress->addressLine2->toBe('String value')
+        ->shippingAddress->addressLine3->toBe('String value')
+        ->shippingAddress->postalCode->toBe('String value')
+        ->shippingAddress->city->toBe('String value')
+        ->shippingAddress->country->name->toBe('String value')
+        ->shippingAddress->country->errorInfo->toBe('String value')
+        ->shippingAddress->county->name->toBe('String value')
         ->fobPoint->toBe('String value')
         ->shipVia->toBe('String value')
         ->shipTerms->toBe('String value')
-        ->remitContact->toBeNull()
-        ->remitAddress->toBeNull()
-        ->terms->toBeNull()
-        ->supplierVatZone->toBeNull()
+        ->remitContact->overrideContact->toBe(true)
+        ->remitContact->contactId->toBe(42)
+        ->remitContact->name->toBe('String value')
+        ->remitContact->attention->toBe('String value')
+        ->remitContact->email->toBe('test@example.com')
+        ->remitContact->web->toBe('String value')
+        ->remitContact->phone1->toBe('String value')
+        ->remitContact->phone2->toBe('String value')
+        ->remitContact->fax->toBe('String value')
+        ->remitAddress->overrideAddress->toBe(true)
+        ->remitAddress->addressId->toBe(42)
+        ->remitAddress->addressLine1->toBe('String value')
+        ->remitAddress->addressLine2->toBe('String value')
+        ->remitAddress->addressLine3->toBe('String value')
+        ->remitAddress->postalCode->toBe('String value')
+        ->remitAddress->city->toBe('String value')
+        ->remitAddress->country->name->toBe('String value')
+        ->remitAddress->country->errorInfo->toBe('String value')
+        ->remitAddress->county->name->toBe('String value')
+        ->terms->description->toBe('String value')
+        ->supplierVatZone->description->toBe('String value')
+        ->supplierVatZone->defaultVatCategory->toBe('String value')
+        ->supplierVatZone->defaultTaxCategory->number->toBe('String value')
+        ->supplierVatZone->defaultTaxCategory->description->toBe('String value')
+        ->supplierVatZone->errorInfo->toBe('String value')
         ->salesOrderType->toBe('String value')
         ->salesOrderNbr->toBe('String value')
         ->requisitionRefNbr->toBe('String value')
@@ -131,9 +250,11 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->promisedOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
-        ->supplier->toBeNull()
-        ->location->toBeNull()
-        ->owner->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->location->name->toBe('String value')
+        ->owner->name->toBe('String value')
         ->currency->toBe('String value')
         ->supplierRef->toBe('String value')
         ->exchangeRate->toBe(42)
@@ -147,7 +268,8 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
         ->orderTotalInBaseCurrency->toBe(42)
         ->controlTotal->toBe(42)
         ->controlTotalInBaseCurrency->toBe(42)
-        ->branch->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->customStr1->toBe('String value')
@@ -187,10 +309,10 @@ it('calls the purchaseOrderPutBypurchaseOrderNumberRequest method in the Purchas
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         promisedOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         description: 'String value',
-        supplier: null,
+        supplier: 'String value',
         location: 'String value',
-        gln: null,
-        vatRegistrationId: null,
+        gln: 'String value',
+        vatRegistrationId: 'mock-id-123',
         owner: 'String value',
         currency: 'String value',
         exchangeRate: 42,
@@ -201,15 +323,15 @@ it('calls the purchaseOrderPutBypurchaseOrderNumberRequest method in the Purchas
         changeDatesOnLines: true,
         note: 'String value',
         overrideNumberSeries: true,
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
+        customStr1: 'String value',
+        customStr2: 'String value',
+        customStr3: 'String value',
+        customStr4: 'String value',
+        customStr5: 'String value',
+        customDec1: 42,
+        customDec2: 42,
+        customInt1: 42,
+        customInt2: 42,
         customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );
@@ -236,18 +358,86 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
         PurchaseOrderGetAllOrderRequest::class => MockResponse::make([
             0 => [
                 'shippingDestinationType' => 'String value',
-                'shipTo' => null,
-                'shippingLocation' => null,
-                'warehouse' => null,
-                'shippingContact' => null,
-                'shippingAddress' => null,
+                'shipTo' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'shippingLocation' => [
+                    'name' => 'String value',
+                ],
+                'warehouse' => [
+                    'description' => 'String value',
+                ],
+                'shippingContact' => [
+                    'overrideContact' => true,
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'shippingAddress' => [
+                    'overrideAddress' => true,
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
                 'fobPoint' => 'String value',
                 'shipVia' => 'String value',
                 'shipTerms' => 'String value',
-                'remitContact' => null,
-                'remitAddress' => null,
-                'terms' => null,
-                'supplierVatZone' => null,
+                'remitContact' => [
+                    'overrideContact' => true,
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'remitAddress' => [
+                    'overrideAddress' => true,
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'terms' => [
+                    'description' => 'String value',
+                ],
+                'supplierVatZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
                 'discountDetails' => [],
                 'salesOrderType' => 'String value',
                 'salesOrderNbr' => 'String value',
@@ -267,9 +457,17 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
                 'date' => '2025-11-22T10:40:04+00:00',
                 'promisedOn' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
-                'supplier' => null,
-                'location' => null,
-                'owner' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'name' => 'String value',
+                ],
+                'owner' => [
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'supplierRef' => 'String value',
                 'exchangeRate' => 42,
@@ -283,7 +481,10 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
                 'orderTotalInBaseCurrency' => 42,
                 'controlTotal' => 42,
                 'controlTotalInBaseCurrency' => 42,
-                'branch' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'lines' => [],
                 'taxDetails' => [],
                 'purchaseReceipts' => [],
@@ -304,18 +505,86 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
             ],
             1 => [
                 'shippingDestinationType' => 'String value',
-                'shipTo' => null,
-                'shippingLocation' => null,
-                'warehouse' => null,
-                'shippingContact' => null,
-                'shippingAddress' => null,
+                'shipTo' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'shippingLocation' => [
+                    'name' => 'String value',
+                ],
+                'warehouse' => [
+                    'description' => 'String value',
+                ],
+                'shippingContact' => [
+                    'overrideContact' => true,
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'shippingAddress' => [
+                    'overrideAddress' => true,
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
                 'fobPoint' => 'String value',
                 'shipVia' => 'String value',
                 'shipTerms' => 'String value',
-                'remitContact' => null,
-                'remitAddress' => null,
-                'terms' => null,
-                'supplierVatZone' => null,
+                'remitContact' => [
+                    'overrideContact' => true,
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'remitAddress' => [
+                    'overrideAddress' => true,
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'terms' => [
+                    'description' => 'String value',
+                ],
+                'supplierVatZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
                 'discountDetails' => [],
                 'salesOrderType' => 'String value',
                 'salesOrderNbr' => 'String value',
@@ -335,9 +604,17 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
                 'date' => '2025-11-22T10:40:04+00:00',
                 'promisedOn' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
-                'supplier' => null,
-                'location' => null,
-                'owner' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'name' => 'String value',
+                ],
+                'owner' => [
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'supplierRef' => 'String value',
                 'exchangeRate' => 42,
@@ -351,7 +628,10 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
                 'orderTotalInBaseCurrency' => 42,
                 'controlTotal' => 42,
                 'controlTotalInBaseCurrency' => 42,
-                'branch' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'lines' => [],
                 'taxDetails' => [],
                 'purchaseReceipts' => [],
@@ -403,18 +683,58 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->shippingDestinationType->toBe('String value')
-        ->shipTo->toBeNull()
-        ->shippingLocation->toBeNull()
-        ->warehouse->toBeNull()
-        ->shippingContact->toBeNull()
-        ->shippingAddress->toBeNull()
+        ->shipTo->internalId->toBe(42)
+        ->shipTo->number->toBe('String value')
+        ->shipTo->name->toBe('String value')
+        ->shippingLocation->name->toBe('String value')
+        ->warehouse->description->toBe('String value')
+        ->shippingContact->overrideContact->toBe(true)
+        ->shippingContact->contactId->toBe(42)
+        ->shippingContact->name->toBe('String value')
+        ->shippingContact->attention->toBe('String value')
+        ->shippingContact->email->toBe('test@example.com')
+        ->shippingContact->web->toBe('String value')
+        ->shippingContact->phone1->toBe('String value')
+        ->shippingContact->phone2->toBe('String value')
+        ->shippingContact->fax->toBe('String value')
+        ->shippingAddress->overrideAddress->toBe(true)
+        ->shippingAddress->addressId->toBe(42)
+        ->shippingAddress->addressLine1->toBe('String value')
+        ->shippingAddress->addressLine2->toBe('String value')
+        ->shippingAddress->addressLine3->toBe('String value')
+        ->shippingAddress->postalCode->toBe('String value')
+        ->shippingAddress->city->toBe('String value')
+        ->shippingAddress->country->name->toBe('String value')
+        ->shippingAddress->country->errorInfo->toBe('String value')
+        ->shippingAddress->county->name->toBe('String value')
         ->fobPoint->toBe('String value')
         ->shipVia->toBe('String value')
         ->shipTerms->toBe('String value')
-        ->remitContact->toBeNull()
-        ->remitAddress->toBeNull()
-        ->terms->toBeNull()
-        ->supplierVatZone->toBeNull()
+        ->remitContact->overrideContact->toBe(true)
+        ->remitContact->contactId->toBe(42)
+        ->remitContact->name->toBe('String value')
+        ->remitContact->attention->toBe('String value')
+        ->remitContact->email->toBe('test@example.com')
+        ->remitContact->web->toBe('String value')
+        ->remitContact->phone1->toBe('String value')
+        ->remitContact->phone2->toBe('String value')
+        ->remitContact->fax->toBe('String value')
+        ->remitAddress->overrideAddress->toBe(true)
+        ->remitAddress->addressId->toBe(42)
+        ->remitAddress->addressLine1->toBe('String value')
+        ->remitAddress->addressLine2->toBe('String value')
+        ->remitAddress->addressLine3->toBe('String value')
+        ->remitAddress->postalCode->toBe('String value')
+        ->remitAddress->city->toBe('String value')
+        ->remitAddress->country->name->toBe('String value')
+        ->remitAddress->country->errorInfo->toBe('String value')
+        ->remitAddress->county->name->toBe('String value')
+        ->terms->description->toBe('String value')
+        ->supplierVatZone->description->toBe('String value')
+        ->supplierVatZone->defaultVatCategory->toBe('String value')
+        ->supplierVatZone->defaultTaxCategory->number->toBe('String value')
+        ->supplierVatZone->defaultTaxCategory->description->toBe('String value')
+        ->supplierVatZone->errorInfo->toBe('String value')
         ->salesOrderType->toBe('String value')
         ->salesOrderNbr->toBe('String value')
         ->requisitionRefNbr->toBe('String value')
@@ -433,9 +753,11 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->promisedOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
-        ->supplier->toBeNull()
-        ->location->toBeNull()
-        ->owner->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->location->name->toBe('String value')
+        ->owner->name->toBe('String value')
         ->currency->toBe('String value')
         ->supplierRef->toBe('String value')
         ->exchangeRate->toBe(42)
@@ -449,7 +771,8 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
         ->orderTotalInBaseCurrency->toBe(42)
         ->controlTotal->toBe(42)
         ->controlTotalInBaseCurrency->toBe(42)
-        ->branch->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->customStr1->toBe('String value')
@@ -489,10 +812,10 @@ it('calls the purchaseOrderPostRequest method in the PurchaseOrder resource', fu
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         promisedOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         description: 'String value',
-        supplier: null,
+        supplier: 'String value',
         location: 'String value',
-        gln: null,
-        vatRegistrationId: null,
+        gln: 'String value',
+        vatRegistrationId: 'mock-id-123',
         owner: 'String value',
         currency: 'String value',
         exchangeRate: 42,
@@ -503,15 +826,15 @@ it('calls the purchaseOrderPostRequest method in the PurchaseOrder resource', fu
         changeDatesOnLines: true,
         note: 'String value',
         overrideNumberSeries: true,
-        customStr1: null,
-        customStr2: null,
-        customStr3: null,
-        customStr4: null,
-        customStr5: null,
-        customDec1: null,
-        customDec2: null,
-        customInt1: null,
-        customInt2: null,
+        customStr1: 'String value',
+        customStr2: 'String value',
+        customStr3: 'String value',
+        customStr4: 'String value',
+        customStr5: 'String value',
+        customDec1: 42,
+        customDec2: 42,
+        customInt1: 42,
+        customInt2: 42,
         customDateTimeUtc1: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         timeStamp: 'String value'
     );

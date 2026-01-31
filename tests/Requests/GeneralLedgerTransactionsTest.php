@@ -19,9 +19,29 @@ it('calls the generalLedgerTransactionsGetAllRequest method in the GeneralLedger
                 'period' => 'String value',
                 'description' => 'String value',
                 'refNumber' => 'String value',
-                'branch' => null,
-                'account' => null,
-                'ledger' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'externalCode1info' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'externalCode2info' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'glConsolAccountCd' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'ledger' => [
+                    'description' => 'String value',
+                ],
                 'subaccount' => 'String value',
                 'begBalance' => 42,
                 'debitAmount' => 42,
@@ -43,9 +63,29 @@ it('calls the generalLedgerTransactionsGetAllRequest method in the GeneralLedger
                 'period' => 'String value',
                 'description' => 'String value',
                 'refNumber' => 'String value',
-                'branch' => null,
-                'account' => null,
-                'ledger' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'externalCode1info' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'externalCode2info' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'glConsolAccountCd' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'ledger' => [
+                    'description' => 'String value',
+                ],
                 'subaccount' => 'String value',
                 'begBalance' => 42,
                 'debitAmount' => 42,
@@ -101,9 +141,19 @@ it('calls the generalLedgerTransactionsGetAllRequest method in the GeneralLedger
         ->period->toBe('String value')
         ->description->toBe('String value')
         ->refNumber->toBe('String value')
-        ->branch->toBeNull()
-        ->account->toBeNull()
-        ->ledger->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->externalCode1info->number->toBe('String value')
+        ->account->externalCode1info->description->toBe('String value')
+        ->account->externalCode2info->number->toBe('String value')
+        ->account->externalCode2info->description->toBe('String value')
+        ->account->glConsolAccountCd->toBe('String value')
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->ledger->description->toBe('String value')
         ->subaccount->toBe('String value')
         ->begBalance->toBe(42)
         ->debitAmount->toBe(42)

@@ -15,8 +15,21 @@ it('calls the cashAccountGetByaccountNumberRequest method in the CashAccount res
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'entryTypes' => [],
             'currency' => 'String value',
-            'account' => null,
-            'subaccount' => null,
+            'account' => [
+                'type' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'number' => 'String value',
             'description' => 'String value',
         ], 200),
@@ -37,8 +50,16 @@ it('calls the cashAccountGetByaccountNumberRequest method in the CashAccount res
     expect($dto)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->currency->toBe('String value')
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->account->type->toBe('String value')
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->number->toBe('String value')
         ->description->toBe('String value');
 });
@@ -50,8 +71,21 @@ it('calls the cashAccountGetAllRequest method in the CashAccount resource', func
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'entryTypes' => [],
                 'currency' => 'String value',
-                'account' => null,
-                'subaccount' => null,
+                'account' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'number' => 'String value',
                 'description' => 'String value',
             ],
@@ -59,8 +93,21 @@ it('calls the cashAccountGetAllRequest method in the CashAccount resource', func
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'entryTypes' => [],
                 'currency' => 'String value',
-                'account' => null,
-                'subaccount' => null,
+                'account' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'number' => 'String value',
                 'description' => 'String value',
             ],
@@ -87,8 +134,16 @@ it('calls the cashAccountGetAllRequest method in the CashAccount resource', func
     expect($collection->first())
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->currency->toBe('String value')
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->account->type->toBe('String value')
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->number->toBe('String value')
         ->description->toBe('String value');
 });

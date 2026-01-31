@@ -14,9 +14,14 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumberRequest method in t
         CustomerCreditWriteOffGetBycreditWriteOffNumberRequest::class => MockResponse::make([
             'hold' => true,
             'roundingDiff' => 42,
-            'customerVatZone' => null,
+            'customerVatZone' => [
+                'description' => 'String value',
+            ],
             'timeStamp' => 'String value',
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -32,7 +37,9 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumberRequest method in t
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -40,12 +47,37 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumberRequest method in t
             'note' => 'String value',
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'location' => null,
-            'branchNumber' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'cashAccount' => 'String value',
-            'project' => null,
-            'account' => null,
-            'subaccount' => null,
+            'project' => [
+                'internalId' => 42,
+                'description' => 'String value',
+            ],
+            'account' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
@@ -66,9 +98,10 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumberRequest method in t
     expect($dto)
         ->hold->toBe(true)
         ->roundingDiff->toBe(42)
-        ->customerVatZone->toBeNull()
+        ->customerVatZone->description->toBe('String value')
         ->timeStamp->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -84,7 +117,7 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumberRequest method in t
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -92,12 +125,26 @@ it('calls the customerCreditWriteOffGetBycreditWriteOffNumberRequest method in t
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -108,9 +155,14 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
             0 => [
                 'hold' => true,
                 'roundingDiff' => 42,
-                'customerVatZone' => null,
+                'customerVatZone' => [
+                    'description' => 'String value',
+                ],
                 'timeStamp' => 'String value',
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -126,7 +178,9 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -134,21 +188,51 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
                 'note' => 'String value',
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'location' => null,
-                'branchNumber' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'cashAccount' => 'String value',
-                'project' => null,
-                'account' => null,
-                'subaccount' => null,
+                'project' => [
+                    'internalId' => 42,
+                    'description' => 'String value',
+                ],
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
             ],
             1 => [
                 'hold' => true,
                 'roundingDiff' => 42,
-                'customerVatZone' => null,
+                'customerVatZone' => [
+                    'description' => 'String value',
+                ],
                 'timeStamp' => 'String value',
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -164,7 +248,9 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -172,12 +258,37 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
                 'note' => 'String value',
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'location' => null,
-                'branchNumber' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'cashAccount' => 'String value',
-                'project' => null,
-                'account' => null,
-                'subaccount' => null,
+                'project' => [
+                    'internalId' => 42,
+                    'description' => 'String value',
+                ],
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
             ],
@@ -231,9 +342,10 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
     expect($collection->first())
         ->hold->toBe(true)
         ->roundingDiff->toBe(42)
-        ->customerVatZone->toBeNull()
+        ->customerVatZone->description->toBe('String value')
         ->timeStamp->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -249,7 +361,7 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -257,12 +369,26 @@ it('calls the customerCreditWriteOffGetAllRequest method in the CustomerCreditWr
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });

@@ -14,7 +14,10 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
             0 => [
                 'internalId' => 42,
                 'projectId' => 'mock-id-123',
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'hold' => true,
                 'status' => 'String value',
                 'description' => 'String value',
@@ -25,13 +28,27 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'publicId' => 'mock-id-123',
                 'timeStamp' => 'String value',
-                'visibility' => null,
+                'visibility' => [
+                    'visibleInGl' => true,
+                    'visibleInAp' => true,
+                    'visibleInAr' => true,
+                    'visibleInSo' => true,
+                    'visibleInPo' => true,
+                    'visibleInEa' => true,
+                    'visibleInTa' => true,
+                    'visibleInIn' => true,
+                    'visibleInCa' => true,
+                    'visibleInCr' => true,
+                ],
                 'errorInfo' => 'String value',
             ],
             1 => [
                 'internalId' => 42,
                 'projectId' => 'mock-id-123',
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'hold' => true,
                 'status' => 'String value',
                 'description' => 'String value',
@@ -42,7 +59,18 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'publicId' => 'mock-id-123',
                 'timeStamp' => 'String value',
-                'visibility' => null,
+                'visibility' => [
+                    'visibleInGl' => true,
+                    'visibleInAp' => true,
+                    'visibleInAr' => true,
+                    'visibleInSo' => true,
+                    'visibleInPo' => true,
+                    'visibleInEa' => true,
+                    'visibleInTa' => true,
+                    'visibleInIn' => true,
+                    'visibleInCa' => true,
+                    'visibleInCr' => true,
+                ],
                 'errorInfo' => 'String value',
             ],
         ], 200),
@@ -91,7 +119,8 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
     expect($collection->first())
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->hold->toBe(true)
         ->status->toBe('String value')
         ->description->toBe('String value')
@@ -102,6 +131,15 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->publicId->toBe('mock-id-123')
         ->timeStamp->toBe('String value')
-        ->visibility->toBeNull()
+        ->visibility->visibleInGl->toBe(true)
+        ->visibility->visibleInAp->toBe(true)
+        ->visibility->visibleInAr->toBe(true)
+        ->visibility->visibleInSo->toBe(true)
+        ->visibility->visibleInPo->toBe(true)
+        ->visibility->visibleInEa->toBe(true)
+        ->visibility->visibleInTa->toBe(true)
+        ->visibility->visibleInIn->toBe(true)
+        ->visibility->visibleInCa->toBe(true)
+        ->visibility->visibleInCr->toBe(true)
         ->errorInfo->toBe('String value');
 });

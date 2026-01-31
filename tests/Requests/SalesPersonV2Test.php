@@ -16,7 +16,10 @@ it('calls the salesPersonV2getSalespersonBysalespersonCdRequest method in the Sa
             'name' => 'String value',
             'isActive' => true,
             'commissionPct' => 42,
-            'salesSub' => null,
+            'salesSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
             'customers' => [],
             'commissionHistory' => [],
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
@@ -42,7 +45,8 @@ it('calls the salesPersonV2getSalespersonBysalespersonCdRequest method in the Sa
         ->name->toBe('String value')
         ->isActive->toBe(true)
         ->commissionPct->toBe(42)
-        ->salesSub->toBeNull()
+        ->salesSub->active->toBe(true)
+        ->salesSub->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
@@ -56,7 +60,10 @@ it('calls the salesPersonV2getSalespersonsRequest method in the SalesPersonV2 re
                 'name' => 'String value',
                 'isActive' => true,
                 'commissionPct' => 42,
-                'salesSub' => null,
+                'salesSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'customers' => [],
                 'commissionHistory' => [],
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
@@ -68,7 +75,10 @@ it('calls the salesPersonV2getSalespersonsRequest method in the SalesPersonV2 re
                 'name' => 'String value',
                 'isActive' => true,
                 'commissionPct' => 42,
-                'salesSub' => null,
+                'salesSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'customers' => [],
                 'commissionHistory' => [],
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
@@ -109,7 +119,8 @@ it('calls the salesPersonV2getSalespersonsRequest method in the SalesPersonV2 re
         ->name->toBe('String value')
         ->isActive->toBe(true)
         ->commissionPct->toBe(42)
-        ->salesSub->toBeNull()
+        ->salesSub->active->toBe(true)
+        ->salesSub->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');

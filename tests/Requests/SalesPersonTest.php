@@ -19,7 +19,10 @@ it('calls the salesPersonGetSalespersonBysalespersonCdRequest method in the Sale
             'name' => 'String value',
             'isActive' => true,
             'commissionPct' => 42,
-            'salesSub' => null,
+            'salesSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
             'customers' => [],
             'commissionHistory' => [],
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
@@ -45,7 +48,8 @@ it('calls the salesPersonGetSalespersonBysalespersonCdRequest method in the Sale
         ->name->toBe('String value')
         ->isActive->toBe(true)
         ->commissionPct->toBe(42)
-        ->salesSub->toBeNull()
+        ->salesSub->active->toBe(true)
+        ->salesSub->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
@@ -80,12 +84,8 @@ it('calls the salesPersonUpdateSalespersonBysalespersonCdRequest method in the S
 it('calls the salesPersonGetSalespersonsRequest method in the SalesPerson resource', function () {
     Saloon::fake([
         SalesPersonGetSalespersonsRequest::class => MockResponse::make([
-            0 => [
-                'name' => 'Mock value',
-            ],
-            1 => [
-                'name' => 'Mock value',
-            ],
+            0 => [],
+            1 => [],
         ], 200),
     ]);
 
@@ -116,7 +116,7 @@ it('calls the salesPersonGetSalespersonsRequest method in the SalesPerson resour
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the salesPersonCreateSalespersonRequest method in the SalesPerson resource', function () {

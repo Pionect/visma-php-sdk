@@ -95,22 +95,54 @@ it('calls the supplierGetAllSupplierBalanceRequest method in the Supplier resour
         SupplierGetAllSupplierBalanceRequest::class => MockResponse::make([
             0 => [
                 'branchNumber' => 'String value',
-                'supplier' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'balance' => 42,
-                'unreleasedPurchasesNotInApproval' => null,
-                'totalSentForApproval' => null,
-                'totalPurchaseInvoicePeriod' => null,
-                'totalPurchaseInvoiceYear' => null,
+                'unreleasedPurchasesNotInApproval' => [
+                    'withoutVat' => 42,
+                    'withVat' => 42,
+                ],
+                'totalSentForApproval' => [
+                    'withoutVat' => 42,
+                    'withVat' => 42,
+                ],
+                'totalPurchaseInvoicePeriod' => [
+                    'withoutVat' => 42,
+                    'withVat' => 42,
+                ],
+                'totalPurchaseInvoiceYear' => [
+                    'withoutVat' => 42,
+                    'withVat' => 42,
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             ],
             1 => [
                 'branchNumber' => 'String value',
-                'supplier' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'balance' => 42,
-                'unreleasedPurchasesNotInApproval' => null,
-                'totalSentForApproval' => null,
-                'totalPurchaseInvoicePeriod' => null,
-                'totalPurchaseInvoiceYear' => null,
+                'unreleasedPurchasesNotInApproval' => [
+                    'withoutVat' => 42,
+                    'withVat' => 42,
+                ],
+                'totalSentForApproval' => [
+                    'withoutVat' => 42,
+                    'withVat' => 42,
+                ],
+                'totalPurchaseInvoicePeriod' => [
+                    'withoutVat' => 42,
+                    'withVat' => 42,
+                ],
+                'totalPurchaseInvoiceYear' => [
+                    'withoutVat' => 42,
+                    'withVat' => 42,
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             ],
         ], 200),
@@ -136,12 +168,18 @@ it('calls the supplierGetAllSupplierBalanceRequest method in the Supplier resour
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->branchNumber->toBe('String value')
-        ->supplier->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->balance->toBe(42)
-        ->unreleasedPurchasesNotInApproval->toBeNull()
-        ->totalSentForApproval->toBeNull()
-        ->totalPurchaseInvoicePeriod->toBeNull()
-        ->totalPurchaseInvoiceYear->toBeNull()
+        ->unreleasedPurchasesNotInApproval->withoutVat->toBe(42)
+        ->unreleasedPurchasesNotInApproval->withVat->toBe(42)
+        ->totalSentForApproval->withoutVat->toBe(42)
+        ->totalSentForApproval->withVat->toBe(42)
+        ->totalPurchaseInvoicePeriod->withoutVat->toBe(42)
+        ->totalPurchaseInvoicePeriod->withVat->toBe(42)
+        ->totalPurchaseInvoiceYear->withoutVat->toBe(42)
+        ->totalPurchaseInvoiceYear->withVat->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });
 
@@ -149,10 +187,32 @@ it('calls the supplierGetAllSupplierPobalanceRequest method in the Supplier reso
     Saloon::fake([
         SupplierGetAllSupplierPobalanceRequest::class => MockResponse::make([
             0 => [
-                'name' => 'Mock value',
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'totalPoonHoldOrderTotal' => 42,
+                'totalPoonHoldLineTotal' => 42,
+                'totalOpenPoorderTotal' => 42,
+                'totalOpenPolineTotal' => 42,
+                'totalClosedPoorderTotal' => 42,
+                'totalClosedPolineTotal' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             ],
             1 => [
-                'name' => 'Mock value',
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'totalPoonHoldOrderTotal' => 42,
+                'totalPoonHoldLineTotal' => 42,
+                'totalOpenPoorderTotal' => 42,
+                'totalOpenPolineTotal' => 42,
+                'totalClosedPoorderTotal' => 42,
+                'totalClosedPolineTotal' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             ],
         ], 200),
     ]);
@@ -176,7 +236,16 @@ it('calls the supplierGetAllSupplierPobalanceRequest method in the Supplier reso
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->totalPoonHoldOrderTotal->toBe(42)
+        ->totalPoonHoldLineTotal->toBe(42)
+        ->totalOpenPoorderTotal->toBe(42)
+        ->totalOpenPolineTotal->toBe(42)
+        ->totalClosedPoorderTotal->toBe(42)
+        ->totalClosedPolineTotal->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });
 
 it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', function () {
@@ -186,17 +255,72 @@ it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', f
             'number' => 'String value',
             'name' => 'String value',
             'status' => 'String value',
-            'mainAddress' => null,
-            'mainContact' => null,
+            'mainAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'mainContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
             'accountReference' => 'String value',
-            'parentRecord' => null,
-            'supplierClass' => null,
-            'creditTerms' => null,
+            'parentRecord' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'supplierClass' => [
+                'description' => 'String value',
+            ],
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'documentLanguage' => 'String value',
             'currencyId' => 'mock-id-123',
-            'remitAddress' => null,
-            'remitContact' => null,
-            'paymentMethod' => null,
+            'remitAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'remitContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'cashAccount' => 'String value',
             'chargeBearer' => 'String value',
             'accountUsedForPayment' => 'String value',
@@ -204,13 +328,81 @@ it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', f
             'paymentLeadTime' => 42,
             'paymentRefDisplayMask' => 'String value',
             'paySeparately' => true,
-            'supplierAddress' => null,
-            'supplierContact' => null,
-            'location' => null,
+            'supplierAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'supplierContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'vatRegistrationId' => 'mock-id-123',
             'corporateId' => 'mock-id-123',
-            'vatZone' => null,
-            'glAccounts' => null,
+            'vatZone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
+            'glAccounts' => [
+                'supplierAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'supplierSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'expenseAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseAccountNonTax' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseEuaccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseAccountImport' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+            ],
             'attributes' => [],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'supplierPaymentMethodDetails' => [],
@@ -245,17 +437,48 @@ it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', f
         ->number->toBe('String value')
         ->name->toBe('String value')
         ->status->toBe('String value')
-        ->mainAddress->toBeNull()
-        ->mainContact->toBeNull()
+        ->mainAddress->addressId->toBe(42)
+        ->mainAddress->addressLine1->toBe('String value')
+        ->mainAddress->addressLine2->toBe('String value')
+        ->mainAddress->addressLine3->toBe('String value')
+        ->mainAddress->postalCode->toBe('String value')
+        ->mainAddress->city->toBe('String value')
+        ->mainAddress->country->name->toBe('String value')
+        ->mainAddress->country->errorInfo->toBe('String value')
+        ->mainAddress->county->name->toBe('String value')
+        ->mainContact->contactId->toBe(42)
+        ->mainContact->name->toBe('String value')
+        ->mainContact->attention->toBe('String value')
+        ->mainContact->email->toBe('test@example.com')
+        ->mainContact->web->toBe('String value')
+        ->mainContact->phone1->toBe('String value')
+        ->mainContact->phone2->toBe('String value')
+        ->mainContact->fax->toBe('String value')
         ->accountReference->toBe('String value')
-        ->parentRecord->toBeNull()
-        ->supplierClass->toBeNull()
-        ->creditTerms->toBeNull()
+        ->parentRecord->number->toBe('String value')
+        ->parentRecord->name->toBe('String value')
+        ->supplierClass->description->toBe('String value')
+        ->creditTerms->description->toBe('String value')
         ->documentLanguage->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->remitAddress->toBeNull()
-        ->remitContact->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->remitAddress->addressId->toBe(42)
+        ->remitAddress->addressLine1->toBe('String value')
+        ->remitAddress->addressLine2->toBe('String value')
+        ->remitAddress->addressLine3->toBe('String value')
+        ->remitAddress->postalCode->toBe('String value')
+        ->remitAddress->city->toBe('String value')
+        ->remitAddress->country->name->toBe('String value')
+        ->remitAddress->country->errorInfo->toBe('String value')
+        ->remitAddress->county->name->toBe('String value')
+        ->remitContact->contactId->toBe(42)
+        ->remitContact->name->toBe('String value')
+        ->remitContact->attention->toBe('String value')
+        ->remitContact->email->toBe('test@example.com')
+        ->remitContact->web->toBe('String value')
+        ->remitContact->phone1->toBe('String value')
+        ->remitContact->phone2->toBe('String value')
+        ->remitContact->fax->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->chargeBearer->toBe('String value')
         ->accountUsedForPayment->toBe('String value')
@@ -263,13 +486,51 @@ it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', f
         ->paymentLeadTime->toBe(42)
         ->paymentRefDisplayMask->toBe('String value')
         ->paySeparately->toBe(true)
-        ->supplierAddress->toBeNull()
-        ->supplierContact->toBeNull()
-        ->location->toBeNull()
+        ->supplierAddress->addressId->toBe(42)
+        ->supplierAddress->addressLine1->toBe('String value')
+        ->supplierAddress->addressLine2->toBe('String value')
+        ->supplierAddress->addressLine3->toBe('String value')
+        ->supplierAddress->postalCode->toBe('String value')
+        ->supplierAddress->city->toBe('String value')
+        ->supplierAddress->country->name->toBe('String value')
+        ->supplierAddress->country->errorInfo->toBe('String value')
+        ->supplierAddress->county->name->toBe('String value')
+        ->supplierContact->contactId->toBe(42)
+        ->supplierContact->name->toBe('String value')
+        ->supplierContact->attention->toBe('String value')
+        ->supplierContact->email->toBe('test@example.com')
+        ->supplierContact->web->toBe('String value')
+        ->supplierContact->phone1->toBe('String value')
+        ->supplierContact->phone2->toBe('String value')
+        ->supplierContact->fax->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatRegistrationId->toBe('mock-id-123')
         ->corporateId->toBe('mock-id-123')
-        ->vatZone->toBeNull()
-        ->glAccounts->toBeNull()
+        ->vatZone->description->toBe('String value')
+        ->vatZone->defaultVatCategory->toBe('String value')
+        ->vatZone->defaultTaxCategory->number->toBe('String value')
+        ->vatZone->defaultTaxCategory->description->toBe('String value')
+        ->vatZone->errorInfo->toBe('String value')
+        ->glAccounts->supplierAccount->type->toBe('String value')
+        ->glAccounts->supplierAccount->number->toBe('String value')
+        ->glAccounts->supplierAccount->description->toBe('String value')
+        ->glAccounts->supplierSubaccount->active->toBe(true)
+        ->glAccounts->supplierSubaccount->description->toBe('String value')
+        ->glAccounts->expenseAccount->type->toBe('String value')
+        ->glAccounts->expenseAccount->number->toBe('String value')
+        ->glAccounts->expenseAccount->description->toBe('String value')
+        ->glAccounts->expenseAccountNonTax->type->toBe('String value')
+        ->glAccounts->expenseAccountNonTax->number->toBe('String value')
+        ->glAccounts->expenseAccountNonTax->description->toBe('String value')
+        ->glAccounts->expenseEuaccount->type->toBe('String value')
+        ->glAccounts->expenseEuaccount->number->toBe('String value')
+        ->glAccounts->expenseEuaccount->description->toBe('String value')
+        ->glAccounts->expenseAccountImport->type->toBe('String value')
+        ->glAccounts->expenseAccountImport->number->toBe('String value')
+        ->glAccounts->expenseAccountImport->description->toBe('String value')
+        ->glAccounts->expenseSubaccount->active->toBe(true)
+        ->glAccounts->expenseSubaccount->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->retainageApply->toBe(true)
         ->retainageCashAccountId->toBe('mock-id-123')
@@ -353,17 +614,72 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
                 'number' => 'String value',
                 'name' => 'String value',
                 'status' => 'String value',
-                'mainAddress' => null,
-                'mainContact' => null,
+                'mainAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'mainContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
                 'accountReference' => 'String value',
-                'parentRecord' => null,
-                'supplierClass' => null,
-                'creditTerms' => null,
+                'parentRecord' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'supplierClass' => [
+                    'description' => 'String value',
+                ],
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'documentLanguage' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'remitAddress' => null,
-                'remitContact' => null,
-                'paymentMethod' => null,
+                'remitAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'remitContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'cashAccount' => 'String value',
                 'chargeBearer' => 'String value',
                 'accountUsedForPayment' => 'String value',
@@ -371,13 +687,81 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
                 'paymentLeadTime' => 42,
                 'paymentRefDisplayMask' => 'String value',
                 'paySeparately' => true,
-                'supplierAddress' => null,
-                'supplierContact' => null,
-                'location' => null,
+                'supplierAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'supplierContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'vatRegistrationId' => 'mock-id-123',
                 'corporateId' => 'mock-id-123',
-                'vatZone' => null,
-                'glAccounts' => null,
+                'vatZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
+                'glAccounts' => [
+                    'supplierAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'supplierSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                    'expenseAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseAccountNonTax' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseEuaccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseAccountImport' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                ],
                 'attributes' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'supplierPaymentMethodDetails' => [],
@@ -398,17 +782,72 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
                 'number' => 'String value',
                 'name' => 'String value',
                 'status' => 'String value',
-                'mainAddress' => null,
-                'mainContact' => null,
+                'mainAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'mainContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
                 'accountReference' => 'String value',
-                'parentRecord' => null,
-                'supplierClass' => null,
-                'creditTerms' => null,
+                'parentRecord' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'supplierClass' => [
+                    'description' => 'String value',
+                ],
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'documentLanguage' => 'String value',
                 'currencyId' => 'mock-id-123',
-                'remitAddress' => null,
-                'remitContact' => null,
-                'paymentMethod' => null,
+                'remitAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'remitContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'cashAccount' => 'String value',
                 'chargeBearer' => 'String value',
                 'accountUsedForPayment' => 'String value',
@@ -416,13 +855,81 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
                 'paymentLeadTime' => 42,
                 'paymentRefDisplayMask' => 'String value',
                 'paySeparately' => true,
-                'supplierAddress' => null,
-                'supplierContact' => null,
-                'location' => null,
+                'supplierAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'supplierContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'vatRegistrationId' => 'mock-id-123',
                 'corporateId' => 'mock-id-123',
-                'vatZone' => null,
-                'glAccounts' => null,
+                'vatZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
+                'glAccounts' => [
+                    'supplierAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'supplierSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                    'expenseAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseAccountNonTax' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseEuaccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseAccountImport' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                ],
                 'attributes' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'supplierPaymentMethodDetails' => [],
@@ -473,17 +980,48 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
         ->number->toBe('String value')
         ->name->toBe('String value')
         ->status->toBe('String value')
-        ->mainAddress->toBeNull()
-        ->mainContact->toBeNull()
+        ->mainAddress->addressId->toBe(42)
+        ->mainAddress->addressLine1->toBe('String value')
+        ->mainAddress->addressLine2->toBe('String value')
+        ->mainAddress->addressLine3->toBe('String value')
+        ->mainAddress->postalCode->toBe('String value')
+        ->mainAddress->city->toBe('String value')
+        ->mainAddress->country->name->toBe('String value')
+        ->mainAddress->country->errorInfo->toBe('String value')
+        ->mainAddress->county->name->toBe('String value')
+        ->mainContact->contactId->toBe(42)
+        ->mainContact->name->toBe('String value')
+        ->mainContact->attention->toBe('String value')
+        ->mainContact->email->toBe('test@example.com')
+        ->mainContact->web->toBe('String value')
+        ->mainContact->phone1->toBe('String value')
+        ->mainContact->phone2->toBe('String value')
+        ->mainContact->fax->toBe('String value')
         ->accountReference->toBe('String value')
-        ->parentRecord->toBeNull()
-        ->supplierClass->toBeNull()
-        ->creditTerms->toBeNull()
+        ->parentRecord->number->toBe('String value')
+        ->parentRecord->name->toBe('String value')
+        ->supplierClass->description->toBe('String value')
+        ->creditTerms->description->toBe('String value')
         ->documentLanguage->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->remitAddress->toBeNull()
-        ->remitContact->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->remitAddress->addressId->toBe(42)
+        ->remitAddress->addressLine1->toBe('String value')
+        ->remitAddress->addressLine2->toBe('String value')
+        ->remitAddress->addressLine3->toBe('String value')
+        ->remitAddress->postalCode->toBe('String value')
+        ->remitAddress->city->toBe('String value')
+        ->remitAddress->country->name->toBe('String value')
+        ->remitAddress->country->errorInfo->toBe('String value')
+        ->remitAddress->county->name->toBe('String value')
+        ->remitContact->contactId->toBe(42)
+        ->remitContact->name->toBe('String value')
+        ->remitContact->attention->toBe('String value')
+        ->remitContact->email->toBe('test@example.com')
+        ->remitContact->web->toBe('String value')
+        ->remitContact->phone1->toBe('String value')
+        ->remitContact->phone2->toBe('String value')
+        ->remitContact->fax->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->chargeBearer->toBe('String value')
         ->accountUsedForPayment->toBe('String value')
@@ -491,13 +1029,51 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
         ->paymentLeadTime->toBe(42)
         ->paymentRefDisplayMask->toBe('String value')
         ->paySeparately->toBe(true)
-        ->supplierAddress->toBeNull()
-        ->supplierContact->toBeNull()
-        ->location->toBeNull()
+        ->supplierAddress->addressId->toBe(42)
+        ->supplierAddress->addressLine1->toBe('String value')
+        ->supplierAddress->addressLine2->toBe('String value')
+        ->supplierAddress->addressLine3->toBe('String value')
+        ->supplierAddress->postalCode->toBe('String value')
+        ->supplierAddress->city->toBe('String value')
+        ->supplierAddress->country->name->toBe('String value')
+        ->supplierAddress->country->errorInfo->toBe('String value')
+        ->supplierAddress->county->name->toBe('String value')
+        ->supplierContact->contactId->toBe(42)
+        ->supplierContact->name->toBe('String value')
+        ->supplierContact->attention->toBe('String value')
+        ->supplierContact->email->toBe('test@example.com')
+        ->supplierContact->web->toBe('String value')
+        ->supplierContact->phone1->toBe('String value')
+        ->supplierContact->phone2->toBe('String value')
+        ->supplierContact->fax->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatRegistrationId->toBe('mock-id-123')
         ->corporateId->toBe('mock-id-123')
-        ->vatZone->toBeNull()
-        ->glAccounts->toBeNull()
+        ->vatZone->description->toBe('String value')
+        ->vatZone->defaultVatCategory->toBe('String value')
+        ->vatZone->defaultTaxCategory->number->toBe('String value')
+        ->vatZone->defaultTaxCategory->description->toBe('String value')
+        ->vatZone->errorInfo->toBe('String value')
+        ->glAccounts->supplierAccount->type->toBe('String value')
+        ->glAccounts->supplierAccount->number->toBe('String value')
+        ->glAccounts->supplierAccount->description->toBe('String value')
+        ->glAccounts->supplierSubaccount->active->toBe(true)
+        ->glAccounts->supplierSubaccount->description->toBe('String value')
+        ->glAccounts->expenseAccount->type->toBe('String value')
+        ->glAccounts->expenseAccount->number->toBe('String value')
+        ->glAccounts->expenseAccount->description->toBe('String value')
+        ->glAccounts->expenseAccountNonTax->type->toBe('String value')
+        ->glAccounts->expenseAccountNonTax->number->toBe('String value')
+        ->glAccounts->expenseAccountNonTax->description->toBe('String value')
+        ->glAccounts->expenseEuaccount->type->toBe('String value')
+        ->glAccounts->expenseEuaccount->number->toBe('String value')
+        ->glAccounts->expenseEuaccount->description->toBe('String value')
+        ->glAccounts->expenseAccountImport->type->toBe('String value')
+        ->glAccounts->expenseAccountImport->number->toBe('String value')
+        ->glAccounts->expenseAccountImport->description->toBe('String value')
+        ->glAccounts->expenseSubaccount->active->toBe(true)
+        ->glAccounts->expenseSubaccount->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->retainageApply->toBe(true)
         ->retainageCashAccountId->toBe('mock-id-123')
@@ -576,13 +1152,18 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
         SupplierGetAllInvoicesForSupplierBysupplierNumberRequest::class => MockResponse::make([
             'taxDetailLines' => [],
             'attachments' => [],
-            'approvalDetails' => null,
+            'approvalDetails' => [
+                'attachmentId' => 'mock-id-123',
+                'comment' => 'String value',
+            ],
             'invoiceLines' => [],
             'landedCosts' => [],
             'hold' => true,
             'exchangeRate' => 42,
             'paymentRefNo' => 'String value',
-            'creditTerms' => null,
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'retainageApply' => true,
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'detailTotal' => 42,
@@ -601,12 +1182,24 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
             'amount' => 42,
             'vatAmount' => 42,
             'taxCalculationMode' => 'String value',
-            'supplierTaxZone' => null,
+            'supplierTaxZone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
             'paySelected' => true,
             'curyRetainageTotal' => 42,
             'curyRetainageUnreleasedAmt' => 42,
             'documentVersionNumber' => 42,
-            'supplier' => null,
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -621,17 +1214,25 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'supplierReference' => 'String value',
             'description' => 'String value',
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'payDate' => '2025-11-22T10:40:04+00:00',
             'paymentMessage' => 'String value',
             'cashAccount' => 'String value',
@@ -680,11 +1281,12 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
     $dto = $response->dto();
 
     expect($dto)
-        ->approvalDetails->toBeNull()
+        ->approvalDetails->attachmentId->toBe('mock-id-123')
+        ->approvalDetails->comment->toBe('String value')
         ->hold->toBe(true)
         ->exchangeRate->toBe(42)
         ->paymentRefNo->toBe('String value')
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->retainageApply->toBe(true)
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->detailTotal->toBe(42)
@@ -703,12 +1305,18 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
         ->taxCalculationMode->toBe('String value')
-        ->supplierTaxZone->toBeNull()
+        ->supplierTaxZone->description->toBe('String value')
+        ->supplierTaxZone->defaultVatCategory->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->description->toBe('String value')
+        ->supplierTaxZone->errorInfo->toBe('String value')
         ->paySelected->toBe(true)
         ->curyRetainageTotal->toBe(42)
         ->curyRetainageUnreleasedAmt->toBe(42)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -723,17 +1331,19 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->supplierReference->toBe('String value')
         ->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->payDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
@@ -744,12 +1354,35 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
 it('calls the supplierGetAllDocumentsForSupplierBysupplierNumberRequest method in the Supplier resource', function () {
     Saloon::fake([
         SupplierGetAllDocumentsForSupplierBysupplierNumberRequest::class => MockResponse::make([
-            'account' => null,
-            'subaccount' => null,
+            'account' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'amount' => 42,
             'amountInCurrency' => 42,
-            'branch' => null,
-            'supplier' => null,
+            'branch' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -764,17 +1397,25 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumberRequest method i
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'supplierReference' => 'String value',
             'description' => 'String value',
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'payDate' => '2025-11-22T10:40:04+00:00',
             'paymentMessage' => 'String value',
             'cashAccount' => 'String value',
@@ -821,12 +1462,26 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumberRequest method i
     $dto = $response->dto();
 
     expect($dto)
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
-        ->branch->toBeNull()
-        ->supplier->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -841,17 +1496,19 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumberRequest method i
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->supplierReference->toBe('String value')
         ->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->payDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
@@ -863,12 +1520,28 @@ it('calls the supplierGetSupplierBalanceBysupplierCdRequest method in the Suppli
     Saloon::fake([
         SupplierGetSupplierBalanceBysupplierCdRequest::class => MockResponse::make([
             'branchNumber' => 'String value',
-            'supplier' => null,
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'balance' => 42,
-            'unreleasedPurchasesNotInApproval' => null,
-            'totalSentForApproval' => null,
-            'totalPurchaseInvoicePeriod' => null,
-            'totalPurchaseInvoiceYear' => null,
+            'unreleasedPurchasesNotInApproval' => [
+                'withoutVat' => 42,
+                'withVat' => 42,
+            ],
+            'totalSentForApproval' => [
+                'withoutVat' => 42,
+                'withVat' => 42,
+            ],
+            'totalPurchaseInvoicePeriod' => [
+                'withoutVat' => 42,
+                'withVat' => 42,
+            ],
+            'totalPurchaseInvoiceYear' => [
+                'withoutVat' => 42,
+                'withVat' => 42,
+            ],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
         ], 200),
     ]);
@@ -887,19 +1560,36 @@ it('calls the supplierGetSupplierBalanceBysupplierCdRequest method in the Suppli
 
     expect($dto)
         ->branchNumber->toBe('String value')
-        ->supplier->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->balance->toBe(42)
-        ->unreleasedPurchasesNotInApproval->toBeNull()
-        ->totalSentForApproval->toBeNull()
-        ->totalPurchaseInvoicePeriod->toBeNull()
-        ->totalPurchaseInvoiceYear->toBeNull()
+        ->unreleasedPurchasesNotInApproval->withoutVat->toBe(42)
+        ->unreleasedPurchasesNotInApproval->withVat->toBe(42)
+        ->totalSentForApproval->withoutVat->toBe(42)
+        ->totalSentForApproval->withVat->toBe(42)
+        ->totalPurchaseInvoicePeriod->withoutVat->toBe(42)
+        ->totalPurchaseInvoicePeriod->withVat->toBe(42)
+        ->totalPurchaseInvoiceYear->withoutVat->toBe(42)
+        ->totalPurchaseInvoiceYear->withVat->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });
 
 it('calls the supplierGetSupplierPobalanceBysupplierCdRequest method in the Supplier resource', function () {
     Saloon::fake([
         SupplierGetSupplierPobalanceBysupplierCdRequest::class => MockResponse::make([
-            'name' => 'Mock value',
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'totalPoonHoldOrderTotal' => 42,
+            'totalPoonHoldLineTotal' => 42,
+            'totalOpenPoorderTotal' => 42,
+            'totalOpenPolineTotal' => 42,
+            'totalClosedPoorderTotal' => 42,
+            'totalClosedPolineTotal' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
         ], 200),
     ]);
 
@@ -916,7 +1606,16 @@ it('calls the supplierGetSupplierPobalanceBysupplierCdRequest method in the Supp
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value');
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->totalPoonHoldOrderTotal->toBe(42)
+        ->totalPoonHoldLineTotal->toBe(42)
+        ->totalOpenPoorderTotal->toBe(42)
+        ->totalOpenPolineTotal->toBe(42)
+        ->totalClosedPoorderTotal->toBe(42)
+        ->totalClosedPolineTotal->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'));
 });
 
 it('calls the supplierGetAllContactForSupplierBysupplierCdRequest method in the Supplier resource', function () {
@@ -931,7 +1630,21 @@ it('calls the supplierGetAllContactForSupplierBysupplierCdRequest method in the 
             'businessAccount' => 'String value',
             'businessAccountType' => 'String value',
             'sameAsAccount' => true,
-            'address' => null,
+            'address' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
             'email' => 'test@example.com',
             'web' => 'String value',
             'phone1' => 'String value',
@@ -986,7 +1699,15 @@ it('calls the supplierGetAllContactForSupplierBysupplierCdRequest method in the 
         ->businessAccount->toBe('String value')
         ->businessAccountType->toBe('String value')
         ->sameAsAccount->toBe(true)
-        ->address->toBeNull()
+        ->address->addressId->toBe(42)
+        ->address->addressLine1->toBe('String value')
+        ->address->addressLine2->toBe('String value')
+        ->address->addressLine3->toBe('String value')
+        ->address->postalCode->toBe('String value')
+        ->address->city->toBe('String value')
+        ->address->country->name->toBe('String value')
+        ->address->country->errorInfo->toBe('String value')
+        ->address->county->name->toBe('String value')
         ->email->toBe('test@example.com')
         ->web->toBe('String value')
         ->phone1->toBe('String value')

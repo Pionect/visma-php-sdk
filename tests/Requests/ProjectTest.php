@@ -22,10 +22,17 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
         ProjectGetByprojectIdRequest::class => MockResponse::make([
             'internalId' => 42,
             'projectId' => 'mock-id-123',
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'hold' => true,
             'status' => 'String value',
-            'template' => null,
+            'template' => [
+                'status' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
             'description' => 'String value',
             'assets' => 42,
             'liability' => 42,
@@ -33,22 +40,111 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
             'expenses' => 42,
             'startDate' => '2025-11-22T10:40:04+00:00',
             'endDate' => '2025-11-22T10:40:04+00:00',
-            'projectManager' => null,
+            'projectManager' => [
+                'employeeUserId' => 'mock-id-123',
+                'employeeId' => 42,
+                'employeeNumber' => 'String value',
+                'employeeName' => 'String value',
+                'status' => 'String value',
+                'department' => 'String value',
+                'contact' => [
+                    'employeeContact' => 'String value',
+                    'title' => 'String value',
+                    'firstName' => 'String value',
+                    'midName' => 'String value',
+                    'lastName' => 'String value',
+                    'phone3' => 'String value',
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'address' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'employeeClass' => [
+                    'description' => 'String value',
+                ],
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'calendarId' => 'mock-id-123',
+                'employeeLogin' => 'String value',
+                'workGroupDescription' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'restrictEmployees' => true,
             'restrictEquipment' => true,
-            'visibility' => null,
-            'defAccount' => null,
-            'defSub' => null,
-            'defAccrualAccount' => null,
-            'defAccrualSub' => null,
+            'visibility' => [
+                'visibleInGl' => true,
+                'visibleInAp' => true,
+                'visibleInAr' => true,
+                'visibleInSo' => true,
+                'visibleInPo' => true,
+                'visibleInEa' => true,
+                'visibleInTa' => true,
+                'visibleInIn' => true,
+                'visibleInCa' => true,
+                'visibleInCr' => true,
+            ],
+            'defAccount' => [
+                'type' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'defSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
+            'defAccrualAccount' => [
+                'type' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'defAccrualSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
             'billingPeriod' => 'String value',
             'nextBillingDate' => '2025-11-22T10:40:04+00:00',
             'lastBillingDate' => '2025-11-22T10:40:04+00:00',
-            'customerLocation' => null,
-            'allocationRule' => null,
-            'billingRule' => null,
-            'branch' => null,
-            'rateTable' => null,
+            'customerLocation' => [
+                'name' => 'String value',
+            ],
+            'allocationRule' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
+            'billingRule' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
+            'branch' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'rateTable' => [
+                'description' => 'String value',
+            ],
             'autoAllocate' => true,
             'automaticReleaseAr' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -78,10 +174,13 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
     expect($dto)
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->hold->toBe(true)
         ->status->toBe('String value')
-        ->template->toBeNull()
+        ->template->status->toBe('String value')
+        ->template->number->toBe('String value')
+        ->template->description->toBe('String value')
         ->description->toBe('String value')
         ->assets->toBe(42)
         ->liability->toBe(42)
@@ -89,22 +188,76 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
         ->expenses->toBe(42)
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->projectManager->toBeNull()
+        ->projectManager->employeeUserId->toBe('mock-id-123')
+        ->projectManager->employeeId->toBe(42)
+        ->projectManager->employeeNumber->toBe('String value')
+        ->projectManager->employeeName->toBe('String value')
+        ->projectManager->status->toBe('String value')
+        ->projectManager->department->toBe('String value')
+        ->projectManager->contact->employeeContact->toBe('String value')
+        ->projectManager->contact->title->toBe('String value')
+        ->projectManager->contact->firstName->toBe('String value')
+        ->projectManager->contact->midName->toBe('String value')
+        ->projectManager->contact->lastName->toBe('String value')
+        ->projectManager->contact->phone3->toBe('String value')
+        ->projectManager->contact->contactId->toBe(42)
+        ->projectManager->contact->name->toBe('String value')
+        ->projectManager->contact->attention->toBe('String value')
+        ->projectManager->contact->email->toBe('test@example.com')
+        ->projectManager->contact->web->toBe('String value')
+        ->projectManager->contact->phone1->toBe('String value')
+        ->projectManager->contact->phone2->toBe('String value')
+        ->projectManager->contact->fax->toBe('String value')
+        ->projectManager->address->addressId->toBe(42)
+        ->projectManager->address->addressLine1->toBe('String value')
+        ->projectManager->address->addressLine2->toBe('String value')
+        ->projectManager->address->addressLine3->toBe('String value')
+        ->projectManager->address->postalCode->toBe('String value')
+        ->projectManager->address->city->toBe('String value')
+        ->projectManager->address->country->name->toBe('String value')
+        ->projectManager->address->country->errorInfo->toBe('String value')
+        ->projectManager->address->county->name->toBe('String value')
+        ->projectManager->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->projectManager->employeeClass->description->toBe('String value')
+        ->projectManager->branch->number->toBe('String value')
+        ->projectManager->branch->name->toBe('String value')
+        ->projectManager->calendarId->toBe('mock-id-123')
+        ->projectManager->employeeLogin->toBe('String value')
+        ->projectManager->timeStamp->toBe('String value')
+        ->projectManager->errorInfo->toBe('String value')
         ->restrictEmployees->toBe(true)
         ->restrictEquipment->toBe(true)
-        ->visibility->toBeNull()
-        ->defAccount->toBeNull()
-        ->defSub->toBeNull()
-        ->defAccrualAccount->toBeNull()
-        ->defAccrualSub->toBeNull()
+        ->visibility->visibleInGl->toBe(true)
+        ->visibility->visibleInAp->toBe(true)
+        ->visibility->visibleInAr->toBe(true)
+        ->visibility->visibleInSo->toBe(true)
+        ->visibility->visibleInPo->toBe(true)
+        ->visibility->visibleInEa->toBe(true)
+        ->visibility->visibleInTa->toBe(true)
+        ->visibility->visibleInIn->toBe(true)
+        ->visibility->visibleInCa->toBe(true)
+        ->visibility->visibleInCr->toBe(true)
+        ->defAccount->type->toBe('String value')
+        ->defAccount->number->toBe('String value')
+        ->defAccount->description->toBe('String value')
+        ->defSub->active->toBe(true)
+        ->defSub->description->toBe('String value')
+        ->defAccrualAccount->type->toBe('String value')
+        ->defAccrualAccount->number->toBe('String value')
+        ->defAccrualAccount->description->toBe('String value')
+        ->defAccrualSub->active->toBe(true)
+        ->defAccrualSub->description->toBe('String value')
         ->billingPeriod->toBe('String value')
         ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->customerLocation->toBeNull()
-        ->allocationRule->toBeNull()
-        ->billingRule->toBeNull()
-        ->branch->toBeNull()
-        ->rateTable->toBeNull()
+        ->customerLocation->name->toBe('String value')
+        ->allocationRule->active->toBe(true)
+        ->allocationRule->description->toBe('String value')
+        ->billingRule->active->toBe(true)
+        ->billingRule->description->toBe('String value')
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->rateTable->description->toBe('String value')
         ->autoAllocate->toBe(true)
         ->automaticReleaseAr->toBe(true)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -120,10 +273,17 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
         ProjectGetByinternalIdRequest::class => MockResponse::make([
             'internalId' => 42,
             'projectId' => 'mock-id-123',
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'hold' => true,
             'status' => 'String value',
-            'template' => null,
+            'template' => [
+                'status' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
             'description' => 'String value',
             'assets' => 42,
             'liability' => 42,
@@ -131,22 +291,111 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
             'expenses' => 42,
             'startDate' => '2025-11-22T10:40:04+00:00',
             'endDate' => '2025-11-22T10:40:04+00:00',
-            'projectManager' => null,
+            'projectManager' => [
+                'employeeUserId' => 'mock-id-123',
+                'employeeId' => 42,
+                'employeeNumber' => 'String value',
+                'employeeName' => 'String value',
+                'status' => 'String value',
+                'department' => 'String value',
+                'contact' => [
+                    'employeeContact' => 'String value',
+                    'title' => 'String value',
+                    'firstName' => 'String value',
+                    'midName' => 'String value',
+                    'lastName' => 'String value',
+                    'phone3' => 'String value',
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'address' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'employeeClass' => [
+                    'description' => 'String value',
+                ],
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'calendarId' => 'mock-id-123',
+                'employeeLogin' => 'String value',
+                'workGroupDescription' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'restrictEmployees' => true,
             'restrictEquipment' => true,
-            'visibility' => null,
-            'defAccount' => null,
-            'defSub' => null,
-            'defAccrualAccount' => null,
-            'defAccrualSub' => null,
+            'visibility' => [
+                'visibleInGl' => true,
+                'visibleInAp' => true,
+                'visibleInAr' => true,
+                'visibleInSo' => true,
+                'visibleInPo' => true,
+                'visibleInEa' => true,
+                'visibleInTa' => true,
+                'visibleInIn' => true,
+                'visibleInCa' => true,
+                'visibleInCr' => true,
+            ],
+            'defAccount' => [
+                'type' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'defSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
+            'defAccrualAccount' => [
+                'type' => 'String value',
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'defAccrualSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
             'billingPeriod' => 'String value',
             'nextBillingDate' => '2025-11-22T10:40:04+00:00',
             'lastBillingDate' => '2025-11-22T10:40:04+00:00',
-            'customerLocation' => null,
-            'allocationRule' => null,
-            'billingRule' => null,
-            'branch' => null,
-            'rateTable' => null,
+            'customerLocation' => [
+                'name' => 'String value',
+            ],
+            'allocationRule' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
+            'billingRule' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
+            'branch' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'rateTable' => [
+                'description' => 'String value',
+            ],
             'autoAllocate' => true,
             'automaticReleaseAr' => true,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -176,10 +425,13 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
     expect($dto)
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->hold->toBe(true)
         ->status->toBe('String value')
-        ->template->toBeNull()
+        ->template->status->toBe('String value')
+        ->template->number->toBe('String value')
+        ->template->description->toBe('String value')
         ->description->toBe('String value')
         ->assets->toBe(42)
         ->liability->toBe(42)
@@ -187,22 +439,76 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
         ->expenses->toBe(42)
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->projectManager->toBeNull()
+        ->projectManager->employeeUserId->toBe('mock-id-123')
+        ->projectManager->employeeId->toBe(42)
+        ->projectManager->employeeNumber->toBe('String value')
+        ->projectManager->employeeName->toBe('String value')
+        ->projectManager->status->toBe('String value')
+        ->projectManager->department->toBe('String value')
+        ->projectManager->contact->employeeContact->toBe('String value')
+        ->projectManager->contact->title->toBe('String value')
+        ->projectManager->contact->firstName->toBe('String value')
+        ->projectManager->contact->midName->toBe('String value')
+        ->projectManager->contact->lastName->toBe('String value')
+        ->projectManager->contact->phone3->toBe('String value')
+        ->projectManager->contact->contactId->toBe(42)
+        ->projectManager->contact->name->toBe('String value')
+        ->projectManager->contact->attention->toBe('String value')
+        ->projectManager->contact->email->toBe('test@example.com')
+        ->projectManager->contact->web->toBe('String value')
+        ->projectManager->contact->phone1->toBe('String value')
+        ->projectManager->contact->phone2->toBe('String value')
+        ->projectManager->contact->fax->toBe('String value')
+        ->projectManager->address->addressId->toBe(42)
+        ->projectManager->address->addressLine1->toBe('String value')
+        ->projectManager->address->addressLine2->toBe('String value')
+        ->projectManager->address->addressLine3->toBe('String value')
+        ->projectManager->address->postalCode->toBe('String value')
+        ->projectManager->address->city->toBe('String value')
+        ->projectManager->address->country->name->toBe('String value')
+        ->projectManager->address->country->errorInfo->toBe('String value')
+        ->projectManager->address->county->name->toBe('String value')
+        ->projectManager->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->projectManager->employeeClass->description->toBe('String value')
+        ->projectManager->branch->number->toBe('String value')
+        ->projectManager->branch->name->toBe('String value')
+        ->projectManager->calendarId->toBe('mock-id-123')
+        ->projectManager->employeeLogin->toBe('String value')
+        ->projectManager->timeStamp->toBe('String value')
+        ->projectManager->errorInfo->toBe('String value')
         ->restrictEmployees->toBe(true)
         ->restrictEquipment->toBe(true)
-        ->visibility->toBeNull()
-        ->defAccount->toBeNull()
-        ->defSub->toBeNull()
-        ->defAccrualAccount->toBeNull()
-        ->defAccrualSub->toBeNull()
+        ->visibility->visibleInGl->toBe(true)
+        ->visibility->visibleInAp->toBe(true)
+        ->visibility->visibleInAr->toBe(true)
+        ->visibility->visibleInSo->toBe(true)
+        ->visibility->visibleInPo->toBe(true)
+        ->visibility->visibleInEa->toBe(true)
+        ->visibility->visibleInTa->toBe(true)
+        ->visibility->visibleInIn->toBe(true)
+        ->visibility->visibleInCa->toBe(true)
+        ->visibility->visibleInCr->toBe(true)
+        ->defAccount->type->toBe('String value')
+        ->defAccount->number->toBe('String value')
+        ->defAccount->description->toBe('String value')
+        ->defSub->active->toBe(true)
+        ->defSub->description->toBe('String value')
+        ->defAccrualAccount->type->toBe('String value')
+        ->defAccrualAccount->number->toBe('String value')
+        ->defAccrualAccount->description->toBe('String value')
+        ->defAccrualSub->active->toBe(true)
+        ->defAccrualSub->description->toBe('String value')
         ->billingPeriod->toBe('String value')
         ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->customerLocation->toBeNull()
-        ->allocationRule->toBeNull()
-        ->billingRule->toBeNull()
-        ->branch->toBeNull()
-        ->rateTable->toBeNull()
+        ->customerLocation->name->toBe('String value')
+        ->allocationRule->active->toBe(true)
+        ->allocationRule->description->toBe('String value')
+        ->billingRule->active->toBe(true)
+        ->billingRule->description->toBe('String value')
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->rateTable->description->toBe('String value')
         ->autoAllocate->toBe(true)
         ->automaticReleaseAr->toBe(true)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -219,10 +525,17 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
             0 => [
                 'internalId' => 42,
                 'projectId' => 'mock-id-123',
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'hold' => true,
                 'status' => 'String value',
-                'template' => null,
+                'template' => [
+                    'status' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'description' => 'String value',
                 'assets' => 42,
                 'liability' => 42,
@@ -230,22 +543,111 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
                 'expenses' => 42,
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
-                'projectManager' => null,
+                'projectManager' => [
+                    'employeeUserId' => 'mock-id-123',
+                    'employeeId' => 42,
+                    'employeeNumber' => 'String value',
+                    'employeeName' => 'String value',
+                    'status' => 'String value',
+                    'department' => 'String value',
+                    'contact' => [
+                        'employeeContact' => 'String value',
+                        'title' => 'String value',
+                        'firstName' => 'String value',
+                        'midName' => 'String value',
+                        'lastName' => 'String value',
+                        'phone3' => 'String value',
+                        'contactId' => 42,
+                        'name' => 'String value',
+                        'attention' => 'String value',
+                        'email' => 'test@example.com',
+                        'web' => 'String value',
+                        'phone1' => 'String value',
+                        'phone2' => 'String value',
+                        'fax' => 'String value',
+                    ],
+                    'address' => [
+                        'addressId' => 42,
+                        'addressLine1' => 'String value',
+                        'addressLine2' => 'String value',
+                        'addressLine3' => 'String value',
+                        'postalCode' => 'String value',
+                        'city' => 'String value',
+                        'country' => [
+                            'name' => 'String value',
+                            'errorInfo' => 'String value',
+                        ],
+                        'county' => [
+                            'name' => 'String value',
+                        ],
+                    ],
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'employeeClass' => [
+                        'description' => 'String value',
+                    ],
+                    'branch' => [
+                        'number' => 'String value',
+                        'name' => 'String value',
+                    ],
+                    'calendarId' => 'mock-id-123',
+                    'employeeLogin' => 'String value',
+                    'workGroupDescription' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'restrictEmployees' => true,
                 'restrictEquipment' => true,
-                'visibility' => null,
-                'defAccount' => null,
-                'defSub' => null,
-                'defAccrualAccount' => null,
-                'defAccrualSub' => null,
+                'visibility' => [
+                    'visibleInGl' => true,
+                    'visibleInAp' => true,
+                    'visibleInAr' => true,
+                    'visibleInSo' => true,
+                    'visibleInPo' => true,
+                    'visibleInEa' => true,
+                    'visibleInTa' => true,
+                    'visibleInIn' => true,
+                    'visibleInCa' => true,
+                    'visibleInCr' => true,
+                ],
+                'defAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'defAccrualAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defAccrualSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'billingPeriod' => 'String value',
                 'nextBillingDate' => '2025-11-22T10:40:04+00:00',
                 'lastBillingDate' => '2025-11-22T10:40:04+00:00',
-                'customerLocation' => null,
-                'allocationRule' => null,
-                'billingRule' => null,
-                'branch' => null,
-                'rateTable' => null,
+                'customerLocation' => [
+                    'name' => 'String value',
+                ],
+                'allocationRule' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'billingRule' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'rateTable' => [
+                    'description' => 'String value',
+                ],
                 'autoAllocate' => true,
                 'automaticReleaseAr' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -261,10 +663,17 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
             1 => [
                 'internalId' => 42,
                 'projectId' => 'mock-id-123',
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'hold' => true,
                 'status' => 'String value',
-                'template' => null,
+                'template' => [
+                    'status' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'description' => 'String value',
                 'assets' => 42,
                 'liability' => 42,
@@ -272,22 +681,111 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
                 'expenses' => 42,
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
-                'projectManager' => null,
+                'projectManager' => [
+                    'employeeUserId' => 'mock-id-123',
+                    'employeeId' => 42,
+                    'employeeNumber' => 'String value',
+                    'employeeName' => 'String value',
+                    'status' => 'String value',
+                    'department' => 'String value',
+                    'contact' => [
+                        'employeeContact' => 'String value',
+                        'title' => 'String value',
+                        'firstName' => 'String value',
+                        'midName' => 'String value',
+                        'lastName' => 'String value',
+                        'phone3' => 'String value',
+                        'contactId' => 42,
+                        'name' => 'String value',
+                        'attention' => 'String value',
+                        'email' => 'test@example.com',
+                        'web' => 'String value',
+                        'phone1' => 'String value',
+                        'phone2' => 'String value',
+                        'fax' => 'String value',
+                    ],
+                    'address' => [
+                        'addressId' => 42,
+                        'addressLine1' => 'String value',
+                        'addressLine2' => 'String value',
+                        'addressLine3' => 'String value',
+                        'postalCode' => 'String value',
+                        'city' => 'String value',
+                        'country' => [
+                            'name' => 'String value',
+                            'errorInfo' => 'String value',
+                        ],
+                        'county' => [
+                            'name' => 'String value',
+                        ],
+                    ],
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'employeeClass' => [
+                        'description' => 'String value',
+                    ],
+                    'branch' => [
+                        'number' => 'String value',
+                        'name' => 'String value',
+                    ],
+                    'calendarId' => 'mock-id-123',
+                    'employeeLogin' => 'String value',
+                    'workGroupDescription' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'restrictEmployees' => true,
                 'restrictEquipment' => true,
-                'visibility' => null,
-                'defAccount' => null,
-                'defSub' => null,
-                'defAccrualAccount' => null,
-                'defAccrualSub' => null,
+                'visibility' => [
+                    'visibleInGl' => true,
+                    'visibleInAp' => true,
+                    'visibleInAr' => true,
+                    'visibleInSo' => true,
+                    'visibleInPo' => true,
+                    'visibleInEa' => true,
+                    'visibleInTa' => true,
+                    'visibleInIn' => true,
+                    'visibleInCa' => true,
+                    'visibleInCr' => true,
+                ],
+                'defAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'defAccrualAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defAccrualSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'billingPeriod' => 'String value',
                 'nextBillingDate' => '2025-11-22T10:40:04+00:00',
                 'lastBillingDate' => '2025-11-22T10:40:04+00:00',
-                'customerLocation' => null,
-                'allocationRule' => null,
-                'billingRule' => null,
-                'branch' => null,
-                'rateTable' => null,
+                'customerLocation' => [
+                    'name' => 'String value',
+                ],
+                'allocationRule' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'billingRule' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'rateTable' => [
+                    'description' => 'String value',
+                ],
                 'autoAllocate' => true,
                 'automaticReleaseAr' => true,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -347,10 +845,13 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
     expect($collection->first())
         ->internalId->toBe(42)
         ->projectId->toBe('mock-id-123')
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->hold->toBe(true)
         ->status->toBe('String value')
-        ->template->toBeNull()
+        ->template->status->toBe('String value')
+        ->template->number->toBe('String value')
+        ->template->description->toBe('String value')
         ->description->toBe('String value')
         ->assets->toBe(42)
         ->liability->toBe(42)
@@ -358,22 +859,76 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
         ->expenses->toBe(42)
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->projectManager->toBeNull()
+        ->projectManager->employeeUserId->toBe('mock-id-123')
+        ->projectManager->employeeId->toBe(42)
+        ->projectManager->employeeNumber->toBe('String value')
+        ->projectManager->employeeName->toBe('String value')
+        ->projectManager->status->toBe('String value')
+        ->projectManager->department->toBe('String value')
+        ->projectManager->contact->employeeContact->toBe('String value')
+        ->projectManager->contact->title->toBe('String value')
+        ->projectManager->contact->firstName->toBe('String value')
+        ->projectManager->contact->midName->toBe('String value')
+        ->projectManager->contact->lastName->toBe('String value')
+        ->projectManager->contact->phone3->toBe('String value')
+        ->projectManager->contact->contactId->toBe(42)
+        ->projectManager->contact->name->toBe('String value')
+        ->projectManager->contact->attention->toBe('String value')
+        ->projectManager->contact->email->toBe('test@example.com')
+        ->projectManager->contact->web->toBe('String value')
+        ->projectManager->contact->phone1->toBe('String value')
+        ->projectManager->contact->phone2->toBe('String value')
+        ->projectManager->contact->fax->toBe('String value')
+        ->projectManager->address->addressId->toBe(42)
+        ->projectManager->address->addressLine1->toBe('String value')
+        ->projectManager->address->addressLine2->toBe('String value')
+        ->projectManager->address->addressLine3->toBe('String value')
+        ->projectManager->address->postalCode->toBe('String value')
+        ->projectManager->address->city->toBe('String value')
+        ->projectManager->address->country->name->toBe('String value')
+        ->projectManager->address->country->errorInfo->toBe('String value')
+        ->projectManager->address->county->name->toBe('String value')
+        ->projectManager->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->projectManager->employeeClass->description->toBe('String value')
+        ->projectManager->branch->number->toBe('String value')
+        ->projectManager->branch->name->toBe('String value')
+        ->projectManager->calendarId->toBe('mock-id-123')
+        ->projectManager->employeeLogin->toBe('String value')
+        ->projectManager->timeStamp->toBe('String value')
+        ->projectManager->errorInfo->toBe('String value')
         ->restrictEmployees->toBe(true)
         ->restrictEquipment->toBe(true)
-        ->visibility->toBeNull()
-        ->defAccount->toBeNull()
-        ->defSub->toBeNull()
-        ->defAccrualAccount->toBeNull()
-        ->defAccrualSub->toBeNull()
+        ->visibility->visibleInGl->toBe(true)
+        ->visibility->visibleInAp->toBe(true)
+        ->visibility->visibleInAr->toBe(true)
+        ->visibility->visibleInSo->toBe(true)
+        ->visibility->visibleInPo->toBe(true)
+        ->visibility->visibleInEa->toBe(true)
+        ->visibility->visibleInTa->toBe(true)
+        ->visibility->visibleInIn->toBe(true)
+        ->visibility->visibleInCa->toBe(true)
+        ->visibility->visibleInCr->toBe(true)
+        ->defAccount->type->toBe('String value')
+        ->defAccount->number->toBe('String value')
+        ->defAccount->description->toBe('String value')
+        ->defSub->active->toBe(true)
+        ->defSub->description->toBe('String value')
+        ->defAccrualAccount->type->toBe('String value')
+        ->defAccrualAccount->number->toBe('String value')
+        ->defAccrualAccount->description->toBe('String value')
+        ->defAccrualSub->active->toBe(true)
+        ->defAccrualSub->description->toBe('String value')
         ->billingPeriod->toBe('String value')
         ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->customerLocation->toBeNull()
-        ->allocationRule->toBeNull()
-        ->billingRule->toBeNull()
-        ->branch->toBeNull()
-        ->rateTable->toBeNull()
+        ->customerLocation->name->toBe('String value')
+        ->allocationRule->active->toBe(true)
+        ->allocationRule->description->toBe('String value')
+        ->billingRule->active->toBe(true)
+        ->billingRule->description->toBe('String value')
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->rateTable->description->toBe('String value')
         ->autoAllocate->toBe(true)
         ->automaticReleaseAr->toBe(true)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -389,7 +944,7 @@ it('calls the projectPostRequest method in the Project resource', function () {
         projectId: 'mock-id-123',
         internalId: 42,
         customer: 'String value',
-        description: null,
+        description: 'String value',
         hold: true,
         template: 'String value',
         status: 'String value',
@@ -397,12 +952,12 @@ it('calls the projectPostRequest method in the Project resource', function () {
         defSub: [],
         defAccrualAccount: 'String value',
         defAccrualSub: [],
-        startDate: null,
+        startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         billingPeriod: 'String value',
         allocationRule: 'String value',
         billingRule: 'String value',
-        branch: null,
+        branch: 'String value',
         rateTable: 'String value',
         projectManger: 'String value',
         projectManagerInternalId: 42,
@@ -411,7 +966,18 @@ it('calls the projectPostRequest method in the Project resource', function () {
         restricEmployees: true,
         restricEquipment: true,
         customerLocation: 'String value',
-        visibility: null,
+        visibility: [
+            'visibleInGl' => true,
+            'visibleInAp' => true,
+            'visibleInAr' => true,
+            'visibleInSo' => true,
+            'visibleInPo' => true,
+            'visibleInEa' => true,
+            'visibleInTa' => true,
+            'visibleInIn' => true,
+            'visibleInCa' => true,
+            'visibleInCr' => true,
+        ],
         tasks: [],
         employees: [],
         note: 'String value'
@@ -438,11 +1004,28 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
             0 => [
                 'internalId' => 42,
                 'projectInternalId' => 42,
-                'defAccount' => null,
-                'defSub' => null,
-                'defAccrualAccount' => null,
-                'defAccrualSub' => null,
-                'taxCategory' => null,
+                'defAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'defAccrualAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defAccrualSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'taxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'taskId' => 'mock-id-123',
@@ -451,11 +1034,27 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
                 'plannedEnd' => '2025-11-22T10:40:04+00:00',
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
-                'branch' => null,
-                'rateTable' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'rateTable' => [
+                    'description' => 'String value',
+                ],
                 'status' => 'String value',
                 'restrictEmployees' => true,
-                'visibility' => null,
+                'visibility' => [
+                    'visibleInGl' => true,
+                    'visibleInAp' => true,
+                    'visibleInAr' => true,
+                    'visibleInSo' => true,
+                    'visibleInPo' => true,
+                    'visibleInEa' => true,
+                    'visibleInTa' => true,
+                    'visibleInIn' => true,
+                    'visibleInCa' => true,
+                    'visibleInCr' => true,
+                ],
                 'timeStamp' => 'String value',
                 'employees' => [],
                 'attributes' => [],
@@ -463,11 +1062,28 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
             1 => [
                 'internalId' => 42,
                 'projectInternalId' => 42,
-                'defAccount' => null,
-                'defSub' => null,
-                'defAccrualAccount' => null,
-                'defAccrualSub' => null,
-                'taxCategory' => null,
+                'defAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'defAccrualAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'defAccrualSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'taxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'taskId' => 'mock-id-123',
@@ -476,11 +1092,27 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
                 'plannedEnd' => '2025-11-22T10:40:04+00:00',
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
-                'branch' => null,
-                'rateTable' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'rateTable' => [
+                    'description' => 'String value',
+                ],
                 'status' => 'String value',
                 'restrictEmployees' => true,
-                'visibility' => null,
+                'visibility' => [
+                    'visibleInGl' => true,
+                    'visibleInAp' => true,
+                    'visibleInAr' => true,
+                    'visibleInSo' => true,
+                    'visibleInPo' => true,
+                    'visibleInEa' => true,
+                    'visibleInTa' => true,
+                    'visibleInIn' => true,
+                    'visibleInCa' => true,
+                    'visibleInCr' => true,
+                ],
                 'timeStamp' => 'String value',
                 'employees' => [],
                 'attributes' => [],
@@ -532,11 +1164,18 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
     expect($collection->first())
         ->internalId->toBe(42)
         ->projectInternalId->toBe(42)
-        ->defAccount->toBeNull()
-        ->defSub->toBeNull()
-        ->defAccrualAccount->toBeNull()
-        ->defAccrualSub->toBeNull()
-        ->taxCategory->toBeNull()
+        ->defAccount->type->toBe('String value')
+        ->defAccount->number->toBe('String value')
+        ->defAccount->description->toBe('String value')
+        ->defSub->active->toBe(true)
+        ->defSub->description->toBe('String value')
+        ->defAccrualAccount->type->toBe('String value')
+        ->defAccrualAccount->number->toBe('String value')
+        ->defAccrualAccount->description->toBe('String value')
+        ->defAccrualSub->active->toBe(true)
+        ->defAccrualSub->description->toBe('String value')
+        ->taxCategory->number->toBe('String value')
+        ->taxCategory->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->taskId->toBe('mock-id-123')
@@ -545,11 +1184,21 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
         ->plannedEnd->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branch->toBeNull()
-        ->rateTable->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->rateTable->description->toBe('String value')
         ->status->toBe('String value')
         ->restrictEmployees->toBe(true)
-        ->visibility->toBeNull()
+        ->visibility->visibleInGl->toBe(true)
+        ->visibility->visibleInAp->toBe(true)
+        ->visibility->visibleInAr->toBe(true)
+        ->visibility->visibleInSo->toBe(true)
+        ->visibility->visibleInPo->toBe(true)
+        ->visibility->visibleInEa->toBe(true)
+        ->visibility->visibleInTa->toBe(true)
+        ->visibility->visibleInIn->toBe(true)
+        ->visibility->visibleInCa->toBe(true)
+        ->visibility->visibleInCr->toBe(true)
         ->timeStamp->toBe('String value');
 });
 
@@ -580,7 +1229,7 @@ it('calls the projectPutByprojectIdRequest method in the Project resource', func
         projectId: 'mock-id-123',
         internalId: 42,
         customer: 'String value',
-        description: null,
+        description: 'String value',
         hold: true,
         template: 'String value',
         status: 'String value',
@@ -588,12 +1237,12 @@ it('calls the projectPutByprojectIdRequest method in the Project resource', func
         defSub: [],
         defAccrualAccount: 'String value',
         defAccrualSub: [],
-        startDate: null,
+        startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         billingPeriod: 'String value',
         allocationRule: 'String value',
         billingRule: 'String value',
-        branch: null,
+        branch: 'String value',
         rateTable: 'String value',
         projectManger: 'String value',
         projectManagerInternalId: 42,
@@ -602,7 +1251,18 @@ it('calls the projectPutByprojectIdRequest method in the Project resource', func
         restricEmployees: true,
         restricEquipment: true,
         customerLocation: 'String value',
-        visibility: null,
+        visibility: [
+            'visibleInGl' => true,
+            'visibleInAp' => true,
+            'visibleInAr' => true,
+            'visibleInSo' => true,
+            'visibleInPo' => true,
+            'visibleInEa' => true,
+            'visibleInTa' => true,
+            'visibleInIn' => true,
+            'visibleInCa' => true,
+            'visibleInCr' => true,
+        ],
         tasks: [],
         employees: [],
         note: 'String value'
@@ -630,7 +1290,7 @@ it('calls the projectPutByinternalIdRequest method in the Project resource', fun
         projectId: 'mock-id-123',
         internalId: 42,
         customer: 'String value',
-        description: null,
+        description: 'String value',
         hold: true,
         template: 'String value',
         status: 'String value',
@@ -638,12 +1298,12 @@ it('calls the projectPutByinternalIdRequest method in the Project resource', fun
         defSub: [],
         defAccrualAccount: 'String value',
         defAccrualSub: [],
-        startDate: null,
+        startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         billingPeriod: 'String value',
         allocationRule: 'String value',
         billingRule: 'String value',
-        branch: null,
+        branch: 'String value',
         rateTable: 'String value',
         projectManger: 'String value',
         projectManagerInternalId: 42,
@@ -652,7 +1312,18 @@ it('calls the projectPutByinternalIdRequest method in the Project resource', fun
         restricEmployees: true,
         restricEquipment: true,
         customerLocation: 'String value',
-        visibility: null,
+        visibility: [
+            'visibleInGl' => true,
+            'visibleInAp' => true,
+            'visibleInAr' => true,
+            'visibleInSo' => true,
+            'visibleInPo' => true,
+            'visibleInEa' => true,
+            'visibleInTa' => true,
+            'visibleInIn' => true,
+            'visibleInCa' => true,
+            'visibleInCr' => true,
+        ],
         tasks: [],
         employees: [],
         note: 'String value'

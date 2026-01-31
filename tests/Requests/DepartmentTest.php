@@ -18,8 +18,18 @@ it('calls the departmentGetDepartmentBydepartmentIdRequest method in the Departm
             'departmentId' => 'mock-id-123',
             'publicId' => 'mock-id-123',
             'description' => 'String value',
-            'expenseAccount' => null,
-            'expenseSubaccount' => null,
+            'expenseAccount' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'expenseSubaccount' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'timeStamp' => 'String value',
         ], 200),
@@ -41,8 +51,14 @@ it('calls the departmentGetDepartmentBydepartmentIdRequest method in the Departm
         ->departmentId->toBe('mock-id-123')
         ->publicId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->expenseAccount->toBeNull()
-        ->expenseSubaccount->toBeNull()
+        ->expenseAccount->type->toBe('String value')
+        ->expenseAccount->externalCode1->toBe('String value')
+        ->expenseAccount->externalCode2->toBe('String value')
+        ->expenseAccount->active->toBe(true)
+        ->expenseAccount->number->toBe('String value')
+        ->expenseAccount->description->toBe('String value')
+        ->expenseSubaccount->active->toBe(true)
+        ->expenseSubaccount->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->timeStamp->toBe('String value');
 });
@@ -79,8 +95,18 @@ it('calls the departmentGetAllDepartmentDtosRequest method in the Department res
                 'departmentId' => 'mock-id-123',
                 'publicId' => 'mock-id-123',
                 'description' => 'String value',
-                'expenseAccount' => null,
-                'expenseSubaccount' => null,
+                'expenseAccount' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'timeStamp' => 'String value',
             ],
@@ -88,8 +114,18 @@ it('calls the departmentGetAllDepartmentDtosRequest method in the Department res
                 'departmentId' => 'mock-id-123',
                 'publicId' => 'mock-id-123',
                 'description' => 'String value',
-                'expenseAccount' => null,
-                'expenseSubaccount' => null,
+                'expenseAccount' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'timeStamp' => 'String value',
             ],
@@ -118,8 +154,14 @@ it('calls the departmentGetAllDepartmentDtosRequest method in the Department res
         ->departmentId->toBe('mock-id-123')
         ->publicId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->expenseAccount->toBeNull()
-        ->expenseSubaccount->toBeNull()
+        ->expenseAccount->type->toBe('String value')
+        ->expenseAccount->externalCode1->toBe('String value')
+        ->expenseAccount->externalCode2->toBe('String value')
+        ->expenseAccount->active->toBe(true)
+        ->expenseAccount->number->toBe('String value')
+        ->expenseAccount->description->toBe('String value')
+        ->expenseSubaccount->active->toBe(true)
+        ->expenseSubaccount->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->timeStamp->toBe('String value');
 });

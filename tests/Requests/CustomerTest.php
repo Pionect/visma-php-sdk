@@ -103,7 +103,11 @@ it('calls the customerGetSpecificCustomerClassBycustomerClassIdRequest method in
 it('calls the customerGetCustomerBalanceBycustomerCdRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetCustomerBalanceBycustomerCdRequest::class => MockResponse::make([
-            'customer' => null,
+            'customer' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'balance' => 42,
             'totalOrder' => 42,
             'totalLoan' => 42,
@@ -128,7 +132,9 @@ it('calls the customerGetCustomerBalanceBycustomerCdRequest method in the Custom
     $dto = $response->dto();
 
     expect($dto)
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->balance->toBe(42)
         ->totalOrder->toBe(42)
         ->totalLoan->toBe(42)
@@ -189,41 +195,120 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
             'printDescriptionOnInvoice' => true,
             'printNoteOnExternalDocuments' => true,
             'printNoteOnInternalDocuments' => true,
-            'soBillingContact' => null,
-            'soBillingAddress' => null,
-            'customerVatzone' => null,
+            'soBillingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'soBillingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'customerVatzone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
             'invoiceSeparately' => true,
             'invoiceNbr' => 'String value',
             'invoiceDate' => '2025-11-22T10:40:04+00:00',
-            'terms' => null,
+            'terms' => [
+                'description' => 'String value',
+            ],
             'dueDate' => '2025-11-22T10:40:04+00:00',
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'commissionPercent' => 'String value',
             'commissionAmount' => 'String value',
             'commissionableAmount' => 'String value',
-            'owner' => null,
+            'owner' => [
+                'employeeId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'origOrderType' => 'String value',
             'origOrderNbr' => 'String value',
-            'soShippingContact' => null,
-            'soShippingAddress' => null,
+            'soShippingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'soShippingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
             'schedShipment' => '2025-11-22T10:40:04+00:00',
             'shipSeparately' => true,
             'shipComplete' => 'String value',
             'cancelBy' => '2025-11-22T10:40:04+00:00',
             'canceled' => true,
-            'preferredWarehouse' => null,
-            'shipVia' => null,
-            'fobPoint' => null,
+            'preferredWarehouse' => [
+                'description' => 'String value',
+            ],
+            'shipVia' => [
+                'description' => 'String value',
+            ],
+            'fobPoint' => [
+                'description' => 'String value',
+            ],
             'priority' => 42,
-            'shippingTerms' => null,
-            'shippingZone' => null,
+            'shippingTerms' => [
+                'description' => 'String value',
+            ],
+            'shippingZone' => [
+                'description' => 'String value',
+            ],
             'residentialDelivery' => true,
             'saturdayDelivery' => true,
             'insurance' => true,
-            'transactionType' => null,
-            'paymentMethod' => null,
+            'transactionType' => [
+                'description' => 'String value',
+            ],
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'cashAccount' => 'String value',
             'paymentRef' => 'String value',
             'isRotRutDeductible' => true,
@@ -238,9 +323,16 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
             'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
-            'customer' => null,
+            'customer' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'contactId' => 42,
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'description' => 'String value',
             'orderTotal' => 42,
@@ -255,7 +347,10 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
             'discountTotal' => 42,
             'discountTotalInBaseCurrency' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
@@ -290,41 +385,80 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
         ->printDescriptionOnInvoice->toBe(true)
         ->printNoteOnExternalDocuments->toBe(true)
         ->printNoteOnInternalDocuments->toBe(true)
-        ->soBillingContact->toBeNull()
-        ->soBillingAddress->toBeNull()
-        ->customerVatzone->toBeNull()
+        ->soBillingContact->overrideContact->toBe(true)
+        ->soBillingContact->contactId->toBe(42)
+        ->soBillingContact->name->toBe('String value')
+        ->soBillingContact->attention->toBe('String value')
+        ->soBillingContact->email->toBe('test@example.com')
+        ->soBillingContact->web->toBe('String value')
+        ->soBillingContact->phone1->toBe('String value')
+        ->soBillingContact->phone2->toBe('String value')
+        ->soBillingContact->fax->toBe('String value')
+        ->soBillingAddress->overrideAddress->toBe(true)
+        ->soBillingAddress->addressId->toBe(42)
+        ->soBillingAddress->addressLine1->toBe('String value')
+        ->soBillingAddress->addressLine2->toBe('String value')
+        ->soBillingAddress->addressLine3->toBe('String value')
+        ->soBillingAddress->postalCode->toBe('String value')
+        ->soBillingAddress->city->toBe('String value')
+        ->soBillingAddress->country->name->toBe('String value')
+        ->soBillingAddress->country->errorInfo->toBe('String value')
+        ->soBillingAddress->county->name->toBe('String value')
+        ->customerVatzone->description->toBe('String value')
+        ->customerVatzone->defaultVatCategory->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->number->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->description->toBe('String value')
+        ->customerVatzone->errorInfo->toBe('String value')
         ->invoiceSeparately->toBe(true)
         ->invoiceNbr->toBe('String value')
         ->invoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->terms->toBeNull()
+        ->terms->description->toBe('String value')
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->commissionPercent->toBe('String value')
         ->commissionAmount->toBe('String value')
         ->commissionableAmount->toBe('String value')
-        ->owner->toBeNull()
+        ->owner->employeeId->toBe('mock-id-123')
+        ->owner->name->toBe('String value')
         ->origOrderType->toBe('String value')
         ->origOrderNbr->toBe('String value')
-        ->soShippingContact->toBeNull()
-        ->soShippingAddress->toBeNull()
+        ->soShippingContact->overrideContact->toBe(true)
+        ->soShippingContact->contactId->toBe(42)
+        ->soShippingContact->name->toBe('String value')
+        ->soShippingContact->attention->toBe('String value')
+        ->soShippingContact->email->toBe('test@example.com')
+        ->soShippingContact->web->toBe('String value')
+        ->soShippingContact->phone1->toBe('String value')
+        ->soShippingContact->phone2->toBe('String value')
+        ->soShippingContact->fax->toBe('String value')
+        ->soShippingAddress->overrideAddress->toBe(true)
+        ->soShippingAddress->addressId->toBe(42)
+        ->soShippingAddress->addressLine1->toBe('String value')
+        ->soShippingAddress->addressLine2->toBe('String value')
+        ->soShippingAddress->addressLine3->toBe('String value')
+        ->soShippingAddress->postalCode->toBe('String value')
+        ->soShippingAddress->city->toBe('String value')
+        ->soShippingAddress->country->name->toBe('String value')
+        ->soShippingAddress->country->errorInfo->toBe('String value')
+        ->soShippingAddress->county->name->toBe('String value')
         ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->shipSeparately->toBe(true)
         ->shipComplete->toBe('String value')
         ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->canceled->toBe(true)
-        ->preferredWarehouse->toBeNull()
-        ->shipVia->toBeNull()
-        ->fobPoint->toBeNull()
+        ->preferredWarehouse->description->toBe('String value')
+        ->shipVia->description->toBe('String value')
+        ->fobPoint->description->toBe('String value')
         ->priority->toBe(42)
-        ->shippingTerms->toBeNull()
-        ->shippingZone->toBeNull()
+        ->shippingTerms->description->toBe('String value')
+        ->shippingZone->description->toBe('String value')
         ->residentialDelivery->toBe(true)
         ->saturdayDelivery->toBe(true)
         ->insurance->toBe(true)
-        ->transactionType->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->transactionType->description->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->paymentRef->toBe('String value')
         ->isRotRutDeductible->toBe(true)
@@ -337,9 +471,12 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -354,7 +491,8 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -371,9 +509,16 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCdRequest method
             'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
-            'customer' => null,
+            'customer' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'contactId' => 42,
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'description' => 'String value',
             'orderTotal' => 42,
@@ -388,7 +533,10 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCdRequest method
             'discountTotal' => 42,
             'discountTotalInBaseCurrency' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
@@ -427,9 +575,12 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCdRequest method
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -444,7 +595,8 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCdRequest method
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -461,7 +613,21 @@ it('calls the customerGetAllContactsForCustomerBycustomerCdRequest method in the
             'businessAccount' => 'String value',
             'businessAccountType' => 'String value',
             'sameAsAccount' => true,
-            'address' => null,
+            'address' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
             'email' => 'test@example.com',
             'web' => 'String value',
             'phone1' => 'String value',
@@ -516,7 +682,15 @@ it('calls the customerGetAllContactsForCustomerBycustomerCdRequest method in the
         ->businessAccount->toBe('String value')
         ->businessAccountType->toBe('String value')
         ->sameAsAccount->toBe(true)
-        ->address->toBeNull()
+        ->address->addressId->toBe(42)
+        ->address->addressLine1->toBe('String value')
+        ->address->addressLine2->toBe('String value')
+        ->address->addressLine3->toBe('String value')
+        ->address->postalCode->toBe('String value')
+        ->address->city->toBe('String value')
+        ->address->country->name->toBe('String value')
+        ->address->country->errorInfo->toBe('String value')
+        ->address->county->name->toBe('String value')
         ->email->toBe('test@example.com')
         ->web->toBe('String value')
         ->phone1->toBe('String value')
@@ -577,7 +751,11 @@ it('calls the customerGetAllCustomerBalanceRequest method in the Customer resour
     Saloon::fake([
         CustomerGetAllCustomerBalanceRequest::class => MockResponse::make([
             0 => [
-                'customer' => null,
+                'customer' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'balance' => 42,
                 'totalOrder' => 42,
                 'totalLoan' => 42,
@@ -588,7 +766,11 @@ it('calls the customerGetAllCustomerBalanceRequest method in the Customer resour
                 'lastModified' => '2025-11-22T10:40:04+00:00',
             ],
             1 => [
-                'customer' => null,
+                'customer' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'balance' => 42,
                 'totalOrder' => 42,
                 'totalLoan' => 42,
@@ -620,7 +802,9 @@ it('calls the customerGetAllCustomerBalanceRequest method in the Customer resour
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->balance->toBe(42)
         ->totalOrder->toBe(42)
         ->totalLoan->toBe(42)
@@ -661,18 +845,71 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
             'number' => 'String value',
             'name' => 'String value',
             'status' => 'String value',
-            'mainAddress' => null,
-            'mainContact' => null,
+            'mainAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'mainContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
             'accountReference' => 'String value',
-            'parentRecord' => null,
-            'customerClass' => null,
-            'creditTerms' => null,
+            'parentRecord' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'customerClass' => [
+                'description' => 'String value',
+            ],
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'currencyId' => 'mock-id-123',
             'creditVerification' => 'String value',
             'creditLimit' => 42,
             'creditDaysPastDue' => 42,
-            'invoiceAddress' => null,
-            'invoiceContact' => null,
+            'invoiceAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'invoiceContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
             'printInvoices' => true,
             'acceptAutoInvoices' => true,
             'sendInvoicesByEmail' => true,
@@ -682,21 +919,166 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
             'sendStatementsByEmail' => true,
             'printMultiCurrencyStatements' => true,
             'statementType' => 'String value',
-            'deliveryAddress' => null,
-            'deliveryContact' => null,
+            'deliveryAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'deliveryContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
             'vatRegistrationId' => 'mock-id-123',
             'corporateId' => 'mock-id-123',
             'gln' => 'String value',
-            'vatZone' => null,
-            'location' => null,
+            'vatZone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'attributes' => [],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'directDebitLines' => [],
-            'priceClass' => null,
-            'glAccounts' => null,
+            'priceClass' => [
+                'description' => 'String value',
+            ],
+            'glAccounts' => [
+                'customerLedgerAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'customerLedgerSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'salesAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesNonTaxableAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesEuAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesExportAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'discountAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'discountSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'freightAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'freightSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'cashDiscountAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'cashDiscountSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'prepaymentAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'prepaymentSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+            ],
             'invoiceToDefaultLocation' => true,
-            'eInvoiceContract' => null,
+            'eInvoiceContract' => [
+                'fInvoiceContractId' => 'mock-id-123',
+                'fInvoiceIntermediatorId' => 'mock-id-123',
+            ],
             'paymentMethods' => [],
             'defaultPaymentMethodId' => 'mock-id-123',
             'numberOfEmployees' => 42,
@@ -723,18 +1105,49 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
         ->number->toBe('String value')
         ->name->toBe('String value')
         ->status->toBe('String value')
-        ->mainAddress->toBeNull()
-        ->mainContact->toBeNull()
+        ->mainAddress->addressId->toBe(42)
+        ->mainAddress->addressLine1->toBe('String value')
+        ->mainAddress->addressLine2->toBe('String value')
+        ->mainAddress->addressLine3->toBe('String value')
+        ->mainAddress->postalCode->toBe('String value')
+        ->mainAddress->city->toBe('String value')
+        ->mainAddress->country->name->toBe('String value')
+        ->mainAddress->country->errorInfo->toBe('String value')
+        ->mainAddress->county->name->toBe('String value')
+        ->mainContact->contactId->toBe(42)
+        ->mainContact->name->toBe('String value')
+        ->mainContact->attention->toBe('String value')
+        ->mainContact->email->toBe('test@example.com')
+        ->mainContact->web->toBe('String value')
+        ->mainContact->phone1->toBe('String value')
+        ->mainContact->phone2->toBe('String value')
+        ->mainContact->fax->toBe('String value')
         ->accountReference->toBe('String value')
-        ->parentRecord->toBeNull()
-        ->customerClass->toBeNull()
-        ->creditTerms->toBeNull()
+        ->parentRecord->number->toBe('String value')
+        ->parentRecord->name->toBe('String value')
+        ->customerClass->description->toBe('String value')
+        ->creditTerms->description->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->creditVerification->toBe('String value')
         ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->name->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->web->toBe('String value')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->phone2->toBe('String value')
+        ->invoiceContact->fax->toBe('String value')
         ->printInvoices->toBe(true)
         ->acceptAutoInvoices->toBe(true)
         ->sendInvoicesByEmail->toBe(true)
@@ -744,19 +1157,108 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
         ->sendStatementsByEmail->toBe(true)
         ->printMultiCurrencyStatements->toBe(true)
         ->statementType->toBe('String value')
-        ->deliveryAddress->toBeNull()
-        ->deliveryContact->toBeNull()
+        ->deliveryAddress->addressId->toBe(42)
+        ->deliveryAddress->addressLine1->toBe('String value')
+        ->deliveryAddress->addressLine2->toBe('String value')
+        ->deliveryAddress->addressLine3->toBe('String value')
+        ->deliveryAddress->postalCode->toBe('String value')
+        ->deliveryAddress->city->toBe('String value')
+        ->deliveryAddress->country->name->toBe('String value')
+        ->deliveryAddress->country->errorInfo->toBe('String value')
+        ->deliveryAddress->county->name->toBe('String value')
+        ->deliveryContact->contactId->toBe(42)
+        ->deliveryContact->name->toBe('String value')
+        ->deliveryContact->attention->toBe('String value')
+        ->deliveryContact->email->toBe('test@example.com')
+        ->deliveryContact->web->toBe('String value')
+        ->deliveryContact->phone1->toBe('String value')
+        ->deliveryContact->phone2->toBe('String value')
+        ->deliveryContact->fax->toBe('String value')
         ->vatRegistrationId->toBe('mock-id-123')
         ->corporateId->toBe('mock-id-123')
         ->gln->toBe('String value')
-        ->vatZone->toBeNull()
-        ->location->toBeNull()
+        ->vatZone->description->toBe('String value')
+        ->vatZone->defaultVatCategory->toBe('String value')
+        ->vatZone->defaultTaxCategory->number->toBe('String value')
+        ->vatZone->defaultTaxCategory->description->toBe('String value')
+        ->vatZone->errorInfo->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->priceClass->toBeNull()
-        ->glAccounts->toBeNull()
+        ->priceClass->description->toBe('String value')
+        ->glAccounts->customerLedgerAccount->type->toBe('String value')
+        ->glAccounts->customerLedgerAccount->number->toBe('String value')
+        ->glAccounts->customerLedgerAccount->description->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->subaccountId->toBe(42)
+        ->glAccounts->customerLedgerSubaccount->description->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->customerLedgerSubaccount->active->toBe(true)
+        ->glAccounts->customerLedgerSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->salesAccount->type->toBe('String value')
+        ->glAccounts->salesAccount->number->toBe('String value')
+        ->glAccounts->salesAccount->description->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->type->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->number->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->description->toBe('String value')
+        ->glAccounts->salesEuAccount->type->toBe('String value')
+        ->glAccounts->salesEuAccount->number->toBe('String value')
+        ->glAccounts->salesEuAccount->description->toBe('String value')
+        ->glAccounts->salesExportAccount->type->toBe('String value')
+        ->glAccounts->salesExportAccount->number->toBe('String value')
+        ->glAccounts->salesExportAccount->description->toBe('String value')
+        ->glAccounts->salesSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->salesSubaccount->subaccountId->toBe(42)
+        ->glAccounts->salesSubaccount->description->toBe('String value')
+        ->glAccounts->salesSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->salesSubaccount->active->toBe(true)
+        ->glAccounts->salesSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->salesSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->discountAccount->type->toBe('String value')
+        ->glAccounts->discountAccount->number->toBe('String value')
+        ->glAccounts->discountAccount->description->toBe('String value')
+        ->glAccounts->discountSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->discountSubaccount->subaccountId->toBe(42)
+        ->glAccounts->discountSubaccount->description->toBe('String value')
+        ->glAccounts->discountSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->discountSubaccount->active->toBe(true)
+        ->glAccounts->discountSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->discountSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->freightAccount->type->toBe('String value')
+        ->glAccounts->freightAccount->number->toBe('String value')
+        ->glAccounts->freightAccount->description->toBe('String value')
+        ->glAccounts->freightSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->freightSubaccount->subaccountId->toBe(42)
+        ->glAccounts->freightSubaccount->description->toBe('String value')
+        ->glAccounts->freightSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->freightSubaccount->active->toBe(true)
+        ->glAccounts->freightSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->freightSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->cashDiscountAccount->type->toBe('String value')
+        ->glAccounts->cashDiscountAccount->number->toBe('String value')
+        ->glAccounts->cashDiscountAccount->description->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->subaccountId->toBe(42)
+        ->glAccounts->cashDiscountSubaccount->description->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->cashDiscountSubaccount->active->toBe(true)
+        ->glAccounts->cashDiscountSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->prepaymentAccount->type->toBe('String value')
+        ->glAccounts->prepaymentAccount->number->toBe('String value')
+        ->glAccounts->prepaymentAccount->description->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->subaccountId->toBe(42)
+        ->glAccounts->prepaymentSubaccount->description->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->prepaymentSubaccount->active->toBe(true)
+        ->glAccounts->prepaymentSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->errorInfo->toBe('String value')
         ->invoiceToDefaultLocation->toBe(true)
-        ->eInvoiceContract->toBeNull()
+        ->eInvoiceContract->fInvoiceContractId->toBe('mock-id-123')
+        ->eInvoiceContract->fInvoiceIntermediatorId->toBe('mock-id-123')
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
         ->excludeDebtCollection->toBe(true)
@@ -834,18 +1336,71 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
             'number' => 'String value',
             'name' => 'String value',
             'status' => 'String value',
-            'mainAddress' => null,
-            'mainContact' => null,
+            'mainAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'mainContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
             'accountReference' => 'String value',
-            'parentRecord' => null,
-            'customerClass' => null,
-            'creditTerms' => null,
+            'parentRecord' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'customerClass' => [
+                'description' => 'String value',
+            ],
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'currencyId' => 'mock-id-123',
             'creditVerification' => 'String value',
             'creditLimit' => 42,
             'creditDaysPastDue' => 42,
-            'invoiceAddress' => null,
-            'invoiceContact' => null,
+            'invoiceAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'invoiceContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
             'printInvoices' => true,
             'acceptAutoInvoices' => true,
             'sendInvoicesByEmail' => true,
@@ -855,21 +1410,166 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
             'sendStatementsByEmail' => true,
             'printMultiCurrencyStatements' => true,
             'statementType' => 'String value',
-            'deliveryAddress' => null,
-            'deliveryContact' => null,
+            'deliveryAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'deliveryContact' => [
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
             'vatRegistrationId' => 'mock-id-123',
             'corporateId' => 'mock-id-123',
             'gln' => 'String value',
-            'vatZone' => null,
-            'location' => null,
+            'vatZone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'attributes' => [],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'directDebitLines' => [],
-            'priceClass' => null,
-            'glAccounts' => null,
+            'priceClass' => [
+                'description' => 'String value',
+            ],
+            'glAccounts' => [
+                'customerLedgerAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'customerLedgerSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'salesAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesNonTaxableAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesEuAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesExportAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'discountAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'discountSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'freightAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'freightSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'cashDiscountAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'cashDiscountSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'prepaymentAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'prepaymentSubaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+            ],
             'invoiceToDefaultLocation' => true,
-            'eInvoiceContract' => null,
+            'eInvoiceContract' => [
+                'fInvoiceContractId' => 'mock-id-123',
+                'fInvoiceIntermediatorId' => 'mock-id-123',
+            ],
             'paymentMethods' => [],
             'defaultPaymentMethodId' => 'mock-id-123',
             'numberOfEmployees' => 42,
@@ -896,18 +1596,49 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
         ->number->toBe('String value')
         ->name->toBe('String value')
         ->status->toBe('String value')
-        ->mainAddress->toBeNull()
-        ->mainContact->toBeNull()
+        ->mainAddress->addressId->toBe(42)
+        ->mainAddress->addressLine1->toBe('String value')
+        ->mainAddress->addressLine2->toBe('String value')
+        ->mainAddress->addressLine3->toBe('String value')
+        ->mainAddress->postalCode->toBe('String value')
+        ->mainAddress->city->toBe('String value')
+        ->mainAddress->country->name->toBe('String value')
+        ->mainAddress->country->errorInfo->toBe('String value')
+        ->mainAddress->county->name->toBe('String value')
+        ->mainContact->contactId->toBe(42)
+        ->mainContact->name->toBe('String value')
+        ->mainContact->attention->toBe('String value')
+        ->mainContact->email->toBe('test@example.com')
+        ->mainContact->web->toBe('String value')
+        ->mainContact->phone1->toBe('String value')
+        ->mainContact->phone2->toBe('String value')
+        ->mainContact->fax->toBe('String value')
         ->accountReference->toBe('String value')
-        ->parentRecord->toBeNull()
-        ->customerClass->toBeNull()
-        ->creditTerms->toBeNull()
+        ->parentRecord->number->toBe('String value')
+        ->parentRecord->name->toBe('String value')
+        ->customerClass->description->toBe('String value')
+        ->creditTerms->description->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->creditVerification->toBe('String value')
         ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->name->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->web->toBe('String value')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->phone2->toBe('String value')
+        ->invoiceContact->fax->toBe('String value')
         ->printInvoices->toBe(true)
         ->acceptAutoInvoices->toBe(true)
         ->sendInvoicesByEmail->toBe(true)
@@ -917,19 +1648,108 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
         ->sendStatementsByEmail->toBe(true)
         ->printMultiCurrencyStatements->toBe(true)
         ->statementType->toBe('String value')
-        ->deliveryAddress->toBeNull()
-        ->deliveryContact->toBeNull()
+        ->deliveryAddress->addressId->toBe(42)
+        ->deliveryAddress->addressLine1->toBe('String value')
+        ->deliveryAddress->addressLine2->toBe('String value')
+        ->deliveryAddress->addressLine3->toBe('String value')
+        ->deliveryAddress->postalCode->toBe('String value')
+        ->deliveryAddress->city->toBe('String value')
+        ->deliveryAddress->country->name->toBe('String value')
+        ->deliveryAddress->country->errorInfo->toBe('String value')
+        ->deliveryAddress->county->name->toBe('String value')
+        ->deliveryContact->contactId->toBe(42)
+        ->deliveryContact->name->toBe('String value')
+        ->deliveryContact->attention->toBe('String value')
+        ->deliveryContact->email->toBe('test@example.com')
+        ->deliveryContact->web->toBe('String value')
+        ->deliveryContact->phone1->toBe('String value')
+        ->deliveryContact->phone2->toBe('String value')
+        ->deliveryContact->fax->toBe('String value')
         ->vatRegistrationId->toBe('mock-id-123')
         ->corporateId->toBe('mock-id-123')
         ->gln->toBe('String value')
-        ->vatZone->toBeNull()
-        ->location->toBeNull()
+        ->vatZone->description->toBe('String value')
+        ->vatZone->defaultVatCategory->toBe('String value')
+        ->vatZone->defaultTaxCategory->number->toBe('String value')
+        ->vatZone->defaultTaxCategory->description->toBe('String value')
+        ->vatZone->errorInfo->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->priceClass->toBeNull()
-        ->glAccounts->toBeNull()
+        ->priceClass->description->toBe('String value')
+        ->glAccounts->customerLedgerAccount->type->toBe('String value')
+        ->glAccounts->customerLedgerAccount->number->toBe('String value')
+        ->glAccounts->customerLedgerAccount->description->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->subaccountId->toBe(42)
+        ->glAccounts->customerLedgerSubaccount->description->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->customerLedgerSubaccount->active->toBe(true)
+        ->glAccounts->customerLedgerSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->salesAccount->type->toBe('String value')
+        ->glAccounts->salesAccount->number->toBe('String value')
+        ->glAccounts->salesAccount->description->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->type->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->number->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->description->toBe('String value')
+        ->glAccounts->salesEuAccount->type->toBe('String value')
+        ->glAccounts->salesEuAccount->number->toBe('String value')
+        ->glAccounts->salesEuAccount->description->toBe('String value')
+        ->glAccounts->salesExportAccount->type->toBe('String value')
+        ->glAccounts->salesExportAccount->number->toBe('String value')
+        ->glAccounts->salesExportAccount->description->toBe('String value')
+        ->glAccounts->salesSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->salesSubaccount->subaccountId->toBe(42)
+        ->glAccounts->salesSubaccount->description->toBe('String value')
+        ->glAccounts->salesSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->salesSubaccount->active->toBe(true)
+        ->glAccounts->salesSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->salesSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->discountAccount->type->toBe('String value')
+        ->glAccounts->discountAccount->number->toBe('String value')
+        ->glAccounts->discountAccount->description->toBe('String value')
+        ->glAccounts->discountSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->discountSubaccount->subaccountId->toBe(42)
+        ->glAccounts->discountSubaccount->description->toBe('String value')
+        ->glAccounts->discountSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->discountSubaccount->active->toBe(true)
+        ->glAccounts->discountSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->discountSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->freightAccount->type->toBe('String value')
+        ->glAccounts->freightAccount->number->toBe('String value')
+        ->glAccounts->freightAccount->description->toBe('String value')
+        ->glAccounts->freightSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->freightSubaccount->subaccountId->toBe(42)
+        ->glAccounts->freightSubaccount->description->toBe('String value')
+        ->glAccounts->freightSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->freightSubaccount->active->toBe(true)
+        ->glAccounts->freightSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->freightSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->cashDiscountAccount->type->toBe('String value')
+        ->glAccounts->cashDiscountAccount->number->toBe('String value')
+        ->glAccounts->cashDiscountAccount->description->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->subaccountId->toBe(42)
+        ->glAccounts->cashDiscountSubaccount->description->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->cashDiscountSubaccount->active->toBe(true)
+        ->glAccounts->cashDiscountSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->prepaymentAccount->type->toBe('String value')
+        ->glAccounts->prepaymentAccount->number->toBe('String value')
+        ->glAccounts->prepaymentAccount->description->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->subaccountId->toBe(42)
+        ->glAccounts->prepaymentSubaccount->description->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->prepaymentSubaccount->active->toBe(true)
+        ->glAccounts->prepaymentSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->errorInfo->toBe('String value')
         ->invoiceToDefaultLocation->toBe(true)
-        ->eInvoiceContract->toBeNull()
+        ->eInvoiceContract->fInvoiceContractId->toBe('mock-id-123')
+        ->eInvoiceContract->fInvoiceIntermediatorId->toBe('mock-id-123')
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
         ->excludeDebtCollection->toBe(true)
@@ -1008,18 +1828,71 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                 'number' => 'String value',
                 'name' => 'String value',
                 'status' => 'String value',
-                'mainAddress' => null,
-                'mainContact' => null,
+                'mainAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'mainContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
                 'accountReference' => 'String value',
-                'parentRecord' => null,
-                'customerClass' => null,
-                'creditTerms' => null,
+                'parentRecord' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'customerClass' => [
+                    'description' => 'String value',
+                ],
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'currencyId' => 'mock-id-123',
                 'creditVerification' => 'String value',
                 'creditLimit' => 42,
                 'creditDaysPastDue' => 42,
-                'invoiceAddress' => null,
-                'invoiceContact' => null,
+                'invoiceAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'invoiceContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
                 'printInvoices' => true,
                 'acceptAutoInvoices' => true,
                 'sendInvoicesByEmail' => true,
@@ -1029,21 +1902,166 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                 'sendStatementsByEmail' => true,
                 'printMultiCurrencyStatements' => true,
                 'statementType' => 'String value',
-                'deliveryAddress' => null,
-                'deliveryContact' => null,
+                'deliveryAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'deliveryContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
                 'vatRegistrationId' => 'mock-id-123',
                 'corporateId' => 'mock-id-123',
                 'gln' => 'String value',
-                'vatZone' => null,
-                'location' => null,
+                'vatZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'attributes' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'directDebitLines' => [],
-                'priceClass' => null,
-                'glAccounts' => null,
+                'priceClass' => [
+                    'description' => 'String value',
+                ],
+                'glAccounts' => [
+                    'customerLedgerAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'customerLedgerSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'salesAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesNonTaxableAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesEuAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesExportAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'discountAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'discountSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'freightAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'freightSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'cashDiscountAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'cashDiscountSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'prepaymentAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'prepaymentSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                ],
                 'invoiceToDefaultLocation' => true,
-                'eInvoiceContract' => null,
+                'eInvoiceContract' => [
+                    'fInvoiceContractId' => 'mock-id-123',
+                    'fInvoiceIntermediatorId' => 'mock-id-123',
+                ],
                 'paymentMethods' => [],
                 'defaultPaymentMethodId' => 'mock-id-123',
                 'numberOfEmployees' => 42,
@@ -1056,18 +2074,71 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                 'number' => 'String value',
                 'name' => 'String value',
                 'status' => 'String value',
-                'mainAddress' => null,
-                'mainContact' => null,
+                'mainAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'mainContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
                 'accountReference' => 'String value',
-                'parentRecord' => null,
-                'customerClass' => null,
-                'creditTerms' => null,
+                'parentRecord' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'customerClass' => [
+                    'description' => 'String value',
+                ],
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'currencyId' => 'mock-id-123',
                 'creditVerification' => 'String value',
                 'creditLimit' => 42,
                 'creditDaysPastDue' => 42,
-                'invoiceAddress' => null,
-                'invoiceContact' => null,
+                'invoiceAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'invoiceContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
                 'printInvoices' => true,
                 'acceptAutoInvoices' => true,
                 'sendInvoicesByEmail' => true,
@@ -1077,21 +2148,166 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                 'sendStatementsByEmail' => true,
                 'printMultiCurrencyStatements' => true,
                 'statementType' => 'String value',
-                'deliveryAddress' => null,
-                'deliveryContact' => null,
+                'deliveryAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'deliveryContact' => [
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
                 'vatRegistrationId' => 'mock-id-123',
                 'corporateId' => 'mock-id-123',
                 'gln' => 'String value',
-                'vatZone' => null,
-                'location' => null,
+                'vatZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'attributes' => [],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'directDebitLines' => [],
-                'priceClass' => null,
-                'glAccounts' => null,
+                'priceClass' => [
+                    'description' => 'String value',
+                ],
+                'glAccounts' => [
+                    'customerLedgerAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'customerLedgerSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'salesAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesNonTaxableAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesEuAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesExportAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'discountAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'discountSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'freightAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'freightSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'cashDiscountAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'cashDiscountSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'prepaymentAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'prepaymentSubaccount' => [
+                        'subaccountNumber' => 'String value',
+                        'subaccountId' => 42,
+                        'description' => 'String value',
+                        'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                        'active' => true,
+                        'segments' => [],
+                        'timeStamp' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                ],
                 'invoiceToDefaultLocation' => true,
-                'eInvoiceContract' => null,
+                'eInvoiceContract' => [
+                    'fInvoiceContractId' => 'mock-id-123',
+                    'fInvoiceIntermediatorId' => 'mock-id-123',
+                ],
                 'paymentMethods' => [],
                 'defaultPaymentMethodId' => 'mock-id-123',
                 'numberOfEmployees' => 42,
@@ -1138,18 +2354,49 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
         ->number->toBe('String value')
         ->name->toBe('String value')
         ->status->toBe('String value')
-        ->mainAddress->toBeNull()
-        ->mainContact->toBeNull()
+        ->mainAddress->addressId->toBe(42)
+        ->mainAddress->addressLine1->toBe('String value')
+        ->mainAddress->addressLine2->toBe('String value')
+        ->mainAddress->addressLine3->toBe('String value')
+        ->mainAddress->postalCode->toBe('String value')
+        ->mainAddress->city->toBe('String value')
+        ->mainAddress->country->name->toBe('String value')
+        ->mainAddress->country->errorInfo->toBe('String value')
+        ->mainAddress->county->name->toBe('String value')
+        ->mainContact->contactId->toBe(42)
+        ->mainContact->name->toBe('String value')
+        ->mainContact->attention->toBe('String value')
+        ->mainContact->email->toBe('test@example.com')
+        ->mainContact->web->toBe('String value')
+        ->mainContact->phone1->toBe('String value')
+        ->mainContact->phone2->toBe('String value')
+        ->mainContact->fax->toBe('String value')
         ->accountReference->toBe('String value')
-        ->parentRecord->toBeNull()
-        ->customerClass->toBeNull()
-        ->creditTerms->toBeNull()
+        ->parentRecord->number->toBe('String value')
+        ->parentRecord->name->toBe('String value')
+        ->customerClass->description->toBe('String value')
+        ->creditTerms->description->toBe('String value')
         ->currencyId->toBe('mock-id-123')
         ->creditVerification->toBe('String value')
         ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->name->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->web->toBe('String value')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->phone2->toBe('String value')
+        ->invoiceContact->fax->toBe('String value')
         ->printInvoices->toBe(true)
         ->acceptAutoInvoices->toBe(true)
         ->sendInvoicesByEmail->toBe(true)
@@ -1159,19 +2406,108 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
         ->sendStatementsByEmail->toBe(true)
         ->printMultiCurrencyStatements->toBe(true)
         ->statementType->toBe('String value')
-        ->deliveryAddress->toBeNull()
-        ->deliveryContact->toBeNull()
+        ->deliveryAddress->addressId->toBe(42)
+        ->deliveryAddress->addressLine1->toBe('String value')
+        ->deliveryAddress->addressLine2->toBe('String value')
+        ->deliveryAddress->addressLine3->toBe('String value')
+        ->deliveryAddress->postalCode->toBe('String value')
+        ->deliveryAddress->city->toBe('String value')
+        ->deliveryAddress->country->name->toBe('String value')
+        ->deliveryAddress->country->errorInfo->toBe('String value')
+        ->deliveryAddress->county->name->toBe('String value')
+        ->deliveryContact->contactId->toBe(42)
+        ->deliveryContact->name->toBe('String value')
+        ->deliveryContact->attention->toBe('String value')
+        ->deliveryContact->email->toBe('test@example.com')
+        ->deliveryContact->web->toBe('String value')
+        ->deliveryContact->phone1->toBe('String value')
+        ->deliveryContact->phone2->toBe('String value')
+        ->deliveryContact->fax->toBe('String value')
         ->vatRegistrationId->toBe('mock-id-123')
         ->corporateId->toBe('mock-id-123')
         ->gln->toBe('String value')
-        ->vatZone->toBeNull()
-        ->location->toBeNull()
+        ->vatZone->description->toBe('String value')
+        ->vatZone->defaultVatCategory->toBe('String value')
+        ->vatZone->defaultTaxCategory->number->toBe('String value')
+        ->vatZone->defaultTaxCategory->description->toBe('String value')
+        ->vatZone->errorInfo->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->priceClass->toBeNull()
-        ->glAccounts->toBeNull()
+        ->priceClass->description->toBe('String value')
+        ->glAccounts->customerLedgerAccount->type->toBe('String value')
+        ->glAccounts->customerLedgerAccount->number->toBe('String value')
+        ->glAccounts->customerLedgerAccount->description->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->subaccountId->toBe(42)
+        ->glAccounts->customerLedgerSubaccount->description->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->customerLedgerSubaccount->active->toBe(true)
+        ->glAccounts->customerLedgerSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->customerLedgerSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->salesAccount->type->toBe('String value')
+        ->glAccounts->salesAccount->number->toBe('String value')
+        ->glAccounts->salesAccount->description->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->type->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->number->toBe('String value')
+        ->glAccounts->salesNonTaxableAccount->description->toBe('String value')
+        ->glAccounts->salesEuAccount->type->toBe('String value')
+        ->glAccounts->salesEuAccount->number->toBe('String value')
+        ->glAccounts->salesEuAccount->description->toBe('String value')
+        ->glAccounts->salesExportAccount->type->toBe('String value')
+        ->glAccounts->salesExportAccount->number->toBe('String value')
+        ->glAccounts->salesExportAccount->description->toBe('String value')
+        ->glAccounts->salesSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->salesSubaccount->subaccountId->toBe(42)
+        ->glAccounts->salesSubaccount->description->toBe('String value')
+        ->glAccounts->salesSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->salesSubaccount->active->toBe(true)
+        ->glAccounts->salesSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->salesSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->discountAccount->type->toBe('String value')
+        ->glAccounts->discountAccount->number->toBe('String value')
+        ->glAccounts->discountAccount->description->toBe('String value')
+        ->glAccounts->discountSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->discountSubaccount->subaccountId->toBe(42)
+        ->glAccounts->discountSubaccount->description->toBe('String value')
+        ->glAccounts->discountSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->discountSubaccount->active->toBe(true)
+        ->glAccounts->discountSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->discountSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->freightAccount->type->toBe('String value')
+        ->glAccounts->freightAccount->number->toBe('String value')
+        ->glAccounts->freightAccount->description->toBe('String value')
+        ->glAccounts->freightSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->freightSubaccount->subaccountId->toBe(42)
+        ->glAccounts->freightSubaccount->description->toBe('String value')
+        ->glAccounts->freightSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->freightSubaccount->active->toBe(true)
+        ->glAccounts->freightSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->freightSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->cashDiscountAccount->type->toBe('String value')
+        ->glAccounts->cashDiscountAccount->number->toBe('String value')
+        ->glAccounts->cashDiscountAccount->description->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->subaccountId->toBe(42)
+        ->glAccounts->cashDiscountSubaccount->description->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->cashDiscountSubaccount->active->toBe(true)
+        ->glAccounts->cashDiscountSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->cashDiscountSubaccount->errorInfo->toBe('String value')
+        ->glAccounts->prepaymentAccount->type->toBe('String value')
+        ->glAccounts->prepaymentAccount->number->toBe('String value')
+        ->glAccounts->prepaymentAccount->description->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->subaccountNumber->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->subaccountId->toBe(42)
+        ->glAccounts->prepaymentSubaccount->description->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->glAccounts->prepaymentSubaccount->active->toBe(true)
+        ->glAccounts->prepaymentSubaccount->timeStamp->toBe('String value')
+        ->glAccounts->prepaymentSubaccount->errorInfo->toBe('String value')
         ->invoiceToDefaultLocation->toBe(true)
-        ->eInvoiceContract->toBeNull()
+        ->eInvoiceContract->fInvoiceContractId->toBe('mock-id-123')
+        ->eInvoiceContract->fInvoiceIntermediatorId->toBe('mock-id-123')
         ->defaultPaymentMethodId->toBe('mock-id-123')
         ->numberOfEmployees->toBe(42)
         ->excludeDebtCollection->toBe(true)
@@ -1243,7 +2579,9 @@ it('calls the customerPostRequest method in the Customer resource', function () 
 it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllInvoicesForCustomerBycustomerNumberRequest::class => MockResponse::make([
-            'creditTerms' => null,
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'documentDueDate' => '2025-11-22T10:40:04+00:00',
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'externalReference' => 'String value',
@@ -1251,22 +2589,37 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
             'exchangeRate' => 42,
             'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
             'dunningLetterLevel' => 42,
-            'contact' => null,
+            'contact' => [
+                'name' => 'String value',
+            ],
             'attachments' => [],
             'taxDetails' => [],
             'invoiceLines' => [],
             'sendToAutoInvoice' => true,
             'roundingDiff' => 42,
-            'customerVatZone' => null,
+            'customerVatZone' => [
+                'description' => 'String value',
+            ],
             'startDate' => '2025-11-22T10:40:04+00:00',
             'endDate' => '2025-11-22T10:40:04+00:00',
             'accountingCostRef' => 'String value',
             'originatorDocRef' => 'String value',
             'contractDocRef' => 'String value',
-            'childRecord' => null,
-            'directDebitMandate' => null,
+            'childRecord' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'directDebitMandate' => [
+                'mandateId' => 'mock-id-123',
+                'mandateDescription' => 'String value',
+            ],
             'excludeDebtCollection' => true,
-            'debtCollection' => null,
+            'debtCollection' => [
+                'caseNumber' => 'String value',
+                'caseType' => 'String value',
+                'caseStatus' => 'String value',
+                'caseUrl' => 'String value',
+            ],
             'timeStamp' => 'String value',
             'hold' => true,
             'discountTotal' => 42,
@@ -1279,15 +2632,42 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
             'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'paymentReference' => 'String value',
-            'invoiceAddress' => null,
-            'invoiceContact' => null,
+            'invoiceAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+                'overrideAddress' => true,
+            ],
+            'invoiceContact' => [
+                'contactId' => 42,
+                'businessName' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'phone1' => 'String value',
+                'overrideContact' => true,
+            ],
             'applications' => [],
             'dontPrint' => true,
             'dontEmail' => true,
             'revoked' => true,
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -1303,7 +2683,9 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -1311,12 +2693,37 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
             'note' => 'String value',
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'location' => null,
-            'branchNumber' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'cashAccount' => 'String value',
-            'project' => null,
-            'account' => null,
-            'subaccount' => null,
+            'project' => [
+                'internalId' => 42,
+                'description' => 'String value',
+            ],
+            'account' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
@@ -1367,7 +2774,7 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
     $dto = $response->dto();
 
     expect($dto)
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalReference->toBe('String value')
@@ -1375,19 +2782,24 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
         ->exchangeRate->toBe(42)
         ->dunningLetterDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dunningLetterLevel->toBe(42)
-        ->contact->toBeNull()
+        ->contact->name->toBe('String value')
         ->sendToAutoInvoice->toBe(true)
         ->roundingDiff->toBe(42)
-        ->customerVatZone->toBeNull()
+        ->customerVatZone->description->toBe('String value')
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->accountingCostRef->toBe('String value')
         ->originatorDocRef->toBe('String value')
         ->contractDocRef->toBe('String value')
-        ->childRecord->toBeNull()
-        ->directDebitMandate->toBeNull()
+        ->childRecord->number->toBe('String value')
+        ->childRecord->name->toBe('String value')
+        ->directDebitMandate->mandateId->toBe('mock-id-123')
+        ->directDebitMandate->mandateDescription->toBe('String value')
         ->excludeDebtCollection->toBe(true)
-        ->debtCollection->toBeNull()
+        ->debtCollection->caseNumber->toBe('String value')
+        ->debtCollection->caseType->toBe('String value')
+        ->debtCollection->caseStatus->toBe('String value')
+        ->debtCollection->caseUrl->toBe('String value')
         ->timeStamp->toBe('String value')
         ->hold->toBe(true)
         ->discountTotal->toBe(42)
@@ -1400,14 +2812,29 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
         ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->paymentReference->toBe('String value')
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceAddress->overrideAddress->toBe(true)
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->businessName->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->overrideContact->toBe(true)
         ->dontPrint->toBe(true)
         ->dontEmail->toBe(true)
         ->revoked->toBe(true)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -1423,7 +2850,7 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -1431,12 +2858,26 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -1444,7 +2885,9 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
 it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method in the Customer resource', function () {
     Saloon::fake([
         CustomerGetAllCashSalesForCustomerBycustomerNumberRequest::class => MockResponse::make([
-            'creditTerms' => null,
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'cashSaleLines' => [],
             'timeStamp' => 'String value',
             'hold' => true,
@@ -1458,15 +2901,42 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
             'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'paymentReference' => 'String value',
-            'invoiceAddress' => null,
-            'invoiceContact' => null,
+            'invoiceAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+                'overrideAddress' => true,
+            ],
+            'invoiceContact' => [
+                'contactId' => 42,
+                'businessName' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'phone1' => 'String value',
+                'overrideContact' => true,
+            ],
             'applications' => [],
             'dontPrint' => true,
             'dontEmail' => true,
             'revoked' => true,
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -1482,7 +2952,9 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -1490,12 +2962,37 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
             'note' => 'String value',
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'location' => null,
-            'branchNumber' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'cashAccount' => 'String value',
-            'project' => null,
-            'account' => null,
-            'subaccount' => null,
+            'project' => [
+                'internalId' => 42,
+                'description' => 'String value',
+            ],
+            'account' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
@@ -1546,7 +3043,7 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
     $dto = $response->dto();
 
     expect($dto)
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->timeStamp->toBe('String value')
         ->hold->toBe(true)
         ->discountTotal->toBe(42)
@@ -1559,14 +3056,29 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
         ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->paymentReference->toBe('String value')
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceAddress->overrideAddress->toBe(true)
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->businessName->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->overrideContact->toBe(true)
         ->dontPrint->toBe(true)
         ->dontEmail->toBe(true)
         ->revoked->toBe(true)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -1582,7 +3094,7 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -1590,12 +3102,26 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -1604,8 +3130,14 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
     Saloon::fake([
         CustomerGetAllDocumentsForCustomerBycustomerNumberRequest::class => MockResponse::make([
             'documentDueDate' => '2025-11-22T10:40:04+00:00',
-            'branch' => null,
-            'customer' => null,
+            'branch' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -1621,7 +3153,9 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -1629,12 +3163,37 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
             'note' => 'String value',
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'location' => null,
-            'branchNumber' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'cashAccount' => 'String value',
-            'project' => null,
-            'account' => null,
-            'subaccount' => null,
+            'project' => [
+                'internalId' => 42,
+                'description' => 'String value',
+            ],
+            'account' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
@@ -1686,8 +3245,10 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
 
     expect($dto)
         ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branch->toBeNull()
-        ->customer->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -1703,7 +3264,7 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -1711,12 +3272,26 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });

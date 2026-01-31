@@ -68,12 +68,12 @@ it('calls the currencyRateGetAllRequest method in the CurrencyRate resource', fu
 
 it('calls the currencyRatePostCurrencyRateRequest method in the CurrencyRate resource', function () {
     $bodyData = new CreateCurrencyRateDto(
-        fromCurrencyId: null,
-        toCurrencyId: null,
-        rateType: null,
-        effectiveDate: null,
-        rate: null,
-        multDiv: null
+        fromCurrencyId: 'mock-id-123',
+        toCurrencyId: 'mock-id-123',
+        rateType: 'String value',
+        effectiveDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        rate: 42,
+        multDiv: 'String value'
     );
 
     Saloon::fake([
@@ -93,8 +93,8 @@ it('calls the currencyRatePostCurrencyRateRequest method in the CurrencyRate res
 
 it('calls the currencyRatePutCurrencyRateBycurrencyRateIdRequest method in the CurrencyRate resource', function () {
     $bodyData = new UpdateCurrencyRateDto(
-        rate: null,
-        multDiv: null
+        rate: 42,
+        multDiv: 'String value'
     );
 
     Saloon::fake([

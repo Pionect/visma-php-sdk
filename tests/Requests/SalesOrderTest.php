@@ -35,41 +35,120 @@ it('calls the salesOrderGetByorderNbrRequest method in the SalesOrder resource',
             'printDescriptionOnInvoice' => true,
             'printNoteOnExternalDocuments' => true,
             'printNoteOnInternalDocuments' => true,
-            'soBillingContact' => null,
-            'soBillingAddress' => null,
-            'customerVatzone' => null,
+            'soBillingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'soBillingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'customerVatzone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
             'invoiceSeparately' => true,
             'invoiceNbr' => 'String value',
             'invoiceDate' => '2025-11-22T10:40:04+00:00',
-            'terms' => null,
+            'terms' => [
+                'description' => 'String value',
+            ],
             'dueDate' => '2025-11-22T10:40:04+00:00',
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'commissionPercent' => 'String value',
             'commissionAmount' => 'String value',
             'commissionableAmount' => 'String value',
-            'owner' => null,
+            'owner' => [
+                'employeeId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'origOrderType' => 'String value',
             'origOrderNbr' => 'String value',
-            'soShippingContact' => null,
-            'soShippingAddress' => null,
+            'soShippingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'soShippingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
             'schedShipment' => '2025-11-22T10:40:04+00:00',
             'shipSeparately' => true,
             'shipComplete' => 'String value',
             'cancelBy' => '2025-11-22T10:40:04+00:00',
             'canceled' => true,
-            'preferredWarehouse' => null,
-            'shipVia' => null,
-            'fobPoint' => null,
+            'preferredWarehouse' => [
+                'description' => 'String value',
+            ],
+            'shipVia' => [
+                'description' => 'String value',
+            ],
+            'fobPoint' => [
+                'description' => 'String value',
+            ],
             'priority' => 42,
-            'shippingTerms' => null,
-            'shippingZone' => null,
+            'shippingTerms' => [
+                'description' => 'String value',
+            ],
+            'shippingZone' => [
+                'description' => 'String value',
+            ],
             'residentialDelivery' => true,
             'saturdayDelivery' => true,
             'insurance' => true,
-            'transactionType' => null,
-            'paymentMethod' => null,
+            'transactionType' => [
+                'description' => 'String value',
+            ],
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'cashAccount' => 'String value',
             'paymentRef' => 'String value',
             'isRotRutDeductible' => true,
@@ -84,9 +163,16 @@ it('calls the salesOrderGetByorderNbrRequest method in the SalesOrder resource',
             'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
-            'customer' => null,
+            'customer' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'contactId' => 42,
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'description' => 'String value',
             'orderTotal' => 42,
@@ -101,7 +187,10 @@ it('calls the salesOrderGetByorderNbrRequest method in the SalesOrder resource',
             'discountTotal' => 42,
             'discountTotalInBaseCurrency' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
@@ -125,41 +214,80 @@ it('calls the salesOrderGetByorderNbrRequest method in the SalesOrder resource',
         ->printDescriptionOnInvoice->toBe(true)
         ->printNoteOnExternalDocuments->toBe(true)
         ->printNoteOnInternalDocuments->toBe(true)
-        ->soBillingContact->toBeNull()
-        ->soBillingAddress->toBeNull()
-        ->customerVatzone->toBeNull()
+        ->soBillingContact->overrideContact->toBe(true)
+        ->soBillingContact->contactId->toBe(42)
+        ->soBillingContact->name->toBe('String value')
+        ->soBillingContact->attention->toBe('String value')
+        ->soBillingContact->email->toBe('test@example.com')
+        ->soBillingContact->web->toBe('String value')
+        ->soBillingContact->phone1->toBe('String value')
+        ->soBillingContact->phone2->toBe('String value')
+        ->soBillingContact->fax->toBe('String value')
+        ->soBillingAddress->overrideAddress->toBe(true)
+        ->soBillingAddress->addressId->toBe(42)
+        ->soBillingAddress->addressLine1->toBe('String value')
+        ->soBillingAddress->addressLine2->toBe('String value')
+        ->soBillingAddress->addressLine3->toBe('String value')
+        ->soBillingAddress->postalCode->toBe('String value')
+        ->soBillingAddress->city->toBe('String value')
+        ->soBillingAddress->country->name->toBe('String value')
+        ->soBillingAddress->country->errorInfo->toBe('String value')
+        ->soBillingAddress->county->name->toBe('String value')
+        ->customerVatzone->description->toBe('String value')
+        ->customerVatzone->defaultVatCategory->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->number->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->description->toBe('String value')
+        ->customerVatzone->errorInfo->toBe('String value')
         ->invoiceSeparately->toBe(true)
         ->invoiceNbr->toBe('String value')
         ->invoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->terms->toBeNull()
+        ->terms->description->toBe('String value')
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->commissionPercent->toBe('String value')
         ->commissionAmount->toBe('String value')
         ->commissionableAmount->toBe('String value')
-        ->owner->toBeNull()
+        ->owner->employeeId->toBe('mock-id-123')
+        ->owner->name->toBe('String value')
         ->origOrderType->toBe('String value')
         ->origOrderNbr->toBe('String value')
-        ->soShippingContact->toBeNull()
-        ->soShippingAddress->toBeNull()
+        ->soShippingContact->overrideContact->toBe(true)
+        ->soShippingContact->contactId->toBe(42)
+        ->soShippingContact->name->toBe('String value')
+        ->soShippingContact->attention->toBe('String value')
+        ->soShippingContact->email->toBe('test@example.com')
+        ->soShippingContact->web->toBe('String value')
+        ->soShippingContact->phone1->toBe('String value')
+        ->soShippingContact->phone2->toBe('String value')
+        ->soShippingContact->fax->toBe('String value')
+        ->soShippingAddress->overrideAddress->toBe(true)
+        ->soShippingAddress->addressId->toBe(42)
+        ->soShippingAddress->addressLine1->toBe('String value')
+        ->soShippingAddress->addressLine2->toBe('String value')
+        ->soShippingAddress->addressLine3->toBe('String value')
+        ->soShippingAddress->postalCode->toBe('String value')
+        ->soShippingAddress->city->toBe('String value')
+        ->soShippingAddress->country->name->toBe('String value')
+        ->soShippingAddress->country->errorInfo->toBe('String value')
+        ->soShippingAddress->county->name->toBe('String value')
         ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->shipSeparately->toBe(true)
         ->shipComplete->toBe('String value')
         ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->canceled->toBe(true)
-        ->preferredWarehouse->toBeNull()
-        ->shipVia->toBeNull()
-        ->fobPoint->toBeNull()
+        ->preferredWarehouse->description->toBe('String value')
+        ->shipVia->description->toBe('String value')
+        ->fobPoint->description->toBe('String value')
         ->priority->toBe(42)
-        ->shippingTerms->toBeNull()
-        ->shippingZone->toBeNull()
+        ->shippingTerms->description->toBe('String value')
+        ->shippingZone->description->toBe('String value')
         ->residentialDelivery->toBe(true)
         ->saturdayDelivery->toBe(true)
         ->insurance->toBe(true)
-        ->transactionType->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->transactionType->description->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->paymentRef->toBe('String value')
         ->isRotRutDeductible->toBe(true)
@@ -172,9 +300,12 @@ it('calls the salesOrderGetByorderNbrRequest method in the SalesOrder resource',
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -189,7 +320,8 @@ it('calls the salesOrderGetByorderNbrRequest method in the SalesOrder resource',
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -231,20 +363,27 @@ it('calls the salesOrderPutByorderNbrRequest method in the SalesOrder resource',
         paymentRef: 'String value',
         isRotRutDeductible: true,
         emailed: true,
-        rotRutDetails: null,
+        rotRutDetails: [
+            'distributedAutomaticaly' => true,
+            'type' => 'String value',
+            'appartment' => 'String value',
+            'estate' => 'String value',
+            'organizationNbr' => 'String value',
+            'distribution' => [],
+        ],
         lines: [],
-        orderType: null,
+        orderType: 'String value',
         orderNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         requestOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         customerOrder: 'String value',
         customerRefNo: 'String value',
-        customer: null,
+        customer: 'String value',
         location: 'String value',
         contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
+        gln: 'String value',
+        vatRegistrationId: 'mock-id-123',
         currency: 'String value',
         description: 'String value',
         recalculateShipment: true,
@@ -276,41 +415,120 @@ it('calls the salesOrderGetOrderByTypeByorderTypeorderNbrRequest method in the S
             'printDescriptionOnInvoice' => true,
             'printNoteOnExternalDocuments' => true,
             'printNoteOnInternalDocuments' => true,
-            'soBillingContact' => null,
-            'soBillingAddress' => null,
-            'customerVatzone' => null,
+            'soBillingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'soBillingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'customerVatzone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
             'invoiceSeparately' => true,
             'invoiceNbr' => 'String value',
             'invoiceDate' => '2025-11-22T10:40:04+00:00',
-            'terms' => null,
+            'terms' => [
+                'description' => 'String value',
+            ],
             'dueDate' => '2025-11-22T10:40:04+00:00',
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'commissionPercent' => 'String value',
             'commissionAmount' => 'String value',
             'commissionableAmount' => 'String value',
-            'owner' => null,
+            'owner' => [
+                'employeeId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'origOrderType' => 'String value',
             'origOrderNbr' => 'String value',
-            'soShippingContact' => null,
-            'soShippingAddress' => null,
+            'soShippingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'soShippingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
             'schedShipment' => '2025-11-22T10:40:04+00:00',
             'shipSeparately' => true,
             'shipComplete' => 'String value',
             'cancelBy' => '2025-11-22T10:40:04+00:00',
             'canceled' => true,
-            'preferredWarehouse' => null,
-            'shipVia' => null,
-            'fobPoint' => null,
+            'preferredWarehouse' => [
+                'description' => 'String value',
+            ],
+            'shipVia' => [
+                'description' => 'String value',
+            ],
+            'fobPoint' => [
+                'description' => 'String value',
+            ],
             'priority' => 42,
-            'shippingTerms' => null,
-            'shippingZone' => null,
+            'shippingTerms' => [
+                'description' => 'String value',
+            ],
+            'shippingZone' => [
+                'description' => 'String value',
+            ],
             'residentialDelivery' => true,
             'saturdayDelivery' => true,
             'insurance' => true,
-            'transactionType' => null,
-            'paymentMethod' => null,
+            'transactionType' => [
+                'description' => 'String value',
+            ],
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'cashAccount' => 'String value',
             'paymentRef' => 'String value',
             'isRotRutDeductible' => true,
@@ -325,9 +543,16 @@ it('calls the salesOrderGetOrderByTypeByorderTypeorderNbrRequest method in the S
             'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
-            'customer' => null,
+            'customer' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'contactId' => 42,
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'description' => 'String value',
             'orderTotal' => 42,
@@ -342,7 +567,10 @@ it('calls the salesOrderGetOrderByTypeByorderTypeorderNbrRequest method in the S
             'discountTotal' => 42,
             'discountTotalInBaseCurrency' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
@@ -367,41 +595,80 @@ it('calls the salesOrderGetOrderByTypeByorderTypeorderNbrRequest method in the S
         ->printDescriptionOnInvoice->toBe(true)
         ->printNoteOnExternalDocuments->toBe(true)
         ->printNoteOnInternalDocuments->toBe(true)
-        ->soBillingContact->toBeNull()
-        ->soBillingAddress->toBeNull()
-        ->customerVatzone->toBeNull()
+        ->soBillingContact->overrideContact->toBe(true)
+        ->soBillingContact->contactId->toBe(42)
+        ->soBillingContact->name->toBe('String value')
+        ->soBillingContact->attention->toBe('String value')
+        ->soBillingContact->email->toBe('test@example.com')
+        ->soBillingContact->web->toBe('String value')
+        ->soBillingContact->phone1->toBe('String value')
+        ->soBillingContact->phone2->toBe('String value')
+        ->soBillingContact->fax->toBe('String value')
+        ->soBillingAddress->overrideAddress->toBe(true)
+        ->soBillingAddress->addressId->toBe(42)
+        ->soBillingAddress->addressLine1->toBe('String value')
+        ->soBillingAddress->addressLine2->toBe('String value')
+        ->soBillingAddress->addressLine3->toBe('String value')
+        ->soBillingAddress->postalCode->toBe('String value')
+        ->soBillingAddress->city->toBe('String value')
+        ->soBillingAddress->country->name->toBe('String value')
+        ->soBillingAddress->country->errorInfo->toBe('String value')
+        ->soBillingAddress->county->name->toBe('String value')
+        ->customerVatzone->description->toBe('String value')
+        ->customerVatzone->defaultVatCategory->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->number->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->description->toBe('String value')
+        ->customerVatzone->errorInfo->toBe('String value')
         ->invoiceSeparately->toBe(true)
         ->invoiceNbr->toBe('String value')
         ->invoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->terms->toBeNull()
+        ->terms->description->toBe('String value')
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->commissionPercent->toBe('String value')
         ->commissionAmount->toBe('String value')
         ->commissionableAmount->toBe('String value')
-        ->owner->toBeNull()
+        ->owner->employeeId->toBe('mock-id-123')
+        ->owner->name->toBe('String value')
         ->origOrderType->toBe('String value')
         ->origOrderNbr->toBe('String value')
-        ->soShippingContact->toBeNull()
-        ->soShippingAddress->toBeNull()
+        ->soShippingContact->overrideContact->toBe(true)
+        ->soShippingContact->contactId->toBe(42)
+        ->soShippingContact->name->toBe('String value')
+        ->soShippingContact->attention->toBe('String value')
+        ->soShippingContact->email->toBe('test@example.com')
+        ->soShippingContact->web->toBe('String value')
+        ->soShippingContact->phone1->toBe('String value')
+        ->soShippingContact->phone2->toBe('String value')
+        ->soShippingContact->fax->toBe('String value')
+        ->soShippingAddress->overrideAddress->toBe(true)
+        ->soShippingAddress->addressId->toBe(42)
+        ->soShippingAddress->addressLine1->toBe('String value')
+        ->soShippingAddress->addressLine2->toBe('String value')
+        ->soShippingAddress->addressLine3->toBe('String value')
+        ->soShippingAddress->postalCode->toBe('String value')
+        ->soShippingAddress->city->toBe('String value')
+        ->soShippingAddress->country->name->toBe('String value')
+        ->soShippingAddress->country->errorInfo->toBe('String value')
+        ->soShippingAddress->county->name->toBe('String value')
         ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->shipSeparately->toBe(true)
         ->shipComplete->toBe('String value')
         ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->canceled->toBe(true)
-        ->preferredWarehouse->toBeNull()
-        ->shipVia->toBeNull()
-        ->fobPoint->toBeNull()
+        ->preferredWarehouse->description->toBe('String value')
+        ->shipVia->description->toBe('String value')
+        ->fobPoint->description->toBe('String value')
         ->priority->toBe(42)
-        ->shippingTerms->toBeNull()
-        ->shippingZone->toBeNull()
+        ->shippingTerms->description->toBe('String value')
+        ->shippingZone->description->toBe('String value')
         ->residentialDelivery->toBe(true)
         ->saturdayDelivery->toBe(true)
         ->insurance->toBe(true)
-        ->transactionType->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->transactionType->description->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->paymentRef->toBe('String value')
         ->isRotRutDeductible->toBe(true)
@@ -414,9 +681,12 @@ it('calls the salesOrderGetOrderByTypeByorderTypeorderNbrRequest method in the S
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -431,7 +701,8 @@ it('calls the salesOrderGetOrderByTypeByorderTypeorderNbrRequest method in the S
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -477,41 +748,120 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
                 'printDescriptionOnInvoice' => true,
                 'printNoteOnExternalDocuments' => true,
                 'printNoteOnInternalDocuments' => true,
-                'soBillingContact' => null,
-                'soBillingAddress' => null,
-                'customerVatzone' => null,
+                'soBillingContact' => [
+                    'overrideContact' => true,
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'soBillingAddress' => [
+                    'overrideAddress' => true,
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'customerVatzone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
                 'invoiceSeparately' => true,
                 'invoiceNbr' => 'String value',
                 'invoiceDate' => '2025-11-22T10:40:04+00:00',
-                'terms' => null,
+                'terms' => [
+                    'description' => 'String value',
+                ],
                 'dueDate' => '2025-11-22T10:40:04+00:00',
                 'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
-                'salesPerson' => null,
+                'salesPerson' => [
+                    'description' => 'String value',
+                ],
                 'commissionPercent' => 'String value',
                 'commissionAmount' => 'String value',
                 'commissionableAmount' => 'String value',
-                'owner' => null,
+                'owner' => [
+                    'employeeId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'origOrderType' => 'String value',
                 'origOrderNbr' => 'String value',
-                'soShippingContact' => null,
-                'soShippingAddress' => null,
+                'soShippingContact' => [
+                    'overrideContact' => true,
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'soShippingAddress' => [
+                    'overrideAddress' => true,
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
                 'schedShipment' => '2025-11-22T10:40:04+00:00',
                 'shipSeparately' => true,
                 'shipComplete' => 'String value',
                 'cancelBy' => '2025-11-22T10:40:04+00:00',
                 'canceled' => true,
-                'preferredWarehouse' => null,
-                'shipVia' => null,
-                'fobPoint' => null,
+                'preferredWarehouse' => [
+                    'description' => 'String value',
+                ],
+                'shipVia' => [
+                    'description' => 'String value',
+                ],
+                'fobPoint' => [
+                    'description' => 'String value',
+                ],
                 'priority' => 42,
-                'shippingTerms' => null,
-                'shippingZone' => null,
+                'shippingTerms' => [
+                    'description' => 'String value',
+                ],
+                'shippingZone' => [
+                    'description' => 'String value',
+                ],
                 'residentialDelivery' => true,
                 'saturdayDelivery' => true,
                 'insurance' => true,
-                'transactionType' => null,
-                'paymentMethod' => null,
+                'transactionType' => [
+                    'description' => 'String value',
+                ],
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'cashAccount' => 'String value',
                 'paymentRef' => 'String value',
                 'isRotRutDeductible' => true,
@@ -526,9 +876,16 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
                 'requestOn' => '2025-11-22T10:40:04+00:00',
                 'customerOrder' => 'String value',
                 'customerRefNo' => 'String value',
-                'customer' => null,
+                'customer' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'contactId' => 42,
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'description' => 'String value',
                 'orderTotal' => 42,
@@ -543,7 +900,10 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
                 'discountTotal' => 42,
                 'discountTotalInBaseCurrency' => 42,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
@@ -553,41 +913,120 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
                 'printDescriptionOnInvoice' => true,
                 'printNoteOnExternalDocuments' => true,
                 'printNoteOnInternalDocuments' => true,
-                'soBillingContact' => null,
-                'soBillingAddress' => null,
-                'customerVatzone' => null,
+                'soBillingContact' => [
+                    'overrideContact' => true,
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'soBillingAddress' => [
+                    'overrideAddress' => true,
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
+                'customerVatzone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
                 'invoiceSeparately' => true,
                 'invoiceNbr' => 'String value',
                 'invoiceDate' => '2025-11-22T10:40:04+00:00',
-                'terms' => null,
+                'terms' => [
+                    'description' => 'String value',
+                ],
                 'dueDate' => '2025-11-22T10:40:04+00:00',
                 'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
-                'salesPerson' => null,
+                'salesPerson' => [
+                    'description' => 'String value',
+                ],
                 'commissionPercent' => 'String value',
                 'commissionAmount' => 'String value',
                 'commissionableAmount' => 'String value',
-                'owner' => null,
+                'owner' => [
+                    'employeeId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'origOrderType' => 'String value',
                 'origOrderNbr' => 'String value',
-                'soShippingContact' => null,
-                'soShippingAddress' => null,
+                'soShippingContact' => [
+                    'overrideContact' => true,
+                    'contactId' => 42,
+                    'name' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'web' => 'String value',
+                    'phone1' => 'String value',
+                    'phone2' => 'String value',
+                    'fax' => 'String value',
+                ],
+                'soShippingAddress' => [
+                    'overrideAddress' => true,
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                ],
                 'schedShipment' => '2025-11-22T10:40:04+00:00',
                 'shipSeparately' => true,
                 'shipComplete' => 'String value',
                 'cancelBy' => '2025-11-22T10:40:04+00:00',
                 'canceled' => true,
-                'preferredWarehouse' => null,
-                'shipVia' => null,
-                'fobPoint' => null,
+                'preferredWarehouse' => [
+                    'description' => 'String value',
+                ],
+                'shipVia' => [
+                    'description' => 'String value',
+                ],
+                'fobPoint' => [
+                    'description' => 'String value',
+                ],
                 'priority' => 42,
-                'shippingTerms' => null,
-                'shippingZone' => null,
+                'shippingTerms' => [
+                    'description' => 'String value',
+                ],
+                'shippingZone' => [
+                    'description' => 'String value',
+                ],
                 'residentialDelivery' => true,
                 'saturdayDelivery' => true,
                 'insurance' => true,
-                'transactionType' => null,
-                'paymentMethod' => null,
+                'transactionType' => [
+                    'description' => 'String value',
+                ],
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'cashAccount' => 'String value',
                 'paymentRef' => 'String value',
                 'isRotRutDeductible' => true,
@@ -602,9 +1041,16 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
                 'requestOn' => '2025-11-22T10:40:04+00:00',
                 'customerOrder' => 'String value',
                 'customerRefNo' => 'String value',
-                'customer' => null,
+                'customer' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'contactId' => 42,
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'description' => 'String value',
                 'orderTotal' => 42,
@@ -619,7 +1065,10 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
                 'discountTotal' => 42,
                 'discountTotalInBaseCurrency' => 42,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
@@ -655,41 +1104,80 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
         ->printDescriptionOnInvoice->toBe(true)
         ->printNoteOnExternalDocuments->toBe(true)
         ->printNoteOnInternalDocuments->toBe(true)
-        ->soBillingContact->toBeNull()
-        ->soBillingAddress->toBeNull()
-        ->customerVatzone->toBeNull()
+        ->soBillingContact->overrideContact->toBe(true)
+        ->soBillingContact->contactId->toBe(42)
+        ->soBillingContact->name->toBe('String value')
+        ->soBillingContact->attention->toBe('String value')
+        ->soBillingContact->email->toBe('test@example.com')
+        ->soBillingContact->web->toBe('String value')
+        ->soBillingContact->phone1->toBe('String value')
+        ->soBillingContact->phone2->toBe('String value')
+        ->soBillingContact->fax->toBe('String value')
+        ->soBillingAddress->overrideAddress->toBe(true)
+        ->soBillingAddress->addressId->toBe(42)
+        ->soBillingAddress->addressLine1->toBe('String value')
+        ->soBillingAddress->addressLine2->toBe('String value')
+        ->soBillingAddress->addressLine3->toBe('String value')
+        ->soBillingAddress->postalCode->toBe('String value')
+        ->soBillingAddress->city->toBe('String value')
+        ->soBillingAddress->country->name->toBe('String value')
+        ->soBillingAddress->country->errorInfo->toBe('String value')
+        ->soBillingAddress->county->name->toBe('String value')
+        ->customerVatzone->description->toBe('String value')
+        ->customerVatzone->defaultVatCategory->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->number->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->description->toBe('String value')
+        ->customerVatzone->errorInfo->toBe('String value')
         ->invoiceSeparately->toBe(true)
         ->invoiceNbr->toBe('String value')
         ->invoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->terms->toBeNull()
+        ->terms->description->toBe('String value')
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->commissionPercent->toBe('String value')
         ->commissionAmount->toBe('String value')
         ->commissionableAmount->toBe('String value')
-        ->owner->toBeNull()
+        ->owner->employeeId->toBe('mock-id-123')
+        ->owner->name->toBe('String value')
         ->origOrderType->toBe('String value')
         ->origOrderNbr->toBe('String value')
-        ->soShippingContact->toBeNull()
-        ->soShippingAddress->toBeNull()
+        ->soShippingContact->overrideContact->toBe(true)
+        ->soShippingContact->contactId->toBe(42)
+        ->soShippingContact->name->toBe('String value')
+        ->soShippingContact->attention->toBe('String value')
+        ->soShippingContact->email->toBe('test@example.com')
+        ->soShippingContact->web->toBe('String value')
+        ->soShippingContact->phone1->toBe('String value')
+        ->soShippingContact->phone2->toBe('String value')
+        ->soShippingContact->fax->toBe('String value')
+        ->soShippingAddress->overrideAddress->toBe(true)
+        ->soShippingAddress->addressId->toBe(42)
+        ->soShippingAddress->addressLine1->toBe('String value')
+        ->soShippingAddress->addressLine2->toBe('String value')
+        ->soShippingAddress->addressLine3->toBe('String value')
+        ->soShippingAddress->postalCode->toBe('String value')
+        ->soShippingAddress->city->toBe('String value')
+        ->soShippingAddress->country->name->toBe('String value')
+        ->soShippingAddress->country->errorInfo->toBe('String value')
+        ->soShippingAddress->county->name->toBe('String value')
         ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->shipSeparately->toBe(true)
         ->shipComplete->toBe('String value')
         ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->canceled->toBe(true)
-        ->preferredWarehouse->toBeNull()
-        ->shipVia->toBeNull()
-        ->fobPoint->toBeNull()
+        ->preferredWarehouse->description->toBe('String value')
+        ->shipVia->description->toBe('String value')
+        ->fobPoint->description->toBe('String value')
         ->priority->toBe(42)
-        ->shippingTerms->toBeNull()
-        ->shippingZone->toBeNull()
+        ->shippingTerms->description->toBe('String value')
+        ->shippingZone->description->toBe('String value')
         ->residentialDelivery->toBe(true)
         ->saturdayDelivery->toBe(true)
         ->insurance->toBe(true)
-        ->transactionType->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->transactionType->description->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->paymentRef->toBe('String value')
         ->isRotRutDeductible->toBe(true)
@@ -702,9 +1190,12 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -719,7 +1210,8 @@ it('calls the salesOrderGetAllOrdersRequest method in the SalesOrder resource', 
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -761,20 +1253,27 @@ it('calls the salesOrderPostRequest method in the SalesOrder resource', function
         paymentRef: 'String value',
         isRotRutDeductible: true,
         emailed: true,
-        rotRutDetails: null,
+        rotRutDetails: [
+            'distributedAutomaticaly' => true,
+            'type' => 'String value',
+            'appartment' => 'String value',
+            'estate' => 'String value',
+            'organizationNbr' => 'String value',
+            'distribution' => [],
+        ],
         lines: [],
-        orderType: null,
+        orderType: 'String value',
         orderNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         requestOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         customerOrder: 'String value',
         customerRefNo: 'String value',
-        customer: null,
+        customer: 'String value',
         location: 'String value',
         contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
+        gln: 'String value',
+        vatRegistrationId: 'mock-id-123',
         currency: 'String value',
         description: 'String value',
         recalculateShipment: true,
@@ -801,7 +1300,10 @@ it('calls the salesOrderPostRequest method in the SalesOrder resource', function
 it('calls the salesOrderGetCommissionsByorderTypeorderNbrRequest method in the SalesOrder resource', function () {
     Saloon::fake([
         SalesOrderGetCommissionsByorderTypeorderNbrRequest::class => MockResponse::make([
-            'name' => 'Mock value',
+            'salesPersonId' => 'mock-id-123',
+            'commissionPercent' => 42,
+            'commissionAmount' => 42,
+            'commissionableAmount' => 42,
         ], 200),
     ]);
 
@@ -819,7 +1321,10 @@ it('calls the salesOrderGetCommissionsByorderTypeorderNbrRequest method in the S
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value');
+        ->salesPersonId->toBe('mock-id-123')
+        ->commissionPercent->toBe(42)
+        ->commissionAmount->toBe(42)
+        ->commissionableAmount->toBe(42);
 });
 
 it('calls the salesOrderPrintOrderByorderNumberorderTypeRequest method in the SalesOrder resource', function () {
@@ -829,41 +1334,120 @@ it('calls the salesOrderPrintOrderByorderNumberorderTypeRequest method in the Sa
             'printDescriptionOnInvoice' => true,
             'printNoteOnExternalDocuments' => true,
             'printNoteOnInternalDocuments' => true,
-            'soBillingContact' => null,
-            'soBillingAddress' => null,
-            'customerVatzone' => null,
+            'soBillingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'soBillingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
+            'customerVatzone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
             'invoiceSeparately' => true,
             'invoiceNbr' => 'String value',
             'invoiceDate' => '2025-11-22T10:40:04+00:00',
-            'terms' => null,
+            'terms' => [
+                'description' => 'String value',
+            ],
             'dueDate' => '2025-11-22T10:40:04+00:00',
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'commissionPercent' => 'String value',
             'commissionAmount' => 'String value',
             'commissionableAmount' => 'String value',
-            'owner' => null,
+            'owner' => [
+                'employeeId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'origOrderType' => 'String value',
             'origOrderNbr' => 'String value',
-            'soShippingContact' => null,
-            'soShippingAddress' => null,
+            'soShippingContact' => [
+                'overrideContact' => true,
+                'contactId' => 42,
+                'name' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'web' => 'String value',
+                'phone1' => 'String value',
+                'phone2' => 'String value',
+                'fax' => 'String value',
+            ],
+            'soShippingAddress' => [
+                'overrideAddress' => true,
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+            ],
             'schedShipment' => '2025-11-22T10:40:04+00:00',
             'shipSeparately' => true,
             'shipComplete' => 'String value',
             'cancelBy' => '2025-11-22T10:40:04+00:00',
             'canceled' => true,
-            'preferredWarehouse' => null,
-            'shipVia' => null,
-            'fobPoint' => null,
+            'preferredWarehouse' => [
+                'description' => 'String value',
+            ],
+            'shipVia' => [
+                'description' => 'String value',
+            ],
+            'fobPoint' => [
+                'description' => 'String value',
+            ],
             'priority' => 42,
-            'shippingTerms' => null,
-            'shippingZone' => null,
+            'shippingTerms' => [
+                'description' => 'String value',
+            ],
+            'shippingZone' => [
+                'description' => 'String value',
+            ],
             'residentialDelivery' => true,
             'saturdayDelivery' => true,
             'insurance' => true,
-            'transactionType' => null,
-            'paymentMethod' => null,
+            'transactionType' => [
+                'description' => 'String value',
+            ],
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'cashAccount' => 'String value',
             'paymentRef' => 'String value',
             'isRotRutDeductible' => true,
@@ -878,9 +1462,16 @@ it('calls the salesOrderPrintOrderByorderNumberorderTypeRequest method in the Sa
             'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
-            'customer' => null,
+            'customer' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'contactId' => 42,
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'description' => 'String value',
             'orderTotal' => 42,
@@ -895,7 +1486,10 @@ it('calls the salesOrderPrintOrderByorderNumberorderTypeRequest method in the Sa
             'discountTotal' => 42,
             'discountTotalInBaseCurrency' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
@@ -920,41 +1514,80 @@ it('calls the salesOrderPrintOrderByorderNumberorderTypeRequest method in the Sa
         ->printDescriptionOnInvoice->toBe(true)
         ->printNoteOnExternalDocuments->toBe(true)
         ->printNoteOnInternalDocuments->toBe(true)
-        ->soBillingContact->toBeNull()
-        ->soBillingAddress->toBeNull()
-        ->customerVatzone->toBeNull()
+        ->soBillingContact->overrideContact->toBe(true)
+        ->soBillingContact->contactId->toBe(42)
+        ->soBillingContact->name->toBe('String value')
+        ->soBillingContact->attention->toBe('String value')
+        ->soBillingContact->email->toBe('test@example.com')
+        ->soBillingContact->web->toBe('String value')
+        ->soBillingContact->phone1->toBe('String value')
+        ->soBillingContact->phone2->toBe('String value')
+        ->soBillingContact->fax->toBe('String value')
+        ->soBillingAddress->overrideAddress->toBe(true)
+        ->soBillingAddress->addressId->toBe(42)
+        ->soBillingAddress->addressLine1->toBe('String value')
+        ->soBillingAddress->addressLine2->toBe('String value')
+        ->soBillingAddress->addressLine3->toBe('String value')
+        ->soBillingAddress->postalCode->toBe('String value')
+        ->soBillingAddress->city->toBe('String value')
+        ->soBillingAddress->country->name->toBe('String value')
+        ->soBillingAddress->country->errorInfo->toBe('String value')
+        ->soBillingAddress->county->name->toBe('String value')
+        ->customerVatzone->description->toBe('String value')
+        ->customerVatzone->defaultVatCategory->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->number->toBe('String value')
+        ->customerVatzone->defaultTaxCategory->description->toBe('String value')
+        ->customerVatzone->errorInfo->toBe('String value')
         ->invoiceSeparately->toBe(true)
         ->invoiceNbr->toBe('String value')
         ->invoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->terms->toBeNull()
+        ->terms->description->toBe('String value')
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->commissionPercent->toBe('String value')
         ->commissionAmount->toBe('String value')
         ->commissionableAmount->toBe('String value')
-        ->owner->toBeNull()
+        ->owner->employeeId->toBe('mock-id-123')
+        ->owner->name->toBe('String value')
         ->origOrderType->toBe('String value')
         ->origOrderNbr->toBe('String value')
-        ->soShippingContact->toBeNull()
-        ->soShippingAddress->toBeNull()
+        ->soShippingContact->overrideContact->toBe(true)
+        ->soShippingContact->contactId->toBe(42)
+        ->soShippingContact->name->toBe('String value')
+        ->soShippingContact->attention->toBe('String value')
+        ->soShippingContact->email->toBe('test@example.com')
+        ->soShippingContact->web->toBe('String value')
+        ->soShippingContact->phone1->toBe('String value')
+        ->soShippingContact->phone2->toBe('String value')
+        ->soShippingContact->fax->toBe('String value')
+        ->soShippingAddress->overrideAddress->toBe(true)
+        ->soShippingAddress->addressId->toBe(42)
+        ->soShippingAddress->addressLine1->toBe('String value')
+        ->soShippingAddress->addressLine2->toBe('String value')
+        ->soShippingAddress->addressLine3->toBe('String value')
+        ->soShippingAddress->postalCode->toBe('String value')
+        ->soShippingAddress->city->toBe('String value')
+        ->soShippingAddress->country->name->toBe('String value')
+        ->soShippingAddress->country->errorInfo->toBe('String value')
+        ->soShippingAddress->county->name->toBe('String value')
         ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->shipSeparately->toBe(true)
         ->shipComplete->toBe('String value')
         ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->canceled->toBe(true)
-        ->preferredWarehouse->toBeNull()
-        ->shipVia->toBeNull()
-        ->fobPoint->toBeNull()
+        ->preferredWarehouse->description->toBe('String value')
+        ->shipVia->description->toBe('String value')
+        ->fobPoint->description->toBe('String value')
         ->priority->toBe(42)
-        ->shippingTerms->toBeNull()
-        ->shippingZone->toBeNull()
+        ->shippingTerms->description->toBe('String value')
+        ->shippingZone->description->toBe('String value')
         ->residentialDelivery->toBe(true)
         ->saturdayDelivery->toBe(true)
         ->insurance->toBe(true)
-        ->transactionType->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->transactionType->description->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->paymentRef->toBe('String value')
         ->isRotRutDeductible->toBe(true)
@@ -967,9 +1600,12 @@ it('calls the salesOrderPrintOrderByorderNumberorderTypeRequest method in the Sa
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -984,7 +1620,8 @@ it('calls the salesOrderPrintOrderByorderNumberorderTypeRequest method in the Sa
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -1037,7 +1674,70 @@ it('calls the salesOrderCancelSalesOrderBysaleOrderNumberRequest method in the S
 
 it('calls the salesOrderReopenSalesOrderBysalesOrderNumberRequest method in the SalesOrder resource', function () {
     $bodyData = new ReopenSalesOrderActionDto(
-        saleOrderUpdateDto: null
+        saleOrderUpdateDto: [
+            'project' => 42,
+            'printDescriptionOnInvoice' => true,
+            'printNoteOnExternalDocuments' => true,
+            'printNoteOnInternalDocuments' => true,
+            'soBillingContact' => null,
+            'soBillingAddress' => null,
+            'customerVatzone' => 'String value',
+            'invoiceSeparately' => true,
+            'terms' => 'String value',
+            'salesPerson' => 'String value',
+            'owner' => 'String value',
+            'origOrderType' => 'String value',
+            'origOrderNbr' => 'String value',
+            'soShippingContact' => null,
+            'soShippingAddress' => null,
+            'schedShipment' => '2025-11-22T10:40:04+00:00',
+            'shipSeparately' => true,
+            'shipComplete' => 'String value',
+            'cancelBy' => '2025-11-22T10:40:04+00:00',
+            'canceled' => true,
+            'preferredWarehouse' => 'String value',
+            'shipVia' => 'String value',
+            'fobPoint' => 'String value',
+            'priority' => 42,
+            'shippingTerms' => 'String value',
+            'shippingZone' => 'String value',
+            'residentialDelivery' => true,
+            'saturdayDelivery' => true,
+            'insurance' => true,
+            'transactionType' => 42,
+            'paymentMethod' => 'String value',
+            'cashAccount' => 'String value',
+            'paymentRef' => 'String value',
+            'isRotRutDeductible' => true,
+            'emailed' => true,
+            'rotRutDetails' => [
+                'distributedAutomaticaly' => true,
+                'type' => 'String value',
+                'appartment' => 'String value',
+                'estate' => 'String value',
+                'organizationNbr' => 'String value',
+                'distribution' => [],
+            ],
+            'lines' => [],
+            'orderType' => 'String value',
+            'orderNumber' => 'String value',
+            'hold' => true,
+            'date' => '2025-11-22T10:40:04+00:00',
+            'requestOn' => '2025-11-22T10:40:04+00:00',
+            'customerOrder' => 'String value',
+            'customerRefNo' => 'String value',
+            'customer' => 'String value',
+            'location' => 'String value',
+            'contactId' => 42,
+            'gln' => 'String value',
+            'vatRegistrationId' => 'mock-id-123',
+            'currency' => 'String value',
+            'description' => 'String value',
+            'recalculateShipment' => true,
+            'branchNumber' => 'String value',
+            'note' => 'String value',
+            'overrideNumberSeries' => true,
+        ]
     );
 
     Saloon::fake([

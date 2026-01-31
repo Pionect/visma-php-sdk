@@ -12,10 +12,30 @@ it('calls the supplierV2getAllSupplierBalanceRequest method in the SupplierV2 re
     Saloon::fake([
         SupplierV2GetAllSupplierBalanceRequest::class => MockResponse::make([
             0 => [
-                'name' => 'Mock value',
+                'branch' => 'String value',
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'beginBalance' => 42,
+                'purchases' => 42,
+                'paymentsAndPrepayments' => 42,
+                'adjustmentsAndDiscounts' => 42,
+                'yearToDateBalance' => 42,
             ],
             1 => [
-                'name' => 'Mock value',
+                'branch' => 'String value',
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'beginBalance' => 42,
+                'purchases' => 42,
+                'paymentsAndPrepayments' => 42,
+                'adjustmentsAndDiscounts' => 42,
+                'yearToDateBalance' => 42,
             ],
         ], 200),
     ]);
@@ -39,5 +59,13 @@ it('calls the supplierV2getAllSupplierBalanceRequest method in the SupplierV2 re
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->branch->toBe('String value')
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->beginBalance->toBe(42)
+        ->purchases->toBe(42)
+        ->paymentsAndPrepayments->toBe(42)
+        ->adjustmentsAndDiscounts->toBe(42)
+        ->yearToDateBalance->toBe(42);
 });

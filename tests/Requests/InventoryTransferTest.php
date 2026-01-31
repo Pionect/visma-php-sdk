@@ -16,8 +16,12 @@ beforeEach(function () {
 it('calls the inventoryTransferGetByinventoryTransferNumberRequest method in the InventoryTransfer resource', function () {
     Saloon::fake([
         InventoryTransferGetByinventoryTransferNumberRequest::class => MockResponse::make([
-            'warehouse' => null,
-            'toWarehouse' => null,
+            'warehouse' => [
+                'description' => 'String value',
+            ],
+            'toWarehouse' => [
+                'description' => 'String value',
+            ],
             'transferLines' => [],
             'referenceNumber' => 'String value',
             'status' => 'String value',
@@ -30,7 +34,10 @@ it('calls the inventoryTransferGetByinventoryTransferNumberRequest method in the
             'controlQuantity' => 42,
             'batchNumber' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'attachments' => [],
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
@@ -50,8 +57,8 @@ it('calls the inventoryTransferGetByinventoryTransferNumberRequest method in the
     $dto = $response->dto();
 
     expect($dto)
-        ->warehouse->toBeNull()
-        ->toWarehouse->toBeNull()
+        ->warehouse->description->toBe('String value')
+        ->toWarehouse->description->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->status->toBe('String value')
         ->hold->toBe(true)
@@ -63,7 +70,8 @@ it('calls the inventoryTransferGetByinventoryTransferNumberRequest method in the
         ->controlQuantity->toBe(42)
         ->batchNumber->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->timestamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -73,14 +81,14 @@ it('calls the inventoryTransferPutByinventoryTransferNumberRequest method in the
         warehouseId: 'mock-id-123',
         toWarehouseId: 'mock-id-123',
         transferLines: [],
-        referenceNumber: null,
-        hold: null,
-        date: null,
-        postPeriod: null,
-        externalReference: null,
-        description: null,
-        controlQuantity: null,
-        branchNumber: null
+        referenceNumber: 'String value',
+        hold: true,
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        postPeriod: 'String value',
+        externalReference: 'String value',
+        description: 'String value',
+        controlQuantity: 42,
+        branchNumber: 'String value'
     );
 
     Saloon::fake([
@@ -103,8 +111,12 @@ it('calls the inventoryTransferGetAllRequest method in the InventoryTransfer res
     Saloon::fake([
         InventoryTransferGetAllRequest::class => MockResponse::make([
             0 => [
-                'warehouse' => null,
-                'toWarehouse' => null,
+                'warehouse' => [
+                    'description' => 'String value',
+                ],
+                'toWarehouse' => [
+                    'description' => 'String value',
+                ],
                 'transferLines' => [],
                 'referenceNumber' => 'String value',
                 'status' => 'String value',
@@ -117,14 +129,21 @@ it('calls the inventoryTransferGetAllRequest method in the InventoryTransfer res
                 'controlQuantity' => 42,
                 'batchNumber' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'warehouse' => null,
-                'toWarehouse' => null,
+                'warehouse' => [
+                    'description' => 'String value',
+                ],
+                'toWarehouse' => [
+                    'description' => 'String value',
+                ],
                 'transferLines' => [],
                 'referenceNumber' => 'String value',
                 'status' => 'String value',
@@ -137,7 +156,10 @@ it('calls the inventoryTransferGetAllRequest method in the InventoryTransfer res
                 'controlQuantity' => 42,
                 'batchNumber' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
@@ -171,8 +193,8 @@ it('calls the inventoryTransferGetAllRequest method in the InventoryTransfer res
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->warehouse->toBeNull()
-        ->toWarehouse->toBeNull()
+        ->warehouse->description->toBe('String value')
+        ->toWarehouse->description->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->status->toBe('String value')
         ->hold->toBe(true)
@@ -184,7 +206,8 @@ it('calls the inventoryTransferGetAllRequest method in the InventoryTransfer res
         ->controlQuantity->toBe(42)
         ->batchNumber->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->timestamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -194,14 +217,14 @@ it('calls the inventoryTransferPostRequest method in the InventoryTransfer resou
         warehouseId: 'mock-id-123',
         toWarehouseId: 'mock-id-123',
         transferLines: [],
-        referenceNumber: null,
-        hold: null,
-        date: null,
-        postPeriod: null,
-        externalReference: null,
-        description: null,
-        controlQuantity: null,
-        branchNumber: null
+        referenceNumber: 'String value',
+        hold: true,
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        postPeriod: 'String value',
+        externalReference: 'String value',
+        description: 'String value',
+        controlQuantity: 42,
+        branchNumber: 'String value'
     );
 
     Saloon::fake([

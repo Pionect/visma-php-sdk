@@ -14,7 +14,18 @@ beforeEach(function () {
 it('calls the stocktakeV2getByreferenceNumberRequest method in the StocktakeV2 resource', function () {
     Saloon::fake([
         StocktakeV2GetByreferenceNumberRequest::class => MockResponse::make([
-            'name' => 'Mock value',
+            'referenceNbr' => 'String value',
+            'description' => 'String value',
+            'summaryStatus' => 'String value',
+            'freezeDate' => '2025-11-22T10:40:04+00:00',
+            'numberOfLines' => 42,
+            'physicalQty' => 42,
+            'varianceQty' => 42,
+            'varianceCost' => 42,
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'lines' => [],
+            'timestamp' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -31,7 +42,17 @@ it('calls the stocktakeV2getByreferenceNumberRequest method in the StocktakeV2 r
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value');
+        ->referenceNbr->toBe('String value')
+        ->description->toBe('String value')
+        ->summaryStatus->toBe('String value')
+        ->freezeDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->numberOfLines->toBe(42)
+        ->physicalQty->toBe(42)
+        ->varianceQty->toBe(42)
+        ->varianceCost->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });
 
 it('calls the stocktakeV2putByreferenceNumberRequest method in the StocktakeV2 resource', function () {
@@ -59,10 +80,32 @@ it('calls the stocktakeV2getAllStocktakesRequest method in the StocktakeV2 resou
     Saloon::fake([
         StocktakeV2GetAllStocktakesRequest::class => MockResponse::make([
             0 => [
-                'name' => 'Mock value',
+                'referenceNbr' => 'String value',
+                'description' => 'String value',
+                'summaryStatus' => 'String value',
+                'freezeDate' => '2025-11-22T10:40:04+00:00',
+                'numberOfLines' => 42,
+                'physicalQty' => 42,
+                'varianceQty' => 42,
+                'varianceCost' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'lines' => [],
+                'timestamp' => 'String value',
+                'errorInfo' => 'String value',
             ],
             1 => [
-                'name' => 'Mock value',
+                'referenceNbr' => 'String value',
+                'description' => 'String value',
+                'summaryStatus' => 'String value',
+                'freezeDate' => '2025-11-22T10:40:04+00:00',
+                'numberOfLines' => 42,
+                'physicalQty' => 42,
+                'varianceQty' => 42,
+                'varianceCost' => 42,
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'lines' => [],
+                'timestamp' => 'String value',
+                'errorInfo' => 'String value',
             ],
         ], 200),
     ]);
@@ -96,5 +139,15 @@ it('calls the stocktakeV2getAllStocktakesRequest method in the StocktakeV2 resou
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->referenceNbr->toBe('String value')
+        ->description->toBe('String value')
+        ->summaryStatus->toBe('String value')
+        ->freezeDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->numberOfLines->toBe(42)
+        ->physicalQty->toBe(42)
+        ->varianceQty->toBe(42)
+        ->varianceCost->toBe(42)
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

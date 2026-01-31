@@ -21,8 +21,15 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumberRequest method in the 
             'refNbr' => 'String value',
             'status' => 'String value',
             'approvalStatus' => 'String value',
-            'week' => null,
-            'employee' => null,
+            'week' => [
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'employee' => [
+                'internalId' => 'mock-id-123',
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'type' => 'String value',
             'origRefNbr' => 'String value',
             'timeSpent' => 42,
@@ -56,8 +63,11 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumberRequest method in the 
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->approvalStatus->toBe('String value')
-        ->week->toBeNull()
-        ->employee->toBeNull()
+        ->week->number->toBe('String value')
+        ->week->description->toBe('String value')
+        ->employee->internalId->toBe('mock-id-123')
+        ->employee->number->toBe('String value')
+        ->employee->name->toBe('String value')
         ->type->toBe('String value')
         ->origRefNbr->toBe('String value')
         ->timeSpent->toBe(42)
@@ -104,8 +114,15 @@ it('calls the timeCardGetAllEmployeeTimeCardsRequest method in the TimeCard reso
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'approvalStatus' => 'String value',
-                'week' => null,
-                'employee' => null,
+                'week' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'employee' => [
+                    'internalId' => 'mock-id-123',
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'type' => 'String value',
                 'origRefNbr' => 'String value',
                 'timeSpent' => 42,
@@ -125,8 +142,15 @@ it('calls the timeCardGetAllEmployeeTimeCardsRequest method in the TimeCard reso
                 'refNbr' => 'String value',
                 'status' => 'String value',
                 'approvalStatus' => 'String value',
-                'week' => null,
-                'employee' => null,
+                'week' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'employee' => [
+                    'internalId' => 'mock-id-123',
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'type' => 'String value',
                 'origRefNbr' => 'String value',
                 'timeSpent' => 42,
@@ -171,8 +195,11 @@ it('calls the timeCardGetAllEmployeeTimeCardsRequest method in the TimeCard reso
         ->refNbr->toBe('String value')
         ->status->toBe('String value')
         ->approvalStatus->toBe('String value')
-        ->week->toBeNull()
-        ->employee->toBeNull()
+        ->week->number->toBe('String value')
+        ->week->description->toBe('String value')
+        ->employee->internalId->toBe('mock-id-123')
+        ->employee->number->toBe('String value')
+        ->employee->name->toBe('String value')
         ->type->toBe('String value')
         ->origRefNbr->toBe('String value')
         ->timeSpent->toBe(42)

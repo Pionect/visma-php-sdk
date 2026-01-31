@@ -25,15 +25,68 @@ it('calls the customerContractGetCustomerContractBycontractIdRequest method in t
     Saloon::fake([
         CustomerContractGetCustomerContractBycontractIdRequest::class => MockResponse::make([
             'contractId' => 'mock-id-123',
-            'contractTemplate' => null,
+            'contractTemplate' => [
+                'description' => 'String value',
+            ],
             'status' => 'String value',
-            'customer' => null,
-            'location' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'location' => [
+                'description' => 'String value',
+            ],
             'description' => 'String value',
             'balance' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'summary' => null,
-            'details' => null,
+            'summary' => [
+                'setupDate' => '2025-11-22T10:40:04+00:00',
+                'activationDate' => '2025-11-22T10:40:04+00:00',
+                'expirationDate' => '2025-11-22T10:40:04+00:00',
+                'terminationDate' => '2025-11-22T10:40:04+00:00',
+                'massRenewal' => true,
+                'renewalPoint' => 42,
+                'gracePeriod' => 42,
+                'currency' => 'String value',
+                'invoicingScheduleStartsOn' => '2025-11-22T10:40:04+00:00',
+                'invoicingPeriod' => 'String value',
+                'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
+                'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
+                'invoiceTo' => 'String value',
+                'invoiceAccount' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'invoiceLocation' => [
+                    'description' => 'String value',
+                ],
+                'owner' => [
+                    'internalId' => 'mock-id-123',
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'salesPerson' => [
+                    'description' => 'String value',
+                ],
+                'caseCountItem' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+            ],
+            'details' => [
+                'effectiveFrom' => '2025-11-22T10:40:04+00:00',
+                'promoCode' => [
+                    'description' => 'String value',
+                ],
+                'pendingSetup' => 42,
+                'pendingRecurring' => 42,
+                'pendingRenewal' => 42,
+                'totalPending' => 42,
+                'currentSetup' => 42,
+                'currentRecurring' => 42,
+                'currentRenewal' => 42,
+                'lines' => [],
+            ],
             'attributes' => [],
         ], 200),
     ]);
@@ -52,22 +105,52 @@ it('calls the customerContractGetCustomerContractBycontractIdRequest method in t
 
     expect($dto)
         ->contractId->toBe('mock-id-123')
-        ->contractTemplate->toBeNull()
+        ->contractTemplate->description->toBe('String value')
         ->status->toBe('String value')
-        ->customer->toBeNull()
-        ->location->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
+        ->location->description->toBe('String value')
         ->description->toBe('String value')
         ->balance->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->summary->toBeNull()
-        ->details->toBeNull();
+        ->summary->setupDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->activationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->expirationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->terminationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->massRenewal->toBe(true)
+        ->summary->renewalPoint->toBe(42)
+        ->summary->gracePeriod->toBe(42)
+        ->summary->currency->toBe('String value')
+        ->summary->invoicingScheduleStartsOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->invoicingPeriod->toBe('String value')
+        ->summary->lastInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->nextInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->invoiceTo->toBe('String value')
+        ->summary->invoiceAccount->number->toBe('String value')
+        ->summary->invoiceAccount->name->toBe('String value')
+        ->summary->invoiceLocation->description->toBe('String value')
+        ->summary->owner->internalId->toBe('mock-id-123')
+        ->summary->owner->number->toBe('String value')
+        ->summary->owner->name->toBe('String value')
+        ->summary->salesPerson->description->toBe('String value')
+        ->summary->caseCountItem->number->toBe('String value')
+        ->summary->caseCountItem->description->toBe('String value')
+        ->details->effectiveFrom->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->details->promoCode->description->toBe('String value')
+        ->details->pendingSetup->toBe(42)
+        ->details->pendingRecurring->toBe(42)
+        ->details->pendingRenewal->toBe(42)
+        ->details->totalPending->toBe(42)
+        ->details->currentSetup->toBe(42)
+        ->details->currentRecurring->toBe(42)
+        ->details->currentRenewal->toBe(42);
 });
 
 it('calls the customerContractPutBycontractIdRequest method in the CustomerContract resource', function () {
     $bodyData = new CustomerContractUpdateDto(
-        contractId: null,
-        contractTemplate: null,
-        customer: null,
+        contractId: 'mock-id-123',
+        contractTemplate: 'String value',
+        customer: 'String value',
         location: 'String value',
         description: 'String value',
         setupDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -107,28 +190,134 @@ it('calls the customerContractGetAllRequest method in the CustomerContract resou
         CustomerContractGetAllRequest::class => MockResponse::make([
             0 => [
                 'contractId' => 'mock-id-123',
-                'contractTemplate' => null,
+                'contractTemplate' => [
+                    'description' => 'String value',
+                ],
                 'status' => 'String value',
-                'customer' => null,
-                'location' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'description' => 'String value',
+                ],
                 'description' => 'String value',
                 'balance' => 42,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'summary' => null,
-                'details' => null,
+                'summary' => [
+                    'setupDate' => '2025-11-22T10:40:04+00:00',
+                    'activationDate' => '2025-11-22T10:40:04+00:00',
+                    'expirationDate' => '2025-11-22T10:40:04+00:00',
+                    'terminationDate' => '2025-11-22T10:40:04+00:00',
+                    'massRenewal' => true,
+                    'renewalPoint' => 42,
+                    'gracePeriod' => 42,
+                    'currency' => 'String value',
+                    'invoicingScheduleStartsOn' => '2025-11-22T10:40:04+00:00',
+                    'invoicingPeriod' => 'String value',
+                    'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
+                    'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
+                    'invoiceTo' => 'String value',
+                    'invoiceAccount' => [
+                        'number' => 'String value',
+                        'name' => 'String value',
+                    ],
+                    'invoiceLocation' => [
+                        'description' => 'String value',
+                    ],
+                    'owner' => [
+                        'internalId' => 'mock-id-123',
+                        'number' => 'String value',
+                        'name' => 'String value',
+                    ],
+                    'salesPerson' => [
+                        'description' => 'String value',
+                    ],
+                    'caseCountItem' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                ],
+                'details' => [
+                    'effectiveFrom' => '2025-11-22T10:40:04+00:00',
+                    'promoCode' => [
+                        'description' => 'String value',
+                    ],
+                    'pendingSetup' => 42,
+                    'pendingRecurring' => 42,
+                    'pendingRenewal' => 42,
+                    'totalPending' => 42,
+                    'currentSetup' => 42,
+                    'currentRecurring' => 42,
+                    'currentRenewal' => 42,
+                    'lines' => [],
+                ],
                 'attributes' => [],
             ],
             1 => [
                 'contractId' => 'mock-id-123',
-                'contractTemplate' => null,
+                'contractTemplate' => [
+                    'description' => 'String value',
+                ],
                 'status' => 'String value',
-                'customer' => null,
-                'location' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'description' => 'String value',
+                ],
                 'description' => 'String value',
                 'balance' => 42,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'summary' => null,
-                'details' => null,
+                'summary' => [
+                    'setupDate' => '2025-11-22T10:40:04+00:00',
+                    'activationDate' => '2025-11-22T10:40:04+00:00',
+                    'expirationDate' => '2025-11-22T10:40:04+00:00',
+                    'terminationDate' => '2025-11-22T10:40:04+00:00',
+                    'massRenewal' => true,
+                    'renewalPoint' => 42,
+                    'gracePeriod' => 42,
+                    'currency' => 'String value',
+                    'invoicingScheduleStartsOn' => '2025-11-22T10:40:04+00:00',
+                    'invoicingPeriod' => 'String value',
+                    'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
+                    'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
+                    'invoiceTo' => 'String value',
+                    'invoiceAccount' => [
+                        'number' => 'String value',
+                        'name' => 'String value',
+                    ],
+                    'invoiceLocation' => [
+                        'description' => 'String value',
+                    ],
+                    'owner' => [
+                        'internalId' => 'mock-id-123',
+                        'number' => 'String value',
+                        'name' => 'String value',
+                    ],
+                    'salesPerson' => [
+                        'description' => 'String value',
+                    ],
+                    'caseCountItem' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                ],
+                'details' => [
+                    'effectiveFrom' => '2025-11-22T10:40:04+00:00',
+                    'promoCode' => [
+                        'description' => 'String value',
+                    ],
+                    'pendingSetup' => 42,
+                    'pendingRecurring' => 42,
+                    'pendingRenewal' => 42,
+                    'totalPending' => 42,
+                    'currentSetup' => 42,
+                    'currentRecurring' => 42,
+                    'currentRenewal' => 42,
+                    'lines' => [],
+                ],
                 'attributes' => [],
             ],
         ], 200),
@@ -161,22 +350,52 @@ it('calls the customerContractGetAllRequest method in the CustomerContract resou
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->contractId->toBe('mock-id-123')
-        ->contractTemplate->toBeNull()
+        ->contractTemplate->description->toBe('String value')
         ->status->toBe('String value')
-        ->customer->toBeNull()
-        ->location->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
+        ->location->description->toBe('String value')
         ->description->toBe('String value')
         ->balance->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->summary->toBeNull()
-        ->details->toBeNull();
+        ->summary->setupDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->activationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->expirationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->terminationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->massRenewal->toBe(true)
+        ->summary->renewalPoint->toBe(42)
+        ->summary->gracePeriod->toBe(42)
+        ->summary->currency->toBe('String value')
+        ->summary->invoicingScheduleStartsOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->invoicingPeriod->toBe('String value')
+        ->summary->lastInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->nextInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->summary->invoiceTo->toBe('String value')
+        ->summary->invoiceAccount->number->toBe('String value')
+        ->summary->invoiceAccount->name->toBe('String value')
+        ->summary->invoiceLocation->description->toBe('String value')
+        ->summary->owner->internalId->toBe('mock-id-123')
+        ->summary->owner->number->toBe('String value')
+        ->summary->owner->name->toBe('String value')
+        ->summary->salesPerson->description->toBe('String value')
+        ->summary->caseCountItem->number->toBe('String value')
+        ->summary->caseCountItem->description->toBe('String value')
+        ->details->effectiveFrom->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->details->promoCode->description->toBe('String value')
+        ->details->pendingSetup->toBe(42)
+        ->details->pendingRecurring->toBe(42)
+        ->details->pendingRenewal->toBe(42)
+        ->details->totalPending->toBe(42)
+        ->details->currentSetup->toBe(42)
+        ->details->currentRecurring->toBe(42)
+        ->details->currentRenewal->toBe(42);
 });
 
 it('calls the customerContractCreateCustomerContractRequest method in the CustomerContract resource', function () {
     $bodyData = new CustomerContractUpdateDto(
-        contractId: null,
-        contractTemplate: null,
-        customer: null,
+        contractId: 'mock-id-123',
+        contractTemplate: 'String value',
+        customer: 'String value',
         location: 'String value',
         description: 'String value',
         setupDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -226,11 +445,25 @@ it('calls the customerContractGetCustomerContractSummaryBycontractIdRequest meth
             'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
             'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
             'invoiceTo' => 'String value',
-            'invoiceAccount' => null,
-            'invoiceLocation' => null,
-            'owner' => null,
-            'salesPerson' => null,
-            'caseCountItem' => null,
+            'invoiceAccount' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'invoiceLocation' => [
+                'description' => 'String value',
+            ],
+            'owner' => [
+                'internalId' => 'mock-id-123',
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
+            'caseCountItem' => [
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
         ], 200),
     ]);
 
@@ -260,18 +493,24 @@ it('calls the customerContractGetCustomerContractSummaryBycontractIdRequest meth
         ->lastInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->nextInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->invoiceTo->toBe('String value')
-        ->invoiceAccount->toBeNull()
-        ->invoiceLocation->toBeNull()
-        ->owner->toBeNull()
-        ->salesPerson->toBeNull()
-        ->caseCountItem->toBeNull();
+        ->invoiceAccount->number->toBe('String value')
+        ->invoiceAccount->name->toBe('String value')
+        ->invoiceLocation->description->toBe('String value')
+        ->owner->internalId->toBe('mock-id-123')
+        ->owner->number->toBe('String value')
+        ->owner->name->toBe('String value')
+        ->salesPerson->description->toBe('String value')
+        ->caseCountItem->number->toBe('String value')
+        ->caseCountItem->description->toBe('String value');
 });
 
 it('calls the customerContractGetCustomerContractDetailsBycontractIdRequest method in the CustomerContract resource', function () {
     Saloon::fake([
         CustomerContractGetCustomerContractDetailsBycontractIdRequest::class => MockResponse::make([
             'effectiveFrom' => '2025-11-22T10:40:04+00:00',
-            'promoCode' => null,
+            'promoCode' => [
+                'description' => 'String value',
+            ],
             'pendingSetup' => 42,
             'pendingRecurring' => 42,
             'pendingRenewal' => 42,
@@ -297,7 +536,7 @@ it('calls the customerContractGetCustomerContractDetailsBycontractIdRequest meth
 
     expect($dto)
         ->effectiveFrom->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->promoCode->toBeNull()
+        ->promoCode->description->toBe('String value')
         ->pendingSetup->toBe(42)
         ->pendingRecurring->toBe(42)
         ->pendingRenewal->toBe(42)

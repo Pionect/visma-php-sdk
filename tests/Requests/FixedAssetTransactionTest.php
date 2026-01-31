@@ -20,12 +20,21 @@ it('calls the fixedAssetTransactionGetByRefNoRequest method in the FixedAssetTra
             'transactionDescription' => 'String value',
             'bookId' => 'mock-id-123',
             'transactionType' => 'String value',
-            'accounts' => null,
+            'accounts' => [
+                'debitAccountId' => 'mock-id-123',
+                'debitSubAccountId' => 'mock-id-123',
+                'creditAccountId' => 'mock-id-123',
+                'creditSubAccountId' => 'mock-id-123',
+            ],
             'transactionAmount' => 42,
             'batchNo' => 'String value',
             'transactionPeriodId' => 'mock-id-123',
             'transactionDate' => '2025-11-22T10:40:04+00:00',
-            'register' => null,
+            'register' => [
+                'documentDate' => '2025-11-22T10:40:04+00:00',
+                'status' => 'String value',
+                'hold' => true,
+            ],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'errorInfo' => 'String value',
         ], 200),
@@ -52,12 +61,17 @@ it('calls the fixedAssetTransactionGetByRefNoRequest method in the FixedAssetTra
         ->transactionDescription->toBe('String value')
         ->bookId->toBe('mock-id-123')
         ->transactionType->toBe('String value')
-        ->accounts->toBeNull()
+        ->accounts->debitAccountId->toBe('mock-id-123')
+        ->accounts->debitSubAccountId->toBe('mock-id-123')
+        ->accounts->creditAccountId->toBe('mock-id-123')
+        ->accounts->creditSubAccountId->toBe('mock-id-123')
         ->transactionAmount->toBe(42)
         ->batchNo->toBe('String value')
         ->transactionPeriodId->toBe('mock-id-123')
         ->transactionDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->register->toBeNull()
+        ->register->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->register->status->toBe('String value')
+        ->register->hold->toBe(true)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });
@@ -74,12 +88,21 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
                 'transactionDescription' => 'String value',
                 'bookId' => 'mock-id-123',
                 'transactionType' => 'String value',
-                'accounts' => null,
+                'accounts' => [
+                    'debitAccountId' => 'mock-id-123',
+                    'debitSubAccountId' => 'mock-id-123',
+                    'creditAccountId' => 'mock-id-123',
+                    'creditSubAccountId' => 'mock-id-123',
+                ],
                 'transactionAmount' => 42,
                 'batchNo' => 'String value',
                 'transactionPeriodId' => 'mock-id-123',
                 'transactionDate' => '2025-11-22T10:40:04+00:00',
-                'register' => null,
+                'register' => [
+                    'documentDate' => '2025-11-22T10:40:04+00:00',
+                    'status' => 'String value',
+                    'hold' => true,
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
             ],
@@ -92,12 +115,21 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
                 'transactionDescription' => 'String value',
                 'bookId' => 'mock-id-123',
                 'transactionType' => 'String value',
-                'accounts' => null,
+                'accounts' => [
+                    'debitAccountId' => 'mock-id-123',
+                    'debitSubAccountId' => 'mock-id-123',
+                    'creditAccountId' => 'mock-id-123',
+                    'creditSubAccountId' => 'mock-id-123',
+                ],
                 'transactionAmount' => 42,
                 'batchNo' => 'String value',
                 'transactionPeriodId' => 'mock-id-123',
                 'transactionDate' => '2025-11-22T10:40:04+00:00',
-                'register' => null,
+                'register' => [
+                    'documentDate' => '2025-11-22T10:40:04+00:00',
+                    'status' => 'String value',
+                    'hold' => true,
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'errorInfo' => 'String value',
             ],
@@ -140,12 +172,17 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
         ->transactionDescription->toBe('String value')
         ->bookId->toBe('mock-id-123')
         ->transactionType->toBe('String value')
-        ->accounts->toBeNull()
+        ->accounts->debitAccountId->toBe('mock-id-123')
+        ->accounts->debitSubAccountId->toBe('mock-id-123')
+        ->accounts->creditAccountId->toBe('mock-id-123')
+        ->accounts->creditSubAccountId->toBe('mock-id-123')
         ->transactionAmount->toBe(42)
         ->batchNo->toBe('String value')
         ->transactionPeriodId->toBe('mock-id-123')
         ->transactionDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->register->toBeNull()
+        ->register->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->register->status->toBe('String value')
+        ->register->hold->toBe(true)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
 });

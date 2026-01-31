@@ -21,9 +21,18 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumberRequest method i
             'status' => 'String value',
             'date' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
-            'warehouse' => null,
-            'supplier' => null,
-            'location' => null,
+            'warehouse' => [
+                'description' => 'String value',
+            ],
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'exchangeRate' => 42,
             'createBill' => true,
@@ -35,7 +44,10 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumberRequest method i
             'totalAmt' => 42,
             'controlTotal' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'lines' => [],
             'dueDate' => '2025-11-22T10:40:04+00:00',
             'customStr1' => 'String value',
@@ -74,9 +86,12 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumberRequest method i
         ->status->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
-        ->warehouse->toBeNull()
-        ->supplier->toBeNull()
-        ->location->toBeNull()
+        ->warehouse->description->toBe('String value')
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->exchangeRate->toBe(42)
         ->createBill->toBe(true)
@@ -88,7 +103,8 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumberRequest method i
         ->totalAmt->toBe(42)
         ->controlTotal->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customStr1->toBe('String value')
         ->customStr2->toBe('String value')
@@ -116,9 +132,18 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
                 'status' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
-                'warehouse' => null,
-                'supplier' => null,
-                'location' => null,
+                'warehouse' => [
+                    'description' => 'String value',
+                ],
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'exchangeRate' => 42,
                 'createBill' => true,
@@ -130,7 +155,10 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
                 'totalAmt' => 42,
                 'controlTotal' => 42,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'lines' => [],
                 'dueDate' => '2025-11-22T10:40:04+00:00',
                 'customStr1' => 'String value',
@@ -155,9 +183,18 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
                 'status' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
-                'warehouse' => null,
-                'supplier' => null,
-                'location' => null,
+                'warehouse' => [
+                    'description' => 'String value',
+                ],
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'exchangeRate' => 42,
                 'createBill' => true,
@@ -169,7 +206,10 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
                 'totalAmt' => 42,
                 'controlTotal' => 42,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'lines' => [],
                 'dueDate' => '2025-11-22T10:40:04+00:00',
                 'customStr1' => 'String value',
@@ -225,9 +265,12 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
         ->status->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
-        ->warehouse->toBeNull()
-        ->supplier->toBeNull()
-        ->location->toBeNull()
+        ->warehouse->description->toBe('String value')
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->exchangeRate->toBe(42)
         ->createBill->toBe(true)
@@ -239,7 +282,8 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
         ->totalAmt->toBe(42)
         ->controlTotal->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customStr1->toBe('String value')
         ->customStr2->toBe('String value')

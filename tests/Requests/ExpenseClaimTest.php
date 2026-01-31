@@ -24,15 +24,26 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbrRequest method in the 
             'approvalStatus' => 'String value',
             'date' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
-            'claimedBy' => null,
+            'claimedBy' => [
+                'internalId' => 'mock-id-123',
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'claimTotal' => 42,
             'vatTaxableTotal' => 42,
             'vatExemptTotal' => 42,
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'approvalDate' => '2025-11-22T10:40:04+00:00',
-            'department' => null,
-            'location' => null,
+            'department' => [
+                'description' => 'String value',
+            ],
+            'location' => [
+                'description' => 'String value',
+            ],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'details' => [],
             'approvalStatusText' => 'String value',
@@ -59,15 +70,18 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbrRequest method in the 
         ->approvalStatus->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
-        ->claimedBy->toBeNull()
+        ->claimedBy->internalId->toBe('mock-id-123')
+        ->claimedBy->number->toBe('String value')
+        ->claimedBy->name->toBe('String value')
         ->claimTotal->toBe(42)
         ->vatTaxableTotal->toBe(42)
         ->vatExemptTotal->toBe(42)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->currency->toBe('String value')
         ->approvalDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->department->toBeNull()
-        ->location->toBeNull()
+        ->department->description->toBe('String value')
+        ->location->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toBe('String value')
@@ -76,12 +90,12 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbrRequest method in the 
 
 it('calls the expenseClaimPutByexpenseClaimNbrRequest method in the ExpenseClaim resource', function () {
     $bodyData = new ExpenseClaimUpdateDto(
-        date: null,
-        description: null,
-        claimedBy: null,
-        customer: null,
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        description: 'String value',
+        claimedBy: 'String value',
+        customer: 'String value',
         customerUpdateAnswer: 'String value',
-        location: null,
+        location: 'String value',
         details: []
     );
 
@@ -127,15 +141,26 @@ it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', fu
                 'approvalStatus' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
-                'claimedBy' => null,
+                'claimedBy' => [
+                    'internalId' => 'mock-id-123',
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'claimTotal' => 42,
                 'vatTaxableTotal' => 42,
                 'vatExemptTotal' => 42,
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'approvalDate' => '2025-11-22T10:40:04+00:00',
-                'department' => null,
-                'location' => null,
+                'department' => [
+                    'description' => 'String value',
+                ],
+                'location' => [
+                    'description' => 'String value',
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'details' => [],
                 'approvalStatusText' => 'String value',
@@ -148,15 +173,26 @@ it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', fu
                 'approvalStatus' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
-                'claimedBy' => null,
+                'claimedBy' => [
+                    'internalId' => 'mock-id-123',
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'claimTotal' => 42,
                 'vatTaxableTotal' => 42,
                 'vatExemptTotal' => 42,
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'approvalDate' => '2025-11-22T10:40:04+00:00',
-                'department' => null,
-                'location' => null,
+                'department' => [
+                    'description' => 'String value',
+                ],
+                'location' => [
+                    'description' => 'String value',
+                ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'details' => [],
                 'approvalStatusText' => 'String value',
@@ -196,15 +232,18 @@ it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', fu
         ->approvalStatus->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
-        ->claimedBy->toBeNull()
+        ->claimedBy->internalId->toBe('mock-id-123')
+        ->claimedBy->number->toBe('String value')
+        ->claimedBy->name->toBe('String value')
         ->claimTotal->toBe(42)
         ->vatTaxableTotal->toBe(42)
         ->vatExemptTotal->toBe(42)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->currency->toBe('String value')
         ->approvalDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->department->toBeNull()
-        ->location->toBeNull()
+        ->department->description->toBe('String value')
+        ->location->description->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->approvalStatusText->toBe('String value')
         ->timeStamp->toBe('String value')
@@ -213,12 +252,12 @@ it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', fu
 
 it('calls the expenseClaimCreateExpenseClaimRequest method in the ExpenseClaim resource', function () {
     $bodyData = new ExpenseClaimUpdateDto(
-        date: null,
-        description: null,
-        claimedBy: null,
-        customer: null,
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        description: 'String value',
+        claimedBy: 'String value',
+        customer: 'String value',
         customerUpdateAnswer: 'String value',
-        location: null,
+        location: 'String value',
         details: []
     );
 

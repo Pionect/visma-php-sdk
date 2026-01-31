@@ -11,12 +11,8 @@ beforeEach(function () {
 it('calls the discountCodeGetDiscountCodesRequest method in the DiscountCode resource', function () {
     Saloon::fake([
         DiscountCodeGetDiscountCodesRequest::class => MockResponse::make([
-            0 => [
-                'name' => 'Mock value',
-            ],
-            1 => [
-                'name' => 'Mock value',
-            ],
+            0 => [],
+            1 => [],
         ], 200),
     ]);
 
@@ -40,5 +36,5 @@ it('calls the discountCodeGetDiscountCodesRequest method in the DiscountCode res
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });

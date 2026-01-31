@@ -33,9 +33,16 @@ it('calls the salesOrderBasicGetByorderNbrRequest method in the SalesOrderBasic 
             'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
-            'customer' => null,
+            'customer' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'contactId' => 42,
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'description' => 'String value',
             'orderTotal' => 42,
@@ -50,7 +57,10 @@ it('calls the salesOrderBasicGetByorderNbrRequest method in the SalesOrderBasic 
             'discountTotal' => 42,
             'discountTotalInBaseCurrency' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
@@ -78,9 +88,12 @@ it('calls the salesOrderBasicGetByorderNbrRequest method in the SalesOrderBasic 
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -95,7 +108,8 @@ it('calls the salesOrderBasicGetByorderNbrRequest method in the SalesOrderBasic 
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -103,18 +117,18 @@ it('calls the salesOrderBasicGetByorderNbrRequest method in the SalesOrderBasic 
 it('calls the salesOrderBasicPutByorderNbrRequest method in the SalesOrderBasic resource', function () {
     $bodyData = new SalesOrderBasicUpdateDto(
         lines: [],
-        orderType: null,
+        orderType: 'String value',
         orderNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         requestOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         customerOrder: 'String value',
         customerRefNo: 'String value',
-        customer: null,
+        customer: 'String value',
         location: 'String value',
         contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
+        gln: 'String value',
+        vatRegistrationId: 'mock-id-123',
         currency: 'String value',
         description: 'String value',
         recalculateShipment: true,
@@ -151,9 +165,16 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest method in 
             'requestOn' => '2025-11-22T10:40:04+00:00',
             'customerOrder' => 'String value',
             'customerRefNo' => 'String value',
-            'customer' => null,
+            'customer' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'contactId' => 42,
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'currency' => 'String value',
             'description' => 'String value',
             'orderTotal' => 42,
@@ -168,7 +189,10 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest method in 
             'discountTotal' => 42,
             'discountTotalInBaseCurrency' => 42,
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'note' => 'String value',
             'attachments' => [],
             'errorInfo' => 'String value',
@@ -197,9 +221,12 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest method in 
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -214,7 +241,8 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest method in 
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -232,9 +260,16 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
                 'requestOn' => '2025-11-22T10:40:04+00:00',
                 'customerOrder' => 'String value',
                 'customerRefNo' => 'String value',
-                'customer' => null,
+                'customer' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'contactId' => 42,
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'description' => 'String value',
                 'orderTotal' => 42,
@@ -249,7 +284,10 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
                 'discountTotal' => 42,
                 'discountTotalInBaseCurrency' => 42,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
@@ -264,9 +302,16 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
                 'requestOn' => '2025-11-22T10:40:04+00:00',
                 'customerOrder' => 'String value',
                 'customerRefNo' => 'String value',
-                'customer' => null,
+                'customer' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'contactId' => 42,
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'currency' => 'String value',
                 'description' => 'String value',
                 'orderTotal' => 42,
@@ -281,7 +326,10 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
                 'discountTotal' => 42,
                 'discountTotalInBaseCurrency' => 42,
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'note' => 'String value',
                 'attachments' => [],
                 'errorInfo' => 'String value',
@@ -321,9 +369,12 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerOrder->toBe('String value')
         ->customerRefNo->toBe('String value')
-        ->customer->toBeNull()
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->contactId->toBe(42)
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->currency->toBe('String value')
         ->description->toBe('String value')
         ->orderTotal->toBe(42)
@@ -338,7 +389,8 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
         ->discountTotal->toBe(42)
         ->discountTotalInBaseCurrency->toBe(42)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->note->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -346,18 +398,18 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
 it('calls the salesOrderBasicPostRequest method in the SalesOrderBasic resource', function () {
     $bodyData = new SalesOrderBasicUpdateDto(
         lines: [],
-        orderType: null,
+        orderType: 'String value',
         orderNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         requestOn: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         customerOrder: 'String value',
         customerRefNo: 'String value',
-        customer: null,
+        customer: 'String value',
         location: 'String value',
         contactId: 42,
-        gln: null,
-        vatRegistrationId: null,
+        gln: 'String value',
+        vatRegistrationId: 'mock-id-123',
         currency: 'String value',
         description: 'String value',
         recalculateShipment: true,

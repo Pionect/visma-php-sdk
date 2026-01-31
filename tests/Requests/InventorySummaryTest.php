@@ -11,9 +11,16 @@ beforeEach(function () {
 it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumberRequest method in the InventorySummary resource', function () {
     Saloon::fake([
         InventorySummaryGetAllInventorySummaryByinventoryNumberRequest::class => MockResponse::make([
-            'inventory' => null,
-            'warehouse' => null,
-            'location' => null,
+            'inventory' => [
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'warehouse' => [
+                'description' => 'String value',
+            ],
+            'location' => [
+                'name' => 'String value',
+            ],
             'available' => 42,
             'availableForShipment' => 42,
             'notAvailable' => 42,
@@ -61,9 +68,10 @@ it('calls the inventorySummaryGetAllInventorySummaryByinventoryNumberRequest met
     $dto = $response->dto();
 
     expect($dto)
-        ->inventory->toBeNull()
-        ->warehouse->toBeNull()
-        ->location->toBeNull()
+        ->inventory->number->toBe('String value')
+        ->inventory->description->toBe('String value')
+        ->warehouse->description->toBe('String value')
+        ->location->name->toBe('String value')
         ->available->toBe(42)
         ->availableForShipment->toBe(42)
         ->notAvailable->toBe(42)

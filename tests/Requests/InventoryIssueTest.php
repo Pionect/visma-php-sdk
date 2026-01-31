@@ -30,7 +30,10 @@ it('calls the inventoryIssueGetByinventoryIssueNumberRequest method in the Inven
             'controlQuantity' => 42,
             'batchNumber' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'attachments' => [],
             'timestamp' => 'String value',
             'errorInfo' => 'String value',
@@ -63,23 +66,24 @@ it('calls the inventoryIssueGetByinventoryIssueNumberRequest method in the Inven
         ->controlQuantity->toBe(42)
         ->batchNumber->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->timestamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryIssuePutByinventoryIssueNumberRequest method in the InventoryIssue resource', function () {
     $bodyData = new InventoryIssueUpdateDto(
-        controlAmount: null,
+        controlAmount: 42,
         issueLines: [],
-        referenceNumber: null,
-        hold: null,
-        date: null,
-        postPeriod: null,
-        externalReference: null,
-        description: null,
-        controlQuantity: null,
-        branchNumber: null
+        referenceNumber: 'String value',
+        hold: true,
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        postPeriod: 'String value',
+        externalReference: 'String value',
+        description: 'String value',
+        controlQuantity: 42,
+        branchNumber: 'String value'
     );
 
     Saloon::fake([
@@ -116,7 +120,10 @@ it('calls the inventoryIssueGetAllRequest method in the InventoryIssue resource'
                 'controlQuantity' => 42,
                 'batchNumber' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
@@ -136,7 +143,10 @@ it('calls the inventoryIssueGetAllRequest method in the InventoryIssue resource'
                 'controlQuantity' => 42,
                 'batchNumber' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'attachments' => [],
                 'timestamp' => 'String value',
                 'errorInfo' => 'String value',
@@ -181,23 +191,24 @@ it('calls the inventoryIssueGetAllRequest method in the InventoryIssue resource'
         ->controlQuantity->toBe(42)
         ->batchNumber->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->timestamp->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
 it('calls the inventoryIssuePostRequest method in the InventoryIssue resource', function () {
     $bodyData = new InventoryIssueUpdateDto(
-        controlAmount: null,
+        controlAmount: 42,
         issueLines: [],
-        referenceNumber: null,
-        hold: null,
-        date: null,
-        postPeriod: null,
-        externalReference: null,
-        description: null,
-        controlQuantity: null,
-        branchNumber: null
+        referenceNumber: 'String value',
+        hold: true,
+        date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        postPeriod: 'String value',
+        externalReference: 'String value',
+        description: 'String value',
+        controlQuantity: 42,
+        branchNumber: 'String value'
     );
 
     Saloon::fake([

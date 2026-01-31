@@ -35,13 +35,18 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
         SupplierInvoiceGetByinvoiceNumberRequest::class => MockResponse::make([
             'taxDetailLines' => [],
             'attachments' => [],
-            'approvalDetails' => null,
+            'approvalDetails' => [
+                'attachmentId' => 'mock-id-123',
+                'comment' => 'String value',
+            ],
             'invoiceLines' => [],
             'landedCosts' => [],
             'hold' => true,
             'exchangeRate' => 42,
             'paymentRefNo' => 'String value',
-            'creditTerms' => null,
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'retainageApply' => true,
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'detailTotal' => 42,
@@ -60,12 +65,24 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
             'amount' => 42,
             'vatAmount' => 42,
             'taxCalculationMode' => 'String value',
-            'supplierTaxZone' => null,
+            'supplierTaxZone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
             'paySelected' => true,
             'curyRetainageTotal' => 42,
             'curyRetainageUnreleasedAmt' => 42,
             'documentVersionNumber' => 42,
-            'supplier' => null,
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -80,17 +97,25 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'supplierReference' => 'String value',
             'description' => 'String value',
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'payDate' => '2025-11-22T10:40:04+00:00',
             'paymentMessage' => 'String value',
             'cashAccount' => 'String value',
@@ -114,11 +139,12 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
     $dto = $response->dto();
 
     expect($dto)
-        ->approvalDetails->toBeNull()
+        ->approvalDetails->attachmentId->toBe('mock-id-123')
+        ->approvalDetails->comment->toBe('String value')
         ->hold->toBe(true)
         ->exchangeRate->toBe(42)
         ->paymentRefNo->toBe('String value')
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->retainageApply->toBe(true)
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->detailTotal->toBe(42)
@@ -137,12 +163,18 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
         ->taxCalculationMode->toBe('String value')
-        ->supplierTaxZone->toBeNull()
+        ->supplierTaxZone->description->toBe('String value')
+        ->supplierTaxZone->defaultVatCategory->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->description->toBe('String value')
+        ->supplierTaxZone->errorInfo->toBe('String value')
         ->paySelected->toBe(true)
         ->curyRetainageTotal->toBe(42)
         ->curyRetainageUnreleasedAmt->toBe(42)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -157,17 +189,19 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->supplierReference->toBe('String value')
         ->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->payDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
@@ -182,8 +216,8 @@ it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInv
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
-        postPeriod: null,
-        financialPeriod: null,
+        postPeriod: 'String value',
+        financialPeriod: 'String value',
         supplierReference: 'String value',
         description: 'String value',
         supplierNumber: 'String value',
@@ -208,13 +242,16 @@ it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInv
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: null,
+        approvalDetails: [
+            'attachmentId' => 'mock-id-123',
+            'comment' => 'String value',
+        ],
         addPoreceiptLines: [],
         addPurchaseOrders: [],
         landedCosts: [],
-        paySelected: null,
+        paySelected: true,
         overrideNumberSeries: true,
-        validateLineDetails: null
+        validateLineDetails: true
     );
 
     Saloon::fake([
@@ -255,13 +292,18 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
         SupplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest::class => MockResponse::make([
             'taxDetailLines' => [],
             'attachments' => [],
-            'approvalDetails' => null,
+            'approvalDetails' => [
+                'attachmentId' => 'mock-id-123',
+                'comment' => 'String value',
+            ],
             'invoiceLines' => [],
             'landedCosts' => [],
             'hold' => true,
             'exchangeRate' => 42,
             'paymentRefNo' => 'String value',
-            'creditTerms' => null,
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'retainageApply' => true,
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'detailTotal' => 42,
@@ -280,12 +322,24 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
             'amount' => 42,
             'vatAmount' => 42,
             'taxCalculationMode' => 'String value',
-            'supplierTaxZone' => null,
+            'supplierTaxZone' => [
+                'description' => 'String value',
+                'defaultVatCategory' => 'String value',
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'errorInfo' => 'String value',
+            ],
             'paySelected' => true,
             'curyRetainageTotal' => 42,
             'curyRetainageUnreleasedAmt' => 42,
             'documentVersionNumber' => 42,
-            'supplier' => null,
+            'supplier' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -300,17 +354,25 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'supplierReference' => 'String value',
             'description' => 'String value',
             'createdDateTime' => '2025-11-22T10:40:04+00:00',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'note' => 'String value',
             'closedFinancialPeriod' => 'String value',
-            'location' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'branchNumber' => null,
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'payDate' => '2025-11-22T10:40:04+00:00',
             'paymentMessage' => 'String value',
             'cashAccount' => 'String value',
@@ -335,11 +397,12 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
     $dto = $response->dto();
 
     expect($dto)
-        ->approvalDetails->toBeNull()
+        ->approvalDetails->attachmentId->toBe('mock-id-123')
+        ->approvalDetails->comment->toBe('String value')
         ->hold->toBe(true)
         ->exchangeRate->toBe(42)
         ->paymentRefNo->toBe('String value')
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->retainageApply->toBe(true)
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->detailTotal->toBe(42)
@@ -358,12 +421,18 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
         ->taxCalculationMode->toBe('String value')
-        ->supplierTaxZone->toBeNull()
+        ->supplierTaxZone->description->toBe('String value')
+        ->supplierTaxZone->defaultVatCategory->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->description->toBe('String value')
+        ->supplierTaxZone->errorInfo->toBe('String value')
         ->paySelected->toBe(true)
         ->curyRetainageTotal->toBe(42)
         ->curyRetainageUnreleasedAmt->toBe(42)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -378,17 +447,19 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->supplierReference->toBe('String value')
         ->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->payDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
@@ -403,8 +474,8 @@ it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method 
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
-        postPeriod: null,
-        financialPeriod: null,
+        postPeriod: 'String value',
+        financialPeriod: 'String value',
         supplierReference: 'String value',
         description: 'String value',
         supplierNumber: 'String value',
@@ -429,13 +500,16 @@ it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method 
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: null,
+        approvalDetails: [
+            'attachmentId' => 'mock-id-123',
+            'comment' => 'String value',
+        ],
         addPoreceiptLines: [],
         addPurchaseOrders: [],
         landedCosts: [],
-        paySelected: null,
+        paySelected: true,
         overrideNumberSeries: true,
-        validateLineDetails: null
+        validateLineDetails: true
     );
 
     Saloon::fake([
@@ -479,13 +553,18 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
             0 => [
                 'taxDetailLines' => [],
                 'attachments' => [],
-                'approvalDetails' => null,
+                'approvalDetails' => [
+                    'attachmentId' => 'mock-id-123',
+                    'comment' => 'String value',
+                ],
                 'invoiceLines' => [],
                 'landedCosts' => [],
                 'hold' => true,
                 'exchangeRate' => 42,
                 'paymentRefNo' => 'String value',
-                'creditTerms' => null,
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'retainageApply' => true,
                 'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
                 'detailTotal' => 42,
@@ -504,12 +583,24 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
                 'amount' => 42,
                 'vatAmount' => 42,
                 'taxCalculationMode' => 'String value',
-                'supplierTaxZone' => null,
+                'supplierTaxZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
                 'paySelected' => true,
                 'curyRetainageTotal' => 42,
                 'curyRetainageUnreleasedAmt' => 42,
                 'documentVersionNumber' => 42,
-                'supplier' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -524,17 +615,25 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'supplierReference' => 'String value',
                 'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'payDate' => '2025-11-22T10:40:04+00:00',
                 'paymentMessage' => 'String value',
                 'cashAccount' => 'String value',
@@ -544,13 +643,18 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
             1 => [
                 'taxDetailLines' => [],
                 'attachments' => [],
-                'approvalDetails' => null,
+                'approvalDetails' => [
+                    'attachmentId' => 'mock-id-123',
+                    'comment' => 'String value',
+                ],
                 'invoiceLines' => [],
                 'landedCosts' => [],
                 'hold' => true,
                 'exchangeRate' => 42,
                 'paymentRefNo' => 'String value',
-                'creditTerms' => null,
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'retainageApply' => true,
                 'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
                 'detailTotal' => 42,
@@ -569,12 +673,24 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
                 'amount' => 42,
                 'vatAmount' => 42,
                 'taxCalculationMode' => 'String value',
-                'supplierTaxZone' => null,
+                'supplierTaxZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
                 'paySelected' => true,
                 'curyRetainageTotal' => 42,
                 'curyRetainageUnreleasedAmt' => 42,
                 'documentVersionNumber' => 42,
-                'supplier' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -589,17 +705,25 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'supplierReference' => 'String value',
                 'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'payDate' => '2025-11-22T10:40:04+00:00',
                 'paymentMessage' => 'String value',
                 'cashAccount' => 'String value',
@@ -650,11 +774,12 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->approvalDetails->toBeNull()
+        ->approvalDetails->attachmentId->toBe('mock-id-123')
+        ->approvalDetails->comment->toBe('String value')
         ->hold->toBe(true)
         ->exchangeRate->toBe(42)
         ->paymentRefNo->toBe('String value')
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->retainageApply->toBe(true)
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->detailTotal->toBe(42)
@@ -673,12 +798,18 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
         ->taxCalculationMode->toBe('String value')
-        ->supplierTaxZone->toBeNull()
+        ->supplierTaxZone->description->toBe('String value')
+        ->supplierTaxZone->defaultVatCategory->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->description->toBe('String value')
+        ->supplierTaxZone->errorInfo->toBe('String value')
         ->paySelected->toBe(true)
         ->curyRetainageTotal->toBe(42)
         ->curyRetainageUnreleasedAmt->toBe(42)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -693,17 +824,19 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->supplierReference->toBe('String value')
         ->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->payDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
@@ -718,8 +851,8 @@ it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource'
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
-        postPeriod: null,
-        financialPeriod: null,
+        postPeriod: 'String value',
+        financialPeriod: 'String value',
         supplierReference: 'String value',
         description: 'String value',
         supplierNumber: 'String value',
@@ -744,13 +877,16 @@ it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource'
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: null,
+        approvalDetails: [
+            'attachmentId' => 'mock-id-123',
+            'comment' => 'String value',
+        ],
         addPoreceiptLines: [],
         addPurchaseOrders: [],
         landedCosts: [],
-        paySelected: null,
+        paySelected: true,
         overrideNumberSeries: true,
-        validateLineDetails: null
+        validateLineDetails: true
     );
 
     Saloon::fake([
@@ -774,13 +910,18 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
             0 => [
                 'taxDetailLines' => [],
                 'attachments' => [],
-                'approvalDetails' => null,
+                'approvalDetails' => [
+                    'attachmentId' => 'mock-id-123',
+                    'comment' => 'String value',
+                ],
                 'invoiceLines' => [],
                 'landedCosts' => [],
                 'hold' => true,
                 'exchangeRate' => 42,
                 'paymentRefNo' => 'String value',
-                'creditTerms' => null,
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'retainageApply' => true,
                 'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
                 'detailTotal' => 42,
@@ -799,12 +940,24 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
                 'amount' => 42,
                 'vatAmount' => 42,
                 'taxCalculationMode' => 'String value',
-                'supplierTaxZone' => null,
+                'supplierTaxZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
                 'paySelected' => true,
                 'curyRetainageTotal' => 42,
                 'curyRetainageUnreleasedAmt' => 42,
                 'documentVersionNumber' => 42,
-                'supplier' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -819,17 +972,25 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'supplierReference' => 'String value',
                 'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'payDate' => '2025-11-22T10:40:04+00:00',
                 'paymentMessage' => 'String value',
                 'cashAccount' => 'String value',
@@ -839,13 +1000,18 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
             1 => [
                 'taxDetailLines' => [],
                 'attachments' => [],
-                'approvalDetails' => null,
+                'approvalDetails' => [
+                    'attachmentId' => 'mock-id-123',
+                    'comment' => 'String value',
+                ],
                 'invoiceLines' => [],
                 'landedCosts' => [],
                 'hold' => true,
                 'exchangeRate' => 42,
                 'paymentRefNo' => 'String value',
-                'creditTerms' => null,
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'retainageApply' => true,
                 'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
                 'detailTotal' => 42,
@@ -864,12 +1030,24 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
                 'amount' => 42,
                 'vatAmount' => 42,
                 'taxCalculationMode' => 'String value',
-                'supplierTaxZone' => null,
+                'supplierTaxZone' => [
+                    'description' => 'String value',
+                    'defaultVatCategory' => 'String value',
+                    'defaultTaxCategory' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'errorInfo' => 'String value',
+                ],
                 'paySelected' => true,
                 'curyRetainageTotal' => 42,
                 'curyRetainageUnreleasedAmt' => 42,
                 'documentVersionNumber' => 42,
-                'supplier' => null,
+                'supplier' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -884,17 +1062,25 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'supplierReference' => 'String value',
                 'description' => 'String value',
                 'createdDateTime' => '2025-11-22T10:40:04+00:00',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'note' => 'String value',
                 'closedFinancialPeriod' => 'String value',
-                'location' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'branchNumber' => null,
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'payDate' => '2025-11-22T10:40:04+00:00',
                 'paymentMessage' => 'String value',
                 'cashAccount' => 'String value',
@@ -918,11 +1104,12 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->approvalDetails->toBeNull()
+        ->approvalDetails->attachmentId->toBe('mock-id-123')
+        ->approvalDetails->comment->toBe('String value')
         ->hold->toBe(true)
         ->exchangeRate->toBe(42)
         ->paymentRefNo->toBe('String value')
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->retainageApply->toBe(true)
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->detailTotal->toBe(42)
@@ -941,12 +1128,18 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
         ->taxCalculationMode->toBe('String value')
-        ->supplierTaxZone->toBeNull()
+        ->supplierTaxZone->description->toBe('String value')
+        ->supplierTaxZone->defaultVatCategory->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
+        ->supplierTaxZone->defaultTaxCategory->description->toBe('String value')
+        ->supplierTaxZone->errorInfo->toBe('String value')
         ->paySelected->toBe(true)
         ->curyRetainageTotal->toBe(42)
         ->curyRetainageUnreleasedAmt->toBe(42)
         ->documentVersionNumber->toBe(42)
-        ->supplier->toBeNull()
+        ->supplier->internalId->toBe(42)
+        ->supplier->number->toBe('String value')
+        ->supplier->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -961,17 +1154,19 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->supplierReference->toBe('String value')
         ->description->toBe('String value')
         ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->note->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
-        ->location->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->branchNumber->toBeNull()
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->payDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentMessage->toBe('String value')
         ->cashAccount->toBe('String value')
@@ -1084,7 +1279,7 @@ it('calls the supplierInvoiceReleaseInvoiceByTypeBydocumentTypeinvoiceNumberRequ
 
 it('calls the supplierInvoicePrebookInvoiceBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
     $bodyData = new PrebookingUpdateDto(
-        accountNumber: null,
+        accountNumber: 'String value',
         subaccount: []
     );
 

@@ -12,11 +12,31 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesRequest method in th
     Saloon::fake([
         GeneralLedgerBalanceV2GetGeneralLedgerBalancesRequest::class => MockResponse::make([
             0 => [
-                'branch' => null,
-                'ledger' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'ledger' => [
+                    'description' => 'String value',
+                ],
                 'balanceType' => 'String value',
                 'financialPeriod' => 'String value',
-                'account' => null,
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'externalCode1info' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'externalCode2info' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'glConsolAccountCd' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'subaccountId' => 'mock-id-123',
                 'subAccountCd' => 'String value',
                 'currencyId' => 'mock-id-123',
@@ -33,11 +53,31 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesRequest method in th
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'branch' => null,
-                'ledger' => null,
+                'branch' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'ledger' => [
+                    'description' => 'String value',
+                ],
                 'balanceType' => 'String value',
                 'financialPeriod' => 'String value',
-                'account' => null,
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'externalCode1info' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'externalCode2info' => [
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'glConsolAccountCd' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'subaccountId' => 'mock-id-123',
                 'subAccountCd' => 'String value',
                 'currencyId' => 'mock-id-123',
@@ -79,11 +119,21 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesRequest method in th
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->branch->toBeNull()
-        ->ledger->toBeNull()
+        ->branch->number->toBe('String value')
+        ->branch->name->toBe('String value')
+        ->ledger->description->toBe('String value')
         ->balanceType->toBe('String value')
         ->financialPeriod->toBe('String value')
-        ->account->toBeNull()
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->externalCode1info->number->toBe('String value')
+        ->account->externalCode1info->description->toBe('String value')
+        ->account->externalCode2info->number->toBe('String value')
+        ->account->externalCode2info->description->toBe('String value')
+        ->account->glConsolAccountCd->toBe('String value')
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
         ->subaccountId->toBe('mock-id-123')
         ->subAccountCd->toBe('String value')
         ->currencyId->toBe('mock-id-123')

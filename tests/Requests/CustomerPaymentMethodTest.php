@@ -17,10 +17,16 @@ beforeEach(function () {
 it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodIdRequest method in the CustomerPaymentMethod resource', function () {
     Saloon::fake([
         CustomerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodIdRequest::class => MockResponse::make([
-            'customer' => null,
-            'paymentMethod' => null,
+            'customer' => [
+                'name' => 'String value',
+            ],
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'active' => true,
-            'cashAccount' => null,
+            'cashAccount' => [
+                'description' => 'String value',
+            ],
             'cardOrAccountNo' => 'String value',
             'paymentMethodDetails' => [],
             'timeStamp' => 'String value',
@@ -41,10 +47,10 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerP
     $dto = $response->dto();
 
     expect($dto)
-        ->customer->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->customer->name->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->active->toBe(true)
-        ->cashAccount->toBeNull()
+        ->cashAccount->description->toBe('String value')
         ->cardOrAccountNo->toBe('String value')
         ->timeStamp->toBe('String value');
 });
@@ -77,10 +83,16 @@ it('calls the customerPaymentMethodUpdateCustomerPaymentMethodBycustomerIdcustom
 it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest method in the CustomerPaymentMethod resource', function () {
     Saloon::fake([
         CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest::class => MockResponse::make([
-            'customer' => null,
-            'paymentMethod' => null,
+            'customer' => [
+                'name' => 'String value',
+            ],
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'active' => true,
-            'cashAccount' => null,
+            'cashAccount' => [
+                'description' => 'String value',
+            ],
             'cardOrAccountNo' => 'String value',
             'paymentMethodDetails' => [],
             'timeStamp' => 'String value',
@@ -102,10 +114,10 @@ it('calls the customerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest 
     $dto = $response->dto();
 
     expect($dto)
-        ->customer->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->customer->name->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->active->toBe(true)
-        ->cashAccount->toBeNull()
+        ->cashAccount->description->toBe('String value')
         ->cardOrAccountNo->toBe('String value')
         ->timeStamp->toBe('String value');
 });

@@ -30,9 +30,18 @@ it('calls the accountGetByaccountCdRequest method in the Account resource', func
             'cashAccount' => true,
             'publicCode1' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-            'externalCode1info' => null,
-            'externalCode2info' => null,
-            'analisysCodeInfo' => null,
+            'externalCode1info' => [
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'externalCode2info' => [
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'analisysCodeInfo' => [
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
             'controlAccountModule' => 'String value',
             'allowManualEntry' => true,
             'timeStamp' => 'String value',
@@ -68,9 +77,12 @@ it('calls the accountGetByaccountCdRequest method in the Account resource', func
         ->cashAccount->toBe(true)
         ->publicCode1->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->externalCode1info->toBeNull()
-        ->externalCode2info->toBeNull()
-        ->analisysCodeInfo->toBeNull()
+        ->externalCode1info->number->toBe('String value')
+        ->externalCode1info->description->toBe('String value')
+        ->externalCode2info->number->toBe('String value')
+        ->externalCode2info->description->toBe('String value')
+        ->analisysCodeInfo->number->toBe('String value')
+        ->analisysCodeInfo->description->toBe('String value')
         ->controlAccountModule->toBe('String value')
         ->allowManualEntry->toBe(true)
         ->timeStamp->toBe('String value')
@@ -131,9 +143,18 @@ it('calls the accountGetAllRequest method in the Account resource', function () 
                 'cashAccount' => true,
                 'publicCode1' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'externalCode1info' => null,
-                'externalCode2info' => null,
-                'analisysCodeInfo' => null,
+                'externalCode1info' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'externalCode2info' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'analisysCodeInfo' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'controlAccountModule' => 'String value',
                 'allowManualEntry' => true,
                 'timeStamp' => 'String value',
@@ -155,9 +176,18 @@ it('calls the accountGetAllRequest method in the Account resource', function () 
                 'cashAccount' => true,
                 'publicCode1' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
-                'externalCode1info' => null,
-                'externalCode2info' => null,
-                'analisysCodeInfo' => null,
+                'externalCode1info' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'externalCode2info' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'analisysCodeInfo' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'controlAccountModule' => 'String value',
                 'allowManualEntry' => true,
                 'timeStamp' => 'String value',
@@ -205,9 +235,12 @@ it('calls the accountGetAllRequest method in the Account resource', function () 
         ->cashAccount->toBe(true)
         ->publicCode1->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->externalCode1info->toBeNull()
-        ->externalCode2info->toBeNull()
-        ->analisysCodeInfo->toBeNull()
+        ->externalCode1info->number->toBe('String value')
+        ->externalCode1info->description->toBe('String value')
+        ->externalCode2info->number->toBe('String value')
+        ->externalCode2info->description->toBe('String value')
+        ->analisysCodeInfo->number->toBe('String value')
+        ->analisysCodeInfo->description->toBe('String value')
         ->controlAccountModule->toBe('String value')
         ->allowManualEntry->toBe(true)
         ->timeStamp->toBe('String value')

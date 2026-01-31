@@ -26,9 +26,17 @@ it('calls the customerPaymentGetBypaymentNumberRequest method in the CustomerPay
             'applicationDate' => '2025-11-22T10:40:04+00:00',
             'applicationPeriod' => 'String value',
             'paymentRef' => 'String value',
-            'customer' => null,
-            'location' => null,
-            'paymentMethod' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'cashAccount' => 'String value',
             'currency' => 'String value',
             'paymentAmount' => 42,
@@ -43,7 +51,9 @@ it('calls the customerPaymentGetBypaymentNumberRequest method in the CustomerPay
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'paymentLines' => [],
             'ordersToApply' => [],
-            'financialDetails' => null,
+            'financialDetails' => [
+                'paymentDate' => '2025-11-22T10:40:04+00:00',
+            ],
             'paymentAmountInCurrency' => 42,
             'availableBalanceInCurrency' => 42,
             'timeStamp' => 'String value',
@@ -71,9 +81,11 @@ it('calls the customerPaymentGetBypaymentNumberRequest method in the CustomerPay
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
         ->paymentRef->toBe('String value')
-        ->customer->toBeNull()
-        ->location->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->currency->toBe('String value')
         ->paymentAmount->toBe(42)
@@ -86,7 +98,7 @@ it('calls the customerPaymentGetBypaymentNumberRequest method in the CustomerPay
         ->deductedCharges->toBe(42)
         ->branch->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->financialDetails->toBeNull()
+        ->financialDetails->paymentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentAmountInCurrency->toBe(42)
         ->availableBalanceInCurrency->toBe(42)
         ->timeStamp->toBe('String value')
@@ -95,19 +107,19 @@ it('calls the customerPaymentGetBypaymentNumberRequest method in the CustomerPay
 
 it('calls the customerPaymentPutBypaymentNumberRequest method in the CustomerPayment resource', function () {
     $bodyData = new PaymentUpdateDto(
-        referenceNumber: null,
-        type: null,
-        hold: null,
-        applicationDate: null,
-        applicationPeriod: null,
-        paymentRef: null,
-        customer: null,
-        location: null,
-        paymentMethod: null,
-        cashAccount: null,
-        currency: null,
-        paymentAmount: null,
-        invoiceText: null,
+        referenceNumber: 'String value',
+        type: 'String value',
+        hold: true,
+        applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        applicationPeriod: 'String value',
+        paymentRef: 'String value',
+        customer: 'String value',
+        location: 'String value',
+        paymentMethod: 'String value',
+        cashAccount: 'String value',
+        currency: 'String value',
+        paymentAmount: 42,
+        invoiceText: 'String value',
         branch: 'String value',
         overrideNumberSeries: true,
         ordersToApply: [],
@@ -143,9 +155,17 @@ it('calls the customerPaymentGetAllPaymentsRequest method in the CustomerPayment
                 'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
                 'paymentRef' => 'String value',
-                'customer' => null,
-                'location' => null,
-                'paymentMethod' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'cashAccount' => 'String value',
                 'currency' => 'String value',
                 'paymentAmount' => 42,
@@ -160,7 +180,9 @@ it('calls the customerPaymentGetAllPaymentsRequest method in the CustomerPayment
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'paymentLines' => [],
                 'ordersToApply' => [],
-                'financialDetails' => null,
+                'financialDetails' => [
+                    'paymentDate' => '2025-11-22T10:40:04+00:00',
+                ],
                 'paymentAmountInCurrency' => 42,
                 'availableBalanceInCurrency' => 42,
                 'timeStamp' => 'String value',
@@ -174,9 +196,17 @@ it('calls the customerPaymentGetAllPaymentsRequest method in the CustomerPayment
                 'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
                 'paymentRef' => 'String value',
-                'customer' => null,
-                'location' => null,
-                'paymentMethod' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'cashAccount' => 'String value',
                 'currency' => 'String value',
                 'paymentAmount' => 42,
@@ -191,7 +221,9 @@ it('calls the customerPaymentGetAllPaymentsRequest method in the CustomerPayment
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'paymentLines' => [],
                 'ordersToApply' => [],
-                'financialDetails' => null,
+                'financialDetails' => [
+                    'paymentDate' => '2025-11-22T10:40:04+00:00',
+                ],
                 'paymentAmountInCurrency' => 42,
                 'availableBalanceInCurrency' => 42,
                 'timeStamp' => 'String value',
@@ -237,9 +269,11 @@ it('calls the customerPaymentGetAllPaymentsRequest method in the CustomerPayment
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
         ->paymentRef->toBe('String value')
-        ->customer->toBeNull()
-        ->location->toBeNull()
-        ->paymentMethod->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
         ->currency->toBe('String value')
         ->paymentAmount->toBe(42)
@@ -252,7 +286,7 @@ it('calls the customerPaymentGetAllPaymentsRequest method in the CustomerPayment
         ->deductedCharges->toBe(42)
         ->branch->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->financialDetails->toBeNull()
+        ->financialDetails->paymentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->paymentAmountInCurrency->toBe(42)
         ->availableBalanceInCurrency->toBe(42)
         ->timeStamp->toBe('String value')
@@ -261,19 +295,19 @@ it('calls the customerPaymentGetAllPaymentsRequest method in the CustomerPayment
 
 it('calls the customerPaymentCreatePaymentRequest method in the CustomerPayment resource', function () {
     $bodyData = new PaymentUpdateDto(
-        referenceNumber: null,
-        type: null,
-        hold: null,
-        applicationDate: null,
-        applicationPeriod: null,
-        paymentRef: null,
-        customer: null,
-        location: null,
-        paymentMethod: null,
-        cashAccount: null,
-        currency: null,
-        paymentAmount: null,
-        invoiceText: null,
+        referenceNumber: 'String value',
+        type: 'String value',
+        hold: true,
+        applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
+        applicationPeriod: 'String value',
+        paymentRef: 'String value',
+        customer: 'String value',
+        location: 'String value',
+        paymentMethod: 'String value',
+        cashAccount: 'String value',
+        currency: 'String value',
+        paymentAmount: 42,
+        invoiceText: 'String value',
         branch: 'String value',
         overrideNumberSeries: true,
         ordersToApply: [],

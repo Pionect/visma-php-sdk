@@ -12,10 +12,38 @@ it('calls the customerV2getAllCustomerBalanceRequest method in the CustomerV2 re
     Saloon::fake([
         CustomerV2GetAllCustomerBalanceRequest::class => MockResponse::make([
             0 => [
-                'name' => 'Mock value',
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'customer' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'beginBalance' => 42,
+                'sales' => 42,
+                'paymentsAndPrepayments' => 42,
+                'adjustmentsAndDiscounts' => 42,
+                'overdueCharges' => 42,
+                'yearToDateBalance' => 42,
             ],
             1 => [
-                'name' => 'Mock value',
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'customer' => [
+                    'internalId' => 42,
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'beginBalance' => 42,
+                'sales' => 42,
+                'paymentsAndPrepayments' => 42,
+                'adjustmentsAndDiscounts' => 42,
+                'overdueCharges' => 42,
+                'yearToDateBalance' => 42,
             ],
         ], 200),
     ]);
@@ -39,5 +67,15 @@ it('calls the customerV2getAllCustomerBalanceRequest method in the CustomerV2 re
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
+        ->customer->internalId->toBe(42)
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
+        ->beginBalance->toBe(42)
+        ->sales->toBe(42)
+        ->paymentsAndPrepayments->toBe(42)
+        ->adjustmentsAndDiscounts->toBe(42)
+        ->overdueCharges->toBe(42)
+        ->yearToDateBalance->toBe(42);
 });

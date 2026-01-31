@@ -15,7 +15,9 @@ beforeEach(function () {
 it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource', function () {
     Saloon::fake([
         CashSaleGetBydocumentNumberRequest::class => MockResponse::make([
-            'creditTerms' => null,
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'cashSaleLines' => [],
             'timeStamp' => 'String value',
             'hold' => true,
@@ -29,15 +31,42 @@ it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource
             'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'paymentReference' => 'String value',
-            'invoiceAddress' => null,
-            'invoiceContact' => null,
+            'invoiceAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+                'overrideAddress' => true,
+            ],
+            'invoiceContact' => [
+                'contactId' => 42,
+                'businessName' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'phone1' => 'String value',
+                'overrideContact' => true,
+            ],
             'applications' => [],
             'dontPrint' => true,
             'dontEmail' => true,
             'revoked' => true,
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -53,7 +82,9 @@ it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -61,12 +92,37 @@ it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource
             'note' => 'String value',
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'location' => null,
-            'branchNumber' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'cashAccount' => 'String value',
-            'project' => null,
-            'account' => null,
-            'subaccount' => null,
+            'project' => [
+                'internalId' => 42,
+                'description' => 'String value',
+            ],
+            'account' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
@@ -85,7 +141,7 @@ it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource
     $dto = $response->dto();
 
     expect($dto)
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->timeStamp->toBe('String value')
         ->hold->toBe(true)
         ->discountTotal->toBe(42)
@@ -98,14 +154,29 @@ it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource
         ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->paymentReference->toBe('String value')
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceAddress->overrideAddress->toBe(true)
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->businessName->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->overrideContact->toBe(true)
         ->dontPrint->toBe(true)
         ->dontEmail->toBe(true)
         ->revoked->toBe(true)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -121,7 +192,7 @@ it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -129,12 +200,26 @@ it('calls the cashSaleGetBydocumentNumberRequest method in the CashSale resource
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -143,7 +228,7 @@ it('calls the cashSalePutBydocumentNumberRequest method in the CashSale resource
     $bodyData = new CashSaleUpdateDto(
         paymentMethodId: 'mock-id-123',
         creditTermsId: 'mock-id-123',
-        paymentReference: null,
+        paymentReference: 'String value',
         cashSaleLines: [],
         referenceNumber: 'String value',
         customerNumber: 'String value',
@@ -152,12 +237,12 @@ it('calls the cashSalePutBydocumentNumberRequest method in the CashSale resource
         documentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         hold: true,
-        postPeriod: null,
-        financialPeriod: null,
+        postPeriod: 'String value',
+        financialPeriod: 'String value',
         invoiceText: 'String value',
         locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
+        salesPersonId: 42,
+        salesperson: 'String value',
         note: 'String value',
         branchNumber: 'String value',
         cashAccount: 'String value',
@@ -186,7 +271,9 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
     Saloon::fake([
         CashSaleGetAllCashSalesRequest::class => MockResponse::make([
             0 => [
-                'creditTerms' => null,
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'cashSaleLines' => [],
                 'timeStamp' => 'String value',
                 'hold' => true,
@@ -200,15 +287,42 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
                 'vatExemptTotalInCurrency' => 42,
                 'salesPersonId' => 42,
                 'salesPersonDescr' => 'String value',
-                'salesPerson' => null,
+                'salesPerson' => [
+                    'description' => 'String value',
+                ],
                 'paymentReference' => 'String value',
-                'invoiceAddress' => null,
-                'invoiceContact' => null,
+                'invoiceAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                    'overrideAddress' => true,
+                ],
+                'invoiceContact' => [
+                    'contactId' => 42,
+                    'businessName' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'phone1' => 'String value',
+                    'overrideContact' => true,
+                ],
                 'applications' => [],
                 'dontPrint' => true,
                 'dontEmail' => true,
                 'revoked' => true,
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -224,7 +338,9 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -232,17 +348,44 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
                 'note' => 'String value',
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'location' => null,
-                'branchNumber' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'cashAccount' => 'String value',
-                'project' => null,
-                'account' => null,
-                'subaccount' => null,
+                'project' => [
+                    'internalId' => 42,
+                    'description' => 'String value',
+                ],
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'creditTerms' => null,
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'cashSaleLines' => [],
                 'timeStamp' => 'String value',
                 'hold' => true,
@@ -256,15 +399,42 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
                 'vatExemptTotalInCurrency' => 42,
                 'salesPersonId' => 42,
                 'salesPersonDescr' => 'String value',
-                'salesPerson' => null,
+                'salesPerson' => [
+                    'description' => 'String value',
+                ],
                 'paymentReference' => 'String value',
-                'invoiceAddress' => null,
-                'invoiceContact' => null,
+                'invoiceAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                    'overrideAddress' => true,
+                ],
+                'invoiceContact' => [
+                    'contactId' => 42,
+                    'businessName' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'phone1' => 'String value',
+                    'overrideContact' => true,
+                ],
                 'applications' => [],
                 'dontPrint' => true,
                 'dontEmail' => true,
                 'revoked' => true,
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -280,7 +450,9 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -288,12 +460,37 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
                 'note' => 'String value',
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'location' => null,
-                'branchNumber' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'cashAccount' => 'String value',
-                'project' => null,
-                'account' => null,
-                'subaccount' => null,
+                'project' => [
+                    'internalId' => 42,
+                    'description' => 'String value',
+                ],
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
             ],
@@ -345,7 +542,7 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->timeStamp->toBe('String value')
         ->hold->toBe(true)
         ->discountTotal->toBe(42)
@@ -358,14 +555,29 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
         ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->paymentReference->toBe('String value')
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceAddress->overrideAddress->toBe(true)
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->businessName->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->overrideContact->toBe(true)
         ->dontPrint->toBe(true)
         ->dontEmail->toBe(true)
         ->revoked->toBe(true)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -381,7 +593,7 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -389,12 +601,26 @@ it('calls the cashSaleGetAllCashSalesRequest method in the CashSale resource', f
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -403,7 +629,7 @@ it('calls the cashSalePostRequest method in the CashSale resource', function () 
     $bodyData = new CashSaleUpdateDto(
         paymentMethodId: 'mock-id-123',
         creditTermsId: 'mock-id-123',
-        paymentReference: null,
+        paymentReference: 'String value',
         cashSaleLines: [],
         referenceNumber: 'String value',
         customerNumber: 'String value',
@@ -412,12 +638,12 @@ it('calls the cashSalePostRequest method in the CashSale resource', function () 
         documentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         hold: true,
-        postPeriod: null,
-        financialPeriod: null,
+        postPeriod: 'String value',
+        financialPeriod: 'String value',
         invoiceText: 'String value',
         locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
+        salesPersonId: 42,
+        salesperson: 'String value',
         note: 'String value',
         branchNumber: 'String value',
         cashAccount: 'String value',

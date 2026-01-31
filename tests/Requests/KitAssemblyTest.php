@@ -18,12 +18,8 @@ beforeEach(function () {
 it('calls the kitAssemblyGetKitAssembliesRequest method in the KitAssembly resource', function () {
     Saloon::fake([
         KitAssemblyGetKitAssembliesRequest::class => MockResponse::make([
-            0 => [
-                'name' => 'Mock value',
-            ],
-            1 => [
-                'name' => 'Mock value',
-            ],
+            0 => [],
+            1 => [],
         ], 200),
     ]);
 
@@ -52,12 +48,16 @@ it('calls the kitAssemblyGetKitAssembliesRequest method in the KitAssembly resou
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->name->toBe('Mock value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the kitAssemblyPostRequest method in the KitAssembly resource', function () {
     $bodyData = new KitAssemblyInsertDto(
-        kitAssemblyLink: null,
+        kitAssemblyLink: [
+            'orderType' => 'String value',
+            'orderNumber' => 'String value',
+            'orderLineNumber' => 42,
+        ],
         type: 'String value',
         refNo: 'String value',
         hold: true,

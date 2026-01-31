@@ -43,8 +43,8 @@ it('calls the currencyRateTypeGetAllRequest method in the CurrencyRateType resou
 
 it('calls the currencyRateTypePostRequest method in the CurrencyRateType resource', function () {
     $bodyData = new CreateCurrencyRateTypeDto(
-        description: null,
-        daysEffective: null
+        description: 'String value',
+        daysEffective: 42
     );
 
     Saloon::fake([

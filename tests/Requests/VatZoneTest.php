@@ -14,7 +14,10 @@ it('calls the vatZoneGetVatZoneByvatZoneIdRequest method in the VatZone resource
         VatZoneGetVatZoneByvatZoneIdRequest::class => MockResponse::make([
             'description' => 'String value',
             'defaultVatCategory' => 'String value',
-            'defaultTaxCategory' => null,
+            'defaultTaxCategory' => [
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -34,7 +37,8 @@ it('calls the vatZoneGetVatZoneByvatZoneIdRequest method in the VatZone resource
     expect($dto)
         ->description->toBe('String value')
         ->defaultVatCategory->toBe('String value')
-        ->defaultTaxCategory->toBeNull()
+        ->defaultTaxCategory->number->toBe('String value')
+        ->defaultTaxCategory->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
@@ -44,13 +48,19 @@ it('calls the vatZoneGetVatZonesRequest method in the VatZone resource', functio
             0 => [
                 'description' => 'String value',
                 'defaultVatCategory' => 'String value',
-                'defaultTaxCategory' => null,
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'errorInfo' => 'String value',
             ],
             1 => [
                 'description' => 'String value',
                 'defaultVatCategory' => 'String value',
-                'defaultTaxCategory' => null,
+                'defaultTaxCategory' => [
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
                 'errorInfo' => 'String value',
             ],
         ], 200),
@@ -73,6 +83,7 @@ it('calls the vatZoneGetVatZonesRequest method in the VatZone resource', functio
     expect($collection->first())
         ->description->toBe('String value')
         ->defaultVatCategory->toBe('String value')
-        ->defaultTaxCategory->toBeNull()
+        ->defaultTaxCategory->number->toBe('String value')
+        ->defaultTaxCategory->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });

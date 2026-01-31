@@ -134,10 +134,21 @@ it('calls the inventoryGetByinventoryIdRequest method in the Inventory resource'
             'type' => 'String value',
             'description' => 'String value',
             'body' => 'String value',
-            'itemClass' => null,
-            'postingClass' => null,
-            'vatCode' => null,
-            'lotSerialClass' => null,
+            'itemClass' => [
+                'type' => 'String value',
+                'attributes' => [],
+                'description' => 'String value',
+                'errorInfo' => 'String value',
+            ],
+            'postingClass' => [
+                'description' => 'String value',
+            ],
+            'vatCode' => [
+                'description' => 'String value',
+            ],
+            'lotSerialClass' => [
+                'description' => 'String value',
+            ],
             'defaultPrice' => 42,
             'pendingCost' => 42,
             'pendingCostDate' => '2025-11-22T10:40:04+00:00',
@@ -150,24 +161,116 @@ it('calls the inventoryGetByinventoryIdRequest method in the Inventory resource'
             'purchaseUnit' => 'String value',
             'stockItem' => true,
             'kitItem' => true,
-            'accountInformation' => null,
-            'costPriceStatistics' => null,
+            'accountInformation' => [
+                'expenseAccrualAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'inventoryAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'cogsAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseNonTaxableAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseEuAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseImportAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'cogsSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'salesAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesNonTaxableAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesEuAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesExportAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+            ],
+            'costPriceStatistics' => [
+                'lastCost' => 42,
+                'averageCost' => 42,
+                'minCost' => 42,
+                'maxCost' => 42,
+            ],
             'crossReferences' => [],
             'attachments' => [],
             'attributes' => [],
             'warehouseDetails' => [],
             'inventoryUnits' => [],
-            'defaultWarehouse' => null,
-            'defaultIssueFrom' => null,
-            'defaultReceiptTo' => null,
+            'defaultWarehouse' => [
+                'description' => 'String value',
+            ],
+            'defaultIssueFrom' => [
+                'description' => 'String value',
+            ],
+            'defaultReceiptTo' => [
+                'description' => 'String value',
+            ],
             'supplierDetails' => [],
             'salesCategories' => [],
-            'packaging' => null,
-            'intrastat' => null,
+            'packaging' => [
+                'baseItemWeight' => 42,
+                'weightUom' => 'String value',
+                'baseItemVolume' => 42,
+                'volumeUom' => 'String value',
+            ],
+            'intrastat' => [
+                'cN8' => 'String value',
+                'countryOfOrigin' => 'String value',
+                'supplementaryMeasureUnit' => 'String value',
+            ],
             'recommendedPrice' => 42,
             'priceManagerId' => 'mock-id-123',
-            'priceManager' => null,
-            'priceClass' => null,
+            'priceManager' => [
+                'name' => 'String value',
+            ],
+            'priceClass' => [
+                'description' => 'String value',
+            ],
             'priceWorkgroupId' => 42,
             'priceClassId' => 'mock-id-123',
             'note' => 'String value',
@@ -195,10 +298,12 @@ it('calls the inventoryGetByinventoryIdRequest method in the Inventory resource'
         ->type->toBe('String value')
         ->description->toBe('String value')
         ->body->toBe('String value')
-        ->itemClass->toBeNull()
-        ->postingClass->toBeNull()
-        ->vatCode->toBeNull()
-        ->lotSerialClass->toBeNull()
+        ->itemClass->type->toBe('String value')
+        ->itemClass->description->toBe('String value')
+        ->itemClass->errorInfo->toBe('String value')
+        ->postingClass->description->toBe('String value')
+        ->vatCode->description->toBe('String value')
+        ->lotSerialClass->description->toBe('String value')
         ->defaultPrice->toBe(42)
         ->pendingCost->toBe(42)
         ->pendingCostDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -211,17 +316,63 @@ it('calls the inventoryGetByinventoryIdRequest method in the Inventory resource'
         ->purchaseUnit->toBe('String value')
         ->stockItem->toBe(true)
         ->kitItem->toBe(true)
-        ->accountInformation->toBeNull()
-        ->costPriceStatistics->toBeNull()
-        ->defaultWarehouse->toBeNull()
-        ->defaultIssueFrom->toBeNull()
-        ->defaultReceiptTo->toBeNull()
-        ->packaging->toBeNull()
-        ->intrastat->toBeNull()
+        ->accountInformation->expenseAccrualAccount->type->toBe('String value')
+        ->accountInformation->expenseAccrualAccount->number->toBe('String value')
+        ->accountInformation->expenseAccrualAccount->description->toBe('String value')
+        ->accountInformation->inventoryAccount->type->toBe('String value')
+        ->accountInformation->inventoryAccount->number->toBe('String value')
+        ->accountInformation->inventoryAccount->description->toBe('String value')
+        ->accountInformation->expenseAccount->type->toBe('String value')
+        ->accountInformation->expenseAccount->number->toBe('String value')
+        ->accountInformation->expenseAccount->description->toBe('String value')
+        ->accountInformation->cogsAccount->type->toBe('String value')
+        ->accountInformation->cogsAccount->number->toBe('String value')
+        ->accountInformation->cogsAccount->description->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->type->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->number->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->description->toBe('String value')
+        ->accountInformation->expenseEuAccount->type->toBe('String value')
+        ->accountInformation->expenseEuAccount->number->toBe('String value')
+        ->accountInformation->expenseEuAccount->description->toBe('String value')
+        ->accountInformation->expenseImportAccount->type->toBe('String value')
+        ->accountInformation->expenseImportAccount->number->toBe('String value')
+        ->accountInformation->expenseImportAccount->description->toBe('String value')
+        ->accountInformation->expenseSubaccount->active->toBe(true)
+        ->accountInformation->expenseSubaccount->description->toBe('String value')
+        ->accountInformation->cogsSubaccount->active->toBe(true)
+        ->accountInformation->cogsSubaccount->description->toBe('String value')
+        ->accountInformation->salesAccount->type->toBe('String value')
+        ->accountInformation->salesAccount->number->toBe('String value')
+        ->accountInformation->salesAccount->description->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->type->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->number->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->description->toBe('String value')
+        ->accountInformation->salesEuAccount->type->toBe('String value')
+        ->accountInformation->salesEuAccount->number->toBe('String value')
+        ->accountInformation->salesEuAccount->description->toBe('String value')
+        ->accountInformation->salesExportAccount->type->toBe('String value')
+        ->accountInformation->salesExportAccount->number->toBe('String value')
+        ->accountInformation->salesExportAccount->description->toBe('String value')
+        ->accountInformation->salesSubaccount->active->toBe(true)
+        ->accountInformation->salesSubaccount->description->toBe('String value')
+        ->costPriceStatistics->lastCost->toBe(42)
+        ->costPriceStatistics->averageCost->toBe(42)
+        ->costPriceStatistics->minCost->toBe(42)
+        ->costPriceStatistics->maxCost->toBe(42)
+        ->defaultWarehouse->description->toBe('String value')
+        ->defaultIssueFrom->description->toBe('String value')
+        ->defaultReceiptTo->description->toBe('String value')
+        ->packaging->baseItemWeight->toBe(42)
+        ->packaging->weightUom->toBe('String value')
+        ->packaging->baseItemVolume->toBe(42)
+        ->packaging->volumeUom->toBe('String value')
+        ->intrastat->cN8->toBe('String value')
+        ->intrastat->countryOfOrigin->toBe('String value')
+        ->intrastat->supplementaryMeasureUnit->toBe('String value')
         ->recommendedPrice->toBe(42)
         ->priceManagerId->toBe('mock-id-123')
-        ->priceManager->toBeNull()
-        ->priceClass->toBeNull()
+        ->priceManager->name->toBe('String value')
+        ->priceClass->description->toBe('String value')
         ->priceWorkgroupId->toBe(42)
         ->priceClassId->toBe('mock-id-123')
         ->note->toBe('String value')
@@ -238,10 +389,21 @@ it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resou
             'type' => 'String value',
             'description' => 'String value',
             'body' => 'String value',
-            'itemClass' => null,
-            'postingClass' => null,
-            'vatCode' => null,
-            'lotSerialClass' => null,
+            'itemClass' => [
+                'type' => 'String value',
+                'attributes' => [],
+                'description' => 'String value',
+                'errorInfo' => 'String value',
+            ],
+            'postingClass' => [
+                'description' => 'String value',
+            ],
+            'vatCode' => [
+                'description' => 'String value',
+            ],
+            'lotSerialClass' => [
+                'description' => 'String value',
+            ],
             'defaultPrice' => 42,
             'pendingCost' => 42,
             'pendingCostDate' => '2025-11-22T10:40:04+00:00',
@@ -254,24 +416,116 @@ it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resou
             'purchaseUnit' => 'String value',
             'stockItem' => true,
             'kitItem' => true,
-            'accountInformation' => null,
-            'costPriceStatistics' => null,
+            'accountInformation' => [
+                'expenseAccrualAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'inventoryAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'cogsAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseNonTaxableAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseEuAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseImportAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'expenseSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'cogsSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+                'salesAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesNonTaxableAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesEuAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesExportAccount' => [
+                    'type' => 'String value',
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'salesSubaccount' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
+            ],
+            'costPriceStatistics' => [
+                'lastCost' => 42,
+                'averageCost' => 42,
+                'minCost' => 42,
+                'maxCost' => 42,
+            ],
             'crossReferences' => [],
             'attachments' => [],
             'attributes' => [],
             'warehouseDetails' => [],
             'inventoryUnits' => [],
-            'defaultWarehouse' => null,
-            'defaultIssueFrom' => null,
-            'defaultReceiptTo' => null,
+            'defaultWarehouse' => [
+                'description' => 'String value',
+            ],
+            'defaultIssueFrom' => [
+                'description' => 'String value',
+            ],
+            'defaultReceiptTo' => [
+                'description' => 'String value',
+            ],
             'supplierDetails' => [],
             'salesCategories' => [],
-            'packaging' => null,
-            'intrastat' => null,
+            'packaging' => [
+                'baseItemWeight' => 42,
+                'weightUom' => 'String value',
+                'baseItemVolume' => 42,
+                'volumeUom' => 'String value',
+            ],
+            'intrastat' => [
+                'cN8' => 'String value',
+                'countryOfOrigin' => 'String value',
+                'supplementaryMeasureUnit' => 'String value',
+            ],
             'recommendedPrice' => 42,
             'priceManagerId' => 'mock-id-123',
-            'priceManager' => null,
-            'priceClass' => null,
+            'priceManager' => [
+                'name' => 'String value',
+            ],
+            'priceClass' => [
+                'description' => 'String value',
+            ],
             'priceWorkgroupId' => 42,
             'priceClassId' => 'mock-id-123',
             'note' => 'String value',
@@ -299,10 +553,12 @@ it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resou
         ->type->toBe('String value')
         ->description->toBe('String value')
         ->body->toBe('String value')
-        ->itemClass->toBeNull()
-        ->postingClass->toBeNull()
-        ->vatCode->toBeNull()
-        ->lotSerialClass->toBeNull()
+        ->itemClass->type->toBe('String value')
+        ->itemClass->description->toBe('String value')
+        ->itemClass->errorInfo->toBe('String value')
+        ->postingClass->description->toBe('String value')
+        ->vatCode->description->toBe('String value')
+        ->lotSerialClass->description->toBe('String value')
         ->defaultPrice->toBe(42)
         ->pendingCost->toBe(42)
         ->pendingCostDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -315,17 +571,63 @@ it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resou
         ->purchaseUnit->toBe('String value')
         ->stockItem->toBe(true)
         ->kitItem->toBe(true)
-        ->accountInformation->toBeNull()
-        ->costPriceStatistics->toBeNull()
-        ->defaultWarehouse->toBeNull()
-        ->defaultIssueFrom->toBeNull()
-        ->defaultReceiptTo->toBeNull()
-        ->packaging->toBeNull()
-        ->intrastat->toBeNull()
+        ->accountInformation->expenseAccrualAccount->type->toBe('String value')
+        ->accountInformation->expenseAccrualAccount->number->toBe('String value')
+        ->accountInformation->expenseAccrualAccount->description->toBe('String value')
+        ->accountInformation->inventoryAccount->type->toBe('String value')
+        ->accountInformation->inventoryAccount->number->toBe('String value')
+        ->accountInformation->inventoryAccount->description->toBe('String value')
+        ->accountInformation->expenseAccount->type->toBe('String value')
+        ->accountInformation->expenseAccount->number->toBe('String value')
+        ->accountInformation->expenseAccount->description->toBe('String value')
+        ->accountInformation->cogsAccount->type->toBe('String value')
+        ->accountInformation->cogsAccount->number->toBe('String value')
+        ->accountInformation->cogsAccount->description->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->type->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->number->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->description->toBe('String value')
+        ->accountInformation->expenseEuAccount->type->toBe('String value')
+        ->accountInformation->expenseEuAccount->number->toBe('String value')
+        ->accountInformation->expenseEuAccount->description->toBe('String value')
+        ->accountInformation->expenseImportAccount->type->toBe('String value')
+        ->accountInformation->expenseImportAccount->number->toBe('String value')
+        ->accountInformation->expenseImportAccount->description->toBe('String value')
+        ->accountInformation->expenseSubaccount->active->toBe(true)
+        ->accountInformation->expenseSubaccount->description->toBe('String value')
+        ->accountInformation->cogsSubaccount->active->toBe(true)
+        ->accountInformation->cogsSubaccount->description->toBe('String value')
+        ->accountInformation->salesAccount->type->toBe('String value')
+        ->accountInformation->salesAccount->number->toBe('String value')
+        ->accountInformation->salesAccount->description->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->type->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->number->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->description->toBe('String value')
+        ->accountInformation->salesEuAccount->type->toBe('String value')
+        ->accountInformation->salesEuAccount->number->toBe('String value')
+        ->accountInformation->salesEuAccount->description->toBe('String value')
+        ->accountInformation->salesExportAccount->type->toBe('String value')
+        ->accountInformation->salesExportAccount->number->toBe('String value')
+        ->accountInformation->salesExportAccount->description->toBe('String value')
+        ->accountInformation->salesSubaccount->active->toBe(true)
+        ->accountInformation->salesSubaccount->description->toBe('String value')
+        ->costPriceStatistics->lastCost->toBe(42)
+        ->costPriceStatistics->averageCost->toBe(42)
+        ->costPriceStatistics->minCost->toBe(42)
+        ->costPriceStatistics->maxCost->toBe(42)
+        ->defaultWarehouse->description->toBe('String value')
+        ->defaultIssueFrom->description->toBe('String value')
+        ->defaultReceiptTo->description->toBe('String value')
+        ->packaging->baseItemWeight->toBe(42)
+        ->packaging->weightUom->toBe('String value')
+        ->packaging->baseItemVolume->toBe(42)
+        ->packaging->volumeUom->toBe('String value')
+        ->intrastat->cN8->toBe('String value')
+        ->intrastat->countryOfOrigin->toBe('String value')
+        ->intrastat->supplementaryMeasureUnit->toBe('String value')
         ->recommendedPrice->toBe(42)
         ->priceManagerId->toBe('mock-id-123')
-        ->priceManager->toBeNull()
-        ->priceClass->toBeNull()
+        ->priceManager->name->toBe('String value')
+        ->priceClass->description->toBe('String value')
         ->priceWorkgroupId->toBe(42)
         ->priceClassId->toBe('mock-id-123')
         ->note->toBe('String value')
@@ -335,22 +637,22 @@ it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resou
 
 it('calls the inventoryPutByinventoryNumberRequest method in the Inventory resource', function () {
     $bodyData = new InventoryUpdateDto(
-        inventoryNumber: null,
+        inventoryNumber: 'String value',
         status: 'String value',
         type: 'String value',
         description: 'String value',
         body: 'String value',
-        itemClass: null,
-        postingClass: null,
-        vatCode: null,
-        defaultPrice: null,
+        itemClass: 'String value',
+        postingClass: 'String value',
+        vatCode: 'String value',
+        defaultPrice: 42,
         baseUnit: 'String value',
         salesUnit: 'String value',
         purchaseUnit: 'String value',
-        expenseAccrualAccount: null,
-        inventoryAccount: null,
-        expenseAccount: null,
-        cogsAccount: null,
+        expenseAccrualAccount: 'String value',
+        inventoryAccount: 'String value',
+        expenseAccount: 'String value',
+        cogsAccount: 'String value',
         expenseNonTaxableAccount: 'String value',
         expenseEuAccount: 'String value',
         expenseImportAccount: 'String value',
@@ -362,13 +664,22 @@ it('calls the inventoryPutByinventoryNumberRequest method in the Inventory resou
         salesExportAccount: 'String value',
         salesSubaccount: [],
         attributeLines: [],
-        packaging: null,
+        packaging: [
+            'baseItemWeight' => 42,
+            'weightUom' => 'String value',
+            'baseItemVolume' => 42,
+            'volumeUom' => 'String value',
+        ],
         supplierDetails: [],
-        intrastat: null,
+        intrastat: [
+            'cN8' => 'String value',
+            'countryOfOrigin' => 'String value',
+            'supplementaryMeasureUnit' => 'String value',
+        ],
         crossReferences: [],
-        defaultWarehouse: null,
-        defaultIssueFrom: null,
-        defaultReceiptTo: null,
+        defaultWarehouse: 'String value',
+        defaultIssueFrom: 'String value',
+        defaultReceiptTo: 'String value',
         kitItem: true,
         note: 'String value'
     );
@@ -399,10 +710,21 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
                 'type' => 'String value',
                 'description' => 'String value',
                 'body' => 'String value',
-                'itemClass' => null,
-                'postingClass' => null,
-                'vatCode' => null,
-                'lotSerialClass' => null,
+                'itemClass' => [
+                    'type' => 'String value',
+                    'attributes' => [],
+                    'description' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'postingClass' => [
+                    'description' => 'String value',
+                ],
+                'vatCode' => [
+                    'description' => 'String value',
+                ],
+                'lotSerialClass' => [
+                    'description' => 'String value',
+                ],
                 'defaultPrice' => 42,
                 'pendingCost' => 42,
                 'pendingCostDate' => '2025-11-22T10:40:04+00:00',
@@ -415,24 +737,116 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
                 'purchaseUnit' => 'String value',
                 'stockItem' => true,
                 'kitItem' => true,
-                'accountInformation' => null,
-                'costPriceStatistics' => null,
+                'accountInformation' => [
+                    'expenseAccrualAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'inventoryAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'cogsAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseNonTaxableAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseEuAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseImportAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                    'cogsSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                    'salesAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesNonTaxableAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesEuAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesExportAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                ],
+                'costPriceStatistics' => [
+                    'lastCost' => 42,
+                    'averageCost' => 42,
+                    'minCost' => 42,
+                    'maxCost' => 42,
+                ],
                 'crossReferences' => [],
                 'attachments' => [],
                 'attributes' => [],
                 'warehouseDetails' => [],
                 'inventoryUnits' => [],
-                'defaultWarehouse' => null,
-                'defaultIssueFrom' => null,
-                'defaultReceiptTo' => null,
+                'defaultWarehouse' => [
+                    'description' => 'String value',
+                ],
+                'defaultIssueFrom' => [
+                    'description' => 'String value',
+                ],
+                'defaultReceiptTo' => [
+                    'description' => 'String value',
+                ],
                 'supplierDetails' => [],
                 'salesCategories' => [],
-                'packaging' => null,
-                'intrastat' => null,
+                'packaging' => [
+                    'baseItemWeight' => 42,
+                    'weightUom' => 'String value',
+                    'baseItemVolume' => 42,
+                    'volumeUom' => 'String value',
+                ],
+                'intrastat' => [
+                    'cN8' => 'String value',
+                    'countryOfOrigin' => 'String value',
+                    'supplementaryMeasureUnit' => 'String value',
+                ],
                 'recommendedPrice' => 42,
                 'priceManagerId' => 'mock-id-123',
-                'priceManager' => null,
-                'priceClass' => null,
+                'priceManager' => [
+                    'name' => 'String value',
+                ],
+                'priceClass' => [
+                    'description' => 'String value',
+                ],
                 'priceWorkgroupId' => 42,
                 'priceClassId' => 'mock-id-123',
                 'note' => 'String value',
@@ -446,10 +860,21 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
                 'type' => 'String value',
                 'description' => 'String value',
                 'body' => 'String value',
-                'itemClass' => null,
-                'postingClass' => null,
-                'vatCode' => null,
-                'lotSerialClass' => null,
+                'itemClass' => [
+                    'type' => 'String value',
+                    'attributes' => [],
+                    'description' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'postingClass' => [
+                    'description' => 'String value',
+                ],
+                'vatCode' => [
+                    'description' => 'String value',
+                ],
+                'lotSerialClass' => [
+                    'description' => 'String value',
+                ],
                 'defaultPrice' => 42,
                 'pendingCost' => 42,
                 'pendingCostDate' => '2025-11-22T10:40:04+00:00',
@@ -462,24 +887,116 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
                 'purchaseUnit' => 'String value',
                 'stockItem' => true,
                 'kitItem' => true,
-                'accountInformation' => null,
-                'costPriceStatistics' => null,
+                'accountInformation' => [
+                    'expenseAccrualAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'inventoryAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'cogsAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseNonTaxableAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseEuAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseImportAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'expenseSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                    'cogsSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                    'salesAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesNonTaxableAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesEuAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesExportAccount' => [
+                        'type' => 'String value',
+                        'number' => 'String value',
+                        'description' => 'String value',
+                    ],
+                    'salesSubaccount' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                ],
+                'costPriceStatistics' => [
+                    'lastCost' => 42,
+                    'averageCost' => 42,
+                    'minCost' => 42,
+                    'maxCost' => 42,
+                ],
                 'crossReferences' => [],
                 'attachments' => [],
                 'attributes' => [],
                 'warehouseDetails' => [],
                 'inventoryUnits' => [],
-                'defaultWarehouse' => null,
-                'defaultIssueFrom' => null,
-                'defaultReceiptTo' => null,
+                'defaultWarehouse' => [
+                    'description' => 'String value',
+                ],
+                'defaultIssueFrom' => [
+                    'description' => 'String value',
+                ],
+                'defaultReceiptTo' => [
+                    'description' => 'String value',
+                ],
                 'supplierDetails' => [],
                 'salesCategories' => [],
-                'packaging' => null,
-                'intrastat' => null,
+                'packaging' => [
+                    'baseItemWeight' => 42,
+                    'weightUom' => 'String value',
+                    'baseItemVolume' => 42,
+                    'volumeUom' => 'String value',
+                ],
+                'intrastat' => [
+                    'cN8' => 'String value',
+                    'countryOfOrigin' => 'String value',
+                    'supplementaryMeasureUnit' => 'String value',
+                ],
                 'recommendedPrice' => 42,
                 'priceManagerId' => 'mock-id-123',
-                'priceManager' => null,
-                'priceClass' => null,
+                'priceManager' => [
+                    'name' => 'String value',
+                ],
+                'priceClass' => [
+                    'description' => 'String value',
+                ],
                 'priceWorkgroupId' => 42,
                 'priceClassId' => 'mock-id-123',
                 'note' => 'String value',
@@ -538,10 +1055,12 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
         ->type->toBe('String value')
         ->description->toBe('String value')
         ->body->toBe('String value')
-        ->itemClass->toBeNull()
-        ->postingClass->toBeNull()
-        ->vatCode->toBeNull()
-        ->lotSerialClass->toBeNull()
+        ->itemClass->type->toBe('String value')
+        ->itemClass->description->toBe('String value')
+        ->itemClass->errorInfo->toBe('String value')
+        ->postingClass->description->toBe('String value')
+        ->vatCode->description->toBe('String value')
+        ->lotSerialClass->description->toBe('String value')
         ->defaultPrice->toBe(42)
         ->pendingCost->toBe(42)
         ->pendingCostDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -554,17 +1073,63 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
         ->purchaseUnit->toBe('String value')
         ->stockItem->toBe(true)
         ->kitItem->toBe(true)
-        ->accountInformation->toBeNull()
-        ->costPriceStatistics->toBeNull()
-        ->defaultWarehouse->toBeNull()
-        ->defaultIssueFrom->toBeNull()
-        ->defaultReceiptTo->toBeNull()
-        ->packaging->toBeNull()
-        ->intrastat->toBeNull()
+        ->accountInformation->expenseAccrualAccount->type->toBe('String value')
+        ->accountInformation->expenseAccrualAccount->number->toBe('String value')
+        ->accountInformation->expenseAccrualAccount->description->toBe('String value')
+        ->accountInformation->inventoryAccount->type->toBe('String value')
+        ->accountInformation->inventoryAccount->number->toBe('String value')
+        ->accountInformation->inventoryAccount->description->toBe('String value')
+        ->accountInformation->expenseAccount->type->toBe('String value')
+        ->accountInformation->expenseAccount->number->toBe('String value')
+        ->accountInformation->expenseAccount->description->toBe('String value')
+        ->accountInformation->cogsAccount->type->toBe('String value')
+        ->accountInformation->cogsAccount->number->toBe('String value')
+        ->accountInformation->cogsAccount->description->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->type->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->number->toBe('String value')
+        ->accountInformation->expenseNonTaxableAccount->description->toBe('String value')
+        ->accountInformation->expenseEuAccount->type->toBe('String value')
+        ->accountInformation->expenseEuAccount->number->toBe('String value')
+        ->accountInformation->expenseEuAccount->description->toBe('String value')
+        ->accountInformation->expenseImportAccount->type->toBe('String value')
+        ->accountInformation->expenseImportAccount->number->toBe('String value')
+        ->accountInformation->expenseImportAccount->description->toBe('String value')
+        ->accountInformation->expenseSubaccount->active->toBe(true)
+        ->accountInformation->expenseSubaccount->description->toBe('String value')
+        ->accountInformation->cogsSubaccount->active->toBe(true)
+        ->accountInformation->cogsSubaccount->description->toBe('String value')
+        ->accountInformation->salesAccount->type->toBe('String value')
+        ->accountInformation->salesAccount->number->toBe('String value')
+        ->accountInformation->salesAccount->description->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->type->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->number->toBe('String value')
+        ->accountInformation->salesNonTaxableAccount->description->toBe('String value')
+        ->accountInformation->salesEuAccount->type->toBe('String value')
+        ->accountInformation->salesEuAccount->number->toBe('String value')
+        ->accountInformation->salesEuAccount->description->toBe('String value')
+        ->accountInformation->salesExportAccount->type->toBe('String value')
+        ->accountInformation->salesExportAccount->number->toBe('String value')
+        ->accountInformation->salesExportAccount->description->toBe('String value')
+        ->accountInformation->salesSubaccount->active->toBe(true)
+        ->accountInformation->salesSubaccount->description->toBe('String value')
+        ->costPriceStatistics->lastCost->toBe(42)
+        ->costPriceStatistics->averageCost->toBe(42)
+        ->costPriceStatistics->minCost->toBe(42)
+        ->costPriceStatistics->maxCost->toBe(42)
+        ->defaultWarehouse->description->toBe('String value')
+        ->defaultIssueFrom->description->toBe('String value')
+        ->defaultReceiptTo->description->toBe('String value')
+        ->packaging->baseItemWeight->toBe(42)
+        ->packaging->weightUom->toBe('String value')
+        ->packaging->baseItemVolume->toBe(42)
+        ->packaging->volumeUom->toBe('String value')
+        ->intrastat->cN8->toBe('String value')
+        ->intrastat->countryOfOrigin->toBe('String value')
+        ->intrastat->supplementaryMeasureUnit->toBe('String value')
         ->recommendedPrice->toBe(42)
         ->priceManagerId->toBe('mock-id-123')
-        ->priceManager->toBeNull()
-        ->priceClass->toBeNull()
+        ->priceManager->name->toBe('String value')
+        ->priceClass->description->toBe('String value')
         ->priceWorkgroupId->toBe(42)
         ->priceClassId->toBe('mock-id-123')
         ->note->toBe('String value')
@@ -574,22 +1139,22 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
 
 it('calls the inventoryPostRequest method in the Inventory resource', function () {
     $bodyData = new InventoryUpdateDto(
-        inventoryNumber: null,
+        inventoryNumber: 'String value',
         status: 'String value',
         type: 'String value',
         description: 'String value',
         body: 'String value',
-        itemClass: null,
-        postingClass: null,
-        vatCode: null,
-        defaultPrice: null,
+        itemClass: 'String value',
+        postingClass: 'String value',
+        vatCode: 'String value',
+        defaultPrice: 42,
         baseUnit: 'String value',
         salesUnit: 'String value',
         purchaseUnit: 'String value',
-        expenseAccrualAccount: null,
-        inventoryAccount: null,
-        expenseAccount: null,
-        cogsAccount: null,
+        expenseAccrualAccount: 'String value',
+        inventoryAccount: 'String value',
+        expenseAccount: 'String value',
+        cogsAccount: 'String value',
         expenseNonTaxableAccount: 'String value',
         expenseEuAccount: 'String value',
         expenseImportAccount: 'String value',
@@ -601,13 +1166,22 @@ it('calls the inventoryPostRequest method in the Inventory resource', function (
         salesExportAccount: 'String value',
         salesSubaccount: [],
         attributeLines: [],
-        packaging: null,
+        packaging: [
+            'baseItemWeight' => 42,
+            'weightUom' => 'String value',
+            'baseItemVolume' => 42,
+            'volumeUom' => 'String value',
+        ],
         supplierDetails: [],
-        intrastat: null,
+        intrastat: [
+            'cN8' => 'String value',
+            'countryOfOrigin' => 'String value',
+            'supplementaryMeasureUnit' => 'String value',
+        ],
         crossReferences: [],
-        defaultWarehouse: null,
-        defaultIssueFrom: null,
-        defaultReceiptTo: null,
+        defaultWarehouse: 'String value',
+        defaultIssueFrom: 'String value',
+        defaultReceiptTo: 'String value',
         kitItem: true,
         note: 'String value'
     );
@@ -731,7 +1305,11 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumberRequest metho
     Saloon::fake([
         InventoryGetInventoryCrossReferencesByinventoryNumberRequest::class => MockResponse::make([
             'alternateType' => 'String value',
-            'bAccount' => null,
+            'bAccount' => [
+                'internalId' => 42,
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'alternateId' => 'mock-id-123',
             'description' => 'String value',
             'uom' => 'String value',
@@ -753,7 +1331,9 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumberRequest metho
 
     expect($dto)
         ->alternateType->toBe('String value')
-        ->bAccount->toBeNull()
+        ->bAccount->internalId->toBe(42)
+        ->bAccount->number->toBe('String value')
+        ->bAccount->name->toBe('String value')
         ->alternateId->toBe('mock-id-123')
         ->description->toBe('String value')
         ->uom->toBe('String value')
@@ -762,7 +1342,7 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumberRequest metho
 
 it('calls the inventoryCreateInventoryCrossReferencesByinventoryNumberRequest method in the Inventory resource', function () {
     $bodyData = new InventoryCrossReferenceUpdateDto(
-        alternateType: null,
+        alternateType: 'String value',
         bAccount: 'String value',
         alternateId: 'mock-id-123',
         description: 'String value',
@@ -846,22 +1426,22 @@ it('calls the inventoryChangeInventoryNbrActionByinternalIdRequest method in the
 
 it('calls the inventoryPutByinventoryIdRequest method in the Inventory resource', function () {
     $bodyData = new InventoryUpdateDto(
-        inventoryNumber: null,
+        inventoryNumber: 'String value',
         status: 'String value',
         type: 'String value',
         description: 'String value',
         body: 'String value',
-        itemClass: null,
-        postingClass: null,
-        vatCode: null,
-        defaultPrice: null,
+        itemClass: 'String value',
+        postingClass: 'String value',
+        vatCode: 'String value',
+        defaultPrice: 42,
         baseUnit: 'String value',
         salesUnit: 'String value',
         purchaseUnit: 'String value',
-        expenseAccrualAccount: null,
-        inventoryAccount: null,
-        expenseAccount: null,
-        cogsAccount: null,
+        expenseAccrualAccount: 'String value',
+        inventoryAccount: 'String value',
+        expenseAccount: 'String value',
+        cogsAccount: 'String value',
         expenseNonTaxableAccount: 'String value',
         expenseEuAccount: 'String value',
         expenseImportAccount: 'String value',
@@ -873,13 +1453,22 @@ it('calls the inventoryPutByinventoryIdRequest method in the Inventory resource'
         salesExportAccount: 'String value',
         salesSubaccount: [],
         attributeLines: [],
-        packaging: null,
+        packaging: [
+            'baseItemWeight' => 42,
+            'weightUom' => 'String value',
+            'baseItemVolume' => 42,
+            'volumeUom' => 'String value',
+        ],
         supplierDetails: [],
-        intrastat: null,
+        intrastat: [
+            'cN8' => 'String value',
+            'countryOfOrigin' => 'String value',
+            'supplementaryMeasureUnit' => 'String value',
+        ],
         crossReferences: [],
-        defaultWarehouse: null,
-        defaultIssueFrom: null,
-        defaultReceiptTo: null,
+        defaultWarehouse: 'String value',
+        defaultIssueFrom: 'String value',
+        defaultReceiptTo: 'String value',
         kitItem: true,
         note: 'String value'
     );
@@ -902,7 +1491,7 @@ it('calls the inventoryPutByinventoryIdRequest method in the Inventory resource'
 
 it('calls the inventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest method in the Inventory resource', function () {
     $bodyData = new InventoryCrossReferenceUpdateDto(
-        alternateType: null,
+        alternateType: 'String value',
         bAccount: 'String value',
         alternateId: 'mock-id-123',
         description: 'String value',

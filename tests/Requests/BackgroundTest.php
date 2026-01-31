@@ -51,14 +51,13 @@ it('calls the backgroundGetBackgroundApiOperationByrequestIdRequest method in th
         ->originalUri->toBe('String value')
         ->hasResponseContent->toBe(true)
         ->hasRequestContent->toBe(true)
-        ->contentLocation->toBe('String value');
+        ->contentLocation->toBe('String value')
+        ->responseHeaders->toBeInstanceOf(stdClass::class);
 });
 
 it('calls the backgroundGetBackgroundApiOperationContentByrequestIdRequest method in the Background resource', function () {
     Saloon::fake([
-        BackgroundGetBackgroundApiOperationContentByrequestIdRequest::class => MockResponse::make([
-            'name' => 'Mock value',
-        ], 200),
+        BackgroundGetBackgroundApiOperationContentByrequestIdRequest::class => MockResponse::make([], 200),
     ]);
 
     $request = new BackgroundGetBackgroundApiOperationContentByrequestIdRequest(
@@ -73,5 +72,5 @@ it('calls the backgroundGetBackgroundApiOperationContentByrequestIdRequest metho
     $dto = $response->dto();
 
     expect($dto)
-        ->name->toBe('Mock value');
+        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });

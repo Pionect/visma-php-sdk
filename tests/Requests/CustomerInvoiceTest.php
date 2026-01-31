@@ -61,7 +61,9 @@ it('calls the customerInvoiceGetWorkTypesRequest method in the CustomerInvoice r
 it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInvoice resource', function () {
     Saloon::fake([
         CustomerInvoiceGetByinvoiceNumberRequest::class => MockResponse::make([
-            'creditTerms' => null,
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'documentDueDate' => '2025-11-22T10:40:04+00:00',
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'externalReference' => 'String value',
@@ -69,22 +71,37 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
             'exchangeRate' => 42,
             'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
             'dunningLetterLevel' => 42,
-            'contact' => null,
+            'contact' => [
+                'name' => 'String value',
+            ],
             'attachments' => [],
             'taxDetails' => [],
             'invoiceLines' => [],
             'sendToAutoInvoice' => true,
             'roundingDiff' => 42,
-            'customerVatZone' => null,
+            'customerVatZone' => [
+                'description' => 'String value',
+            ],
             'startDate' => '2025-11-22T10:40:04+00:00',
             'endDate' => '2025-11-22T10:40:04+00:00',
             'accountingCostRef' => 'String value',
             'originatorDocRef' => 'String value',
             'contractDocRef' => 'String value',
-            'childRecord' => null,
-            'directDebitMandate' => null,
+            'childRecord' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'directDebitMandate' => [
+                'mandateId' => 'mock-id-123',
+                'mandateDescription' => 'String value',
+            ],
             'excludeDebtCollection' => true,
-            'debtCollection' => null,
+            'debtCollection' => [
+                'caseNumber' => 'String value',
+                'caseType' => 'String value',
+                'caseStatus' => 'String value',
+                'caseUrl' => 'String value',
+            ],
             'timeStamp' => 'String value',
             'hold' => true,
             'discountTotal' => 42,
@@ -97,15 +114,42 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
             'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'paymentReference' => 'String value',
-            'invoiceAddress' => null,
-            'invoiceContact' => null,
+            'invoiceAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+                'overrideAddress' => true,
+            ],
+            'invoiceContact' => [
+                'contactId' => 42,
+                'businessName' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'phone1' => 'String value',
+                'overrideContact' => true,
+            ],
             'applications' => [],
             'dontPrint' => true,
             'dontEmail' => true,
             'revoked' => true,
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -121,7 +165,9 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -129,12 +175,37 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
             'note' => 'String value',
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'location' => null,
-            'branchNumber' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'cashAccount' => 'String value',
-            'project' => null,
-            'account' => null,
-            'subaccount' => null,
+            'project' => [
+                'internalId' => 42,
+                'description' => 'String value',
+            ],
+            'account' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
@@ -153,7 +224,7 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
     $dto = $response->dto();
 
     expect($dto)
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalReference->toBe('String value')
@@ -161,19 +232,24 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
         ->exchangeRate->toBe(42)
         ->dunningLetterDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dunningLetterLevel->toBe(42)
-        ->contact->toBeNull()
+        ->contact->name->toBe('String value')
         ->sendToAutoInvoice->toBe(true)
         ->roundingDiff->toBe(42)
-        ->customerVatZone->toBeNull()
+        ->customerVatZone->description->toBe('String value')
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->accountingCostRef->toBe('String value')
         ->originatorDocRef->toBe('String value')
         ->contractDocRef->toBe('String value')
-        ->childRecord->toBeNull()
-        ->directDebitMandate->toBeNull()
+        ->childRecord->number->toBe('String value')
+        ->childRecord->name->toBe('String value')
+        ->directDebitMandate->mandateId->toBe('mock-id-123')
+        ->directDebitMandate->mandateDescription->toBe('String value')
         ->excludeDebtCollection->toBe(true)
-        ->debtCollection->toBeNull()
+        ->debtCollection->caseNumber->toBe('String value')
+        ->debtCollection->caseType->toBe('String value')
+        ->debtCollection->caseStatus->toBe('String value')
+        ->debtCollection->caseUrl->toBe('String value')
         ->timeStamp->toBe('String value')
         ->hold->toBe(true)
         ->discountTotal->toBe(42)
@@ -186,14 +262,29 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
         ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->paymentReference->toBe('String value')
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceAddress->overrideAddress->toBe(true)
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->businessName->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->overrideContact->toBe(true)
         ->dontPrint->toBe(true)
         ->dontEmail->toBe(true)
         ->revoked->toBe(true)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -209,7 +300,7 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -217,12 +308,26 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -239,7 +344,14 @@ it('calls the customerInvoiceUpdateByinvoiceNumberRequest method in the Customer
         customerProject: 'String value',
         exchangeRate: 42,
         domesticServicesDeductibleDocument: true,
-        rotRutDetails: null,
+        rotRutDetails: [
+            'distributedAutomaticaly' => true,
+            'type' => 'String value',
+            'appartment' => 'String value',
+            'estate' => 'String value',
+            'organizationNbr' => 'String value',
+            'distribution' => [],
+        ],
         paymentReference: 'String value',
         contact: 42,
         project: 'String value',
@@ -255,7 +367,7 @@ it('calls the customerInvoiceUpdateByinvoiceNumberRequest method in the Customer
         originatorDocRef: 'String value',
         contractDocRef: 'String value',
         revoked: true,
-        overrideNumberSeries: null,
+        overrideNumberSeries: true,
         directDebitMandateId: 'mock-id-123',
         excludeDebtCollection: true,
         debtCollectionCaseNbr: 'String value',
@@ -269,12 +381,12 @@ it('calls the customerInvoiceUpdateByinvoiceNumberRequest method in the Customer
         documentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         hold: true,
-        postPeriod: null,
-        financialPeriod: null,
+        postPeriod: 'String value',
+        financialPeriod: 'String value',
         invoiceText: 'String value',
         locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
+        salesPersonId: 42,
+        salesperson: 'String value',
         note: 'String value',
         branchNumber: 'String value',
         cashAccount: 'String value',
@@ -364,7 +476,9 @@ it('calls the customerInvoiceGetRotRutByrefNbrRequest method in the CustomerInvo
 it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerInvoice resource', function () {
     Saloon::fake([
         CustomerInvoicePrintInvoiceByrefNbrRequest::class => MockResponse::make([
-            'creditTerms' => null,
+            'creditTerms' => [
+                'description' => 'String value',
+            ],
             'documentDueDate' => '2025-11-22T10:40:04+00:00',
             'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
             'externalReference' => 'String value',
@@ -372,22 +486,37 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
             'exchangeRate' => 42,
             'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
             'dunningLetterLevel' => 42,
-            'contact' => null,
+            'contact' => [
+                'name' => 'String value',
+            ],
             'attachments' => [],
             'taxDetails' => [],
             'invoiceLines' => [],
             'sendToAutoInvoice' => true,
             'roundingDiff' => 42,
-            'customerVatZone' => null,
+            'customerVatZone' => [
+                'description' => 'String value',
+            ],
             'startDate' => '2025-11-22T10:40:04+00:00',
             'endDate' => '2025-11-22T10:40:04+00:00',
             'accountingCostRef' => 'String value',
             'originatorDocRef' => 'String value',
             'contractDocRef' => 'String value',
-            'childRecord' => null,
-            'directDebitMandate' => null,
+            'childRecord' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
+            'directDebitMandate' => [
+                'mandateId' => 'mock-id-123',
+                'mandateDescription' => 'String value',
+            ],
             'excludeDebtCollection' => true,
-            'debtCollection' => null,
+            'debtCollection' => [
+                'caseNumber' => 'String value',
+                'caseType' => 'String value',
+                'caseStatus' => 'String value',
+                'caseUrl' => 'String value',
+            ],
             'timeStamp' => 'String value',
             'hold' => true,
             'discountTotal' => 42,
@@ -400,15 +529,42 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
             'vatExemptTotalInCurrency' => 42,
             'salesPersonId' => 42,
             'salesPersonDescr' => 'String value',
-            'salesPerson' => null,
+            'salesPerson' => [
+                'description' => 'String value',
+            ],
             'paymentReference' => 'String value',
-            'invoiceAddress' => null,
-            'invoiceContact' => null,
+            'invoiceAddress' => [
+                'addressId' => 42,
+                'addressLine1' => 'String value',
+                'addressLine2' => 'String value',
+                'addressLine3' => 'String value',
+                'postalCode' => 'String value',
+                'city' => 'String value',
+                'country' => [
+                    'name' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                'county' => [
+                    'name' => 'String value',
+                ],
+                'overrideAddress' => true,
+            ],
+            'invoiceContact' => [
+                'contactId' => 42,
+                'businessName' => 'String value',
+                'attention' => 'String value',
+                'email' => 'test@example.com',
+                'phone1' => 'String value',
+                'overrideContact' => true,
+            ],
             'applications' => [],
             'dontPrint' => true,
             'dontEmail' => true,
             'revoked' => true,
-            'customer' => null,
+            'customer' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'documentType' => 'String value',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
@@ -424,7 +580,9 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
             'balanceInCurrency' => 42,
             'cashDiscount' => 42,
             'cashDiscountInCurrency' => 42,
-            'paymentMethod' => null,
+            'paymentMethod' => [
+                'description' => 'String value',
+            ],
             'customerRefNumber' => 'String value',
             'invoiceText' => 'String value',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -432,12 +590,37 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
             'note' => 'String value',
             'vatTotal' => 42,
             'vatTotalInCurrency' => 42,
-            'location' => null,
-            'branchNumber' => null,
+            'location' => [
+                'countryId' => 'mock-id-123',
+                'name' => 'String value',
+            ],
+            'branchNumber' => [
+                'number' => 'String value',
+                'name' => 'String value',
+            ],
             'cashAccount' => 'String value',
-            'project' => null,
-            'account' => null,
-            'subaccount' => null,
+            'project' => [
+                'internalId' => 42,
+                'description' => 'String value',
+            ],
+            'account' => [
+                'type' => 'String value',
+                'externalCode1' => 'String value',
+                'externalCode2' => 'String value',
+                'active' => true,
+                'number' => 'String value',
+                'description' => 'String value',
+            ],
+            'subaccount' => [
+                'subaccountNumber' => 'String value',
+                'subaccountId' => 42,
+                'description' => 'String value',
+                'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                'active' => true,
+                'segments' => [],
+                'timeStamp' => 'String value',
+                'errorInfo' => 'String value',
+            ],
             'customerProject' => 'String value',
             'errorInfo' => 'String value',
         ], 200),
@@ -456,7 +639,7 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
     $dto = $response->dto();
 
     expect($dto)
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalReference->toBe('String value')
@@ -464,19 +647,24 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
         ->exchangeRate->toBe(42)
         ->dunningLetterDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dunningLetterLevel->toBe(42)
-        ->contact->toBeNull()
+        ->contact->name->toBe('String value')
         ->sendToAutoInvoice->toBe(true)
         ->roundingDiff->toBe(42)
-        ->customerVatZone->toBeNull()
+        ->customerVatZone->description->toBe('String value')
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->accountingCostRef->toBe('String value')
         ->originatorDocRef->toBe('String value')
         ->contractDocRef->toBe('String value')
-        ->childRecord->toBeNull()
-        ->directDebitMandate->toBeNull()
+        ->childRecord->number->toBe('String value')
+        ->childRecord->name->toBe('String value')
+        ->directDebitMandate->mandateId->toBe('mock-id-123')
+        ->directDebitMandate->mandateDescription->toBe('String value')
         ->excludeDebtCollection->toBe(true)
-        ->debtCollection->toBeNull()
+        ->debtCollection->caseNumber->toBe('String value')
+        ->debtCollection->caseType->toBe('String value')
+        ->debtCollection->caseStatus->toBe('String value')
+        ->debtCollection->caseUrl->toBe('String value')
         ->timeStamp->toBe('String value')
         ->hold->toBe(true)
         ->discountTotal->toBe(42)
@@ -489,14 +677,29 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
         ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->paymentReference->toBe('String value')
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceAddress->overrideAddress->toBe(true)
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->businessName->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->overrideContact->toBe(true)
         ->dontPrint->toBe(true)
         ->dontEmail->toBe(true)
         ->revoked->toBe(true)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -512,7 +715,7 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -520,12 +723,26 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -534,7 +751,9 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
     Saloon::fake([
         CustomerInvoiceGetAllRequest::class => MockResponse::make([
             0 => [
-                'creditTerms' => null,
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'documentDueDate' => '2025-11-22T10:40:04+00:00',
                 'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
                 'externalReference' => 'String value',
@@ -542,22 +761,37 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                 'exchangeRate' => 42,
                 'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
                 'dunningLetterLevel' => 42,
-                'contact' => null,
+                'contact' => [
+                    'name' => 'String value',
+                ],
                 'attachments' => [],
                 'taxDetails' => [],
                 'invoiceLines' => [],
                 'sendToAutoInvoice' => true,
                 'roundingDiff' => 42,
-                'customerVatZone' => null,
+                'customerVatZone' => [
+                    'description' => 'String value',
+                ],
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
                 'accountingCostRef' => 'String value',
                 'originatorDocRef' => 'String value',
                 'contractDocRef' => 'String value',
-                'childRecord' => null,
-                'directDebitMandate' => null,
+                'childRecord' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'directDebitMandate' => [
+                    'mandateId' => 'mock-id-123',
+                    'mandateDescription' => 'String value',
+                ],
                 'excludeDebtCollection' => true,
-                'debtCollection' => null,
+                'debtCollection' => [
+                    'caseNumber' => 'String value',
+                    'caseType' => 'String value',
+                    'caseStatus' => 'String value',
+                    'caseUrl' => 'String value',
+                ],
                 'timeStamp' => 'String value',
                 'hold' => true,
                 'discountTotal' => 42,
@@ -570,15 +804,42 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                 'vatExemptTotalInCurrency' => 42,
                 'salesPersonId' => 42,
                 'salesPersonDescr' => 'String value',
-                'salesPerson' => null,
+                'salesPerson' => [
+                    'description' => 'String value',
+                ],
                 'paymentReference' => 'String value',
-                'invoiceAddress' => null,
-                'invoiceContact' => null,
+                'invoiceAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                    'overrideAddress' => true,
+                ],
+                'invoiceContact' => [
+                    'contactId' => 42,
+                    'businessName' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'phone1' => 'String value',
+                    'overrideContact' => true,
+                ],
                 'applications' => [],
                 'dontPrint' => true,
                 'dontEmail' => true,
                 'revoked' => true,
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -594,7 +855,9 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -602,17 +865,44 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                 'note' => 'String value',
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'location' => null,
-                'branchNumber' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'cashAccount' => 'String value',
-                'project' => null,
-                'account' => null,
-                'subaccount' => null,
+                'project' => [
+                    'internalId' => 42,
+                    'description' => 'String value',
+                ],
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'creditTerms' => null,
+                'creditTerms' => [
+                    'description' => 'String value',
+                ],
                 'documentDueDate' => '2025-11-22T10:40:04+00:00',
                 'cashDiscountDate' => '2025-11-22T10:40:04+00:00',
                 'externalReference' => 'String value',
@@ -620,22 +910,37 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                 'exchangeRate' => 42,
                 'dunningLetterDate' => '2025-11-22T10:40:04+00:00',
                 'dunningLetterLevel' => 42,
-                'contact' => null,
+                'contact' => [
+                    'name' => 'String value',
+                ],
                 'attachments' => [],
                 'taxDetails' => [],
                 'invoiceLines' => [],
                 'sendToAutoInvoice' => true,
                 'roundingDiff' => 42,
-                'customerVatZone' => null,
+                'customerVatZone' => [
+                    'description' => 'String value',
+                ],
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
                 'accountingCostRef' => 'String value',
                 'originatorDocRef' => 'String value',
                 'contractDocRef' => 'String value',
-                'childRecord' => null,
-                'directDebitMandate' => null,
+                'childRecord' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
+                'directDebitMandate' => [
+                    'mandateId' => 'mock-id-123',
+                    'mandateDescription' => 'String value',
+                ],
                 'excludeDebtCollection' => true,
-                'debtCollection' => null,
+                'debtCollection' => [
+                    'caseNumber' => 'String value',
+                    'caseType' => 'String value',
+                    'caseStatus' => 'String value',
+                    'caseUrl' => 'String value',
+                ],
                 'timeStamp' => 'String value',
                 'hold' => true,
                 'discountTotal' => 42,
@@ -648,15 +953,42 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                 'vatExemptTotalInCurrency' => 42,
                 'salesPersonId' => 42,
                 'salesPersonDescr' => 'String value',
-                'salesPerson' => null,
+                'salesPerson' => [
+                    'description' => 'String value',
+                ],
                 'paymentReference' => 'String value',
-                'invoiceAddress' => null,
-                'invoiceContact' => null,
+                'invoiceAddress' => [
+                    'addressId' => 42,
+                    'addressLine1' => 'String value',
+                    'addressLine2' => 'String value',
+                    'addressLine3' => 'String value',
+                    'postalCode' => 'String value',
+                    'city' => 'String value',
+                    'country' => [
+                        'name' => 'String value',
+                        'errorInfo' => 'String value',
+                    ],
+                    'county' => [
+                        'name' => 'String value',
+                    ],
+                    'overrideAddress' => true,
+                ],
+                'invoiceContact' => [
+                    'contactId' => 42,
+                    'businessName' => 'String value',
+                    'attention' => 'String value',
+                    'email' => 'test@example.com',
+                    'phone1' => 'String value',
+                    'overrideContact' => true,
+                ],
                 'applications' => [],
                 'dontPrint' => true,
                 'dontEmail' => true,
                 'revoked' => true,
-                'customer' => null,
+                'customer' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'documentType' => 'String value',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
@@ -672,7 +1004,9 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                 'balanceInCurrency' => 42,
                 'cashDiscount' => 42,
                 'cashDiscountInCurrency' => 42,
-                'paymentMethod' => null,
+                'paymentMethod' => [
+                    'description' => 'String value',
+                ],
                 'customerRefNumber' => 'String value',
                 'invoiceText' => 'String value',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -680,12 +1014,37 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                 'note' => 'String value',
                 'vatTotal' => 42,
                 'vatTotalInCurrency' => 42,
-                'location' => null,
-                'branchNumber' => null,
+                'location' => [
+                    'countryId' => 'mock-id-123',
+                    'name' => 'String value',
+                ],
+                'branchNumber' => [
+                    'number' => 'String value',
+                    'name' => 'String value',
+                ],
                 'cashAccount' => 'String value',
-                'project' => null,
-                'account' => null,
-                'subaccount' => null,
+                'project' => [
+                    'internalId' => 42,
+                    'description' => 'String value',
+                ],
+                'account' => [
+                    'type' => 'String value',
+                    'externalCode1' => 'String value',
+                    'externalCode2' => 'String value',
+                    'active' => true,
+                    'number' => 'String value',
+                    'description' => 'String value',
+                ],
+                'subaccount' => [
+                    'subaccountNumber' => 'String value',
+                    'subaccountId' => 42,
+                    'description' => 'String value',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'active' => true,
+                    'segments' => [],
+                    'timeStamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
                 'customerProject' => 'String value',
                 'errorInfo' => 'String value',
             ],
@@ -737,7 +1096,7 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->creditTerms->toBeNull()
+        ->creditTerms->description->toBe('String value')
         ->documentDueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->cashDiscountDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->externalReference->toBe('String value')
@@ -745,19 +1104,24 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
         ->exchangeRate->toBe(42)
         ->dunningLetterDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dunningLetterLevel->toBe(42)
-        ->contact->toBeNull()
+        ->contact->name->toBe('String value')
         ->sendToAutoInvoice->toBe(true)
         ->roundingDiff->toBe(42)
-        ->customerVatZone->toBeNull()
+        ->customerVatZone->description->toBe('String value')
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->accountingCostRef->toBe('String value')
         ->originatorDocRef->toBe('String value')
         ->contractDocRef->toBe('String value')
-        ->childRecord->toBeNull()
-        ->directDebitMandate->toBeNull()
+        ->childRecord->number->toBe('String value')
+        ->childRecord->name->toBe('String value')
+        ->directDebitMandate->mandateId->toBe('mock-id-123')
+        ->directDebitMandate->mandateDescription->toBe('String value')
         ->excludeDebtCollection->toBe(true)
-        ->debtCollection->toBeNull()
+        ->debtCollection->caseNumber->toBe('String value')
+        ->debtCollection->caseType->toBe('String value')
+        ->debtCollection->caseStatus->toBe('String value')
+        ->debtCollection->caseUrl->toBe('String value')
         ->timeStamp->toBe('String value')
         ->hold->toBe(true)
         ->discountTotal->toBe(42)
@@ -770,14 +1134,29 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
         ->vatExemptTotalInCurrency->toBe(42)
         ->salesPersonId->toBe(42)
         ->salesPersonDescr->toBe('String value')
-        ->salesPerson->toBeNull()
+        ->salesPerson->description->toBe('String value')
         ->paymentReference->toBe('String value')
-        ->invoiceAddress->toBeNull()
-        ->invoiceContact->toBeNull()
+        ->invoiceAddress->addressId->toBe(42)
+        ->invoiceAddress->addressLine1->toBe('String value')
+        ->invoiceAddress->addressLine2->toBe('String value')
+        ->invoiceAddress->addressLine3->toBe('String value')
+        ->invoiceAddress->postalCode->toBe('String value')
+        ->invoiceAddress->city->toBe('String value')
+        ->invoiceAddress->country->name->toBe('String value')
+        ->invoiceAddress->country->errorInfo->toBe('String value')
+        ->invoiceAddress->county->name->toBe('String value')
+        ->invoiceAddress->overrideAddress->toBe(true)
+        ->invoiceContact->contactId->toBe(42)
+        ->invoiceContact->businessName->toBe('String value')
+        ->invoiceContact->attention->toBe('String value')
+        ->invoiceContact->email->toBe('test@example.com')
+        ->invoiceContact->phone1->toBe('String value')
+        ->invoiceContact->overrideContact->toBe(true)
         ->dontPrint->toBe(true)
         ->dontEmail->toBe(true)
         ->revoked->toBe(true)
-        ->customer->toBeNull()
+        ->customer->number->toBe('String value')
+        ->customer->name->toBe('String value')
         ->documentType->toBe('String value')
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
@@ -793,7 +1172,7 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
         ->balanceInCurrency->toBe(42)
         ->cashDiscount->toBe(42)
         ->cashDiscountInCurrency->toBe(42)
-        ->paymentMethod->toBeNull()
+        ->paymentMethod->description->toBe('String value')
         ->customerRefNumber->toBe('String value')
         ->invoiceText->toBe('String value')
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -801,12 +1180,26 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
         ->note->toBe('String value')
         ->vatTotal->toBe(42)
         ->vatTotalInCurrency->toBe(42)
-        ->location->toBeNull()
-        ->branchNumber->toBeNull()
+        ->location->countryId->toBe('mock-id-123')
+        ->location->name->toBe('String value')
+        ->branchNumber->number->toBe('String value')
+        ->branchNumber->name->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->project->toBeNull()
-        ->account->toBeNull()
-        ->subaccount->toBeNull()
+        ->project->internalId->toBe(42)
+        ->project->description->toBe('String value')
+        ->account->type->toBe('String value')
+        ->account->externalCode1->toBe('String value')
+        ->account->externalCode2->toBe('String value')
+        ->account->active->toBe(true)
+        ->account->number->toBe('String value')
+        ->account->description->toBe('String value')
+        ->subaccount->subaccountNumber->toBe('String value')
+        ->subaccount->subaccountId->toBe(42)
+        ->subaccount->description->toBe('String value')
+        ->subaccount->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->subaccount->active->toBe(true)
+        ->subaccount->timeStamp->toBe('String value')
+        ->subaccount->errorInfo->toBe('String value')
         ->customerProject->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -823,7 +1216,14 @@ it('calls the customerInvoiceCreateRequest method in the CustomerInvoice resourc
         customerProject: 'String value',
         exchangeRate: 42,
         domesticServicesDeductibleDocument: true,
-        rotRutDetails: null,
+        rotRutDetails: [
+            'distributedAutomaticaly' => true,
+            'type' => 'String value',
+            'appartment' => 'String value',
+            'estate' => 'String value',
+            'organizationNbr' => 'String value',
+            'distribution' => [],
+        ],
         paymentReference: 'String value',
         contact: 42,
         project: 'String value',
@@ -839,7 +1239,7 @@ it('calls the customerInvoiceCreateRequest method in the CustomerInvoice resourc
         originatorDocRef: 'String value',
         contractDocRef: 'String value',
         revoked: true,
-        overrideNumberSeries: null,
+        overrideNumberSeries: true,
         directDebitMandateId: 'mock-id-123',
         excludeDebtCollection: true,
         debtCollectionCaseNbr: 'String value',
@@ -853,12 +1253,12 @@ it('calls the customerInvoiceCreateRequest method in the CustomerInvoice resourc
         documentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         origInvoiceDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         hold: true,
-        postPeriod: null,
-        financialPeriod: null,
+        postPeriod: 'String value',
+        financialPeriod: 'String value',
         invoiceText: 'String value',
         locationId: 'mock-id-123',
-        salesPersonId: null,
-        salesperson: null,
+        salesPersonId: 42,
+        salesperson: 'String value',
         note: 'String value',
         branchNumber: 'String value',
         cashAccount: 'String value',

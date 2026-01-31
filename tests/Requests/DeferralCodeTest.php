@@ -17,8 +17,13 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeIdRequest method in the D
             'deferredRevenueFromItem' => true,
             'recognitionMethod' => 'String value',
             'codeType' => 'String value',
-            'deferralAccount' => null,
-            'deferralSub' => null,
+            'deferralAccount' => [
+                'description' => 'String value',
+            ],
+            'deferralSub' => [
+                'active' => true,
+                'description' => 'String value',
+            ],
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -41,8 +46,9 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeIdRequest method in the D
         ->deferredRevenueFromItem->toBe(true)
         ->recognitionMethod->toBe('String value')
         ->codeType->toBe('String value')
-        ->deferralAccount->toBeNull()
-        ->deferralSub->toBeNull()
+        ->deferralAccount->description->toBe('String value')
+        ->deferralSub->active->toBe(true)
+        ->deferralSub->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });
 
@@ -55,8 +61,13 @@ it('calls the deferralCodeGetDeferralCodesRequest method in the DeferralCode res
                 'deferredRevenueFromItem' => true,
                 'recognitionMethod' => 'String value',
                 'codeType' => 'String value',
-                'deferralAccount' => null,
-                'deferralSub' => null,
+                'deferralAccount' => [
+                    'description' => 'String value',
+                ],
+                'deferralSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'errorInfo' => 'String value',
             ],
             1 => [
@@ -65,8 +76,13 @@ it('calls the deferralCodeGetDeferralCodesRequest method in the DeferralCode res
                 'deferredRevenueFromItem' => true,
                 'recognitionMethod' => 'String value',
                 'codeType' => 'String value',
-                'deferralAccount' => null,
-                'deferralSub' => null,
+                'deferralAccount' => [
+                    'description' => 'String value',
+                ],
+                'deferralSub' => [
+                    'active' => true,
+                    'description' => 'String value',
+                ],
                 'errorInfo' => 'String value',
             ],
         ], 200),
@@ -92,7 +108,8 @@ it('calls the deferralCodeGetDeferralCodesRequest method in the DeferralCode res
         ->deferredRevenueFromItem->toBe(true)
         ->recognitionMethod->toBe('String value')
         ->codeType->toBe('String value')
-        ->deferralAccount->toBeNull()
-        ->deferralSub->toBeNull()
+        ->deferralAccount->description->toBe('String value')
+        ->deferralSub->active->toBe(true)
+        ->deferralSub->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });

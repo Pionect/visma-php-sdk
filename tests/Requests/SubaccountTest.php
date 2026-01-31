@@ -50,8 +50,8 @@ it('calls the subaccountGetSubaccountBysubAccountNumberRequest method in the Sub
 
 it('calls the subaccountPutBysubAccountNumberRequest method in the Subaccount resource', function () {
     $bodyData = new SubAccountUpdateDto(
-        subaccountNumber: null,
-        subaccountId: null,
+        subaccountNumber: 'String value',
+        subaccountId: 'mock-id-123',
         description: 'String value',
         active: true
     );
@@ -128,8 +128,8 @@ it('calls the subaccountGetAllSubaccountsRequest method in the Subaccount resour
 
 it('calls the subaccountPostRequest method in the Subaccount resource', function () {
     $bodyData = new SubAccountUpdateDto(
-        subaccountNumber: null,
-        subaccountId: null,
+        subaccountNumber: 'String value',
+        subaccountId: 'mock-id-123',
         description: 'String value',
         active: true
     );
