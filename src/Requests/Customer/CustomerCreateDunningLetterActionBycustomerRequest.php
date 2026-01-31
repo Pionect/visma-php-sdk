@@ -20,8 +20,6 @@ class CustomerCreateDunningLetterActionBycustomerRequest extends Request impleme
 {
     use HasJsonBody;
 
-    protected $model = CreateDunningLetterActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class TimeCardGetEmployeeTimeCardByreferenceNumberRequest extends Request
 {
-    protected $model = TimeCardDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

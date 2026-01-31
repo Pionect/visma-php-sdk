@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class InventorySummaryGetAllInventorySummaryByinventoryNumberRequest extends Request
 {
-    protected $model = InventorySummaryDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

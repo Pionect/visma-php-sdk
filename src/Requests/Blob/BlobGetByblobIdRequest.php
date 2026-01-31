@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class BlobGetByblobIdRequest extends Request
 {
-    protected $model = Stream::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

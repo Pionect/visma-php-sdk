@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class PackagingTypeGetAllPackagingTypesRequest extends Request implements Paginatable
 {
-    protected $model = PackagingTypeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

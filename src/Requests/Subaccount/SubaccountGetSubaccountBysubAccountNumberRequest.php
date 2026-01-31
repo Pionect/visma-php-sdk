@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class SubaccountGetSubaccountBysubAccountNumberRequest extends Request
 {
-    protected $model = SubAccountDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

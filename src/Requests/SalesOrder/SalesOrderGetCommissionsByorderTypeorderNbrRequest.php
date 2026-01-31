@@ -14,8 +14,6 @@ use Saloon\Http\Response;
  */
 class SalesOrderGetCommissionsByorderTypeorderNbrRequest extends Request
 {
-    protected $model = SOCommissionDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

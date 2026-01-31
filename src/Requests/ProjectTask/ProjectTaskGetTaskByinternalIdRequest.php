@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class ProjectTaskGetTaskByinternalIdRequest extends Request
 {
-    protected $model = TaskExtendedDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

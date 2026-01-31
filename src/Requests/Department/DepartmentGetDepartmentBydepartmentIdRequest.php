@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class DepartmentGetDepartmentBydepartmentIdRequest extends Request
 {
-    protected $model = DepartmentDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

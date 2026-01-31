@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class CashSaleGetBydocumentNumberRequest extends Request
 {
-    protected $model = CashSaleDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class CashAccountGetByaccountNumberRequest extends Request
 {
-    protected $model = CashAccountDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

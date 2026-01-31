@@ -24,8 +24,6 @@ class CashTransactionReleaseByreferenceNbrRequest extends Request implements Has
 {
     use HasJsonBody;
 
-    protected $model = ReleaseCashTransactionActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class EarningTypeGetAllEarningTypeDtosRequest extends Request implements Paginatable
 {
-    protected $model = EarningTypeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

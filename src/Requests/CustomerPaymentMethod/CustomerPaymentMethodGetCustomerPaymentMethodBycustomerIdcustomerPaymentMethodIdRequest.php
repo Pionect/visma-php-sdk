@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class CustomerPaymentMethodGetCustomerPaymentMethodBycustomerIdcustomerPaymentMethodIdRequest extends Request
 {
-    protected $model = CustomerPaymentMethodDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Requests\Discount;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfDiscountDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -13,8 +12,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class DiscountGetDiscountsRequest extends Request implements Paginatable
 {
-    protected $model = BasePaginationDtoOfDiscountDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

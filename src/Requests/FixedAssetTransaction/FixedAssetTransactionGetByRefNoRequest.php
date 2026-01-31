@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class FixedAssetTransactionGetByRefNoRequest extends Request
 {
-    protected $model = FixedAssetTransactionDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

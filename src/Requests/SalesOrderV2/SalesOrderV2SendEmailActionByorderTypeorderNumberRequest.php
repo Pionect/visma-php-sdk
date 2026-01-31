@@ -19,8 +19,6 @@ class SalesOrderV2SendEmailActionByorderTypeorderNumberRequest extends Request i
 {
     use HasJsonBody;
 
-    protected $model = SendEmailActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

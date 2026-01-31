@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class CountryGetCountryBycountryIdRequest extends Request
 {
-    protected $model = CountryDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

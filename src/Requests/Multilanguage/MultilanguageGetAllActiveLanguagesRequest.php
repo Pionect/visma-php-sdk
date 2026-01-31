@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class MultilanguageGetAllActiveLanguagesRequest extends Request implements Paginatable
 {
-    protected $model = ActiveMultilanguageDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

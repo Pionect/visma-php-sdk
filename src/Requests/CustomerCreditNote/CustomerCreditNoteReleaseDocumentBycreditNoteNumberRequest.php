@@ -24,8 +24,6 @@ class CustomerCreditNoteReleaseDocumentBycreditNoteNumberRequest extends Request
 {
     use HasJsonBody;
 
-    protected $model = ReleaseCustomerCreditNoteActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -24,8 +24,6 @@ class ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest extends Request imp
 {
     use HasJsonBody;
 
-    protected $model = PutExpenseClaimOnHoldActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

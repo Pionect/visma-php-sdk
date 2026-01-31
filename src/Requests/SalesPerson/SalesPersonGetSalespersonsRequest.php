@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Requests\SalesPerson;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfSalesPersonDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -13,8 +12,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class SalesPersonGetSalespersonsRequest extends Request implements Paginatable
 {
-    protected $model = BasePaginationDtoOfSalesPersonDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

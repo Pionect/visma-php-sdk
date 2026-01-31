@@ -24,8 +24,6 @@ class CustomerOverdueChargeReleaseDocumentByoverdueChargeNumberRequest extends R
 {
     use HasJsonBody;
 
-    protected $model = ReleaseCustomerOverdueChargeActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

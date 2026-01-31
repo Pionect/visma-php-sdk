@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class SupplierPaymentGetByTypeBypaymentTypepaymentNumberRequest extends Request
 {
-    protected $model = SupplierPaymentDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

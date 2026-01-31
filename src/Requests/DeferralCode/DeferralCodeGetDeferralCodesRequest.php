@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class DeferralCodeGetDeferralCodesRequest extends Request implements Paginatable
 {
-    protected $model = DeferralCodeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

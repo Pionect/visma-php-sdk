@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class ShipmentGetByshipmentNbrRequest extends Request
 {
-    protected $model = ShipmentDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

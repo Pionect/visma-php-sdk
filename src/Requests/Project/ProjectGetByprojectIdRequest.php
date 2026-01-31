@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class ProjectGetByprojectIdRequest extends Request
 {
-    protected $model = ProjectDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

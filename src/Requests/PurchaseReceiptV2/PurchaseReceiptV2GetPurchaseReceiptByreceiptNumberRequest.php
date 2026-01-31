@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class PurchaseReceiptV2GetPurchaseReceiptByreceiptNumberRequest extends Request
 {
-    protected $model = PurchaseReceiptDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

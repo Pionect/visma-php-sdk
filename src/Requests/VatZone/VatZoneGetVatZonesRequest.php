@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class VatZoneGetVatZonesRequest extends Request implements Paginatable
 {
-    protected $model = VatZoneDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

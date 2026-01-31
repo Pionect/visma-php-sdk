@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class CreditNoteGetBycreditNoteNumberRequest extends Request
 {
-    protected $model = CreditNoteDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

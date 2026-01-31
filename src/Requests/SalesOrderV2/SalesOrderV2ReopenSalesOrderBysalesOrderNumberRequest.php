@@ -20,8 +20,6 @@ class SalesOrderV2ReopenSalesOrderBysalesOrderNumberRequest extends Request impl
 {
     use HasJsonBody;
 
-    protected $model = ReopenSalesOrderActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

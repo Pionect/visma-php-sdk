@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class StocktakeV2GetAllStocktakesRequest extends Request implements Paginatable
 {
-    protected $model = StocktakeV2Dto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

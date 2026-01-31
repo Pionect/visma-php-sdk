@@ -24,8 +24,6 @@ class CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest extends Request implem
 {
     use HasJsonBody;
 
-    protected $model = ReleaseInvoiceActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

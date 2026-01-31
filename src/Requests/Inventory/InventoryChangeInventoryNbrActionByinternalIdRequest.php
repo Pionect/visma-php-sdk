@@ -20,8 +20,6 @@ class InventoryChangeInventoryNbrActionByinternalIdRequest extends Request imple
 {
     use HasJsonBody;
 
-    protected $model = ChangeInventoryNbrActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

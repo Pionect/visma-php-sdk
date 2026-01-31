@@ -20,8 +20,6 @@ class CustomerChangeCustomerNrActionByinternalIdRequest extends Request implemen
 {
     use HasJsonBody;
 
-    protected $model = ChangeCustomerCdActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class ProjectAccountGroupGetByaccountGroupIdRequest extends Request
 {
-    protected $model = ProjectAccountGroupDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

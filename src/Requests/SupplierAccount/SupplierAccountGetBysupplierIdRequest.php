@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class SupplierAccountGetBysupplierIdRequest extends Request
 {
-    protected $model = SupplierAccountsDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

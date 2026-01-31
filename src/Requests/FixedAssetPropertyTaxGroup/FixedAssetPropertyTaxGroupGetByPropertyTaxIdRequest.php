@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class FixedAssetPropertyTaxGroupGetByPropertyTaxIdRequest extends Request
 {
-    protected $model = FixedAssetPropertyTaxDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

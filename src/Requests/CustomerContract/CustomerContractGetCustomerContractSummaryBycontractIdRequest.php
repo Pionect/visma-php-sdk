@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class CustomerContractGetCustomerContractSummaryBycontractIdRequest extends Request
 {
-    protected $model = CustomerContractSummaryDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class EmployeeGetEmployeeExpenseClaimsByemployeeCdRequest extends Request
 {
-    protected $model = ExpenseClaimDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

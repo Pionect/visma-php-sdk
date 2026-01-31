@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class CustomerGetCustomerNoteBycustomerCdRequest extends Request
 {
-    protected $model = NoteDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

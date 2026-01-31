@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class CustomerGetByinternalIdRequest extends Request
 {
-    protected $model = CustomerDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

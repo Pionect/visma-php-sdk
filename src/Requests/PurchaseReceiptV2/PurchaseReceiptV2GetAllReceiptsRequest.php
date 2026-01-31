@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class PurchaseReceiptV2GetAllReceiptsRequest extends Request implements Paginatable
 {
-    protected $model = PurchaseReceiptDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

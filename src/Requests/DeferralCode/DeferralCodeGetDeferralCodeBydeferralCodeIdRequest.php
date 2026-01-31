@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class DeferralCodeGetDeferralCodeBydeferralCodeIdRequest extends Request
 {
-    protected $model = DeferralCodeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class CustomerV2GetAllCustomerBalanceRequest extends Request implements Paginatable
 {
-    protected $model = CustomerBalanceV2Dto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

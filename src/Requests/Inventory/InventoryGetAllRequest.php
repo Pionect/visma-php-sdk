@@ -15,8 +15,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class InventoryGetAllRequest extends Request implements Paginatable
 {
-    protected $model = InventoryDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

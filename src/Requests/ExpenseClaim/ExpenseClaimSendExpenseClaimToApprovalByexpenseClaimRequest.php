@@ -24,8 +24,6 @@ class ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest extends Reques
 {
     use HasJsonBody;
 
-    protected $model = SendExpenseClaimToApprovalActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

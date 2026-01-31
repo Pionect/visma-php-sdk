@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class InventoryTransferGetByinventoryTransferNumberRequest extends Request
 {
-    protected $model = InventoryTransferDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

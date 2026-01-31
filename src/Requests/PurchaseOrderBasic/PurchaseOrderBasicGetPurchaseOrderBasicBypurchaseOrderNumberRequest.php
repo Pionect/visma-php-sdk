@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class PurchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumberRequest extends Request
 {
-    protected $model = PurchaseOrderBasicDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

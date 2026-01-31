@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class PackagingTypeGetByboxIdRequest extends Request
 {
-    protected $model = PackagingTypeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Requests\KitAssembly;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfKitAssemblyDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -13,8 +12,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class KitAssemblyGetKitAssembliesRequest extends Request implements Paginatable
 {
-    protected $model = BasePaginationDtoOfKitAssemblyDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

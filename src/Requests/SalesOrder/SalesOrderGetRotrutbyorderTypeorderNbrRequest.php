@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class SalesOrderGetRotrutbyorderTypeorderNbrRequest extends Request
 {
-    protected $model = RotRutBasicDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

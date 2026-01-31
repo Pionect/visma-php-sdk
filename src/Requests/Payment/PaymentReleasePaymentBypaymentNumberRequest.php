@@ -20,8 +20,6 @@ class PaymentReleasePaymentBypaymentNumberRequest extends Request implements Has
 {
     use HasJsonBody;
 
-    protected $model = ReleasePaymentActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

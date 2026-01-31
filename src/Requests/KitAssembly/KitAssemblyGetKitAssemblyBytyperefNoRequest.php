@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class KitAssemblyGetKitAssemblyBytyperefNoRequest extends Request
 {
-    protected $model = KitAssemblyDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

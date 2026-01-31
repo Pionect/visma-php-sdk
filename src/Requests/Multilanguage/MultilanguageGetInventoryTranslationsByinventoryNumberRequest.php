@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class MultilanguageGetInventoryTranslationsByinventoryNumberRequest extends Request
 {
-    protected $model = MultilanguageDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

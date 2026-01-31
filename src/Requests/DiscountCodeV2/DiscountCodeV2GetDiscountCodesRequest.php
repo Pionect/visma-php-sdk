@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class DiscountCodeV2GetDiscountCodesRequest extends Request implements Paginatable
 {
-    protected $model = DiscountCodeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

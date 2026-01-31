@@ -15,8 +15,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class CustomerCreditNoteGetAllRequest extends Request implements Paginatable
 {
-    protected $model = CustomerCreditNoteDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

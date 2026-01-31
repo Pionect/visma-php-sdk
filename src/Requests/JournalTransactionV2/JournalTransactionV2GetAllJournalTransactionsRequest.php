@@ -15,8 +15,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class JournalTransactionV2GetAllJournalTransactionsRequest extends Request implements Paginatable
 {
-    protected $model = JournalTransactionDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

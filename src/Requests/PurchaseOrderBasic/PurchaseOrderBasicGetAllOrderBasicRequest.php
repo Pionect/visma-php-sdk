@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class PurchaseOrderBasicGetAllOrderBasicRequest extends Request implements Paginatable
 {
-    protected $model = PurchaseOrderBasicDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

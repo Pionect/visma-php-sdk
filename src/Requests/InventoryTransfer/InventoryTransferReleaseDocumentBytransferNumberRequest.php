@@ -19,8 +19,6 @@ class InventoryTransferReleaseDocumentBytransferNumberRequest extends Request im
 {
     use HasJsonBody;
 
-    protected $model = ReleaseInventoryDocumentActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

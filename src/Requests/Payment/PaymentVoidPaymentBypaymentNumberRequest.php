@@ -20,8 +20,6 @@ class PaymentVoidPaymentBypaymentNumberRequest extends Request implements HasBod
 {
     use HasJsonBody;
 
-    protected $model = VoidPaymentActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

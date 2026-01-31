@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class CurrencyRateGetAllRequest extends Request implements Paginatable
 {
-    protected $model = CurrencyRateDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class SalesOrderTypeGetSalesOrderTypeByorderTypeRequest extends Request
 {
-    protected $model = SalesOrderTypeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

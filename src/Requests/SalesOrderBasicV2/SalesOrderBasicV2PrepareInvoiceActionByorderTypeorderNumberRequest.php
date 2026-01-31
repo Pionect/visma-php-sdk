@@ -19,8 +19,6 @@ class SalesOrderBasicV2PrepareInvoiceActionByorderTypeorderNumberRequest extends
 {
     use HasJsonBody;
 
-    protected $model = PrepareInvoiceActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

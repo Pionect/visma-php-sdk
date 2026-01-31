@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class CustomerGetAllContactsForCustomerBycustomerCdRequest extends Request
 {
-    protected $model = ContactDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

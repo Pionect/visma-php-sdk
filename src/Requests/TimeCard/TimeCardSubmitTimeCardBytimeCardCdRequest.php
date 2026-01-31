@@ -24,8 +24,6 @@ class TimeCardSubmitTimeCardBytimeCardCdRequest extends Request implements HasBo
 {
     use HasJsonBody;
 
-    protected $model = SubmitTimeCardActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

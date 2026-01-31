@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class LotSerialClassGetAllLotSerialClassRequest extends Request implements Paginatable
 {
-    protected $model = LotSerialClassDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

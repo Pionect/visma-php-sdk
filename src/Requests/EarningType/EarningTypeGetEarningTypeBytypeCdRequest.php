@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class EarningTypeGetEarningTypeBytypeCdRequest extends Request
 {
-    protected $model = EarningTypeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

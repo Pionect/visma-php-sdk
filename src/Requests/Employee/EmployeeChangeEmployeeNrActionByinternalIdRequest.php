@@ -25,8 +25,6 @@ class EmployeeChangeEmployeeNrActionByinternalIdRequest extends Request implemen
 {
     use HasJsonBody;
 
-    protected $model = ChangeEmployeeNrActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

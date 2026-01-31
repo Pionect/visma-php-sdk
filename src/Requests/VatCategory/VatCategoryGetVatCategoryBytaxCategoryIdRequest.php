@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class VatCategoryGetVatCategoryBytaxCategoryIdRequest extends Request
 {
-    protected $model = VatCategoryDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

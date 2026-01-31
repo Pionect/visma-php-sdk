@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class BlobGetPresignedUrlRequest extends Request implements Paginatable
 {
-    protected $model = PresignedUrlResponse::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

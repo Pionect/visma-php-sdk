@@ -14,8 +14,6 @@ use Saloon\Http\Response;
  */
 class CustomerSalesPriceGetCustomerSalesPriceByrecordIdRequest extends Request
 {
-    protected $model = CustomerSalesPriceDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

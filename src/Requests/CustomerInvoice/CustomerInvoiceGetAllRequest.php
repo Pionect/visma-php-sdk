@@ -15,8 +15,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class CustomerInvoiceGetAllRequest extends Request implements Paginatable
 {
-    protected $model = CustomerInvoiceDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

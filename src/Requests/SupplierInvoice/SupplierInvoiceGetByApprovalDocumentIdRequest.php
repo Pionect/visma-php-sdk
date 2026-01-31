@@ -17,8 +17,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class SupplierInvoiceGetByApprovalDocumentIdRequest extends Request implements Paginatable
 {
-    protected $model = SupplierInvoiceDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

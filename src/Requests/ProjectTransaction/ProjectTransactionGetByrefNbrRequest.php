@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class ProjectTransactionGetByrefNbrRequest extends Request
 {
-    protected $model = ProjectTransactionDocumentDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

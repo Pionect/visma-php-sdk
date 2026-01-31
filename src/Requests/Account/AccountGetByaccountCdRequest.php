@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class AccountGetByaccountCdRequest extends Request
 {
-    protected $model = AccountDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

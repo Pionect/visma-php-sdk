@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class FixedAssetClassGetByClassIdRequest extends Request
 {
-    protected $model = FixedAssetClassDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -17,8 +17,6 @@ class DiscountUpdateDiscountsBydiscountCodeseriesRequest extends Request impleme
 {
     use HasJsonBody;
 
-    protected $model = UpdateDiscountsActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

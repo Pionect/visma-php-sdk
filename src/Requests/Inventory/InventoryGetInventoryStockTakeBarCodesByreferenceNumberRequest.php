@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest extends Request
 {
-    protected $model = BarCodeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

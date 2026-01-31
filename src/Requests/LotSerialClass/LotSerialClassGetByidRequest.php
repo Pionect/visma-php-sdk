@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class LotSerialClassGetByidRequest extends Request
 {
-    protected $model = LotSerialClassDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

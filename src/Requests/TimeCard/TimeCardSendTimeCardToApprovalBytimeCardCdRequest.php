@@ -24,8 +24,6 @@ class TimeCardSendTimeCardToApprovalBytimeCardCdRequest extends Request implemen
 {
     use HasJsonBody;
 
-    protected $model = SendTimeCardToApprovalActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

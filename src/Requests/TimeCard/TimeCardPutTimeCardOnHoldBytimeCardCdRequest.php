@@ -24,8 +24,6 @@ class TimeCardPutTimeCardOnHoldBytimeCardCdRequest extends Request implements Ha
 {
     use HasJsonBody;
 
-    protected $model = PutTimeCardOnHoldActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

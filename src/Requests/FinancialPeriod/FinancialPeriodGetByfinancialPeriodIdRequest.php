@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class FinancialPeriodGetByfinancialPeriodIdRequest extends Request
 {
-    protected $model = FinancialPeriodDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

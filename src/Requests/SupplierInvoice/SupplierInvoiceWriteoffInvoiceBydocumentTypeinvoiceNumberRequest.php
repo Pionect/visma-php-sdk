@@ -24,8 +24,6 @@ class SupplierInvoiceWriteoffInvoiceBydocumentTypeinvoiceNumberRequest extends R
 {
     use HasJsonBody;
 
-    protected $model = BackgroundApiAcceptedDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

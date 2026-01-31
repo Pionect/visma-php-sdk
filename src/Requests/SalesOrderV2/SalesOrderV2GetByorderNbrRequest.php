@@ -14,8 +14,6 @@ use Saloon\Http\Response;
  */
 class SalesOrderV2GetByorderNbrRequest extends Request
 {
-    protected $model = SalesOrderDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

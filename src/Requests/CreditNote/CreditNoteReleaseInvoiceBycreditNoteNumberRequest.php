@@ -19,8 +19,6 @@ class CreditNoteReleaseInvoiceBycreditNoteNumberRequest extends Request implemen
 {
     use HasJsonBody;
 
-    protected $model = ReleaseInvoiceActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

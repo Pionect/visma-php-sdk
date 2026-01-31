@@ -14,8 +14,6 @@ use Saloon\Http\Response;
  */
 class SupplierLocationGetLocationsForBaccountBybAccountIdRequest extends Request
 {
-    protected $model = SupplierLocationDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

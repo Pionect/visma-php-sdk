@@ -23,8 +23,6 @@ class ProjectChangeProjectIdactionByinternalIdRequest extends Request implements
 {
     use HasJsonBody;
 
-    protected $model = ChangeProjectIdActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

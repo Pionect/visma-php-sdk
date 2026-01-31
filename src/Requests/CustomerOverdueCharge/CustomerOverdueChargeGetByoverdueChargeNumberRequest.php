@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class CustomerOverdueChargeGetByoverdueChargeNumberRequest extends Request
 {
-    protected $model = CustomerOverdueChargeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

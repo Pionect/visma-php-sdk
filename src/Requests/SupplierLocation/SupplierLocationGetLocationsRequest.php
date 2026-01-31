@@ -15,8 +15,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class SupplierLocationGetLocationsRequest extends Request implements Paginatable
 {
-    protected $model = SupplierLocationDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

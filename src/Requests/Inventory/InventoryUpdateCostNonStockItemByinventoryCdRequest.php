@@ -19,8 +19,6 @@ class InventoryUpdateCostNonStockItemByinventoryCdRequest extends Request implem
 {
     use HasJsonBody;
 
-    protected $model = UpdateCostActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

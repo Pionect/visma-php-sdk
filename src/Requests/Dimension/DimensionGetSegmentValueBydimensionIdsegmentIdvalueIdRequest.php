@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class DimensionGetSegmentValueBydimensionIdsegmentIdvalueIdRequest extends Request
 {
-    protected $model = DtoSegmentValue::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

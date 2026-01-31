@@ -19,8 +19,6 @@ class ShipmentConfirmShipmentByshipmentNumberRequest extends Request implements 
 {
     use HasJsonBody;
 
-    protected $model = ConfirmShipmentActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class LocationGetLocationBybAccountIdlocationIdRequest extends Request
 {
-    protected $model = LocationDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

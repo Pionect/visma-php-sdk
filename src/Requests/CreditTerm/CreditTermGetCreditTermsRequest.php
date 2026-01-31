@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Requests\CreditTerm;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfCreditTermDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -13,8 +12,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class CreditTermGetCreditTermsRequest extends Request implements Paginatable
 {
-    protected $model = BasePaginationDtoOfCreditTermDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

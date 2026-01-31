@@ -14,8 +14,6 @@ use Saloon\Http\Response;
  */
 class CustomerInvoiceGetRotRutByrefNbrRequest extends Request
 {
-    protected $model = RotRutDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

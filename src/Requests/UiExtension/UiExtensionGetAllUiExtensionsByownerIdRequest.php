@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class UiExtensionGetAllUiExtensionsByownerIdRequest extends Request
 {
-    protected $model = UiExtensionDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

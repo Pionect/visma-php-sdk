@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class SupplierGetSupplierBalanceBysupplierCdRequest extends Request
 {
-    protected $model = SupplierBalanceDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

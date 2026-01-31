@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class DimensionGetDimensionBydimensionIdRequest extends Request
 {
-    protected $model = DtoDimension::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

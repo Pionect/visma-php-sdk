@@ -2,7 +2,6 @@
 
 namespace Pionect\VismaSdk\Requests\KitSpecifications;
 
-use Pionect\VismaSdk\Dto\BasePaginationDtoOfKitSpecificationDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -14,8 +13,6 @@ use Saloon\Http\Response;
  */
 class KitSpecificationsGetBykitInventoryIdRequest extends Request
 {
-    protected $model = BasePaginationDtoOfKitSpecificationDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

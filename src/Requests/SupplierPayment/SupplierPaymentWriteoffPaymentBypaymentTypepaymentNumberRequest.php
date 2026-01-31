@@ -24,8 +24,6 @@ class SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest extends Re
 {
     use HasJsonBody;
 
-    protected $model = WriteoffPaymentActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

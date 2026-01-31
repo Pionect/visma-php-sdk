@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class SupplierInvoiceGetByinvoiceNumberRequest extends Request
 {
-    protected $model = SupplierInvoiceDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

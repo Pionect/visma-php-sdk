@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class CustomerGetCustomerDirectDebitBycustomerCdRequest extends Request
 {
-    protected $model = CustomerDirectDebitDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

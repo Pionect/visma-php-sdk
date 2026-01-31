@@ -20,8 +20,6 @@ class PurchaseReceiptAddPurchaseOrdersByreceiptNumberRequest extends Request imp
 {
     use HasJsonBody;
 
-    protected $model = AddOrdersToPurchaseReceiptActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

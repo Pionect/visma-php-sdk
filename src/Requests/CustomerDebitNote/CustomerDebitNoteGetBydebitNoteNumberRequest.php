@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class CustomerDebitNoteGetBydebitNoteNumberRequest extends Request
 {
-    protected $model = CustomerDebitNoteDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

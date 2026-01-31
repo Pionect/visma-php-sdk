@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class SalesCategoryGetCategoryBycategoryIdRequest extends Request
 {
-    protected $model = SalesCategoryDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

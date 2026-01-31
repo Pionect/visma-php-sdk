@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class WarehouseGetBywarehouseIdRequest extends Request
 {
-    protected $model = WarehouseDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

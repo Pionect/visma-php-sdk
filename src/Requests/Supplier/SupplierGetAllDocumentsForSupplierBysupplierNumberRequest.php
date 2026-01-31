@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class SupplierGetAllDocumentsForSupplierBysupplierNumberRequest extends Request
 {
-    protected $model = SupplierDocumentDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

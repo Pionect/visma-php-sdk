@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class UnitOfMeasureGetAllUnitsOfMeasureRequest extends Request implements Paginatable
 {
-    protected $model = UnitOfMeasureDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

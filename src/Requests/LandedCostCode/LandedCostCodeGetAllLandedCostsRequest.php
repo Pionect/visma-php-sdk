@@ -13,8 +13,6 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class LandedCostCodeGetAllLandedCostsRequest extends Request implements Paginatable
 {
-    protected $model = LandedCostCodeDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

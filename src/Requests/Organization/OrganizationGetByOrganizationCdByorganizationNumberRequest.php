@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class OrganizationGetByOrganizationCdByorganizationNumberRequest extends Request
 {
-    protected $model = ExtendedOrganizationDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

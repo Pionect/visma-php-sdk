@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class BranchGetSpecificBranchBybranchNumberRequest extends Request
 {
-    protected $model = BranchDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

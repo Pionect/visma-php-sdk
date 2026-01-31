@@ -16,8 +16,6 @@ use Saloon\Http\Response;
  */
 class JournalTransactionV2GetSpecificJournalTransactionsByjournalTransactionNumberRequest extends Request
 {
-    protected $model = JournalTransactionDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

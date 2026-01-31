@@ -20,8 +20,6 @@ class SalesOrderBasicV2CreateShipmentActionBysaleOrderNumberRequest extends Requ
 {
     use HasJsonBody;
 
-    protected $model = CreateShipmentActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

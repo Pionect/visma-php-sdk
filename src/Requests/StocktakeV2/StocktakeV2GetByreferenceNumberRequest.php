@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class StocktakeV2GetByreferenceNumberRequest extends Request
 {
-    protected $model = StocktakeV2Dto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

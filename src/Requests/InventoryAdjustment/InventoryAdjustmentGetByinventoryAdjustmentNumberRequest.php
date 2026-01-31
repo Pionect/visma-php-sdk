@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class InventoryAdjustmentGetByinventoryAdjustmentNumberRequest extends Request
 {
-    protected $model = InventoryAdjustmentDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

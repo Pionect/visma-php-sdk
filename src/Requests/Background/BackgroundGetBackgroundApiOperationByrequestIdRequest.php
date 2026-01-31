@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class BackgroundGetBackgroundApiOperationByrequestIdRequest extends Request
 {
-    protected $model = BackgroundRequestStateDto::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed

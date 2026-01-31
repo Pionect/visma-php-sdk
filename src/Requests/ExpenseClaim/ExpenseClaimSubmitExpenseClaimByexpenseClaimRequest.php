@@ -24,8 +24,6 @@ class ExpenseClaimSubmitExpenseClaimByexpenseClaimRequest extends Request implem
 {
     use HasJsonBody;
 
-    protected $model = SubmitExpenseClaimActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

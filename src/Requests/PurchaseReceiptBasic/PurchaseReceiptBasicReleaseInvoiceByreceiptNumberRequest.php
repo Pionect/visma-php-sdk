@@ -19,8 +19,6 @@ class PurchaseReceiptBasicReleaseInvoiceByreceiptNumberRequest extends Request i
 {
     use HasJsonBody;
 
-    protected $model = ReleasePurchaseReceiptActionResultDto::class;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed

@@ -12,8 +12,6 @@ use Saloon\Http\Response;
  */
 class BlobGetMetadataByblobIdRequest extends Request
 {
-    protected $model = BlobMetadata::class;
-
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
