@@ -151,7 +151,7 @@ class GenerateCommand extends Command
                 (new PintRunner)->run($outputDir, $this->io);
             }
 
-            $this->io->success("SDK generated successfully in {$outputDir}");
+            $this->io->success('SDK generated successfully');
         }
 
         return Command::SUCCESS;

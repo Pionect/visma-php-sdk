@@ -25,7 +25,7 @@ class PintRunner
             2 => ['pipe', 'w'],
         ];
 
-        $process = proc_open("{$pintPath} {$outputDir}/src {$outputDir}/tests {$outputDir}/config {$outputDir}/factories -q", $descriptorSpec, $pipes, $outputDir);
+        $process = proc_open("{$pintPath} {$outputDir}/src {$outputDir}/tests {$outputDir}/config -q", $descriptorSpec, $pipes, $outputDir);
 
         if (! is_resource($process)) {
             $io->warning('Failed to start Pint process.');

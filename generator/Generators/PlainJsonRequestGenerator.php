@@ -18,9 +18,7 @@ class PlainJsonRequestGenerator extends RequestGenerator
         parent::__construct($config);
 
         // Configure for plain JSON format
-        $this->responseDataPath = null; // Extract from root by default
-        $this->serializationMethod = 'toArray';
-        $this->includePutInMutations = true;
+        $this->responseDataPath = null;
     }
 
     /**
