@@ -285,8 +285,23 @@ it('calls the customerDebitNoteUpdateBydebitNoteNumberRequest method in the Cust
         taxDetailLines: [],
         lines: [],
         customerVatZoneId: 'mock-id-123',
-        invoiceAddress: null,
-        invoiceContact: null,
+        invoiceAddress: new \Pionect\VismaSdk\Dto\SalesInvoiceAddressUpdateDto(
+            overrideAddress: true,
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        invoiceContact: new \Pionect\VismaSdk\Dto\SalesInvoiceContactUpdateDto(
+            overrideContact: true,
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            phone1: 'String value'
+        ),
         overrideNumberSeries: true,
         referenceNumber: 'String value',
         customerNumber: 'String value',
@@ -759,8 +774,23 @@ it('calls the customerDebitNoteCreateRequest method in the CustomerDebitNote res
         taxDetailLines: [],
         lines: [],
         customerVatZoneId: 'mock-id-123',
-        invoiceAddress: null,
-        invoiceContact: null,
+        invoiceAddress: new \Pionect\VismaSdk\Dto\SalesInvoiceAddressUpdateDto(
+            overrideAddress: true,
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        invoiceContact: new \Pionect\VismaSdk\Dto\SalesInvoiceContactUpdateDto(
+            overrideContact: true,
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            phone1: 'String value'
+        ),
         overrideNumberSeries: true,
         referenceNumber: 'String value',
         customerNumber: 'String value',

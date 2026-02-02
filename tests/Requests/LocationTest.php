@@ -134,15 +134,35 @@ it('calls the locationUpdateBybAccountIdlocationIdRequest method in the Location
         locationName: 'String value',
         active: true,
         addressIsSameAsMain: true,
-        address: null,
+        address: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
         contactIsSameAsMain: true,
-        contact: null,
+        contact: new \Pionect\VismaSdk\Dto\ContactInfoUpdateDto(
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            web: 'String value',
+            phone1: 'String value',
+            phone2: 'String value',
+            fax: 'String value'
+        ),
         vatRegistrationId: 'mock-id-123',
         vatZone: 'String value',
         ediCode: 'String value',
         gln: 'String value',
         corporateId: 'mock-id-123',
-        peppolScheme: null
+        peppolScheme: new \Pionect\VismaSdk\Dto\PeppolSchemeUpdateDto(
+            endpoint: 'String value',
+            partyIdentification: 'String value',
+            partyLegal: 'String value'
+        )
     );
 
     Saloon::fake([
@@ -475,15 +495,35 @@ it('calls the locationCreateRequest method in the Location resource', function (
         locationName: 'String value',
         active: true,
         addressIsSameAsMain: true,
-        address: null,
+        address: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
         contactIsSameAsMain: true,
-        contact: null,
+        contact: new \Pionect\VismaSdk\Dto\ContactInfoUpdateDto(
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            web: 'String value',
+            phone1: 'String value',
+            phone2: 'String value',
+            fax: 'String value'
+        ),
         vatRegistrationId: 'mock-id-123',
         vatZone: 'String value',
         ediCode: 'String value',
         gln: 'String value',
         corporateId: 'mock-id-123',
-        peppolScheme: null
+        peppolScheme: new \Pionect\VismaSdk\Dto\PeppolSchemeUpdateDto(
+            endpoint: 'String value',
+            partyIdentification: 'String value',
+            partyLegal: 'String value'
+        )
     );
 
     Saloon::fake([

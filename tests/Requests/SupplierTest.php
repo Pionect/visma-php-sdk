@@ -571,13 +571,69 @@ it('calls the supplierPutBysupplierCdRequest method in the Supplier resource', f
         chargeBearer: 'String value',
         accountUsedForPayment: 'String value',
         paymentBy: 'String value',
-        mainAddress: null,
-        mainContact: null,
-        remitAddress: null,
-        remitContact: null,
-        supplierAddress: null,
-        supplierContact: null,
-        glAccounts: null,
+        mainAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        mainContact: new \Pionect\VismaSdk\Dto\ContactInfoUpdateDto(
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            web: 'String value',
+            phone1: 'String value',
+            phone2: 'String value',
+            fax: 'String value'
+        ),
+        remitAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        remitContact: new \Pionect\VismaSdk\Dto\ContactInfoUpdateDto(
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            web: 'String value',
+            phone1: 'String value',
+            phone2: 'String value',
+            fax: 'String value'
+        ),
+        supplierAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        supplierContact: new \Pionect\VismaSdk\Dto\ContactInfoUpdateDto(
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            web: 'String value',
+            phone1: 'String value',
+            phone2: 'String value',
+            fax: 'String value'
+        ),
+        glAccounts: new \Pionect\VismaSdk\Dto\SupplierGlAccountsUpdateDto(
+            supplierAccount: 'String value',
+            supplierSubaccount: 'String value',
+            expenseAccount: 'String value',
+            expenseAccountNonTax: 'String value',
+            expenseEuaccount: 'String value',
+            expenseAccountImport: 'String value',
+            expenseSubaccount: 'String value'
+        ),
         supplierPaymentMethodDetails: [],
         attributeLines: [],
         retainageCashAccountId: 'mock-id-123',
@@ -1114,13 +1170,69 @@ it('calls the supplierPostRequest method in the Supplier resource', function () 
         chargeBearer: 'String value',
         accountUsedForPayment: 'String value',
         paymentBy: 'String value',
-        mainAddress: null,
-        mainContact: null,
-        remitAddress: null,
-        remitContact: null,
-        supplierAddress: null,
-        supplierContact: null,
-        glAccounts: null,
+        mainAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        mainContact: new \Pionect\VismaSdk\Dto\ContactInfoUpdateDto(
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            web: 'String value',
+            phone1: 'String value',
+            phone2: 'String value',
+            fax: 'String value'
+        ),
+        remitAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        remitContact: new \Pionect\VismaSdk\Dto\ContactInfoUpdateDto(
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            web: 'String value',
+            phone1: 'String value',
+            phone2: 'String value',
+            fax: 'String value'
+        ),
+        supplierAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        supplierContact: new \Pionect\VismaSdk\Dto\ContactInfoUpdateDto(
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            web: 'String value',
+            phone1: 'String value',
+            phone2: 'String value',
+            fax: 'String value'
+        ),
+        glAccounts: new \Pionect\VismaSdk\Dto\SupplierGlAccountsUpdateDto(
+            supplierAccount: 'String value',
+            supplierSubaccount: 'String value',
+            expenseAccount: 'String value',
+            expenseAccountNonTax: 'String value',
+            expenseEuaccount: 'String value',
+            expenseAccountImport: 'String value',
+            expenseSubaccount: 'String value'
+        ),
         supplierPaymentMethodDetails: [],
         attributeLines: [],
         retainageCashAccountId: 'mock-id-123',

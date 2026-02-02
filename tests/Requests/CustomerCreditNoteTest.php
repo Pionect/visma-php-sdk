@@ -275,8 +275,23 @@ it('calls the customerCreditNoteUpdateBycreditNoteNumberRequest method in the Cu
         taxDetails: [],
         applicationLines: [],
         customerVatZoneId: 'mock-id-123',
-        invoiceAddress: null,
-        invoiceContact: null,
+        invoiceAddress: new \Pionect\VismaSdk\Dto\SalesInvoiceAddressUpdateDto(
+            overrideAddress: true,
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        invoiceContact: new \Pionect\VismaSdk\Dto\SalesInvoiceContactUpdateDto(
+            overrideContact: true,
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            phone1: 'String value'
+        ),
         overrideNumberSeries: true,
         sendToAutoInvoice: true,
         exchangeRate: 42,
@@ -757,8 +772,23 @@ it('calls the customerCreditNoteCreateRequest method in the CustomerCreditNote r
         taxDetails: [],
         applicationLines: [],
         customerVatZoneId: 'mock-id-123',
-        invoiceAddress: null,
-        invoiceContact: null,
+        invoiceAddress: new \Pionect\VismaSdk\Dto\SalesInvoiceAddressUpdateDto(
+            overrideAddress: true,
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        invoiceContact: new \Pionect\VismaSdk\Dto\SalesInvoiceContactUpdateDto(
+            overrideContact: true,
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            phone1: 'String value'
+        ),
         overrideNumberSeries: true,
         sendToAutoInvoice: true,
         exchangeRate: 42,

@@ -27,11 +27,11 @@ class SupplierLocationUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $addressIsSameAsMain = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\AddressUpdateDto $address = null,
+        public ?AddressUpdateDto $address = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $contactIsSameAsMain = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\ContactInfoUpdateDto $contact = null,
+        public ?ContactInfoUpdateDto $contact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $vatRegistrationId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

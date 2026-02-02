@@ -118,7 +118,15 @@ it('calls the contactPutBycontactIdRequest method in the Contact resource', func
         position: 'String value',
         businessAccount: 'String value',
         sameAsAccount: true,
-        address: null,
+        address: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
         email: 'test@example.com',
         web: 'String value',
         phone1: 'String value',
@@ -314,7 +322,15 @@ it('calls the contactCreateContactRequest method in the Contact resource', funct
         position: 'String value',
         businessAccount: 'String value',
         sameAsAccount: true,
-        address: null,
+        address: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
         email: 'test@example.com',
         web: 'String value',
         phone1: 'String value',

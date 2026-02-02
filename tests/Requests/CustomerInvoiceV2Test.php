@@ -36,8 +36,23 @@ it('calls the customerInvoiceV2createRequest method in the CustomerInvoiceV2 res
         invoiceLines: [],
         sendToAutoInvoice: true,
         customerVatZoneId: 'mock-id-123',
-        billingAddress: null,
-        invoiceContact: null,
+        billingAddress: new \Pionect\VismaSdk\Dto\SalesInvoiceAddressUpdateDto(
+            overrideAddress: true,
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
+        invoiceContact: new \Pionect\VismaSdk\Dto\SalesInvoiceContactUpdateDto(
+            overrideContact: true,
+            name: 'String value',
+            attention: 'String value',
+            email: 'test@example.com',
+            phone1: 'String value'
+        ),
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         accountingCostRef: 'String value',

@@ -49,9 +49,9 @@ class CustomerInvoiceUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerVatZoneId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SalesInvoiceAddressUpdateDto $billingAddress = null,
+        public ?SalesInvoiceAddressUpdateDto $billingAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SalesInvoiceContactUpdateDto $invoiceContact = null,
+        public ?SalesInvoiceContactUpdateDto $invoiceContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $startDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

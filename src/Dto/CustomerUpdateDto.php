@@ -67,29 +67,29 @@ class CustomerUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\AddressUpdateDto $mainAddress = null,
+        public ?AddressUpdateDto $mainAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\ContactInfoUpdateDto $mainContact = null,
+        public ?ContactInfoUpdateDto $mainContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $creditVerification = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\AddressUpdateDto $invoiceAddress = null,
+        public ?AddressUpdateDto $invoiceAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\ContactInfoUpdateDto $invoiceContact = null,
+        public ?ContactInfoUpdateDto $invoiceContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $statementType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\AddressUpdateDto $deliveryAddress = null,
+        public ?AddressUpdateDto $deliveryAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\ContactInfoUpdateDto $deliveryContact = null,
+        public ?ContactInfoUpdateDto $deliveryContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $priceClassId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\EInvoiceContractUpdateDto $eInvoiceContract = null,
+        public ?EinvoiceContractUpdateDto $eInvoiceContract = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\CustomerDefaultPaymentMethodUpdateDto $defaultPaymentMethod = null,
+        public ?CustomerDefaultPaymentMethodUpdateDto $defaultPaymentMethod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\CustomerGlAccountsUpdateDto $glAccounts = null,
+        public ?CustomerGlAccountsUpdateDto $glAccounts = null,
         public ?array $directDebitLines = null,
         public ?array $attributeLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

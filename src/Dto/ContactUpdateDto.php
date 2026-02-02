@@ -29,7 +29,7 @@ class ContactUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $sameAsAccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\AddressUpdateDto $address = null,
+        public ?AddressUpdateDto $address = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $email = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

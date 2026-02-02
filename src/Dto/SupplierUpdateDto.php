@@ -65,19 +65,19 @@ class SupplierUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $paymentBy = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\AddressUpdateDto $mainAddress = null,
+        public ?AddressUpdateDto $mainAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\ContactInfoUpdateDto $mainContact = null,
+        public ?ContactInfoUpdateDto $mainContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\AddressUpdateDto $remitAddress = null,
+        public ?AddressUpdateDto $remitAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\ContactInfoUpdateDto $remitContact = null,
+        public ?ContactInfoUpdateDto $remitContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\AddressUpdateDto $supplierAddress = null,
+        public ?AddressUpdateDto $supplierAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\ContactInfoUpdateDto $supplierContact = null,
+        public ?ContactInfoUpdateDto $supplierContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SupplierGlAccountsUpdateDto $glAccounts = null,
+        public ?SupplierGlAccountsUpdateDto $glAccounts = null,
         public ?array $supplierPaymentMethodDetails = null,
         public ?array $attributeLines = null,
         #[MapName('retainageCashAccountID'), WithTransformer(ValueWrapperTransformer::class)]

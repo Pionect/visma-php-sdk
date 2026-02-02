@@ -31,9 +31,9 @@ class CustomerCreditNoteUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerVatZoneId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SalesInvoiceAddressUpdateDto $invoiceAddress = null,
+        public ?SalesInvoiceAddressUpdateDto $invoiceAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SalesInvoiceContactUpdateDto $invoiceContact = null,
+        public ?SalesInvoiceContactUpdateDto $invoiceContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

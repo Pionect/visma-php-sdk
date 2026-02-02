@@ -94,6 +94,12 @@ class VismaDtoGenerator extends DtoGenerator
         // If unwrapped, recalculate the type from the unwrapped spec
         if ($unwrappedSpec) {
             $type = $this->convertOpenApiTypeToPhp($unwrappedSpec);
+
+            // If the unwrapped spec is a Reference, use FQN
+            if ($unwrappedSpec instanceof Reference) {
+                $dtoClassName = NameHelper::dtoClassName($type);
+                $type = $this->buildDtoFqn($dtoClassName);
+            }
         }
 
         // Call parent to create the promoted parameter

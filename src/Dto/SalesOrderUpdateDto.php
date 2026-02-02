@@ -27,9 +27,9 @@ class SalesOrderUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $printNoteOnInternalDocuments = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SalesOrderContactUpdateDto $soBillingContact = null,
+        public ?SalesOrderContactUpdateDto $soBillingContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SalesOrderAddressUpdateDto $soBillingAddress = null,
+        public ?SalesOrderAddressUpdateDto $soBillingAddress = null,
         #[MapName('customerVATZone'), WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerVatzone = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -45,9 +45,9 @@ class SalesOrderUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $origOrderNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SalesOrderContactUpdateDto $soShippingContact = null,
+        public ?SalesOrderContactUpdateDto $soShippingContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\SalesOrderAddressUpdateDto $soShippingAddress = null,
+        public ?SalesOrderAddressUpdateDto $soShippingAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $schedShipment = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

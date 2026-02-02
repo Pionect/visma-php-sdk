@@ -25,9 +25,9 @@ class PurchaseOrderUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $shippingLocation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\PurchaseOrderContactUpdateDto $shippingContact = null,
+        public ?PurchaseOrderContactUpdateDto $shippingContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\PurchaseOrderAddressUpdateDto $shippingAddress = null,
+        public ?PurchaseOrderAddressUpdateDto $shippingAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $fobPoint = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -35,9 +35,9 @@ class PurchaseOrderUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $shipTerms = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\PurchaseOrderContactUpdateDto $remitContact = null,
+        public ?PurchaseOrderContactUpdateDto $remitContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?\PurchaseOrderAddressUpdateDto $remitAddress = null,
+        public ?PurchaseOrderAddressUpdateDto $remitAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $terms = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
