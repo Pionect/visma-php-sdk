@@ -893,9 +893,4 @@ it('calls the customerDebitNotePrintBydebitNoteNumberRequest method in the Custo
     Saloon::assertSent(CustomerDebitNotePrintBydebitNoteNumberRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });

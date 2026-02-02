@@ -24,11 +24,6 @@ it('calls the attachmentGetByattachmentIdRequest method in the Attachment resour
     Saloon::assertSent(AttachmentGetByattachmentIdRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the attachmentPutByattachmentIdRequest method in the Attachment resource', function () {

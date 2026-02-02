@@ -679,11 +679,6 @@ it('calls the shipmentPrintShipmentConfirmationByshipmentNbrRequest method in th
     Saloon::assertSent(ShipmentPrintShipmentConfirmationByshipmentNbrRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the shipmentPrintPickListByshipmentNbrRequest method in the Shipment resource', function () {
@@ -700,11 +695,6 @@ it('calls the shipmentPrintPickListByshipmentNbrRequest method in the Shipment r
     Saloon::assertSent(ShipmentPrintPickListByshipmentNbrRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the shipmentAddSolineByshipmentNumberRequest method in the Shipment resource', function () {

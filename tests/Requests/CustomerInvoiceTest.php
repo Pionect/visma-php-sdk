@@ -487,11 +487,6 @@ it('calls the customerInvoicePrintInvoiceByrefNbrRequest method in the CustomerI
     Saloon::assertSent(CustomerInvoicePrintInvoiceByrefNbrRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resource', function () {

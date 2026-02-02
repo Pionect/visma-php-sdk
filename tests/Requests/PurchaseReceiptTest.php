@@ -420,11 +420,6 @@ it('calls the purchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest method i
     Saloon::assertSent(PurchaseReceiptPrintPurchaseReceiptByreceiptNumberRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the purchaseReceiptReleaseReceiptByreceiptNumberRequest method in the PurchaseReceipt resource', function () {

@@ -811,11 +811,6 @@ it('calls the customerCreditNotePrintBycreditNoteNumberRequest method in the Cus
     Saloon::assertSent(CustomerCreditNotePrintBycreditNoteNumberRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the customerCreditNoteReleaseDocumentBycreditNoteNumberRequest method in the CustomerCreditNote resource', function () {

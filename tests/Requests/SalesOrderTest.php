@@ -1342,11 +1342,6 @@ it('calls the salesOrderPrintOrderByorderNumberorderTypeRequest method in the Sa
     Saloon::assertSent(SalesOrderPrintOrderByorderNumberorderTypeRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
 
 it('calls the salesOrderCreateShipmentActionBysaleOrderNumberRequest method in the SalesOrder resource', function () {

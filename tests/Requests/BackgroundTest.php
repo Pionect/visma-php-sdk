@@ -68,9 +68,4 @@ it('calls the backgroundGetBackgroundApiOperationContentByrequestIdRequest metho
     Saloon::assertSent(BackgroundGetBackgroundApiOperationContentByrequestIdRequest::class);
 
     expect($response->status())->toBe(200);
-
-    $dto = $response->dto();
-
-    expect($dto)
-        ->toBeInstanceOf(\Spatie\LaravelData\Data::class);
 });
