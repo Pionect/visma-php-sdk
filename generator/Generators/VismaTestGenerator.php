@@ -10,16 +10,16 @@ use Crescat\SaloonSdkGenerator\Data\Generator\GeneratedCode;
 use Crescat\SaloonSdkGenerator\Generators\PestTestGenerator;
 use Crescat\SaloonSdkGenerator\Generators\TestGenerators\CollectionRequestTestGenerator;
 use Crescat\SaloonSdkGenerator\Helpers\DtoResolver;
-use Pionect\VismaSdk\Generator\Helpers\PlainJsonDtoResolver;
+use Pionect\VismaSdk\Generator\Helpers\VismaDtoResolver;
 
-class PlainJsonTestGenerator extends PestTestGenerator
+class VismaTestGenerator extends PestTestGenerator
 {
     /**
      * Override to use custom PlainJsonDtoResolver.
      */
     protected function createDtoResolver(Config $config, GeneratedCode $generatedCode): DtoResolver
     {
-        $resolver = new PlainJsonDtoResolver($config);
+        $resolver = new VismaDtoResolver($config);
         $resolver->setGeneratedCode($generatedCode);
 
         return $resolver;
@@ -34,6 +34,6 @@ class PlainJsonTestGenerator extends PestTestGenerator
         string $namespace,
         DtoResolver $dtoResolver
     ): CollectionRequestTestGenerator {
-        return new PlainJsonCollectionRequestTestGenerator($specification, $generatedCode, $namespace, $dtoResolver);
+        return new VismaCollectionRequestTestGenerator($specification, $generatedCode, $namespace, $dtoResolver);
     }
 }

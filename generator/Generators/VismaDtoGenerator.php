@@ -15,7 +15,7 @@ use Nette\PhpGenerator\Method;
 use Nette\PhpGenerator\PhpNamespace;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
-class PlainJsonDtoGenerator extends DtoGenerator
+class VismaDtoGenerator extends DtoGenerator
 {
     /**
      * Determine if a schema should be included in generation.

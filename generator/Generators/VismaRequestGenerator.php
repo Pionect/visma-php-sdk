@@ -9,10 +9,10 @@ use Crescat\SaloonSdkGenerator\Data\Generator\Endpoint;
 use Crescat\SaloonSdkGenerator\Generators\RequestGenerator;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Method;
-use Pionect\VismaSdk\Generator\Helpers\PlainJsonDtoResolver;
+use Pionect\VismaSdk\Generator\Helpers\VismaDtoResolver;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
-class PlainJsonRequestGenerator extends RequestGenerator
+class VismaRequestGenerator extends RequestGenerator
 {
     public function __construct(?Config $config = null)
     {
@@ -20,7 +20,7 @@ class PlainJsonRequestGenerator extends RequestGenerator
 
         // Replace with custom resolver that unwraps BasePaginationDto
         if ($config) {
-            $this->dtoResolver = new PlainJsonDtoResolver($config);
+            $this->dtoResolver = new VismaDtoResolver($config);
         }
 
         // Configure for plain JSON format

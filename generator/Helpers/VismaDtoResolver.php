@@ -7,7 +7,7 @@ namespace Pionect\VismaSdk\Generator\Helpers;
 use Crescat\SaloonSdkGenerator\Data\Generator\Endpoint;
 use Crescat\SaloonSdkGenerator\Helpers\DtoResolver;
 
-class PlainJsonDtoResolver extends DtoResolver
+class VismaDtoResolver extends DtoResolver
 {
     /**
      * Override to unwrap BasePaginationDtoOf* wrappers.

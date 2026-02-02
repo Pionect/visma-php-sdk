@@ -8,15 +8,15 @@ use Crescat\SaloonSdkGenerator\Data\Generator\ApiSpecification;
 use Crescat\SaloonSdkGenerator\Data\Generator\Endpoint;
 use Crescat\SaloonSdkGenerator\Data\Generator\GeneratedCode;
 use Crescat\SaloonSdkGenerator\Generators\TestGenerators\CollectionRequestTestGenerator;
-use Pionect\VismaSdk\Generator\Helpers\PlainJsonDtoResolver;
+use Pionect\VismaSdk\Generator\Helpers\VismaDtoResolver;
 
-class PlainJsonCollectionRequestTestGenerator extends CollectionRequestTestGenerator
+class VismaCollectionRequestTestGenerator extends CollectionRequestTestGenerator
 {
     public function __construct(
         ApiSpecification $specification,
         GeneratedCode $generatedCode,
         string $namespace,
-        PlainJsonDtoResolver $dtoResolver
+        VismaDtoResolver $dtoResolver
     ) {
         parent::__construct($specification, $generatedCode, $namespace, $dtoResolver);
     }
@@ -32,7 +32,7 @@ class PlainJsonCollectionRequestTestGenerator extends CollectionRequestTestGener
 
         // Check if response is wrapped in BasePaginationDto
         // Cast to PlainJsonDtoResolver to access custom method
-        if ($this->dtoResolver instanceof PlainJsonDtoResolver && $this->dtoResolver->isBasePaginationResponse($endpoint)) {
+        if ($this->dtoResolver instanceof VismaDtoResolver && $this->dtoResolver->isBasePaginationResponse($endpoint)) {
             // Return wrapped structure
             return [
                 'pageNumber' => 1,

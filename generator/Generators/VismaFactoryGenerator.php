@@ -7,7 +7,7 @@ namespace Pionect\VismaSdk\Generator\Generators;
 use Crescat\SaloonSdkGenerator\Generators\FactoryGenerator;
 use Nette\PhpGenerator\PhpFile;
 
-class PlainJsonFactoryGenerator extends FactoryGenerator
+class VismaFactoryGenerator extends FactoryGenerator
 {
     /**
      * Override to NOT skip 'id' and 'type' properties for plain JSON APIs.

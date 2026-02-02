@@ -9,7 +9,7 @@ use Crescat\SaloonSdkGenerator\Generators\ConnectorGenerator;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpFile;
 
-class PlainJsonConnectorGenerator extends ConnectorGenerator
+class VismaConnectorGenerator extends ConnectorGenerator
 {
     protected function generateConnectorClass(ApiSpecification $specification): ?PhpFile
     {

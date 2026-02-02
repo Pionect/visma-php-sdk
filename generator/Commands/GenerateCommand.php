@@ -9,11 +9,10 @@ use Crescat\SaloonSdkGenerator\Data\Generator\Config;
 use Crescat\SaloonSdkGenerator\Data\TaggedOutputFile;
 use Crescat\SaloonSdkGenerator\Generators\ResourceGenerator;
 use Crescat\SaloonSdkGenerator\Parsers\OpenApiParser;
-use Pionect\VismaSdk\Generator\Generators\PlainJsonConnectorGenerator;
-use Pionect\VismaSdk\Generator\Generators\PlainJsonDtoGenerator;
-use Pionect\VismaSdk\Generator\Generators\PlainJsonRequestGenerator;
-use Pionect\VismaSdk\Generator\Generators\PlainJsonTestGenerator;
-use Pionect\VismaSdk\Generator\Services\ComposerSetup;
+use Pionect\VismaSdk\Generator\Generators\VismaConnectorGenerator;
+use Pionect\VismaSdk\Generator\Generators\VismaDtoGenerator;
+use Pionect\VismaSdk\Generator\Generators\VismaRequestGenerator;
+use Pionect\VismaSdk\Generator\Generators\VismaTestGenerator;
 use Pionect\VismaSdk\Generator\Services\PintRunner;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -59,16 +58,8 @@ class GenerateCommand extends Command
 
         $specPath = $input->getArgument('spec');
         $outputDir = '.';
-        $composerPath = rtrim($outputDir, '/').'/composer.json';
 
-        try {
-            $composerSetup = new ComposerSetup($composerPath);
-            $namespace = $composerSetup->getNamespace();
-        } catch (\RuntimeException $e) {
-            $this->io->error($e->getMessage());
-
-            return Command::FAILURE;
-        }
+        $namespace = "Pionect\VismaSdk";
         $dryRun = $input->getOption('dry-run');
 
         $this->io->title('Plain JSON SDK Generator');
@@ -79,13 +70,6 @@ class GenerateCommand extends Command
 
             return Command::FAILURE;
         }
-
-        $this->io->section('Configuration');
-        $this->io->listing([
-            "Spec: {$specPath}",
-            "Output: {$outputDir}",
-            "Namespace (from composer.json): {$namespace}",
-        ]);
 
         // Create config
         $config = new Config(
@@ -113,17 +97,17 @@ class GenerateCommand extends Command
         // Configure post-processors
         $postProcessors = [];
 
-        $postProcessors[] = new PlainJsonTestGenerator;
+        $postProcessors[] = new VismaTestGenerator;
 
         // Generate code using Plain JSON generators
         $this->io->section('Generating SDK');
 
         $codeGenerator = new CodeGenerator(
             config: $config,
-            requestGenerator: new PlainJsonRequestGenerator($config),
+            requestGenerator: new VismaRequestGenerator($config),
             resourceGenerator: new ResourceGenerator($config),
-            dtoGenerator: new PlainJsonDtoGenerator($config),
-            connectorGenerator: new PlainJsonConnectorGenerator($config),
+            dtoGenerator: new VismaDtoGenerator($config),
+            connectorGenerator: new VismaConnectorGenerator($config),
             postProcessors: $postProcessors,
         );
 
