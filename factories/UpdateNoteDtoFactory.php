@@ -1,0 +1,21 @@
+<?php
+
+namespace Pionect\VismaSdk\Factories;
+
+use Pionect\VismaSdk\Dto\UpdateNoteDto;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+
+class UpdateNoteDtoFactory extends Factory
+{
+    protected function definition(): array
+    {
+        return [
+            'note' => null,
+        ];
+    }
+
+    protected function modelClass(): string
+    {
+        return UpdateNoteDto::class;
+    }
+}
