@@ -11,8 +11,41 @@ beforeEach(function () {
 it('calls the discountCodeGetDiscountCodesRequest method in the DiscountCode resource', function () {
     Saloon::fake([
         DiscountCodeGetDiscountCodesRequest::class => MockResponse::make([
-            0 => [],
-            1 => [],
+            'pageNumber' => 1,
+            'pageSize' => 2,
+            'totalCount' => 2,
+            'records' => [
+                0 => [
+                    'discountCode' => 'String value',
+                    'description' => 'String value',
+                    'discountType' => 'String value',
+                    'applicableTo' => 'String value',
+                    'applyToDeferredRevenue' => true,
+                    'manual' => true,
+                    'excludeFromDiscountableAmount' => true,
+                    'skipDocumentDiscounts' => true,
+                    'autoNumbering' => true,
+                    'lastNumber' => 'String value',
+                    'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'errorInfo' => 'String value',
+                ],
+                1 => [
+                    'discountCode' => 'String value',
+                    'description' => 'String value',
+                    'discountType' => 'String value',
+                    'applicableTo' => 'String value',
+                    'applyToDeferredRevenue' => true,
+                    'manual' => true,
+                    'excludeFromDiscountableAmount' => true,
+                    'skipDocumentDiscounts' => true,
+                    'autoNumbering' => true,
+                    'lastNumber' => 'String value',
+                    'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'errorInfo' => 'String value',
+                ],
+            ],
         ], 200),
     ]);
 

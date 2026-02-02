@@ -363,7 +363,7 @@ it('calls the salesOrderPutByorderNbrRequest method in the SalesOrder resource',
         paymentRef: 'String value',
         isRotRutDeductible: true,
         emailed: true,
-        rotRutDetails: new RotRutUpdateDto(
+        rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
             type: 'String value',
             appartment: 'String value',
@@ -1253,7 +1253,7 @@ it('calls the salesOrderPostRequest method in the SalesOrder resource', function
         paymentRef: 'String value',
         isRotRutDeductible: true,
         emailed: true,
-        rotRutDetails: new RotRutUpdateDto(
+        rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
             type: 'String value',
             appartment: 'String value',
@@ -1397,7 +1397,7 @@ it('calls the salesOrderCancelSalesOrderBysaleOrderNumberRequest method in the S
 
 it('calls the salesOrderReopenSalesOrderBysalesOrderNumberRequest method in the SalesOrder resource', function () {
     $bodyData = new ReopenSalesOrderActionDto(
-        saleOrderUpdateDto: new SaleOrderUpdateDtoInReopenSalesOrderActionDto(
+        saleOrderUpdateDto: new \Pionect\VismaSdk\Dto\SaleOrderUpdateDtoInReopenSalesOrderActionDto(
             project: 42,
             printDescriptionOnInvoice: true,
             printNoteOnExternalDocuments: true,
@@ -1433,7 +1433,7 @@ it('calls the salesOrderReopenSalesOrderBysalesOrderNumberRequest method in the 
             paymentRef: 'String value',
             isRotRutDeductible: true,
             emailed: true,
-            rotRutDetails: new RotRutUpdateDto(
+            rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
                 distributedAutomaticaly: true,
                 type: 'String value',
                 appartment: 'String value',

@@ -131,7 +131,7 @@ it('calls the employeePutByemployeeCdRequest method in the Employee resource', f
         employeeClass: 'String value',
         status: 'String value',
         department: 'String value',
-        contact: new ContactInEmployeeUpdateDto(
+        contact: new \Pionect\VismaSdk\Dto\ContactInEmployeeUpdateDto(
             firstName: 'String value',
             lastName: 'String value',
             middleName: 'String value',
@@ -141,7 +141,7 @@ it('calls the employeePutByemployeeCdRequest method in the Employee resource', f
             phone3: 'String value',
             fax: 'String value'
         ),
-        address: new AddressInEmployeeUpdateDto(
+        address: new \Pionect\VismaSdk\Dto\AddressInEmployeeUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
             addressLine3: 'String value',
@@ -350,7 +350,7 @@ it('calls the employeeCreateEmployeeRequest method in the Employee resource', fu
         employeeClass: 'String value',
         branch: 'String value',
         calendar: 'String value',
-        contact: new EmployeeContactUpdateDto(
+        contact: new \Pionect\VismaSdk\Dto\EmployeeContactUpdateDto(
             firstName: 'String value',
             lastName: 'String value',
             middleName: 'String value',
@@ -360,7 +360,7 @@ it('calls the employeeCreateEmployeeRequest method in the Employee resource', fu
             phone3: 'String value',
             fax: 'String value'
         ),
-        address: new AddressUpdateDto(
+        address: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
             addressLine3: 'String value',

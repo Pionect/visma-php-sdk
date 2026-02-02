@@ -664,14 +664,14 @@ it('calls the inventoryPutByinventoryNumberRequest method in the Inventory resou
         salesExportAccount: 'String value',
         salesSubaccount: [],
         attributeLines: [],
-        packaging: new PackagingUpdateDto(
+        packaging: new \Pionect\VismaSdk\Dto\PackagingUpdateDto(
             baseItemWeight: 42,
             weightUom: 'String value',
             baseItemVolume: 42,
             volumeUom: 'String value'
         ),
         supplierDetails: [],
-        intrastat: new IntrastatUpdateDto(
+        intrastat: new \Pionect\VismaSdk\Dto\IntrastatUpdateDto(
             cN8: 'String value',
             countryOfOrigin: 'String value',
             supplementaryMeasureUnit: 'String value'
@@ -1166,14 +1166,14 @@ it('calls the inventoryPostRequest method in the Inventory resource', function (
         salesExportAccount: 'String value',
         salesSubaccount: [],
         attributeLines: [],
-        packaging: new PackagingUpdateDto(
+        packaging: new \Pionect\VismaSdk\Dto\PackagingUpdateDto(
             baseItemWeight: 42,
             weightUom: 'String value',
             baseItemVolume: 42,
             volumeUom: 'String value'
         ),
         supplierDetails: [],
-        intrastat: new IntrastatUpdateDto(
+        intrastat: new \Pionect\VismaSdk\Dto\IntrastatUpdateDto(
             cN8: 'String value',
             countryOfOrigin: 'String value',
             supplementaryMeasureUnit: 'String value'
@@ -1453,14 +1453,14 @@ it('calls the inventoryPutByinventoryIdRequest method in the Inventory resource'
         salesExportAccount: 'String value',
         salesSubaccount: [],
         attributeLines: [],
-        packaging: new PackagingUpdateDto(
+        packaging: new \Pionect\VismaSdk\Dto\PackagingUpdateDto(
             baseItemWeight: 42,
             weightUom: 'String value',
             baseItemVolume: 42,
             volumeUom: 'String value'
         ),
         supplierDetails: [],
-        intrastat: new IntrastatUpdateDto(
+        intrastat: new \Pionect\VismaSdk\Dto\IntrastatUpdateDto(
             cN8: 'String value',
             countryOfOrigin: 'String value',
             supplementaryMeasureUnit: 'String value'

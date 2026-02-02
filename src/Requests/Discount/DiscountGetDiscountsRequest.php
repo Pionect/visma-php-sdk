@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Discount;
 
+use Pionect\VismaSdk\Dto\DiscountDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\CreditTerm;
 
+use Pionect\VismaSdk\Dto\CreditTermDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

@@ -16,8 +16,39 @@ beforeEach(function () {
 it('calls the kitSpecificationsGetAllRequest method in the KitSpecifications resource', function () {
     Saloon::fake([
         KitSpecificationsGetAllRequest::class => MockResponse::make([
-            0 => [],
-            1 => [],
+            'pageNumber' => 1,
+            'pageSize' => 2,
+            'totalCount' => 2,
+            'records' => [
+                0 => [
+                    'kitInventoryId' => 'mock-id-123',
+                    'revision' => 'String value',
+                    'description' => 'String value',
+                    'isActive' => true,
+                    'allowComponentAddition' => true,
+                    'isNonStock' => true,
+                    'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'stockComponentLines' => [],
+                    'nonStockComponentLines' => [],
+                    'timestamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                1 => [
+                    'kitInventoryId' => 'mock-id-123',
+                    'revision' => 'String value',
+                    'description' => 'String value',
+                    'isActive' => true,
+                    'allowComponentAddition' => true,
+                    'isNonStock' => true,
+                    'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'stockComponentLines' => [],
+                    'nonStockComponentLines' => [],
+                    'timestamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+            ],
         ], 200),
     ]);
 
@@ -150,10 +181,18 @@ it('calls the kitSpecificationsPutBykitInventoryIdrevisionIdRequest method in th
 it('calls the kitSpecificationsGetBykitInventoryIdRequest method in the KitSpecifications resource', function () {
     Saloon::fake([
         KitSpecificationsGetBykitInventoryIdRequest::class => MockResponse::make([
-            'pageNumber' => 42,
-            'pageSize' => 42,
-            'totalCount' => 42,
-            'records' => [],
+            'kitInventoryId' => 'mock-id-123',
+            'revision' => 'String value',
+            'description' => 'String value',
+            'isActive' => true,
+            'allowComponentAddition' => true,
+            'isNonStock' => true,
+            'createdDateTime' => '2025-11-22T10:40:04+00:00',
+            'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+            'stockComponentLines' => [],
+            'nonStockComponentLines' => [],
+            'timestamp' => 'String value',
+            'errorInfo' => 'String value',
         ], 200),
     ]);
 
@@ -170,7 +209,14 @@ it('calls the kitSpecificationsGetBykitInventoryIdRequest method in the KitSpeci
     $dto = $response->dto();
 
     expect($dto)
-        ->pageNumber->toBe(42)
-        ->pageSize->toBe(42)
-        ->totalCount->toBe(42);
+        ->kitInventoryId->toBe('mock-id-123')
+        ->revision->toBe('String value')
+        ->description->toBe('String value')
+        ->isActive->toBe(true)
+        ->allowComponentAddition->toBe(true)
+        ->isNonStock->toBe(true)
+        ->createdDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
+        ->timestamp->toBe('String value')
+        ->errorInfo->toBe('String value');
 });

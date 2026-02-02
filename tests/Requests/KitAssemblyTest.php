@@ -18,8 +18,59 @@ beforeEach(function () {
 it('calls the kitAssemblyGetKitAssembliesRequest method in the KitAssembly resource', function () {
     Saloon::fake([
         KitAssemblyGetKitAssembliesRequest::class => MockResponse::make([
-            0 => [],
-            1 => [],
+            'pageNumber' => 1,
+            'pageSize' => 2,
+            'totalCount' => 2,
+            'records' => [
+                0 => [
+                    'type' => 'String value',
+                    'refNo' => 'String value',
+                    'status' => 'String value',
+                    'hold' => true,
+                    'date' => '2025-11-22T10:40:04+00:00',
+                    'postPeriod' => 'String value',
+                    'itemId' => 'mock-id-123',
+                    'revision' => 'String value',
+                    'reasonCode' => 'String value',
+                    'description' => 'String value',
+                    'warehouse' => 'String value',
+                    'location' => 'String value',
+                    'uoM' => 'String value',
+                    'quantity' => 42,
+                    'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'salesOrderLink' => 'String value',
+                    'stockComponentLines' => [],
+                    'nonStockComponentLines' => [],
+                    'kitAllocations' => [],
+                    'timestamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+                1 => [
+                    'type' => 'String value',
+                    'refNo' => 'String value',
+                    'status' => 'String value',
+                    'hold' => true,
+                    'date' => '2025-11-22T10:40:04+00:00',
+                    'postPeriod' => 'String value',
+                    'itemId' => 'mock-id-123',
+                    'revision' => 'String value',
+                    'reasonCode' => 'String value',
+                    'description' => 'String value',
+                    'warehouse' => 'String value',
+                    'location' => 'String value',
+                    'uoM' => 'String value',
+                    'quantity' => 42,
+                    'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'salesOrderLink' => 'String value',
+                    'stockComponentLines' => [],
+                    'nonStockComponentLines' => [],
+                    'kitAllocations' => [],
+                    'timestamp' => 'String value',
+                    'errorInfo' => 'String value',
+                ],
+            ],
         ], 200),
     ]);
 
@@ -53,7 +104,7 @@ it('calls the kitAssemblyGetKitAssembliesRequest method in the KitAssembly resou
 
 it('calls the kitAssemblyPostRequest method in the KitAssembly resource', function () {
     $bodyData = new KitAssemblyInsertDto(
-        kitAssemblyLink: new KitAssemblyLinkInsertDto(
+        kitAssemblyLink: new \Pionect\VismaSdk\Dto\KitAssemblyLinkInsertDto(
             orderType: 'String value',
             orderNumber: 'String value',
             orderLineNumber: 42

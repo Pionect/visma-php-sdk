@@ -274,7 +274,7 @@ it('calls the customerDebitNoteUpdateBydebitNoteNumberRequest method in the Cust
         domesticServicesDeductibleDocument: true,
         paymentReference: 'String value',
         contact: 42,
-        rotRutDetails: new RotRutUpdateDto(
+        rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
             type: 'String value',
             appartment: 'String value',
@@ -748,7 +748,7 @@ it('calls the customerDebitNoteCreateRequest method in the CustomerDebitNote res
         domesticServicesDeductibleDocument: true,
         paymentReference: 'String value',
         contact: 42,
-        rotRutDetails: new RotRutUpdateDto(
+        rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
             type: 'String value',
             appartment: 'String value',

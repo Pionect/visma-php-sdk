@@ -9,6 +9,7 @@ use Crescat\SaloonSdkGenerator\Data\Generator\Endpoint;
 use Crescat\SaloonSdkGenerator\Generators\RequestGenerator;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Method;
+use Pionect\VismaSdk\Generator\Helpers\PlainJsonDtoResolver;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 class PlainJsonRequestGenerator extends RequestGenerator
@@ -16,6 +17,11 @@ class PlainJsonRequestGenerator extends RequestGenerator
     public function __construct(?Config $config = null)
     {
         parent::__construct($config);
+
+        // Replace with custom resolver that unwraps BasePaginationDto
+        if ($config) {
+            $this->dtoResolver = new PlainJsonDtoResolver($config);
+        }
 
         // Configure for plain JSON format
         $this->responseDataPath = null;
@@ -51,15 +57,8 @@ class PlainJsonRequestGenerator extends RequestGenerator
      */
     protected function addHydrationMethodBody(Method $method, Endpoint $endpoint, string $dtoClassName): void
     {
-        // Check if this is a BasePaginationDtoOf* wrapper (Visma-specific format)
-        $isBasePagination = preg_match('/^BasePaginationDtoOf(.+)Dto$/', $dtoClassName, $matches);
-
-        if ($isBasePagination) {
-            // Extract actual item DTO name (e.g., "CustomerDto" from "BasePaginationDtoOfCustomerDto")
-            $itemDtoClassName = $matches[1].'Dto';
-        } else {
-            $itemDtoClassName = $dtoClassName;
-        }
+        // Check if the original response schema is BasePaginationDto
+        $isBasePagination = $this->dtoResolver->isBasePaginationResponse($endpoint);
 
         if ($this->isCollectionRequest($endpoint)) {
             // Collection: extract from 'records' for BasePaginationDto, or root for standard arrays
@@ -70,11 +69,11 @@ class PlainJsonRequestGenerator extends RequestGenerator
             }
             $method->addBody('');
             $method->addBody('return collect($data)->map(');
-            $method->addBody('    fn(array $item) => '.$itemDtoClassName.'::from($item)');
+            $method->addBody('    fn (array $item) => '.$dtoClassName.'::from($item)');
             $method->addBody(');');
         } else {
             // Single resource: extract from root
-            $method->addBody('return '.$itemDtoClassName.'::from($response->json());');
+            $method->addBody('return '.$dtoClassName.'::from($response->json());');
         }
     }
 }

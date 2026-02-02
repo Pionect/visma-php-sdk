@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\SalesPerson;
 
+use Pionect\VismaSdk\Dto\SalesPersonDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

@@ -136,7 +136,7 @@ it('calls the projectTaskPutByinternalIdRequest method in the ProjectTask resour
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rateTable: 'String value',
         status: 'String value',
-        visibility: new VisibilityUpdateDto(
+        visibility: new \Pionect\VismaSdk\Dto\VisibilityUpdateDto(
             visibleInGl: true,
             visibleInAp: true,
             visibleInAr: true,
@@ -178,7 +178,7 @@ it('calls the projectTaskPostByinternalIdRequest method in the ProjectTask resou
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rateTable: 'String value',
         status: 'String value',
-        visibility: new VisibilityUpdateDto(
+        visibility: new \Pionect\VismaSdk\Dto\VisibilityUpdateDto(
             visibleInGl: true,
             visibleInAp: true,
             visibleInAr: true,

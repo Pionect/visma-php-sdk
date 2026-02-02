@@ -7,12 +7,12 @@ namespace Pionect\VismaSdk\Generator\Commands;
 use Crescat\SaloonSdkGenerator\CodeGenerator;
 use Crescat\SaloonSdkGenerator\Data\Generator\Config;
 use Crescat\SaloonSdkGenerator\Data\TaggedOutputFile;
-use Crescat\SaloonSdkGenerator\Generators\PestTestGenerator;
 use Crescat\SaloonSdkGenerator\Generators\ResourceGenerator;
 use Crescat\SaloonSdkGenerator\Parsers\OpenApiParser;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonConnectorGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonDtoGenerator;
 use Pionect\VismaSdk\Generator\Generators\PlainJsonRequestGenerator;
+use Pionect\VismaSdk\Generator\Generators\PlainJsonTestGenerator;
 use Pionect\VismaSdk\Generator\Services\ComposerSetup;
 use Pionect\VismaSdk\Generator\Services\PintRunner;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -113,7 +113,7 @@ class GenerateCommand extends Command
         // Configure post-processors
         $postProcessors = [];
 
-        $postProcessors[] = new PestTestGenerator;
+        $postProcessors[] = new PlainJsonTestGenerator;
 
         // Generate code using Plain JSON generators
         $this->io->section('Generating SDK');

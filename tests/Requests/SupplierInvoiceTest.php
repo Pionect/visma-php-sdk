@@ -242,7 +242,7 @@ it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInv
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: new ApprovalDetailsUpdateDto(
+        approvalDetails: new \Pionect\VismaSdk\Dto\ApprovalDetailsUpdateDto(
             attachmentId: 'mock-id-123',
             comment: 'String value'
         ),
@@ -500,7 +500,7 @@ it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method 
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: new ApprovalDetailsUpdateDto(
+        approvalDetails: new \Pionect\VismaSdk\Dto\ApprovalDetailsUpdateDto(
             attachmentId: 'mock-id-123',
             comment: 'String value'
         ),
@@ -877,7 +877,7 @@ it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource'
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: new ApprovalDetailsUpdateDto(
+        approvalDetails: new \Pionect\VismaSdk\Dto\ApprovalDetailsUpdateDto(
             attachmentId: 'mock-id-123',
             comment: 'String value'
         ),

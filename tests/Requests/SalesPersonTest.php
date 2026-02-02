@@ -84,8 +84,41 @@ it('calls the salesPersonUpdateSalespersonBysalespersonCdRequest method in the S
 it('calls the salesPersonGetSalespersonsRequest method in the SalesPerson resource', function () {
     Saloon::fake([
         SalesPersonGetSalespersonsRequest::class => MockResponse::make([
-            0 => [],
-            1 => [],
+            'pageNumber' => 1,
+            'pageSize' => 2,
+            'totalCount' => 2,
+            'records' => [
+                0 => [
+                    'salespersonId' => 'mock-id-123',
+                    'name' => 'String value',
+                    'isActive' => true,
+                    'commissionPct' => 42,
+                    'salesSub' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                    'customers' => [],
+                    'commissionHistory' => [],
+                    'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'errorInfo' => 'String value',
+                ],
+                1 => [
+                    'salespersonId' => 'mock-id-123',
+                    'name' => 'String value',
+                    'isActive' => true,
+                    'commissionPct' => 42,
+                    'salesSub' => [
+                        'active' => true,
+                        'description' => 'String value',
+                    ],
+                    'customers' => [],
+                    'commissionHistory' => [],
+                    'createdDateTime' => '2025-11-22T10:40:04+00:00',
+                    'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
+                    'errorInfo' => 'String value',
+                ],
+            ],
         ], 200),
     ]);
 

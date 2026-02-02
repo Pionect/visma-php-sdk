@@ -966,7 +966,7 @@ it('calls the projectPostRequest method in the Project resource', function () {
         restricEmployees: true,
         restricEquipment: true,
         customerLocation: 'String value',
-        visibility: new VisibilityUpdateDto(
+        visibility: new \Pionect\VismaSdk\Dto\VisibilityUpdateDto(
             visibleInGl: true,
             visibleInAp: true,
             visibleInAr: true,
@@ -1251,7 +1251,7 @@ it('calls the projectPutByprojectIdRequest method in the Project resource', func
         restricEmployees: true,
         restricEquipment: true,
         customerLocation: 'String value',
-        visibility: new VisibilityUpdateDto(
+        visibility: new \Pionect\VismaSdk\Dto\VisibilityUpdateDto(
             visibleInGl: true,
             visibleInAp: true,
             visibleInAr: true,
@@ -1312,7 +1312,7 @@ it('calls the projectPutByinternalIdRequest method in the Project resource', fun
         restricEmployees: true,
         restricEquipment: true,
         customerLocation: 'String value',
-        visibility: new VisibilityUpdateDto(
+        visibility: new \Pionect\VismaSdk\Dto\VisibilityUpdateDto(
             visibleInGl: true,
             visibleInAp: true,
             visibleInAr: true,

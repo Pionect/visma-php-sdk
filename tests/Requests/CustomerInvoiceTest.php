@@ -344,7 +344,7 @@ it('calls the customerInvoiceUpdateByinvoiceNumberRequest method in the Customer
         customerProject: 'String value',
         exchangeRate: 42,
         domesticServicesDeductibleDocument: true,
-        rotRutDetails: new RotRutUpdateDto(
+        rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
             type: 'String value',
             appartment: 'String value',
@@ -963,7 +963,7 @@ it('calls the customerInvoiceCreateRequest method in the CustomerInvoice resourc
         customerProject: 'String value',
         exchangeRate: 42,
         domesticServicesDeductibleDocument: true,
-        rotRutDetails: new RotRutUpdateDto(
+        rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
             type: 'String value',
             appartment: 'String value',

@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\KitAssembly;
 
+use Pionect\VismaSdk\Dto\KitAssemblyDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;

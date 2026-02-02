@@ -21,7 +21,7 @@ it('calls the customerInvoiceV2createRequest method in the CustomerInvoiceV2 res
         customerProject: 'String value',
         exchangeRate: 42,
         domesticServicesDeductibleDocument: true,
-        rotRutDetails: new RotRutUpdateDto(
+        rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
             type: 'String value',
             appartment: 'String value',
