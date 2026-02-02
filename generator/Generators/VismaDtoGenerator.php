@@ -13,6 +13,7 @@ use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Literal;
 use Nette\PhpGenerator\Method;
 use Nette\PhpGenerator\PhpNamespace;
+use Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 class VismaDtoGenerator extends DtoGenerator
@@ -128,18 +129,12 @@ class VismaDtoGenerator extends DtoGenerator
      */
     protected function afterDtoClassGenerated(ClassType $classType, PhpNamespace $namespace, Schema $schema): void
     {
-        // Add Model parent class and factory support
-        $modelClass = $this->config->namespace.'\\Foundation\\Hydration\\Model';
         $dtoName = $classType->getName();
         $factoryClass = $this->config->namespace.'\\Factories\\'.$dtoName.'Factory';
 
-        // Update parent class to Model instead of Data
-        $classType->setExtends($modelClass);
+        $classType->addTrait(HasTestFactory::class);
 
         // Add PHPDoc for factory method
-        $classType->addComment("@extends \\{$modelClass}<\\{$factoryClass}>");
         $classType->addComment("@method static \\{$factoryClass} testFactory()");
-
-        $namespace->addUse($modelClass);
     }
 }

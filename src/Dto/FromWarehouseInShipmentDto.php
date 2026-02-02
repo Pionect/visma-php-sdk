@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: The top part &gt; Warehouse ID* &gt; The warehouse from which the goods should be
  * shipped.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FromWarehouseInShipmentDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\FromWarehouseInShipmentDtoFactory testFactory()
  */
-class FromWarehouseInShipmentDto extends Model
+class FromWarehouseInShipmentDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

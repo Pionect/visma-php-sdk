@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Information collected from the system. Some accounts visible in window, some not.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GlAccountsInCustomerDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\GlAccountsInCustomerDtoFactory testFactory()
  */
-class GlAccountsInCustomerDto extends Model
+class GlAccountsInCustomerDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?AccountNumberTypeDescriptionDto $customerLedgerAccount = null,
         public ?SubAccountDto $customerLedgerSubaccount = null,

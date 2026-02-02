@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The Organisation details tab &gt; Base currency settings (shared) section &gt; This group of
  * elements holds information that is shared among all branches of the company.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CurrencyInBranchDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CurrencyInBranchDtoFactory testFactory()
  */
-class CurrencyInBranchDto extends Model
+class CurrencyInBranchDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Item ID &gt; The ID of the non-stock item specified as the transaction subject.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ItemInTransactionDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ItemInTransactionDetailDtoFactory testFactory()
  */
-class ItemInTransactionDetailDto extends Model
+class ItemInTransactionDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $description = null,

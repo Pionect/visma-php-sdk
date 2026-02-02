@@ -3,17 +3,17 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AttributeUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AttributeUpdateDtoFactory testFactory()
  */
-class AttributeUpdateDto extends Model
+class AttributeUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('attributeID'), WithTransformer(ValueWrapperTransformer::class)]
         public ?string $attributeId = null,

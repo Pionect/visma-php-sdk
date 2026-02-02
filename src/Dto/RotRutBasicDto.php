@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RotRutBasicDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\RotRutBasicDtoFactory testFactory()
  */
-class RotRutBasicDto extends Model
+class RotRutBasicDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $distributedAutomaticaly = null,
         public ?string $type = null,

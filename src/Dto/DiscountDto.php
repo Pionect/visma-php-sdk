@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\DiscountDtoFactory testFactory()
  */
-class DiscountDto extends Model
+class DiscountDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $discountCode = null,
         public ?string $series = null,

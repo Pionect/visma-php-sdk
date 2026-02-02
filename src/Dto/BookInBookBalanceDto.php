@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The book details of this fixed asset
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BookInBookBalanceDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BookInBookBalanceDtoFactory testFactory()
  */
-class BookInBookBalanceDto extends Model
+class BookInBookBalanceDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('bookID')]
         public ?string $bookId = null,

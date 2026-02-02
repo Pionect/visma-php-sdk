@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a inventory issue in InventoryIssueController. Used by getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryTransferDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventoryTransferDtoFactory testFactory()
  */
-class InventoryTransferDto extends Model
+class InventoryTransferDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?WarehouseInInventoryTransferDto $warehouse = null,
         public ?ToWarehouseInInventoryTransferDto $toWarehouse = null,

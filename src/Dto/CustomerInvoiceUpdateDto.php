@@ -3,17 +3,17 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerInvoiceUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerInvoiceUpdateDtoFactory testFactory()
  */
-class CustomerInvoiceUpdateDto extends Model
+class CustomerInvoiceUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $paymentMethodId = null,

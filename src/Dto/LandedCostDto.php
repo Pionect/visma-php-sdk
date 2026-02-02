@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Landed Cost Line for Purchase Receipt in PurchaseReceiptController. Used for
  * getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LandedCostDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LandedCostDtoFactory testFactory()
  */
-class LandedCostDto extends Model
+class LandedCostDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $lineNbr = null,
         public ?string $landedCostCode = null,

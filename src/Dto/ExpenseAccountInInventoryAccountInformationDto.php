@@ -2,19 +2,19 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Only used for Non-stock items.
  * Mandatory field: Expense account* &gt; The default expense account
  * to be used for this non-stock item.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseAccountInInventoryAccountInformationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ExpenseAccountInInventoryAccountInformationDtoFactory testFactory()
  */
-class ExpenseAccountInInventoryAccountInformationDto extends Model
+class ExpenseAccountInInventoryAccountInformationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $number = null,

@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: Document details tab &gt; Subaccount* &gt; The corresponding subaccount to be used
  * for invoices and adjustments.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInSupplierDocumentDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SubaccountInSupplierDocumentDtoFactory testFactory()
  */
-class SubaccountInSupplierDocumentDto extends Model
+class SubaccountInSupplierDocumentDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $subaccountNumber = null,
         public ?int $subaccountId = null,

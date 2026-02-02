@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Purchase Order Line in PurchaseOrderController. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseOrderLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PurchaseOrderLineDtoFactory testFactory()
  */
-class PurchaseOrderLineDto extends Model
+class PurchaseOrderLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $lineNbr = null,
         public ?BranchInPurchaseOrderLineDto $branch = null,

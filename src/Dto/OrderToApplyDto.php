@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents an OrderToApply in Payments
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OrderToApplyDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\OrderToApplyDtoFactory testFactory()
  */
-class OrderToApplyDto extends Model
+class OrderToApplyDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $orderType = null,
         public ?string $orderNo = null,

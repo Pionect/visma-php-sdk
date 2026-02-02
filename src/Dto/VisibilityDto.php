@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VisibilityDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\VisibilityDtoFactory testFactory()
  */
-class VisibilityDto extends Model
+class VisibilityDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $visibleInGl = null,
         public ?bool $visibleInAp = null,

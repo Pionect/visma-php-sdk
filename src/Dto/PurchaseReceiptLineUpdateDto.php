@@ -3,19 +3,19 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Purchase Order Line in PurchaseReceiptContraoller. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseReceiptLineUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PurchaseReceiptLineUpdateDtoFactory testFactory()
  */
-class PurchaseReceiptLineUpdateDto extends Model
+class PurchaseReceiptLineUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?array $allocations = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

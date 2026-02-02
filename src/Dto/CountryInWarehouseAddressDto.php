@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Country &gt; The country where the warehouse is located.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CountryInWarehouseAddressDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CountryInWarehouseAddressDtoFactory testFactory()
  */
-class CountryInWarehouseAddressDto extends Model
+class CountryInWarehouseAddressDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $name = null,

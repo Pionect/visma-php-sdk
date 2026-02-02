@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesCategoryLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SalesCategoryLineDtoFactory testFactory()
  */
-class SalesCategoryLineDto extends Model
+class SalesCategoryLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $categoryId = null,
         public ?string $description = null,

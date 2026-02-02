@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The Commissions tab &gt; Salesperson ID &gt; The salesperson.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesPersonInSalesOrderDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SalesPersonInSalesOrderDtoFactory testFactory()
  */
-class SalesPersonInSalesOrderDto extends Model
+class SalesPersonInSalesOrderDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

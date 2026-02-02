@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Document details tab &gt; Location &gt; The location where the item has been received.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInPurchaseReceiptLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LocationInPurchaseReceiptLineDtoFactory testFactory()
  */
-class LocationInPurchaseReceiptLineDto extends Model
+class LocationInPurchaseReceiptLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $countryId = null,
         public ?string $id = null,

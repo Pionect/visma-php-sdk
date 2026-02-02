@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a ApInvoice in SupplierInvoiceController. Used by getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierInvoiceDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SupplierInvoiceDtoFactory testFactory()
  */
-class SupplierInvoiceDto extends Model
+class SupplierInvoiceDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?array $taxDetailLines = null,
         public ?array $attachments = null,

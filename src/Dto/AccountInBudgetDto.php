@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: The budget area &gt; The budget articles pane &gt; Account* &gt; The account of the
  * budget article if the article is a leaf on the budget tree.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInBudgetDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AccountInBudgetDtoFactory testFactory()
  */
-class AccountInBudgetDto extends Model
+class AccountInBudgetDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

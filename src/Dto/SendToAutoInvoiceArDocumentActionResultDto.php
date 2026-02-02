@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SendToAutoInvoiceArDocumentActionResultDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SendToAutoInvoiceArDocumentActionResultDtoFactory testFactory()
  */
-class SendToAutoInvoiceArDocumentActionResultDto extends Model
+class SendToAutoInvoiceArDocumentActionResultDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $refNbr = null,
         public ?string $documentType = null,

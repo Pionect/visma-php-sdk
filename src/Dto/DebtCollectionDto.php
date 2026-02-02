@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Debt Collection information for an invoice
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DebtCollectionDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\DebtCollectionDtoFactory testFactory()
  */
-class DebtCollectionDto extends Model
+class DebtCollectionDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $caseNumber = null,
         public ?string $caseType = null,

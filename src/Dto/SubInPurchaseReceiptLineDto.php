@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Document details tab &gt; Sub ID &gt; The subaccount to be used to record the non-stock item amount
  * on the purchase receipt (for non-stock items for which receipts are not required).
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubInPurchaseReceiptLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SubInPurchaseReceiptLineDtoFactory testFactory()
  */
-class SubInPurchaseReceiptLineDto extends Model
+class SubInPurchaseReceiptLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $active = null,
         public ?string $id = null,

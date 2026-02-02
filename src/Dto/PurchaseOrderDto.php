@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Purchase Order in PurchaseOrderController. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseOrderDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PurchaseOrderDtoFactory testFactory()
  */
-class PurchaseOrderDto extends Model
+class PurchaseOrderDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $shippingDestinationType = null,
         public ?ShipToInPurchaseOrderDto $shipTo = null,

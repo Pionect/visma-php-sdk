@@ -2,19 +2,19 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Summary tab &gt; Project properties section &gt; Project manager &gt; The person who is responsible
  * for managing the project and authorised to approve the project task and task activities.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectManagerInProjectDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ProjectManagerInProjectDtoFactory testFactory()
  */
-class ProjectManagerInProjectDto extends Model
+class ProjectManagerInProjectDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $employeeUserId = null,
         public ?int $employeeId = null,

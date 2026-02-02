@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectAccountGroupDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ProjectAccountGroupDtoFactory testFactory()
  */
-class ProjectAccountGroupDto extends Model
+class ProjectAccountGroupDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $accountGroupId = null,
         public ?bool $active = null,

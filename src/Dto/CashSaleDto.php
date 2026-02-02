@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a invoice in InvoiceController. Used by getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CashSaleDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CashSaleDtoFactory testFactory()
  */
-class CashSaleDto extends Model
+class CashSaleDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?CreditTermsInCashSaleDto $creditTerms = null,
         public ?array $cashSaleLines = null,

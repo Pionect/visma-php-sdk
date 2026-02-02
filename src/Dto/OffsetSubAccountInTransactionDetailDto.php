@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: Offset subaccount* &gt; The corresponding subaccount to be used for the
  * transaction.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetSubAccountInTransactionDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\OffsetSubAccountInTransactionDetailDtoFactory testFactory()
  */
-class OffsetSubAccountInTransactionDetailDto extends Model
+class OffsetSubAccountInTransactionDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $subaccountNumber = null,
         public ?int $subaccountId = null,

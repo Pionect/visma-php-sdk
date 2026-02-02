@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Default accounts for the fixed asset using this fixed asset class
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountsInFixedAssetClassDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AccountsInFixedAssetClassDtoFactory testFactory()
  */
-class AccountsInFixedAssetClassDto extends Model
+class AccountsInFixedAssetClassDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('accountID')]
         public ?string $accountId = null,

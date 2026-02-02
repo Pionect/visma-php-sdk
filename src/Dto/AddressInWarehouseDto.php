@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Address information tab &gt; Address section &gt;
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AddressInWarehouseDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AddressInWarehouseDtoFactory testFactory()
  */
-class AddressInWarehouseDto extends Model
+class AddressInWarehouseDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $addressId = null,
         public ?string $addressType = null,

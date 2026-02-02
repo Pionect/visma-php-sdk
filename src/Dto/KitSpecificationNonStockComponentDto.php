@@ -2,16 +2,16 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\KitSpecificationNonStockComponentDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\KitSpecificationNonStockComponentDtoFactory testFactory()
  */
-class KitSpecificationNonStockComponentDto extends Model
+class KitSpecificationNonStockComponentDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $lineNbr = null,
         #[MapName('componentID')]

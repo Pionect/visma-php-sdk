@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Delivery settings tab &gt; Delivery address contact section
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SoShippingContactInSalesOrderDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SoShippingContactInSalesOrderDtoFactory testFactory()
  */
-class SoShippingContactInSalesOrderDto extends Model
+class SoShippingContactInSalesOrderDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $overrideContact = null,
         public ?int $contactId = null,

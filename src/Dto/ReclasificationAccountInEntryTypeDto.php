@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Reclassification account &gt;  &gt; The cash account that is used to temporary hold payments that
@@ -10,12 +10,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * unknown.
  * The parameter is used together with the Use for payments reclassification check box.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReclasificationAccountInEntryTypeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ReclasificationAccountInEntryTypeDtoFactory testFactory()
  */
-class ReclasificationAccountInEntryTypeDto extends Model
+class ReclasificationAccountInEntryTypeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

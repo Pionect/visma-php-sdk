@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Delivery settings tab &gt; Intrastat section &gt; Transaction type
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TransactionTypeInSalesOrderDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\TransactionTypeInSalesOrderDtoFactory testFactory()
  */
-class TransactionTypeInSalesOrderDto extends Model
+class TransactionTypeInSalesOrderDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $id = null,
         public ?string $description = null,

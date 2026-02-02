@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: Branch &gt; The branch that will reimburse the expenses to the employee.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchInExpenseClaimDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BranchInExpenseClaimDetailDtoFactory testFactory()
  */
-class BranchInExpenseClaimDetailDto extends Model
+class BranchInExpenseClaimDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

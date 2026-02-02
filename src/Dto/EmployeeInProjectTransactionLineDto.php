@@ -2,19 +2,19 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Employee &gt; The employee associated with the transaction, such as the employee who worked on the
  * project for the customer.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeInProjectTransactionLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\EmployeeInProjectTransactionLineDtoFactory testFactory()
  */
-class EmployeeInProjectTransactionLineDto extends Model
+class EmployeeInProjectTransactionLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $employeeUserId = null,
         public ?int $employeeId = null,

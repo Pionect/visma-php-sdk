@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * General information tab &gt; Intrastat section
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\IntrastatInInventoryDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\IntrastatInInventoryDtoFactory testFactory()
  */
-class IntrastatInInventoryDto extends Model
+class IntrastatInInventoryDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $cN8 = null,
         public ?string $countryOfOrigin = null,

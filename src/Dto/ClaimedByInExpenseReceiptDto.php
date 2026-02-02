@@ -2,19 +2,19 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: The top part &gt; Claimed by* &gt; 	The name of the employee who is claiming the
  * expenses.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ClaimedByInExpenseReceiptDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ClaimedByInExpenseReceiptDtoFactory testFactory()
  */
-class ClaimedByInExpenseReceiptDto extends Model
+class ClaimedByInExpenseReceiptDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $employeeUserId = null,
         public ?int $employeeId = null,

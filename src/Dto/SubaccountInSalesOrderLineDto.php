@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Subaccount &gt; A subcategory of the account that carries identifying information.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInSalesOrderLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SubaccountInSalesOrderLineDtoFactory testFactory()
  */
-class SubaccountInSalesOrderLineDto extends Model
+class SubaccountInSalesOrderLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $active = null,
         public ?string $id = null,

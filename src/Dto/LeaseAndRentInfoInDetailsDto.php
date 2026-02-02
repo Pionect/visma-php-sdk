@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The lease and rent infor for this fixed asset
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LeaseAndRentInfoInDetailsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LeaseAndRentInfoInDetailsDtoFactory testFactory()
  */
-class LeaseAndRentInfoInDetailsDto extends Model
+class LeaseAndRentInfoInDetailsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('lessorID')]
         public ?string $lessorId = null,

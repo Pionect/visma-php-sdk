@@ -3,16 +3,16 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LinkLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LinkLineDtoFactory testFactory()
  */
-class LinkLineDto extends Model
+class LinkLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $purchaseType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

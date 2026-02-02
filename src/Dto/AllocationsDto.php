@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Allocations for Purchase Receipt Line in PurchaseReceiptController. Used for
  * getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AllocationsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AllocationsDtoFactory testFactory()
  */
-class AllocationsDto extends Model
+class AllocationsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $lineNbr = null,
         public ?string $itemId = null,

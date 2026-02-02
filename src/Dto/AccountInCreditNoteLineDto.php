@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: Account* &gt; The sales account used for the transaction.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInCreditNoteLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AccountInCreditNoteLineDtoFactory testFactory()
  */
-class AccountInCreditNoteLineDto extends Model
+class AccountInCreditNoteLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

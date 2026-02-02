@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The Financial details tab &gt; The VAT info section &gt; Dunning letter date &gt;
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerVatZoneInCustomerInvoiceDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerVatZoneInCustomerInvoiceDtoFactory testFactory()
  */
-class CustomerVatZoneInCustomerInvoiceDto extends Model
+class CustomerVatZoneInCustomerInvoiceDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

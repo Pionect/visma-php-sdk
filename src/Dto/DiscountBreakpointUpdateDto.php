@@ -3,16 +3,16 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DiscountBreakpointUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\DiscountBreakpointUpdateDtoFactory testFactory()
  */
-class DiscountBreakpointUpdateDto extends Model
+class DiscountBreakpointUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

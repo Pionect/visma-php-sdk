@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * CustomerBalanceV2Dto
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerBalanceV2dtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerBalanceV2dtoFactory testFactory()
  */
-class CustomerBalanceV2dto extends Model
+class CustomerBalanceV2dto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?BranchNumberInCustomerBalanceV2dto $branchNumber = null,
         public ?CustomerInCustomerBalanceV2dto $customer = null,

@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Default offset account &gt; The account that is used by default as the offset account for this entry
  * type.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DefaultOffsetAccountInEntryTypeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\DefaultOffsetAccountInEntryTypeDtoFactory testFactory()
  */
-class DefaultOffsetAccountInEntryTypeDto extends Model
+class DefaultOffsetAccountInEntryTypeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

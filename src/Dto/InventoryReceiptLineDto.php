@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryReceiptLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventoryReceiptLineDtoFactory testFactory()
  */
-class InventoryReceiptLineDto extends Model
+class InventoryReceiptLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?WarehouseInInventoryReceiptLineDto $warehouse = null,
         public int|float|null $unitCost = null,

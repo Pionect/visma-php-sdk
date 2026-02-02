@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Business account &gt; The supplier account, if the entry type is used to record transactions that
@@ -10,12 +10,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * if the entry type is used to record
  * transactions that involve a particular customer.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BusinessAccountInEntryTypeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BusinessAccountInEntryTypeDtoFactory testFactory()
  */
-class BusinessAccountInEntryTypeDto extends Model
+class BusinessAccountInEntryTypeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

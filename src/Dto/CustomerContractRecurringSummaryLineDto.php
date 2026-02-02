@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a CustomerContractRecurringSummaryLine in CustomerContractController. Used for
  * getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerContractRecurringSummaryLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerContractRecurringSummaryLineDtoFactory testFactory()
  */
-class CustomerContractRecurringSummaryLineDto extends Model
+class CustomerContractRecurringSummaryLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $itemCode = null,
         public ?string $description = null,

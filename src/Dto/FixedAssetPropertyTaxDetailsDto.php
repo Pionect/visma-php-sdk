@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents an attribute in FixedAssetPropertyTaxGroup. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetPropertyTaxDetailsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\FixedAssetPropertyTaxDetailsDtoFactory testFactory()
  */
-class FixedAssetPropertyTaxDetailsDto extends Model
+class FixedAssetPropertyTaxDetailsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?\Carbon\Carbon $date = null,
         public int|float|null $propertyValue = null,

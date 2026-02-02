@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Customer &gt; The identifier of the customer associated with the expense.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerInExpenseClaimDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerInExpenseClaimDetailDtoFactory testFactory()
  */
-class CustomerInExpenseClaimDetailDto extends Model
+class CustomerInExpenseClaimDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

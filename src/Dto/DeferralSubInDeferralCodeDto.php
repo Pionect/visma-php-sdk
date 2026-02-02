@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Deferral sub &gt; The corresponding subaccount.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DeferralSubInDeferralCodeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\DeferralSubInDeferralCodeDtoFactory testFactory()
  */
-class DeferralSubInDeferralCodeDto extends Model
+class DeferralSubInDeferralCodeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $active = null,
         public ?string $id = null,

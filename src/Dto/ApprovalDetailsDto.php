@@ -2,16 +2,16 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ApprovalDetailsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ApprovalDetailsDtoFactory testFactory()
  */
-class ApprovalDetailsDto extends Model
+class ApprovalDetailsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('attachmentID')]
         public ?string $attachmentId = null,

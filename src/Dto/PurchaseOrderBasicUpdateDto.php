@@ -3,9 +3,9 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represent a Purchase Order in Purchase Order Controller. Used to pass data to server for
@@ -13,12 +13,12 @@ use Spatie\LaravelData\Attributes\WithTransformer;
  * Supplier is mandatory to create Purchase Order, customer can be
  * identified by Supplier, GLN or VatRegistrationId
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseOrderBasicUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PurchaseOrderBasicUpdateDtoFactory testFactory()
  */
-class PurchaseOrderBasicUpdateDto extends Model
+class PurchaseOrderBasicUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $orderType = null,

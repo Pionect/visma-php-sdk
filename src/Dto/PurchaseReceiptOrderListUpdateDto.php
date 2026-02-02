@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a list of Purchase Orders to add to a Purchase Receipt.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseReceiptOrderListUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PurchaseReceiptOrderListUpdateDtoFactory testFactory()
  */
-class PurchaseReceiptOrderListUpdateDto extends Model
+class PurchaseReceiptOrderListUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?array $purchaseOrders = null,
     ) {}

@@ -3,16 +3,16 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesInvoiceAddressUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SalesInvoiceAddressUpdateDtoFactory testFactory()
  */
-class SalesInvoiceAddressUpdateDto extends Model
+class SalesInvoiceAddressUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideAddress = null,

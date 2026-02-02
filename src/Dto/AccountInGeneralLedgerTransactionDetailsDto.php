@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Account &gt; The account updated by the batch transactions.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInGeneralLedgerTransactionDetailsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AccountInGeneralLedgerTransactionDetailsDtoFactory testFactory()
  */
-class AccountInGeneralLedgerTransactionDetailsDto extends Model
+class AccountInGeneralLedgerTransactionDetailsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

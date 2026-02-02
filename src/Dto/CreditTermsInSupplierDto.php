@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * General information tab &gt; Financial settings section &gt; Terms &gt; The type of credit terms
  * used in operations with the supplier.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditTermsInSupplierDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CreditTermsInSupplierDtoFactory testFactory()
  */
-class CreditTermsInSupplierDto extends Model
+class CreditTermsInSupplierDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

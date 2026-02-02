@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BasePaginationDtoOfKitAssemblyDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BasePaginationDtoOfKitAssemblyDtoFactory testFactory()
  */
-class BasePaginationDtoOfKitAssemblyDto extends Model
+class BasePaginationDtoOfKitAssemblyDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $pageNumber = null,
         public ?int $pageSize = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: The top part &gt; Branch* &gt; The branch associated with the company.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchInWarehouseDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BranchInWarehouseDtoFactory testFactory()
  */
-class BranchInWarehouseDto extends Model
+class BranchInWarehouseDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

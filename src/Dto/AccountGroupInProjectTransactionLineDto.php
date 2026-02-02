@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Account group &gt; The account group of the debit side account of the transaction.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountGroupInProjectTransactionLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AccountGroupInProjectTransactionLineDtoFactory testFactory()
  */
-class AccountGroupInProjectTransactionLineDto extends Model
+class AccountGroupInProjectTransactionLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

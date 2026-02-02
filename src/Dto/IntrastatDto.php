@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Intrastat part of InventoryItem in InventoryItemController. Used for getting
  * data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\IntrastatDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\IntrastatDtoFactory testFactory()
  */
-class IntrastatDto extends Model
+class IntrastatDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $cN8 = null,
         public ?string $countryOfOrigin = null,

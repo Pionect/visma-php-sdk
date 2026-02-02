@@ -3,18 +3,18 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Expense Receipt in ExpenseReceiptController. Used to post data to server.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseReceiptUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ExpenseReceiptUpdateDtoFactory testFactory()
  */
-class ExpenseReceiptUpdateDto extends Model
+class ExpenseReceiptUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $date = null,

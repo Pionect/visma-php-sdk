@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: The top part &gt; Location* &gt; The supplier's location. Main location by default.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInSupplierPaymentDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LocationInSupplierPaymentDtoFactory testFactory()
  */
-class LocationInSupplierPaymentDto extends Model
+class LocationInSupplierPaymentDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $countryId = null,
         public ?string $id = null,

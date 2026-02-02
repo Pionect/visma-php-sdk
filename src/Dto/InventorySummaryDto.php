@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a InventorySummary in InventorySummaryController. Used by getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventorySummaryDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventorySummaryDtoFactory testFactory()
  */
-class InventorySummaryDto extends Model
+class InventorySummaryDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?InventoryInInventorySummaryDto $inventory = null,
         public ?WarehouseInInventorySummaryDto $warehouse = null,

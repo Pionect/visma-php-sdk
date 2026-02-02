@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Table SigmaExternalCodes2 &gt; The information row connected through the ExternalCode2
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExternalCode2infoInAccountDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ExternalCode2infoInAccountDtoFactory testFactory()
  */
-class ExternalCode2infoInAccountDto extends Model
+class ExternalCode2infoInAccountDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $description = null,

@@ -3,20 +3,20 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represent a Sales Order in Sales Order Controller. Used to pass data to server for
  * creating or updating an order
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesOrderUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SalesOrderUpdateDtoFactory testFactory()
  */
-class SalesOrderUpdateDto extends Model
+class SalesOrderUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $project = null,

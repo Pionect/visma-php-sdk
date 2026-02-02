@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a invoice in CustomerOverdueChargeController. Used by getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerOverdueChargeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerOverdueChargeDtoFactory testFactory()
  */
-class CustomerOverdueChargeDto extends Model
+class CustomerOverdueChargeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?CreditTermsInCustomerOverdueChargeDto $creditTerms = null,
         public ?\Carbon\Carbon $documentDueDate = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: Item ID* &gt; The ID of the goods to be transferred.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryItemInInventoryIssueLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventoryItemInInventoryIssueLineDtoFactory testFactory()
  */
-class InventoryItemInInventoryIssueLineDto extends Model
+class InventoryItemInInventoryIssueLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $description = null,

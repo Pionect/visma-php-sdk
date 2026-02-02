@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Stocktaking details tab &gt; Item ID &gt; The item ID of the item.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryInStocktakeLineV2dtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventoryInStocktakeLineV2dtoFactory testFactory()
  */
-class InventoryInStocktakeLineV2dto extends Model
+class InventoryInStocktakeLineV2dto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $internalId = null,
         public ?string $id = null,

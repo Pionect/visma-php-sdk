@@ -3,18 +3,18 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Location in LocationController. Used to create and update Location.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierLocationUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SupplierLocationUpdateDtoFactory testFactory()
  */
-class SupplierLocationUpdateDto extends Model
+class SupplierLocationUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $baccountId = null,

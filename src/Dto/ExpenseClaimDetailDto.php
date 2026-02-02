@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseClaimDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ExpenseClaimDetailDtoFactory testFactory()
  */
-class ExpenseClaimDetailDto extends Model
+class ExpenseClaimDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $claimDetailId = null,
         public ?string $lineId = null,

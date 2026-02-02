@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Rate table &gt; The rate table to be used in the allocation rules, if applicable.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RateTableInTaskExtendedDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\RateTableInTaskExtendedDtoFactory testFactory()
  */
-class RateTableInTaskExtendedDto extends Model
+class RateTableInTaskExtendedDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

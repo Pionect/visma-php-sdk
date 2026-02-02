@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Receipt details tab &gt; Financial details section &gt; Expense sub. &gt; The corresponding
  * subaccount the system uses to record the part of the expense to be paid back to the employee.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseSubInExpenseReceiptDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ExpenseSubInExpenseReceiptDtoFactory testFactory()
  */
-class ExpenseSubInExpenseReceiptDto extends Model
+class ExpenseSubInExpenseReceiptDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $active = null,
         public ?string $id = null,

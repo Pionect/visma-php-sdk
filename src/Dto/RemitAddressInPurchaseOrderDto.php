@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Supplier info tab &gt; The Supplier address section &gt; The default contact setting for the
  * supplier.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RemitAddressInPurchaseOrderDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\RemitAddressInPurchaseOrderDtoFactory testFactory()
  */
-class RemitAddressInPurchaseOrderDto extends Model
+class RemitAddressInPurchaseOrderDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $overrideAddress = null,
         public ?int $addressId = null,

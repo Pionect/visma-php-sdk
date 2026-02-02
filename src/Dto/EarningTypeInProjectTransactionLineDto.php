@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Earning type &gt; The earning type specified for the transaction to calculate the labour cost.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EarningTypeInProjectTransactionLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\EarningTypeInProjectTransactionLineDtoFactory testFactory()
  */
-class EarningTypeInProjectTransactionLineDto extends Model
+class EarningTypeInProjectTransactionLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $code = null,
         public ?string $description = null,

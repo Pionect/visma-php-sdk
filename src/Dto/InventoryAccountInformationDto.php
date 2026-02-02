@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryAccountInformationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventoryAccountInformationDtoFactory testFactory()
  */
-class InventoryAccountInformationDto extends Model
+class InventoryAccountInformationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?ExpenseAccrualAccountInInventoryAccountInformationDto $expenseAccrualAccount = null,
         public ?InventoryAccountInInventoryAccountInformationDto $inventoryAccount = null,

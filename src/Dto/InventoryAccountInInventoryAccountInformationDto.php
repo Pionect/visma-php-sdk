@@ -2,19 +2,19 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Only used for Stock items.
  * Inventory account &gt; The asset account to be used to keep the
  * inventory balance resulting from transactions with this stock item.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryAccountInInventoryAccountInformationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventoryAccountInInventoryAccountInformationDtoFactory testFactory()
  */
-class InventoryAccountInInventoryAccountInformationDto extends Model
+class InventoryAccountInInventoryAccountInformationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $number = null,

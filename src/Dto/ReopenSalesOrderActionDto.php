@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReopenSalesOrderActionDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ReopenSalesOrderActionDtoFactory testFactory()
  */
-class ReopenSalesOrderActionDto extends Model
+class ReopenSalesOrderActionDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?SaleOrderUpdateDtoInReopenSalesOrderActionDto $saleOrderUpdateDto = null,
     ) {}

@@ -11,6 +11,7 @@ use Crescat\SaloonSdkGenerator\Generators\ResourceGenerator;
 use Crescat\SaloonSdkGenerator\Parsers\OpenApiParser;
 use Pionect\VismaSdk\Generator\Generators\VismaConnectorGenerator;
 use Pionect\VismaSdk\Generator\Generators\VismaDtoGenerator;
+use Pionect\VismaSdk\Generator\Generators\VismaFactoryGenerator;
 use Pionect\VismaSdk\Generator\Generators\VismaRequestGenerator;
 use Pionect\VismaSdk\Generator\Generators\VismaTestGenerator;
 use Pionect\VismaSdk\Generator\Services\PintRunner;
@@ -95,9 +96,10 @@ class GenerateCommand extends Command
         }
 
         // Configure post-processors
-        $postProcessors = [];
-
-        $postProcessors[] = new VismaTestGenerator;
+        $postProcessors = [
+            new VismaTestGenerator,
+            new VismaFactoryGenerator,
+        ];
 
         // Generate code using Plain JSON generators
         $this->io->section('Generating SDK');

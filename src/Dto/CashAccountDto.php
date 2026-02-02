@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CashAccountDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CashAccountDtoFactory testFactory()
  */
-class CashAccountDto extends Model
+class CashAccountDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?array $entryTypes = null,

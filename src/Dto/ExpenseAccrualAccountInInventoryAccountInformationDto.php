@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Only used for Non-stock items.
@@ -10,12 +10,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * The liability account to be used for this stock item to accrue amounts on purchase orders related to
  * this item.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseAccrualAccountInInventoryAccountInformationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ExpenseAccrualAccountInInventoryAccountInformationDtoFactory testFactory()
  */
-class ExpenseAccrualAccountInInventoryAccountInformationDto extends Model
+class ExpenseAccrualAccountInInventoryAccountInformationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $number = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The top part &gt; Warehouse &gt; The warehouse for which you want to view data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WarehouseInInventorySummaryDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\WarehouseInInventorySummaryDtoFactory testFactory()
  */
-class WarehouseInInventorySummaryDto extends Model
+class WarehouseInInventorySummaryDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

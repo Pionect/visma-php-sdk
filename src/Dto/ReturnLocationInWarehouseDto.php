@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Location table tab &gt; RMA location &gt; The RMA warehouse location.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ReturnLocationInWarehouseDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ReturnLocationInWarehouseDtoFactory testFactory()
  */
-class ReturnLocationInWarehouseDto extends Model
+class ReturnLocationInWarehouseDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

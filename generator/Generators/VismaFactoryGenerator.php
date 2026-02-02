@@ -4,11 +4,26 @@ declare(strict_types=1);
 
 namespace Pionect\VismaSdk\Generator\Generators;
 
+use Crescat\SaloonSdkGenerator\Data\Generator\Config;
+use Crescat\SaloonSdkGenerator\Data\Generator\GeneratedCode;
 use Crescat\SaloonSdkGenerator\Generators\FactoryGenerator;
+use Crescat\SaloonSdkGenerator\Helpers\DtoResolver;
 use Nette\PhpGenerator\PhpFile;
+use Pionect\VismaSdk\Foundation\Factories\Factory;
+use Pionect\VismaSdk\Generator\Helpers\VismaDtoResolver;
 
 class VismaFactoryGenerator extends FactoryGenerator
 {
+    protected string $factoryClass = Factory::class;
+
+    protected function createDtoResolver(Config $config, GeneratedCode $generatedCode): DtoResolver
+    {
+        $resolver = new VismaDtoResolver($config);
+        $resolver->setGeneratedCode($generatedCode);
+
+        return $resolver;
+    }
+
     /**
      * Override to NOT skip 'id' and 'type' properties for plain JSON APIs.
      * For plain JSON, 'id' and 'type' are domain properties that should be included in factories.

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a PackagingType in PackagingTypeController. Used by getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PackagingTypeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PackagingTypeDtoFactory testFactory()
  */
-class PackagingTypeDto extends Model
+class PackagingTypeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $boxId = null,
         public ?string $description = null,

@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * VAT category &gt; The VAT category (if applied) for the transaction. The category represents the
  * type of goods or services.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatCodeInCustomerOverdueChargeLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\VatCodeInCustomerOverdueChargeLineDtoFactory testFactory()
  */
-class VatCodeInCustomerOverdueChargeLineDto extends Model
+class VatCodeInCustomerOverdueChargeLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The payment settings tab.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BankSettingsInBranchDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BankSettingsInBranchDtoFactory testFactory()
  */
-class BankSettingsInBranchDto extends Model
+class BankSettingsInBranchDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $bankName = null,
         public ?string $bankAddress1 = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Receipt details tab &gt; Image section
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ImageInExpenseReceiptDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ImageInExpenseReceiptDtoFactory testFactory()
  */
-class ImageInExpenseReceiptDto extends Model
+class ImageInExpenseReceiptDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $name = null,
         public ?string $id = null,

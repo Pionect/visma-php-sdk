@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The Document details tab &gt;  Account * &gt; The sales account used for the transaction.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInCustomerDocumentDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AccountInCustomerDocumentDtoFactory testFactory()
  */
-class AccountInCustomerDocumentDto extends Model
+class AccountInCustomerDocumentDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

@@ -3,20 +3,20 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Lot/serial allocations for stock components in kit assemblies.
  * Used for adding and updating
  * allocations.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\KitAssemblyStockComponentAllocationsUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\KitAssemblyStockComponentAllocationsUpdateDtoFactory testFactory()
  */
-class KitAssemblyStockComponentAllocationsUpdateDto extends Model
+class KitAssemblyStockComponentAllocationsUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

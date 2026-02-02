@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Financial details tab &gt;
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FinancialsDetailInCashTransactionDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\FinancialsDetailInCashTransactionDtoFactory testFactory()
  */
-class FinancialsDetailInCashTransactionDto extends Model
+class FinancialsDetailInCashTransactionDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $batchNumber = null,
         public ?BranchInFinancialsDetailDto $branch = null,

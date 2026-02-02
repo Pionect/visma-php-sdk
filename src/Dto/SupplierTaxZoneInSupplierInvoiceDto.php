@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The Financial details tab &gt; The VAT section &gt; Supplier VAT Zone &gt; The VAT zone of the
  * supplier, which is specified in the  AP303000 window.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierTaxZoneInSupplierInvoiceDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SupplierTaxZoneInSupplierInvoiceDtoFactory testFactory()
  */
-class SupplierTaxZoneInSupplierInvoiceDto extends Model
+class SupplierTaxZoneInSupplierInvoiceDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

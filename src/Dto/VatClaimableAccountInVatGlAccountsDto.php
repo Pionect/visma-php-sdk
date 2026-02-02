@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * VAT Claimable account &gt; The account that accumulates the VAT amounts to be claimed from the tax
  * agency for the VAT reporting period.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatClaimableAccountInVatGlAccountsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\VatClaimableAccountInVatGlAccountsDtoFactory testFactory()
  */
-class VatClaimableAccountInVatGlAccountsDto extends Model
+class VatClaimableAccountInVatGlAccountsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

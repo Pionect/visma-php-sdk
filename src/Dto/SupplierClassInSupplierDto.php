@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: General information tab &gt; Financial settings section &gt; Supplier class* &gt;
  * The class of the supplier.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierClassInSupplierDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SupplierClassInSupplierDtoFactory testFactory()
  */
-class SupplierClassInSupplierDto extends Model
+class SupplierClassInSupplierDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

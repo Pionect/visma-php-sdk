@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Branch &gt; The branch associated with the purchase order.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchInPurchaseOrderLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BranchInPurchaseOrderLineDtoFactory testFactory()
  */
-class BranchInPurchaseOrderLineDto extends Model
+class BranchInPurchaseOrderLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The SubAccount for the SupplierItemID. If null, this means that no account was found for the
  * {Visma.net.ERP.Web.Api.Model.V1.SupplierItemAccountDto.SupplierItemId}
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInSupplierItemAccountDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SubaccountInSupplierItemAccountDtoFactory testFactory()
  */
-class SubaccountInSupplierItemAccountDto extends Model
+class SubaccountInSupplierItemAccountDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $subaccountNumber = null,
         public ?int $subaccountId = null,

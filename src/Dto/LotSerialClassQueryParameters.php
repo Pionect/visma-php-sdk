@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LotSerialClassQueryParametersFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LotSerialClassQueryParametersFactory testFactory()
  */
-class LotSerialClassQueryParameters extends Model
+class LotSerialClassQueryParameters extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $description = null,
         public ?string $trackingMethod = null,

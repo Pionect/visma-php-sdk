@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Query parameters for Suppliers Balance - version 2
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierBalanceV2queryParametersFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SupplierBalanceV2queryParametersFactory testFactory()
  */
-class SupplierBalanceV2queryParameters extends Model
+class SupplierBalanceV2queryParameters extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $branch = null,
         public ?string $supplier = null,

@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\JournalTransactionQueryV2parametersFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\JournalTransactionQueryV2parametersFactory testFactory()
  */
-class JournalTransactionQueryV2parameters extends Model
+class JournalTransactionQueryV2parameters extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $periodId = null,
         public ?string $lastModifiedDateTime = null,

@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a WarehouseDetail part of InventoryItem in InventoryItemController. Used for
  * getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\WarehouseDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\WarehouseDetailDtoFactory testFactory()
  */
-class WarehouseDetailDto extends Model
+class WarehouseDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $isDefault = null,
         public ?string $warehouse = null,

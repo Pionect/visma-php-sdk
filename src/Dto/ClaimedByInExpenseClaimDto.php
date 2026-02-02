@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: The top part &gt; Claimed by &gt; The employee who is claiming the expenses. If the
  * claim is released, an Accounts Payable bill will be generated to this employee.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ClaimedByInExpenseClaimDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ClaimedByInExpenseClaimDtoFactory testFactory()
  */
-class ClaimedByInExpenseClaimDto extends Model
+class ClaimedByInExpenseClaimDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $internalId = null,
         public ?string $number = null,

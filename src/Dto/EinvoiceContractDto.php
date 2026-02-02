@@ -2,16 +2,16 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EinvoiceContractDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\EinvoiceContractDtoFactory testFactory()
  */
-class EinvoiceContractDto extends Model
+class EinvoiceContractDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('fInvoiceContractID')]
         public ?string $fInvoiceContractId = null,

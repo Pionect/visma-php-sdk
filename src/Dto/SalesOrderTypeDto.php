@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a SOOrderType in SalesOrderTypeController. Used to get data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesOrderTypeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SalesOrderTypeDtoFactory testFactory()
  */
-class SalesOrderTypeDto extends Model
+class SalesOrderTypeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $orderType = null,
         public ?bool $active = null,

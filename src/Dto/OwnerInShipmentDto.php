@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The top part &gt; Owner &gt; The user assigned to approve the document.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OwnerInShipmentDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\OwnerInShipmentDtoFactory testFactory()
  */
-class OwnerInShipmentDto extends Model
+class OwnerInShipmentDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $name = null,

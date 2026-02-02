@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EmployeeContactDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\EmployeeContactDtoFactory testFactory()
  */
-class EmployeeContactDto extends Model
+class EmployeeContactDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $employeeContact = null,
         public ?string $title = null,

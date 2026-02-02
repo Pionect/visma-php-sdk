@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Prebook subaccount used on the line. Note that this feature is not available in all countries.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PrebookSubaccountInSupplierInvoiceLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PrebookSubaccountInSupplierInvoiceLineDtoFactory testFactory()
  */
-class PrebookSubaccountInSupplierInvoiceLineDto extends Model
+class PrebookSubaccountInSupplierInvoiceLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $subaccountNumber = null,
         public ?int $subaccountId = null,

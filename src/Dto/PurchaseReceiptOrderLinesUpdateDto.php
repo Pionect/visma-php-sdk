@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Represents a collection of Purchase Order lines belonging to a specific Purchase Order.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PurchaseReceiptOrderLinesUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PurchaseReceiptOrderLinesUpdateDtoFactory testFactory()
  */
-class PurchaseReceiptOrderLinesUpdateDto extends Model
+class PurchaseReceiptOrderLinesUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $orderNbr = null,
         public ?array $lines = null,

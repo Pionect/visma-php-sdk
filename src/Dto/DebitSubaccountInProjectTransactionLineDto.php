@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Debit subaccount &gt; For released transactions, the subaccount the transaction debited when it was
  * released; for unreleased transactions, the subaccount the transaction debits if it is released.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\DebitSubaccountInProjectTransactionLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\DebitSubaccountInProjectTransactionLineDtoFactory testFactory()
  */
-class DebitSubaccountInProjectTransactionLineDto extends Model
+class DebitSubaccountInProjectTransactionLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $active = null,
         public ?string $id = null,

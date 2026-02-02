@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Reclassification account override &gt; The account that should be used as the offset account for
@@ -11,12 +11,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * We recommend that for the disbursement type of transaction, you specify an expense
  * account. For the receipt type of transaction, specify an asset account.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetAccountOverrideInEntryTypeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\OffsetAccountOverrideInEntryTypeDtoFactory testFactory()
  */
-class OffsetAccountOverrideInEntryTypeDto extends Model
+class OffsetAccountOverrideInEntryTypeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

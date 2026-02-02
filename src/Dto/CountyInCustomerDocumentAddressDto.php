@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * County &gt; The county or province.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CountyInCustomerDocumentAddressDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CountyInCustomerDocumentAddressDtoFactory testFactory()
  */
-class CountyInCustomerDocumentAddressDto extends Model
+class CountyInCustomerDocumentAddressDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $name = null,

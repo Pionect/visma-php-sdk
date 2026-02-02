@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BarCodeMetadataDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BarCodeMetadataDtoFactory testFactory()
  */
-class BarCodeMetadataDto extends Model
+class BarCodeMetadataDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $totalCount = null,
     ) {}

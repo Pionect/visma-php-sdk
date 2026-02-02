@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Sales - export account &gt; The income account to be used for this stock item to record export
  * sales.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesExportAccountInInventoryAccountInformationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SalesExportAccountInInventoryAccountInformationDtoFactory testFactory()
  */
-class SalesExportAccountInInventoryAccountInformationDto extends Model
+class SalesExportAccountInInventoryAccountInformationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $number = null,

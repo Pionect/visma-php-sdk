@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * ExtendedOrganizationDto
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExtendedOrganizationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ExtendedOrganizationDtoFactory testFactory()
  */
-class ExtendedOrganizationDto extends Model
+class ExtendedOrganizationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $organizationCd = null,
         public ?string $name = null,

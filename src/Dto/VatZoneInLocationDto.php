@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * General information tab &gt; Location address section &gt; VAT zone &gt; The VAT zone associated
  * with the account location.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatZoneInLocationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\VatZoneInLocationDtoFactory testFactory()
  */
-class VatZoneInLocationDto extends Model
+class VatZoneInLocationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

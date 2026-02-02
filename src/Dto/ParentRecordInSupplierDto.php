@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * General information tab &gt; Main contact section &gt; Parent account &gt; The parent supplier's
  * account, which you can select from the list of existing supplier accounts.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ParentRecordInSupplierDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ParentRecordInSupplierDtoFactory testFactory()
  */
-class ParentRecordInSupplierDto extends Model
+class ParentRecordInSupplierDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The top part &gt; Location &gt; The location of the customer related to the document. By default, it
@@ -11,12 +11,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * opportunity,
  * it is the customer location specified for the opportunity.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationInCustomerOverdueChargeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LocationInCustomerOverdueChargeDtoFactory testFactory()
  */
-class LocationInCustomerOverdueChargeDto extends Model
+class LocationInCustomerOverdueChargeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $countryId = null,
         public ?string $id = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a CustomerContract in CustomerContractController. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerContractDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerContractDtoFactory testFactory()
  */
-class CustomerContractDto extends Model
+class CustomerContractDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $contractId = null,
         public ?ContractTemplateInCustomerContractDto $contractTemplate = null,

@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The property tax group this fixed asset is conntected to
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PropertyTaxInFixedAssetDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PropertyTaxInFixedAssetDtoFactory testFactory()
  */
-class PropertyTaxInFixedAssetDto extends Model
+class PropertyTaxInFixedAssetDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('propertyTaxID')]
         public ?string $propertyTaxId = null,

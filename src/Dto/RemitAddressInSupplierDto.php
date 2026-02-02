@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Payment settings tab &gt; Remittance address section &gt;
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\RemitAddressInSupplierDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\RemitAddressInSupplierDtoFactory testFactory()
  */
-class RemitAddressInSupplierDto extends Model
+class RemitAddressInSupplierDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $addressId = null,
         public ?string $addressLine1 = null,

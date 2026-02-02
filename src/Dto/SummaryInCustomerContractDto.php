@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Summary tab &gt;
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SummaryInCustomerContractDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SummaryInCustomerContractDtoFactory testFactory()
  */
-class SummaryInCustomerContractDto extends Model
+class SummaryInCustomerContractDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?\Carbon\Carbon $setupDate = null,
         public ?\Carbon\Carbon $activationDate = null,

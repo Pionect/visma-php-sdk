@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * General ledger account tab &gt;
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\AccountInformationInInventoryDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\AccountInformationInInventoryDtoFactory testFactory()
  */
-class AccountInformationInInventoryDto extends Model
+class AccountInformationInInventoryDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?ExpenseAccrualAccountInInventoryAccountInformationDto $expenseAccrualAccount = null,
         public ?InventoryAccountInInventoryAccountInformationDto $inventoryAccount = null,

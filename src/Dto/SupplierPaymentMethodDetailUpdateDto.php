@@ -3,19 +3,19 @@
 namespace Pionect\VismaSdk\Dto;
 
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Payment Method Detail in SupplierController. Used to update
  * SupplierPaymentMethodDetails when creating or updating a Supplier.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierPaymentMethodDetailUpdateDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SupplierPaymentMethodDetailUpdateDtoFactory testFactory()
  */
-class SupplierPaymentMethodDetailUpdateDto extends Model
+class SupplierPaymentMethodDetailUpdateDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $paymentMethodDetailDescription = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

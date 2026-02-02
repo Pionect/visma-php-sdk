@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Expense account, non-taxable &gt; The income account to be used for this stock item to record
  * non-taxable expenses.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ExpenseNonTaxableAccountInInventoryAccountInformationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ExpenseNonTaxableAccountInInventoryAccountInformationDtoFactory testFactory()
  */
-class ExpenseNonTaxableAccountInInventoryAccountInformationDto extends Model
+class ExpenseNonTaxableAccountInInventoryAccountInformationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $number = null,

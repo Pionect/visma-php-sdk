@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\StocktakeV2exceptionDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\StocktakeV2exceptionDtoFactory testFactory()
  */
-class StocktakeV2exceptionDto extends Model
+class StocktakeV2exceptionDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $inventoryId = null,
         public ?string $locationId = null,

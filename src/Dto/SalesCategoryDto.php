@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Sales Category in SalesCategoryController. Used by getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SalesCategoryDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SalesCategoryDtoFactory testFactory()
  */
-class SalesCategoryDto extends Model
+class SalesCategoryDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('categoryID')]
         public ?int $categoryId = null,

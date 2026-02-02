@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CashTranTaxDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CashTranTaxDetailDtoFactory testFactory()
  */
-class CashTranTaxDetailDto extends Model
+class CashTranTaxDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?TaxInCashTranTaxDetailDto $tax = null,
         public int|float|null $taxRate = null,

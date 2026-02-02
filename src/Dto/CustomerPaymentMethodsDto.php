@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerPaymentMethodsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerPaymentMethodsDtoFactory testFactory()
  */
-class CustomerPaymentMethodsDto extends Model
+class CustomerPaymentMethodsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $customerId = null,
         public ?array $paymentMethods = null,

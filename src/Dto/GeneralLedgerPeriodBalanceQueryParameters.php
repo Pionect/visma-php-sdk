@@ -2,16 +2,16 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\GeneralLedgerPeriodBalanceQueryParametersFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\GeneralLedgerPeriodBalanceQueryParametersFactory testFactory()
  */
-class GeneralLedgerPeriodBalanceQueryParameters extends Model
+class GeneralLedgerPeriodBalanceQueryParameters extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $periodId = null,
         public ?string $account = null,

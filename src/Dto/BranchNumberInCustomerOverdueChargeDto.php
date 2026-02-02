@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The Financial details tab &gt; Branch &gt; The branch with which this invoice or memo is associated.
  * The field is available if your company is set up with branches.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInCustomerOverdueChargeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BranchNumberInCustomerOverdueChargeDtoFactory testFactory()
  */
-class BranchNumberInCustomerOverdueChargeDto extends Model
+class BranchNumberInCustomerOverdueChargeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

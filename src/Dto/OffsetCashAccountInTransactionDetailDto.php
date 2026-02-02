@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Offset cash account &gt; The cash account to be used for the transaction.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetCashAccountInTransactionDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\OffsetCashAccountInTransactionDetailDtoFactory testFactory()
  */
-class OffsetCashAccountInTransactionDetailDto extends Model
+class OffsetCashAccountInTransactionDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $number = null,

@@ -2,16 +2,16 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetPropertyTaxQueryParametersFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\FixedAssetPropertyTaxQueryParametersFactory testFactory()
  */
-class FixedAssetPropertyTaxQueryParameters extends Model
+class FixedAssetPropertyTaxQueryParameters extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('propertyTaxID')]
         public ?string $propertyTaxId = null,

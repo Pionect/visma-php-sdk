@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Customer Debit Note. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerDebitNoteDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerDebitNoteDtoFactory testFactory()
  */
-class CustomerDebitNoteDto extends Model
+class CustomerDebitNoteDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?CreditTermsInCustomerDebitNoteDto $creditTerms = null,
         public ?\Carbon\Carbon $documentDueDate = null,

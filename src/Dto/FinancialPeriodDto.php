@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Financial Period in FinancialPeriodController. Used by getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FinancialPeriodDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\FinancialPeriodDtoFactory testFactory()
  */
-class FinancialPeriodDto extends Model
+class FinancialPeriodDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $year = null,
         public ?string $period = null,

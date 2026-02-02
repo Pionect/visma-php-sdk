@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The name of the supplier
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierInSupplierPobalanceDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SupplierInSupplierPobalanceDtoFactory testFactory()
  */
-class SupplierInSupplierPobalanceDto extends Model
+class SupplierInSupplierPobalanceDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $internalId = null,
         public ?string $number = null,

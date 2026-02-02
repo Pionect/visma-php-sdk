@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The table &gt; Mandatory field: Branch* &gt; The branch that purchases the line item or
@@ -10,12 +10,12 @@ use Pionect\VismaSdk\Foundation\Hydration\Model;
  * Note: The field type has been changed from string to BranchNumberDto, please consider
  * doing changes accordingly.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInSupplierInvoiceLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BranchNumberInSupplierInvoiceLineDtoFactory testFactory()
  */
-class BranchNumberInSupplierInvoiceLineDto extends Model
+class BranchNumberInSupplierInvoiceLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

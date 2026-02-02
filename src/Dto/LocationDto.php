@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Location in LocationController. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LocationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LocationDtoFactory testFactory()
  */
-class LocationDto extends Model
+class LocationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?BaccountInLocationDto $baccount = null,
         public ?string $locationId = null,

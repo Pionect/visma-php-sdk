@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Document details tab &gt; Accrual sub. &gt; The subaccount used to record the item amount on the
  * purchase receipt, used for stock items and non-stock items for which a receipt is required.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ActualSubInPurchaseReceiptLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ActualSubInPurchaseReceiptLineDtoFactory testFactory()
  */
-class ActualSubInPurchaseReceiptLineDto extends Model
+class ActualSubInPurchaseReceiptLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $active = null,
         public ?string $id = null,

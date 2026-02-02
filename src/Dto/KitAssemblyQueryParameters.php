@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\KitAssemblyQueryParametersFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\KitAssemblyQueryParametersFactory testFactory()
  */
-class KitAssemblyQueryParameters extends Model
+class KitAssemblyQueryParameters extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $lastModifiedDateTime = null,
         public ?string $lastModifiedDateTimeCondition = null,

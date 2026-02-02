@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Primary item class &gt; The primary item class for this location; items of this class are received
  * the most often or stored here in the highest volumes.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\PrimaryItemClassInWarehouseLocationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\PrimaryItemClassInWarehouseLocationDtoFactory testFactory()
  */
-class PrimaryItemClassInWarehouseLocationDto extends Model
+class PrimaryItemClassInWarehouseLocationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?array $attributes = null,

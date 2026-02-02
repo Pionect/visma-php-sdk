@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Mandatory field: Document details tab &gt; Branch* &gt; The branch for which the item is purchased.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\BranchNumberInPurchaseReceiptLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\BranchNumberInPurchaseReceiptLineDtoFactory testFactory()
  */
-class BranchNumberInPurchaseReceiptLineDto extends Model
+class BranchNumberInPurchaseReceiptLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

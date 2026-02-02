@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a Project (light weight) in ProjectBasicController. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectBasicDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ProjectBasicDtoFactory testFactory()
  */
-class ProjectBasicDto extends Model
+class ProjectBasicDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('internalID')]
         public ?int $internalId = null,

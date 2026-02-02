@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The Organisation details tab &gt;  The Main contact section &gt;
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\MainContactInBranchDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\MainContactInBranchDtoFactory testFactory()
  */
-class MainContactInBranchDto extends Model
+class MainContactInBranchDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $contactId = null,
         public ?string $name = null,

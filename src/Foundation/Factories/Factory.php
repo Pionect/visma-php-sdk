@@ -5,7 +5,7 @@ namespace Pionect\VismaSdk\Foundation\Factories;
 use Faker\Factory as FakerFactory;
 use Faker\Generator;
 use Illuminate\Support\Collection;
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data;
 
 abstract class Factory
 {
@@ -14,8 +14,6 @@ abstract class Factory
     protected int $count = 1;
 
     protected array $states = [];
-
-    protected bool $withId = false;
 
     public function __construct()
     {
@@ -49,21 +47,11 @@ abstract class Factory
     }
 
     /**
-     * Generate models with unique UUIDs as IDs.
-     */
-    public function withId(): static
-    {
-        $this->withId = true;
-
-        return $this;
-    }
-
-    /**
      * Generate one or more model instances.
      *
-     * @return Model|Collection<int, Model>
+     * @return Data|Collection<int, Data>
      */
-    public function make(): Model|Collection
+    public function make(): Data|Collection
     {
         if ($this->count === 1) {
             return $this->makeOne();
@@ -75,9 +63,9 @@ abstract class Factory
     /**
      * Alias for make() for API consistency with Laravel factories.
      *
-     * @return Model|Collection<int, Model>
+     * @return Data|Collection<int, Data>
      */
-    public function create(): Model|Collection
+    public function create(): Data|Collection
     {
         return $this->make();
     }
@@ -85,17 +73,12 @@ abstract class Factory
     /**
      * Generate a single model instance.
      */
-    protected function makeOne(): Model
+    protected function makeOne(): Data
     {
         $modelClass = $this->modelClass();
         $model = new $modelClass;
 
         $attributes = array_merge($this->definition(), $this->states);
-
-        // Auto-generate UUID if withId() was called
-        if ($this->withId && ! isset($attributes['id'])) {
-            $attributes['id'] = $this->faker->uuid();
-        }
 
         foreach ($attributes as $key => $value) {
             $model->{$key} = $value;

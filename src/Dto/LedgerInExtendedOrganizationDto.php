@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Ledger
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LedgerInExtendedOrganizationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LedgerInExtendedOrganizationDtoFactory testFactory()
  */
-class LedgerInExtendedOrganizationDto extends Model
+class LedgerInExtendedOrganizationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

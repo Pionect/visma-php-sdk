@@ -2,19 +2,19 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Document details tab &gt; Project &gt; The project with which the document is associated. If the
  * document is based on a purchase order, the project is automatically copied from the respective
  * purchase order line.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectInPurchaseReceiptLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ProjectInPurchaseReceiptLineDtoFactory testFactory()
  */
-class ProjectInPurchaseReceiptLineDto extends Model
+class ProjectInPurchaseReceiptLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $internalId = null,
         public ?string $id = null,

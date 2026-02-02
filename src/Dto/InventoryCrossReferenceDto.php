@@ -2,16 +2,16 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryCrossReferenceDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventoryCrossReferenceDtoFactory testFactory()
  */
-class InventoryCrossReferenceDto extends Model
+class InventoryCrossReferenceDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $alternateType = null,
         public ?BAccountInInventoryCrossReferenceDto $bAccount = null,

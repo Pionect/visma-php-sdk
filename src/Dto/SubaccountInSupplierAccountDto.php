@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The default Expense SubAccount for the supplier
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SubaccountInSupplierAccountDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SubaccountInSupplierAccountDtoFactory testFactory()
  */
-class SubaccountInSupplierAccountDto extends Model
+class SubaccountInSupplierAccountDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $subaccountNumber = null,
         public ?int $subaccountId = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Default offset account branch &gt; The branch to which the overriding offset account belongs.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\OffsetAccountBranchInEntryTypeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\OffsetAccountBranchInEntryTypeDtoFactory testFactory()
  */
-class OffsetAccountBranchInEntryTypeDto extends Model
+class OffsetAccountBranchInEntryTypeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $number = null,
         public ?string $name = null,

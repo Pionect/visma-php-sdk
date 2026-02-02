@@ -2,16 +2,16 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerCreditNoteDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerCreditNoteDtoFactory testFactory()
  */
-class CustomerCreditNoteDto extends Model
+class CustomerCreditNoteDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?CreditTermsInCustomerCreditNoteDto $creditTerms = null,
         public ?\Carbon\Carbon $documentDueDate = null,

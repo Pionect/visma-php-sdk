@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a CustomerSalesPrice in CustomerSalesPriceController.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CustomerSalesPriceDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CustomerSalesPriceDtoFactory testFactory()
  */
-class CustomerSalesPriceDto extends Model
+class CustomerSalesPriceDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $recordId = null,
         public ?string $priceType = null,

@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The Invoice address tab &gt; The Invoice contact section.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InvoiceContactInCustomerInvoiceDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InvoiceContactInCustomerInvoiceDtoFactory testFactory()
  */
-class InvoiceContactInCustomerInvoiceDto extends Model
+class InvoiceContactInCustomerInvoiceDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $contactId = null,
         public ?string $businessName = null,

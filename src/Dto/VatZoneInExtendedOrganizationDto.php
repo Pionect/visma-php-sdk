@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Vat Zone
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\VatZoneInExtendedOrganizationDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\VatZoneInExtendedOrganizationDtoFactory testFactory()
  */
-class VatZoneInExtendedOrganizationDto extends Model
+class VatZoneInExtendedOrganizationDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $id = null,
         public ?string $description = null,

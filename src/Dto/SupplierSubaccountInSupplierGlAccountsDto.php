@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Supplier sub &gt; The corresponding subaccount used to record the balance of supplier ledger
  * transactions related to the supplier.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\SupplierSubaccountInSupplierGlAccountsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\SupplierSubaccountInSupplierGlAccountsDtoFactory testFactory()
  */
-class SupplierSubaccountInSupplierGlAccountsDto extends Model
+class SupplierSubaccountInSupplierGlAccountsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?bool $active = null,
         public ?string $id = null,

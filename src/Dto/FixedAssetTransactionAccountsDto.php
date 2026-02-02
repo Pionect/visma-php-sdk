@@ -2,16 +2,16 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
 use Spatie\LaravelData\Attributes\MapName;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\FixedAssetTransactionAccountsDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\FixedAssetTransactionAccountsDtoFactory testFactory()
  */
-class FixedAssetTransactionAccountsDto extends Model
+class FixedAssetTransactionAccountsDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         #[MapName('debitAccountID')]
         public ?string $debitAccountId = null,

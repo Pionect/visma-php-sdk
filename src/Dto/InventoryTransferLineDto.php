@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\InventoryTransferLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\InventoryTransferLineDtoFactory testFactory()
  */
-class InventoryTransferLineDto extends Model
+class InventoryTransferLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?LocationDescriptionDto $toLocation = null,
         public ?string $lotSerialNumber = null,

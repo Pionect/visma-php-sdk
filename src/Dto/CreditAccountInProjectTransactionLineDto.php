@@ -2,18 +2,18 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * Credit account &gt; For released transactions, the account the transaction credited when it was
  * released; for unreleased transactions, the account the transaction credits if it is released.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\CreditAccountInProjectTransactionLineDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\CreditAccountInProjectTransactionLineDtoFactory testFactory()
  */
-class CreditAccountInProjectTransactionLineDto extends Model
+class CreditAccountInProjectTransactionLineDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $type = null,
         public ?string $externalCode1 = null,

@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\LandedCostQueryParametersFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\LandedCostQueryParametersFactory testFactory()
  */
-class LandedCostQueryParameters extends Model
+class LandedCostQueryParameters extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $code = null,
         public ?string $greaterThanValue = null,

@@ -2,19 +2,19 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * The top part &gt; Project* &gt; The identifier and description of the project with which this
  * document is associated, or the code indicating that this document is not associated with any
  * project; the non-project code is specified in the Project accounting preferences (PM101000) window.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\ProjectInCashSaleDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\ProjectInCashSaleDtoFactory testFactory()
  */
-class ProjectInCashSaleDto extends Model
+class ProjectInCashSaleDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?int $internalId = null,
         public ?string $id = null,

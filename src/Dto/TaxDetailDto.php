@@ -2,17 +2,17 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
  * This class represents a VAT Detail Line. Used for getting data.
  *
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\TaxDetailDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\TaxDetailDtoFactory testFactory()
  */
-class TaxDetailDto extends Model
+class TaxDetailDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $taxId = null,
         public ?int $recordId = null,

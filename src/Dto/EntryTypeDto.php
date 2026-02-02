@@ -2,15 +2,15 @@
 
 namespace Pionect\VismaSdk\Dto;
 
-use Pionect\VismaSdk\Foundation\Hydration\Model;
+use Spatie\LaravelData\Data as SpatieData;
 
 /**
- * @extends \Pionect\VismaSdk\Foundation\Hydration\Model<\Pionect\VismaSdk\Factories\EntryTypeDtoFactory>
- *
  * @method static \Pionect\VismaSdk\Factories\EntryTypeDtoFactory testFactory()
  */
-class EntryTypeDto extends Model
+class EntryTypeDto extends SpatieData
 {
+    use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
+
     public function __construct(
         public ?string $entryTypeId = null,
         public ?string $disableReceipt = null,
