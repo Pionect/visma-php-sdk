@@ -21,14 +21,14 @@ it('calls the customerInvoiceV2createRequest method in the CustomerInvoiceV2 res
         customerProject: 'String value',
         exchangeRate: 42,
         domesticServicesDeductibleDocument: true,
-        rotRutDetails: [
-            'distributedAutomaticaly' => true,
-            'type' => 'String value',
-            'appartment' => 'String value',
-            'estate' => 'String value',
-            'organizationNbr' => 'String value',
-            'distribution' => [],
-        ],
+        rotRutDetails: new RotRutUpdateDto(
+            distributedAutomaticaly: true,
+            type: 'String value',
+            appartment: 'String value',
+            estate: 'String value',
+            organizationNbr: 'String value',
+            distribution: []
+        ),
         paymentReference: 'String value',
         contact: 42,
         project: 'String value',

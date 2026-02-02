@@ -242,10 +242,10 @@ it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInv
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: [
-            'attachmentId' => 'mock-id-123',
-            'comment' => 'String value',
-        ],
+        approvalDetails: new ApprovalDetailsUpdateDto(
+            attachmentId: 'mock-id-123',
+            comment: 'String value'
+        ),
         addPoreceiptLines: [],
         addPurchaseOrders: [],
         landedCosts: [],
@@ -500,10 +500,10 @@ it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method 
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: [
-            'attachmentId' => 'mock-id-123',
-            'comment' => 'String value',
-        ],
+        approvalDetails: new ApprovalDetailsUpdateDto(
+            attachmentId: 'mock-id-123',
+            comment: 'String value'
+        ),
         addPoreceiptLines: [],
         addPurchaseOrders: [],
         landedCosts: [],
@@ -877,10 +877,10 @@ it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource'
         applyRetainage: true,
         taxDetailLines: [],
         invoiceLines: [],
-        approvalDetails: [
-            'attachmentId' => 'mock-id-123',
-            'comment' => 'String value',
-        ],
+        approvalDetails: new ApprovalDetailsUpdateDto(
+            attachmentId: 'mock-id-123',
+            comment: 'String value'
+        ),
         addPoreceiptLines: [],
         addPurchaseOrders: [],
         landedCosts: [],

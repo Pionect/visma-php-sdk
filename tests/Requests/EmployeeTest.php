@@ -131,25 +131,25 @@ it('calls the employeePutByemployeeCdRequest method in the Employee resource', f
         employeeClass: 'String value',
         status: 'String value',
         department: 'String value',
-        contact: [
-            'firstName' => 'String value',
-            'lastName' => 'String value',
-            'middleName' => 'String value',
-            'email' => 'test@example.com',
-            'phone1' => 'String value',
-            'phone2' => 'String value',
-            'phone3' => 'String value',
-            'fax' => 'String value',
-        ],
-        address: [
-            'addressLine1' => 'String value',
-            'addressLine2' => 'String value',
-            'addressLine3' => 'String value',
-            'postalCode' => 'String value',
-            'city' => 'String value',
-            'countryId' => 'mock-id-123',
-            'county' => 'String value',
-        ],
+        contact: new ContactInEmployeeUpdateDto(
+            firstName: 'String value',
+            lastName: 'String value',
+            middleName: 'String value',
+            email: 'test@example.com',
+            phone1: 'String value',
+            phone2: 'String value',
+            phone3: 'String value',
+            fax: 'String value'
+        ),
+        address: new AddressInEmployeeUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
         branch: 'String value',
         calendar: 'String value',
         companyTreeInfo: []
@@ -350,25 +350,25 @@ it('calls the employeeCreateEmployeeRequest method in the Employee resource', fu
         employeeClass: 'String value',
         branch: 'String value',
         calendar: 'String value',
-        contact: [
-            'firstName' => 'String value',
-            'lastName' => 'String value',
-            'middleName' => 'String value',
-            'email' => 'test@example.com',
-            'phone1' => 'String value',
-            'phone2' => 'String value',
-            'phone3' => 'String value',
-            'fax' => 'String value',
-        ],
-        address: [
-            'addressLine1' => 'String value',
-            'addressLine2' => 'String value',
-            'addressLine3' => 'String value',
-            'postalCode' => 'String value',
-            'city' => 'String value',
-            'countryId' => 'mock-id-123',
-            'county' => 'String value',
-        ],
+        contact: new EmployeeContactUpdateDto(
+            firstName: 'String value',
+            lastName: 'String value',
+            middleName: 'String value',
+            email: 'test@example.com',
+            phone1: 'String value',
+            phone2: 'String value',
+            phone3: 'String value',
+            fax: 'String value'
+        ),
+        address: new AddressUpdateDto(
+            addressLine1: 'String value',
+            addressLine2: 'String value',
+            addressLine3: 'String value',
+            postalCode: 'String value',
+            city: 'String value',
+            countryId: 'mock-id-123',
+            county: 'String value'
+        ),
         status: 'String value'
     );
 

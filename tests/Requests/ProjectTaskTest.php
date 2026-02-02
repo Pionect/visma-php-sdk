@@ -136,18 +136,18 @@ it('calls the projectTaskPutByinternalIdRequest method in the ProjectTask resour
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rateTable: 'String value',
         status: 'String value',
-        visibility: [
-            'visibleInGl' => true,
-            'visibleInAp' => true,
-            'visibleInAr' => true,
-            'visibleInSo' => true,
-            'visibleInPo' => true,
-            'visibleInEa' => true,
-            'visibleInTa' => true,
-            'visibleInIn' => true,
-            'visibleInCa' => true,
-            'visibleInCr' => true,
-        ],
+        visibility: new VisibilityUpdateDto(
+            visibleInGl: true,
+            visibleInAp: true,
+            visibleInAr: true,
+            visibleInSo: true,
+            visibleInPo: true,
+            visibleInEa: true,
+            visibleInTa: true,
+            visibleInIn: true,
+            visibleInCa: true,
+            visibleInCr: true
+        ),
         restrictEmployees: true,
         employees: []
     );
@@ -178,18 +178,18 @@ it('calls the projectTaskPostByinternalIdRequest method in the ProjectTask resou
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rateTable: 'String value',
         status: 'String value',
-        visibility: [
-            'visibleInGl' => true,
-            'visibleInAp' => true,
-            'visibleInAr' => true,
-            'visibleInSo' => true,
-            'visibleInPo' => true,
-            'visibleInEa' => true,
-            'visibleInTa' => true,
-            'visibleInIn' => true,
-            'visibleInCa' => true,
-            'visibleInCr' => true,
-        ],
+        visibility: new VisibilityUpdateDto(
+            visibleInGl: true,
+            visibleInAp: true,
+            visibleInAr: true,
+            visibleInSo: true,
+            visibleInPo: true,
+            visibleInEa: true,
+            visibleInTa: true,
+            visibleInIn: true,
+            visibleInCa: true,
+            visibleInCr: true
+        ),
         restrictEmployees: true,
         employees: []
     );

@@ -53,11 +53,11 @@ it('calls the kitAssemblyGetKitAssembliesRequest method in the KitAssembly resou
 
 it('calls the kitAssemblyPostRequest method in the KitAssembly resource', function () {
     $bodyData = new KitAssemblyInsertDto(
-        kitAssemblyLink: [
-            'orderType' => 'String value',
-            'orderNumber' => 'String value',
-            'orderLineNumber' => 42,
-        ],
+        kitAssemblyLink: new KitAssemblyLinkInsertDto(
+            orderType: 'String value',
+            orderNumber: 'String value',
+            orderLineNumber: 42
+        ),
         type: 'String value',
         refNo: 'String value',
         hold: true,

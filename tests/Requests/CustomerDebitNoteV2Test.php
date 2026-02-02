@@ -22,14 +22,14 @@ it('calls the customerDebitNoteV2createRequest method in the CustomerDebitNoteV2
         domesticServicesDeductibleDocument: true,
         paymentReference: 'String value',
         contact: 42,
-        rotRutDetails: [
-            'distributedAutomaticaly' => true,
-            'type' => 'String value',
-            'appartment' => 'String value',
-            'estate' => 'String value',
-            'organizationNbr' => 'String value',
-            'distribution' => [],
-        ],
+        rotRutDetails: new RotRutUpdateDto(
+            distributedAutomaticaly: true,
+            type: 'String value',
+            appartment: 'String value',
+            estate: 'String value',
+            organizationNbr: 'String value',
+            distribution: []
+        ),
         taxDetailLines: [],
         lines: [],
         customerVatZoneId: 'mock-id-123',
