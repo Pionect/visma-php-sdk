@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\SupplierDocumentDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Supplier_GetAllDocumentsForSupplierBysupplierNumber
  */
-class SupplierGetAllDocumentsForSupplierBysupplierNumberRequest extends Request
+class SupplierGetAllDocumentsForSupplierBysupplierNumberRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return SupplierDocumentDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => SupplierDocumentDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

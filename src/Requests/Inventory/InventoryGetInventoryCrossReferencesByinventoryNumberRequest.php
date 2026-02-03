@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\InventoryCrossReferenceDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Inventory_GetInventoryCrossReferencesByinventoryNumber
  */
-class InventoryGetInventoryCrossReferencesByinventoryNumberRequest extends Request
+class InventoryGetInventoryCrossReferencesByinventoryNumberRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return InventoryCrossReferenceDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => InventoryCrossReferenceDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

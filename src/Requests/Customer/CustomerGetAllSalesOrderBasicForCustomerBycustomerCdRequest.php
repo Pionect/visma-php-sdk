@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\SalesOrderBasicDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Customer_GetAllSalesOrderBasicForCustomerBycustomerCd
  */
-class CustomerGetAllSalesOrderBasicForCustomerBycustomerCdRequest extends Request
+class CustomerGetAllSalesOrderBasicForCustomerBycustomerCdRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return SalesOrderBasicDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => SalesOrderBasicDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

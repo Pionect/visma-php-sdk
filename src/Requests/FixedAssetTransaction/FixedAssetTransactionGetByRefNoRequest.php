@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\FixedAssetTransactionDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * FixedAssetTransaction_GetByRefNo
  */
-class FixedAssetTransactionGetByRefNoRequest extends Request
+class FixedAssetTransactionGetByRefNoRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return FixedAssetTransactionDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => FixedAssetTransactionDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

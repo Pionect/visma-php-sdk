@@ -6,19 +6,24 @@ use Pionect\VismaSdk\Dto\SocommissionDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * SalesOrder_GetCommissionsByorderTypeorderNbr
  *
  * Data for all Sales Order Commissions
  */
-class SalesOrderGetCommissionsByorderTypeorderNbrRequest extends Request
+class SalesOrderGetCommissionsByorderTypeorderNbrRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return SocommissionDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => SocommissionDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

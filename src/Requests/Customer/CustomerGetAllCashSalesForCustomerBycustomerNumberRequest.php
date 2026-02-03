@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\CashSaleDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Customer_GetAllCashSalesForCustomerBycustomerNumber
  */
-class CustomerGetAllCashSalesForCustomerBycustomerNumberRequest extends Request
+class CustomerGetAllCashSalesForCustomerBycustomerNumberRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return CashSaleDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => CashSaleDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

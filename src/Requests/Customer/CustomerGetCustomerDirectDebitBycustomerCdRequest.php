@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\CustomerDirectDebitDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Customer_GetCustomerDirectDebitBycustomerCd
  */
-class CustomerGetCustomerDirectDebitBycustomerCdRequest extends Request
+class CustomerGetCustomerDirectDebitBycustomerCdRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return CustomerDirectDebitDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => CustomerDirectDebitDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

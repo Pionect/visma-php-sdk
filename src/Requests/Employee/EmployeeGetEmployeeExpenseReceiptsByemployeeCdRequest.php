@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\ExpenseReceiptDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Employee_GetEmployeeExpenseReceiptsByemployeeCd
  */
-class EmployeeGetEmployeeExpenseReceiptsByemployeeCdRequest extends Request
+class EmployeeGetEmployeeExpenseReceiptsByemployeeCdRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return ExpenseReceiptDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => ExpenseReceiptDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

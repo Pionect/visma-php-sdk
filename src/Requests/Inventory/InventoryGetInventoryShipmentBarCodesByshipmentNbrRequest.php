@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\BarCodeDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Inventory_GetInventoryShipmentBarCodesByshipmentNbr
  */
-class InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest extends Request
+class InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return BarCodeDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => BarCodeDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

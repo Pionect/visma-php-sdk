@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\InventorySummaryDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * InventorySummary_GetAllInventorySummaryByinventoryNumber
  */
-class InventorySummaryGetAllInventorySummaryByinventoryNumberRequest extends Request
+class InventorySummaryGetAllInventorySummaryByinventoryNumberRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return InventorySummaryDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => InventorySummaryDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\InventoryDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * SalesCategory_GetItemsForCategoryBycategoryId
  */
-class SalesCategoryGetItemsForCategoryBycategoryIdRequest extends Request
+class SalesCategoryGetItemsForCategoryBycategoryIdRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return InventoryDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => InventoryDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

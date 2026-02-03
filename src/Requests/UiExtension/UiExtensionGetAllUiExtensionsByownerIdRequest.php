@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\UiExtensionDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * UiExtension_GetAllUiExtensionsByownerId
  */
-class UiExtensionGetAllUiExtensionsByownerIdRequest extends Request
+class UiExtensionGetAllUiExtensionsByownerIdRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return UiExtensionDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => UiExtensionDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

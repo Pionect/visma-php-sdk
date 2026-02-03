@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\MultilanguageDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Multilanguage_GetInventoryTranslationsByinventoryNumber
  */
-class MultilanguageGetInventoryTranslationsByinventoryNumberRequest extends Request
+class MultilanguageGetInventoryTranslationsByinventoryNumberRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return MultilanguageDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => MultilanguageDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

@@ -6,19 +6,24 @@ use Pionect\VismaSdk\Dto\LocationDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Location_GetLocationsForBaccountBybAccountId
  *
  * Data for the Locations
  */
-class LocationGetLocationsForBaccountBybAccountIdRequest extends Request
+class LocationGetLocationsForBaccountBybAccountIdRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return LocationDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => LocationDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

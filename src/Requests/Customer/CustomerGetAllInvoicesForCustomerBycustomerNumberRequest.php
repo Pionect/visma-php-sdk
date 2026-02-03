@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\CustomerInvoiceDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * Customer_GetAllInvoicesForCustomerBycustomerNumber
  */
-class CustomerGetAllInvoicesForCustomerBycustomerNumberRequest extends Request
+class CustomerGetAllInvoicesForCustomerBycustomerNumberRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return CustomerInvoiceDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => CustomerInvoiceDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string

@@ -6,17 +6,22 @@ use Pionect\VismaSdk\Dto\CustomerPaymentMethodDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * CustomerPaymentMethod_GetCustomerPaymentMethodsBycustomerId
  */
-class CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest extends Request
+class CustomerPaymentMethodGetCustomerPaymentMethodsBycustomerIdRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
     public function createDtoFromResponse(Response $response): mixed
     {
-        return CustomerPaymentMethodDto::from($response->json());
+        $data = $response->json();
+
+        return collect($data)->map(
+            fn (array $item) => CustomerPaymentMethodDto::from($item)
+        );
     }
 
     public function resolveEndpoint(): string
