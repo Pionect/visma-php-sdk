@@ -88,6 +88,7 @@ class SaleOrderUpdateDtoInReopenSalesOrderActionDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $emailed = null,
         public ?RotRutUpdateDto $rotRutDetails = null,
+        /** @var SalesOrderLineUpdateDto[]|null */
         public ?array $lines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $orderType = null,

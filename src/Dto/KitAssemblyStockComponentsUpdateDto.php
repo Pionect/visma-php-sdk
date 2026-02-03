@@ -29,6 +29,7 @@ class KitAssemblyStockComponentsUpdateDto extends SpatieData
         public int|float|null $unitCost = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $reasonCode = null,
+        /** @var KitAssemblyStockComponentAllocationsUpdateDto[]|null */
         public ?array $stockComponentLineAllocations = null,
     ) {}
 }

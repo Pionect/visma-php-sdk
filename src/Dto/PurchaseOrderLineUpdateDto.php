@@ -63,6 +63,7 @@ class PurchaseOrderLineUpdateDto extends SpatieData
         public ?string $taxCategory = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $account = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $sub = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $project = null,

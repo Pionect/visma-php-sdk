@@ -78,7 +78,9 @@ class SupplierUpdateDto extends SpatieData
         public ?ContactInfoUpdateDto $supplierContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?SupplierGlAccountsUpdateDto $glAccounts = null,
+        /** @var SupplierPaymentMethodDetailUpdateDto[]|null */
         public ?array $supplierPaymentMethodDetails = null,
+        /** @var AttributeLineUpdateDto[]|null */
         public ?array $attributeLines = null,
         #[MapName('retainageCashAccountID'), WithTransformer(ValueWrapperTransformer::class)]
         public ?string $retainageCashAccountId = null,

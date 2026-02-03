@@ -42,7 +42,9 @@ class CashTransactionUpdateDto extends SpatieData
         public ?string $taxCalculationMode = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,
+        /** @var CashTransactionDetailUpdateDto[]|null */
         public ?array $cashTransactionDetails = null,
+        /** @var CashTransactionTaxDetailUpdateDto[]|null */
         public ?array $cashTransactionTaxDetails = null,
     ) {}
 }

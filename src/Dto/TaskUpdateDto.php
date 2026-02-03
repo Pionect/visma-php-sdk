@@ -31,6 +31,7 @@ class TaskUpdateDto extends SpatieData
         public ?string $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $restrictEmployees = null,
+        /** @var TaskEmployeeUpdateDto[]|null */
         public ?array $employees = null,
     ) {}
 }

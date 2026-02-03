@@ -30,6 +30,7 @@ class InventoryIssueLineUpdateDto extends SpatieData
         public ?string $lotSerialNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $expirationDate = null,
+        /** @var InallocationsUpdateDto[]|null */
         public ?array $allocations = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $costCode = null,

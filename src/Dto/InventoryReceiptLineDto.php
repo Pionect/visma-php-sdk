@@ -17,6 +17,7 @@ class InventoryReceiptLineDto extends SpatieData
         public int|float|null $extCost = null,
         public ?ProjectInInventoryReceiptLineDto $project = null,
         public ?ProjectTaskInInventoryReceiptLineDto $projectTask = null,
+        /** @var InallocationsDto[]|null */
         public ?array $allocations = null,
         public ?string $poReceiptNumber = null,
         public ?int $lineNumber = null,
@@ -26,6 +27,7 @@ class InventoryReceiptLineDto extends SpatieData
         public ?string $uom = null,
         public ?ReasonCodeInInventoryReceiptLineDto $reasonCode = null,
         public ?string $description = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?BranchNumberDto $branchNumber = null,
     ) {}

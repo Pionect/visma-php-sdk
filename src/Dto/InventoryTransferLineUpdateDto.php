@@ -20,6 +20,7 @@ class InventoryTransferLineUpdateDto extends SpatieData
         public ?string $lotSerialNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $expirationDate = null,
+        /** @var AllocationsUpdateBasicDto[]|null */
         public ?array $allocations = null,
         public ?string $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

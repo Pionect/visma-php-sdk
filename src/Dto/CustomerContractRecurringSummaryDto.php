@@ -18,6 +18,7 @@ class CustomerContractRecurringSummaryDto extends SpatieData
         public int|float|null $recurringTotal = null,
         public int|float|null $extraUsageTotal = null,
         public int|float|null $totalDue = null,
+        /** @var CustomerContractRecurringSummaryLineDto[]|null */
         public ?array $lines = null,
     ) {}
 }

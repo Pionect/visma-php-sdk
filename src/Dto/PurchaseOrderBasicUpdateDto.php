@@ -52,6 +52,7 @@ class PurchaseOrderBasicUpdateDto extends SpatieData
         public int|float|null $controlTotal = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branch = null,
+        /** @var PurchaseOrderLineUpdateDto[]|null */
         public ?array $lines = null,
         public ?bool $changeDatesOnLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

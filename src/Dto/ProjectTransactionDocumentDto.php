@@ -20,6 +20,7 @@ class ProjectTransactionDocumentDto extends SpatieData
         public ?string $origDocType = null,
         public ?string $note = null,
         public ?string $timeStamp = null,
+        /** @var ProjectTransactionLineDto[]|null */
         public ?array $lines = null,
         public ?string $errorInfo = null,
     ) {}

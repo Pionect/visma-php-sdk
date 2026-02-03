@@ -89,7 +89,9 @@ class ShipmentCreateDto extends SpatieData
         public ?bool $container = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
+        /** @var ShipmentDetailLineUpdateDto[]|null */
         public ?array $shipmentDetailLines = null,
+        /** @var ShipmentPackageLineUpdateDto[]|null */
         public ?array $shipmentPackageLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customStr1 = null,

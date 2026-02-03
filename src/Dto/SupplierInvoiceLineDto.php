@@ -46,6 +46,7 @@ class SupplierInvoiceLineDto extends SpatieData
         public ?string $splitHierarchy = null,
         public ?ProjectInSupplierInvoiceLineDto $project = null,
         public ?ProjectTaskInSupplierInvoiceLineDto $projectTask = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public int|float|null $retainagePct = null,
         public int|float|null $curyRetainageAmt = null,

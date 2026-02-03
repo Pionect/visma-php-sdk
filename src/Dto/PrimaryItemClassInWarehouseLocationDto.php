@@ -16,6 +16,7 @@ class PrimaryItemClassInWarehouseLocationDto extends SpatieData
 
     public function __construct(
         public ?string $type = null,
+        /** @var ClassAttributeDto[]|null */
         public ?array $attributes = null,
         public ?string $id = null,
         public ?string $description = null,

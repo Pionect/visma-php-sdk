@@ -18,6 +18,7 @@ class InventoryAdjustmentUpdateDto extends SpatieData
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $controlCost = null,
+        /** @var InventoryAdjustmentLineUpdateDto[]|null */
         public ?array $adjustmentLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,

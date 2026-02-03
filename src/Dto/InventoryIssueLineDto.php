@@ -22,6 +22,7 @@ class InventoryIssueLineDto extends SpatieData
         public ?ProjectTaskInInventoryIssueLineDto $projectTask = null,
         public ?string $lotSerialNumber = null,
         public ?\Carbon\Carbon $expirationDate = null,
+        /** @var InallocationsDto[]|null */
         public ?array $allocations = null,
         public ?string $poReceiptNumber = null,
         public ?int $lineNumber = null,
@@ -31,6 +32,7 @@ class InventoryIssueLineDto extends SpatieData
         public ?string $uom = null,
         public ?ReasonCodeInInventoryIssueLineDto $reasonCode = null,
         public ?string $description = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?BranchNumberDto $branchNumber = null,
     ) {}

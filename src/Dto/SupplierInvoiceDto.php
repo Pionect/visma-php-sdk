@@ -14,10 +14,14 @@ class SupplierInvoiceDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var TaxDetailDto[]|null */
         public ?array $taxDetailLines = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?ApprovalDetailsInSupplierInvoiceDto $approvalDetails = null,
+        /** @var SupplierInvoiceLineDto[]|null */
         public ?array $invoiceLines = null,
+        /** @var SupplierInvoiceLandedCostDto[]|null */
         public ?array $landedCosts = null,
         public ?bool $hold = null,
         public int|float|null $exchangeRate = null,

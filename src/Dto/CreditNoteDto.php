@@ -17,7 +17,9 @@ class CreditNoteDto extends SpatieData
     public function __construct(
         public ?string $externalReference = null,
         public ?ContactIdNameDto $contact = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
+        /** @var CreditNoteLineDto[]|null */
         public ?array $invoiceLines = null,
         public ?bool $hold = null,
         public int|float|null $discountTotal = null,
@@ -35,6 +37,7 @@ class CreditNoteDto extends SpatieData
         public ?string $paymentReference = null,
         public ?InvoiceAddressInCreditNoteDto $invoiceAddress = null,
         public ?InvoiceContactInCreditNoteDto $invoiceContact = null,
+        /** @var ArAdjustDto[]|null */
         public ?array $applications = null,
         public ?bool $dontPrint = null,
         public ?bool $dontEmail = null,

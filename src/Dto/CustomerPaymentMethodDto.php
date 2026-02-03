@@ -17,6 +17,7 @@ class CustomerPaymentMethodDto extends SpatieData
         public ?bool $active = null,
         public ?CashAccountInCustomerPaymentMethodDto $cashAccount = null,
         public ?string $cardOrAccountNo = null,
+        /** @var CustomerPaymentMethodDetailDto[]|null */
         public ?array $paymentMethodDetails = null,
         public ?string $timeStamp = null,
     ) {}

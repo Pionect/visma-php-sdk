@@ -16,6 +16,7 @@ class CustomerGlAccountsUpdateDto extends SpatieData
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerLedgerAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $customerLedgerSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesAccount = null,
@@ -25,18 +26,23 @@ class CustomerGlAccountsUpdateDto extends SpatieData
         public ?string $salesEuAccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesExportAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $salesSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $discountAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $discountSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $freightAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $freightSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $cashDiscountAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $cashDiscountSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $prepaymentAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $prepaymentSubaccount = null,
     ) {}
 }

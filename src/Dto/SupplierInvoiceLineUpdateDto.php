@@ -39,6 +39,7 @@ class SupplierInvoiceLineUpdateDto extends SpatieData
         public ?bool $manualDiscount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $accountNumber = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $subaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $deferralSchedule = null,
@@ -79,6 +80,7 @@ class SupplierInvoiceLineUpdateDto extends SpatieData
         public ?string $externalInventoryId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $prebookAccountNumber = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $prebookSubaccount = null,
     ) {}
 }

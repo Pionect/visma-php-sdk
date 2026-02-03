@@ -17,6 +17,7 @@ class InventoryReceiptDto extends SpatieData
         public int|float|null $totalCost = null,
         public int|float|null $controlCost = null,
         public ?string $transferNumber = null,
+        /** @var InventoryReceiptLineDto[]|null */
         public ?array $receiptLines = null,
         public ?string $referenceNumber = null,
         public ?string $status = null,
@@ -30,6 +31,7 @@ class InventoryReceiptDto extends SpatieData
         public ?string $batchNumber = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInInventoryReceiptDto $branchNumber = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?string $timestamp = null,
         public ?string $errorInfo = null,

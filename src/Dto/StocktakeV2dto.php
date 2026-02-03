@@ -21,6 +21,7 @@ class StocktakeV2dto extends SpatieData
         public int|float|null $varianceQty = null,
         public int|float|null $varianceCost = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var StocktakeLineV2dto[]|null */
         public ?array $lines = null,
         public ?string $timestamp = null,
         public ?string $errorInfo = null,

@@ -38,7 +38,9 @@ class CustomerDebitNoteUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $contact = null,
         public ?RotRutUpdateDto $rotRutDetails = null,
+        /** @var TaxDetailUpdateDto[]|null */
         public ?array $taxDetailLines = null,
+        /** @var CustomerDebitNoteLinesUpdateDto[]|null */
         public ?array $lines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerVatZoneId = null,

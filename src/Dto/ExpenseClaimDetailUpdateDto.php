@@ -37,6 +37,7 @@ class ExpenseClaimDetailUpdateDto extends SpatieData
         public ?string $projectTask = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $expenseAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $expenseSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branch = null,

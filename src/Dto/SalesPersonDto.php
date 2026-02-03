@@ -21,7 +21,9 @@ class SalesPersonDto extends SpatieData
         public ?bool $isActive = null,
         public int|float|null $commissionPct = null,
         public ?SubAccountDescriptionDto $salesSub = null,
+        /** @var CustSalesPeopleDto[]|null */
         public ?array $customers = null,
+        /** @var ArspcommnHistoryDto[]|null */
         public ?array $commissionHistory = null,
         public ?\Carbon\Carbon $createdDateTime = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,

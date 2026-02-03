@@ -26,6 +26,7 @@ class KitAssemblyStockComponentsDto extends SpatieData
         public int|float|null $maxComponentQty = null,
         public ?bool $allowComponentSubstitution = null,
         public int|float|null $disassemblyCoeff = null,
+        /** @var InallocationsDto[]|null */
         public ?array $allocations = null,
         public ?string $errorInfo = null,
     ) {}

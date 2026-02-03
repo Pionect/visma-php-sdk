@@ -33,7 +33,9 @@ class CashTransactionDto extends SpatieData
         public int|float|null $controlTotal = null,
         public int|float|null $taxAmount = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var TransactionDetailDto[]|null */
         public ?array $transactionDetails = null,
+        /** @var CashTranTaxDetailDto[]|null */
         public ?array $taxDetails = null,
         public ?FinancialsDetailInCashTransactionDto $financialsDetail = null,
         public ?string $timeStamp = null,

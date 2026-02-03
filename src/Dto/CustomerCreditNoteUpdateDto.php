@@ -25,8 +25,11 @@ class CustomerCreditNoteUpdateDto extends SpatieData
         public ?int $contact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $project = null,
+        /** @var CustomerCreditNoteLineUpdateDto[]|null */
         public ?array $lines = null,
+        /** @var TaxDetailUpdateDto[]|null */
         public ?array $taxDetails = null,
+        /** @var PaymentLineBaseUpdateDto[]|null */
         public ?array $applicationLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerVatZoneId = null,

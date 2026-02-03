@@ -26,6 +26,7 @@ class SupplierLocationDto extends SpatieData
         public ?string $gln = null,
         public ?string $corporateId = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var SupplierPaymentMethodDetailDto[]|null */
         public ?array $supplierPaymentMethodDetails = null,
         public ?string $timeStamp = null,
         public ?string $errorInfo = null,

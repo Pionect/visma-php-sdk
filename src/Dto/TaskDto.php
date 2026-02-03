@@ -24,7 +24,9 @@ class TaskDto extends SpatieData
         public ?bool $restrictEmployees = null,
         public ?VisibilityDto $visibility = null,
         public ?string $timeStamp = null,
+        /** @var EmployeeDto[]|null */
         public ?array $employees = null,
+        /** @var AttributeIdValueDto[]|null */
         public ?array $attributes = null,
     ) {}
 }

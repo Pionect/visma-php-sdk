@@ -22,8 +22,11 @@ class CustomerCreditNoteDto extends SpatieData
         public ?\Carbon\Carbon $dunningLetterDate = null,
         public ?int $dunningLetterLevel = null,
         public ?ContactInCustomerCreditNoteDto $contact = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
+        /** @var TaxDetailDto[]|null */
         public ?array $taxDetails = null,
+        /** @var CustomerCreditNoteLineDto[]|null */
         public ?array $lines = null,
         public int|float|null $roundingDiff = null,
         public ?CustomerVatZoneInCustomerCreditNoteDto $customerVatZone = null,
@@ -46,6 +49,7 @@ class CustomerCreditNoteDto extends SpatieData
         public ?string $paymentReference = null,
         public ?InvoiceAddressInCustomerCreditNoteDto $invoiceAddress = null,
         public ?InvoiceContactInCustomerCreditNoteDto $invoiceContact = null,
+        /** @var ArAdjustDto[]|null */
         public ?array $applications = null,
         public ?bool $dontPrint = null,
         public ?bool $dontEmail = null,

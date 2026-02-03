@@ -29,12 +29,19 @@ class DiscountDto extends SpatieData
         public ?int $lineCntr = null,
         public ?\Carbon\Carbon $createdDateTime = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var DiscountBreakpointDto[]|null */
         public ?array $discountBreakpoints = null,
+        /** @var DiscountCustomer2dto[]|null */
         public ?array $customers = null,
+        /** @var DiscountItemDto[]|null */
         public ?array $items = null,
+        /** @var DiscountWarehouseDto[]|null */
         public ?array $warehouses = null,
+        /** @var DiscountCustomerPriceClassDto[]|null */
         public ?array $customerPriceClasses = null,
+        /** @var DiscountItemPriceClassDto[]|null */
         public ?array $itemPriceClasses = null,
+        /** @var DiscountBranchDto[]|null */
         public ?array $branches = null,
         public ?string $errorInfo = null,
     ) {}

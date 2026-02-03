@@ -50,8 +50,11 @@ class ShipmentDto extends SpatieData
         public ?TransactionTypeInShipmentDto $transactionType = null,
         public ?ModeOfTrasportInShipmentDto $modeOfTrasport = null,
         public ?bool $container = null,
+        /** @var ShipmentDetailLineDto[]|null */
         public ?array $shipmentDetailLines = null,
+        /** @var ShipmentOrderLineDto[]|null */
         public ?array $shipmentOrderLines = null,
+        /** @var PackageDetailLineDto[]|null */
         public ?array $shipmentPackageLines = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?string $note = null,

@@ -42,7 +42,9 @@ class JournalTransactionDto extends SpatieData
         public ?string $transactionCodeDescription = null,
         public ?string $branch = null,
         public ?string $timeStamp = null,
+        /** @var JournalTransactionLineDto[]|null */
         public ?array $journalTransactionLines = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?string $errorInfo = null,
     ) {}

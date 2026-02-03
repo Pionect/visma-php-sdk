@@ -60,7 +60,9 @@ class SalesOrderDto extends SpatieData
         public ?string $paymentRef = null,
         public ?bool $isRotRutDeductible = null,
         public ?bool $emailed = null,
+        /** @var SalesOrderLineDto[]|null */
         public ?array $lines = null,
+        /** @var SalesOrderShipmentDto[]|null */
         public ?array $shipments = null,
         public ?string $orderType = null,
         public ?string $orderNo = null,
@@ -89,6 +91,7 @@ class SalesOrderDto extends SpatieData
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInSalesOrderDto $branchNumber = null,
         public ?string $note = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?string $errorInfo = null,
     ) {}

@@ -23,8 +23,11 @@ class CustomerOverdueChargeDto extends SpatieData
         public ?\Carbon\Carbon $dunningLetterDate = null,
         public ?int $dunningLetterLevel = null,
         public ?ContactInCustomerOverdueChargeDto $contact = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
+        /** @var TaxDetailDto[]|null */
         public ?array $taxDetails = null,
+        /** @var CustomerOverdueChargeLineDto[]|null */
         public ?array $lines = null,
         public int|float|null $roundingDiff = null,
         public ?CustomerVatZoneInCustomerOverdueChargeDto $customerVatZone = null,
@@ -45,6 +48,7 @@ class CustomerOverdueChargeDto extends SpatieData
         public ?string $paymentReference = null,
         public ?InvoiceAddressInCustomerOverdueChargeDto $invoiceAddress = null,
         public ?InvoiceContactInCustomerOverdueChargeDto $invoiceContact = null,
+        /** @var ArAdjustDto[]|null */
         public ?array $applications = null,
         public ?bool $dontPrint = null,
         public ?bool $dontEmail = null,

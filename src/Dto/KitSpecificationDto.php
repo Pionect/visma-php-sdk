@@ -22,7 +22,9 @@ class KitSpecificationDto extends SpatieData
         public ?bool $isNonStock = null,
         public ?\Carbon\Carbon $createdDateTime = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var KitSpecificationStockComponentsDto[]|null */
         public ?array $stockComponentLines = null,
+        /** @var KitSpecificationNonStockComponentDto[]|null */
         public ?array $nonStockComponentLines = null,
         public ?string $timestamp = null,
         public ?string $errorInfo = null,

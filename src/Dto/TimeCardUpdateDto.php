@@ -18,7 +18,9 @@ class TimeCardUpdateDto extends SpatieData
         public ?string $refNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $employee = null,
+        /** @var TimeCardSummaryUpdateDto[]|null */
         public ?array $summary = null,
+        /** @var TimeCardMaterialsUpdateDto[]|null */
         public ?array $materials = null,
     ) {}
 }

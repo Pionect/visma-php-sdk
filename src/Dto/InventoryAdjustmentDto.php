@@ -16,6 +16,7 @@ class InventoryAdjustmentDto extends SpatieData
     public function __construct(
         public int|float|null $totalCost = null,
         public int|float|null $controlCost = null,
+        /** @var InventoryAdjustmentLineDto[]|null */
         public ?array $adjusmentLines = null,
         public ?string $referenceNumber = null,
         public ?string $status = null,
@@ -29,6 +30,7 @@ class InventoryAdjustmentDto extends SpatieData
         public ?string $batchNumber = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInInventoryAdjustmentDto $branchNumber = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?string $timestamp = null,
         public ?string $errorInfo = null,

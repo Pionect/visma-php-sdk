@@ -16,6 +16,7 @@ class PurchaseReceiptOrderUpdateDto extends SpatieData
     public function __construct(
         public ?string $orderNbr = null,
         public ?string $orderType = null,
+        /** @var AllocationsUpdateDto[]|null */
         public ?array $allocations = null,
     ) {}
 }

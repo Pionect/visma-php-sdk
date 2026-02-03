@@ -20,6 +20,7 @@ class BudgetUpdateDto extends SpatieData
         public ?string $financialYear = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $account = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $subaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $description = null,
@@ -27,6 +28,7 @@ class BudgetUpdateDto extends SpatieData
         public int|float|null $amount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branchNumber = null,
+        /** @var FinancialPeriodAmountUpdateDto[]|null */
         public ?array $periods = null,
     ) {}
 }

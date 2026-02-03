@@ -15,6 +15,7 @@ class BasePaginationDtoOfDiscountCodeDto extends SpatieData
         public ?int $pageNumber = null,
         public ?int $pageSize = null,
         public ?int $totalCount = null,
+        /** @var DiscountCodeDto[]|null */
         public ?array $records = null,
     ) {}
 }

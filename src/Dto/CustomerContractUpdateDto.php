@@ -48,7 +48,9 @@ class CustomerContractUpdateDto extends SpatieData
         public ?string $owner = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesPerson = null,
+        /** @var CustomerContractDetailsUpdateDto[]|null */
         public ?array $details = null,
+        /** @var AttributeLineUpdateDto[]|null */
         public ?array $attributeLines = null,
     ) {}
 }

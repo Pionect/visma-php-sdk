@@ -31,6 +31,7 @@ class ProjectTaskUpdateDto extends SpatieData
         public ?VisibilityUpdateDto $visibility = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $restrictEmployees = null,
+        /** @var TaskEmployeeUpdateDto[]|null */
         public ?array $employees = null,
     ) {}
 }

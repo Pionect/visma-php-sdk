@@ -18,6 +18,7 @@ class CustomerInvoiceLineDto extends SpatieData
         public ?string $itemType = null,
         public ?WorkTypeDto $typeOfWork = null,
         public int|float|null $deductableAmount = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?ProjectTaskIdDescriptionDto $projectTask = null,
         public ?string $lineType = null,

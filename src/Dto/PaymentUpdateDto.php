@@ -44,8 +44,11 @@ class PaymentUpdateDto extends SpatieData
         public ?string $branch = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,
+        /** @var PaymentOrdersLinesUpdateDto[]|null */
         public ?array $ordersToApply = null,
+        /** @var FinanceChargesUpdateDto[]|null */
         public ?array $financeCharges = null,
+        /** @var PaymentLinesUpdateDto[]|null */
         public ?array $paymentLines = null,
     ) {}
 }

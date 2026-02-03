@@ -59,9 +59,11 @@ class PurchaseReceiptLineBasicUpdateDto extends SpatieData
         public ?string $accountId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $accountDescription = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $subaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $actualAccountId = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $actualSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $projectId = null,

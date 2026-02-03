@@ -13,6 +13,7 @@ class CashAccountDto extends SpatieData
 
     public function __construct(
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var EntryTypeDto[]|null */
         public ?array $entryTypes = null,
         public ?string $currency = null,
         public ?AccountInCashAccountDto $account = null,

@@ -42,6 +42,7 @@ class SupplierPaymentUpdateDto extends SpatieData
         public int|float|null $paymentAmount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branch = null,
+        /** @var SupplierPaymentAdjustmentUpdateDto[]|null */
         public ?array $paymentLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,

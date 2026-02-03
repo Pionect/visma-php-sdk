@@ -14,6 +14,7 @@ class PurchaseReceiptOrderListUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var PurchaseReceiptOrderUpdateDto[]|null */
         public ?array $purchaseOrders = null,
     ) {}
 }

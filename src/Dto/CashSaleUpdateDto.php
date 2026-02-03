@@ -21,6 +21,7 @@ class CashSaleUpdateDto extends SpatieData
         public ?string $creditTermsId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $paymentReference = null,
+        /** @var CashSaleLinesUpdateDto[]|null */
         public ?array $cashSaleLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,

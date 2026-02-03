@@ -17,6 +17,7 @@ class CustomerClassDto extends SpatieData
         public ?string $taxZoneId = null,
         public ?bool $requiredTaxzoneId = null,
         public ?string $paymentMethodId = null,
+        /** @var ClassAttributeDto[]|null */
         public ?array $attributes = null,
     ) {}
 }

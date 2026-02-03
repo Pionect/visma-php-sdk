@@ -22,6 +22,7 @@ class PaymentMethodDto extends SpatieData
         public ?string $description = null,
         #[MapName('useInAP')]
         public ?bool $useInAp = null,
+        /** @var PaymentMethodDetailDto[]|null */
         public ?array $details = null,
     ) {}
 }

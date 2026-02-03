@@ -14,6 +14,7 @@ class DtoSegmentUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var DtoSegmentValueUpdateDtoBase[]|null */
         public ?array $segmentValues = null,
         public ?string $dimensionId = null,
         public ?int $segementId = null,

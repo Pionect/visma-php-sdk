@@ -15,6 +15,7 @@ class BasePaginationDtoOfSalesPersonDto extends SpatieData
         public ?int $pageNumber = null,
         public ?int $pageSize = null,
         public ?int $totalCount = null,
+        /** @var SalesPersonDto[]|null */
         public ?array $records = null,
     ) {}
 }

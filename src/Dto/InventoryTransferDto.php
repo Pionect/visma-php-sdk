@@ -16,6 +16,7 @@ class InventoryTransferDto extends SpatieData
     public function __construct(
         public ?WarehouseInInventoryTransferDto $warehouse = null,
         public ?ToWarehouseInInventoryTransferDto $toWarehouse = null,
+        /** @var InventoryTransferLineDto[]|null */
         public ?array $transferLines = null,
         public ?string $referenceNumber = null,
         public ?string $status = null,
@@ -29,6 +30,7 @@ class InventoryTransferDto extends SpatieData
         public ?string $batchNumber = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInInventoryTransferDto $branchNumber = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?string $timestamp = null,
         public ?string $errorInfo = null,

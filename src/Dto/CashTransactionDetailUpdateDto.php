@@ -33,6 +33,7 @@ class CashTransactionDetailUpdateDto extends SpatieData
         public int|float|null $amount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $offsetAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $offsetSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $vatCode = null,

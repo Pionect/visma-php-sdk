@@ -90,7 +90,9 @@ class CustomerUpdateDto extends SpatieData
         public ?CustomerDefaultPaymentMethodUpdateDto $defaultPaymentMethod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?CustomerGlAccountsUpdateDto $glAccounts = null,
+        /** @var CustomerDirectDebitUpdateDto[]|null */
         public ?array $directDebitLines = null,
+        /** @var AttributeLineUpdateDto[]|null */
         public ?array $attributeLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,

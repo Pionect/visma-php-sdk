@@ -19,6 +19,7 @@ class FixedAssetPropertyTaxDto extends SpatieData
         public ?string $propertyTaxId = null,
         public ?string $description = null,
         public ?bool $active = null,
+        /** @var FixedAssetPropertyTaxDetailsDto[]|null */
         public ?array $details = null,
         public ?string $errorInfo = null,
     ) {}

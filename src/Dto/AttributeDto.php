@@ -22,6 +22,7 @@ class AttributeDto extends SpatieData
         public ?bool $internal = null,
         public ?string $entryMask = null,
         public ?string $regExp = null,
+        /** @var AttributeDetailDto[]|null */
         public ?array $details = null,
         public ?\Carbon\Carbon $createdDateTime = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,

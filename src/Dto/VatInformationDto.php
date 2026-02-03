@@ -33,8 +33,11 @@ class VatInformationDto extends SpatieData
         public ?string $vismaXmlVatType = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?GlAccountsInVatInformationDto $glAccounts = null,
+        /** @var VatInformationScheduleDto[]|null */
         public ?array $schedules = null,
+        /** @var VatCategoryDto[]|null */
         public ?array $categories = null,
+        /** @var VatZoneDto[]|null */
         public ?array $zones = null,
     ) {}
 }

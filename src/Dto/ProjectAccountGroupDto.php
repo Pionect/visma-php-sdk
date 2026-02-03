@@ -15,6 +15,7 @@ class ProjectAccountGroupDto extends SpatieData
         public ?string $accountGroupId = null,
         public ?bool $active = null,
         public ?string $description = null,
+        /** @var AttributeIdValueDto[]|null */
         public ?array $attributes = null,
         public ?string $errorInfo = null,
     ) {}

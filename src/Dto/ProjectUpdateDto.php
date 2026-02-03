@@ -34,9 +34,11 @@ class ProjectUpdateDto extends SpatieData
         public ?string $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $defAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $defSub = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $defAccrualAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $defAccrualSub = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $startDate = null,
@@ -67,7 +69,9 @@ class ProjectUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customerLocation = null,
         public ?VisibilityUpdateDto $visibility = null,
+        /** @var TaskUpdateDto[]|null */
         public ?array $tasks = null,
+        /** @var ProjectEmployeeUpdateDto[]|null */
         public ?array $employees = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,

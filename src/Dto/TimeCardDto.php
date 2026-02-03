@@ -26,7 +26,9 @@ class TimeCardDto extends SpatieData
         public ?int $totalTimeSpent = null,
         public ?int $invoiceableTotalTime = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var TimeCardSummaryDto[]|null */
         public ?array $summary = null,
+        /** @var TimeCardMaterialsDto[]|null */
         public ?array $materials = null,
         public ?string $approvalStatusText = null,
         public ?string $timeStamp = null,

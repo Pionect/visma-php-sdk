@@ -32,6 +32,7 @@ class ExtendedOrganizationDto extends SpatieData
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?LedgerInExtendedOrganizationDto $ledger = null,
         public ?BankSettingsInExtendedOrganizationDto $bankSettings = null,
+        /** @var BranchNumberDto[]|null */
         public ?array $branches = null,
         public ?string $timeStamp = null,
     ) {}

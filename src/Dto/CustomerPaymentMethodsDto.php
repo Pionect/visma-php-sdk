@@ -13,6 +13,7 @@ class CustomerPaymentMethodsDto extends SpatieData
 
     public function __construct(
         public ?string $customerId = null,
+        /** @var CustomerPaymentMethodDto[]|null */
         public ?array $paymentMethods = null,
     ) {}
 }

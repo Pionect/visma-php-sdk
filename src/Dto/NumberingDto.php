@@ -16,6 +16,7 @@ class NumberingDto extends SpatieData
         public ?string $description = null,
         public ?bool $manualNumbering = null,
         public ?string $newNumberSymbol = null,
+        /** @var NumberingSequenceDto[]|null */
         public ?array $sequence = null,
     ) {}
 }

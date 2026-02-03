@@ -31,6 +31,7 @@ class JournalTransactionLineDto extends SpatieData
         public ?string $uom = null,
         public ?ProjectInJournalTransactionLineDto $project = null,
         public ?ProjectTaskInJournalTransactionLineDto $projectTask = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public int|float|null $quantity = null,
         public ?string $inventoryNumber = null,

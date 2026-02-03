@@ -23,6 +23,7 @@ class CreditNoteUpdateDto extends SpatieData
         public ?string $externalReference = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $contact = null,
+        /** @var CreditNoteLineUpdateDto[]|null */
         public ?array $invoiceLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,

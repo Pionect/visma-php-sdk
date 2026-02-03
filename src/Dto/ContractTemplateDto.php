@@ -13,6 +13,7 @@ class ContractTemplateDto extends SpatieData
 
     public function __construct(
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var ClassAttributeDto[]|null */
         public ?array $attributes = null,
         public ?string $id = null,
         public ?string $description = null,

@@ -15,6 +15,7 @@ class DtoDimension extends SpatieData
         public ?string $id = null,
         public ?int $length = null,
         public ?string $description = null,
+        /** @var DtoSegment[]|null */
         public ?array $segments = null,
     ) {}
 }

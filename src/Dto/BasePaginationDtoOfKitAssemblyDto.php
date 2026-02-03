@@ -15,6 +15,7 @@ class BasePaginationDtoOfKitAssemblyDto extends SpatieData
         public ?int $pageNumber = null,
         public ?int $pageSize = null,
         public ?int $totalCount = null,
+        /** @var KitAssemblyDto[]|null */
         public ?array $records = null,
     ) {}
 }

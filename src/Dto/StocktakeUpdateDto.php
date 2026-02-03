@@ -14,6 +14,7 @@ class StocktakeUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var StocktakeLineUpdateDto[]|null */
         public ?array $lines = null,
     ) {}
 }

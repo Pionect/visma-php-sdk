@@ -12,6 +12,7 @@ class CustomerOverdueChargeLineDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?int $lineNumber = null,
         public ?string $inventoryNumber = null,

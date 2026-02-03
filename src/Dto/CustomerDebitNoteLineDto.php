@@ -18,6 +18,7 @@ class CustomerDebitNoteLineDto extends SpatieData
         public ?string $itemType = null,
         public ?WorkTypeDto $typeOfWork = null,
         public int|float|null $deductableAmount = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?string $soShipmentNbr = null,
         public ?string $soOrderType = null,

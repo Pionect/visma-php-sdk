@@ -52,7 +52,9 @@ class InventoryUpdateDto extends SpatieData
         public ?string $expenseEuAccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $expenseImportAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $expenseSubaccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $cogsSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesAccount = null,
@@ -62,11 +64,15 @@ class InventoryUpdateDto extends SpatieData
         public ?string $salesEuAccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesExportAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $salesSubaccount = null,
+        /** @var AttributeLineUpdateDto[]|null */
         public ?array $attributeLines = null,
         public ?PackagingUpdateDto $packaging = null,
+        /** @var SupplierDetailsDto[]|null */
         public ?array $supplierDetails = null,
         public ?IntrastatUpdateDto $intrastat = null,
+        /** @var CrossReferenceUpdateDto[]|null */
         public ?array $crossReferences = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $defaultWarehouse = null,

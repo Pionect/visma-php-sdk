@@ -31,8 +31,11 @@ class KitAssemblyDto extends SpatieData
         public ?\Carbon\Carbon $createdDateTime = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?string $salesOrderLink = null,
+        /** @var KitAssemblyStockComponentsDto[]|null */
         public ?array $stockComponentLines = null,
+        /** @var KitAssemblyNonStockComponentDto[]|null */
         public ?array $nonStockComponentLines = null,
+        /** @var InallocationsDto[]|null */
         public ?array $kitAllocations = null,
         public ?string $timestamp = null,
         public ?string $errorInfo = null,

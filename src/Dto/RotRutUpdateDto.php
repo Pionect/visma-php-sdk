@@ -24,6 +24,7 @@ class RotRutUpdateDto extends SpatieData
         public ?string $estate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $organizationNbr = null,
+        /** @var RotRutDistributionUpdateDto[]|null */
         public ?array $distribution = null,
     ) {}
 }

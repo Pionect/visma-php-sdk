@@ -15,6 +15,7 @@ class InventoryTransferLineDto extends SpatieData
         public ?LocationDescriptionDto $toLocation = null,
         public ?string $lotSerialNumber = null,
         public ?\Carbon\Carbon $expirationDate = null,
+        /** @var AllocationsBasicDto[]|null */
         public ?array $allocations = null,
         public ?int $lineNumber = null,
         public ?InventoryItemInInventoryTransferLineDto $inventoryItem = null,
@@ -23,6 +24,7 @@ class InventoryTransferLineDto extends SpatieData
         public ?string $uom = null,
         public ?ReasonCodeInInventoryTransferLineDto $reasonCode = null,
         public ?string $description = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?BranchNumberDto $branchNumber = null,
     ) {}

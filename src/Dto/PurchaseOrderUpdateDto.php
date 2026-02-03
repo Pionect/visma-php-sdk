@@ -42,6 +42,7 @@ class PurchaseOrderUpdateDto extends SpatieData
         public ?string $terms = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $supplierVatZone = null,
+        /** @var DiscountDetailUpdateDto[]|null */
         public ?array $discountDetails = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $dontPrint = null,
@@ -79,6 +80,7 @@ class PurchaseOrderUpdateDto extends SpatieData
         public int|float|null $controlTotal = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branch = null,
+        /** @var PurchaseOrderLineUpdateDto[]|null */
         public ?array $lines = null,
         public ?bool $changeDatesOnLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

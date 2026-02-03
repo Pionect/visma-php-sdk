@@ -17,6 +17,7 @@ class PurchaseReceiptLineUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var AllocationsUpdateDto[]|null */
         public ?array $allocations = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
@@ -61,9 +62,11 @@ class PurchaseReceiptLineUpdateDto extends SpatieData
         public ?string $accountId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $accountDescription = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $subaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $actualAccountId = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $actualSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $projectId = null,

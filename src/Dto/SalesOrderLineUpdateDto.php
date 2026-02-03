@@ -56,6 +56,7 @@ class SalesOrderLineUpdateDto extends SpatieData
         public ?string $alternateId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $projectTask = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $subaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $externalLink = null,

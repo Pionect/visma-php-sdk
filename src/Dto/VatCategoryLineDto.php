@@ -18,6 +18,7 @@ class VatCategoryLineDto extends SpatieData
         public ?string $type = null,
         public ?string $calculateOn = null,
         public ?string $cashDiscount = null,
+        /** @var VatRateLineDto[]|null */
         public ?array $vatRates = null,
     ) {}
 }

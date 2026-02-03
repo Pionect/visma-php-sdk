@@ -20,6 +20,7 @@ class BudgetDto extends SpatieData
         public ?string $description = null,
         public int|float|null $amount = null,
         public int|float|null $distributedAmount = null,
+        /** @var FinancialPeriodAmountDto[]|null */
         public ?array $periods = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInBudgetDto $branchNumber = null,

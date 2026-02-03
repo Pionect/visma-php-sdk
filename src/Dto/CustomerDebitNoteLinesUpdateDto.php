@@ -47,6 +47,7 @@ class CustomerDebitNoteLinesUpdateDto extends SpatieData
         public int|float|null $discountAmountInCurrency = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $manualDiscount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $subaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesperson = null,

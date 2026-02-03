@@ -49,6 +49,7 @@ class JournalTransactionUpdateDto extends SpatieData
         public ?string $branch = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,
+        /** @var JournalTransactionLineUpdateDto[]|null */
         public ?array $journalTransactionLines = null,
     ) {}
 }

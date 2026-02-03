@@ -41,6 +41,7 @@ class ExpenseClaimDetailDto extends SpatieData
         public ?string $approvalStatus = null,
         public ?string $approvalStatusText = null,
         public ?string $approver = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
     ) {}
 }

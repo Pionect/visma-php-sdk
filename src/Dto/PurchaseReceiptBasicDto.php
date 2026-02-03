@@ -37,6 +37,7 @@ class PurchaseReceiptBasicDto extends SpatieData
         public int|float|null $controlTotal = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInPurchaseReceiptBasicDto $branchNumber = null,
+        /** @var PurchaseReceiptLineDto[]|null */
         public ?array $lines = null,
         public ?\Carbon\Carbon $dueDate = null,
         public ?string $customStr1 = null,

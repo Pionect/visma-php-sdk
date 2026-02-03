@@ -32,6 +32,7 @@ class WarehouseDto extends SpatieData
         public ?DropShipLocationInWarehouseDto $dropShipLocation = null,
         public ?ContactInWarehouseDto $contact = null,
         public ?AddressInWarehouseDto $address = null,
+        /** @var WarehouseLocationDto[]|null */
         public ?array $locations = null,
         public ?string $timestamp = null,
     ) {}

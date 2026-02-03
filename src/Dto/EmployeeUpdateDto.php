@@ -26,6 +26,7 @@ class EmployeeUpdateDto extends SpatieData
         public ?string $branch = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $calendar = null,
+        /** @var CompanyTreeInfoDto[]|null */
         public ?array $companyTreeInfo = null,
     ) {}
 }

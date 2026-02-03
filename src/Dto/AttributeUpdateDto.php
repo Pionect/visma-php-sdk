@@ -27,6 +27,7 @@ class AttributeUpdateDto extends SpatieData
         public ?string $entryMask = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $regExp = null,
+        /** @var AttributeDetailUpdateDto[]|null */
         public ?array $details = null,
     ) {}
 }

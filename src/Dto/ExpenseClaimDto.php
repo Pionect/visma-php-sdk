@@ -29,6 +29,7 @@ class ExpenseClaimDto extends SpatieData
         public ?DepartmentInExpenseClaimDto $department = null,
         public ?LocationInExpenseClaimDto $location = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var ExpenseClaimDetailDto[]|null */
         public ?array $details = null,
         public ?string $approvalStatusText = null,
         public ?string $timeStamp = null,

@@ -28,7 +28,9 @@ class KitSpecificationUpdateDto extends SpatieData
         public ?bool $allowCompAddition = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $isNonStock = null,
+        /** @var KitSpecificationStockComponentsUpdateDto[]|null */
         public ?array $stockComponentLines = null,
+        /** @var KitSpecificationNonStockComponentsUpdateDto[]|null */
         public ?array $nonStockComponentLines = null,
     ) {}
 }

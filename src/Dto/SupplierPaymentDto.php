@@ -34,6 +34,7 @@ class SupplierPaymentDto extends SpatieData
         public ?bool $released = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?string $branch = null,
+        /** @var SupplierPaymentAdjustmentDto[]|null */
         public ?array $paymentLines = null,
         public ?string $timeStamp = null,
         public ?string $errorInfo = null,

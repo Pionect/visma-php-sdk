@@ -15,6 +15,7 @@ class ContractUsageUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var ContractUsageLineUpdateDto[]|null */
         public ?array $lines = null,
     ) {}
 }

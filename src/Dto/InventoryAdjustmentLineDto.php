@@ -24,6 +24,7 @@ class InventoryAdjustmentLineDto extends SpatieData
         public ?string $uom = null,
         public ?ReasonCodeInInventoryAdjustmentLineDto $reasonCode = null,
         public ?string $description = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?BranchNumberDto $branchNumber = null,
     ) {}

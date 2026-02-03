@@ -14,6 +14,7 @@ class SalesOrderBasicDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var SalesOrderDocumentLineDto[]|null */
         public ?array $lines = null,
         public ?string $orderType = null,
         public ?string $orderNo = null,
@@ -42,6 +43,7 @@ class SalesOrderBasicDto extends SpatieData
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInSalesOrderBasicDto $branchNumber = null,
         public ?string $note = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?string $errorInfo = null,
     ) {}

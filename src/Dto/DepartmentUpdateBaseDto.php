@@ -19,6 +19,7 @@ class DepartmentUpdateBaseDto extends SpatieData
         public ?string $description = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $expenseAccount = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $expenseSubaccount = null,
     ) {}
 }

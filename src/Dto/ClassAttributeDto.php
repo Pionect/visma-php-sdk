@@ -18,6 +18,7 @@ class ClassAttributeDto extends SpatieData
         public ?bool $required = null,
         public ?string $attributeType = null,
         public ?string $defaultValue = null,
+        /** @var ClassAttributeDetailDto[]|null */
         public ?array $details = null,
     ) {}
 }

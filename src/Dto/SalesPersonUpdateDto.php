@@ -25,6 +25,7 @@ class SalesPersonUpdateDto extends SpatieData
         public int|float|null $commissionPct = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesSub = null,
+        /** @var CustSalesPeopleUpdateDto[]|null */
         public ?array $customers = null,
     ) {}
 }

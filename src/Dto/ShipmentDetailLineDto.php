@@ -28,6 +28,7 @@ class ShipmentDetailLineDto extends SpatieData
         public ?\Carbon\Carbon $expirationDate = null,
         public ?string $reasonCode = null,
         public ?string $description = null,
+        /** @var AllocationsDto[]|null */
         public ?array $allocations = null,
         public ?int $orderLineNbr = null,
         public ?string $note = null,

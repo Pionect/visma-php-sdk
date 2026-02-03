@@ -21,6 +21,7 @@ class SalesCategoryDto extends SpatieData
         #[MapName('parentID')]
         public ?int $parentId = null,
         public ?int $sortOrder = null,
+        /** @var SalesCategoryDto[]|null */
         public ?array $subCategories = null,
     ) {}
 }

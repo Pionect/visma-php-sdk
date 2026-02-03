@@ -12,6 +12,7 @@ class SupplierClassDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var ClassAttributeDto[]|null */
         public ?array $attributes = null,
         public ?string $paymentMethodId = null,
         public ?string $paymentMethodDescription = null,

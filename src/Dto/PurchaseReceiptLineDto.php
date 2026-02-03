@@ -15,6 +15,7 @@ class PurchaseReceiptLineDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var AllocationsDto[]|null */
         public ?array $allocations = null,
         public ?string $note = null,
         public int|float|null $baseReceiptQty = null,

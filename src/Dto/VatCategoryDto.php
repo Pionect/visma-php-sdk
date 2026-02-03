@@ -17,6 +17,7 @@ class VatCategoryDto extends SpatieData
         public ?bool $active = null,
         public ?bool $excludeListedTaxes = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var VatCategoryLineDto[]|null */
         public ?array $vatCategoryLines = null,
     ) {}
 }

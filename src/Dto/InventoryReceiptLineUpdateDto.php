@@ -20,6 +20,7 @@ class InventoryReceiptLineUpdateDto extends SpatieData
         public int|float|null $unitCost = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $extCost = null,
+        /** @var InventoryReceiptLineAllocationsUpdateDto[]|null */
         public ?array $allocations = null,
         public ?string $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

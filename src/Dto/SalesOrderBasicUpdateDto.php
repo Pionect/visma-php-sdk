@@ -17,6 +17,7 @@ class SalesOrderBasicUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var SalesOrderBasicLineUpdateDto[]|null */
         public ?array $lines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $orderType = null,

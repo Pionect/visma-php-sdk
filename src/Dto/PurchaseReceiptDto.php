@@ -15,6 +15,7 @@ class PurchaseReceiptDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var LandedCostDto[]|null */
         public ?array $landedCost = null,
         public ?string $note = null,
         public ?string $timeStamp = null,
@@ -39,6 +40,7 @@ class PurchaseReceiptDto extends SpatieData
         public int|float|null $controlTotal = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInPurchaseReceiptDto $branchNumber = null,
+        /** @var PurchaseReceiptLineDto[]|null */
         public ?array $lines = null,
         public ?\Carbon\Carbon $dueDate = null,
         public ?string $customStr1 = null,

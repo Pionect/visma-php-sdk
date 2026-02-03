@@ -49,11 +49,14 @@ class ProjectDto extends SpatieData
         public ?bool $autoAllocate = null,
         public ?bool $automaticReleaseAr = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var TaskDto[]|null */
         public ?array $tasks = null,
+        /** @var EmployeeDto[]|null */
         public ?array $employees = null,
         public ?string $publicId = null,
         public ?bool $systemTemplate = null,
         public ?string $timeStamp = null,
+        /** @var AttributeIdValueDto[]|null */
         public ?array $attributes = null,
         public ?string $note = null,
         public ?string $errorInfo = null,

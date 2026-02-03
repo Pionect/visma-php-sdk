@@ -18,6 +18,7 @@ class CustomerPaymentMethodUpdateDto extends SpatieData
         public ?bool $active = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $cashAccountId = null,
+        /** @var CustomerPaymentMethodDetailUpdateDto[]|null */
         public ?array $paymentMethodDetails = null,
     ) {}
 }

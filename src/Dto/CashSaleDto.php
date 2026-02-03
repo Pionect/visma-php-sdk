@@ -16,6 +16,7 @@ class CashSaleDto extends SpatieData
 
     public function __construct(
         public ?CreditTermsInCashSaleDto $creditTerms = null,
+        /** @var CashSaleLineDto[]|null */
         public ?array $cashSaleLines = null,
         public ?string $timeStamp = null,
         public ?bool $hold = null,
@@ -34,6 +35,7 @@ class CashSaleDto extends SpatieData
         public ?string $paymentReference = null,
         public ?InvoiceAddressInCashSaleDto $invoiceAddress = null,
         public ?InvoiceContactInCashSaleDto $invoiceContact = null,
+        /** @var ArAdjustDto[]|null */
         public ?array $applications = null,
         public ?bool $dontPrint = null,
         public ?bool $dontEmail = null,

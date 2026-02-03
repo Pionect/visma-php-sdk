@@ -16,6 +16,7 @@ class PrebookingUpdateDto extends SpatieData
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $accountNumber = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $subaccount = null,
     ) {}
 }

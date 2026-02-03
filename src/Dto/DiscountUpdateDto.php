@@ -34,6 +34,7 @@ class DiscountUpdateDto extends SpatieData
         public ?\Carbon\Carbon $effectiveDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $expirationDate = null,
+        /** @var DiscountBreakpointUpdateDto[]|null */
         public ?array $discountBreakpoints = null,
     ) {}
 }

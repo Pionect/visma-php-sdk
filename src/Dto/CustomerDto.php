@@ -48,14 +48,17 @@ class CustomerDto extends SpatieData
         public ?string $gln = null,
         public ?VatZoneInCustomerDto $vatZone = null,
         public ?LocationInCustomerDto $location = null,
+        /** @var AttributeIdValueDto[]|null */
         public ?array $attributes = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?\Carbon\Carbon $createdDateTime = null,
+        /** @var CustomerDirectDebitDto[]|null */
         public ?array $directDebitLines = null,
         public ?PriceClassInCustomerDto $priceClass = null,
         public ?GlAccountsInCustomerDto $glAccounts = null,
         public ?bool $invoiceToDefaultLocation = null,
         public ?EInvoiceContractInCustomerDto $eInvoiceContract = null,
+        /** @var CustomerPaymentMethodInfoDto[]|null */
         public ?array $paymentMethods = null,
         public ?string $defaultPaymentMethodId = null,
         public ?int $numberOfEmployees = null,

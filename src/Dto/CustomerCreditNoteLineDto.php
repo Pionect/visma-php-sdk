@@ -21,6 +21,7 @@ class CustomerCreditNoteLineDto extends SpatieData
         public ?string $soShipmentNbr = null,
         public ?string $soOrderType = null,
         public ?string $soOrderNbr = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?ProjectTaskIdDescriptionDto $projectTask = null,
         public ?int $lineNumber = null,

@@ -23,6 +23,7 @@ class LotSerialClassDto extends SpatieData
         public ?string $autoIncrementalValue = null,
         public ?bool $autoGenerateNextNumber = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var LotSerialClassDetailDto[]|null */
         public ?array $details = null,
         public ?string $errorInfo = null,
     ) {}

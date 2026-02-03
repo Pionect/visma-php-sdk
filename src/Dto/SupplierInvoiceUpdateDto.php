@@ -73,12 +73,17 @@ class SupplierInvoiceUpdateDto extends SpatieData
         public ?string $paymentMessage = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $applyRetainage = null,
+        /** @var TaxDetailUpdateDto[]|null */
         public ?array $taxDetailLines = null,
+        /** @var SupplierInvoiceLineUpdateDto[]|null */
         public ?array $invoiceLines = null,
         public ?ApprovalDetailsUpdateDto $approvalDetails = null,
+        /** @var AddPoreceiptLineDto[]|null */
         #[MapName('addPOReceiptLines')]
         public ?array $addPoreceiptLines = null,
+        /** @var AddPurchaseOrderDto[]|null */
         public ?array $addPurchaseOrders = null,
+        /** @var SupplierInvoiceLandedCostUpdateDto[]|null */
         public ?array $landedCosts = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $paySelected = null,

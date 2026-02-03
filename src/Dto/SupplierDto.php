@@ -44,8 +44,10 @@ class SupplierDto extends SpatieData
         public ?string $corporateId = null,
         public ?VatZoneInSupplierDto $vatZone = null,
         public ?GlAccountsInSupplierDto $glAccounts = null,
+        /** @var AttributeIdValueDto[]|null */
         public ?array $attributes = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var SupplierPaymentMethodDetailDto[]|null */
         public ?array $supplierPaymentMethodDetails = null,
         public ?bool $retainageApply = null,
         #[MapName('retainageCashAccountID')]

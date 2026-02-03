@@ -37,6 +37,7 @@ class CreditTermDto extends SpatieData
         public ?int $numberOfInstalments = null,
         public ?string $instalmentFrequency = null,
         public ?string $instalmentMethod = null,
+        /** @var InstalmentSchedule[]|null */
         public ?array $instalmentsSchedule = null,
         public ?\Carbon\Carbon $createdDateTime = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,

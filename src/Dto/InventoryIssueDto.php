@@ -16,6 +16,7 @@ class InventoryIssueDto extends SpatieData
     public function __construct(
         public int|float|null $totalAmount = null,
         public int|float|null $controlAmount = null,
+        /** @var InventoryIssueLineDto[]|null */
         public ?array $issueLines = null,
         public ?string $referenceNumber = null,
         public ?string $status = null,
@@ -29,6 +30,7 @@ class InventoryIssueDto extends SpatieData
         public ?string $batchNumber = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?BranchNumberInInventoryIssueDto $branchNumber = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
         public ?string $timestamp = null,
         public ?string $errorInfo = null,

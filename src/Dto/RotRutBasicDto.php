@@ -17,6 +17,7 @@ class RotRutBasicDto extends SpatieData
         public ?string $appartment = null,
         public ?string $estate = null,
         public ?string $organizationNbr = null,
+        /** @var RotRutDistributionDto[]|null */
         public ?array $distribution = null,
     ) {}
 }

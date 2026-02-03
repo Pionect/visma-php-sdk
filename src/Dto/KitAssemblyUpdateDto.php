@@ -38,9 +38,13 @@ class KitAssemblyUpdateDto extends SpatieData
         public ?string $uoM = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $quantity = null,
+        /** @var KitAssemblyStockComponentsUpdateDto[]|null */
         public ?array $stockComponentLines = null,
+        /** @var KitAssemblyStockComponentAllocationsUpdateDto[]|null */
         public ?array $stockComponentAllocations = null,
+        /** @var KitAssemblyNonStockComponentsUpdateDto[]|null */
         public ?array $nonStockComponentLines = null,
+        /** @var InallocationsUpdateDto[]|null */
         public ?array $kitAllocations = null,
     ) {}
 }

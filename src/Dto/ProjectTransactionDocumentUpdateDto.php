@@ -22,6 +22,7 @@ class ProjectTransactionDocumentUpdateDto extends SpatieData
         public ?string $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $module = null,
+        /** @var ProjectTransactionLineUpdateDto[]|null */
         public ?array $lines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,

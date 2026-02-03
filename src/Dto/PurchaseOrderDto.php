@@ -28,6 +28,7 @@ class PurchaseOrderDto extends SpatieData
         public ?RemitAddressInPurchaseOrderDto $remitAddress = null,
         public ?TermsInPurchaseOrderDto $terms = null,
         public ?SupplierVatZoneInPurchaseOrderDto $supplierVatZone = null,
+        /** @var DiscountDetailDto[]|null */
         public ?array $discountDetails = null,
         public ?string $salesOrderType = null,
         public ?string $salesOrderNbr = null,
@@ -65,8 +66,11 @@ class PurchaseOrderDto extends SpatieData
         public int|float|null $controlTotal = null,
         public int|float|null $controlTotalInBaseCurrency = null,
         public ?BranchInPurchaseOrderDto $branch = null,
+        /** @var PurchaseOrderLineDto[]|null */
         public ?array $lines = null,
+        /** @var TaxDetailDto[]|null */
         public ?array $taxDetails = null,
+        /** @var PurchaseReceiptsDto[]|null */
         public ?array $purchaseReceipts = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?string $note = null,

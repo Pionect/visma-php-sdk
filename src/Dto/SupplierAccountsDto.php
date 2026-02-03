@@ -13,6 +13,7 @@ class SupplierAccountsDto extends SpatieData
 
     public function __construct(
         public ?SupplierAccountInSupplierAccountsDto $supplierAccount = null,
+        /** @var SupplierItemAccountDto[]|null */
         public ?array $supplierItemAccounts = null,
     ) {}
 }

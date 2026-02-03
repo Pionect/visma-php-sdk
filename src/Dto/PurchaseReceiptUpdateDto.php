@@ -17,7 +17,9 @@ class PurchaseReceiptUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** @var PurchaseReceiptLineUpdateDto[]|null */
         public ?array $lines = null,
+        /** @var LandedCostUpdateDto[]|null */
         public ?array $landedCost = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,

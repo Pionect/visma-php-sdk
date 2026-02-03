@@ -20,6 +20,7 @@ class DtoSegment extends SpatieData
         public ?string $timeStamp = null,
         public ?\Carbon\Carbon $lastModified = null,
         public ?bool $validate = null,
+        /** @var DtoSegmentValue[]|null */
         public ?array $segmentValues = null,
         public ?bool $isAutoNumber = null,
         public ?int $consolNumChar = null,

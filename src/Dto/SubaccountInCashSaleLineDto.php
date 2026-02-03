@@ -19,6 +19,7 @@ class SubaccountInCashSaleLineDto extends SpatieData
         public ?string $description = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?bool $active = null,
+        /** @var SegmentDto[]|null */
         public ?array $segments = null,
         public ?string $timeStamp = null,
         public ?string $errorInfo = null,

@@ -37,6 +37,7 @@ class CustomerOverdueChargeUpdateDto extends SpatieData
         public ?string $paymentReference = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $contact = null,
+        /** @var CustomerOverdueChargeLineUpdateDto[]|null */
         public ?array $lines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,

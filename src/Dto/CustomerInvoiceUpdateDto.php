@@ -42,7 +42,9 @@ class CustomerInvoiceUpdateDto extends SpatieData
         public ?int $contact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $project = null,
+        /** @var TaxDetailUpdateDto[]|null */
         public ?array $taxDetailLines = null,
+        /** @var CustomerInvoiceLinesUpdateDto[]|null */
         public ?array $invoiceLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $sendToAutoInvoice = null,

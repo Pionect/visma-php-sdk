@@ -19,6 +19,7 @@ class JournalTransactionLineUpdateDto extends SpatieData
         public ?int $lineNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $accountNumber = null,
+        /** @var SegmentUpdateDto[]|null */
         public ?array $subaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $project = null,

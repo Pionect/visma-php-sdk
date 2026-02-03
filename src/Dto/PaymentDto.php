@@ -36,7 +36,9 @@ class PaymentDto extends SpatieData
         public int|float|null $deductedCharges = null,
         public ?string $branch = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** @var PaymentLineDto[]|null */
         public ?array $paymentLines = null,
+        /** @var OrderToApplyDto[]|null */
         public ?array $ordersToApply = null,
         public ?FinancialDetailsInPaymentDto $financialDetails = null,
         public int|float|null $paymentAmountInCurrency = null,

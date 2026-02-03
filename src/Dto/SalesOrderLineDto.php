@@ -59,6 +59,7 @@ class SalesOrderLineDto extends SpatieData
         public ?string $lineDescription = null,
         public ?BranchNumberDto $branchNumber = null,
         public ?string $note = null,
+        /** @var AttachmentDto[]|null */
         public ?array $attachments = null,
     ) {}
 }

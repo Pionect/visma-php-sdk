@@ -24,6 +24,7 @@ class CustomerContractDto extends SpatieData
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         public ?SummaryInCustomerContractDto $summary = null,
         public ?DetailsInCustomerContractDto $details = null,
+        /** @var AttributeIdValueDto[]|null */
         public ?array $attributes = null,
     ) {}
 }

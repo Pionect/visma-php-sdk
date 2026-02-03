@@ -25,6 +25,7 @@ class ExpenseClaimUpdateDto extends SpatieData
         public ?string $customerUpdateAnswer = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $location = null,
+        /** @var ExpenseClaimDetailUpdateDto[]|null */
         public ?array $details = null,
     ) {}
 }

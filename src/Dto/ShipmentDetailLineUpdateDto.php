@@ -36,6 +36,7 @@ class ShipmentDetailLineUpdateDto extends SpatieData
         public ?string $description = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
+        /** @var AllocationsUpdateDto[]|null */
         public ?array $allocations = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customStr1 = null,

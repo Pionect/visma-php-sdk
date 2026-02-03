@@ -23,6 +23,7 @@ class DetailsInCustomerContractDto extends SpatieData
         public int|float|null $currentSetup = null,
         public int|float|null $currentRecurring = null,
         public int|float|null $currentRenewal = null,
+        /** @var CustomerContractDetailsLineDto[]|null */
         public ?array $lines = null,
     ) {}
 }
