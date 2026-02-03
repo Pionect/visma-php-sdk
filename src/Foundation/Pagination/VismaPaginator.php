@@ -10,7 +10,7 @@ use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Paginator;
 
-class PlainJsonPaginator extends Paginator
+class VismaPaginator extends Paginator
 {
     public function dtoCollection(): Collection
     {

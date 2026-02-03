@@ -2,7 +2,7 @@
 
 namespace Pionect\VismaSdk;
 
-use Pionect\VismaSdk\Foundation\Pagination\PlainJsonPaginator;
+use Pionect\VismaSdk\Foundation\Pagination\VismaPaginator;
 use Saloon\Helpers\OAuth2\OAuthConfig;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
@@ -56,8 +56,8 @@ class VismaConnector extends Connector implements HasPagination
             });
     }
 
-    public function paginate(Request $request): PlainJsonPaginator
+    public function paginate(Request $request): VismaPaginator
     {
-        return new PlainJsonPaginator($this, $request);
+        return new VismaPaginator($this, $request);
     }
 }
