@@ -3,15 +3,19 @@
 namespace Pionect\VismaSdk\Requests\Vat;
 
 use Pionect\VismaSdk\Dto\UpdateNoteDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
  * Vat_PutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumber
  */
-class VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest extends Request
+class VatPutVatLineNoteByvendorCdtaxPeriodIdrevisionIdlineNumberRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\KitSpecifications;
 
 use Pionect\VismaSdk\Dto\KitSpecificationUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -12,8 +14,10 @@ use Spatie\LaravelData\Data;
  *
  * Response Message has StatusCode NoContent if PUT operation succeed
  */
-class KitSpecificationsPutBykitInventoryIdrevisionIdRequest extends Request
+class KitSpecificationsPutBykitInventoryIdrevisionIdRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

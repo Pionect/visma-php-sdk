@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\StocktakeV2;
 
 use Pionect\VismaSdk\Dto\StocktakeUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -20,8 +22,10 @@ use Spatie\LaravelData\Data;
  * (The first member of StocktakeExceptionErrorCode will be 0, and the value of each successive enum
  * member is increased by 1)
  */
-class StocktakeV2PutByreferenceNumberRequest extends Request
+class StocktakeV2PutByreferenceNumberRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

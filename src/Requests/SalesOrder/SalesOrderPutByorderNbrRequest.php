@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\SalesOrder;
 
 use Pionect\VismaSdk\Dto\SalesOrderUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -12,8 +14,10 @@ use Spatie\LaravelData\Data;
  *
  * Response Message has StatusCode NoContent if PUT operation succeed
  */
-class SalesOrderPutByorderNbrRequest extends Request
+class SalesOrderPutByorderNbrRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

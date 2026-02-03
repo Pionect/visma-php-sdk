@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\Dimension;
 
 use Pionect\VismaSdk\Dto\DtoSegmentUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -16,8 +18,10 @@ use Spatie\LaravelData\Data;
  *             Response
  * Message has StatusCode InternalServerError if PUT operation failed
  */
-class DimensionUpdateSegmentBydimensionIdsegmentIdRequest extends Request
+class DimensionUpdateSegmentBydimensionIdsegmentIdRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

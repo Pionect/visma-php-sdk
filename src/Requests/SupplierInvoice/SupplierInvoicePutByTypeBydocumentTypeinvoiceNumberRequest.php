@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\SupplierInvoice;
 
 use Pionect\VismaSdk\Dto\SupplierInvoiceUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -16,8 +18,10 @@ use Spatie\LaravelData\Data;
  * The response headers include an ETag after
  * a successful PUT operation.
  */
-class SupplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest extends Request
+class SupplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

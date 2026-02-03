@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\JournalTransactionV2;
 
 use Pionect\VismaSdk\Dto\JournalTransactionUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -16,8 +18,10 @@ use Spatie\LaravelData\Data;
  *             Response
  * Message has StatusCode BadRequest if PUT operation failed
  */
-class JournalTransactionV2PutByjournalTransactionNumberRequest extends Request
+class JournalTransactionV2PutByjournalTransactionNumberRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

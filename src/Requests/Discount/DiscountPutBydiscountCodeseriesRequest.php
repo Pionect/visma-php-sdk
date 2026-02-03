@@ -3,15 +3,19 @@
 namespace Pionect\VismaSdk\Requests\Discount;
 
 use Pionect\VismaSdk\Dto\DiscountUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
  * Discount_PutBydiscountCodeseries
  */
-class DiscountPutBydiscountCodeseriesRequest extends Request
+class DiscountPutBydiscountCodeseriesRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

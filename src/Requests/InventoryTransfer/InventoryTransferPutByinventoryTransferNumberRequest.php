@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\InventoryTransfer;
 
 use Pionect\VismaSdk\Dto\InventoryTransferUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -12,8 +14,10 @@ use Spatie\LaravelData\Data;
  *
  * Response Message has StatusCode NoContent if PUT operation succeed
  */
-class InventoryTransferPutByinventoryTransferNumberRequest extends Request
+class InventoryTransferPutByinventoryTransferNumberRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

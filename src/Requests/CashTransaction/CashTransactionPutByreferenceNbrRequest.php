@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\CashTransaction;
 
 use Pionect\VismaSdk\Dto\CashTransactionUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -16,8 +18,10 @@ use Spatie\LaravelData\Data;
  *             The response
  * headers include an ETag after a successful PUT operation.
  */
-class CashTransactionPutByreferenceNbrRequest extends Request
+class CashTransactionPutByreferenceNbrRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

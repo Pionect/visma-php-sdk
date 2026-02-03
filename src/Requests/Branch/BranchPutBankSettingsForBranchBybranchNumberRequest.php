@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\Branch;
 
 use Pionect\VismaSdk\Dto\BankSettingsUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -12,8 +14,10 @@ use Spatie\LaravelData\Data;
  *
  * Response Message has StatusCode No Content if PUT operation succeed
  */
-class BranchPutBankSettingsForBranchBybranchNumberRequest extends Request
+class BranchPutBankSettingsForBranchBybranchNumberRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

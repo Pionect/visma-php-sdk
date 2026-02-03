@@ -3,15 +3,19 @@
 namespace Pionect\VismaSdk\Requests\Multilanguage;
 
 use Pionect\VismaSdk\Dto\LanguageUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
  * Multilanguage_AddDefaultLanguage
  */
-class MultilanguageAddDefaultLanguageRequest extends Request
+class MultilanguageAddDefaultLanguageRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

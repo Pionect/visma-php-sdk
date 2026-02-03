@@ -3,8 +3,10 @@
 namespace Pionect\VismaSdk\Requests\Customer;
 
 use Pionect\VismaSdk\Dto\CustomerUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -16,8 +18,10 @@ use Spatie\LaravelData\Data;
  * In this endpoint, If-Match can be checked
  * against resource current version when calling with 'erp-api-background' HTTP header.
  */
-class CustomerPutBycustomerCdRequest extends Request
+class CustomerPutBycustomerCdRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

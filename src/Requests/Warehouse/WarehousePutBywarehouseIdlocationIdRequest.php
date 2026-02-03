@@ -3,15 +3,19 @@
 namespace Pionect\VismaSdk\Requests\Warehouse;
 
 use Pionect\VismaSdk\Dto\WarehouseLocationUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
  * Warehouse_PutBywarehouseIDlocationID
  */
-class WarehousePutBywarehouseIdlocationIdRequest extends Request
+class WarehousePutBywarehouseIdlocationIdRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

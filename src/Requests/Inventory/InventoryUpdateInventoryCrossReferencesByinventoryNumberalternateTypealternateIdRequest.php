@@ -3,15 +3,19 @@
 namespace Pionect\VismaSdk\Requests\Inventory;
 
 use Pionect\VismaSdk\Dto\InventoryCrossReferenceUpdateDto;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
  * Inventory_UpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateId
  */
-class InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest extends Request
+class InventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
