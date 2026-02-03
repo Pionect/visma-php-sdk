@@ -3,19 +3,16 @@
 namespace Pionect\VismaSdk\Requests\Inventory;
 
 use Pionect\VismaSdk\Dto\InventoryCrossReferenceUpdateDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
  * Inventory_CreateInventoryCrossReferencesByinventoryNumber
  */
-class InventoryCreateInventoryCrossReferencesByinventoryNumberRequest extends Request implements HasBody
+class InventoryCreateInventoryCrossReferencesByinventoryNumberRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::POST;
 
     public function resolveEndpoint(): string
@@ -39,15 +36,6 @@ class InventoryCreateInventoryCrossReferencesByinventoryNumberRequest extends Re
         protected InventoryCrossReferenceUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultHeaders(): array
     {

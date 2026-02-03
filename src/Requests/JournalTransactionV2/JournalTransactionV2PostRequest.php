@@ -3,10 +3,9 @@
 namespace Pionect\VismaSdk\Requests\JournalTransactionV2;
 
 use Pionect\VismaSdk\Dto\JournalTransactionUpdateDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -18,10 +17,8 @@ use Spatie\LaravelData\Data;
  *             Response Message
  * has StatusCode BadRequest or InternalServerError if POST operation failed
  */
-class JournalTransactionV2PostRequest extends Request implements HasBody
+class JournalTransactionV2PostRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::POST;
 
     public function resolveEndpoint(): string
@@ -44,15 +41,6 @@ class JournalTransactionV2PostRequest extends Request implements HasBody
         protected JournalTransactionUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultHeaders(): array
     {

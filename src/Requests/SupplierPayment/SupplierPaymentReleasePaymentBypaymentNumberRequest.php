@@ -3,10 +3,9 @@
 namespace Pionect\VismaSdk\Requests\SupplierPayment;
 
 use Pionect\VismaSdk\Dto\ReleaseSupplierPaymentActionDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -19,10 +18,8 @@ use Spatie\LaravelData\Data;
  * In this endpoint, If-Match can be checked against resource current version when
  * calling with 'erp-api-background' HTTP header.
  */
-class SupplierPaymentReleasePaymentBypaymentNumberRequest extends Request implements HasBody
+class SupplierPaymentReleasePaymentBypaymentNumberRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::POST;
 
     public function resolveEndpoint(): string
@@ -52,15 +49,6 @@ class SupplierPaymentReleasePaymentBypaymentNumberRequest extends Request implem
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultHeaders(): array
     {

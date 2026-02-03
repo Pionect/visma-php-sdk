@@ -3,10 +3,9 @@
 namespace Pionect\VismaSdk\Requests\StocktakeV2;
 
 use Pionect\VismaSdk\Dto\StocktakeUpdateDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -22,10 +21,8 @@ use Spatie\LaravelData\Data;
  * (The first member of StocktakeExceptionErrorCode will be 0, and the value of each successive enum
  * member is increased by 1)
  */
-class StocktakeV2PutByreferenceNumberRequest extends Request implements HasBody
+class StocktakeV2PutByreferenceNumberRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
@@ -50,15 +47,6 @@ class StocktakeV2PutByreferenceNumberRequest extends Request implements HasBody
         protected StocktakeUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultHeaders(): array
     {

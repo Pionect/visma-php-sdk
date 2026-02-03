@@ -3,19 +3,16 @@
 namespace Pionect\VismaSdk\Requests\Multilanguage;
 
 use Pionect\VismaSdk\Dto\LanguageUpdateDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
  * Multilanguage_AddDefaultLanguage
  */
-class MultilanguageAddDefaultLanguageRequest extends Request implements HasBody
+class MultilanguageAddDefaultLanguageRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
@@ -38,15 +35,6 @@ class MultilanguageAddDefaultLanguageRequest extends Request implements HasBody
         protected LanguageUpdateDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultHeaders(): array
     {

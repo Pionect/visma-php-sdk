@@ -3,20 +3,17 @@
 namespace Pionect\VismaSdk\Requests\Discount;
 
 use Pionect\VismaSdk\Dto\UpdateDiscountsActionResultDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
  * Discount_UpdateDiscountsBydiscountCodeseriesfilerDate
  */
-class DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest extends Request implements HasBody
+class DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed
@@ -48,15 +45,6 @@ class DiscountUpdateDiscountsBydiscountCodeseriesfilerDateRequest extends Reques
         protected string $filterDate,
         protected ?string $erpApiBackground = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultQuery(): array
     {

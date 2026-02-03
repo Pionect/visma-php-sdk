@@ -33,6 +33,16 @@ class VismaRequestGenerator extends RequestGenerator
      */
     protected function customizeRequestClass(ClassType $classType, $namespace, Endpoint $endpoint): void
     {
+        // For mutation requests (POST, PUT, PATCH), use VismaMutationRequest
+        if ($this->isMutationRequest($endpoint)) {
+            $namespace->addUse(\Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest::class);
+            $classType->setExtends(\Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest::class);
+
+            // Remove HasBody and HasJsonBody since they're now in VismaMutationRequest
+            $classType->removeImplement(\Saloon\Contracts\Body\HasBody::class);
+            $classType->removeTrait(\Saloon\Traits\Body\HasJsonBody::class);
+        }
+
         // Add Paginatable interface to collection requests
         if ($this->isCollectionRequest($endpoint)) {
             $namespace->addUse(Paginatable::class);
@@ -41,6 +51,25 @@ class VismaRequestGenerator extends RequestGenerator
 
         // Call parent to add hydration support
         parent::customizeRequestClass($classType, $namespace, $endpoint);
+    }
+
+    protected function isMutationRequest(Endpoint $endpoint): bool
+    {
+        return in_array(strtoupper($endpoint->method->value), ['POST', 'PUT', 'PATCH']);
+    }
+
+    /**
+     * Override to prevent generating defaultBody() method for mutation requests
+     * since VismaMutationRequest provides it with null filtering.
+     */
+    protected function addRequestBodyParameter(Endpoint $endpoint, $namespace, $classConstructor, $classType): void
+    {
+        parent::addRequestBodyParameter($endpoint, $namespace, $classConstructor, $classType);
+
+        // Remove the defaultBody method for mutation requests - it's provided by VismaMutationRequest
+        if ($this->isMutationRequest($endpoint) && $classType->hasMethod('defaultBody')) {
+            $classType->removeMethod('defaultBody');
+        }
     }
 
     /**

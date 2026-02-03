@@ -4,11 +4,10 @@ namespace Pionect\VismaSdk\Requests\Customer;
 
 use Pionect\VismaSdk\Dto\CreateDunningLetterActionDto;
 use Pionect\VismaSdk\Dto\CreateDunningLetterActionResultDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -16,10 +15,8 @@ use Spatie\LaravelData\Data;
  *
  * The action result dto contains information about the result of running the action
  */
-class CustomerCreateDunningLetterActionBycustomerRequest extends Request implements HasBody
+class CustomerCreateDunningLetterActionBycustomerRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed
@@ -49,15 +46,6 @@ class CustomerCreateDunningLetterActionBycustomerRequest extends Request impleme
         protected CreateDunningLetterActionDto|array|null $data = null,
         protected ?string $erpApiBackground = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultHeaders(): array
     {

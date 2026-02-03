@@ -4,11 +4,10 @@ namespace Pionect\VismaSdk\Requests\Project;
 
 use Pionect\VismaSdk\Dto\ChangeProjectIdActionDto;
 use Pionect\VismaSdk\Dto\ChangeProjectIdActionResultDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -19,10 +18,8 @@ use Spatie\LaravelData\Data;
  * Response Message has StatusCode BadRequest or InternalServerError if POST operation
  * failed. <br></br>
  */
-class ProjectChangeProjectIdactionByinternalIdRequest extends Request implements HasBody
+class ProjectChangeProjectIdactionByinternalIdRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::POST;
 
     public function createDtoFromResponse(Response $response): mixed
@@ -57,15 +54,6 @@ class ProjectChangeProjectIdactionByinternalIdRequest extends Request implements
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultHeaders(): array
     {

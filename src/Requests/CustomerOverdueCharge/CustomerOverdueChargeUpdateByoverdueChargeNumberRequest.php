@@ -3,10 +3,9 @@
 namespace Pionect\VismaSdk\Requests\CustomerOverdueCharge;
 
 use Pionect\VismaSdk\Dto\CustomerOverdueChargeUpdateDto;
-use Saloon\Contracts\Body\HasBody;
+use Pionect\VismaSdk\Foundation\Requests\VismaMutationRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 use Spatie\LaravelData\Data;
 
 /**
@@ -18,10 +17,8 @@ use Spatie\LaravelData\Data;
  * In this endpoint, If-Match can be checked
  * against resource current version when calling with 'erp-api-background' HTTP header.
  */
-class CustomerOverdueChargeUpdateByoverdueChargeNumberRequest extends Request implements HasBody
+class CustomerOverdueChargeUpdateByoverdueChargeNumberRequest extends VismaMutationRequest
 {
-    use HasJsonBody;
-
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
@@ -51,15 +48,6 @@ class CustomerOverdueChargeUpdateByoverdueChargeNumberRequest extends Request im
         protected ?string $erpApiBackground = null,
         protected ?string $ifMatch = null,
     ) {}
-
-    protected function defaultBody(): array
-    {
-        if ($this->data instanceof Data) {
-            return $this->data->toArray();
-        }
-
-        return $this->data ?? [];
-    }
 
     public function defaultHeaders(): array
     {
