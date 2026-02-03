@@ -13,7 +13,7 @@ class ValueWrapperTransformer implements Transformer
     #[\Override]
     public function transform(DataProperty $property, mixed $value, TransformationContext $context): ?array
     {
-        if (is_null($value) || $value === '') {
+        if (is_null($value)) {
             return null;
         }
 
