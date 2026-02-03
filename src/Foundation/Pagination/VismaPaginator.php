@@ -42,7 +42,7 @@ class VismaPaginator extends Paginator
 
         // Strategy 2: Format A - metadata per item
         if (is_array($firstItem) && isset($firstItem['metadata']) && is_array($firstItem['metadata'])) {
-            $metadata = new MetadataDto($firstItem['metadata']);
+            $metadata = MetadataDto::from($firstItem['metadata']);
 
             $request = $response->getPendingRequest();
             $currentPageNumber = $request->getRequest()->query('pageNumber') ?? 1;
