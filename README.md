@@ -11,15 +11,7 @@ A Laravel package for the Visma API, built with [Saloon](https://docs.saloon.dev
     - [Using Dependency Injection](#using-dependency-injection)
     - [Testing](#testing)
     - [Pagination](#pagination)
-    - [Custom Response Methods](#custom-response-methods)
-- [HTTP Methods](#http-methods)
-- [Available Resources](#available-resources)
-- [JSON:API Support](#jsonapi-support)
-    - [Model Features](#model-features)
-    - [Working with Relationships](#working-with-relationships)
 - [Regenerating the SDK](#regenerating-the-sdk)
-- [Development](#development)
-- [License](#license)
 - [Credits](#credits)
 
 ## Requirements
@@ -278,42 +270,8 @@ class CustomerController extends Controller
 ```
 
 The paginator:
-- Automatically handles JSON:API pagination (`page[number]` and `page[size]`)
-- Detects the last page via `links.next`
+- Automatically handles pagination for the diffent types of pagination that Visma offers per request.
 - Works with all GET collection requests (CustomerGetAllCollectionRequest, CustomerInvoiceGetAllCollectionRequest, etc.)
-
-### Custom Response Methods
-
-All responses are instances of `VismaResponse` which extends Saloon's Response with JSON:API convenience methods:
-
-```php
-use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceGetAllCollectionRequest;
-
-$response = $visma->send(new CustomerInvoiceGetAllCollectionRequest());
-
-// Get the first item from a collection
-$firstInvoice = $response->firstItem();
-
-// Check for errors
-if ($response->hasErrors()) {
-    $errors = $response->errors();
-    // Handle errors...
-}
-
-// Access JSON:API meta information
-$meta = $response->meta();
-$total = $meta['total'] ?? 0;
-
-// Access pagination links
-$links = $response->links();
-$nextPage = $links['next'] ?? null;
-
-// Access included resources
-$included = $response->included();
-foreach ($included as $resource) {
-    // Process related resources
-}
-```
 
 ### Model Features
 
