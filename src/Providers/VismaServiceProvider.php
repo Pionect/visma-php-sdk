@@ -20,11 +20,9 @@ class VismaServiceProvider extends ServiceProvider
             'visma-sdk'
         );
 
-        // Register VismaConnector as singleton
-        $this->app->singleton(VismaConnector::class);
-
-        // Register alias
-        $this->app->alias(VismaConnector::class, 'visma');
+        // Note: VismaConnector binding is intentionally NOT registered here.
+        // Consuming applications should register it themselves to allow
+        // customization (e.g., adding middleware, configuring auth, etc.).
     }
 
     /**
