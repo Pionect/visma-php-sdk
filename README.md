@@ -51,7 +51,7 @@ VISMA_BASE_URL=https://integration.visma.net/API
 The SDK connector is automatically registered in Laravel's service container, making it easy to inject into your controllers, commands, and other classes:
 
 ```php
-use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetBycustomerCdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerPostRequest;
 use Pionect\VismaSdk\Dto\CustomerDto;
@@ -71,7 +71,7 @@ class CustomerController extends Controller
         )->dtoOrFail();
 
         // Fetch all customers using pagination
-        $customers = $this->visma->paginate(new CustomerGetAllCollectionRequest())
+        $customers = $this->visma->paginate(new CustomerGetAllRequest())
             ->dtoCollection();
 
         return view('customers.index', compact('customers', 'defaultCustomer'));
@@ -99,7 +99,7 @@ class CustomerController extends Controller
 **In Console Commands:**
 
 ```php
-use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllRequest;
 use Pionect\VismaSdk\VismaConnector;
 
 class SyncCustomersCommand extends Command
@@ -107,7 +107,7 @@ class SyncCustomersCommand extends Command
     public function handle(VismaConnector $visma): int
     {
         $customers = $visma->paginate(
-            new CustomerGetAllCollectionRequest()
+            new CustomerGetAllRequest()
         )->dtoCollection();
 
         foreach ($customers as $customer) {
@@ -130,7 +130,7 @@ Here's an example of testing the `CustomerController` from the example above:
 use Pionect\VismaSdk\VismaConnector;
 use Pionect\VismaSdk\Dto\CustomerDto;
 use Pionect\VismaSdk\Dto\CustomerInvoiceDto;
-use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetBycustomerCdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerPostRequest;
 use Saloon\Http\Faking\MockClient;
@@ -142,7 +142,7 @@ test('it displays customers', function () {
 
     // Create mock responses using factory-generated data
     $mockClient = MockClient::global([
-        CustomerGetAllCollectionRequest::class => MockResponse::make($customers->toArray(), 200),
+        CustomerGetAllRequest::class => MockResponse::make($customers->toArray(), 200),
     ]);
 
     // Make request
@@ -211,6 +211,8 @@ test('it sends a POST request to create a customer using the SDK', function () {
 });
 ```
 
+**Note:** When testing code that uses pagination, mock the underlying collection request (e.g., `CustomerGetAllRequest`) as shown above. The paginator will automatically use your mocked responses for each page.
+
 #### Factory Methods
 
 Every DTO in the SDK has a corresponding factory class with the following methods:
@@ -241,46 +243,43 @@ For more information on mocking Saloon requests, see the [Saloon Mocking Documen
 
 ### Pagination
 
-The SDK supports automatic pagination for all collection endpoints using Saloon's pagination plugin:
+The SDK supports automatic pagination for collection endpoints that return multiple pages:
 
 ```php
 use Pionect\VismaSdk\VismaConnector;
-use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCollectionRequest;
+use Pionect\VismaSdk\Requests\Customer\CustomerGetAllRequest;
 
-class CustomerController extends Controller
-{
-    public function index(VismaConnector $visma)
-    {
-        // Create a paginator
-        $paginator = $visma->paginate(new CustomerGetAllCollectionRequest());
+// Simple: Get all pages as a Laravel Collection
+$customers = $visma->paginate(new CustomerGetAllRequest())
+    ->dtoCollection();
 
-        // Optionally set items per page (default is API's default)
-        $paginator->setPerPageLimit(50);
-
-        // Iterate through all pages automatically
-        foreach ($paginator->items() as $customer) {
-            // Process each customer across all pages
-            // The paginator handles pagination automatically
-        }
-
-        // Or collect all items at once
-        $allCustomers = $paginator->dtoCollection();
-    }
+foreach ($customers as $customer) {
+    // Process each customer
+    // All pages have been fetched automatically
 }
 ```
 
-The paginator:
-- Automatically handles pagination for the diffent types of pagination that Visma offers per request.
-- Works with all GET collection requests (CustomerGetAllCollectionRequest, CustomerInvoiceGetAllCollectionRequest, etc.)
+**Advanced: Memory-efficient streaming for large datasets**
 
-### Model Features
+For processing thousands of records without loading everything into memory:
 
-- **Extends `Model` base class**
-- **Property attributes** via `#[Property]` for serialization
-- **DateTime handling** with Carbon instances
-- **Type safety** with PHP 8.1+ type hints
-- **HasAttributes trait** for easy attribute manipulation
-- **Relationship support** with automatic hydration and serialization
+```php
+$paginator = $visma->paginate(new CustomerGetAllRequest());
+
+// Optional: configure page size (default is API default)
+$paginator->setPerPageLimit(50);
+
+// Stream through all pages lazily (fetches pages as needed)
+foreach ($paginator->items() as $customer) {
+    // Process each customer
+    // Pages are fetched on-demand, reducing memory usage
+}
+```
+
+**How it works:**
+- `dtoCollection()`: Eagerly fetches all pages and returns a Laravel Collection of DTOs (simple, good for most cases)
+- `items()`: Returns an iterator that lazily fetches pages (memory-efficient for large datasets)
+- The paginator automatically handles different pagination types used by various Visma API endpoints
 
 ## Regenerating the SDK
 
