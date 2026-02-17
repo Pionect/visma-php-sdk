@@ -39,7 +39,7 @@ class VismaConnector extends Connector implements HasPagination
         ];
     }
 
-    protected function defaultOAuth2Config(): OAuthConfig
+    protected function defaultOauthConfig(): OAuthConfig
     {
         return OAuthConfig::make()
             ->setClientId(config('visma-sdk.application_id'))
@@ -52,6 +52,11 @@ class VismaConnector extends Connector implements HasPagination
                 'vismanet_erp_service_api:delete',
             ])
             ->setRequestModifier(function (Request $request) {
+                // OAuth2 token requests need form-urlencoded, not JSON
+                $request->headers()->remove('Content-Type');
+                $request->headers()->add('Content-Type', 'application/x-www-form-urlencoded');
+
+                // Add tenant_id to the form params for OAuth2 token request
                 $request->body()->add('tenant_id', config('visma-sdk.tenant_id'));
             });
     }
