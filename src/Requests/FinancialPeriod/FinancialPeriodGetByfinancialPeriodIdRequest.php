@@ -14,7 +14,7 @@ class FinancialPeriodGetByfinancialPeriodIdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): FinancialPeriodDto
     {
         return FinancialPeriodDto::from($response->json());
     }

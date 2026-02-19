@@ -23,7 +23,7 @@ class CustomerDebitNoteReleaseDocumentBydebitNoteNumberRequest extends VismaMuta
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReleaseCustomerDebitNoteActionResultDto
     {
         return ReleaseCustomerDebitNoteActionResultDto::from($response->json());
     }

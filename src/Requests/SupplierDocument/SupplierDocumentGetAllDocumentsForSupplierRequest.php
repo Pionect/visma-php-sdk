@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\SupplierDocument;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\SupplierDocumentDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class SupplierDocumentGetAllDocumentsForSupplierRequest extends Request implemen
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<SupplierDocumentDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

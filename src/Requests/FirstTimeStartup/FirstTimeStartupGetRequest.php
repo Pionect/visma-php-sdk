@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\FirstTimeStartup;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\FirstTimeStartupDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class FirstTimeStartupGetRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<FirstTimeStartupDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

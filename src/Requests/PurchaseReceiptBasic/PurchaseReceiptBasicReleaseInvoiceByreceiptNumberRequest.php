@@ -18,7 +18,7 @@ class PurchaseReceiptBasicReleaseInvoiceByreceiptNumberRequest extends VismaMuta
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReleasePurchaseReceiptActionResultDto
     {
         return ReleasePurchaseReceiptActionResultDto::from($response->json());
     }

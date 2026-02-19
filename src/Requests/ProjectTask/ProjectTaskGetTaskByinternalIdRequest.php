@@ -18,7 +18,7 @@ class ProjectTaskGetTaskByinternalIdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): TaskExtendedDto
     {
         return TaskExtendedDto::from($response->json());
     }

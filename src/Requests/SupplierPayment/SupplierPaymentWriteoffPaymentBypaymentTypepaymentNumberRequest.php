@@ -23,7 +23,7 @@ class SupplierPaymentWriteoffPaymentBypaymentTypepaymentNumberRequest extends Vi
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): WriteoffPaymentActionResultDto
     {
         return WriteoffPaymentActionResultDto::from($response->json());
     }

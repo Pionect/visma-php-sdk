@@ -18,7 +18,7 @@ class JournalTransactionV2GetSpecificJournalTransactionsByjournalTransactionNumb
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): JournalTransactionDto
     {
         return JournalTransactionDto::from($response->json());
     }

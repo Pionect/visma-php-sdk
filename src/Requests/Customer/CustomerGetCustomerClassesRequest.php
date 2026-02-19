@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Customer;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\CustomerClassDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class CustomerGetCustomerClassesRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<CustomerClassDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

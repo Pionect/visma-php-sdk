@@ -24,7 +24,7 @@ class EmployeeChangeEmployeeNrActionByinternalIdRequest extends VismaMutationReq
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ChangeEmployeeNrActionResultDto
     {
         return ChangeEmployeeNrActionResultDto::from($response->json());
     }

@@ -14,7 +14,7 @@ class StocktakeV2GetByreferenceNumberRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): StocktakeV2dto
     {
         return StocktakeV2dto::from($response->json());
     }

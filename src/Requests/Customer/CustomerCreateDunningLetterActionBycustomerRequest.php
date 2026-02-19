@@ -19,7 +19,7 @@ class CustomerCreateDunningLetterActionBycustomerRequest extends VismaMutationRe
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): CreateDunningLetterActionResultDto
     {
         return CreateDunningLetterActionResultDto::from($response->json());
     }

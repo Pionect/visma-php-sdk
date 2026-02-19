@@ -19,7 +19,7 @@ class SalesOrderV2ReopenSalesOrderBysalesOrderNumberRequest extends VismaMutatio
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReopenSalesOrderActionResultDto
     {
         return ReopenSalesOrderActionResultDto::from($response->json());
     }

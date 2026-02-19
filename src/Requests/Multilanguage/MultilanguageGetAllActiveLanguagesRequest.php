@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Multilanguage;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\ActiveMultilanguageDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class MultilanguageGetAllActiveLanguagesRequest extends Request implements Pagin
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<ActiveMultilanguageDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

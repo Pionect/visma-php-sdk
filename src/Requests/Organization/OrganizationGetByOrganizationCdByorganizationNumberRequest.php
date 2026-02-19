@@ -18,7 +18,7 @@ class OrganizationGetByOrganizationCdByorganizationNumberRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ExtendedOrganizationDto
     {
         return ExtendedOrganizationDto::from($response->json());
     }

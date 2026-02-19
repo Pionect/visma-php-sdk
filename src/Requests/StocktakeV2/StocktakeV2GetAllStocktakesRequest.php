@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\StocktakeV2;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\StocktakeV2dto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class StocktakeV2GetAllStocktakesRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<StocktakeV2dto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

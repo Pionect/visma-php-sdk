@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\DiscountCodeV2;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\DiscountCodeDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class DiscountCodeV2GetDiscountCodesRequest extends Request implements Paginatab
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<DiscountCodeDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

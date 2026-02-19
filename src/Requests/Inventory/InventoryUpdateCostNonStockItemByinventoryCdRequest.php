@@ -18,7 +18,7 @@ class InventoryUpdateCostNonStockItemByinventoryCdRequest extends VismaMutationR
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): UpdateCostActionResultDto
     {
         return UpdateCostActionResultDto::from($response->json());
     }

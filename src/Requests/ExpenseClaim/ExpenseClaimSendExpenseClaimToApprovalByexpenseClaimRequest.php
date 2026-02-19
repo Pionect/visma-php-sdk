@@ -23,7 +23,7 @@ class ExpenseClaimSendExpenseClaimToApprovalByexpenseClaimRequest extends VismaM
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): SendExpenseClaimToApprovalActionResultDto
     {
         return SendExpenseClaimToApprovalActionResultDto::from($response->json());
     }

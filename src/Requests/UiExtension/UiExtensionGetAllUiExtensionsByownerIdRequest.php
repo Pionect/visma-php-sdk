@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\UiExtension;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\UiExtensionDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class UiExtensionGetAllUiExtensionsByownerIdRequest extends Request implements P
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<UiExtensionDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

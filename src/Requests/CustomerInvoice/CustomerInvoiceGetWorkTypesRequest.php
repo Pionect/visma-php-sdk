@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerInvoice;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\WorkTypeDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -17,7 +18,10 @@ class CustomerInvoiceGetWorkTypesRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<WorkTypeDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

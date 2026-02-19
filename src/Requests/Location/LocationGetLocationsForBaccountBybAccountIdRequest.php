@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Location;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\LocationDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -17,7 +18,10 @@ class LocationGetLocationsForBaccountBybAccountIdRequest extends Request impleme
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<LocationDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

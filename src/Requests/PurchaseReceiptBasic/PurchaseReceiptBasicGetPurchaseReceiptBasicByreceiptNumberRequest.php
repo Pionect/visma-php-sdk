@@ -18,7 +18,7 @@ class PurchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumberRequest extends 
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): PurchaseReceiptBasicDto
     {
         return PurchaseReceiptBasicDto::from($response->json());
     }

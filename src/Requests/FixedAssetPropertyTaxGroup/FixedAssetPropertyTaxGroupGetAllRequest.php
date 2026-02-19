@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\FixedAssetPropertyTaxGroup;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\FixedAssetPropertyTaxDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class FixedAssetPropertyTaxGroupGetAllRequest extends Request implements Paginat
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<FixedAssetPropertyTaxDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

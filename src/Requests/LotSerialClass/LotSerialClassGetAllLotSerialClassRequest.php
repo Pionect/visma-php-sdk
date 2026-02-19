@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\LotSerialClass;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\LotSerialClassDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class LotSerialClassGetAllLotSerialClassRequest extends Request implements Pagin
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<LotSerialClassDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

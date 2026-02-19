@@ -19,7 +19,7 @@ class PaymentReleasePaymentBypaymentNumberRequest extends VismaMutationRequest
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReleasePaymentActionResultDto
     {
         return ReleasePaymentActionResultDto::from($response->json());
     }

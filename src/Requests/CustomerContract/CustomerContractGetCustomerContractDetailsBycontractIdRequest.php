@@ -14,7 +14,7 @@ class CustomerContractGetCustomerContractDetailsBycontractIdRequest extends Requ
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): CustomerContractDetailsDto
     {
         return CustomerContractDetailsDto::from($response->json());
     }

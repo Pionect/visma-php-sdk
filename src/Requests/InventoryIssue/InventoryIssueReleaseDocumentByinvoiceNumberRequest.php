@@ -18,7 +18,7 @@ class InventoryIssueReleaseDocumentByinvoiceNumberRequest extends VismaMutationR
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReleaseInventoryDocumentActionResultDto
     {
         return ReleaseInventoryDocumentActionResultDto::from($response->json());
     }

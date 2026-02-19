@@ -14,7 +14,7 @@ class PackagingTypeGetByboxIdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): PackagingTypeDto
     {
         return PackagingTypeDto::from($response->json());
     }

@@ -18,7 +18,7 @@ class EmployeeGetEmployeeByemployeeCdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): EmployeeDto
     {
         return EmployeeDto::from($response->json());
     }

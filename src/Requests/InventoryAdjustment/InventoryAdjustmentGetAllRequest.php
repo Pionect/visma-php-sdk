@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\InventoryAdjustment;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\InventoryAdjustmentDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class InventoryAdjustmentGetAllRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<InventoryAdjustmentDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

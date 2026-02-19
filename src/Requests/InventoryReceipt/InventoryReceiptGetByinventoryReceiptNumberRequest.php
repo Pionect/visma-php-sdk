@@ -14,7 +14,7 @@ class InventoryReceiptGetByinventoryReceiptNumberRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): InventoryReceiptDto
     {
         return InventoryReceiptDto::from($response->json());
     }

@@ -14,7 +14,7 @@ class LocationGetLocationBybAccountIdlocationIdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): LocationDto
     {
         return LocationDto::from($response->json());
     }

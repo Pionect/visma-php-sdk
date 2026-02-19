@@ -14,7 +14,7 @@ class SalesPersonV2GetSalespersonBysalespersonCdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): SalesPersonDto
     {
         return SalesPersonDto::from($response->json());
     }

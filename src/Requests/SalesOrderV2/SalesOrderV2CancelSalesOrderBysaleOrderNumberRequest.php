@@ -19,7 +19,7 @@ class SalesOrderV2CancelSalesOrderBysaleOrderNumberRequest extends VismaMutation
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): CancelSalesOrderActionResultDto
     {
         return CancelSalesOrderActionResultDto::from($response->json());
     }

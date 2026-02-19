@@ -18,7 +18,7 @@ class SalesOrderBasicV2PrepareInvoiceActionByorderTypeorderNumberRequest extends
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): PrepareInvoiceActionResultDto
     {
         return PrepareInvoiceActionResultDto::from($response->json());
     }

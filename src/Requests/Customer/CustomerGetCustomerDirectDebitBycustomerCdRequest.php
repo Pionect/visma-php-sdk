@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Customer;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\CustomerDirectDebitDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class CustomerGetCustomerDirectDebitBycustomerCdRequest extends Request implemen
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<CustomerDirectDebitDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Supplier;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\SupplierClassDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class SupplierGetAllSupplierClassesRequest extends Request implements Paginatabl
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<SupplierClassDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

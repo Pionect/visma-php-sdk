@@ -18,7 +18,7 @@ class AccountGetByaccountCdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): AccountDto
     {
         return AccountDto::from($response->json());
     }

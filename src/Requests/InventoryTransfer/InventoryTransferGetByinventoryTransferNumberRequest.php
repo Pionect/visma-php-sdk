@@ -14,7 +14,7 @@ class InventoryTransferGetByinventoryTransferNumberRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): InventoryTransferDto
     {
         return InventoryTransferDto::from($response->json());
     }

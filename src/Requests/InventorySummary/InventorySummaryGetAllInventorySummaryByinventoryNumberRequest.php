@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\InventorySummary;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\InventorySummaryDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class InventorySummaryGetAllInventorySummaryByinventoryNumberRequest extends Req
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<InventorySummaryDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

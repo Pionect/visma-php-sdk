@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\PurchaseReceiptV2;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\PurchaseReceiptDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class PurchaseReceiptV2GetAllReceiptsRequest extends Request implements Paginata
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<PurchaseReceiptDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

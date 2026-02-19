@@ -24,7 +24,7 @@ class CashTransactionReverseByreferenceNbrRequest extends VismaMutationRequest
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReverseCashTransactionActionResultDto
     {
         return ReverseCashTransactionActionResultDto::from($response->json());
     }

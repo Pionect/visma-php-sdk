@@ -14,7 +14,7 @@ class EarningTypeGetEarningTypeBytypeCdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): EarningTypeDto
     {
         return EarningTypeDto::from($response->json());
     }

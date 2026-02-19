@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\CreditNote;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\CreditNoteDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class CreditNoteGetAllCreditNotesDtoRequest extends Request implements Paginatab
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<CreditNoteDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

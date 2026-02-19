@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\LandedCostCode;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\LandedCostCodeDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class LandedCostCodeGetAllLandedCostsRequest extends Request implements Paginata
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<LandedCostCodeDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

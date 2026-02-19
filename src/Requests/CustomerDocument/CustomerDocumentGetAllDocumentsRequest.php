@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\CustomerDocument;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\CustomerDocumentDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -17,7 +18,10 @@ class CustomerDocumentGetAllDocumentsRequest extends Request implements Paginata
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<CustomerDocumentDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

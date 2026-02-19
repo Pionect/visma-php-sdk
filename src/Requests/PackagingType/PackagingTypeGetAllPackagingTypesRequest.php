@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\PackagingType;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\PackagingTypeDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class PackagingTypeGetAllPackagingTypesRequest extends Request implements Pagina
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<PackagingTypeDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

@@ -22,7 +22,7 @@ class ProjectChangeProjectIdactionByinternalIdRequest extends VismaMutationReque
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ChangeProjectIdActionResultDto
     {
         return ChangeProjectIdActionResultDto::from($response->json());
     }

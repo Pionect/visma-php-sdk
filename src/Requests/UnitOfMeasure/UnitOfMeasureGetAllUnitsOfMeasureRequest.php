@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\UnitOfMeasure;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\UnitOfMeasureDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class UnitOfMeasureGetAllUnitsOfMeasureRequest extends Request implements Pagina
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<UnitOfMeasureDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

@@ -23,7 +23,7 @@ class CustomerInvoiceReleaseInvoiceByinvoiceNumberRequest extends VismaMutationR
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReleaseInvoiceActionResultDto
     {
         return ReleaseInvoiceActionResultDto::from($response->json());
     }

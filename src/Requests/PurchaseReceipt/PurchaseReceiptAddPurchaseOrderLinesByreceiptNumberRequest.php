@@ -19,7 +19,7 @@ class PurchaseReceiptAddPurchaseOrderLinesByreceiptNumberRequest extends VismaMu
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): AddOrderLinesToPurchaseReceiptActionResultDto
     {
         return AddOrderLinesToPurchaseReceiptActionResultDto::from($response->json());
     }

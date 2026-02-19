@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\JournalTransactionV2;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\JournalTransactionDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -17,7 +18,10 @@ class JournalTransactionV2GetAllJournalTransactionsRequest extends Request imple
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<JournalTransactionDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

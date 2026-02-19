@@ -23,7 +23,7 @@ class CashTransactionReleaseByreferenceNbrRequest extends VismaMutationRequest
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReleaseCashTransactionActionResultDto
     {
         return ReleaseCashTransactionActionResultDto::from($response->json());
     }

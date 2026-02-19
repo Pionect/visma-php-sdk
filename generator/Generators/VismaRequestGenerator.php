@@ -53,11 +53,6 @@ class VismaRequestGenerator extends RequestGenerator
         parent::customizeRequestClass($classType, $namespace, $endpoint);
     }
 
-    protected function isMutationRequest(Endpoint $endpoint): bool
-    {
-        return in_array(strtoupper($endpoint->method->value), ['POST', 'PUT', 'PATCH']);
-    }
-
     /**
      * Override to prevent generating defaultBody() method for mutation requests
      * since VismaMutationRequest provides it with null filtering.
@@ -70,14 +65,6 @@ class VismaRequestGenerator extends RequestGenerator
         if ($this->isMutationRequest($endpoint) && $classType->hasMethod('defaultBody')) {
             $classType->removeMethod('defaultBody');
         }
-    }
-
-    /**
-     * Allow all query parameters for plain JSON API.
-     */
-    protected function shouldIncludeQueryParameter(string $paramName): bool
-    {
-        return true;
     }
 
     /**

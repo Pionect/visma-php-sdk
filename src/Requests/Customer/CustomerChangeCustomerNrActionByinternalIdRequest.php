@@ -19,7 +19,7 @@ class CustomerChangeCustomerNrActionByinternalIdRequest extends VismaMutationReq
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ChangeCustomerCdActionResultDto
     {
         return ChangeCustomerCdActionResultDto::from($response->json());
     }

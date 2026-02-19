@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\VatCategory;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\VatCategoryDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class VatCategoryGetAllVatCategoriesRequest extends Request implements Paginatab
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<VatCategoryDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

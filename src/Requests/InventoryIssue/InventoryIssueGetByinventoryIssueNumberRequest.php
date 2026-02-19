@@ -14,7 +14,7 @@ class InventoryIssueGetByinventoryIssueNumberRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): InventoryIssueDto
     {
         return InventoryIssueDto::from($response->json());
     }

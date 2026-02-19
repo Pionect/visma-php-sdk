@@ -23,7 +23,7 @@ class ExpenseClaimPutExpenseClaimOnHoldByexpenseClaimRequest extends VismaMutati
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): PutExpenseClaimOnHoldActionResultDto
     {
         return PutExpenseClaimOnHoldActionResultDto::from($response->json());
     }

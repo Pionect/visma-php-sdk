@@ -18,7 +18,7 @@ class DimensionGetSegmentBydimensionIdsegmentIdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): DtoSegment
     {
         return DtoSegment::from($response->json());
     }

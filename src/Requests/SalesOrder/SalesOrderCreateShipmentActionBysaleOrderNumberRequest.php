@@ -19,7 +19,7 @@ class SalesOrderCreateShipmentActionBysaleOrderNumberRequest extends VismaMutati
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): CreateShipmentActionResultDto
     {
         return CreateShipmentActionResultDto::from($response->json());
     }

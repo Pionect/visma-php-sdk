@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\SalesOrderType;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\SalesOrderTypeDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class SalesOrderTypeGetAllSalesOrderTypesRequest extends Request implements Pagi
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<SalesOrderTypeDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

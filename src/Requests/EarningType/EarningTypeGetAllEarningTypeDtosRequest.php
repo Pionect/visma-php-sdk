@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\EarningType;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\EarningTypeDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class EarningTypeGetAllEarningTypeDtosRequest extends Request implements Paginat
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<EarningTypeDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

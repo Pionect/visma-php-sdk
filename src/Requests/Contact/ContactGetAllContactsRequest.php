@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Contact;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\ContactDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class ContactGetAllContactsRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<ContactDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

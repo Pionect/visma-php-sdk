@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\SalesCategory;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\SalesCategoryDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class SalesCategoryGetRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<SalesCategoryDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

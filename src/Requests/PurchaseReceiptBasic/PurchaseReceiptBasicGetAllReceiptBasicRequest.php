@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\PurchaseReceiptBasic;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\PurchaseReceiptBasicDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class PurchaseReceiptBasicGetAllReceiptBasicRequest extends Request implements P
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<PurchaseReceiptBasicDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

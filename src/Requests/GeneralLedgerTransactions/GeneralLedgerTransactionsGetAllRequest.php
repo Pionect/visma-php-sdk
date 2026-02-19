@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\GeneralLedgerTransactions;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\GeneralLedgerTransactionDetailsDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class GeneralLedgerTransactionsGetAllRequest extends Request implements Paginata
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<GeneralLedgerTransactionDetailsDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

@@ -19,7 +19,7 @@ class InventoryChangeInventoryNbrActionByinternalIdRequest extends VismaMutation
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ChangeInventoryNbrActionResultDto
     {
         return ChangeInventoryNbrActionResultDto::from($response->json());
     }

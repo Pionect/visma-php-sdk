@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Inventory;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\BarCodeDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class InventoryGetInventoryShipmentBarCodesByshipmentNbrRequest extends Request 
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<BarCodeDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

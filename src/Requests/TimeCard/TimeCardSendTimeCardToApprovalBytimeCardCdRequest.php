@@ -23,7 +23,7 @@ class TimeCardSendTimeCardToApprovalBytimeCardCdRequest extends VismaMutationReq
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): SendTimeCardToApprovalActionResultDto
     {
         return SendTimeCardToApprovalActionResultDto::from($response->json());
     }

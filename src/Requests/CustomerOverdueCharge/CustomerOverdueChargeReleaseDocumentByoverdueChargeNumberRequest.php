@@ -23,7 +23,7 @@ class CustomerOverdueChargeReleaseDocumentByoverdueChargeNumberRequest extends V
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ReleaseCustomerOverdueChargeActionResultDto
     {
         return ReleaseCustomerOverdueChargeActionResultDto::from($response->json());
     }

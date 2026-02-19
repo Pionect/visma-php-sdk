@@ -18,7 +18,7 @@ class ShipmentConfirmShipmentByshipmentNumberRequest extends VismaMutationReques
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): ConfirmShipmentActionResultDto
     {
         return ConfirmShipmentActionResultDto::from($response->json());
     }

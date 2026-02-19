@@ -19,7 +19,7 @@ class PaymentVoidPaymentBypaymentNumberRequest extends VismaMutationRequest
 {
     protected Method $method = Method::POST;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): VoidPaymentActionResultDto
     {
         return VoidPaymentActionResultDto::from($response->json());
     }

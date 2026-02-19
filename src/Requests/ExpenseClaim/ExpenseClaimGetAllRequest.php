@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\ExpenseClaim;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\ExpenseClaimDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class ExpenseClaimGetAllRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<ExpenseClaimDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

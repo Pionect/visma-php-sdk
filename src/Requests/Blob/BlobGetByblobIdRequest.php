@@ -14,7 +14,7 @@ class BlobGetByblobIdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): Stream
     {
         return Stream::from($response->json());
     }

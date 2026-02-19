@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\ProjectAccountGroup;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\ProjectAccountGroupDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class ProjectAccountGroupGetAllRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<ProjectAccountGroupDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

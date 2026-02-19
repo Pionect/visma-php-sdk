@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\UiExtension;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\UiExtensionScreenDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class UiExtensionGetAllUiExtensionsRequest extends Request implements Paginatabl
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<UiExtensionScreenDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

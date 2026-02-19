@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Customer;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\CustomerInvoiceDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,7 +16,10 @@ class CustomerGetAllInvoicesForCustomerBycustomerNumberRequest extends Request i
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<CustomerInvoiceDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 

@@ -18,7 +18,7 @@ class DepartmentGetDepartmentBydepartmentIdRequest extends Request
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function createDtoFromResponse(Response $response): DepartmentDto
     {
         return DepartmentDto::from($response->json());
     }

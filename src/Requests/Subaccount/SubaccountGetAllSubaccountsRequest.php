@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Requests\Subaccount;
 
+use Illuminate\Support\Collection;
 use Pionect\VismaSdk\Dto\SubAccountDto;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -19,7 +20,10 @@ class SubaccountGetAllSubaccountsRequest extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
-    public function createDtoFromResponse(Response $response): mixed
+    /**
+     * @return Collection<SubAccountDto>
+     */
+    public function createDtoFromResponse(Response $response): Collection
     {
         $data = $response->json();
 
