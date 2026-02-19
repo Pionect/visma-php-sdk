@@ -14,11 +14,29 @@ class CustomerPaymentMethodDto extends SpatieData
     public function __construct(
         public ?CustomerInCustomerPaymentMethodDto $customer = null,
         public ?PaymentMethodInCustomerPaymentMethodDto $paymentMethod = null,
+        /**
+         * The top part > Active > A check box that indicates (if selected) that the
+         * selected customer payment method is active (that is, available for recording
+         * payments).
+         */
         public ?bool $active = null,
         public ?CashAccountInCustomerPaymentMethodDto $cashAccount = null,
+        /**
+         * The top part > Card/account no. > The identifier for the customer's payment
+         * method.
+         */
         public ?string $cardOrAccountNo = null,
-        /** @var CustomerPaymentMethodDetailDto[]|null */
+        /**
+         * @var CustomerPaymentMethodDetailDto[]|null
+         *                                            Payment method details tab > The specific elements on this tab depend on the
+         *                                            selected payment method, which is defined in the window.
+         */
         public ?array $paymentMethodDetails = null,
+        /**
+         * Identifier that represents a specific version of the resource.
+         * It helps to prevent simultaneous updates of the resource from overwriting
+         * each other (by using ETags and If-Match headers)
+         */
         public ?string $timeStamp = null,
     ) {}
 }

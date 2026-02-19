@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PurchaseReceiptDto;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsStatusEnum;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseReceiptDtoFactory extends Factory
@@ -14,10 +16,10 @@ class PurchaseReceiptDtoFactory extends Factory
             'landedCost' => [],
             'note' => $this->faker->word(),
             'timeStamp' => $this->faker->word(),
-            'receiptType' => $this->faker->word(),
+            'receiptType' => $this->faker->randomElement(PurchaseReceiptsTypeEnum::cases()),
             'receiptNbr' => $this->faker->word(),
             'hold' => $this->faker->boolean(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(PurchaseReceiptsStatusEnum::cases()),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'postPeriod' => $this->faker->word(),
             'warehouse' => null,

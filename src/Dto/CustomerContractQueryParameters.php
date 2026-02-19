@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\CustomerContractStatusEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -19,10 +20,16 @@ class CustomerContractQueryParameters extends SpatieData
         public ?string $lastModifiedDateTime = null,
         public ?string $lastModifiedDateTimeCondition = null,
         public ?string $contractTemplate = null,
-        public ?string $status = null,
+        public ?CustomerContractStatusEnum $status = null,
         public ?string $customer = null,
         public ?bool $expandSummary = null,
         public ?bool $expandDetails = null,
+        /**
+         * Attributes (additional information) connected to the entity.
+         *  Examples:
+         * {{base}}/customerContract?attributes={"AttributeID":"ValueID","AttributeID":"ValueID"}
+         * {{base}}/customerContract?attributes={"AttributeID":"ValueID1,ValueID2"}
+         */
         public ?string $attributes = null,
         public ?bool $expandAttributes = null,
     ) {}

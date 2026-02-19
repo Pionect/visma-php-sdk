@@ -2,6 +2,9 @@
 
 use Pionect\VismaSdk\Dto\CreatePurchaseReceiptActionDto;
 use Pionect\VismaSdk\Dto\PurchaseOrderUpdateDto;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderShippingDestinationTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderStatusEnum;
 use Pionect\VismaSdk\Requests\PurchaseOrder\PurchaseOrderCreatePurchaseReceiptFromPurchaseOrderBypurchaseorderNbrRequest;
 use Pionect\VismaSdk\Requests\PurchaseOrder\PurchaseOrderGetAllOrderRequest;
 use Pionect\VismaSdk\Requests\PurchaseOrder\PurchaseOrderGetOrderBypurchaseOrderNumberRequest;
@@ -17,7 +20,7 @@ beforeEach(function () {
 it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the PurchaseOrder resource', function () {
     Saloon::fake([
         PurchaseOrderGetOrderBypurchaseOrderNumberRequest::class => MockResponse::make([
-            'shippingDestinationType' => 'String value',
+            'shippingDestinationType' => 'CompanyLocation',
             'shipTo' => [
                 'internalId' => 42,
                 'number' => 'String value',
@@ -110,10 +113,10 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
             'emailed' => true,
             'openQuantity' => 42,
             'openBalance' => 42,
-            'orderType' => 'String value',
+            'orderType' => 'RegularOrder',
             'orderNbr' => 'String value',
             'hold' => true,
-            'status' => 'String value',
+            'status' => 'Balanced',
             'date' => '2025-11-22T10:40:04+00:00',
             'promisedOn' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
@@ -179,7 +182,7 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
     $dto = $response->dto();
 
     expect($dto)
-        ->shippingDestinationType->toBe('String value')
+        ->shippingDestinationType->toEqual(PurchaseOrderShippingDestinationTypeEnum::COMPANY_LOCATION)
         ->shipTo->internalId->toBe(42)
         ->shipTo->number->toBe('String value')
         ->shipTo->name->toBe('String value')
@@ -243,10 +246,10 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
         ->emailed->toBe(true)
         ->openQuantity->toBe(42)
         ->openBalance->toBe(42)
-        ->orderType->toBe('String value')
+        ->orderType->toEqual(PurchaseOrderLineOrderTypeEnum::REGULAR_ORDER)
         ->orderNbr->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(PurchaseOrderStatusEnum::BALANCED)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->promisedOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
@@ -288,7 +291,7 @@ it('calls the purchaseOrderGetOrderBypurchaseOrderNumberRequest method in the Pu
 
 it('calls the purchaseOrderPutBypurchaseOrderNumberRequest method in the PurchaseOrder resource', function () {
     $bodyData = new PurchaseOrderUpdateDto(
-        shippingDestinationType: 'String value',
+        shippingDestinationType: PurchaseOrderShippingDestinationTypeEnum::COMPANY_LOCATION,
         shipTo: 'String value',
         shippingLocation: 'String value',
         shippingContact: new \Pionect\VismaSdk\Dto\PurchaseOrderContactUpdateDto(
@@ -339,7 +342,7 @@ it('calls the purchaseOrderPutBypurchaseOrderNumberRequest method in the Purchas
         discountDetails: [],
         dontPrint: true,
         dontEmail: true,
-        orderType: 'String value',
+        orderType: PurchaseOrderLineOrderTypeEnum::REGULAR_ORDER,
         orderNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -393,7 +396,7 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
     Saloon::fake([
         PurchaseOrderGetAllOrderRequest::class => MockResponse::make([
             0 => [
-                'shippingDestinationType' => 'String value',
+                'shippingDestinationType' => 'CompanyLocation',
                 'shipTo' => [
                     'internalId' => 42,
                     'number' => 'String value',
@@ -486,10 +489,10 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
                 'emailed' => true,
                 'openQuantity' => 42,
                 'openBalance' => 42,
-                'orderType' => 'String value',
+                'orderType' => 'RegularOrder',
                 'orderNbr' => 'String value',
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Balanced',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'promisedOn' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
@@ -540,7 +543,7 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'shippingDestinationType' => 'String value',
+                'shippingDestinationType' => 'CompanyLocation',
                 'shipTo' => [
                     'internalId' => 42,
                     'number' => 'String value',
@@ -633,10 +636,10 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
                 'emailed' => true,
                 'openQuantity' => 42,
                 'openBalance' => 42,
-                'orderType' => 'String value',
+                'orderType' => 'RegularOrder',
                 'orderNbr' => 'String value',
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Balanced',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'promisedOn' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
@@ -718,7 +721,7 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->shippingDestinationType->toBe('String value')
+        ->shippingDestinationType->toEqual(PurchaseOrderShippingDestinationTypeEnum::COMPANY_LOCATION)
         ->shipTo->internalId->toBe(42)
         ->shipTo->number->toBe('String value')
         ->shipTo->name->toBe('String value')
@@ -782,10 +785,10 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
         ->emailed->toBe(true)
         ->openQuantity->toBe(42)
         ->openBalance->toBe(42)
-        ->orderType->toBe('String value')
+        ->orderType->toEqual(PurchaseOrderLineOrderTypeEnum::REGULAR_ORDER)
         ->orderNbr->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(PurchaseOrderStatusEnum::BALANCED)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->promisedOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
@@ -827,7 +830,7 @@ it('calls the purchaseOrderGetAllOrderRequest method in the PurchaseOrder resour
 
 it('calls the purchaseOrderPostRequest method in the PurchaseOrder resource', function () {
     $bodyData = new PurchaseOrderUpdateDto(
-        shippingDestinationType: 'String value',
+        shippingDestinationType: PurchaseOrderShippingDestinationTypeEnum::COMPANY_LOCATION,
         shipTo: 'String value',
         shippingLocation: 'String value',
         shippingContact: new \Pionect\VismaSdk\Dto\PurchaseOrderContactUpdateDto(
@@ -878,7 +881,7 @@ it('calls the purchaseOrderPostRequest method in the PurchaseOrder resource', fu
         discountDetails: [],
         dontPrint: true,
         dontEmail: true,
-        orderType: 'String value',
+        orderType: PurchaseOrderLineOrderTypeEnum::REGULAR_ORDER,
         orderNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),

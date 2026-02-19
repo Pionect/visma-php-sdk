@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -15,7 +16,7 @@ class SupplierDetailsDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $active = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

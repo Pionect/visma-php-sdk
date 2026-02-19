@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\StocktakeV2exceptionErrorCodeEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -18,7 +19,9 @@ class StocktakeV2exceptionDto extends SpatieData
         public ?string $reasonCode = null,
         public ?string $lotSerialNumber = null,
         public ?\Carbon\Carbon $expirationDate = null,
+        /** Exception message */
         public ?string $message = null,
-        public ?string $errorCode = null,
+        /** Exception error code */
+        public ?StocktakeV2exceptionErrorCodeEnum $errorCode = null,
     ) {}
 }

@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
+use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -19,9 +21,9 @@ class ProjectTransactionDocumentUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $description = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $status = null,
+        public ?InventoryAdjustmentStatusEnum $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $module = null,
+        public ?JournalTransactionLineModuleEnum $module = null,
         /** @var ProjectTransactionLineUpdateDto[]|null */
         public ?array $lines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

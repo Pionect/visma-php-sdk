@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\CustomerContractQueryParameters;
+use Pionect\VismaSdk\Enums\CustomerContractStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerContractQueryParametersFactory extends Factory
@@ -17,7 +18,7 @@ class CustomerContractQueryParametersFactory extends Factory
             'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'contractTemplate' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(CustomerContractStatusEnum::cases()),
             'customer' => $this->faker->word(),
             'expandSummary' => $this->faker->boolean(),
             'expandDetails' => $this->faker->boolean(),

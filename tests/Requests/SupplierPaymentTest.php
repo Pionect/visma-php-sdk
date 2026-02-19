@@ -2,6 +2,8 @@
 
 use Pionect\VismaSdk\Dto\ReleaseSupplierPaymentActionDto;
 use Pionect\VismaSdk\Dto\SupplierPaymentUpdateDto;
+use Pionect\VismaSdk\Enums\SupplierPaymentStatusEnum;
+use Pionect\VismaSdk\Enums\SupplierPaymentTypeEnum;
 use Pionect\VismaSdk\Requests\SupplierPayment\SupplierPaymentCreateSupplierPaymentRequest;
 use Pionect\VismaSdk\Requests\SupplierPayment\SupplierPaymentGetAllPaymentsRequest;
 use Pionect\VismaSdk\Requests\SupplierPayment\SupplierPaymentGetBypaymentNumberRequest;
@@ -19,10 +21,10 @@ beforeEach(function () {
 it('calls the supplierPaymentGetBypaymentNumberRequest method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetBypaymentNumberRequest::class => MockResponse::make([
-            'type' => 'String value',
+            'type' => 'Payment',
             'documentType' => 'String value',
             'refNbr' => 'String value',
-            'status' => 'String value',
+            'status' => 'Hold',
             'hold' => true,
             'applicationDate' => '2025-11-22T10:40:04+00:00',
             'applicationPeriod' => 'String value',
@@ -73,10 +75,10 @@ it('calls the supplierPaymentGetBypaymentNumberRequest method in the SupplierPay
     $dto = $response->dto();
 
     expect($dto)
-        ->type->toBe('String value')
+        ->type->toEqual(SupplierPaymentTypeEnum::PAYMENT)
         ->documentType->toBe('String value')
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SupplierPaymentStatusEnum::HOLD)
         ->hold->toBe(true)
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
@@ -108,7 +110,7 @@ it('calls the supplierPaymentGetBypaymentNumberRequest method in the SupplierPay
 
 it('calls the supplierPaymentPutBypaymentNumberRequest method in the SupplierPayment resource', function () {
     $bodyData = new SupplierPaymentUpdateDto(
-        type: 'String value',
+        type: SupplierPaymentTypeEnum::PAYMENT,
         referenceNumber: 'String value',
         hold: true,
         applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -146,10 +148,10 @@ it('calls the supplierPaymentPutBypaymentNumberRequest method in the SupplierPay
 it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumberRequest method in the SupplierPayment resource', function () {
     Saloon::fake([
         SupplierPaymentGetByTypeBypaymentTypepaymentNumberRequest::class => MockResponse::make([
-            'type' => 'String value',
+            'type' => 'Payment',
             'documentType' => 'String value',
             'refNbr' => 'String value',
-            'status' => 'String value',
+            'status' => 'Hold',
             'hold' => true,
             'applicationDate' => '2025-11-22T10:40:04+00:00',
             'applicationPeriod' => 'String value',
@@ -201,10 +203,10 @@ it('calls the supplierPaymentGetByTypeBypaymentTypepaymentNumberRequest method i
     $dto = $response->dto();
 
     expect($dto)
-        ->type->toBe('String value')
+        ->type->toEqual(SupplierPaymentTypeEnum::PAYMENT)
         ->documentType->toBe('String value')
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SupplierPaymentStatusEnum::HOLD)
         ->hold->toBe(true)
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
@@ -238,10 +240,10 @@ it('calls the supplierPaymentGetAllPaymentsRequest method in the SupplierPayment
     Saloon::fake([
         SupplierPaymentGetAllPaymentsRequest::class => MockResponse::make([
             0 => [
-                'type' => 'String value',
+                'type' => 'Payment',
                 'documentType' => 'String value',
                 'refNbr' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
@@ -278,10 +280,10 @@ it('calls the supplierPaymentGetAllPaymentsRequest method in the SupplierPayment
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'type' => 'String value',
+                'type' => 'Payment',
                 'documentType' => 'String value',
                 'refNbr' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
@@ -350,10 +352,10 @@ it('calls the supplierPaymentGetAllPaymentsRequest method in the SupplierPayment
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->type->toBe('String value')
+        ->type->toEqual(SupplierPaymentTypeEnum::PAYMENT)
         ->documentType->toBe('String value')
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SupplierPaymentStatusEnum::HOLD)
         ->hold->toBe(true)
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
@@ -385,7 +387,7 @@ it('calls the supplierPaymentGetAllPaymentsRequest method in the SupplierPayment
 
 it('calls the supplierPaymentCreateSupplierPaymentRequest method in the SupplierPayment resource', function () {
     $bodyData = new SupplierPaymentUpdateDto(
-        type: 'String value',
+        type: SupplierPaymentTypeEnum::PAYMENT,
         referenceNumber: 'String value',
         hold: true,
         applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -420,7 +422,7 @@ it('calls the supplierPaymentCreateSupplierPaymentRequest method in the Supplier
 
 it('calls the supplierPaymentReleasePaymentBypaymentNumberRequest method in the SupplierPayment resource', function () {
     $bodyData = new ReleaseSupplierPaymentActionDto(
-        type: 'String value'
+        type: SupplierPaymentTypeEnum::PAYMENT
     );
 
     Saloon::fake([

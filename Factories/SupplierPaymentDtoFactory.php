@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierPaymentDto;
+use Pionect\VismaSdk\Enums\SupplierPaymentStatusEnum;
+use Pionect\VismaSdk\Enums\SupplierPaymentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierPaymentDtoFactory extends Factory
@@ -11,10 +13,10 @@ class SupplierPaymentDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(SupplierPaymentTypeEnum::cases()),
             'documentType' => $this->faker->word(),
             'refNbr' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(SupplierPaymentStatusEnum::cases()),
             'hold' => $this->faker->boolean(),
             'applicationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'applicationPeriod' => $this->faker->word(),

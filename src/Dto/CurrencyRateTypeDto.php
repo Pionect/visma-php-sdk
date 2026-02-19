@@ -12,8 +12,11 @@ class CurrencyRateTypeDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Currency rate type Id. */
         public ?string $id = null,
+        /** Description. */
         public ?string $description = null,
+        /** Days effective. */
         public ?int $daysEffective = null,
     ) {}
 }

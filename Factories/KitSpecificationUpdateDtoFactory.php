@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\KitSpecificationUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class KitSpecificationUpdateDtoFactory extends Factory
@@ -10,7 +11,7 @@ class KitSpecificationUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'kitInventoryId' => $this->faker->uuid(),
             'revisionId' => $this->faker->uuid(),
             'descr' => $this->faker->word(),

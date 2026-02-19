@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\CashTranTaxDetailDto;
+use Pionect\VismaSdk\Enums\CashTranTaxDetailTaxTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CashTranTaxDetailDtoFactory extends Factory
@@ -20,7 +21,7 @@ class CashTranTaxDetailDtoFactory extends Factory
             'pendingVat' => $this->faker->boolean(),
             'statisticalVat' => $this->faker->boolean(),
             'reverseVat' => $this->faker->boolean(),
-            'taxType' => $this->faker->word(),
+            'taxType' => $this->faker->randomElement(CashTranTaxDetailTaxTypeEnum::cases()),
         ];
     }
 

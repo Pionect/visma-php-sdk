@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\TaskQueryParameters;
+use Pionect\VismaSdk\Enums\TaskStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class TaskQueryParametersFactory extends Factory
@@ -16,7 +17,7 @@ class TaskQueryParametersFactory extends Factory
             'description' => $this->faker->sentence(),
             'taskCd' => $this->faker->word(),
             'taskCdDesc' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(TaskStatusEnum::cases()),
             'expandAttribute' => $this->faker->boolean(),
             'visibleInAp' => $this->faker->boolean(),
             'visibleInAr' => $this->faker->boolean(),

@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\InventoryCrossReferenceAlternateTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -16,7 +17,7 @@ class InventoryCrossReferenceUpdateDto extends SpatieData
 
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $alternateType = null,
+        public ?InventoryCrossReferenceAlternateTypeEnum $alternateType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $bAccount = null,
         #[MapName('alternateID'), WithTransformer(ValueWrapperTransformer::class)]

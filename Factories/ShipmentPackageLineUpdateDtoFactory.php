@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\ShipmentPackageLineUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ShipmentPackageLineUpdateDtoFactory extends Factory
@@ -10,7 +11,7 @@ class ShipmentPackageLineUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'confirmed' => $this->faker->boolean(),
             'boxId' => $this->faker->uuid(),

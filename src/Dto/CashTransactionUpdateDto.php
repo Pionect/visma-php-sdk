@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -39,7 +40,7 @@ class CashTransactionUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $vatZone = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $taxCalculationMode = null,
+        public ?EntryTypeTaxCalculationModeEnum $taxCalculationMode = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,
         /** @var CashTransactionDetailUpdateDto[]|null */

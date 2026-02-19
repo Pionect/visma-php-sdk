@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\UiExtensionQueryParameters;
+use Pionect\VismaSdk\Enums\UiExtensionQueryParametersTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class UiExtensionQueryParametersFactory extends Factory
@@ -11,7 +12,7 @@ class UiExtensionQueryParametersFactory extends Factory
     {
         return [
             'screenId' => $this->faker->uuid(),
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(UiExtensionQueryParametersTypeEnum::cases()),
         ];
     }
 

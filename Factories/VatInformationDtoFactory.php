@@ -4,6 +4,11 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\VatInformationDto;
+use Pionect\VismaSdk\Enums\VatCategoryLineCalculateOnEnum;
+use Pionect\VismaSdk\Enums\VatCategoryLineCashDiscountEnum;
+use Pionect\VismaSdk\Enums\VatCategoryLineTypeEnum;
+use Pionect\VismaSdk\Enums\VatInformationEuReportCodeEnum;
+use Pionect\VismaSdk\Enums\VatInformationVismaXmlVatTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class VatInformationDtoFactory extends Factory
@@ -14,7 +19,7 @@ class VatInformationDtoFactory extends Factory
             'vatCategoryId' => $this->faker->uuid(),
             'vatId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(VatCategoryLineTypeEnum::cases()),
             'deductibleVat' => $this->faker->boolean(),
             'reverseVat' => $this->faker->boolean(),
             'statisticalVat' => $this->faker->boolean(),
@@ -22,14 +27,14 @@ class VatInformationDtoFactory extends Factory
             'includeinVatExemptTotal' => $this->faker->boolean(),
             'includeinVatTotal' => $this->faker->boolean(),
             'enterFromVatInvoice' => $this->faker->boolean(),
-            'calculateOn' => $this->faker->word(),
-            'cashDiscount' => $this->faker->word(),
+            'calculateOn' => $this->faker->randomElement(VatCategoryLineCalculateOnEnum::cases()),
+            'cashDiscount' => $this->faker->randomElement(VatCategoryLineCashDiscountEnum::cases()),
             'vatAgencyId' => null,
             'notValidAfter' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'euReportCode' => $this->faker->word(),
+            'euReportCode' => $this->faker->randomElement(VatInformationEuReportCodeEnum::cases()),
             'documentText' => $this->faker->word(),
             'defaultNonStockItem' => null,
-            'vismaXmlVatType' => $this->faker->word(),
+            'vismaXmlVatType' => $this->faker->randomElement(VatInformationVismaXmlVatTypeEnum::cases()),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'glAccounts' => null,
             'schedules' => [],

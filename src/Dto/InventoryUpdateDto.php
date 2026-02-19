@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\InventoryStatusEnum;
+use Pionect\VismaSdk\Enums\ItemClassTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -17,9 +19,9 @@ class InventoryUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $inventoryNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $status = null,
+        public ?InventoryStatusEnum $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $type = null,
+        public ?ItemClassTypeEnum $type = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $description = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -52,9 +54,15 @@ class InventoryUpdateDto extends SpatieData
         public ?string $expenseEuAccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $expenseImportAccount = null,
-        /** @var SegmentUpdateDto[]|null */
+        /**
+         * @var SegmentUpdateDto[]|null
+         *                              Only used for Non-stock items
+         */
         public ?array $expenseSubaccount = null,
-        /** @var SegmentUpdateDto[]|null */
+        /**
+         * @var SegmentUpdateDto[]|null
+         *                              Only used for Stock items
+         */
         public ?array $cogsSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $salesAccount = null,

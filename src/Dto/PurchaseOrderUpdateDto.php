@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderShippingDestinationTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -19,7 +21,7 @@ class PurchaseOrderUpdateDto extends SpatieData
 
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $shippingDestinationType = null,
+        public ?PurchaseOrderShippingDestinationTypeEnum $shippingDestinationType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $shipTo = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -49,7 +51,7 @@ class PurchaseOrderUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $dontEmail = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $orderType = null,
+        public ?PurchaseOrderLineOrderTypeEnum $orderType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $orderNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

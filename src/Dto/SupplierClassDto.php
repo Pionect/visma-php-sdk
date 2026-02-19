@@ -16,8 +16,15 @@ class SupplierClassDto extends SpatieData
         public ?array $attributes = null,
         public ?string $paymentMethodId = null,
         public ?string $paymentMethodDescription = null,
+        /**
+         * Identifier that represents a specific version of the resource.
+         * It helps to prevent simultaneous updates of the resource from overwriting
+         * each other (by using ETags and If-Match headers)
+         */
         public ?string $timeStamp = null,
+        /** Click on the magnifier. > The identifier. */
         public ?string $id = null,
+        /** Click on the magnifier. > The description. */
         public ?string $description = null,
     ) {}
 }

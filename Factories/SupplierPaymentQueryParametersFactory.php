@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierPaymentQueryParameters;
+use Pionect\VismaSdk\Enums\SupplierPaymentStatusEnum;
+use Pionect\VismaSdk\Enums\SupplierPaymentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierPaymentQueryParametersFactory extends Factory
@@ -12,7 +14,7 @@ class SupplierPaymentQueryParametersFactory extends Factory
     {
         return [
             'invoiceRefNbr' => $this->faker->word(),
-            'paymentType' => $this->faker->word(),
+            'paymentType' => $this->faker->randomElement(SupplierPaymentTypeEnum::cases()),
             'greaterThanValue' => $this->faker->word(),
             'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
@@ -25,7 +27,7 @@ class SupplierPaymentQueryParametersFactory extends Factory
             'financialPeriod' => $this->faker->word(),
             'balance' => null,
             'balanceCondition' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(SupplierPaymentStatusEnum::cases()),
             'pageNumber' => $this->faker->numberBetween(1, 100),
             'pageSize' => $this->faker->numberBetween(1, 100),
         ];

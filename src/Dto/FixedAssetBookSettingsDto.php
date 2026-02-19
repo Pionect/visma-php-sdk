@@ -13,8 +13,10 @@ class FixedAssetBookSettingsDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The book id */
         #[MapName('bookID')]
         public ?string $bookId = null,
+        /** The depreciation method id */
         #[MapName('depreciationMethodID')]
         public ?string $depreciationMethodId = null,
     ) {}

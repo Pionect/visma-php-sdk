@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerDto;
+use Pionect\VismaSdk\Enums\CustomerCreditVerificationEnum;
+use Pionect\VismaSdk\Enums\CustomerStatementTypeEnum;
+use Pionect\VismaSdk\Enums\CustomerStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerDtoFactory extends Factory
@@ -14,7 +17,7 @@ class CustomerDtoFactory extends Factory
             'internalId' => $this->faker->numberBetween(1, 1000),
             'number' => $this->faker->word(),
             'name' => $this->faker->name(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(CustomerStatusEnum::cases()),
             'mainAddress' => null,
             'mainContact' => null,
             'accountReference' => $this->faker->word(),
@@ -22,7 +25,7 @@ class CustomerDtoFactory extends Factory
             'customerClass' => null,
             'creditTerms' => null,
             'currencyId' => $this->faker->uuid(),
-            'creditVerification' => $this->faker->word(),
+            'creditVerification' => $this->faker->randomElement(CustomerCreditVerificationEnum::cases()),
             'creditLimit' => null,
             'creditDaysPastDue' => $this->faker->numberBetween(1, 100),
             'invoiceAddress' => null,
@@ -35,7 +38,7 @@ class CustomerDtoFactory extends Factory
             'printStatements' => $this->faker->boolean(),
             'sendStatementsByEmail' => $this->faker->boolean(),
             'printMultiCurrencyStatements' => $this->faker->boolean(),
-            'statementType' => $this->faker->word(),
+            'statementType' => $this->faker->randomElement(CustomerStatementTypeEnum::cases()),
             'deliveryAddress' => null,
             'deliveryContact' => null,
             'vatRegistrationId' => $this->faker->uuid(),

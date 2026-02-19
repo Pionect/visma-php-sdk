@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SendToAutoInvoiceArDocumentActionResultDto;
+use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SendToAutoInvoiceArDocumentActionResultDtoFactory extends Factory
@@ -13,7 +14,7 @@ class SendToAutoInvoiceArDocumentActionResultDtoFactory extends Factory
             'refNbr' => $this->faker->word(),
             'documentType' => $this->faker->word(),
             'actionId' => $this->faker->uuid(),
-            'actionResult' => $this->faker->word(),
+            'actionResult' => $this->faker->randomElement(ReleaseCashTransactionActionResultActionResultEnum::cases()),
             'errorInfo' => $this->faker->word(),
         ];
     }

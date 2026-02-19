@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PurchaseOrderLineDto;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineLineTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineReceiptActionEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseOrderLineDtoFactory extends Factory
@@ -14,7 +17,7 @@ class PurchaseOrderLineDtoFactory extends Factory
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'branch' => null,
             'inventory' => null,
-            'lineType' => $this->faker->word(),
+            'lineType' => $this->faker->randomElement(PurchaseOrderLineLineTypeEnum::cases()),
             'warehouse' => null,
             'lineDescription' => $this->faker->sentence(),
             'uom' => $this->faker->word(),
@@ -34,7 +37,7 @@ class PurchaseOrderLineDtoFactory extends Factory
             'minReceipt' => null,
             'maxReceipt' => null,
             'completeOn' => null,
-            'receiptAction' => $this->faker->word(),
+            'receiptAction' => $this->faker->randomElement(PurchaseOrderLineReceiptActionEnum::cases()),
             'taxCategory' => null,
             'account' => null,
             'sub' => null,
@@ -44,7 +47,7 @@ class PurchaseOrderLineDtoFactory extends Factory
             'promised' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'completed' => $this->faker->boolean(),
             'canceled' => $this->faker->boolean(),
-            'orderType' => $this->faker->word(),
+            'orderType' => $this->faker->randomElement(PurchaseOrderLineOrderTypeEnum::cases()),
             'orderNumber' => $this->faker->word(),
             'note' => $this->faker->word(),
             'customStr1' => $this->faker->word(),

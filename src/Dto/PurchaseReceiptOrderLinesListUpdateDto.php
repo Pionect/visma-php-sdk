@@ -15,7 +15,10 @@ class PurchaseReceiptOrderLinesListUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        /** @var PurchaseReceiptOrderLinesUpdateDto[]|null */
+        /**
+         * @var PurchaseReceiptOrderLinesUpdateDto[]|null
+         *                                                The collection of Purchase Order reference numbers and their lines.
+         */
         public ?array $purchaseOrderLines = null,
     ) {}
 }

@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\StocktakeLineV2dto;
+use Pionect\VismaSdk\Enums\StocktakeLineV2dtoStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class StocktakeLineV2dtoFactory extends Factory
@@ -11,7 +12,7 @@ class StocktakeLineV2dtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(StocktakeLineV2dtoStatusEnum::cases()),
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'tagNbr' => $this->faker->numberBetween(1, 100),
             'inventory' => null,

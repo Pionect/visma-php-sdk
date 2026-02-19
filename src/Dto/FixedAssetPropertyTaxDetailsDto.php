@@ -14,8 +14,11 @@ class FixedAssetPropertyTaxDetailsDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The date */
         public ?\Carbon\Carbon $date = null,
+        /** The property value */
         public int|float|null $propertyValue = null,
+        /** The minimum value percentage */
         public int|float|null $minPercent = null,
     ) {}
 }

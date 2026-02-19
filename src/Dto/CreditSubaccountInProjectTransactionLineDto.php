@@ -16,7 +16,9 @@ class CreditSubaccountInProjectTransactionLineDto extends SpatieData
 
     public function __construct(
         public ?bool $active = null,
+        /** Click on the magnifier. > The identifier. */
         public ?string $id = null,
+        /** Click on the magnifier. > The description. */
         public ?string $description = null,
     ) {}
 }

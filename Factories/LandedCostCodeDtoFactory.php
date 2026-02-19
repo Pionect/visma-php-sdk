@@ -3,6 +3,9 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\LandedCostCodeDto;
+use Pionect\VismaSdk\Enums\LandedCostCodeAllocationMethodEnum;
+use Pionect\VismaSdk\Enums\LandedCostCodeApplicationMethodEnum;
+use Pionect\VismaSdk\Enums\LandedCostCodeLandedCostTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class LandedCostCodeDtoFactory extends Factory
@@ -12,9 +15,9 @@ class LandedCostCodeDtoFactory extends Factory
         return [
             'landedCostCodeId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
-            'landedCostType' => $this->faker->word(),
-            'applicationMethod' => $this->faker->word(),
-            'allocationMethod' => $this->faker->word(),
+            'landedCostType' => $this->faker->randomElement(LandedCostCodeLandedCostTypeEnum::cases()),
+            'applicationMethod' => $this->faker->randomElement(LandedCostCodeApplicationMethodEnum::cases()),
+            'allocationMethod' => $this->faker->randomElement(LandedCostCodeAllocationMethodEnum::cases()),
             'supplierId' => $this->faker->uuid(),
             'supplierLocationId' => $this->faker->uuid(),
             'terms' => $this->faker->word(),

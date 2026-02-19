@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\RegisterInFixedAssetTransactionDto;
+use Pionect\VismaSdk\Enums\FixedAssetRegisterStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class RegisterInFixedAssetTransactionDtoFactory extends Factory
@@ -12,7 +13,7 @@ class RegisterInFixedAssetTransactionDtoFactory extends Factory
     {
         return [
             'documentDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(FixedAssetRegisterStatusEnum::cases()),
             'hold' => $this->faker->boolean(),
         ];
     }

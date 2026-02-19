@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\WarehouseLocationPrimaryItemValidEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -35,7 +36,7 @@ class WarehouseLocationUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $pickPriority = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $primaryItemValid = null,
+        public ?WarehouseLocationPrimaryItemValidEnum $primaryItemValid = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $primaryItemId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

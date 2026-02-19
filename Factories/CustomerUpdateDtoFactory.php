@@ -3,6 +3,9 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\CustomerUpdateDto;
+use Pionect\VismaSdk\Enums\CustomerCreditVerificationEnum;
+use Pionect\VismaSdk\Enums\CustomerStatementTypeEnum;
+use Pionect\VismaSdk\Enums\CustomerStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerUpdateDtoFactory extends Factory
@@ -12,7 +15,7 @@ class CustomerUpdateDtoFactory extends Factory
         return [
             'number' => $this->faker->word(),
             'name' => $this->faker->name(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(CustomerStatusEnum::cases()),
             'accountReference' => $this->faker->word(),
             'numberOfEmployees' => $this->faker->numberBetween(1, 100),
             'parentRecordNumber' => $this->faker->word(),
@@ -38,10 +41,10 @@ class CustomerUpdateDtoFactory extends Factory
             'note' => $this->faker->word(),
             'mainAddress' => AddressUpdateDtoFactory::new()->make(),
             'mainContact' => ContactInfoUpdateDtoFactory::new()->make(),
-            'creditVerification' => $this->faker->word(),
+            'creditVerification' => $this->faker->randomElement(CustomerCreditVerificationEnum::cases()),
             'invoiceAddress' => AddressUpdateDtoFactory::new()->make(),
             'invoiceContact' => ContactInfoUpdateDtoFactory::new()->make(),
-            'statementType' => $this->faker->word(),
+            'statementType' => $this->faker->randomElement(CustomerStatementTypeEnum::cases()),
             'deliveryAddress' => AddressUpdateDtoFactory::new()->make(),
             'deliveryContact' => ContactInfoUpdateDtoFactory::new()->make(),
             'priceClassId' => $this->faker->uuid(),

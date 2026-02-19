@@ -14,9 +14,13 @@ class DebtCollectionDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Debt Collection Case Number */
         public ?string $caseNumber = null,
+        /** Debt Collection Case Number */
         public ?string $caseType = null,
+        /** Debt Collection Case Number */
         public ?string $caseStatus = null,
+        /** Debt Collection Case Number */
         public ?string $caseUrl = null,
     ) {}
 }

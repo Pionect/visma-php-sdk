@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierInvoiceUpdateDto;
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierInvoiceUpdateDtoFactory extends Factory
@@ -11,7 +13,7 @@ class SupplierInvoiceUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'documentType' => $this->faker->word(),
+            'documentType' => $this->faker->randomElement(SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum::cases()),
             'referenceNumber' => $this->faker->word(),
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
@@ -31,7 +33,7 @@ class SupplierInvoiceUpdateDtoFactory extends Factory
             'exchangeRate' => null,
             'branchNumber' => $this->faker->word(),
             'roundingDiffInCurrency' => null,
-            'taxCalculationMode' => $this->faker->word(),
+            'taxCalculationMode' => $this->faker->randomElement(EntryTypeTaxCalculationModeEnum::cases()),
             'supplierTaxZone' => $this->faker->word(),
             'cashAccount' => $this->faker->word(),
             'paymentMethod' => $this->faker->word(),

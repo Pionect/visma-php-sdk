@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Requests\GeneralLedgerTransactions\GeneralLedgerTransactionsGetAllRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -24,7 +25,7 @@ it('calls the generalLedgerTransactionsGetAllRequest method in the GeneralLedger
                     'name' => 'String value',
                 ],
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'externalCode1info' => [
@@ -68,7 +69,7 @@ it('calls the generalLedgerTransactionsGetAllRequest method in the GeneralLedger
                     'name' => 'String value',
                 ],
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'externalCode1info' => [
@@ -143,7 +144,7 @@ it('calls the generalLedgerTransactionsGetAllRequest method in the GeneralLedger
         ->refNumber->toBe('String value')
         ->branch->number->toBe('String value')
         ->branch->name->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->externalCode1info->number->toBe('String value')

@@ -14,8 +14,11 @@ class BranchCurrencyDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Currency Id. */
         public ?string $id = null,
+        /** Currency description. */
         public ?string $description = null,
+        /** Currency symbol. */
         public ?string $symbol = null,
     ) {}
 }

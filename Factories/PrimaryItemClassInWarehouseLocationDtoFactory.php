@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\PrimaryItemClassInWarehouseLocationDto;
+use Pionect\VismaSdk\Enums\ItemClassTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PrimaryItemClassInWarehouseLocationDtoFactory extends Factory
@@ -10,7 +11,7 @@ class PrimaryItemClassInWarehouseLocationDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(ItemClassTypeEnum::cases()),
             'attributes' => [],
             'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),

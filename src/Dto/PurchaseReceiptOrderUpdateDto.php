@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -14,8 +15,9 @@ class PurchaseReceiptOrderUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The reference number of the Purchase Order. */
         public ?string $orderNbr = null,
-        public ?string $orderType = null,
+        public ?PurchaseOrderLineOrderTypeEnum $orderType = null,
         /** @var AllocationsUpdateDto[]|null */
         public ?array $allocations = null,
     ) {}

@@ -5,6 +5,9 @@ use Pionect\VismaSdk\Dto\CreatePurchaseOrderActionDto;
 use Pionect\VismaSdk\Dto\CreateShipmentActionDto;
 use Pionect\VismaSdk\Dto\ReopenSalesOrderActionDto;
 use Pionect\VismaSdk\Dto\SalesOrderUpdateDto;
+use Pionect\VismaSdk\Enums\SalesOrderLineShipCompleteEnum;
+use Pionect\VismaSdk\Enums\SalesOrderQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Requests\SalesOrderV2\SalesOrderV2CancelSalesOrderBysaleOrderNumberRequest;
 use Pionect\VismaSdk\Requests\SalesOrderV2\SalesOrderV2CreateHeaderAttachmentByorderNumberorderTypeRequest;
 use Pionect\VismaSdk\Requests\SalesOrderV2\SalesOrderV2CreateHeaderAttachmentByorderNumberRequest;
@@ -118,7 +121,7 @@ it('calls the salesOrderV2getByorderNbrRequest method in the SalesOrderV2 resour
             ],
             'schedShipment' => '2025-11-22T10:40:04+00:00',
             'shipSeparately' => true,
-            'shipComplete' => 'String value',
+            'shipComplete' => 'BackOrderAllowed',
             'cancelBy' => '2025-11-22T10:40:04+00:00',
             'canceled' => true,
             'preferredWarehouse' => [
@@ -154,7 +157,7 @@ it('calls the salesOrderV2getByorderNbrRequest method in the SalesOrderV2 resour
             'shipments' => [],
             'orderType' => 'String value',
             'orderNo' => 'String value',
-            'status' => 'String value',
+            'status' => 'Open',
             'hold' => true,
             'date' => '2025-11-22T10:40:04+00:00',
             'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -271,7 +274,7 @@ it('calls the salesOrderV2getByorderNbrRequest method in the SalesOrderV2 resour
         ->soShippingAddress->county->name->toBe('String value')
         ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->shipSeparately->toBe(true)
-        ->shipComplete->toBe('String value')
+        ->shipComplete->toEqual(SalesOrderLineShipCompleteEnum::BACK_ORDER_ALLOWED)
         ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->canceled->toBe(true)
         ->preferredWarehouse->description->toBe('String value')
@@ -291,7 +294,7 @@ it('calls the salesOrderV2getByorderNbrRequest method in the SalesOrderV2 resour
         ->emailed->toBe(true)
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SalesOrderQueryParametersStatusEnum::OPEN)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -417,7 +420,7 @@ it('calls the salesOrderV2getAllOrdersV2request method in the SalesOrderV2 resou
                 ],
                 'schedShipment' => '2025-11-22T10:40:04+00:00',
                 'shipSeparately' => true,
-                'shipComplete' => 'String value',
+                'shipComplete' => 'BackOrderAllowed',
                 'cancelBy' => '2025-11-22T10:40:04+00:00',
                 'canceled' => true,
                 'preferredWarehouse' => [
@@ -453,7 +456,7 @@ it('calls the salesOrderV2getAllOrdersV2request method in the SalesOrderV2 resou
                 'shipments' => [],
                 'orderType' => 'String value',
                 'orderNo' => 'String value',
-                'status' => 'String value',
+                'status' => 'Open',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04+00:00',
                 'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -582,7 +585,7 @@ it('calls the salesOrderV2getAllOrdersV2request method in the SalesOrderV2 resou
                 ],
                 'schedShipment' => '2025-11-22T10:40:04+00:00',
                 'shipSeparately' => true,
-                'shipComplete' => 'String value',
+                'shipComplete' => 'BackOrderAllowed',
                 'cancelBy' => '2025-11-22T10:40:04+00:00',
                 'canceled' => true,
                 'preferredWarehouse' => [
@@ -618,7 +621,7 @@ it('calls the salesOrderV2getAllOrdersV2request method in the SalesOrderV2 resou
                 'shipments' => [],
                 'orderType' => 'String value',
                 'orderNo' => 'String value',
-                'status' => 'String value',
+                'status' => 'Open',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04+00:00',
                 'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -744,7 +747,7 @@ it('calls the salesOrderV2getAllOrdersV2request method in the SalesOrderV2 resou
         ->soShippingAddress->county->name->toBe('String value')
         ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->shipSeparately->toBe(true)
-        ->shipComplete->toBe('String value')
+        ->shipComplete->toEqual(SalesOrderLineShipCompleteEnum::BACK_ORDER_ALLOWED)
         ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->canceled->toBe(true)
         ->preferredWarehouse->description->toBe('String value')
@@ -764,7 +767,7 @@ it('calls the salesOrderV2getAllOrdersV2request method in the SalesOrderV2 resou
         ->emailed->toBe(true)
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SalesOrderQueryParametersStatusEnum::OPEN)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -851,7 +854,7 @@ it('calls the salesOrderV2postRequest method in the SalesOrderV2 resource', func
         ),
         schedShipment: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         shipSeparately: true,
-        shipComplete: 'String value',
+        shipComplete: SalesOrderLineShipCompleteEnum::BACK_ORDER_ALLOWED,
         cancelBy: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         canceled: true,
         preferredWarehouse: 'String value',
@@ -871,7 +874,7 @@ it('calls the salesOrderV2postRequest method in the SalesOrderV2 resource', func
         emailed: true,
         rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
-            type: 'String value',
+            type: WorkTypeRutRotTypeEnum::RUT,
             appartment: 'String value',
             estate: 'String value',
             organizationNbr: 'String value',
@@ -1077,7 +1080,7 @@ it('calls the salesOrderV2reopenSalesOrderBysalesOrderNumberRequest method in th
             ),
             schedShipment: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
             shipSeparately: true,
-            shipComplete: 'String value',
+            shipComplete: SalesOrderLineShipCompleteEnum::BACK_ORDER_ALLOWED,
             cancelBy: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
             canceled: true,
             preferredWarehouse: 'String value',
@@ -1097,7 +1100,7 @@ it('calls the salesOrderV2reopenSalesOrderBysalesOrderNumberRequest method in th
             emailed: true,
             rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
                 distributedAutomaticaly: true,
-                type: 'String value',
+                type: WorkTypeRutRotTypeEnum::RUT,
                 appartment: 'String value',
                 estate: 'String value',
                 organizationNbr: 'String value',

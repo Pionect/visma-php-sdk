@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\PurchaseReceiptV2queryParameters;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsStatusEnum;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseReceiptV2queryParametersFactory extends Factory
@@ -10,8 +12,8 @@ class PurchaseReceiptV2queryParametersFactory extends Factory
     protected function definition(): array
     {
         return [
-            'receiptType' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'receiptType' => $this->faker->randomElement(PurchaseReceiptsTypeEnum::cases()),
+            'status' => $this->faker->randomElement(PurchaseReceiptsStatusEnum::cases()),
             'greaterThanValue' => $this->faker->word(),
             'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),

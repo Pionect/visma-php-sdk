@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierDocumentDto;
+use Pionect\VismaSdk\Enums\LandedCostApDocTypeEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierDocumentDtoFactory extends Factory
@@ -17,15 +20,15 @@ class SupplierDocumentDtoFactory extends Factory
             'amountInCurrency' => null,
             'branch' => null,
             'supplier' => null,
-            'documentType' => $this->faker->word(),
+            'documentType' => $this->faker->randomElement(LandedCostApDocTypeEnum::cases()),
             'referenceNumber' => $this->faker->word(),
             'postPeriod' => $this->faker->word(),
             'financialPeriod' => $this->faker->word(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'origInvoiceDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'dueDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'approvalStatus' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'approvalStatus' => $this->faker->randomElement(TimeCardSummaryApprovalStatusEnum::cases()),
+            'status' => $this->faker->randomElement(SupplierInvoiceForSupplierQueryParametersStatusEnum::cases()),
             'currencyId' => $this->faker->uuid(),
             'balance' => null,
             'balanceInCurrency' => null,

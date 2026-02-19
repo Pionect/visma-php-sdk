@@ -13,8 +13,10 @@ class KitAssemblyDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Type, possible values: P - Production, D - Disassembly */
         public ?string $type = null,
         public ?string $refNo = null,
+        /** Status, possible values: H - On Hold, B - Balanced, R - Released */
         public ?string $status = null,
         public ?bool $hold = null,
         public ?\Carbon\Carbon $date = null,
@@ -37,6 +39,7 @@ class KitAssemblyDto extends SpatieData
         public ?array $nonStockComponentLines = null,
         /** @var InallocationsDto[]|null */
         public ?array $kitAllocations = null,
+        /** Timestamp of the kit assembly record */
         public ?string $timestamp = null,
         public ?string $errorInfo = null,
     ) {}

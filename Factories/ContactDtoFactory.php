@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ContactDto;
+use Pionect\VismaSdk\Enums\ContactContactMethodEnum;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ContactDtoFactory extends Factory
@@ -13,7 +15,7 @@ class ContactDtoFactory extends Factory
         return [
             'displayName' => $this->faker->company(),
             'active' => $this->faker->boolean(),
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->randomElement(ContactTitleEnum::cases()),
             'firstName' => $this->faker->company(),
             'lastName' => $this->faker->company(),
             'position' => $this->faker->word(),
@@ -27,7 +29,7 @@ class ContactDtoFactory extends Factory
             'phone2' => $this->faker->word(),
             'phone3' => $this->faker->word(),
             'fax' => $this->faker->word(),
-            'contactMethod' => $this->faker->word(),
+            'contactMethod' => $this->faker->randomElement(ContactContactMethodEnum::cases()),
             'doNotCall' => $this->faker->boolean(),
             'doNotFax' => $this->faker->boolean(),
             'doNotEmail' => $this->faker->boolean(),

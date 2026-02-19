@@ -12,6 +12,7 @@ class CreatePurchaseReceiptActionDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Mandatory field */
         public ?string $orderType = null,
     ) {}
 }

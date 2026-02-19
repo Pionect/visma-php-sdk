@@ -3,6 +3,16 @@
 use Pionect\VismaSdk\Dto\ChangeCustomerCdActionDto;
 use Pionect\VismaSdk\Dto\CreateDunningLetterActionDto;
 use Pionect\VismaSdk\Dto\CustomerUpdateDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
+use Pionect\VismaSdk\Enums\ContactContactMethodEnum;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
+use Pionect\VismaSdk\Enums\CustomerCreditVerificationEnum;
+use Pionect\VismaSdk\Enums\CustomerStatementTypeEnum;
+use Pionect\VismaSdk\Enums\CustomerStatusEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLineShipCompleteEnum;
+use Pionect\VismaSdk\Enums\SalesOrderQueryParametersStatusEnum;
 use Pionect\VismaSdk\Requests\Customer\CustomerChangeCustomerNrActionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerCreateDunningLetterActionBycustomerRequest;
 use Pionect\VismaSdk\Requests\Customer\CustomerGetAllCashSalesForCustomerBycustomerNumberRequest;
@@ -281,7 +291,7 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
             ],
             'schedShipment' => '2025-11-22T10:40:04+00:00',
             'shipSeparately' => true,
-            'shipComplete' => 'String value',
+            'shipComplete' => 'BackOrderAllowed',
             'cancelBy' => '2025-11-22T10:40:04+00:00',
             'canceled' => true,
             'preferredWarehouse' => [
@@ -317,7 +327,7 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
             'shipments' => [],
             'orderType' => 'String value',
             'orderNo' => 'String value',
-            'status' => 'String value',
+            'status' => 'Open',
             'hold' => true,
             'date' => '2025-11-22T10:40:04+00:00',
             'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -445,7 +455,7 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
         ->soShippingAddress->county->name->toBe('String value')
         ->schedShipment->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->shipSeparately->toBe(true)
-        ->shipComplete->toBe('String value')
+        ->shipComplete->toEqual(SalesOrderLineShipCompleteEnum::BACK_ORDER_ALLOWED)
         ->cancelBy->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->canceled->toBe(true)
         ->preferredWarehouse->description->toBe('String value')
@@ -465,7 +475,7 @@ it('calls the customerGetAllOrderForCustomerBycustomerCdRequest method in the Cu
         ->emailed->toBe(true)
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SalesOrderQueryParametersStatusEnum::OPEN)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -503,7 +513,7 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCdRequest method
             'lines' => [],
             'orderType' => 'String value',
             'orderNo' => 'String value',
-            'status' => 'String value',
+            'status' => 'Open',
             'hold' => true,
             'date' => '2025-11-22T10:40:04+00:00',
             'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -569,7 +579,7 @@ it('calls the customerGetAllSalesOrderBasicForCustomerBycustomerCdRequest method
     expect($dto)
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SalesOrderQueryParametersStatusEnum::OPEN)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -606,7 +616,7 @@ it('calls the customerGetAllContactsForCustomerBycustomerCdRequest method in the
         CustomerGetAllContactsForCustomerBycustomerCdRequest::class => MockResponse::make([
             'displayName' => 'String value',
             'active' => true,
-            'title' => 'String value',
+            'title' => 'Doctor',
             'firstName' => 'String value',
             'lastName' => 'String value',
             'position' => 'String value',
@@ -634,7 +644,7 @@ it('calls the customerGetAllContactsForCustomerBycustomerCdRequest method in the
             'phone2' => 'String value',
             'phone3' => 'String value',
             'fax' => 'String value',
-            'contactMethod' => 'String value',
+            'contactMethod' => 'Any',
             'doNotCall' => true,
             'doNotFax' => true,
             'doNotEmail' => true,
@@ -675,7 +685,7 @@ it('calls the customerGetAllContactsForCustomerBycustomerCdRequest method in the
     expect($dto)
         ->displayName->toBe('String value')
         ->active->toBe(true)
-        ->title->toBe('String value')
+        ->title->toEqual(ContactTitleEnum::DOCTOR)
         ->firstName->toBe('String value')
         ->lastName->toBe('String value')
         ->position->toBe('String value')
@@ -697,7 +707,7 @@ it('calls the customerGetAllContactsForCustomerBycustomerCdRequest method in the
         ->phone2->toBe('String value')
         ->phone3->toBe('String value')
         ->fax->toBe('String value')
-        ->contactMethod->toBe('String value')
+        ->contactMethod->toEqual(ContactContactMethodEnum::ANY)
         ->doNotCall->toBe(true)
         ->doNotFax->toBe(true)
         ->doNotEmail->toBe(true)
@@ -844,7 +854,7 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
             'internalId' => 42,
             'number' => 'String value',
             'name' => 'String value',
-            'status' => 'String value',
+            'status' => 'Active',
             'mainAddress' => [
                 'addressId' => 42,
                 'addressLine1' => 'String value',
@@ -882,7 +892,7 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
                 'description' => 'String value',
             ],
             'currencyId' => 'mock-id-123',
-            'creditVerification' => 'String value',
+            'creditVerification' => 'Disabled',
             'creditLimit' => 42,
             'creditDaysPastDue' => 42,
             'invoiceAddress' => [
@@ -918,7 +928,7 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
             'printStatements' => true,
             'sendStatementsByEmail' => true,
             'printMultiCurrencyStatements' => true,
-            'statementType' => 'String value',
+            'statementType' => 'OpenItem',
             'deliveryAddress' => [
                 'addressId' => 42,
                 'addressLine1' => 'String value',
@@ -1104,7 +1114,7 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CustomerStatusEnum::ACTIVE)
         ->mainAddress->addressId->toBe(42)
         ->mainAddress->addressLine1->toBe('String value')
         ->mainAddress->addressLine2->toBe('String value')
@@ -1128,7 +1138,7 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
         ->customerClass->description->toBe('String value')
         ->creditTerms->description->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->creditVerification->toBe('String value')
+        ->creditVerification->toEqual(CustomerCreditVerificationEnum::DISABLED)
         ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->addressId->toBe(42)
@@ -1156,7 +1166,7 @@ it('calls the customerGetByinternalIdRequest method in the Customer resource', f
         ->printStatements->toBe(true)
         ->sendStatementsByEmail->toBe(true)
         ->printMultiCurrencyStatements->toBe(true)
-        ->statementType->toBe('String value')
+        ->statementType->toEqual(CustomerStatementTypeEnum::OPEN_ITEM)
         ->deliveryAddress->addressId->toBe(42)
         ->deliveryAddress->addressLine1->toBe('String value')
         ->deliveryAddress->addressLine2->toBe('String value')
@@ -1270,7 +1280,7 @@ it('calls the customerPutByinternalIdRequest method in the Customer resource', f
     $bodyData = new CustomerUpdateDto(
         number: 'String value',
         name: 'String value',
-        status: 'String value',
+        status: CustomerStatusEnum::ACTIVE,
         accountReference: 'String value',
         numberOfEmployees: 42,
         parentRecordNumber: 'String value',
@@ -1312,7 +1322,7 @@ it('calls the customerPutByinternalIdRequest method in the Customer resource', f
             phone2: 'String value',
             fax: 'String value'
         ),
-        creditVerification: 'String value',
+        creditVerification: CustomerCreditVerificationEnum::DISABLED,
         invoiceAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
@@ -1331,7 +1341,7 @@ it('calls the customerPutByinternalIdRequest method in the Customer resource', f
             phone2: 'String value',
             fax: 'String value'
         ),
-        statementType: 'String value',
+        statementType: CustomerStatementTypeEnum::OPEN_ITEM,
         deliveryAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
@@ -1405,7 +1415,7 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
             'internalId' => 42,
             'number' => 'String value',
             'name' => 'String value',
-            'status' => 'String value',
+            'status' => 'Active',
             'mainAddress' => [
                 'addressId' => 42,
                 'addressLine1' => 'String value',
@@ -1443,7 +1453,7 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
                 'description' => 'String value',
             ],
             'currencyId' => 'mock-id-123',
-            'creditVerification' => 'String value',
+            'creditVerification' => 'Disabled',
             'creditLimit' => 42,
             'creditDaysPastDue' => 42,
             'invoiceAddress' => [
@@ -1479,7 +1489,7 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
             'printStatements' => true,
             'sendStatementsByEmail' => true,
             'printMultiCurrencyStatements' => true,
-            'statementType' => 'String value',
+            'statementType' => 'OpenItem',
             'deliveryAddress' => [
                 'addressId' => 42,
                 'addressLine1' => 'String value',
@@ -1665,7 +1675,7 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CustomerStatusEnum::ACTIVE)
         ->mainAddress->addressId->toBe(42)
         ->mainAddress->addressLine1->toBe('String value')
         ->mainAddress->addressLine2->toBe('String value')
@@ -1689,7 +1699,7 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
         ->customerClass->description->toBe('String value')
         ->creditTerms->description->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->creditVerification->toBe('String value')
+        ->creditVerification->toEqual(CustomerCreditVerificationEnum::DISABLED)
         ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->addressId->toBe(42)
@@ -1717,7 +1727,7 @@ it('calls the customerGetBycustomerCdRequest method in the Customer resource', f
         ->printStatements->toBe(true)
         ->sendStatementsByEmail->toBe(true)
         ->printMultiCurrencyStatements->toBe(true)
-        ->statementType->toBe('String value')
+        ->statementType->toEqual(CustomerStatementTypeEnum::OPEN_ITEM)
         ->deliveryAddress->addressId->toBe(42)
         ->deliveryAddress->addressLine1->toBe('String value')
         ->deliveryAddress->addressLine2->toBe('String value')
@@ -1831,7 +1841,7 @@ it('calls the customerPutBycustomerCdRequest method in the Customer resource', f
     $bodyData = new CustomerUpdateDto(
         number: 'String value',
         name: 'String value',
-        status: 'String value',
+        status: CustomerStatusEnum::ACTIVE,
         accountReference: 'String value',
         numberOfEmployees: 42,
         parentRecordNumber: 'String value',
@@ -1873,7 +1883,7 @@ it('calls the customerPutBycustomerCdRequest method in the Customer resource', f
             phone2: 'String value',
             fax: 'String value'
         ),
-        creditVerification: 'String value',
+        creditVerification: CustomerCreditVerificationEnum::DISABLED,
         invoiceAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
@@ -1892,7 +1902,7 @@ it('calls the customerPutBycustomerCdRequest method in the Customer resource', f
             phone2: 'String value',
             fax: 'String value'
         ),
-        statementType: 'String value',
+        statementType: CustomerStatementTypeEnum::OPEN_ITEM,
         deliveryAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
@@ -1967,7 +1977,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                 'internalId' => 42,
                 'number' => 'String value',
                 'name' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'mainAddress' => [
                     'addressId' => 42,
                     'addressLine1' => 'String value',
@@ -2005,7 +2015,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                     'description' => 'String value',
                 ],
                 'currencyId' => 'mock-id-123',
-                'creditVerification' => 'String value',
+                'creditVerification' => 'Disabled',
                 'creditLimit' => 42,
                 'creditDaysPastDue' => 42,
                 'invoiceAddress' => [
@@ -2041,7 +2051,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                 'printStatements' => true,
                 'sendStatementsByEmail' => true,
                 'printMultiCurrencyStatements' => true,
-                'statementType' => 'String value',
+                'statementType' => 'OpenItem',
                 'deliveryAddress' => [
                     'addressId' => 42,
                     'addressLine1' => 'String value',
@@ -2213,7 +2223,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                 'internalId' => 42,
                 'number' => 'String value',
                 'name' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'mainAddress' => [
                     'addressId' => 42,
                     'addressLine1' => 'String value',
@@ -2251,7 +2261,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                     'description' => 'String value',
                 ],
                 'currencyId' => 'mock-id-123',
-                'creditVerification' => 'String value',
+                'creditVerification' => 'Disabled',
                 'creditLimit' => 42,
                 'creditDaysPastDue' => 42,
                 'invoiceAddress' => [
@@ -2287,7 +2297,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
                 'printStatements' => true,
                 'sendStatementsByEmail' => true,
                 'printMultiCurrencyStatements' => true,
-                'statementType' => 'String value',
+                'statementType' => 'OpenItem',
                 'deliveryAddress' => [
                     'addressId' => 42,
                     'addressLine1' => 'String value',
@@ -2493,7 +2503,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CustomerStatusEnum::ACTIVE)
         ->mainAddress->addressId->toBe(42)
         ->mainAddress->addressLine1->toBe('String value')
         ->mainAddress->addressLine2->toBe('String value')
@@ -2517,7 +2527,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
         ->customerClass->description->toBe('String value')
         ->creditTerms->description->toBe('String value')
         ->currencyId->toBe('mock-id-123')
-        ->creditVerification->toBe('String value')
+        ->creditVerification->toEqual(CustomerCreditVerificationEnum::DISABLED)
         ->creditLimit->toBe(42)
         ->creditDaysPastDue->toBe(42)
         ->invoiceAddress->addressId->toBe(42)
@@ -2545,7 +2555,7 @@ it('calls the customerGetAllRequest method in the Customer resource', function (
         ->printStatements->toBe(true)
         ->sendStatementsByEmail->toBe(true)
         ->printMultiCurrencyStatements->toBe(true)
-        ->statementType->toBe('String value')
+        ->statementType->toEqual(CustomerStatementTypeEnum::OPEN_ITEM)
         ->deliveryAddress->addressId->toBe(42)
         ->deliveryAddress->addressLine1->toBe('String value')
         ->deliveryAddress->addressLine2->toBe('String value')
@@ -2659,7 +2669,7 @@ it('calls the customerPostRequest method in the Customer resource', function () 
     $bodyData = new CustomerUpdateDto(
         number: 'String value',
         name: 'String value',
-        status: 'String value',
+        status: CustomerStatusEnum::ACTIVE,
         accountReference: 'String value',
         numberOfEmployees: 42,
         parentRecordNumber: 'String value',
@@ -2701,7 +2711,7 @@ it('calls the customerPostRequest method in the Customer resource', function () 
             phone2: 'String value',
             fax: 'String value'
         ),
-        creditVerification: 'String value',
+        creditVerification: CustomerCreditVerificationEnum::DISABLED,
         invoiceAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
@@ -2720,7 +2730,7 @@ it('calls the customerPostRequest method in the Customer resource', function () 
             phone2: 'String value',
             fax: 'String value'
         ),
-        statementType: 'String value',
+        statementType: CustomerStatementTypeEnum::OPEN_ITEM,
         deliveryAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
@@ -2878,14 +2888,14 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Invoice',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
             'documentDate' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-            'status' => 'String value',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'amount' => 42,
             'amountInCurrency' => 42,
@@ -2917,7 +2927,7 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
                 'description' => 'String value',
             ],
             'account' => [
-                'type' => 'String value',
+                'type' => 'Asset',
                 'externalCode1' => 'String value',
                 'externalCode2' => 'String value',
                 'active' => true,
@@ -3045,14 +3055,14 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
         ->revoked->toBe(true)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -3075,7 +3085,7 @@ it('calls the customerGetAllInvoicesForCustomerBycustomerNumberRequest method in
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)
@@ -3147,14 +3157,14 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Invoice',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
             'documentDate' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-            'status' => 'String value',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'amount' => 42,
             'amountInCurrency' => 42,
@@ -3186,7 +3196,7 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
                 'description' => 'String value',
             ],
             'account' => [
-                'type' => 'String value',
+                'type' => 'Asset',
                 'externalCode1' => 'String value',
                 'externalCode2' => 'String value',
                 'active' => true,
@@ -3289,14 +3299,14 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
         ->revoked->toBe(true)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -3319,7 +3329,7 @@ it('calls the customerGetAllCashSalesForCustomerBycustomerNumberRequest method i
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)
@@ -3348,14 +3358,14 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Invoice',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
             'documentDate' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-            'status' => 'String value',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'amount' => 42,
             'amountInCurrency' => 42,
@@ -3387,7 +3397,7 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
                 'description' => 'String value',
             ],
             'account' => [
-                'type' => 'String value',
+                'type' => 'Asset',
                 'externalCode1' => 'String value',
                 'externalCode2' => 'String value',
                 'active' => true,
@@ -3459,14 +3469,14 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
         ->branch->name->toBe('String value')
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -3489,7 +3499,7 @@ it('calls the customerGetAllDocumentsForCustomerBycustomerNumberRequest method i
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)

@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SalesOrderBasicLineUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SalesOrderBasicLineUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class SalesOrderBasicLineUpdateDtoFactory extends Factory
     {
         return [
             'branchNumber' => $this->faker->word(),
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'inventoryId' => $this->faker->uuid(),
             'inventoryNumber' => $this->faker->word(),

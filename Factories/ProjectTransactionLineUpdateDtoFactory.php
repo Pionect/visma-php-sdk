@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ProjectTransactionLineUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ProjectTransactionLineUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class ProjectTransactionLineUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'tranId' => $this->faker->numberBetween(1, 1000),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'inventoryId' => $this->faker->uuid(),

@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ProjectManagerInProjectDto;
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ProjectManagerInProjectDtoFactory extends Factory
@@ -15,7 +16,7 @@ class ProjectManagerInProjectDtoFactory extends Factory
             'employeeId' => $this->faker->numberBetween(1, 1000),
             'employeeNumber' => $this->faker->word(),
             'employeeName' => $this->faker->company(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(EmployeeStatusEnum::cases()),
             'department' => $this->faker->word(),
             'contact' => null,
             'address' => null,

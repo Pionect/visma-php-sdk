@@ -2,6 +2,10 @@
 
 use Pionect\VismaSdk\Dto\CustomerInvoiceUpdateDto;
 use Pionect\VismaSdk\Dto\ReverseInvoiceActionDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
+use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCorrectInvoiceByinvoiceNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCreateHeaderAttachmentByinvoiceNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerInvoice\CustomerInvoiceCreateLineAttachmentByinvoiceNumberlineNumberRequest;
@@ -28,12 +32,12 @@ it('calls the customerInvoiceGetWorkTypesRequest method in the CustomerInvoice r
     Saloon::fake([
         CustomerInvoiceGetWorkTypesRequest::class => MockResponse::make([
             0 => [
-                'rutRotType' => 'String value',
+                'rutRotType' => 'Rut',
                 'description' => 'String value',
                 'xmlTag' => 'String value',
             ],
             1 => [
-                'rutRotType' => 'String value',
+                'rutRotType' => 'Rut',
                 'description' => 'String value',
                 'xmlTag' => 'String value',
             ],
@@ -53,7 +57,7 @@ it('calls the customerInvoiceGetWorkTypesRequest method in the CustomerInvoice r
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->rutRotType->toBe('String value')
+        ->rutRotType->toEqual(WorkTypeRutRotTypeEnum::RUT)
         ->description->toBe('String value')
         ->xmlTag->toBe('String value');
 });
@@ -150,14 +154,14 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Invoice',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
             'documentDate' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-            'status' => 'String value',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'amount' => 42,
             'amountInCurrency' => 42,
@@ -189,7 +193,7 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
                 'description' => 'String value',
             ],
             'account' => [
-                'type' => 'String value',
+                'type' => 'Asset',
                 'externalCode1' => 'String value',
                 'externalCode2' => 'String value',
                 'active' => true,
@@ -285,14 +289,14 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
         ->revoked->toBe(true)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -315,7 +319,7 @@ it('calls the customerInvoiceGetByinvoiceNumberRequest method in the CustomerInv
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)
@@ -346,7 +350,7 @@ it('calls the customerInvoiceUpdateByinvoiceNumberRequest method in the Customer
         domesticServicesDeductibleDocument: true,
         rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
-            type: 'String value',
+            type: WorkTypeRutRotTypeEnum::RUT,
             appartment: 'String value',
             estate: 'String value',
             organizationNbr: 'String value',
@@ -445,10 +449,10 @@ it('calls the customerInvoiceDeleteByinvoiceNumberRequest method in the Customer
 it('calls the customerInvoiceGetRotRutByrefNbrRequest method in the CustomerInvoice resource', function () {
     Saloon::fake([
         CustomerInvoiceGetRotRutByrefNbrRequest::class => MockResponse::make([
-            'docType' => 'String value',
+            'docType' => 'Invoice',
             'refNbr' => 'String value',
             'distributedAutomaticaly' => true,
-            'type' => 'String value',
+            'type' => 'Rut',
             'totalDeductableAmount' => 42,
             'otherCost' => 42,
             'materialCost' => 42,
@@ -474,10 +478,10 @@ it('calls the customerInvoiceGetRotRutByrefNbrRequest method in the CustomerInvo
     $dto = $response->dto();
 
     expect($dto)
-        ->docType->toBe('String value')
+        ->docType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->refNbr->toBe('String value')
         ->distributedAutomaticaly->toBe(true)
-        ->type->toBe('String value')
+        ->type->toEqual(WorkTypeRutRotTypeEnum::RUT)
         ->totalDeductableAmount->toBe(42)
         ->otherCost->toBe(42)
         ->materialCost->toBe(42)
@@ -597,14 +601,14 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Invoice',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
                 'documentDate' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'amount' => 42,
                 'amountInCurrency' => 42,
@@ -636,7 +640,7 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                     'description' => 'String value',
                 ],
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -746,14 +750,14 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Invoice',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
                 'documentDate' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'amount' => 42,
                 'amountInCurrency' => 42,
@@ -785,7 +789,7 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
                     'description' => 'String value',
                 ],
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -914,14 +918,14 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
         ->revoked->toBe(true)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -944,7 +948,7 @@ it('calls the customerInvoiceGetAllRequest method in the CustomerInvoice resourc
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)
@@ -975,7 +979,7 @@ it('calls the customerInvoiceCreateRequest method in the CustomerInvoice resourc
         domesticServicesDeductibleDocument: true,
         rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
-            type: 'String value',
+            type: WorkTypeRutRotTypeEnum::RUT,
             appartment: 'String value',
             estate: 'String value',
             organizationNbr: 'String value',

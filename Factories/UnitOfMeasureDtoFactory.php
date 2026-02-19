@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\UnitOfMeasureDto;
+use Pionect\VismaSdk\Enums\CreateCurrencyRateMultDivEnum;
+use Pionect\VismaSdk\Enums\UnitOfMeasureSupplementaryMeasureUnitEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class UnitOfMeasureDtoFactory extends Factory
@@ -12,9 +14,9 @@ class UnitOfMeasureDtoFactory extends Factory
         return [
             'fromUnit' => $this->faker->word(),
             'toUnit' => $this->faker->word(),
-            'unitMultDiv' => $this->faker->word(),
+            'unitMultDiv' => $this->faker->randomElement(CreateCurrencyRateMultDivEnum::cases()),
             'unitRate' => null,
-            'supplementaryMeasureUnit' => $this->faker->word(),
+            'supplementaryMeasureUnit' => $this->faker->randomElement(UnitOfMeasureSupplementaryMeasureUnitEnum::cases()),
         ];
     }
 

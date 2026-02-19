@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerDebitNoteDto;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerDebitNoteDtoFactory extends Factory
@@ -47,14 +49,14 @@ class CustomerDebitNoteDtoFactory extends Factory
             'dontEmail' => $this->faker->boolean(),
             'revoked' => $this->faker->boolean(),
             'customer' => null,
-            'documentType' => $this->faker->word(),
+            'documentType' => $this->faker->randomElement(CashSaleDocumentTypeEnum::cases()),
             'referenceNumber' => $this->faker->word(),
             'postPeriod' => $this->faker->word(),
             'financialPeriod' => $this->faker->word(),
             'closedFinancialPeriod' => $this->faker->word(),
             'documentDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'origInvoiceDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(CashSaleStatusEnum::cases()),
             'currencyId' => $this->faker->uuid(),
             'amount' => null,
             'amountInCurrency' => null,

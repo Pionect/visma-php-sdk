@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\UpdateCurrencyRateDto;
+use Pionect\VismaSdk\Enums\CreateCurrencyRateMultDivEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class UpdateCurrencyRateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class UpdateCurrencyRateDtoFactory extends Factory
     {
         return [
             'rate' => null,
-            'multDiv' => $this->faker->word(),
+            'multDiv' => $this->faker->randomElement(CreateCurrencyRateMultDivEnum::cases()),
         ];
     }
 

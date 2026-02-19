@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerSalesPriceDto;
+use Pionect\VismaSdk\Enums\CustomerSalesPriceQueryParametersPriceTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerSalesPriceDtoFactory extends Factory
@@ -12,7 +13,7 @@ class CustomerSalesPriceDtoFactory extends Factory
     {
         return [
             'recordId' => $this->faker->numberBetween(1, 1000),
-            'priceType' => $this->faker->word(),
+            'priceType' => $this->faker->randomElement(CustomerSalesPriceQueryParametersPriceTypeEnum::cases()),
             'priceCode' => $this->faker->word(),
             'inventoryId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),

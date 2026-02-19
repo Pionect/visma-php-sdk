@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -14,7 +15,7 @@ class SupplierPaymentAdjustmentDto extends SpatieData
     public function __construct(
         public ?string $branch = null,
         public ?string $batchNumber = null,
-        public ?string $docType = null,
+        public ?SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum $docType = null,
         public ?string $invoiceRefNbr = null,
         public int|float|null $amountPaid = null,
         public int|float|null $cashDiscountTaken = null,

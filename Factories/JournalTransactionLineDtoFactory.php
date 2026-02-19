@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\JournalTransactionLineDto;
+use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class JournalTransactionLineDtoFactory extends Factory
@@ -25,7 +26,7 @@ class JournalTransactionLineDtoFactory extends Factory
             'branch' => $this->faker->word(),
             'customerSupplier' => $this->faker->word(),
             'transactionType' => $this->faker->word(),
-            'module' => $this->faker->word(),
+            'module' => $this->faker->randomElement(JournalTransactionLineModuleEnum::cases()),
             'uom' => $this->faker->word(),
             'project' => null,
             'projectTask' => null,

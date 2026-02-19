@@ -20,7 +20,10 @@ class InventoryTransferUpdateDto extends SpatieData
         public ?string $warehouseId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $toWarehouseId = null,
-        /** @var InventoryTransferLineUpdateDto[]|null */
+        /**
+         * @var InventoryTransferLineUpdateDto[]|null
+         *                                            The inventory issue lines
+         */
         public ?array $transferLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,

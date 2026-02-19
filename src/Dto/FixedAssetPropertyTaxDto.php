@@ -15,11 +15,17 @@ class FixedAssetPropertyTaxDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The property tax id of this property tax group */
         #[MapName('propertyTaxID')]
         public ?string $propertyTaxId = null,
+        /** The description of this property tax group */
         public ?string $description = null,
+        /** A flag that indicates whether this fixed asset property tax group is active. */
         public ?bool $active = null,
-        /** @var FixedAssetPropertyTaxDetailsDto[]|null */
+        /**
+         * @var FixedAssetPropertyTaxDetailsDto[]|null
+         *                                             Fixed Asset Property Tax Details
+         */
         public ?array $details = null,
         public ?string $errorInfo = null,
     ) {}

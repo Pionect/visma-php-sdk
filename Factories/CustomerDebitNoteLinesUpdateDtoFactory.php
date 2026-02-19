@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerDebitNoteLinesUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\CustomerInvoiceLineItemTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerDebitNoteLinesUpdateDtoFactory extends Factory
@@ -13,9 +15,9 @@ class CustomerDebitNoteLinesUpdateDtoFactory extends Factory
         return [
             'discountCode' => $this->faker->word(),
             'domesticServicesDeductible' => $this->faker->boolean(),
-            'itemType' => $this->faker->word(),
+            'itemType' => $this->faker->randomElement(CustomerInvoiceLineItemTypeEnum::cases()),
             'typeOfWork' => $this->faker->word(),
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'inventoryNumber' => $this->faker->word(),
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'description' => $this->faker->sentence(),

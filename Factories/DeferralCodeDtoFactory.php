@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\DeferralCodeDto;
+use Pionect\VismaSdk\Enums\DeferralCodeCodeTypeEnum;
+use Pionect\VismaSdk\Enums\DeferralCodeRecognitionMethodEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class DeferralCodeDtoFactory extends Factory
@@ -13,8 +15,8 @@ class DeferralCodeDtoFactory extends Factory
             'deferralCode' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'deferredRevenueFromItem' => $this->faker->boolean(),
-            'recognitionMethod' => $this->faker->word(),
-            'codeType' => $this->faker->word(),
+            'recognitionMethod' => $this->faker->randomElement(DeferralCodeRecognitionMethodEnum::cases()),
+            'codeType' => $this->faker->randomElement(DeferralCodeCodeTypeEnum::cases()),
             'deferralAccount' => null,
             'deferralSub' => null,
             'errorInfo' => $this->faker->word(),

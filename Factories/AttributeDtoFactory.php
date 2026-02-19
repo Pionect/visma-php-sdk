@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\AttributeDto;
+use Pionect\VismaSdk\Enums\AttributeControlTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class AttributeDtoFactory extends Factory
@@ -13,7 +14,7 @@ class AttributeDtoFactory extends Factory
         return [
             'attributeId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
-            'controlType' => $this->faker->word(),
+            'controlType' => $this->faker->randomElement(AttributeControlTypeEnum::cases()),
             'internal' => $this->faker->boolean(),
             'entryMask' => $this->faker->word(),
             'regExp' => $this->faker->word(),

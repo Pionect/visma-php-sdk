@@ -1,6 +1,12 @@
 <?php
 
 use Pionect\VismaSdk\Dto\UpdateNoteDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
+use Pionect\VismaSdk\Enums\VatCategoryLineCalculateOnEnum;
+use Pionect\VismaSdk\Enums\VatCategoryLineCashDiscountEnum;
+use Pionect\VismaSdk\Enums\VatCategoryLineTypeEnum;
+use Pionect\VismaSdk\Enums\VatInformationEuReportCodeEnum;
+use Pionect\VismaSdk\Enums\VatInformationVismaXmlVatTypeEnum;
 use Pionect\VismaSdk\Requests\Vat\VatGetAllVatsRequest;
 use Pionect\VismaSdk\Requests\Vat\VatGetVatByvatIdRequest;
 use Pionect\VismaSdk\Requests\Vat\VatPutVatHeaderNoteByvendorCdtaxPeriodIdrevisionIdRequest;
@@ -18,7 +24,7 @@ it('calls the vatGetVatByvatIdRequest method in the Vat resource', function () {
             'vatCategoryId' => 'mock-id-123',
             'vatId' => 'mock-id-123',
             'description' => 'String value',
-            'type' => 'String value',
+            'type' => 'Sales',
             'deductibleVat' => true,
             'reverseVat' => true,
             'statisticalVat' => true,
@@ -26,25 +32,25 @@ it('calls the vatGetVatByvatIdRequest method in the Vat resource', function () {
             'includeinVatExemptTotal' => true,
             'includeinVatTotal' => true,
             'enterFromVatInvoice' => true,
-            'calculateOn' => 'String value',
-            'cashDiscount' => 'String value',
+            'calculateOn' => 'ExtractFromItemAmount',
+            'cashDiscount' => 'ToTaxableAmount',
             'vatAgencyId' => [
                 'internalId' => 42,
                 'number' => 'String value',
                 'name' => 'String value',
             ],
             'notValidAfter' => '2025-11-22T10:40:04+00:00',
-            'euReportCode' => 'String value',
+            'euReportCode' => 'SalesOfGoods',
             'documentText' => 'String value',
             'defaultNonStockItem' => [
                 'number' => 'String value',
                 'description' => 'String value',
             ],
-            'vismaXmlVatType' => 'String value',
+            'vismaXmlVatType' => 'VatTypeHigh',
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
             'glAccounts' => [
                 'vatPayableAccount' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -56,7 +62,7 @@ it('calls the vatGetVatByvatIdRequest method in the Vat resource', function () {
                     'description' => 'String value',
                 ],
                 'vatClaimableAccount' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -90,7 +96,7 @@ it('calls the vatGetVatByvatIdRequest method in the Vat resource', function () {
         ->vatCategoryId->toBe('mock-id-123')
         ->vatId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->type->toBe('String value')
+        ->type->toEqual(VatCategoryLineTypeEnum::SALES)
         ->deductibleVat->toBe(true)
         ->reverseVat->toBe(true)
         ->statisticalVat->toBe(true)
@@ -98,19 +104,19 @@ it('calls the vatGetVatByvatIdRequest method in the Vat resource', function () {
         ->includeinVatExemptTotal->toBe(true)
         ->includeinVatTotal->toBe(true)
         ->enterFromVatInvoice->toBe(true)
-        ->calculateOn->toBe('String value')
-        ->cashDiscount->toBe('String value')
+        ->calculateOn->toEqual(VatCategoryLineCalculateOnEnum::EXTRACT_FROM_ITEM_AMOUNT)
+        ->cashDiscount->toEqual(VatCategoryLineCashDiscountEnum::TO_TAXABLE_AMOUNT)
         ->vatAgencyId->internalId->toBe(42)
         ->vatAgencyId->number->toBe('String value')
         ->vatAgencyId->name->toBe('String value')
         ->notValidAfter->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->euReportCode->toBe('String value')
+        ->euReportCode->toEqual(VatInformationEuReportCodeEnum::SALES_OF_GOODS)
         ->documentText->toBe('String value')
         ->defaultNonStockItem->number->toBe('String value')
         ->defaultNonStockItem->description->toBe('String value')
-        ->vismaXmlVatType->toBe('String value')
+        ->vismaXmlVatType->toEqual(VatInformationVismaXmlVatTypeEnum::VAT_TYPE_HIGH)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->glAccounts->vatPayableAccount->type->toBe('String value')
+        ->glAccounts->vatPayableAccount->type->toEqual(AccountTypeEnum::ASSET)
         ->glAccounts->vatPayableAccount->externalCode1->toBe('String value')
         ->glAccounts->vatPayableAccount->externalCode2->toBe('String value')
         ->glAccounts->vatPayableAccount->active->toBe(true)
@@ -118,7 +124,7 @@ it('calls the vatGetVatByvatIdRequest method in the Vat resource', function () {
         ->glAccounts->vatPayableAccount->description->toBe('String value')
         ->glAccounts->vatPayableSubaccount->active->toBe(true)
         ->glAccounts->vatPayableSubaccount->description->toBe('String value')
-        ->glAccounts->vatClaimableAccount->type->toBe('String value')
+        ->glAccounts->vatClaimableAccount->type->toEqual(AccountTypeEnum::ASSET)
         ->glAccounts->vatClaimableAccount->externalCode1->toBe('String value')
         ->glAccounts->vatClaimableAccount->externalCode2->toBe('String value')
         ->glAccounts->vatClaimableAccount->active->toBe(true)
@@ -135,7 +141,7 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
                 'vatCategoryId' => 'mock-id-123',
                 'vatId' => 'mock-id-123',
                 'description' => 'String value',
-                'type' => 'String value',
+                'type' => 'Sales',
                 'deductibleVat' => true,
                 'reverseVat' => true,
                 'statisticalVat' => true,
@@ -143,25 +149,25 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
                 'includeinVatExemptTotal' => true,
                 'includeinVatTotal' => true,
                 'enterFromVatInvoice' => true,
-                'calculateOn' => 'String value',
-                'cashDiscount' => 'String value',
+                'calculateOn' => 'ExtractFromItemAmount',
+                'cashDiscount' => 'ToTaxableAmount',
                 'vatAgencyId' => [
                     'internalId' => 42,
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
                 'notValidAfter' => '2025-11-22T10:40:04+00:00',
-                'euReportCode' => 'String value',
+                'euReportCode' => 'SalesOfGoods',
                 'documentText' => 'String value',
                 'defaultNonStockItem' => [
                     'number' => 'String value',
                     'description' => 'String value',
                 ],
-                'vismaXmlVatType' => 'String value',
+                'vismaXmlVatType' => 'VatTypeHigh',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'glAccounts' => [
                     'vatPayableAccount' => [
-                        'type' => 'String value',
+                        'type' => 'Asset',
                         'externalCode1' => 'String value',
                         'externalCode2' => 'String value',
                         'active' => true,
@@ -173,7 +179,7 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
                         'description' => 'String value',
                     ],
                     'vatClaimableAccount' => [
-                        'type' => 'String value',
+                        'type' => 'Asset',
                         'externalCode1' => 'String value',
                         'externalCode2' => 'String value',
                         'active' => true,
@@ -193,7 +199,7 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
                 'vatCategoryId' => 'mock-id-123',
                 'vatId' => 'mock-id-123',
                 'description' => 'String value',
-                'type' => 'String value',
+                'type' => 'Sales',
                 'deductibleVat' => true,
                 'reverseVat' => true,
                 'statisticalVat' => true,
@@ -201,25 +207,25 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
                 'includeinVatExemptTotal' => true,
                 'includeinVatTotal' => true,
                 'enterFromVatInvoice' => true,
-                'calculateOn' => 'String value',
-                'cashDiscount' => 'String value',
+                'calculateOn' => 'ExtractFromItemAmount',
+                'cashDiscount' => 'ToTaxableAmount',
                 'vatAgencyId' => [
                     'internalId' => 42,
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
                 'notValidAfter' => '2025-11-22T10:40:04+00:00',
-                'euReportCode' => 'String value',
+                'euReportCode' => 'SalesOfGoods',
                 'documentText' => 'String value',
                 'defaultNonStockItem' => [
                     'number' => 'String value',
                     'description' => 'String value',
                 ],
-                'vismaXmlVatType' => 'String value',
+                'vismaXmlVatType' => 'VatTypeHigh',
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
                 'glAccounts' => [
                     'vatPayableAccount' => [
-                        'type' => 'String value',
+                        'type' => 'Asset',
                         'externalCode1' => 'String value',
                         'externalCode2' => 'String value',
                         'active' => true,
@@ -231,7 +237,7 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
                         'description' => 'String value',
                     ],
                     'vatClaimableAccount' => [
-                        'type' => 'String value',
+                        'type' => 'Asset',
                         'externalCode1' => 'String value',
                         'externalCode2' => 'String value',
                         'active' => true,
@@ -270,7 +276,7 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
         ->vatCategoryId->toBe('mock-id-123')
         ->vatId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->type->toBe('String value')
+        ->type->toEqual(VatCategoryLineTypeEnum::SALES)
         ->deductibleVat->toBe(true)
         ->reverseVat->toBe(true)
         ->statisticalVat->toBe(true)
@@ -278,19 +284,19 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
         ->includeinVatExemptTotal->toBe(true)
         ->includeinVatTotal->toBe(true)
         ->enterFromVatInvoice->toBe(true)
-        ->calculateOn->toBe('String value')
-        ->cashDiscount->toBe('String value')
+        ->calculateOn->toEqual(VatCategoryLineCalculateOnEnum::EXTRACT_FROM_ITEM_AMOUNT)
+        ->cashDiscount->toEqual(VatCategoryLineCashDiscountEnum::TO_TAXABLE_AMOUNT)
         ->vatAgencyId->internalId->toBe(42)
         ->vatAgencyId->number->toBe('String value')
         ->vatAgencyId->name->toBe('String value')
         ->notValidAfter->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->euReportCode->toBe('String value')
+        ->euReportCode->toEqual(VatInformationEuReportCodeEnum::SALES_OF_GOODS)
         ->documentText->toBe('String value')
         ->defaultNonStockItem->number->toBe('String value')
         ->defaultNonStockItem->description->toBe('String value')
-        ->vismaXmlVatType->toBe('String value')
+        ->vismaXmlVatType->toEqual(VatInformationVismaXmlVatTypeEnum::VAT_TYPE_HIGH)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->glAccounts->vatPayableAccount->type->toBe('String value')
+        ->glAccounts->vatPayableAccount->type->toEqual(AccountTypeEnum::ASSET)
         ->glAccounts->vatPayableAccount->externalCode1->toBe('String value')
         ->glAccounts->vatPayableAccount->externalCode2->toBe('String value')
         ->glAccounts->vatPayableAccount->active->toBe(true)
@@ -298,7 +304,7 @@ it('calls the vatGetAllVatsRequest method in the Vat resource', function () {
         ->glAccounts->vatPayableAccount->description->toBe('String value')
         ->glAccounts->vatPayableSubaccount->active->toBe(true)
         ->glAccounts->vatPayableSubaccount->description->toBe('String value')
-        ->glAccounts->vatClaimableAccount->type->toBe('String value')
+        ->glAccounts->vatClaimableAccount->type->toEqual(AccountTypeEnum::ASSET)
         ->glAccounts->vatClaimableAccount->externalCode1->toBe('String value')
         ->glAccounts->vatClaimableAccount->externalCode2->toBe('String value')
         ->glAccounts->vatClaimableAccount->active->toBe(true)

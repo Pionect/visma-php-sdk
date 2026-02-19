@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\EmployeeContactDto;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class EmployeeContactDtoFactory extends Factory
@@ -11,7 +12,7 @@ class EmployeeContactDtoFactory extends Factory
     {
         return [
             'employeeContact' => $this->faker->word(),
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->randomElement(ContactTitleEnum::cases()),
             'firstName' => $this->faker->company(),
             'midName' => $this->faker->company(),
             'lastName' => $this->faker->company(),

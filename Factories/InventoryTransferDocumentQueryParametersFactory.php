@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\InventoryTransferDocumentQueryParameters;
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class InventoryTransferDocumentQueryParametersFactory extends Factory
@@ -12,7 +13,7 @@ class InventoryTransferDocumentQueryParametersFactory extends Factory
         return [
             'warehouse' => $this->faker->word(),
             'toWarehouse' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(InventoryAdjustmentStatusEnum::cases()),
             'date' => $this->faker->word(),
             'dateCondition' => $this->faker->word(),
             'greaterThanValue' => $this->faker->word(),

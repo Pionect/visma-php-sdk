@@ -1,5 +1,8 @@
 <?php
 
+use Pionect\VismaSdk\Enums\LotSerialClassAssignmentMethodEnum;
+use Pionect\VismaSdk\Enums\LotSerialClassIssueMethodEnum;
+use Pionect\VismaSdk\Enums\LotSerialClassTrackingMethodEnum;
 use Pionect\VismaSdk\Requests\LotSerialClass\LotSerialClassGetAllLotSerialClassRequest;
 use Pionect\VismaSdk\Requests\LotSerialClass\LotSerialClassGetByidRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -13,11 +16,11 @@ it('calls the lotSerialClassGetByidRequest method in the LotSerialClass resource
     Saloon::fake([
         LotSerialClassGetByidRequest::class => MockResponse::make([
             'description' => 'String value',
-            'trackingMethod' => 'String value',
+            'trackingMethod' => 'NotNumbered',
             'trackExpirationDate' => true,
             'requiredForDropShip' => true,
-            'assignmentMethod' => 'String value',
-            'issueMethod' => 'String value',
+            'assignmentMethod' => 'WhenReceived',
+            'issueMethod' => 'FIFO',
             'autoIncrementalValueBetweenClasses' => true,
             'autoIncrementalValue' => 'String value',
             'autoGenerateNextNumber' => true,
@@ -41,11 +44,11 @@ it('calls the lotSerialClassGetByidRequest method in the LotSerialClass resource
 
     expect($dto)
         ->description->toBe('String value')
-        ->trackingMethod->toBe('String value')
+        ->trackingMethod->toEqual(LotSerialClassTrackingMethodEnum::NOT_NUMBERED)
         ->trackExpirationDate->toBe(true)
         ->requiredForDropShip->toBe(true)
-        ->assignmentMethod->toBe('String value')
-        ->issueMethod->toBe('String value')
+        ->assignmentMethod->toEqual(LotSerialClassAssignmentMethodEnum::WHEN_RECEIVED)
+        ->issueMethod->toEqual(LotSerialClassIssueMethodEnum::FIFO)
         ->autoIncrementalValueBetweenClasses->toBe(true)
         ->autoIncrementalValue->toBe('String value')
         ->autoGenerateNextNumber->toBe(true)
@@ -58,11 +61,11 @@ it('calls the lotSerialClassGetAllLotSerialClassRequest method in the LotSerialC
         LotSerialClassGetAllLotSerialClassRequest::class => MockResponse::make([
             0 => [
                 'description' => 'String value',
-                'trackingMethod' => 'String value',
+                'trackingMethod' => 'NotNumbered',
                 'trackExpirationDate' => true,
                 'requiredForDropShip' => true,
-                'assignmentMethod' => 'String value',
-                'issueMethod' => 'String value',
+                'assignmentMethod' => 'WhenReceived',
+                'issueMethod' => 'FIFO',
                 'autoIncrementalValueBetweenClasses' => true,
                 'autoIncrementalValue' => 'String value',
                 'autoGenerateNextNumber' => true,
@@ -72,11 +75,11 @@ it('calls the lotSerialClassGetAllLotSerialClassRequest method in the LotSerialC
             ],
             1 => [
                 'description' => 'String value',
-                'trackingMethod' => 'String value',
+                'trackingMethod' => 'NotNumbered',
                 'trackExpirationDate' => true,
                 'requiredForDropShip' => true,
-                'assignmentMethod' => 'String value',
-                'issueMethod' => 'String value',
+                'assignmentMethod' => 'WhenReceived',
+                'issueMethod' => 'FIFO',
                 'autoIncrementalValueBetweenClasses' => true,
                 'autoIncrementalValue' => 'String value',
                 'autoGenerateNextNumber' => true,
@@ -114,11 +117,11 @@ it('calls the lotSerialClassGetAllLotSerialClassRequest method in the LotSerialC
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->description->toBe('String value')
-        ->trackingMethod->toBe('String value')
+        ->trackingMethod->toEqual(LotSerialClassTrackingMethodEnum::NOT_NUMBERED)
         ->trackExpirationDate->toBe(true)
         ->requiredForDropShip->toBe(true)
-        ->assignmentMethod->toBe('String value')
-        ->issueMethod->toBe('String value')
+        ->assignmentMethod->toEqual(LotSerialClassAssignmentMethodEnum::WHEN_RECEIVED)
+        ->issueMethod->toEqual(LotSerialClassIssueMethodEnum::FIFO)
         ->autoIncrementalValueBetweenClasses->toBe(true)
         ->autoIncrementalValue->toBe('String value')
         ->autoGenerateNextNumber->toBe(true)

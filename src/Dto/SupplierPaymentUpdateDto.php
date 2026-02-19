@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\SupplierPaymentTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -15,7 +16,7 @@ class SupplierPaymentUpdateDto extends SpatieData
 
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $type = null,
+        public ?SupplierPaymentTypeEnum $type = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

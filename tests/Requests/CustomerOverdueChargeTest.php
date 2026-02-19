@@ -1,6 +1,9 @@
 <?php
 
 use Pionect\VismaSdk\Dto\CustomerOverdueChargeUpdateDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
 use Pionect\VismaSdk\Requests\CustomerOverdueCharge\CustomerOverdueChargeCreateHeaderAttachmentByoverdueChargeNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerOverdueCharge\CustomerOverdueChargeCreateLineAttachmentByoverdueChargeNumberlineNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerOverdueCharge\CustomerOverdueChargeGetAllRequest;
@@ -84,14 +87,14 @@ it('calls the customerOverdueChargeGetByoverdueChargeNumberRequest method in the
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Invoice',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
             'documentDate' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-            'status' => 'String value',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'amount' => 42,
             'amountInCurrency' => 42,
@@ -123,7 +126,7 @@ it('calls the customerOverdueChargeGetByoverdueChargeNumberRequest method in the
                 'description' => 'String value',
             ],
             'account' => [
-                'type' => 'String value',
+                'type' => 'Asset',
                 'externalCode1' => 'String value',
                 'externalCode2' => 'String value',
                 'active' => true,
@@ -203,14 +206,14 @@ it('calls the customerOverdueChargeGetByoverdueChargeNumberRequest method in the
         ->revoked->toBe(true)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -233,7 +236,7 @@ it('calls the customerOverdueChargeGetByoverdueChargeNumberRequest method in the
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)
@@ -372,14 +375,14 @@ it('calls the customerOverdueChargeGetAllRequest method in the CustomerOverdueCh
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Invoice',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
                 'documentDate' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'amount' => 42,
                 'amountInCurrency' => 42,
@@ -411,7 +414,7 @@ it('calls the customerOverdueChargeGetAllRequest method in the CustomerOverdueCh
                     'description' => 'String value',
                 ],
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -499,14 +502,14 @@ it('calls the customerOverdueChargeGetAllRequest method in the CustomerOverdueCh
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Invoice',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
                 'documentDate' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'amount' => 42,
                 'amountInCurrency' => 42,
@@ -538,7 +541,7 @@ it('calls the customerOverdueChargeGetAllRequest method in the CustomerOverdueCh
                     'description' => 'String value',
                 ],
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -651,14 +654,14 @@ it('calls the customerOverdueChargeGetAllRequest method in the CustomerOverdueCh
         ->revoked->toBe(true)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -681,7 +684,7 @@ it('calls the customerOverdueChargeGetAllRequest method in the CustomerOverdueCh
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)

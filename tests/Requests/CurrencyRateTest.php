@@ -2,6 +2,7 @@
 
 use Pionect\VismaSdk\Dto\CreateCurrencyRateDto;
 use Pionect\VismaSdk\Dto\UpdateCurrencyRateDto;
+use Pionect\VismaSdk\Enums\CreateCurrencyRateMultDivEnum;
 use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRateGetAllRequest;
 use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRatePostCurrencyRateRequest;
 use Pionect\VismaSdk\Requests\CurrencyRate\CurrencyRatePutCurrencyRateBycurrencyRateIdRequest;
@@ -73,7 +74,7 @@ it('calls the currencyRatePostCurrencyRateRequest method in the CurrencyRate res
         rateType: 'String value',
         effectiveDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rate: 42,
-        multDiv: 'String value'
+        multDiv: CreateCurrencyRateMultDivEnum::MULTIPLY
     );
 
     Saloon::fake([
@@ -94,7 +95,7 @@ it('calls the currencyRatePostCurrencyRateRequest method in the CurrencyRate res
 it('calls the currencyRatePutCurrencyRateBycurrencyRateIdRequest method in the CurrencyRate resource', function () {
     $bodyData = new UpdateCurrencyRateDto(
         rate: 42,
-        multDiv: 'String value'
+        multDiv: CreateCurrencyRateMultDivEnum::MULTIPLY
     );
 
     Saloon::fake([

@@ -1,6 +1,9 @@
 <?php
 
 use Pionect\VismaSdk\Dto\ProjectTransactionDocumentUpdateDto;
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
+use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
+use Pionect\VismaSdk\Enums\ProjectTransactionDocumentOrigDocTypeEnum;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetAllRequest;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionGetByrefNbrRequest;
 use Pionect\VismaSdk\Requests\ProjectTransaction\ProjectTransactionPostRequest;
@@ -18,9 +21,9 @@ it('calls the projectTransactionGetByrefNbrRequest method in the ProjectTransact
             'refNbr' => 'String value',
             'description' => 'String value',
             'origDocNbr' => 'String value',
-            'status' => 'String value',
-            'module' => 'String value',
-            'origDocType' => 'String value',
+            'status' => 'Hold',
+            'module' => 'ModuleGL',
+            'origDocType' => 'Allocation',
             'note' => 'String value',
             'timeStamp' => 'String value',
             'lines' => [],
@@ -44,9 +47,9 @@ it('calls the projectTransactionGetByrefNbrRequest method in the ProjectTransact
         ->refNbr->toBe('String value')
         ->description->toBe('String value')
         ->origDocNbr->toBe('String value')
-        ->status->toBe('String value')
-        ->module->toBe('String value')
-        ->origDocType->toBe('String value')
+        ->status->toEqual(InventoryAdjustmentStatusEnum::HOLD)
+        ->module->toEqual(JournalTransactionLineModuleEnum::MODULE_GL)
+        ->origDocType->toEqual(ProjectTransactionDocumentOrigDocTypeEnum::ALLOCATION)
         ->note->toBe('String value')
         ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
@@ -56,8 +59,8 @@ it('calls the projectTransactionPutByrefNbrRequest method in the ProjectTransact
     $bodyData = new ProjectTransactionDocumentUpdateDto(
         refNbr: 'String value',
         description: 'String value',
-        status: 'String value',
-        module: 'String value',
+        status: InventoryAdjustmentStatusEnum::HOLD,
+        module: JournalTransactionLineModuleEnum::MODULE_GL,
         lines: [],
         note: 'String value'
     );
@@ -86,9 +89,9 @@ it('calls the projectTransactionGetAllRequest method in the ProjectTransaction r
                 'refNbr' => 'String value',
                 'description' => 'String value',
                 'origDocNbr' => 'String value',
-                'status' => 'String value',
-                'module' => 'String value',
-                'origDocType' => 'String value',
+                'status' => 'Hold',
+                'module' => 'ModuleGL',
+                'origDocType' => 'Allocation',
                 'note' => 'String value',
                 'timeStamp' => 'String value',
                 'lines' => [],
@@ -98,9 +101,9 @@ it('calls the projectTransactionGetAllRequest method in the ProjectTransaction r
                 'refNbr' => 'String value',
                 'description' => 'String value',
                 'origDocNbr' => 'String value',
-                'status' => 'String value',
-                'module' => 'String value',
-                'origDocType' => 'String value',
+                'status' => 'Hold',
+                'module' => 'ModuleGL',
+                'origDocType' => 'Allocation',
                 'note' => 'String value',
                 'timeStamp' => 'String value',
                 'lines' => [],
@@ -144,9 +147,9 @@ it('calls the projectTransactionGetAllRequest method in the ProjectTransaction r
         ->refNbr->toBe('String value')
         ->description->toBe('String value')
         ->origDocNbr->toBe('String value')
-        ->status->toBe('String value')
-        ->module->toBe('String value')
-        ->origDocType->toBe('String value')
+        ->status->toEqual(InventoryAdjustmentStatusEnum::HOLD)
+        ->module->toEqual(JournalTransactionLineModuleEnum::MODULE_GL)
+        ->origDocType->toEqual(ProjectTransactionDocumentOrigDocTypeEnum::ALLOCATION)
         ->note->toBe('String value')
         ->timeStamp->toBe('String value')
         ->errorInfo->toBe('String value');
@@ -156,8 +159,8 @@ it('calls the projectTransactionPostRequest method in the ProjectTransaction res
     $bodyData = new ProjectTransactionDocumentUpdateDto(
         refNbr: 'String value',
         description: 'String value',
-        status: 'String value',
-        module: 'String value',
+        status: InventoryAdjustmentStatusEnum::HOLD,
+        module: JournalTransactionLineModuleEnum::MODULE_GL,
         lines: [],
         note: 'String value'
     );

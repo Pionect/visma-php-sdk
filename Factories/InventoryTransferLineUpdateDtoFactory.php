@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\InventoryTransferLineUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class InventoryTransferLineUpdateDtoFactory extends Factory
@@ -15,7 +16,7 @@ class InventoryTransferLineUpdateDtoFactory extends Factory
             'lotSerialNumber' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'allocations' => [],
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'inventoryNumber' => $this->faker->word(),
             'locationId' => $this->faker->uuid(),

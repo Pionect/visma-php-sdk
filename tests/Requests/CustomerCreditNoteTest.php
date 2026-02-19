@@ -1,6 +1,9 @@
 <?php
 
 use Pionect\VismaSdk\Dto\CustomerCreditNoteUpdateDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
 use Pionect\VismaSdk\Requests\CustomerCreditNote\CustomerCreditNoteCreateHeaderAttachmentBycreditNoteNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerCreditNote\CustomerCreditNoteCreateLineAttachmentBycreditNoteNumberlineNumberRequest;
 use Pionect\VismaSdk\Requests\CustomerCreditNote\CustomerCreditNoteCreateRequest;
@@ -94,14 +97,14 @@ it('calls the customerCreditNoteGetBycreditNoteNumberRequest method in the Custo
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Invoice',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'closedFinancialPeriod' => 'String value',
             'documentDate' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-            'status' => 'String value',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'amount' => 42,
             'amountInCurrency' => 42,
@@ -133,7 +136,7 @@ it('calls the customerCreditNoteGetBycreditNoteNumberRequest method in the Custo
                 'description' => 'String value',
             ],
             'account' => [
-                'type' => 'String value',
+                'type' => 'Asset',
                 'externalCode1' => 'String value',
                 'externalCode2' => 'String value',
                 'active' => true,
@@ -217,14 +220,14 @@ it('calls the customerCreditNoteGetBycreditNoteNumberRequest method in the Custo
         ->revoked->toBe(true)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -247,7 +250,7 @@ it('calls the customerCreditNoteGetBycreditNoteNumberRequest method in the Custo
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)
@@ -425,14 +428,14 @@ it('calls the customerCreditNoteGetAllRequest method in the CustomerCreditNote r
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Invoice',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
                 'documentDate' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'amount' => 42,
                 'amountInCurrency' => 42,
@@ -464,7 +467,7 @@ it('calls the customerCreditNoteGetAllRequest method in the CustomerCreditNote r
                     'description' => 'String value',
                 ],
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -558,14 +561,14 @@ it('calls the customerCreditNoteGetAllRequest method in the CustomerCreditNote r
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Invoice',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'closedFinancialPeriod' => 'String value',
                 'documentDate' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'amount' => 42,
                 'amountInCurrency' => 42,
@@ -597,7 +600,7 @@ it('calls the customerCreditNoteGetAllRequest method in the CustomerCreditNote r
                     'description' => 'String value',
                 ],
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -714,14 +717,14 @@ it('calls the customerCreditNoteGetAllRequest method in the CustomerCreditNote r
         ->revoked->toBe(true)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(CashSaleDocumentTypeEnum::INVOICE)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->closedFinancialPeriod->toBe('String value')
         ->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->amount->toBe(42)
         ->amountInCurrency->toBe(42)
@@ -744,7 +747,7 @@ it('calls the customerCreditNoteGetAllRequest method in the CustomerCreditNote r
         ->cashAccount->toBe('String value')
         ->project->internalId->toBe(42)
         ->project->description->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)

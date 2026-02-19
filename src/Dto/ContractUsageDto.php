@@ -13,7 +13,10 @@ class ContractUsageDto extends SpatieData
 
     public function __construct(
         public ?string $contract = null,
-        /** @var ContractUsageLineDto[]|null */
+        /**
+         * @var ContractUsageLineDto[]|null
+         *                                  Transactions not yet invoiced tab or Transaction history tab
+         */
         public ?array $transaction = null,
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
     ) {}

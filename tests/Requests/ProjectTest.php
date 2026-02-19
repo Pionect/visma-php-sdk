@@ -2,6 +2,11 @@
 
 use Pionect\VismaSdk\Dto\ChangeProjectIdActionDto;
 use Pionect\VismaSdk\Dto\ProjectUpdateDto;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
+use Pionect\VismaSdk\Enums\ProjectBillingPeriodEnum;
+use Pionect\VismaSdk\Enums\TaskStatusEnum;
+use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Requests\Project\ProjectChangeProjectIdactionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Project\ProjectGetAllRequest;
 use Pionect\VismaSdk\Requests\Project\ProjectGetByinternalIdRequest;
@@ -27,9 +32,9 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
                 'name' => 'String value',
             ],
             'hold' => true,
-            'status' => 'String value',
+            'status' => 'Planned',
             'template' => [
-                'status' => 'String value',
+                'status' => 'Planned',
                 'number' => 'String value',
                 'description' => 'String value',
             ],
@@ -45,11 +50,11 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
                 'employeeId' => 42,
                 'employeeNumber' => 'String value',
                 'employeeName' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'department' => 'String value',
                 'contact' => [
                     'employeeContact' => 'String value',
-                    'title' => 'String value',
+                    'title' => 'Doctor',
                     'firstName' => 'String value',
                     'midName' => 'String value',
                     'lastName' => 'String value',
@@ -124,7 +129,7 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
                 'active' => true,
                 'description' => 'String value',
             ],
-            'billingPeriod' => 'String value',
+            'billingPeriod' => 'Weekly',
             'nextBillingDate' => '2025-11-22T10:40:04+00:00',
             'lastBillingDate' => '2025-11-22T10:40:04+00:00',
             'customerLocation' => [
@@ -177,8 +182,8 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
-        ->template->status->toBe('String value')
+        ->status->toEqual(TemplateNumberDescriptionStatusEnum::PLANNED)
+        ->template->status->toEqual(TemplateNumberDescriptionStatusEnum::PLANNED)
         ->template->number->toBe('String value')
         ->template->description->toBe('String value')
         ->description->toBe('String value')
@@ -192,10 +197,10 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
         ->projectManager->employeeId->toBe(42)
         ->projectManager->employeeNumber->toBe('String value')
         ->projectManager->employeeName->toBe('String value')
-        ->projectManager->status->toBe('String value')
+        ->projectManager->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->projectManager->department->toBe('String value')
         ->projectManager->contact->employeeContact->toBe('String value')
-        ->projectManager->contact->title->toBe('String value')
+        ->projectManager->contact->title->toEqual(ContactTitleEnum::DOCTOR)
         ->projectManager->contact->firstName->toBe('String value')
         ->projectManager->contact->midName->toBe('String value')
         ->projectManager->contact->lastName->toBe('String value')
@@ -247,7 +252,7 @@ it('calls the projectGetByprojectIdRequest method in the Project resource', func
         ->defAccrualAccount->description->toBe('String value')
         ->defAccrualSub->active->toBe(true)
         ->defAccrualSub->description->toBe('String value')
-        ->billingPeriod->toBe('String value')
+        ->billingPeriod->toEqual(ProjectBillingPeriodEnum::WEEKLY)
         ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerLocation->name->toBe('String value')
@@ -278,9 +283,9 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
                 'name' => 'String value',
             ],
             'hold' => true,
-            'status' => 'String value',
+            'status' => 'Planned',
             'template' => [
-                'status' => 'String value',
+                'status' => 'Planned',
                 'number' => 'String value',
                 'description' => 'String value',
             ],
@@ -296,11 +301,11 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
                 'employeeId' => 42,
                 'employeeNumber' => 'String value',
                 'employeeName' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'department' => 'String value',
                 'contact' => [
                     'employeeContact' => 'String value',
-                    'title' => 'String value',
+                    'title' => 'Doctor',
                     'firstName' => 'String value',
                     'midName' => 'String value',
                     'lastName' => 'String value',
@@ -375,7 +380,7 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
                 'active' => true,
                 'description' => 'String value',
             ],
-            'billingPeriod' => 'String value',
+            'billingPeriod' => 'Weekly',
             'nextBillingDate' => '2025-11-22T10:40:04+00:00',
             'lastBillingDate' => '2025-11-22T10:40:04+00:00',
             'customerLocation' => [
@@ -428,8 +433,8 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
-        ->template->status->toBe('String value')
+        ->status->toEqual(TemplateNumberDescriptionStatusEnum::PLANNED)
+        ->template->status->toEqual(TemplateNumberDescriptionStatusEnum::PLANNED)
         ->template->number->toBe('String value')
         ->template->description->toBe('String value')
         ->description->toBe('String value')
@@ -443,10 +448,10 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
         ->projectManager->employeeId->toBe(42)
         ->projectManager->employeeNumber->toBe('String value')
         ->projectManager->employeeName->toBe('String value')
-        ->projectManager->status->toBe('String value')
+        ->projectManager->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->projectManager->department->toBe('String value')
         ->projectManager->contact->employeeContact->toBe('String value')
-        ->projectManager->contact->title->toBe('String value')
+        ->projectManager->contact->title->toEqual(ContactTitleEnum::DOCTOR)
         ->projectManager->contact->firstName->toBe('String value')
         ->projectManager->contact->midName->toBe('String value')
         ->projectManager->contact->lastName->toBe('String value')
@@ -498,7 +503,7 @@ it('calls the projectGetByinternalIdRequest method in the Project resource', fun
         ->defAccrualAccount->description->toBe('String value')
         ->defAccrualSub->active->toBe(true)
         ->defAccrualSub->description->toBe('String value')
-        ->billingPeriod->toBe('String value')
+        ->billingPeriod->toEqual(ProjectBillingPeriodEnum::WEEKLY)
         ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerLocation->name->toBe('String value')
@@ -530,9 +535,9 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
                     'name' => 'String value',
                 ],
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Planned',
                 'template' => [
-                    'status' => 'String value',
+                    'status' => 'Planned',
                     'number' => 'String value',
                     'description' => 'String value',
                 ],
@@ -548,11 +553,11 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
                     'employeeId' => 42,
                     'employeeNumber' => 'String value',
                     'employeeName' => 'String value',
-                    'status' => 'String value',
+                    'status' => 'Active',
                     'department' => 'String value',
                     'contact' => [
                         'employeeContact' => 'String value',
-                        'title' => 'String value',
+                        'title' => 'Doctor',
                         'firstName' => 'String value',
                         'midName' => 'String value',
                         'lastName' => 'String value',
@@ -627,7 +632,7 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
                     'active' => true,
                     'description' => 'String value',
                 ],
-                'billingPeriod' => 'String value',
+                'billingPeriod' => 'Weekly',
                 'nextBillingDate' => '2025-11-22T10:40:04+00:00',
                 'lastBillingDate' => '2025-11-22T10:40:04+00:00',
                 'customerLocation' => [
@@ -668,9 +673,9 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
                     'name' => 'String value',
                 ],
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Planned',
                 'template' => [
-                    'status' => 'String value',
+                    'status' => 'Planned',
                     'number' => 'String value',
                     'description' => 'String value',
                 ],
@@ -686,11 +691,11 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
                     'employeeId' => 42,
                     'employeeNumber' => 'String value',
                     'employeeName' => 'String value',
-                    'status' => 'String value',
+                    'status' => 'Active',
                     'department' => 'String value',
                     'contact' => [
                         'employeeContact' => 'String value',
-                        'title' => 'String value',
+                        'title' => 'Doctor',
                         'firstName' => 'String value',
                         'midName' => 'String value',
                         'lastName' => 'String value',
@@ -765,7 +770,7 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
                     'active' => true,
                     'description' => 'String value',
                 ],
-                'billingPeriod' => 'String value',
+                'billingPeriod' => 'Weekly',
                 'nextBillingDate' => '2025-11-22T10:40:04+00:00',
                 'lastBillingDate' => '2025-11-22T10:40:04+00:00',
                 'customerLocation' => [
@@ -848,8 +853,8 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
-        ->template->status->toBe('String value')
+        ->status->toEqual(TemplateNumberDescriptionStatusEnum::PLANNED)
+        ->template->status->toEqual(TemplateNumberDescriptionStatusEnum::PLANNED)
         ->template->number->toBe('String value')
         ->template->description->toBe('String value')
         ->description->toBe('String value')
@@ -863,10 +868,10 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
         ->projectManager->employeeId->toBe(42)
         ->projectManager->employeeNumber->toBe('String value')
         ->projectManager->employeeName->toBe('String value')
-        ->projectManager->status->toBe('String value')
+        ->projectManager->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->projectManager->department->toBe('String value')
         ->projectManager->contact->employeeContact->toBe('String value')
-        ->projectManager->contact->title->toBe('String value')
+        ->projectManager->contact->title->toEqual(ContactTitleEnum::DOCTOR)
         ->projectManager->contact->firstName->toBe('String value')
         ->projectManager->contact->midName->toBe('String value')
         ->projectManager->contact->lastName->toBe('String value')
@@ -918,7 +923,7 @@ it('calls the projectGetAllRequest method in the Project resource', function () 
         ->defAccrualAccount->description->toBe('String value')
         ->defAccrualSub->active->toBe(true)
         ->defAccrualSub->description->toBe('String value')
-        ->billingPeriod->toBe('String value')
+        ->billingPeriod->toEqual(ProjectBillingPeriodEnum::WEEKLY)
         ->nextBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->lastBillingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customerLocation->name->toBe('String value')
@@ -947,14 +952,14 @@ it('calls the projectPostRequest method in the Project resource', function () {
         description: 'String value',
         hold: true,
         template: 'String value',
-        status: 'String value',
+        status: TemplateNumberDescriptionStatusEnum::PLANNED,
         defAccount: 'String value',
         defSub: [],
         defAccrualAccount: 'String value',
         defAccrualSub: [],
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
-        billingPeriod: 'String value',
+        billingPeriod: ProjectBillingPeriodEnum::WEEKLY,
         allocationRule: 'String value',
         billingRule: 'String value',
         branch: 'String value',
@@ -1041,7 +1046,7 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
                 'rateTable' => [
                     'description' => 'String value',
                 ],
-                'status' => 'String value',
+                'status' => 'Planned',
                 'restrictEmployees' => true,
                 'visibility' => [
                     'visibleInGl' => true,
@@ -1099,7 +1104,7 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
                 'rateTable' => [
                     'description' => 'String value',
                 ],
-                'status' => 'String value',
+                'status' => 'Planned',
                 'restrictEmployees' => true,
                 'visibility' => [
                     'visibleInGl' => true,
@@ -1187,7 +1192,7 @@ it('calls the projectGetTasksRequest method in the Project resource', function (
         ->branch->number->toBe('String value')
         ->branch->name->toBe('String value')
         ->rateTable->description->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(TaskStatusEnum::PLANNED)
         ->restrictEmployees->toBe(true)
         ->visibility->visibleInGl->toBe(true)
         ->visibility->visibleInAp->toBe(true)
@@ -1232,14 +1237,14 @@ it('calls the projectPutByprojectIdRequest method in the Project resource', func
         description: 'String value',
         hold: true,
         template: 'String value',
-        status: 'String value',
+        status: TemplateNumberDescriptionStatusEnum::PLANNED,
         defAccount: 'String value',
         defSub: [],
         defAccrualAccount: 'String value',
         defAccrualSub: [],
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
-        billingPeriod: 'String value',
+        billingPeriod: ProjectBillingPeriodEnum::WEEKLY,
         allocationRule: 'String value',
         billingRule: 'String value',
         branch: 'String value',
@@ -1293,14 +1298,14 @@ it('calls the projectPutByinternalIdRequest method in the Project resource', fun
         description: 'String value',
         hold: true,
         template: 'String value',
-        status: 'String value',
+        status: TemplateNumberDescriptionStatusEnum::PLANNED,
         defAccount: 'String value',
         defSub: [],
         defAccrualAccount: 'String value',
         defAccrualSub: [],
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         endDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
-        billingPeriod: 'String value',
+        billingPeriod: ProjectBillingPeriodEnum::WEEKLY,
         allocationRule: 'String value',
         billingRule: 'String value',
         branch: 'String value',

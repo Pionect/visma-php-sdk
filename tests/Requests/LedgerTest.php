@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Enums\GeneralLedgerPeriodBalanceQueryParametersBalanceTypeEnum;
 use Pionect\VismaSdk\Requests\Ledger\LedgerGetAllLedgersRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -15,7 +16,7 @@ it('calls the ledgerGetAllLedgersRequest method in the Ledger resource', functio
                 'internalId' => 42,
                 'number' => 'String value',
                 'description' => 'String value',
-                'balanceType' => 'String value',
+                'balanceType' => 'Actual',
                 'currencyId' => 'mock-id-123',
                 'consolidationSource' => true,
                 'consolBranch' => [
@@ -30,7 +31,7 @@ it('calls the ledgerGetAllLedgersRequest method in the Ledger resource', functio
                 'internalId' => 42,
                 'number' => 'String value',
                 'description' => 'String value',
-                'balanceType' => 'String value',
+                'balanceType' => 'Actual',
                 'currencyId' => 'mock-id-123',
                 'consolidationSource' => true,
                 'consolBranch' => [
@@ -65,7 +66,7 @@ it('calls the ledgerGetAllLedgersRequest method in the Ledger resource', functio
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->description->toBe('String value')
-        ->balanceType->toBe('String value')
+        ->balanceType->toEqual(GeneralLedgerPeriodBalanceQueryParametersBalanceTypeEnum::ACTUAL)
         ->currencyId->toBe('mock-id-123')
         ->consolidationSource->toBe(true)
         ->consolBranch->number->toBe('String value')

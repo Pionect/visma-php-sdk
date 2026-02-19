@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\FixedAssetTransactionQueryParameters;
+use Pionect\VismaSdk\Enums\FixedAssetRegisterStatusEnum;
+use Pionect\VismaSdk\Enums\FixedAssetTransactionTransactionTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class FixedAssetTransactionQueryParametersFactory extends Factory
@@ -17,8 +19,8 @@ class FixedAssetTransactionQueryParametersFactory extends Factory
             'toPeriod' => $this->faker->word(),
             'accountId' => $this->faker->uuid(),
             'subAccountId' => $this->faker->uuid(),
-            'status' => $this->faker->word(),
-            'transactionType' => $this->faker->word(),
+            'status' => $this->faker->randomElement(FixedAssetRegisterStatusEnum::cases()),
+            'transactionType' => $this->faker->randomElement(FixedAssetTransactionTransactionTypeEnum::cases()),
             'transactionFromDate' => $this->faker->word(),
             'transactionToDate' => $this->faker->word(),
             'lastModifiedDateTime' => $this->faker->word(),

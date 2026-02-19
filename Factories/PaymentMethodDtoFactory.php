@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\PaymentMethodDto;
+use Pionect\VismaSdk\Enums\PaymentMethodMeansOfPaymentEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PaymentMethodDtoFactory extends Factory
@@ -12,7 +13,7 @@ class PaymentMethodDtoFactory extends Factory
         return [
             'paymentMethodId' => $this->faker->uuid(),
             'active' => $this->faker->boolean(),
-            'meansOfPayment' => $this->faker->word(),
+            'meansOfPayment' => $this->faker->randomElement(PaymentMethodMeansOfPaymentEnum::cases()),
             'description' => $this->faker->sentence(),
             'useInAp' => $this->faker->boolean(),
             'details' => [],

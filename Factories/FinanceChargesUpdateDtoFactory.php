@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\FinanceChargesUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class FinanceChargesUpdateDtoFactory extends Factory
@@ -10,7 +11,7 @@ class FinanceChargesUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'entryType' => $this->faker->word(),
             'offsetAccount' => $this->faker->word(),
             'offsetSubAccount' => $this->faker->word(),

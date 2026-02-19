@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -12,40 +14,157 @@ class CustomerCreditWriteOffDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /**
+         * The top part > Hold > A check box that indicates if the document is a draft.
+         * A document with the On Hold status may be edited and cannot be released.
+         */
         public ?bool $hold = null,
+        /**
+         * The top part > Rounding diff. > The difference between the original amount
+         * and the rounded amount.
+         */
         public int|float|null $roundingDiff = null,
         public ?CustomerVatZoneInCustomerCreditWriteOffDto $customerVatZone = null,
+        /**
+         * Identifier that represents a specific version of the resource.
+         * It helps to prevent simultaneous updates of the resource from overwriting
+         * each other (by using ETags and If-Match headers)
+         */
         public ?string $timeStamp = null,
         public ?CustomerInCustomerCreditWriteOffDto $customer = null,
-        public ?string $documentType = null,
+        /**
+         * The top part > Type > The document type. The following types are available:
+         * invoice, debit note, credit note, overdue charge, credit write-off
+         */
+        public ?CashSaleDocumentTypeEnum $documentType = null,
+        /**
+         * The Top part > Ref. no. > The reference number of the customer ledger
+         * document in the system.
+         */
         public ?string $referenceNumber = null,
+        /**
+         * The top part > Post period > The period to which the document should be
+         * posted. Format YYYYMM.
+         */
         public ?string $postPeriod = null,
+        /**
+         * The financial period to which the transactions recorded in the document
+         * should be posted. Format YYYYMM.
+         */
         public ?string $financialPeriod = null,
+        /** Format YYYYMM. */
         public ?string $closedFinancialPeriod = null,
+        /**
+         * The top part > Date* > The date when the customer ledger document was
+         * created.
+         * By default, for a new document, it is the current business date, but you can
+         * change the date.
+         */
         public ?\Carbon\Carbon $documentDate = null,
+        /**
+         * The top part > Orig invoice date > The date based on which the Due date and
+         * Cash discount date is calculated. Only used if setting "Use Orig Invoice
+         * Date" is active in AR Preferences.
+         * By default, for a new document, it is the current business date, but you can
+         * change the date.
+         */
         public ?\Carbon\Carbon $origInvoiceDate = null,
-        public ?string $status = null,
+        /**
+         * The top part > Status > The status of the document, which can be one of the
+         * following: Hold, Balanced, Voided, Scheduled, Open, Closed, Pending print,
+         * Pending email.
+         */
+        public ?CashSaleStatusEnum $status = null,
+        /**
+         * The top part > Currency > The currency of the document. By default, it is the
+         * customer’s default currency,but it can be changed if the Allow Currency
+         * Override check box is selected in the AR303000 window.
+         */
         public ?string $currencyId = null,
+        /**
+         * The top part > Amount > The amount paid by the document. The value appears
+         * for new documents if the Validate document totals on entry check box is
+         * selected on the AR101000 window.
+         * If the check box is cleared, then the value appears when the document status
+         * is Open.
+         */
         public int|float|null $amount = null,
+        /**
+         * Background calculation giving you the Amount in your default currency. This
+         * field is applicable if the amount is given in a another currency than your
+         * default.
+         */
         public int|float|null $amountInCurrency = null,
+        /**
+         * The top part > Balance > For an open customer ledger document, the balance
+         * after any cash discount was taken.
+         * For a document used in the application process, this is the balance after the
+         * payments were applied.
+         */
         public int|float|null $balance = null,
+        /**
+         * Background calculation giving you the Balance in your default currency. This
+         * field is applicable if the amount is given in a another currency than your
+         * default.
+         */
         public int|float|null $balanceInCurrency = null,
+        /**
+         * The top part > Cash discount > The cash discount amount that has been or will
+         * be taken on the document, which the system calculates based on the specified
+         * credit terms.
+         */
         public int|float|null $cashDiscount = null,
+        /**
+         * Background calculation giving you the Cash discount in your default currency.
+         * This field is applicable if the amount is given in another currency than your
+         * default.
+         */
         public int|float|null $cashDiscountInCurrency = null,
         public ?PaymentMethodInCustomerCreditWriteOffDto $paymentMethod = null,
+        /**
+         * The top part > External reference > The external reference used in
+         * AutoInvoice.
+         */
         public ?string $customerRefNumber = null,
+        /**
+         * The top part > Invoice text > Any user-provided description of the customer
+         * ledger document.
+         */
         public ?string $invoiceText = null,
+        /** System generated field for last modification date/time of document. */
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
+        /** The Attachments tab > Creation time > The date the attachment was created. */
         public ?\Carbon\Carbon $createdDateTime = null,
+        /**
+         * Icon Notes on top of the window > Pop-up window for providing any
+         * user-defined text connected to the document.
+         */
         public ?string $note = null,
+        /**
+         * The top part > VAT total > The VAT amount of the document, as defined on the
+         * VAT details tab.
+         */
         public int|float|null $vatTotal = null,
+        /**
+         * Background calculation giving you the VAT total in your default currency.
+         * This field is applicable if the amount is given in a another currency than
+         * your default.
+         */
         public int|float|null $vatTotalInCurrency = null,
         public ?LocationInCustomerCreditWriteOffDto $location = null,
         public ?BranchNumberInCustomerCreditWriteOffDto $branchNumber = null,
+        /**
+         * Financial details tab > The payment information section > Cash account > The
+         * cash account associated with the payment method.
+         */
         public ?string $cashAccount = null,
         public ?ProjectInCustomerCreditWriteOffDto $project = null,
         public ?AccountInCustomerCreditWriteOffDto $account = null,
         public ?SubaccountInCustomerCreditWriteOffDto $subaccount = null,
+        /**
+         * The top part > Customer project no. > The customer project no. used in
+         * AutoInvoice.
+         */
         public ?string $customerProject = null,
         public ?string $errorInfo = null,
     ) {}

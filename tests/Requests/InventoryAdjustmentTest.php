@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\InventoryAdjustmentUpdateDto;
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
 use Pionect\VismaSdk\Requests\InventoryAdjustment\InventoryAdjustmentGetAllRequest;
 use Pionect\VismaSdk\Requests\InventoryAdjustment\InventoryAdjustmentGetByinventoryAdjustmentNumberRequest;
 use Pionect\VismaSdk\Requests\InventoryAdjustment\InventoryAdjustmentPostRequest;
@@ -20,7 +21,7 @@ it('calls the inventoryAdjustmentGetByinventoryAdjustmentNumberRequest method in
             'controlCost' => 42,
             'adjusmentLines' => [],
             'referenceNumber' => 'String value',
-            'status' => 'String value',
+            'status' => 'Hold',
             'hold' => true,
             'date' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
@@ -56,7 +57,7 @@ it('calls the inventoryAdjustmentGetByinventoryAdjustmentNumberRequest method in
         ->totalCost->toBe(42)
         ->controlCost->toBe(42)
         ->referenceNumber->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(InventoryAdjustmentStatusEnum::HOLD)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
@@ -110,7 +111,7 @@ it('calls the inventoryAdjustmentGetAllRequest method in the InventoryAdjustment
                 'controlCost' => 42,
                 'adjusmentLines' => [],
                 'referenceNumber' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
@@ -133,7 +134,7 @@ it('calls the inventoryAdjustmentGetAllRequest method in the InventoryAdjustment
                 'controlCost' => 42,
                 'adjusmentLines' => [],
                 'referenceNumber' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
@@ -181,7 +182,7 @@ it('calls the inventoryAdjustmentGetAllRequest method in the InventoryAdjustment
         ->totalCost->toBe(42)
         ->controlCost->toBe(42)
         ->referenceNumber->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(InventoryAdjustmentStatusEnum::HOLD)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')

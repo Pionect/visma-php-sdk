@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Enums\DeferralCodeCodeTypeEnum;
+use Pionect\VismaSdk\Enums\DeferralCodeRecognitionMethodEnum;
 use Pionect\VismaSdk\Requests\DeferralCode\DeferralCodeGetDeferralCodeBydeferralCodeIdRequest;
 use Pionect\VismaSdk\Requests\DeferralCode\DeferralCodeGetDeferralCodesRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -15,8 +17,8 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeIdRequest method in the D
             'deferralCode' => 'String value',
             'description' => 'String value',
             'deferredRevenueFromItem' => true,
-            'recognitionMethod' => 'String value',
-            'codeType' => 'String value',
+            'recognitionMethod' => 'EvenPeriods',
+            'codeType' => 'Income',
             'deferralAccount' => [
                 'description' => 'String value',
             ],
@@ -44,8 +46,8 @@ it('calls the deferralCodeGetDeferralCodeBydeferralCodeIdRequest method in the D
         ->deferralCode->toBe('String value')
         ->description->toBe('String value')
         ->deferredRevenueFromItem->toBe(true)
-        ->recognitionMethod->toBe('String value')
-        ->codeType->toBe('String value')
+        ->recognitionMethod->toEqual(DeferralCodeRecognitionMethodEnum::EVEN_PERIODS)
+        ->codeType->toEqual(DeferralCodeCodeTypeEnum::INCOME)
         ->deferralAccount->description->toBe('String value')
         ->deferralSub->active->toBe(true)
         ->deferralSub->description->toBe('String value')
@@ -59,8 +61,8 @@ it('calls the deferralCodeGetDeferralCodesRequest method in the DeferralCode res
                 'deferralCode' => 'String value',
                 'description' => 'String value',
                 'deferredRevenueFromItem' => true,
-                'recognitionMethod' => 'String value',
-                'codeType' => 'String value',
+                'recognitionMethod' => 'EvenPeriods',
+                'codeType' => 'Income',
                 'deferralAccount' => [
                     'description' => 'String value',
                 ],
@@ -74,8 +76,8 @@ it('calls the deferralCodeGetDeferralCodesRequest method in the DeferralCode res
                 'deferralCode' => 'String value',
                 'description' => 'String value',
                 'deferredRevenueFromItem' => true,
-                'recognitionMethod' => 'String value',
-                'codeType' => 'String value',
+                'recognitionMethod' => 'EvenPeriods',
+                'codeType' => 'Income',
                 'deferralAccount' => [
                     'description' => 'String value',
                 ],
@@ -106,8 +108,8 @@ it('calls the deferralCodeGetDeferralCodesRequest method in the DeferralCode res
         ->deferralCode->toBe('String value')
         ->description->toBe('String value')
         ->deferredRevenueFromItem->toBe(true)
-        ->recognitionMethod->toBe('String value')
-        ->codeType->toBe('String value')
+        ->recognitionMethod->toEqual(DeferralCodeRecognitionMethodEnum::EVEN_PERIODS)
+        ->codeType->toEqual(DeferralCodeCodeTypeEnum::INCOME)
         ->deferralAccount->description->toBe('String value')
         ->deferralSub->active->toBe(true)
         ->deferralSub->description->toBe('String value')

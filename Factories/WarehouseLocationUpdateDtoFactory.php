@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\WarehouseLocationUpdateDto;
+use Pionect\VismaSdk\Enums\WarehouseLocationPrimaryItemValidEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class WarehouseLocationUpdateDtoFactory extends Factory
@@ -20,7 +21,7 @@ class WarehouseLocationUpdateDtoFactory extends Factory
             'transfersValid' => $this->faker->boolean(),
             'assemblyValid' => $this->faker->boolean(),
             'pickPriority' => $this->faker->numberBetween(1, 100),
-            'primaryItemValid' => $this->faker->word(),
+            'primaryItemValid' => $this->faker->randomElement(WarehouseLocationPrimaryItemValidEnum::cases()),
             'primaryItemId' => $this->faker->uuid(),
             'primaryItemClassId' => $this->faker->uuid(),
             'projectId' => $this->faker->uuid(),

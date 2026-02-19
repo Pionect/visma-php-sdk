@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -14,10 +16,10 @@ class RotRutDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $docType = null,
+        public ?CashSaleDocumentTypeEnum $docType = null,
         public ?string $refNbr = null,
         public ?bool $distributedAutomaticaly = null,
-        public ?string $type = null,
+        public ?WorkTypeRutRotTypeEnum $type = null,
         public int|float|null $totalDeductableAmount = null,
         public int|float|null $otherCost = null,
         public int|float|null $materialCost = null,

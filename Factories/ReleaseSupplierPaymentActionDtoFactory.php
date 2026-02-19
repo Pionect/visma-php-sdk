@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\ReleaseSupplierPaymentActionDto;
+use Pionect\VismaSdk\Enums\SupplierPaymentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ReleaseSupplierPaymentActionDtoFactory extends Factory
@@ -10,7 +11,7 @@ class ReleaseSupplierPaymentActionDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(SupplierPaymentTypeEnum::cases()),
         ];
     }
 

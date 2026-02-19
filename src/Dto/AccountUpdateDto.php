@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -38,7 +39,7 @@ class AccountUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $publicCode1 = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $type = null,
+        public ?AccountTypeEnum $type = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $useDefaultSub = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

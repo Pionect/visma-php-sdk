@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\AttributeUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeControlTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class AttributeUpdateDtoFactory extends Factory
@@ -13,7 +14,7 @@ class AttributeUpdateDtoFactory extends Factory
             'attributeId' => $this->faker->uuid(),
             'description' => $this->faker->sentence(),
             'internal' => $this->faker->boolean(),
-            'controlType' => $this->faker->word(),
+            'controlType' => $this->faker->randomElement(AttributeControlTypeEnum::cases()),
             'entryMask' => $this->faker->word(),
             'regExp' => $this->faker->word(),
             'details' => [],

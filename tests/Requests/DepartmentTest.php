@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\DepartmentUpdateBaseDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Requests\Department\DepartmentCreateDepartmentRequest;
 use Pionect\VismaSdk\Requests\Department\DepartmentGetAllDepartmentDtosRequest;
 use Pionect\VismaSdk\Requests\Department\DepartmentGetDepartmentBydepartmentIdRequest;
@@ -19,7 +20,7 @@ it('calls the departmentGetDepartmentBydepartmentIdRequest method in the Departm
             'publicId' => 'mock-id-123',
             'description' => 'String value',
             'expenseAccount' => [
-                'type' => 'String value',
+                'type' => 'Asset',
                 'externalCode1' => 'String value',
                 'externalCode2' => 'String value',
                 'active' => true,
@@ -51,7 +52,7 @@ it('calls the departmentGetDepartmentBydepartmentIdRequest method in the Departm
         ->departmentId->toBe('mock-id-123')
         ->publicId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->expenseAccount->type->toBe('String value')
+        ->expenseAccount->type->toEqual(AccountTypeEnum::ASSET)
         ->expenseAccount->externalCode1->toBe('String value')
         ->expenseAccount->externalCode2->toBe('String value')
         ->expenseAccount->active->toBe(true)
@@ -96,7 +97,7 @@ it('calls the departmentGetAllDepartmentDtosRequest method in the Department res
                 'publicId' => 'mock-id-123',
                 'description' => 'String value',
                 'expenseAccount' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -115,7 +116,7 @@ it('calls the departmentGetAllDepartmentDtosRequest method in the Department res
                 'publicId' => 'mock-id-123',
                 'description' => 'String value',
                 'expenseAccount' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -154,7 +155,7 @@ it('calls the departmentGetAllDepartmentDtosRequest method in the Department res
         ->departmentId->toBe('mock-id-123')
         ->publicId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->expenseAccount->type->toBe('String value')
+        ->expenseAccount->type->toEqual(AccountTypeEnum::ASSET)
         ->expenseAccount->externalCode1->toBe('String value')
         ->expenseAccount->externalCode2->toBe('String value')
         ->expenseAccount->active->toBe(true)

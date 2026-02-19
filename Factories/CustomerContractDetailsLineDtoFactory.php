@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\CustomerContractDetailsLineDto;
+use Pionect\VismaSdk\Enums\CustomerContractDetailsLineInvoiceTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerContractDetailsLineDtoFactory extends Factory
@@ -22,7 +23,7 @@ class CustomerContractDetailsLineDtoFactory extends Factory
             'recurringDiscount' => null,
             'renewalPrice' => null,
             'renewalDiscount' => null,
-            'invoiceType' => $this->faker->word(),
+            'invoiceType' => $this->faker->randomElement(CustomerContractDetailsLineInvoiceTypeEnum::cases()),
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoiceToEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -39,7 +40,7 @@ class CustomerContractUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $currency = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $invoiceTo = null,
+        public ?CustomerContractSummaryInvoiceToEnum $invoiceTo = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $invoiceAccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

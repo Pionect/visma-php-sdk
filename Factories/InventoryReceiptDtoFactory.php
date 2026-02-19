@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\InventoryReceiptDto;
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class InventoryReceiptDtoFactory extends Factory
@@ -16,7 +17,7 @@ class InventoryReceiptDtoFactory extends Factory
             'transferNumber' => $this->faker->word(),
             'receiptLines' => [],
             'referenceNumber' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(InventoryAdjustmentStatusEnum::cases()),
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'postPeriod' => $this->faker->word(),

@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\JournalTransactionQueryV2parameters;
+use Pionect\VismaSdk\Enums\JournalTransactionQueryV2parametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class JournalTransactionQueryV2parametersFactory extends Factory
@@ -13,7 +14,7 @@ class JournalTransactionQueryV2parametersFactory extends Factory
             'periodId' => $this->faker->uuid(),
             'lastModifiedDateTime' => $this->faker->word(),
             'module' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(JournalTransactionQueryV2parametersStatusEnum::cases()),
             'expandAttachments' => $this->faker->boolean(),
             'branch' => $this->faker->word(),
             'pageNumber' => $this->faker->numberBetween(1, 100),

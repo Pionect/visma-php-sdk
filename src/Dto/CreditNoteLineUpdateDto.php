@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -18,7 +19,7 @@ class CreditNoteLineUpdateDto extends SpatieData
         public ?string $discountCode = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $taskId = null,
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $inventoryNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

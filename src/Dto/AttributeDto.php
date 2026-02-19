@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeControlTypeEnum;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Data as SpatieData;
 
@@ -18,7 +19,7 @@ class AttributeDto extends SpatieData
         #[MapName('attributeID')]
         public ?string $attributeId = null,
         public ?string $description = null,
-        public ?string $controlType = null,
+        public ?AttributeControlTypeEnum $controlType = null,
         public ?bool $internal = null,
         public ?string $entryMask = null,
         public ?string $regExp = null,

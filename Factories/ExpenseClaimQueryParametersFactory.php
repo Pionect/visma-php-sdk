@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExpenseClaimQueryParameters;
+use Pionect\VismaSdk\Enums\ExpenseClaimQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ExpenseClaimQueryParametersFactory extends Factory
@@ -11,7 +12,7 @@ class ExpenseClaimQueryParametersFactory extends Factory
     protected function definition(): array
     {
         return [
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(ExpenseClaimQueryParametersStatusEnum::cases()),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'customer' => $this->faker->word(),
             'departmentId' => $this->faker->uuid(),

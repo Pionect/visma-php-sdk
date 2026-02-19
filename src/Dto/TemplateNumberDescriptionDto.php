@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -12,8 +13,10 @@ class TemplateNumberDescriptionDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $status = null,
+        public ?TemplateNumberDescriptionStatusEnum $status = null,
+        /** Number of item */
         public ?string $number = null,
+        /** Name of item/description */
         public ?string $description = null,
     ) {}
 }

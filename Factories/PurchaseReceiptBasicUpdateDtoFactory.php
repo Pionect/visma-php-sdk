@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PurchaseReceiptBasicUpdateDto;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseReceiptBasicUpdateDtoFactory extends Factory
@@ -12,7 +13,7 @@ class PurchaseReceiptBasicUpdateDtoFactory extends Factory
     {
         return [
             'lines' => [],
-            'receiptType' => $this->faker->word(),
+            'receiptType' => $this->faker->randomElement(PurchaseReceiptsTypeEnum::cases()),
             'receiptNbr' => $this->faker->word(),
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\PurchaseReceiptsTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -24,7 +25,7 @@ class PurchaseReceiptUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $note = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $receiptType = null,
+        public ?PurchaseReceiptsTypeEnum $receiptType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $receiptNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

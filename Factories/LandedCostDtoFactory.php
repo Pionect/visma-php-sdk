@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\LandedCostDto;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\LandedCostApDocTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class LandedCostDtoFactory extends Factory
@@ -23,9 +25,9 @@ class LandedCostDtoFactory extends Factory
             'taxCategory' => null,
             'terms' => null,
             'inventory' => InventoryNumberDescriptionDtoFactory::new()->make(),
-            'apDocType' => $this->faker->word(),
+            'apDocType' => $this->faker->randomElement(LandedCostApDocTypeEnum::cases()),
             'apRefNbr' => $this->faker->word(),
-            'inDocType' => $this->faker->word(),
+            'inDocType' => $this->faker->randomElement(CashSaleDocumentTypeEnum::cases()),
             'inRefNbr' => $this->faker->word(),
             'postponePurchaseInvoiceCreation' => $this->faker->boolean(),
         ];

@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ProjectTaskUpdateDto;
+use Pionect\VismaSdk\Enums\TaskStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ProjectTaskUpdateDtoFactory extends Factory
@@ -17,7 +18,7 @@ class ProjectTaskUpdateDtoFactory extends Factory
             'plannedEnd' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'rateTable' => number_format($this->faker->randomFloat(2, 50, 150), 2, '.', ''),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(TaskStatusEnum::cases()),
             'visibility' => VisibilityUpdateDtoFactory::new()->make(),
             'restrictEmployees' => $this->faker->boolean(),
             'employees' => [],

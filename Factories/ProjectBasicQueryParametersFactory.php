@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ProjectBasicQueryParameters;
+use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ProjectBasicQueryParametersFactory extends Factory
@@ -11,7 +12,7 @@ class ProjectBasicQueryParametersFactory extends Factory
     protected function definition(): array
     {
         return [
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(TemplateNumberDescriptionStatusEnum::cases()),
             'description' => $this->faker->sentence(),
             'projectId' => $this->faker->uuid(),
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

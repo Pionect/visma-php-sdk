@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeControlTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -22,7 +23,7 @@ class AttributeUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $internal = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $controlType = null,
+        public ?AttributeControlTypeEnum $controlType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $entryMask = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

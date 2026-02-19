@@ -2,6 +2,10 @@
 
 use Pionect\VismaSdk\Dto\CashTransactionUpdateDto;
 use Pionect\VismaSdk\Dto\ReverseCashTransactionActionDto;
+use Pionect\VismaSdk\Enums\CashTransactionStatusEnum;
+use Pionect\VismaSdk\Enums\CashTransactionTranTypeEnum;
+use Pionect\VismaSdk\Enums\EntryTypeDisableReceiptEnum;
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionCreateAttachmentByreferenceNbrRequest;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionCreateCashTransactionRequest;
 use Pionect\VismaSdk\Requests\CashTransaction\CashTransactionGetAllRequest;
@@ -19,9 +23,9 @@ beforeEach(function () {
 it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransaction resource', function () {
     Saloon::fake([
         CashTransactionGetByreferenceNbrRequest::class => MockResponse::make([
-            'tranType' => 'String value',
+            'tranType' => 'TransferOut',
             'referenceNbr' => 'String value',
-            'status' => 'String value',
+            'status' => 'Balanced',
             'hold' => true,
             'tranDate' => '2025-11-22T10:40:04+00:00',
             'finPeriod' => 'String value',
@@ -35,7 +39,7 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
             'entryType' => [
                 'description' => 'String value',
             ],
-            'disbReceipt' => 'String value',
+            'disbReceipt' => 'Disbursement',
             'documentRef' => 'String value',
             'owner' => [
                 'internalId' => 'mock-id-123',
@@ -69,7 +73,7 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
                     ],
                     'errorInfo' => 'String value',
                 ],
-                'taxCalcMode' => 'String value',
+                'taxCalcMode' => 'TaxSetting',
             ],
             'timeStamp' => 'String value',
         ], 200),
@@ -88,9 +92,9 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
     $dto = $response->dto();
 
     expect($dto)
-        ->tranType->toBe('String value')
+        ->tranType->toEqual(CashTransactionTranTypeEnum::TRANSFER_OUT)
         ->referenceNbr->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CashTransactionStatusEnum::BALANCED)
         ->hold->toBe(true)
         ->tranDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->finPeriod->toBe('String value')
@@ -100,7 +104,7 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
         ->cashAccount->description->toBe('String value')
         ->currency->toBe('String value')
         ->entryType->description->toBe('String value')
-        ->disbReceipt->toBe('String value')
+        ->disbReceipt->toEqual(EntryTypeDisableReceiptEnum::DISBURSEMENT)
         ->documentRef->toBe('String value')
         ->owner->internalId->toBe('mock-id-123')
         ->owner->number->toBe('String value')
@@ -123,7 +127,7 @@ it('calls the cashTransactionGetByreferenceNbrRequest method in the CashTransact
         ->financialsDetail->taxZone->defaultTaxCategory->number->toBe('String value')
         ->financialsDetail->taxZone->defaultTaxCategory->description->toBe('String value')
         ->financialsDetail->taxZone->errorInfo->toBe('String value')
-        ->financialsDetail->taxCalcMode->toBe('String value')
+        ->financialsDetail->taxCalcMode->toEqual(EntryTypeTaxCalculationModeEnum::TAX_SETTING)
         ->timeStamp->toBe('String value');
 });
 
@@ -141,7 +145,7 @@ it('calls the cashTransactionPutByreferenceNbrRequest method in the CashTransact
         controlTotal: 42,
         vatAmount: 42,
         vatZone: 'String value',
-        taxCalculationMode: 'String value',
+        taxCalculationMode: EntryTypeTaxCalculationModeEnum::TAX_SETTING,
         overrideNumberSeries: true,
         cashTransactionDetails: [],
         cashTransactionTaxDetails: []
@@ -168,9 +172,9 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
     Saloon::fake([
         CashTransactionGetAllRequest::class => MockResponse::make([
             0 => [
-                'tranType' => 'String value',
+                'tranType' => 'TransferOut',
                 'referenceNbr' => 'String value',
-                'status' => 'String value',
+                'status' => 'Balanced',
                 'hold' => true,
                 'tranDate' => '2025-11-22T10:40:04+00:00',
                 'finPeriod' => 'String value',
@@ -184,7 +188,7 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
                 'entryType' => [
                     'description' => 'String value',
                 ],
-                'disbReceipt' => 'String value',
+                'disbReceipt' => 'Disbursement',
                 'documentRef' => 'String value',
                 'owner' => [
                     'internalId' => 'mock-id-123',
@@ -218,14 +222,14 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
                         ],
                         'errorInfo' => 'String value',
                     ],
-                    'taxCalcMode' => 'String value',
+                    'taxCalcMode' => 'TaxSetting',
                 ],
                 'timeStamp' => 'String value',
             ],
             1 => [
-                'tranType' => 'String value',
+                'tranType' => 'TransferOut',
                 'referenceNbr' => 'String value',
-                'status' => 'String value',
+                'status' => 'Balanced',
                 'hold' => true,
                 'tranDate' => '2025-11-22T10:40:04+00:00',
                 'finPeriod' => 'String value',
@@ -239,7 +243,7 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
                 'entryType' => [
                     'description' => 'String value',
                 ],
-                'disbReceipt' => 'String value',
+                'disbReceipt' => 'Disbursement',
                 'documentRef' => 'String value',
                 'owner' => [
                     'internalId' => 'mock-id-123',
@@ -273,7 +277,7 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
                         ],
                         'errorInfo' => 'String value',
                     ],
-                    'taxCalcMode' => 'String value',
+                    'taxCalcMode' => 'TaxSetting',
                 ],
                 'timeStamp' => 'String value',
             ],
@@ -299,9 +303,9 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->tranType->toBe('String value')
+        ->tranType->toEqual(CashTransactionTranTypeEnum::TRANSFER_OUT)
         ->referenceNbr->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CashTransactionStatusEnum::BALANCED)
         ->hold->toBe(true)
         ->tranDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->finPeriod->toBe('String value')
@@ -311,7 +315,7 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
         ->cashAccount->description->toBe('String value')
         ->currency->toBe('String value')
         ->entryType->description->toBe('String value')
-        ->disbReceipt->toBe('String value')
+        ->disbReceipt->toEqual(EntryTypeDisableReceiptEnum::DISBURSEMENT)
         ->documentRef->toBe('String value')
         ->owner->internalId->toBe('mock-id-123')
         ->owner->number->toBe('String value')
@@ -334,7 +338,7 @@ it('calls the cashTransactionGetAllRequest method in the CashTransaction resourc
         ->financialsDetail->taxZone->defaultTaxCategory->number->toBe('String value')
         ->financialsDetail->taxZone->defaultTaxCategory->description->toBe('String value')
         ->financialsDetail->taxZone->errorInfo->toBe('String value')
-        ->financialsDetail->taxCalcMode->toBe('String value')
+        ->financialsDetail->taxCalcMode->toEqual(EntryTypeTaxCalculationModeEnum::TAX_SETTING)
         ->timeStamp->toBe('String value');
 });
 
@@ -352,7 +356,7 @@ it('calls the cashTransactionCreateCashTransactionRequest method in the CashTran
         controlTotal: 42,
         vatAmount: 42,
         vatZone: 'String value',
-        taxCalculationMode: 'String value',
+        taxCalculationMode: EntryTypeTaxCalculationModeEnum::TAX_SETTING,
         overrideNumberSeries: true,
         cashTransactionDetails: [],
         cashTransactionTaxDetails: []

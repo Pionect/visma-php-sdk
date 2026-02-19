@@ -2,6 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineLineTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineReceiptActionEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -18,7 +21,7 @@ class PurchaseOrderLineUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -26,7 +29,7 @@ class PurchaseOrderLineUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $inventory = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $lineType = null,
+        public ?PurchaseOrderLineLineTypeEnum $lineType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $warehouse = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -58,7 +61,7 @@ class PurchaseOrderLineUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $completeOn = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $receiptAction = null,
+        public ?PurchaseOrderLineReceiptActionEnum $receiptAction = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $taxCategory = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

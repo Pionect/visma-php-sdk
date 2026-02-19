@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\EntryTypeDto;
+use Pionect\VismaSdk\Enums\EntryTypeDisableReceiptEnum;
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class EntryTypeDtoFactory extends Factory
@@ -12,7 +14,7 @@ class EntryTypeDtoFactory extends Factory
     {
         return [
             'entryTypeId' => $this->faker->uuid(),
-            'disableReceipt' => $this->faker->word(),
+            'disableReceipt' => $this->faker->randomElement(EntryTypeDisableReceiptEnum::cases()),
             'module' => $this->faker->word(),
             'defaultOffsetAccountBranch' => null,
             'defaultOffsetAccount' => null,
@@ -26,7 +28,7 @@ class EntryTypeDtoFactory extends Factory
             'offsetSubaccountOverride' => null,
             'offsetAccountBranch' => null,
             'vatZone' => null,
-            'taxCalculationMode' => $this->faker->word(),
+            'taxCalculationMode' => $this->faker->randomElement(EntryTypeTaxCalculationModeEnum::cases()),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
         ];
     }

@@ -2,6 +2,10 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineLineTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseReceiptLineTransferOrderTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -18,11 +22,11 @@ class PurchaseReceiptLineBasicUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $lineType = null,
+        public ?PurchaseOrderLineLineTypeEnum $lineType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branchId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -59,11 +63,21 @@ class PurchaseReceiptLineBasicUpdateDto extends SpatieData
         public ?string $accountId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $accountDescription = null,
-        /** @var SegmentUpdateDto[]|null */
+        /**
+         * @var SegmentUpdateDto[]|null
+         *                              The Document details tab > The subaccount to be used to record the non-stock
+         *                              item amount on the purchase receipt (for non-stock items for which receipts
+         *                              are not required).
+         */
         public ?array $subaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $actualAccountId = null,
-        /** @var SegmentUpdateDto[]|null */
+        /**
+         * @var SegmentUpdateDto[]|null
+         *                              The Document details tab > The subaccount used to record the item amount on
+         *                              the purchase receipt, used for stock items and non-stock items for which a
+         *                              receipt is required.
+         */
         public ?array $actualSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $projectId = null,
@@ -74,13 +88,13 @@ class PurchaseReceiptLineBasicUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $lotSerialNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $poOrderType = null,
+        public ?PurchaseOrderLineOrderTypeEnum $poOrderType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $poOrderNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $poOrderLineNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $transferOrderType = null,
+        public ?PurchaseReceiptLineTransferOrderTypeEnum $transferOrderType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $transferOrderNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

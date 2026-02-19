@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\KitAssemblyQueryParameters;
+use Pionect\VismaSdk\Enums\KitAssemblyQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class KitAssemblyQueryParametersFactory extends Factory
@@ -16,7 +17,7 @@ class KitAssemblyQueryParametersFactory extends Factory
             'createdDateTimeCondition' => $this->faker->word(),
             'type' => $this->faker->word(),
             'refNo' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(KitAssemblyQueryParametersStatusEnum::cases()),
             'expandStockComponents' => $this->faker->boolean(),
             'expandNonStockComponents' => $this->faker->boolean(),
             'expandKitAllocations' => $this->faker->boolean(),

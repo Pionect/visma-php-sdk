@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Enums\DetailsPropertyTypeEnum;
+use Pionect\VismaSdk\Enums\DetailsStatusEnum;
 use Pionect\VismaSdk\Requests\FixedAsset\FixedAssetGetAllRequest;
 use Pionect\VismaSdk\Requests\FixedAsset\FixedAssetGetByFixedAssetIdRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -42,8 +44,8 @@ it('calls the fixedAssetGetByFixedAssetIdRequest method in the FixedAsset resour
                 'creditSubAccountId' => 'mock-id-123',
             ],
             'details' => [
-                'propertyType' => 'String value',
-                'status' => 'String value',
+                'propertyType' => 'Property',
+                'status' => 'Active',
                 'receiptDate' => '2025-11-22T10:40:04+00:00',
                 'depreciateFromDate' => '2025-11-22T10:40:04+00:00',
                 'acquisitionCost' => 42,
@@ -139,8 +141,8 @@ it('calls the fixedAssetGetByFixedAssetIdRequest method in the FixedAsset resour
         ->accounts->debitSubAccountId->toBe('mock-id-123')
         ->accounts->creditAccountId->toBe('mock-id-123')
         ->accounts->creditSubAccountId->toBe('mock-id-123')
-        ->details->propertyType->toBe('String value')
-        ->details->status->toBe('String value')
+        ->details->propertyType->toEqual(DetailsPropertyTypeEnum::PROPERTY)
+        ->details->status->toEqual(DetailsStatusEnum::ACTIVE)
         ->details->receiptDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->details->depreciateFromDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->details->acquisitionCost->toBe(42)
@@ -213,8 +215,8 @@ it('calls the fixedAssetGetAllRequest method in the FixedAsset resource', functi
                     'creditSubAccountId' => 'mock-id-123',
                 ],
                 'details' => [
-                    'propertyType' => 'String value',
-                    'status' => 'String value',
+                    'propertyType' => 'Property',
+                    'status' => 'Active',
                     'receiptDate' => '2025-11-22T10:40:04+00:00',
                     'depreciateFromDate' => '2025-11-22T10:40:04+00:00',
                     'acquisitionCost' => 42,
@@ -298,8 +300,8 @@ it('calls the fixedAssetGetAllRequest method in the FixedAsset resource', functi
                     'creditSubAccountId' => 'mock-id-123',
                 ],
                 'details' => [
-                    'propertyType' => 'String value',
-                    'status' => 'String value',
+                    'propertyType' => 'Property',
+                    'status' => 'Active',
                     'receiptDate' => '2025-11-22T10:40:04+00:00',
                     'depreciateFromDate' => '2025-11-22T10:40:04+00:00',
                     'acquisitionCost' => 42,
@@ -405,8 +407,8 @@ it('calls the fixedAssetGetAllRequest method in the FixedAsset resource', functi
         ->accounts->debitSubAccountId->toBe('mock-id-123')
         ->accounts->creditAccountId->toBe('mock-id-123')
         ->accounts->creditSubAccountId->toBe('mock-id-123')
-        ->details->propertyType->toBe('String value')
-        ->details->status->toBe('String value')
+        ->details->propertyType->toEqual(DetailsPropertyTypeEnum::PROPERTY)
+        ->details->status->toEqual(DetailsStatusEnum::ACTIVE)
         ->details->receiptDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->details->depreciateFromDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->details->acquisitionCost->toBe(42)

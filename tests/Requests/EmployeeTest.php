@@ -3,6 +3,14 @@
 use Pionect\VismaSdk\Dto\ChangeEmployeeNrActionDto;
 use Pionect\VismaSdk\Dto\EmployeeCreateDto;
 use Pionect\VismaSdk\Dto\EmployeeUpdateDto;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
+use Pionect\VismaSdk\Enums\EmployeeTimeCardQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\EmployeeTimeCardQueryParametersTypeEnum;
+use Pionect\VismaSdk\Enums\EmployeeUpdateStatusEnum;
+use Pionect\VismaSdk\Enums\ExpenseClaimQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\ExpenseReceiptQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Requests\Employee\EmployeeChangeEmployeeNrActionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeCreateEmployeeRequest;
 use Pionect\VismaSdk\Requests\Employee\EmployeeGetAllEmployeesRequest;
@@ -25,11 +33,11 @@ it('calls the employeeGetEmployeeByemployeeCdRequest method in the Employee reso
             'employeeId' => 42,
             'employeeNumber' => 'String value',
             'employeeName' => 'String value',
-            'status' => 'String value',
+            'status' => 'Active',
             'department' => 'String value',
             'contact' => [
                 'employeeContact' => 'String value',
-                'title' => 'String value',
+                'title' => 'Doctor',
                 'firstName' => 'String value',
                 'midName' => 'String value',
                 'lastName' => 'String value',
@@ -91,10 +99,10 @@ it('calls the employeeGetEmployeeByemployeeCdRequest method in the Employee reso
         ->employeeId->toBe(42)
         ->employeeNumber->toBe('String value')
         ->employeeName->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->department->toBe('String value')
         ->contact->employeeContact->toBe('String value')
-        ->contact->title->toBe('String value')
+        ->contact->title->toEqual(ContactTitleEnum::DOCTOR)
         ->contact->firstName->toBe('String value')
         ->contact->midName->toBe('String value')
         ->contact->lastName->toBe('String value')
@@ -129,7 +137,7 @@ it('calls the employeeGetEmployeeByemployeeCdRequest method in the Employee reso
 it('calls the employeePutByemployeeCdRequest method in the Employee resource', function () {
     $bodyData = new EmployeeUpdateDto(
         employeeClass: 'String value',
-        status: 'String value',
+        status: EmployeeUpdateStatusEnum::ACTIVE,
         department: 'String value',
         contact: new \Pionect\VismaSdk\Dto\ContactInEmployeeUpdateDto(
             firstName: 'String value',
@@ -180,11 +188,11 @@ it('calls the employeeGetAllEmployeesRequest method in the Employee resource', f
                 'employeeId' => 42,
                 'employeeNumber' => 'String value',
                 'employeeName' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'department' => 'String value',
                 'contact' => [
                     'employeeContact' => 'String value',
-                    'title' => 'String value',
+                    'title' => 'Doctor',
                     'firstName' => 'String value',
                     'midName' => 'String value',
                     'lastName' => 'String value',
@@ -232,11 +240,11 @@ it('calls the employeeGetAllEmployeesRequest method in the Employee resource', f
                 'employeeId' => 42,
                 'employeeNumber' => 'String value',
                 'employeeName' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'department' => 'String value',
                 'contact' => [
                     'employeeContact' => 'String value',
-                    'title' => 'String value',
+                    'title' => 'Doctor',
                     'firstName' => 'String value',
                     'midName' => 'String value',
                     'lastName' => 'String value',
@@ -308,10 +316,10 @@ it('calls the employeeGetAllEmployeesRequest method in the Employee resource', f
         ->employeeId->toBe(42)
         ->employeeNumber->toBe('String value')
         ->employeeName->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->department->toBe('String value')
         ->contact->employeeContact->toBe('String value')
-        ->contact->title->toBe('String value')
+        ->contact->title->toEqual(ContactTitleEnum::DOCTOR)
         ->contact->firstName->toBe('String value')
         ->contact->midName->toBe('String value')
         ->contact->lastName->toBe('String value')
@@ -369,7 +377,7 @@ it('calls the employeeCreateEmployeeRequest method in the Employee resource', fu
             countryId: 'mock-id-123',
             county: 'String value'
         ),
-        status: 'String value'
+        status: EmployeeUpdateStatusEnum::ACTIVE
     );
 
     Saloon::fake([
@@ -392,8 +400,8 @@ it('calls the employeeGetEmployeeTimeCardsRequest method in the Employee resourc
         EmployeeGetEmployeeTimeCardsRequest::class => MockResponse::make([
             0 => [
                 'refNbr' => 'String value',
-                'status' => 'String value',
-                'approvalStatus' => 'String value',
+                'status' => 'Hold',
+                'approvalStatus' => 'New',
                 'week' => [
                     'number' => 'String value',
                     'description' => 'String value',
@@ -403,7 +411,7 @@ it('calls the employeeGetEmployeeTimeCardsRequest method in the Employee resourc
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'type' => 'String value',
+                'type' => 'Normal',
                 'origRefNbr' => 'String value',
                 'timeSpent' => 42,
                 'invoiceable' => 42,
@@ -420,8 +428,8 @@ it('calls the employeeGetEmployeeTimeCardsRequest method in the Employee resourc
             ],
             1 => [
                 'refNbr' => 'String value',
-                'status' => 'String value',
-                'approvalStatus' => 'String value',
+                'status' => 'Hold',
+                'approvalStatus' => 'New',
                 'week' => [
                     'number' => 'String value',
                     'description' => 'String value',
@@ -431,7 +439,7 @@ it('calls the employeeGetEmployeeTimeCardsRequest method in the Employee resourc
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'type' => 'String value',
+                'type' => 'Normal',
                 'origRefNbr' => 'String value',
                 'timeSpent' => 42,
                 'invoiceable' => 42,
@@ -474,14 +482,14 @@ it('calls the employeeGetEmployeeTimeCardsRequest method in the Employee resourc
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
-        ->approvalStatus->toBe('String value')
+        ->status->toEqual(EmployeeTimeCardQueryParametersStatusEnum::HOLD)
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
         ->week->number->toBe('String value')
         ->week->description->toBe('String value')
         ->employee->internalId->toBe('mock-id-123')
         ->employee->number->toBe('String value')
         ->employee->name->toBe('String value')
-        ->type->toBe('String value')
+        ->type->toEqual(EmployeeTimeCardQueryParametersTypeEnum::NORMAL)
         ->origRefNbr->toBe('String value')
         ->timeSpent->toBe(42)
         ->invoiceable->toBe(42)
@@ -499,8 +507,8 @@ it('calls the employeeGetEmployeeExpenseClaimsByemployeeCdRequest method in the 
     Saloon::fake([
         EmployeeGetEmployeeExpenseClaimsByemployeeCdRequest::class => MockResponse::make([
             'refNbr' => 'String value',
-            'status' => 'String value',
-            'approvalStatus' => 'String value',
+            'status' => 'Hold',
+            'approvalStatus' => 'New',
             'date' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
             'claimedBy' => [
@@ -557,8 +565,8 @@ it('calls the employeeGetEmployeeExpenseClaimsByemployeeCdRequest method in the 
 
     expect($dto)
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
-        ->approvalStatus->toBe('String value')
+        ->status->toEqual(ExpenseClaimQueryParametersStatusEnum::HOLD)
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
         ->claimedBy->internalId->toBe('mock-id-123')
@@ -601,17 +609,17 @@ it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCdRequest method in th
             'totalAmount' => 42,
             'employeePart' => 42,
             'claimAmount' => 42,
-            'status' => 'String value',
+            'status' => 'Open',
             'claimedBy' => [
                 'employeeUserId' => 'mock-id-123',
                 'employeeId' => 42,
                 'employeeNumber' => 'String value',
                 'employeeName' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'department' => 'String value',
                 'contact' => [
                     'employeeContact' => 'String value',
-                    'title' => 'String value',
+                    'title' => 'Doctor',
                     'firstName' => 'String value',
                     'midName' => 'String value',
                     'lastName' => 'String value',
@@ -745,15 +753,15 @@ it('calls the employeeGetEmployeeExpenseReceiptsByemployeeCdRequest method in th
         ->totalAmount->toBe(42)
         ->employeePart->toBe(42)
         ->claimAmount->toBe(42)
-        ->status->toBe('String value')
+        ->status->toEqual(ExpenseReceiptQueryParametersStatusEnum::OPEN)
         ->claimedBy->employeeUserId->toBe('mock-id-123')
         ->claimedBy->employeeId->toBe(42)
         ->claimedBy->employeeNumber->toBe('String value')
         ->claimedBy->employeeName->toBe('String value')
-        ->claimedBy->status->toBe('String value')
+        ->claimedBy->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->claimedBy->department->toBe('String value')
         ->claimedBy->contact->employeeContact->toBe('String value')
-        ->claimedBy->contact->title->toBe('String value')
+        ->claimedBy->contact->title->toEqual(ContactTitleEnum::DOCTOR)
         ->claimedBy->contact->firstName->toBe('String value')
         ->claimedBy->contact->midName->toBe('String value')
         ->claimedBy->contact->lastName->toBe('String value')

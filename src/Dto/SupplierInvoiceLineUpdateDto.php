@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -14,7 +15,7 @@ class SupplierInvoiceLineUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -80,7 +81,11 @@ class SupplierInvoiceLineUpdateDto extends SpatieData
         public ?string $externalInventoryId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $prebookAccountNumber = null,
-        /** @var SegmentUpdateDto[]|null */
+        /**
+         * @var SegmentUpdateDto[]|null
+         *                              Subaccount used for prebooking. Note that this feature is not available for
+         *                              all countries.
+         */
         public ?array $prebookSubaccount = null,
     ) {}
 }

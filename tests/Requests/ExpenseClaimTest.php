@@ -1,6 +1,9 @@
 <?php
 
 use Pionect\VismaSdk\Dto\ExpenseClaimUpdateDto;
+use Pionect\VismaSdk\Enums\ExpenseClaimQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\ExpenseClaimUpdateCustomerUpdateAnswerEnum;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimCreateExpenseClaimRequest;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimDeleteByexpenseClaimNbrRequest;
 use Pionect\VismaSdk\Requests\ExpenseClaim\ExpenseClaimGetAllRequest;
@@ -20,8 +23,8 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbrRequest method in the 
     Saloon::fake([
         ExpenseClaimGetExpenseClaimByexpenseClaimNbrRequest::class => MockResponse::make([
             'refNbr' => 'String value',
-            'status' => 'String value',
-            'approvalStatus' => 'String value',
+            'status' => 'Hold',
+            'approvalStatus' => 'New',
             'date' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
             'claimedBy' => [
@@ -66,8 +69,8 @@ it('calls the expenseClaimGetExpenseClaimByexpenseClaimNbrRequest method in the 
 
     expect($dto)
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
-        ->approvalStatus->toBe('String value')
+        ->status->toEqual(ExpenseClaimQueryParametersStatusEnum::HOLD)
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
         ->claimedBy->internalId->toBe('mock-id-123')
@@ -94,7 +97,7 @@ it('calls the expenseClaimPutByexpenseClaimNbrRequest method in the ExpenseClaim
         description: 'String value',
         claimedBy: 'String value',
         customer: 'String value',
-        customerUpdateAnswer: 'String value',
+        customerUpdateAnswer: ExpenseClaimUpdateCustomerUpdateAnswerEnum::SELECTED_CUSTOMER,
         location: 'String value',
         details: []
     );
@@ -137,8 +140,8 @@ it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', fu
         ExpenseClaimGetAllRequest::class => MockResponse::make([
             0 => [
                 'refNbr' => 'String value',
-                'status' => 'String value',
-                'approvalStatus' => 'String value',
+                'status' => 'Hold',
+                'approvalStatus' => 'New',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
                 'claimedBy' => [
@@ -169,8 +172,8 @@ it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', fu
             ],
             1 => [
                 'refNbr' => 'String value',
-                'status' => 'String value',
-                'approvalStatus' => 'String value',
+                'status' => 'Hold',
+                'approvalStatus' => 'New',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
                 'claimedBy' => [
@@ -228,8 +231,8 @@ it('calls the expenseClaimGetAllRequest method in the ExpenseClaim resource', fu
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
-        ->approvalStatus->toBe('String value')
+        ->status->toEqual(ExpenseClaimQueryParametersStatusEnum::HOLD)
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
         ->claimedBy->internalId->toBe('mock-id-123')
@@ -256,7 +259,7 @@ it('calls the expenseClaimCreateExpenseClaimRequest method in the ExpenseClaim r
         description: 'String value',
         claimedBy: 'String value',
         customer: 'String value',
-        customerUpdateAnswer: 'String value',
+        customerUpdateAnswer: ExpenseClaimUpdateCustomerUpdateAnswerEnum::SELECTED_CUSTOMER,
         location: 'String value',
         details: []
     );

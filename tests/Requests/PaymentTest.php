@@ -3,6 +3,8 @@
 use Pionect\VismaSdk\Dto\PaymentUpdateDto;
 use Pionect\VismaSdk\Dto\ReleasePaymentActionDto;
 use Pionect\VismaSdk\Dto\VoidPaymentActionDto;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
+use Pionect\VismaSdk\Enums\PaymentTypeEnum;
 use Pionect\VismaSdk\Requests\Payment\PaymentCreatePaymentRequest;
 use Pionect\VismaSdk\Requests\Payment\PaymentGetAllPaymentsRequest;
 use Pionect\VismaSdk\Requests\Payment\PaymentGetBypaymentNumberRequest;
@@ -19,9 +21,9 @@ beforeEach(function () {
 it('calls the paymentGetBypaymentNumberRequest method in the Payment resource', function () {
     Saloon::fake([
         PaymentGetBypaymentNumberRequest::class => MockResponse::make([
-            'type' => 'String value',
+            'type' => 'Payment',
             'refNbr' => 'String value',
-            'status' => 'String value',
+            'status' => 'Hold',
             'hold' => true,
             'applicationDate' => '2025-11-22T10:40:04+00:00',
             'applicationPeriod' => 'String value',
@@ -74,9 +76,9 @@ it('calls the paymentGetBypaymentNumberRequest method in the Payment resource', 
     $dto = $response->dto();
 
     expect($dto)
-        ->type->toBe('String value')
+        ->type->toEqual(PaymentTypeEnum::PAYMENT)
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->hold->toBe(true)
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
@@ -108,7 +110,7 @@ it('calls the paymentGetBypaymentNumberRequest method in the Payment resource', 
 it('calls the paymentPutBypaymentNumberRequest method in the Payment resource', function () {
     $bodyData = new PaymentUpdateDto(
         referenceNumber: 'String value',
-        type: 'String value',
+        type: PaymentTypeEnum::PAYMENT,
         hold: true,
         applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         applicationPeriod: 'String value',
@@ -147,9 +149,9 @@ it('calls the paymentGetAllPaymentsRequest method in the Payment resource', func
     Saloon::fake([
         PaymentGetAllPaymentsRequest::class => MockResponse::make([
             0 => [
-                'type' => 'String value',
+                'type' => 'Payment',
                 'refNbr' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
@@ -188,9 +190,9 @@ it('calls the paymentGetAllPaymentsRequest method in the Payment resource', func
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'type' => 'String value',
+                'type' => 'Payment',
                 'refNbr' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'applicationDate' => '2025-11-22T10:40:04+00:00',
                 'applicationPeriod' => 'String value',
@@ -261,9 +263,9 @@ it('calls the paymentGetAllPaymentsRequest method in the Payment resource', func
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->type->toBe('String value')
+        ->type->toEqual(PaymentTypeEnum::PAYMENT)
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CashSaleStatusEnum::HOLD)
         ->hold->toBe(true)
         ->applicationDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->applicationPeriod->toBe('String value')
@@ -295,7 +297,7 @@ it('calls the paymentGetAllPaymentsRequest method in the Payment resource', func
 it('calls the paymentCreatePaymentRequest method in the Payment resource', function () {
     $bodyData = new PaymentUpdateDto(
         referenceNumber: 'String value',
-        type: 'String value',
+        type: PaymentTypeEnum::PAYMENT,
         hold: true,
         applicationDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         applicationPeriod: 'String value',
@@ -331,7 +333,7 @@ it('calls the paymentCreatePaymentRequest method in the Payment resource', funct
 
 it('calls the paymentReleasePaymentBypaymentNumberRequest method in the Payment resource', function () {
     $bodyData = new ReleasePaymentActionDto(
-        type: 'String value'
+        type: PaymentTypeEnum::PAYMENT
     );
 
     Saloon::fake([
@@ -352,7 +354,7 @@ it('calls the paymentReleasePaymentBypaymentNumberRequest method in the Payment 
 
 it('calls the paymentVoidPaymentBypaymentNumberRequest method in the Payment resource', function () {
     $bodyData = new VoidPaymentActionDto(
-        type: 'String value',
+        type: PaymentTypeEnum::PAYMENT,
         returnVoidPayment: true
     );
 

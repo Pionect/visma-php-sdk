@@ -14,6 +14,7 @@ class DisposalMethodInDetailsDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The description of the disposal method */
         public ?string $description = null,
     ) {}
 }

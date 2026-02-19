@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\FixedAssetTransactionDto;
+use Pionect\VismaSdk\Enums\FixedAssetTransactionOriginEnum;
+use Pionect\VismaSdk\Enums\FixedAssetTransactionTransactionTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class FixedAssetTransactionDtoFactory extends Factory
@@ -14,11 +16,11 @@ class FixedAssetTransactionDtoFactory extends Factory
             'refNo' => $this->faker->word(),
             'lineNo' => $this->faker->numberBetween(1, 100),
             'branchId' => $this->faker->uuid(),
-            'origin' => $this->faker->word(),
+            'origin' => $this->faker->randomElement(FixedAssetTransactionOriginEnum::cases()),
             'assetId' => $this->faker->uuid(),
             'transactionDescription' => $this->faker->sentence(),
             'bookId' => $this->faker->uuid(),
-            'transactionType' => $this->faker->word(),
+            'transactionType' => $this->faker->randomElement(FixedAssetTransactionTransactionTypeEnum::cases()),
             'accounts' => null,
             'transactionAmount' => null,
             'batchNo' => $this->faker->word(),

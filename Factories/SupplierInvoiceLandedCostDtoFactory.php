@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SupplierInvoiceLandedCostDto;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierInvoiceLandedCostDtoFactory extends Factory
@@ -15,7 +16,7 @@ class SupplierInvoiceLandedCostDtoFactory extends Factory
             'description' => $this->faker->sentence(),
             'amount' => null,
             'vatCategoryId' => $this->faker->uuid(),
-            'purchaseReceiptType' => $this->faker->word(),
+            'purchaseReceiptType' => $this->faker->randomElement(PurchaseReceiptsTypeEnum::cases()),
             'purcahseOrderReceiptNumber' => $this->faker->word(),
             'inventoryId' => $this->faker->uuid(),
             'siteId' => $this->faker->uuid(),

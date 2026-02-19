@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\CustomerDebitNoteUpdateDto;
+use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Requests\CustomerDebitNoteV2\CustomerDebitNoteV2CreateRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -24,7 +25,7 @@ it('calls the customerDebitNoteV2createRequest method in the CustomerDebitNoteV2
         contact: 42,
         rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
-            type: 'String value',
+            type: WorkTypeRutRotTypeEnum::RUT,
             appartment: 'String value',
             estate: 'String value',
             organizationNbr: 'String value',

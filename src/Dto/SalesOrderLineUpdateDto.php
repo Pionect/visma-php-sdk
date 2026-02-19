@@ -2,6 +2,10 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLineOperationEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLinePoSourceEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLineShipCompleteEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -21,7 +25,7 @@ class SalesOrderLineUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $invoiceNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $salesOrderOperation = null,
+        public ?SalesOrderLineOperationEnum $salesOrderOperation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $freeItem = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -29,7 +33,7 @@ class SalesOrderLineUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $shipOn = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $shipComplete = null,
+        public ?SalesOrderLineShipCompleteEnum $shipComplete = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $undershipThreshold = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -39,7 +43,7 @@ class SalesOrderLineUpdateDto extends SpatieData
         #[MapName('markForPO'), WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $markForPo = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $poSource = null,
+        public ?SalesOrderLinePoSourceEnum $poSource = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $lotSerialNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -64,7 +68,7 @@ class SalesOrderLineUpdateDto extends SpatieData
         public ?bool $isRotRutDeductible = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branchNumber = null,
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\LandedCostUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\LandedCostApDocTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class LandedCostUpdateDtoFactory extends Factory
@@ -11,7 +14,7 @@ class LandedCostUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'landedCostCode' => $this->faker->word(),
             'description' => $this->faker->sentence(),
@@ -24,9 +27,9 @@ class LandedCostUpdateDtoFactory extends Factory
             'taxCategory' => $this->faker->word(),
             'terms' => $this->faker->word(),
             'inventoryId' => $this->faker->uuid(),
-            'apDocType' => $this->faker->word(),
+            'apDocType' => $this->faker->randomElement(LandedCostApDocTypeEnum::cases()),
             'apRefNbr' => $this->faker->word(),
-            'inDocType' => $this->faker->word(),
+            'inDocType' => $this->faker->randomElement(CashSaleDocumentTypeEnum::cases()),
             'inRefNbr' => $this->faker->word(),
             'postponePurchaseInvoiceCreation' => $this->faker->boolean(),
         ];

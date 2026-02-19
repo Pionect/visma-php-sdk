@@ -1,5 +1,8 @@
 <?php
 
+use Pionect\VismaSdk\Enums\SalesOrderLineOperationEnum;
+use Pionect\VismaSdk\Enums\SalesOrderTypeBehaviorEnum;
+use Pionect\VismaSdk\Enums\SalesOrderTypeCustomerDocumentTypeEnum;
 use Pionect\VismaSdk\Requests\SalesOrderType\SalesOrderTypeGetAllSalesOrderTypesRequest;
 use Pionect\VismaSdk\Requests\SalesOrderType\SalesOrderTypeGetSalesOrderTypeByorderTypeRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -15,9 +18,9 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderTypeRequest method in the Sa
             'orderType' => 'String value',
             'active' => true,
             'description' => 'String value',
-            'behavior' => 'String value',
-            'defaultOperation' => 'String value',
-            'customerDocumentType' => 'String value',
+            'behavior' => 'SalesOrder',
+            'defaultOperation' => 'Issue',
+            'customerDocumentType' => 'Invoice',
             'errorInfo' => 'String value',
         ], 200),
     ]);
@@ -38,9 +41,9 @@ it('calls the salesOrderTypeGetSalesOrderTypeByorderTypeRequest method in the Sa
         ->orderType->toBe('String value')
         ->active->toBe(true)
         ->description->toBe('String value')
-        ->behavior->toBe('String value')
-        ->defaultOperation->toBe('String value')
-        ->customerDocumentType->toBe('String value')
+        ->behavior->toEqual(SalesOrderTypeBehaviorEnum::SALES_ORDER)
+        ->defaultOperation->toEqual(SalesOrderLineOperationEnum::ISSUE)
+        ->customerDocumentType->toEqual(SalesOrderTypeCustomerDocumentTypeEnum::INVOICE)
         ->errorInfo->toBe('String value');
 });
 
@@ -51,18 +54,18 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesRequest method in the SalesOrde
                 'orderType' => 'String value',
                 'active' => true,
                 'description' => 'String value',
-                'behavior' => 'String value',
-                'defaultOperation' => 'String value',
-                'customerDocumentType' => 'String value',
+                'behavior' => 'SalesOrder',
+                'defaultOperation' => 'Issue',
+                'customerDocumentType' => 'Invoice',
                 'errorInfo' => 'String value',
             ],
             1 => [
                 'orderType' => 'String value',
                 'active' => true,
                 'description' => 'String value',
-                'behavior' => 'String value',
-                'defaultOperation' => 'String value',
-                'customerDocumentType' => 'String value',
+                'behavior' => 'SalesOrder',
+                'defaultOperation' => 'Issue',
+                'customerDocumentType' => 'Invoice',
                 'errorInfo' => 'String value',
             ],
         ], 200),
@@ -89,8 +92,8 @@ it('calls the salesOrderTypeGetAllSalesOrderTypesRequest method in the SalesOrde
         ->orderType->toBe('String value')
         ->active->toBe(true)
         ->description->toBe('String value')
-        ->behavior->toBe('String value')
-        ->defaultOperation->toBe('String value')
-        ->customerDocumentType->toBe('String value')
+        ->behavior->toEqual(SalesOrderTypeBehaviorEnum::SALES_ORDER)
+        ->defaultOperation->toEqual(SalesOrderLineOperationEnum::ISSUE)
+        ->customerDocumentType->toEqual(SalesOrderTypeCustomerDocumentTypeEnum::INVOICE)
         ->errorInfo->toBe('String value');
 });

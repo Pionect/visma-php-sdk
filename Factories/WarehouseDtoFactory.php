@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\WarehouseDto;
+use Pionect\VismaSdk\Enums\WarehouseAvgDefaultCostEnum;
+use Pionect\VismaSdk\Enums\WarehouseLocationEntryEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class WarehouseDtoFactory extends Factory
@@ -16,9 +18,9 @@ class WarehouseDtoFactory extends Factory
             'active' => $this->faker->boolean(),
             'lockSitePicountEntry' => $this->faker->boolean(),
             'description' => $this->faker->sentence(),
-            'locationEntry' => $this->faker->word(),
-            'avgDefaultCost' => $this->faker->word(),
-            'fifoDefaultCost' => $this->faker->word(),
+            'locationEntry' => $this->faker->randomElement(WarehouseLocationEntryEnum::cases()),
+            'avgDefaultCost' => $this->faker->randomElement(WarehouseAvgDefaultCostEnum::cases()),
+            'fifoDefaultCost' => $this->faker->randomElement(WarehouseAvgDefaultCostEnum::cases()),
             'receiptLocation' => null,
             'shipLocation' => null,
             'returnLocation' => null,

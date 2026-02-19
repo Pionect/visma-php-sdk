@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -15,7 +16,7 @@ class CorrectSupplierInvoiceActionResultDto extends SpatieData
         public ?string $refNbr = null,
         public ?string $errorMessage = null,
         public ?string $actionId = null,
-        public ?string $actionResult = null,
+        public ?ReleaseCashTransactionActionResultActionResultEnum $actionResult = null,
         public ?string $errorInfo = null,
     ) {}
 }

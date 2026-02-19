@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\CustomerQueryParameters;
+use Pionect\VismaSdk\Enums\CustomerStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerQueryParametersFactory extends Factory
@@ -14,7 +15,7 @@ class CustomerQueryParametersFactory extends Factory
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'name' => $this->faker->name(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(CustomerStatusEnum::cases()),
             'corporateId' => $this->faker->uuid(),
             'vatRegistrationId' => $this->faker->uuid(),
             'email' => $this->faker->safeEmail(),

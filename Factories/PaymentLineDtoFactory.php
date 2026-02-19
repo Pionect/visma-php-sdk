@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PaymentLineDto;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PaymentLineDtoFactory extends Factory
@@ -11,7 +12,7 @@ class PaymentLineDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'documentType' => $this->faker->word(),
+            'documentType' => $this->faker->randomElement(CashSaleDocumentTypeEnum::cases()),
             'refNbr' => $this->faker->word(),
             'amountPaid' => null,
             'cashDiscountTaken' => null,

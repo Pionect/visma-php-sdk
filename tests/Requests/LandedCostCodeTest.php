@@ -1,5 +1,8 @@
 <?php
 
+use Pionect\VismaSdk\Enums\LandedCostCodeAllocationMethodEnum;
+use Pionect\VismaSdk\Enums\LandedCostCodeApplicationMethodEnum;
+use Pionect\VismaSdk\Enums\LandedCostCodeLandedCostTypeEnum;
 use Pionect\VismaSdk\Requests\LandedCostCode\LandedCostCodeGetAllLandedCostsBycodeRequest;
 use Pionect\VismaSdk\Requests\LandedCostCode\LandedCostCodeGetAllLandedCostsRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -14,9 +17,9 @@ it('calls the landedCostCodeGetAllLandedCostsBycodeRequest method in the LandedC
         LandedCostCodeGetAllLandedCostsBycodeRequest::class => MockResponse::make([
             'landedCostCodeId' => 'mock-id-123',
             'description' => 'String value',
-            'landedCostType' => 'String value',
-            'applicationMethod' => 'String value',
-            'allocationMethod' => 'String value',
+            'landedCostType' => 'FreightAndMisOriginCharges',
+            'applicationMethod' => 'FromAP',
+            'allocationMethod' => 'ByQuantity',
             'supplierId' => 'mock-id-123',
             'supplierLocationId' => 'mock-id-123',
             'terms' => 'String value',
@@ -45,9 +48,9 @@ it('calls the landedCostCodeGetAllLandedCostsBycodeRequest method in the LandedC
     expect($dto)
         ->landedCostCodeId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->landedCostType->toBe('String value')
-        ->applicationMethod->toBe('String value')
-        ->allocationMethod->toBe('String value')
+        ->landedCostType->toEqual(LandedCostCodeLandedCostTypeEnum::FREIGHT_AND_MIS_ORIGIN_CHARGES)
+        ->applicationMethod->toEqual(LandedCostCodeApplicationMethodEnum::FROM_AP)
+        ->allocationMethod->toEqual(LandedCostCodeAllocationMethodEnum::BY_QUANTITY)
         ->supplierId->toBe('mock-id-123')
         ->supplierLocationId->toBe('mock-id-123')
         ->terms->toBe('String value')
@@ -66,9 +69,9 @@ it('calls the landedCostCodeGetAllLandedCostsRequest method in the LandedCostCod
             0 => [
                 'landedCostCodeId' => 'mock-id-123',
                 'description' => 'String value',
-                'landedCostType' => 'String value',
-                'applicationMethod' => 'String value',
-                'allocationMethod' => 'String value',
+                'landedCostType' => 'FreightAndMisOriginCharges',
+                'applicationMethod' => 'FromAP',
+                'allocationMethod' => 'ByQuantity',
                 'supplierId' => 'mock-id-123',
                 'supplierLocationId' => 'mock-id-123',
                 'terms' => 'String value',
@@ -83,9 +86,9 @@ it('calls the landedCostCodeGetAllLandedCostsRequest method in the LandedCostCod
             1 => [
                 'landedCostCodeId' => 'mock-id-123',
                 'description' => 'String value',
-                'landedCostType' => 'String value',
-                'applicationMethod' => 'String value',
-                'allocationMethod' => 'String value',
+                'landedCostType' => 'FreightAndMisOriginCharges',
+                'applicationMethod' => 'FromAP',
+                'allocationMethod' => 'ByQuantity',
                 'supplierId' => 'mock-id-123',
                 'supplierLocationId' => 'mock-id-123',
                 'terms' => 'String value',
@@ -121,9 +124,9 @@ it('calls the landedCostCodeGetAllLandedCostsRequest method in the LandedCostCod
     expect($collection->first())
         ->landedCostCodeId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->landedCostType->toBe('String value')
-        ->applicationMethod->toBe('String value')
-        ->allocationMethod->toBe('String value')
+        ->landedCostType->toEqual(LandedCostCodeLandedCostTypeEnum::FREIGHT_AND_MIS_ORIGIN_CHARGES)
+        ->applicationMethod->toEqual(LandedCostCodeApplicationMethodEnum::FROM_AP)
+        ->allocationMethod->toEqual(LandedCostCodeAllocationMethodEnum::BY_QUANTITY)
         ->supplierId->toBe('mock-id-123')
         ->supplierLocationId->toBe('mock-id-123')
         ->terms->toBe('String value')

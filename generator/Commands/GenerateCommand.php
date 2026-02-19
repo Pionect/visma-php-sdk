@@ -7,6 +7,7 @@ namespace Pionect\VismaSdk\Generator\Commands;
 use Crescat\SaloonSdkGenerator\CodeGenerator;
 use Crescat\SaloonSdkGenerator\Data\Generator\Config;
 use Crescat\SaloonSdkGenerator\Data\TaggedOutputFile;
+use Crescat\SaloonSdkGenerator\Generators\EnumGenerator;
 use Crescat\SaloonSdkGenerator\Generators\ResourceGenerator;
 use Crescat\SaloonSdkGenerator\Parsers\OpenApiParser;
 use Pionect\VismaSdk\Generator\Generators\VismaConnectorGenerator;
@@ -79,6 +80,7 @@ class GenerateCommand extends Command
             resourceNamespaceSuffix: 'Resources',
             requestNamespaceSuffix: 'Requests',
             dtoNamespaceSuffix: 'Dto',
+            enumNamespaceSuffix: 'Enums',
             suffixRequestClasses: true,
         );
 
@@ -104,17 +106,24 @@ class GenerateCommand extends Command
         // Generate code using Plain JSON generators
         $this->io->section('Generating SDK');
 
+        // Create enum generator and inject it into DTO generator
+        $enumGenerator = new EnumGenerator($config);
+        $dtoGenerator = new VismaDtoGenerator($config);
+        $dtoGenerator->setEnumGenerator($enumGenerator);
+
         $codeGenerator = new CodeGenerator(
             config: $config,
             requestGenerator: new VismaRequestGenerator($config),
             resourceGenerator: new ResourceGenerator($config),
-            dtoGenerator: new VismaDtoGenerator($config),
+            dtoGenerator: $dtoGenerator,
             connectorGenerator: new VismaConnectorGenerator($config),
             postProcessors: $postProcessors,
+            additionalGenerators: [$enumGenerator],
         );
 
         try {
             $result = $codeGenerator->run($specification);
+
             $this->io->success('Code generated successfully');
         } catch (\Exception $e) {
             $this->io->error("Failed to generate code: {$e->getMessage()}");
@@ -160,7 +169,7 @@ class GenerateCommand extends Command
             $files[] = "{$outputDir}/src/Requests/{$name}.php";
         }
 
-        // Additional files (e.g., factories/tests) with explicit paths
+        // Additional files (e.g., enums, factories, tests) with explicit paths
         foreach ($result->additionalFiles ?? [] as $file) {
             if ($file instanceof TaggedOutputFile) {
                 $files[] = rtrim($outputDir, '/').'/'.ltrim($file->path, '/');
@@ -183,6 +192,7 @@ class GenerateCommand extends Command
         foreach ($result->dtoClasses ?? [] as $file) {
             $className = $this->getClassNameFromPhpFile($file);
             $path = "{$outputDir}/src/Dto/{$className}.php";
+
             if ($this->writeFile($path, (string) $file)) {
                 $written++;
             } else {

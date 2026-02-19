@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\InventoryQueryParameters;
+use Pionect\VismaSdk\Enums\InventoryQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class InventoryQueryParametersFactory extends Factory
@@ -31,7 +32,7 @@ class InventoryQueryParametersFactory extends Factory
             'expandNote' => $this->faker->boolean(),
             'attachmentLastModifiedDateTime' => $this->faker->word(),
             'attachmentLastModifiedDateTimeCondition' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(InventoryQueryParametersStatusEnum::cases()),
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'greaterThanValue' => $this->faker->word(),

@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\InventoryReceiptUpdateDto;
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
 use Pionect\VismaSdk\Requests\InventoryReceipt\InventoryReceiptGetAllRequest;
 use Pionect\VismaSdk\Requests\InventoryReceipt\InventoryReceiptGetByinventoryReceiptNumberRequest;
 use Pionect\VismaSdk\Requests\InventoryReceipt\InventoryReceiptPostRequest;
@@ -21,7 +22,7 @@ it('calls the inventoryReceiptGetByinventoryReceiptNumberRequest method in the I
             'transferNumber' => 'String value',
             'receiptLines' => [],
             'referenceNumber' => 'String value',
-            'status' => 'String value',
+            'status' => 'Hold',
             'hold' => true,
             'date' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
@@ -58,7 +59,7 @@ it('calls the inventoryReceiptGetByinventoryReceiptNumberRequest method in the I
         ->controlCost->toBe(42)
         ->transferNumber->toBe('String value')
         ->referenceNumber->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(InventoryAdjustmentStatusEnum::HOLD)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
@@ -114,7 +115,7 @@ it('calls the inventoryReceiptGetAllRequest method in the InventoryReceipt resou
                 'transferNumber' => 'String value',
                 'receiptLines' => [],
                 'referenceNumber' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
@@ -138,7 +139,7 @@ it('calls the inventoryReceiptGetAllRequest method in the InventoryReceipt resou
                 'transferNumber' => 'String value',
                 'receiptLines' => [],
                 'referenceNumber' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
@@ -187,7 +188,7 @@ it('calls the inventoryReceiptGetAllRequest method in the InventoryReceipt resou
         ->controlCost->toBe(42)
         ->transferNumber->toBe('String value')
         ->referenceNumber->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(InventoryAdjustmentStatusEnum::HOLD)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')

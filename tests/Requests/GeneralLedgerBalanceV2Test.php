@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
+use Pionect\VismaSdk\Enums\GeneralLedgerPeriodBalanceQueryParametersBalanceTypeEnum;
 use Pionect\VismaSdk\Requests\GeneralLedgerBalanceV2\GeneralLedgerBalanceV2GetGeneralLedgerBalancesRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -19,10 +21,10 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesRequest method in th
                 'ledger' => [
                     'description' => 'String value',
                 ],
-                'balanceType' => 'String value',
+                'balanceType' => 'Actual',
                 'financialPeriod' => 'String value',
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'externalCode1info' => [
@@ -60,10 +62,10 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesRequest method in th
                 'ledger' => [
                     'description' => 'String value',
                 ],
-                'balanceType' => 'String value',
+                'balanceType' => 'Actual',
                 'financialPeriod' => 'String value',
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'externalCode1info' => [
@@ -122,9 +124,9 @@ it('calls the generalLedgerBalanceV2getGeneralLedgerBalancesRequest method in th
         ->branch->number->toBe('String value')
         ->branch->name->toBe('String value')
         ->ledger->description->toBe('String value')
-        ->balanceType->toBe('String value')
+        ->balanceType->toEqual(GeneralLedgerPeriodBalanceQueryParametersBalanceTypeEnum::ACTUAL)
         ->financialPeriod->toBe('String value')
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->externalCode1info->number->toBe('String value')

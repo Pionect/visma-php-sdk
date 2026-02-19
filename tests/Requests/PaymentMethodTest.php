@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Enums\PaymentMethodMeansOfPaymentEnum;
 use Pionect\VismaSdk\Requests\PaymentMethod\PaymentMethodGetAllPaymentMethodRequest;
 use Pionect\VismaSdk\Requests\PaymentMethod\PaymentMethodGetBypaymentMethodNumberRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -14,7 +15,7 @@ it('calls the paymentMethodGetBypaymentMethodNumberRequest method in the Payment
         PaymentMethodGetBypaymentMethodNumberRequest::class => MockResponse::make([
             'paymentMethodId' => 'mock-id-123',
             'active' => true,
-            'meansOfPayment' => 'String value',
+            'meansOfPayment' => 'CreditCard',
             'description' => 'String value',
             'useInAp' => true,
             'details' => [],
@@ -36,7 +37,7 @@ it('calls the paymentMethodGetBypaymentMethodNumberRequest method in the Payment
     expect($dto)
         ->paymentMethodId->toBe('mock-id-123')
         ->active->toBe(true)
-        ->meansOfPayment->toBe('String value')
+        ->meansOfPayment->toEqual(PaymentMethodMeansOfPaymentEnum::CREDIT_CARD)
         ->description->toBe('String value')
         ->useInAp->toBe(true);
 });
@@ -47,7 +48,7 @@ it('calls the paymentMethodGetAllPaymentMethodRequest method in the PaymentMetho
             0 => [
                 'paymentMethodId' => 'mock-id-123',
                 'active' => true,
-                'meansOfPayment' => 'String value',
+                'meansOfPayment' => 'CreditCard',
                 'description' => 'String value',
                 'useInAp' => true,
                 'details' => [],
@@ -55,7 +56,7 @@ it('calls the paymentMethodGetAllPaymentMethodRequest method in the PaymentMetho
             1 => [
                 'paymentMethodId' => 'mock-id-123',
                 'active' => true,
-                'meansOfPayment' => 'String value',
+                'meansOfPayment' => 'CreditCard',
                 'description' => 'String value',
                 'useInAp' => true,
                 'details' => [],
@@ -83,7 +84,7 @@ it('calls the paymentMethodGetAllPaymentMethodRequest method in the PaymentMetho
     expect($collection->first())
         ->paymentMethodId->toBe('mock-id-123')
         ->active->toBe(true)
-        ->meansOfPayment->toBe('String value')
+        ->meansOfPayment->toEqual(PaymentMethodMeansOfPaymentEnum::CREDIT_CARD)
         ->description->toBe('String value')
         ->useInAp->toBe(true);
 });

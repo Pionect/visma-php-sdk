@@ -4,6 +4,10 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SalesOrderLineUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLineOperationEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLinePoSourceEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLineShipCompleteEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SalesOrderLineUpdateDtoFactory extends Factory
@@ -12,16 +16,16 @@ class SalesOrderLineUpdateDtoFactory extends Factory
     {
         return [
             'invoiceNbr' => $this->faker->word(),
-            'salesOrderOperation' => $this->faker->word(),
+            'salesOrderOperation' => $this->faker->randomElement(SalesOrderLineOperationEnum::cases()),
             'freeItem' => $this->faker->boolean(),
             'requestedOn' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'shipOn' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'shipComplete' => $this->faker->word(),
+            'shipComplete' => $this->faker->randomElement(SalesOrderLineShipCompleteEnum::cases()),
             'undershipThreshold' => null,
             'overshipThreshold' => null,
             'completed' => $this->faker->boolean(),
             'markForPo' => $this->faker->boolean(),
-            'poSource' => $this->faker->word(),
+            'poSource' => $this->faker->randomElement(SalesOrderLinePoSourceEnum::cases()),
             'lotSerialNbr' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'reasonCode' => $this->faker->word(),
@@ -34,7 +38,7 @@ class SalesOrderLineUpdateDtoFactory extends Factory
             'externalLink' => $this->faker->word(),
             'isRotRutDeductible' => $this->faker->boolean(),
             'branchNumber' => $this->faker->word(),
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'inventoryId' => $this->faker->uuid(),
             'inventoryNumber' => $this->faker->word(),

@@ -1,6 +1,8 @@
 <?php
 
 use Pionect\VismaSdk\Dto\JournalTransactionUpdateDto;
+use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
+use Pionect\VismaSdk\Enums\JournalTransactionStatusEnum;
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2AddHeaderAttachmentBymodulejournalTransactionNumberRequest;
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2AddLineAttachmentBymodulejournalTransactionNumberlineNumberRequest;
 use Pionect\VismaSdk\Requests\JournalTransactionV2\JournalTransactionV2GetAllJournalTransactionsRequest;
@@ -18,9 +20,9 @@ beforeEach(function () {
 it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransactionNumberRequest method in the JournalTransactionV2 resource', function () {
     Saloon::fake([
         JournalTransactionV2GetSpecificJournalTransactionsByjournalTransactionNumberRequest::class => MockResponse::make([
-            'module' => 'String value',
+            'module' => 'ModuleGL',
             'batchNumber' => 'String value',
-            'status' => 'String value',
+            'status' => 'Hold',
             'hold' => true,
             'transactionDate' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
@@ -65,9 +67,9 @@ it('calls the journalTransactionV2getSpecificJournalTransactionsByjournalTransac
     $dto = $response->dto();
 
     expect($dto)
-        ->module->toBe('String value')
+        ->module->toEqual(JournalTransactionLineModuleEnum::MODULE_GL)
         ->batchNumber->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(JournalTransactionStatusEnum::HOLD)
         ->hold->toBe(true)
         ->transactionDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
@@ -138,9 +140,9 @@ it('calls the journalTransactionV2getAllJournalTransactionsRequest method in the
     Saloon::fake([
         JournalTransactionV2GetAllJournalTransactionsRequest::class => MockResponse::make([
             0 => [
-                'module' => 'String value',
+                'module' => 'ModuleGL',
                 'batchNumber' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'transactionDate' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
@@ -171,9 +173,9 @@ it('calls the journalTransactionV2getAllJournalTransactionsRequest method in the
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'module' => 'String value',
+                'module' => 'ModuleGL',
                 'batchNumber' => 'String value',
-                'status' => 'String value',
+                'status' => 'Hold',
                 'hold' => true,
                 'transactionDate' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
@@ -227,9 +229,9 @@ it('calls the journalTransactionV2getAllJournalTransactionsRequest method in the
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->module->toBe('String value')
+        ->module->toEqual(JournalTransactionLineModuleEnum::MODULE_GL)
         ->batchNumber->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(JournalTransactionStatusEnum::HOLD)
         ->hold->toBe(true)
         ->transactionDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')

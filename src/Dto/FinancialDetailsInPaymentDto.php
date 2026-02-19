@@ -14,6 +14,7 @@ class FinancialDetailsInPaymentDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Financial Details tab > Payment date */
         public ?\Carbon\Carbon $paymentDate = null,
     ) {}
 }

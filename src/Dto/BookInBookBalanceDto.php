@@ -15,8 +15,10 @@ class BookInBookBalanceDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The book id of this fixed asset */
         #[MapName('bookID')]
         public ?string $bookId = null,
+        /** The description of the book */
         public ?string $description = null,
     ) {}
 }

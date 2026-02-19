@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\ExpenseClaimUpdateCustomerUpdateAnswerEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -22,10 +23,17 @@ class ExpenseClaimUpdateDto extends SpatieData
         public ?string $claimedBy = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $customer = null,
-        public ?string $customerUpdateAnswer = null,
+        /**
+         * If the customer is updated the claim details customer information can be
+         * updated using the provided answer. By default 'SelectedCustomer' is selected.
+         */
+        public ?ExpenseClaimUpdateCustomerUpdateAnswerEnum $customerUpdateAnswer = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $location = null,
-        /** @var ExpenseClaimDetailUpdateDto[]|null */
+        /**
+         * @var ExpenseClaimDetailUpdateDto[]|null
+         *                                         Expense Claim detail information
+         */
         public ?array $details = null,
     ) {}
 }

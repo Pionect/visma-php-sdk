@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\CustomerContractDetailsLineInvoiceTypeEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -27,6 +28,6 @@ class CustomerContractDetailsLineDto extends SpatieData
         public int|float|null $recurringDiscount = null,
         public int|float|null $renewalPrice = null,
         public int|float|null $renewalDiscount = null,
-        public ?string $invoiceType = null,
+        public ?CustomerContractDetailsLineInvoiceTypeEnum $invoiceType = null,
     ) {}
 }

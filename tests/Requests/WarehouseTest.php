@@ -1,6 +1,9 @@
 <?php
 
 use Pionect\VismaSdk\Dto\WarehouseLocationUpdateDto;
+use Pionect\VismaSdk\Enums\WarehouseAvgDefaultCostEnum;
+use Pionect\VismaSdk\Enums\WarehouseLocationEntryEnum;
+use Pionect\VismaSdk\Enums\WarehouseLocationPrimaryItemValidEnum;
 use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetAllRequest;
 use Pionect\VismaSdk\Requests\Warehouse\WarehouseGetBywarehouseIdRequest;
 use Pionect\VismaSdk\Requests\Warehouse\WarehousePostBywarehouseIdRequest;
@@ -26,9 +29,9 @@ it('calls the warehouseGetBywarehouseIdRequest method in the Warehouse resource'
             'active' => true,
             'lockSitePicountEntry' => true,
             'description' => 'String value',
-            'locationEntry' => 'String value',
-            'avgDefaultCost' => 'String value',
-            'fifoDefaultCost' => 'String value',
+            'locationEntry' => 'Validate',
+            'avgDefaultCost' => 'AverageCost',
+            'fifoDefaultCost' => 'AverageCost',
             'receiptLocation' => [
                 'description' => 'String value',
             ],
@@ -92,9 +95,9 @@ it('calls the warehouseGetBywarehouseIdRequest method in the Warehouse resource'
         ->active->toBe(true)
         ->lockSitePicountEntry->toBe(true)
         ->description->toBe('String value')
-        ->locationEntry->toBe('String value')
-        ->avgDefaultCost->toBe('String value')
-        ->fifoDefaultCost->toBe('String value')
+        ->locationEntry->toEqual(WarehouseLocationEntryEnum::VALIDATE)
+        ->avgDefaultCost->toEqual(WarehouseAvgDefaultCostEnum::AVERAGE_COST)
+        ->fifoDefaultCost->toEqual(WarehouseAvgDefaultCostEnum::AVERAGE_COST)
         ->receiptLocation->description->toBe('String value')
         ->shipLocation->description->toBe('String value')
         ->returnLocation->description->toBe('String value')
@@ -135,9 +138,9 @@ it('calls the warehouseGetAllRequest method in the Warehouse resource', function
                 'active' => true,
                 'lockSitePicountEntry' => true,
                 'description' => 'String value',
-                'locationEntry' => 'String value',
-                'avgDefaultCost' => 'String value',
-                'fifoDefaultCost' => 'String value',
+                'locationEntry' => 'Validate',
+                'avgDefaultCost' => 'AverageCost',
+                'fifoDefaultCost' => 'AverageCost',
                 'receiptLocation' => [
                     'description' => 'String value',
                 ],
@@ -191,9 +194,9 @@ it('calls the warehouseGetAllRequest method in the Warehouse resource', function
                 'active' => true,
                 'lockSitePicountEntry' => true,
                 'description' => 'String value',
-                'locationEntry' => 'String value',
-                'avgDefaultCost' => 'String value',
-                'fifoDefaultCost' => 'String value',
+                'locationEntry' => 'Validate',
+                'avgDefaultCost' => 'AverageCost',
+                'fifoDefaultCost' => 'AverageCost',
                 'receiptLocation' => [
                     'description' => 'String value',
                 ],
@@ -262,9 +265,9 @@ it('calls the warehouseGetAllRequest method in the Warehouse resource', function
         ->active->toBe(true)
         ->lockSitePicountEntry->toBe(true)
         ->description->toBe('String value')
-        ->locationEntry->toBe('String value')
-        ->avgDefaultCost->toBe('String value')
-        ->fifoDefaultCost->toBe('String value')
+        ->locationEntry->toEqual(WarehouseLocationEntryEnum::VALIDATE)
+        ->avgDefaultCost->toEqual(WarehouseAvgDefaultCostEnum::AVERAGE_COST)
+        ->fifoDefaultCost->toEqual(WarehouseAvgDefaultCostEnum::AVERAGE_COST)
         ->receiptLocation->description->toBe('String value')
         ->shipLocation->description->toBe('String value')
         ->returnLocation->description->toBe('String value')
@@ -302,7 +305,7 @@ it('calls the warehousePostBywarehouseIdRequest method in the Warehouse resource
         transfersValid: true,
         assemblyValid: true,
         pickPriority: 42,
-        primaryItemValid: 'String value',
+        primaryItemValid: WarehouseLocationPrimaryItemValidEnum::PRIMARY_NOTHING,
         primaryItemId: 'mock-id-123',
         primaryItemClassId: 'mock-id-123',
         projectId: 'mock-id-123',
@@ -337,7 +340,7 @@ it('calls the warehousePutBywarehouseIdlocationIdRequest method in the Warehouse
         transfersValid: true,
         assemblyValid: true,
         pickPriority: 42,
-        primaryItemValid: 'String value',
+        primaryItemValid: WarehouseLocationPrimaryItemValidEnum::PRIMARY_NOTHING,
         primaryItemId: 'mock-id-123',
         primaryItemClassId: 'mock-id-123',
         projectId: 'mock-id-123',

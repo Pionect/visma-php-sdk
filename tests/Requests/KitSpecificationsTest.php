@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\KitSpecificationUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetAllRequest;
 use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetBykitInventoryIdRequest;
 use Pionect\VismaSdk\Requests\KitSpecifications\KitSpecificationsGetBykitInventoryIdrevisionIdRequest;
@@ -78,7 +79,7 @@ it('calls the kitSpecificationsGetAllRequest method in the KitSpecifications res
 
 it('calls the kitSpecificationsPostRequest method in the KitSpecifications resource', function () {
     $bodyData = new KitSpecificationUpdateDto(
-        operation: 'String value',
+        operation: AttributeDetailUpdateOperationEnum::INSERT,
         kitInventoryId: 'mock-id-123',
         revisionId: 'mock-id-123',
         descr: 'String value',
@@ -150,7 +151,7 @@ it('calls the kitSpecificationsGetBykitInventoryIdrevisionIdRequest method in th
 
 it('calls the kitSpecificationsPutBykitInventoryIdrevisionIdRequest method in the KitSpecifications resource', function () {
     $bodyData = new KitSpecificationUpdateDto(
-        operation: 'String value',
+        operation: AttributeDetailUpdateOperationEnum::INSERT,
         kitInventoryId: 'mock-id-123',
         revisionId: 'mock-id-123',
         descr: 'String value',

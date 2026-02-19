@@ -17,7 +17,9 @@ class InventoryAccountInInventoryAccountInformationDto extends SpatieData
 
     public function __construct(
         public ?string $type = null,
+        /** Number of item */
         public ?string $number = null,
+        /** Name of item/description */
         public ?string $description = null,
     ) {}
 }

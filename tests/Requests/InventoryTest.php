@@ -3,6 +3,9 @@
 use Pionect\VismaSdk\Dto\ChangeInventoryNbrActionDto;
 use Pionect\VismaSdk\Dto\InventoryCrossReferenceUpdateDto;
 use Pionect\VismaSdk\Dto\InventoryUpdateDto;
+use Pionect\VismaSdk\Enums\InventoryCrossReferenceAlternateTypeEnum;
+use Pionect\VismaSdk\Enums\InventoryStatusEnum;
+use Pionect\VismaSdk\Enums\ItemClassTypeEnum;
 use Pionect\VismaSdk\Requests\Inventory\InventoryChangeInventoryNbrActionByinternalIdRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryCreateInventoryAttachmentByinventoryNumberRequest;
 use Pionect\VismaSdk\Requests\Inventory\InventoryCreateInventoryCrossReferencesByinventoryNumberRequest;
@@ -33,13 +36,13 @@ it('calls the inventoryGetItemClassesRequest method in the Inventory resource', 
     Saloon::fake([
         InventoryGetItemClassesRequest::class => MockResponse::make([
             0 => [
-                'type' => 'String value',
+                'type' => 'NonStockItem',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'type' => 'String value',
+                'type' => 'NonStockItem',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
@@ -62,7 +65,7 @@ it('calls the inventoryGetItemClassesRequest method in the Inventory resource', 
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->type->toBe('String value')
+        ->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -70,7 +73,7 @@ it('calls the inventoryGetItemClassesRequest method in the Inventory resource', 
 it('calls the inventoryGetSpecificItemClassByitemClassNumberRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetSpecificItemClassByitemClassNumberRequest::class => MockResponse::make([
-            'type' => 'String value',
+            'type' => 'NonStockItem',
             'attributes' => [],
             'description' => 'String value',
             'errorInfo' => 'String value',
@@ -90,7 +93,7 @@ it('calls the inventoryGetSpecificItemClassByitemClassNumberRequest method in th
     $dto = $response->dto();
 
     expect($dto)
-        ->type->toBe('String value')
+        ->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->description->toBe('String value')
         ->errorInfo->toBe('String value');
 });
@@ -130,12 +133,12 @@ it('calls the inventoryGetByinventoryIdRequest method in the Inventory resource'
         InventoryGetByinventoryIdRequest::class => MockResponse::make([
             'inventoryId' => 42,
             'inventoryNumber' => 'String value',
-            'status' => 'String value',
-            'type' => 'String value',
+            'status' => 'Active',
+            'type' => 'NonStockItem',
             'description' => 'String value',
             'body' => 'String value',
             'itemClass' => [
-                'type' => 'String value',
+                'type' => 'NonStockItem',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
@@ -294,11 +297,11 @@ it('calls the inventoryGetByinventoryIdRequest method in the Inventory resource'
     expect($dto)
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
-        ->status->toBe('String value')
-        ->type->toBe('String value')
+        ->status->toEqual(InventoryStatusEnum::ACTIVE)
+        ->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->description->toBe('String value')
         ->body->toBe('String value')
-        ->itemClass->type->toBe('String value')
+        ->itemClass->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->itemClass->description->toBe('String value')
         ->itemClass->errorInfo->toBe('String value')
         ->postingClass->description->toBe('String value')
@@ -385,12 +388,12 @@ it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resou
         InventoryGetByinventoryNumberRequest::class => MockResponse::make([
             'inventoryId' => 42,
             'inventoryNumber' => 'String value',
-            'status' => 'String value',
-            'type' => 'String value',
+            'status' => 'Active',
+            'type' => 'NonStockItem',
             'description' => 'String value',
             'body' => 'String value',
             'itemClass' => [
-                'type' => 'String value',
+                'type' => 'NonStockItem',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
@@ -549,11 +552,11 @@ it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resou
     expect($dto)
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
-        ->status->toBe('String value')
-        ->type->toBe('String value')
+        ->status->toEqual(InventoryStatusEnum::ACTIVE)
+        ->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->description->toBe('String value')
         ->body->toBe('String value')
-        ->itemClass->type->toBe('String value')
+        ->itemClass->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->itemClass->description->toBe('String value')
         ->itemClass->errorInfo->toBe('String value')
         ->postingClass->description->toBe('String value')
@@ -638,8 +641,8 @@ it('calls the inventoryGetByinventoryNumberRequest method in the Inventory resou
 it('calls the inventoryPutByinventoryNumberRequest method in the Inventory resource', function () {
     $bodyData = new InventoryUpdateDto(
         inventoryNumber: 'String value',
-        status: 'String value',
-        type: 'String value',
+        status: InventoryStatusEnum::ACTIVE,
+        type: ItemClassTypeEnum::NON_STOCK_ITEM,
         description: 'String value',
         body: 'String value',
         itemClass: 'String value',
@@ -706,12 +709,12 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
             0 => [
                 'inventoryId' => 42,
                 'inventoryNumber' => 'String value',
-                'status' => 'String value',
-                'type' => 'String value',
+                'status' => 'Active',
+                'type' => 'NonStockItem',
                 'description' => 'String value',
                 'body' => 'String value',
                 'itemClass' => [
-                    'type' => 'String value',
+                    'type' => 'NonStockItem',
                     'attributes' => [],
                     'description' => 'String value',
                     'errorInfo' => 'String value',
@@ -856,12 +859,12 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
             1 => [
                 'inventoryId' => 42,
                 'inventoryNumber' => 'String value',
-                'status' => 'String value',
-                'type' => 'String value',
+                'status' => 'Active',
+                'type' => 'NonStockItem',
                 'description' => 'String value',
                 'body' => 'String value',
                 'itemClass' => [
-                    'type' => 'String value',
+                    'type' => 'NonStockItem',
                     'attributes' => [],
                     'description' => 'String value',
                     'errorInfo' => 'String value',
@@ -1051,11 +1054,11 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
     expect($collection->first())
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
-        ->status->toBe('String value')
-        ->type->toBe('String value')
+        ->status->toEqual(InventoryStatusEnum::ACTIVE)
+        ->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->description->toBe('String value')
         ->body->toBe('String value')
-        ->itemClass->type->toBe('String value')
+        ->itemClass->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->itemClass->description->toBe('String value')
         ->itemClass->errorInfo->toBe('String value')
         ->postingClass->description->toBe('String value')
@@ -1140,8 +1143,8 @@ it('calls the inventoryGetAllRequest method in the Inventory resource', function
 it('calls the inventoryPostRequest method in the Inventory resource', function () {
     $bodyData = new InventoryUpdateDto(
         inventoryNumber: 'String value',
-        status: 'String value',
-        type: 'String value',
+        status: InventoryStatusEnum::ACTIVE,
+        type: ItemClassTypeEnum::NON_STOCK_ITEM,
         description: 'String value',
         body: 'String value',
         itemClass: 'String value',
@@ -1304,7 +1307,7 @@ it('calls the inventoryGetInventoryPoreceiptTakeBarCodesByreceiptNbrRequest meth
 it('calls the inventoryGetInventoryCrossReferencesByinventoryNumberRequest method in the Inventory resource', function () {
     Saloon::fake([
         InventoryGetInventoryCrossReferencesByinventoryNumberRequest::class => MockResponse::make([
-            'alternateType' => 'String value',
+            'alternateType' => 'CPN',
             'bAccount' => [
                 'internalId' => 42,
                 'number' => 'String value',
@@ -1330,7 +1333,7 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumberRequest metho
     $dto = $response->dto();
 
     expect($dto)
-        ->alternateType->toBe('String value')
+        ->alternateType->toEqual(InventoryCrossReferenceAlternateTypeEnum::CPN)
         ->bAccount->internalId->toBe(42)
         ->bAccount->number->toBe('String value')
         ->bAccount->name->toBe('String value')
@@ -1342,7 +1345,7 @@ it('calls the inventoryGetInventoryCrossReferencesByinventoryNumberRequest metho
 
 it('calls the inventoryCreateInventoryCrossReferencesByinventoryNumberRequest method in the Inventory resource', function () {
     $bodyData = new InventoryCrossReferenceUpdateDto(
-        alternateType: 'String value',
+        alternateType: InventoryCrossReferenceAlternateTypeEnum::CPN,
         bAccount: 'String value',
         alternateId: 'mock-id-123',
         description: 'String value',
@@ -1427,8 +1430,8 @@ it('calls the inventoryChangeInventoryNbrActionByinternalIdRequest method in the
 it('calls the inventoryPutByinventoryIdRequest method in the Inventory resource', function () {
     $bodyData = new InventoryUpdateDto(
         inventoryNumber: 'String value',
-        status: 'String value',
-        type: 'String value',
+        status: InventoryStatusEnum::ACTIVE,
+        type: ItemClassTypeEnum::NON_STOCK_ITEM,
         description: 'String value',
         body: 'String value',
         itemClass: 'String value',
@@ -1491,7 +1494,7 @@ it('calls the inventoryPutByinventoryIdRequest method in the Inventory resource'
 
 it('calls the inventoryUpdateInventoryCrossReferencesByinventoryNumberalternateTypealternateIdRequest method in the Inventory resource', function () {
     $bodyData = new InventoryCrossReferenceUpdateDto(
-        alternateType: 'String value',
+        alternateType: InventoryCrossReferenceAlternateTypeEnum::CPN,
         bAccount: 'String value',
         alternateId: 'mock-id-123',
         description: 'String value',

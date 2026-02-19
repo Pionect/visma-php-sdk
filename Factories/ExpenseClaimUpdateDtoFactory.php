@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExpenseClaimUpdateDto;
+use Pionect\VismaSdk\Enums\ExpenseClaimUpdateCustomerUpdateAnswerEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ExpenseClaimUpdateDtoFactory extends Factory
@@ -15,7 +16,7 @@ class ExpenseClaimUpdateDtoFactory extends Factory
             'description' => $this->faker->sentence(),
             'claimedBy' => $this->faker->word(),
             'customer' => $this->faker->word(),
-            'customerUpdateAnswer' => $this->faker->word(),
+            'customerUpdateAnswer' => $this->faker->randomElement(ExpenseClaimUpdateCustomerUpdateAnswerEnum::cases()),
             'location' => $this->faker->word(),
             'details' => [],
         ];

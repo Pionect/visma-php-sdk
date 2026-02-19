@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SalesOrderDto;
+use Pionect\VismaSdk\Enums\SalesOrderLineShipCompleteEnum;
+use Pionect\VismaSdk\Enums\SalesOrderQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SalesOrderDtoFactory extends Factory
@@ -36,7 +38,7 @@ class SalesOrderDtoFactory extends Factory
             'soShippingAddress' => null,
             'schedShipment' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'shipSeparately' => $this->faker->boolean(),
-            'shipComplete' => $this->faker->word(),
+            'shipComplete' => $this->faker->randomElement(SalesOrderLineShipCompleteEnum::cases()),
             'cancelBy' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'canceled' => $this->faker->boolean(),
             'preferredWarehouse' => null,
@@ -58,7 +60,7 @@ class SalesOrderDtoFactory extends Factory
             'shipments' => [],
             'orderType' => $this->faker->word(),
             'orderNo' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(SalesOrderQueryParametersStatusEnum::cases()),
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'requestOn' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

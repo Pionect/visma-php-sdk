@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ShipmentCreateDto;
+use Pionect\VismaSdk\Enums\SalesOrderLineOperationEnum;
+use Pionect\VismaSdk\Enums\ShipmentShipmentTypeEnum;
+use Pionect\VismaSdk\Enums\ShipmentUpdateModeOfTrasportEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ShipmentCreateDtoFactory extends Factory
@@ -11,8 +14,8 @@ class ShipmentCreateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'shipmentType' => $this->faker->word(),
-            'operation' => $this->faker->word(),
+            'shipmentType' => $this->faker->randomElement(ShipmentShipmentTypeEnum::cases()),
+            'operation' => $this->faker->randomElement(SalesOrderLineOperationEnum::cases()),
             'shipmentDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'location' => $this->faker->word(),
             'customer' => $this->faker->word(),
@@ -45,7 +48,7 @@ class ShipmentCreateDtoFactory extends Factory
             'freightAmt' => null,
             'freightCost' => null,
             'transactionType' => $this->faker->numberBetween(1, 100),
-            'modeOfTrasport' => $this->faker->word(),
+            'modeOfTrasport' => $this->faker->randomElement(ShipmentUpdateModeOfTrasportEnum::cases()),
             'container' => $this->faker->boolean(),
             'note' => $this->faker->word(),
             'shipmentDetailLines' => [],

@@ -2,6 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\LandedCostApDocTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -17,7 +20,7 @@ class LandedCostUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -43,11 +46,11 @@ class LandedCostUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $inventoryId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $apDocType = null,
+        public ?LandedCostApDocTypeEnum $apDocType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $apRefNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $inDocType = null,
+        public ?CashSaleDocumentTypeEnum $inDocType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $inRefNbr = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ShipmentDto;
+use Pionect\VismaSdk\Enums\SalesOrderLineOperationEnum;
+use Pionect\VismaSdk\Enums\ShipmentShipmentTypeEnum;
+use Pionect\VismaSdk\Enums\ShipmentStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ShipmentDtoFactory extends Factory
@@ -13,10 +16,10 @@ class ShipmentDtoFactory extends Factory
         return [
             'timeStamp' => $this->faker->word(),
             'shipmentNumber' => $this->faker->word(),
-            'shipmentType' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'shipmentType' => $this->faker->randomElement(ShipmentShipmentTypeEnum::cases()),
+            'status' => $this->faker->randomElement(ShipmentStatusEnum::cases()),
             'hold' => $this->faker->boolean(),
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(SalesOrderLineOperationEnum::cases()),
             'shipmentDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'customer' => null,
             'location' => null,

@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\StocktakeUpdateDto;
+use Pionect\VismaSdk\Enums\StocktakeV2dtoSummaryStatusEnum;
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2GetAllStocktakesRequest;
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2GetByreferenceNumberRequest;
 use Pionect\VismaSdk\Requests\StocktakeV2\StocktakeV2PutByreferenceNumberRequest;
@@ -16,7 +17,7 @@ it('calls the stocktakeV2getByreferenceNumberRequest method in the StocktakeV2 r
         StocktakeV2GetByreferenceNumberRequest::class => MockResponse::make([
             'referenceNbr' => 'String value',
             'description' => 'String value',
-            'summaryStatus' => 'String value',
+            'summaryStatus' => 'Cancelled',
             'freezeDate' => '2025-11-22T10:40:04+00:00',
             'numberOfLines' => 42,
             'physicalQty' => 42,
@@ -44,7 +45,7 @@ it('calls the stocktakeV2getByreferenceNumberRequest method in the StocktakeV2 r
     expect($dto)
         ->referenceNbr->toBe('String value')
         ->description->toBe('String value')
-        ->summaryStatus->toBe('String value')
+        ->summaryStatus->toEqual(StocktakeV2dtoSummaryStatusEnum::CANCELLED)
         ->freezeDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->numberOfLines->toBe(42)
         ->physicalQty->toBe(42)
@@ -82,7 +83,7 @@ it('calls the stocktakeV2getAllStocktakesRequest method in the StocktakeV2 resou
             0 => [
                 'referenceNbr' => 'String value',
                 'description' => 'String value',
-                'summaryStatus' => 'String value',
+                'summaryStatus' => 'Cancelled',
                 'freezeDate' => '2025-11-22T10:40:04+00:00',
                 'numberOfLines' => 42,
                 'physicalQty' => 42,
@@ -96,7 +97,7 @@ it('calls the stocktakeV2getAllStocktakesRequest method in the StocktakeV2 resou
             1 => [
                 'referenceNbr' => 'String value',
                 'description' => 'String value',
-                'summaryStatus' => 'String value',
+                'summaryStatus' => 'Cancelled',
                 'freezeDate' => '2025-11-22T10:40:04+00:00',
                 'numberOfLines' => 42,
                 'physicalQty' => 42,
@@ -141,7 +142,7 @@ it('calls the stocktakeV2getAllStocktakesRequest method in the StocktakeV2 resou
     expect($collection->first())
         ->referenceNbr->toBe('String value')
         ->description->toBe('String value')
-        ->summaryStatus->toBe('String value')
+        ->summaryStatus->toEqual(StocktakeV2dtoSummaryStatusEnum::CANCELLED)
         ->freezeDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->numberOfLines->toBe(42)
         ->physicalQty->toBe(42)

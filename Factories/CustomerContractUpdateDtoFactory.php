@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerContractUpdateDto;
+use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoiceToEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerContractUpdateDtoFactory extends Factory
@@ -23,7 +24,7 @@ class CustomerContractUpdateDtoFactory extends Factory
             'renewalPoint' => $this->faker->numberBetween(1, 100),
             'gracePeriod' => $this->faker->numberBetween(1, 100),
             'currency' => $this->faker->word(),
-            'invoiceTo' => $this->faker->word(),
+            'invoiceTo' => $this->faker->randomElement(CustomerContractSummaryInvoiceToEnum::cases()),
             'invoiceAccount' => $this->faker->word(),
             'invoiceLocation' => $this->faker->word(),
             'owner' => $this->faker->word(),

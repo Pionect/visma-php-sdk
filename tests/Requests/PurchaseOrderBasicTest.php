@@ -1,6 +1,8 @@
 <?php
 
 use Pionect\VismaSdk\Dto\PurchaseOrderBasicUpdateDto;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderStatusEnum;
 use Pionect\VismaSdk\Requests\PurchaseOrderBasic\PurchaseOrderBasicGetAllOrderBasicRequest;
 use Pionect\VismaSdk\Requests\PurchaseOrderBasic\PurchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumberRequest;
 use Pionect\VismaSdk\Requests\PurchaseOrderBasic\PurchaseOrderBasicPostRequest;
@@ -15,10 +17,10 @@ beforeEach(function () {
 it('calls the purchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumberRequest method in the PurchaseOrderBasic resource', function () {
     Saloon::fake([
         PurchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumberRequest::class => MockResponse::make([
-            'orderType' => 'String value',
+            'orderType' => 'RegularOrder',
             'orderNbr' => 'String value',
             'hold' => true,
-            'status' => 'String value',
+            'status' => 'Balanced',
             'date' => '2025-11-22T10:40:04+00:00',
             'promisedOn' => '2025-11-22T10:40:04+00:00',
             'description' => 'String value',
@@ -84,10 +86,10 @@ it('calls the purchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumberReques
     $dto = $response->dto();
 
     expect($dto)
-        ->orderType->toBe('String value')
+        ->orderType->toEqual(PurchaseOrderLineOrderTypeEnum::REGULAR_ORDER)
         ->orderNbr->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(PurchaseOrderStatusEnum::BALANCED)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->promisedOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
@@ -129,7 +131,7 @@ it('calls the purchaseOrderBasicGetPurchaseOrderBasicBypurchaseOrderNumberReques
 
 it('calls the purchaseOrderBasicPutBypurchaseOrderNumberRequest method in the PurchaseOrderBasic resource', function () {
     $bodyData = new PurchaseOrderBasicUpdateDto(
-        orderType: 'String value',
+        orderType: PurchaseOrderLineOrderTypeEnum::REGULAR_ORDER,
         orderNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -183,10 +185,10 @@ it('calls the purchaseOrderBasicGetAllOrderBasicRequest method in the PurchaseOr
     Saloon::fake([
         PurchaseOrderBasicGetAllOrderBasicRequest::class => MockResponse::make([
             0 => [
-                'orderType' => 'String value',
+                'orderType' => 'RegularOrder',
                 'orderNbr' => 'String value',
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Balanced',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'promisedOn' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
@@ -237,10 +239,10 @@ it('calls the purchaseOrderBasicGetAllOrderBasicRequest method in the PurchaseOr
                 'errorInfo' => 'String value',
             ],
             1 => [
-                'orderType' => 'String value',
+                'orderType' => 'RegularOrder',
                 'orderNbr' => 'String value',
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Balanced',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'promisedOn' => '2025-11-22T10:40:04+00:00',
                 'description' => 'String value',
@@ -322,10 +324,10 @@ it('calls the purchaseOrderBasicGetAllOrderBasicRequest method in the PurchaseOr
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->orderType->toBe('String value')
+        ->orderType->toEqual(PurchaseOrderLineOrderTypeEnum::REGULAR_ORDER)
         ->orderNbr->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(PurchaseOrderStatusEnum::BALANCED)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->promisedOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->description->toBe('String value')
@@ -367,7 +369,7 @@ it('calls the purchaseOrderBasicGetAllOrderBasicRequest method in the PurchaseOr
 
 it('calls the purchaseOrderBasicPostRequest method in the PurchaseOrderBasic resource', function () {
     $bodyData = new PurchaseOrderBasicUpdateDto(
-        orderType: 'String value',
+        orderType: PurchaseOrderLineOrderTypeEnum::REGULAR_ORDER,
         orderNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),

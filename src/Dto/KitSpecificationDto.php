@@ -26,6 +26,7 @@ class KitSpecificationDto extends SpatieData
         public ?array $stockComponentLines = null,
         /** @var KitSpecificationNonStockComponentDto[]|null */
         public ?array $nonStockComponentLines = null,
+        /** Timestamp of the kit specification record */
         public ?string $timestamp = null,
         public ?string $errorInfo = null,
     ) {}

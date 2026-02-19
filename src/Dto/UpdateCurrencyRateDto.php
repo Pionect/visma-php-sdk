@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\CreateCurrencyRateMultDivEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -17,6 +18,6 @@ class UpdateCurrencyRateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $rate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $multDiv = null,
+        public ?CreateCurrencyRateMultDivEnum $multDiv = null,
     ) {}
 }

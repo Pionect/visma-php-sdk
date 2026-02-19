@@ -14,8 +14,11 @@ class VatAgencyIdInVatInformationDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The internal id of the supplier */
         public ?int $internalId = null,
+        /** Click the magnifier. > The identifier. */
         public ?string $number = null,
+        /** Click the magnifier. > The name. */
         public ?string $name = null,
     ) {}
 }

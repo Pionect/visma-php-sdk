@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -14,7 +15,7 @@ class ExpenseClaimDetailUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $claimDetailId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -37,7 +38,11 @@ class ExpenseClaimDetailUpdateDto extends SpatieData
         public ?string $projectTask = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $expenseAccount = null,
-        /** @var SegmentUpdateDto[]|null */
+        /**
+         * @var SegmentUpdateDto[]|null
+         *                              The corresponding subaccount the system uses to record the part of the
+         *                              expense to be paid back to the employee.
+         */
         public ?array $expenseSubaccount = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $branch = null,

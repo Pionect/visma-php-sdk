@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SendExpenseClaimToApprovalActionResultDto;
+use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SendExpenseClaimToApprovalActionResultDtoFactory extends Factory
@@ -11,7 +12,7 @@ class SendExpenseClaimToApprovalActionResultDtoFactory extends Factory
     {
         return [
             'actionId' => $this->faker->uuid(),
-            'actionResult' => $this->faker->word(),
+            'actionResult' => $this->faker->randomElement(ReleaseCashTransactionActionResultActionResultEnum::cases()),
             'errorInfo' => $this->faker->word(),
         ];
     }

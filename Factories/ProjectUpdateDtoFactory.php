@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ProjectUpdateDto;
+use Pionect\VismaSdk\Enums\ProjectBillingPeriodEnum;
+use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ProjectUpdateDtoFactory extends Factory
@@ -17,14 +19,14 @@ class ProjectUpdateDtoFactory extends Factory
             'description' => $this->faker->sentence(),
             'hold' => $this->faker->boolean(),
             'template' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(TemplateNumberDescriptionStatusEnum::cases()),
             'defAccount' => $this->faker->word(),
             'defSub' => [],
             'defAccrualAccount' => $this->faker->word(),
             'defAccrualSub' => [],
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'endDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'billingPeriod' => $this->faker->word(),
+            'billingPeriod' => $this->faker->randomElement(ProjectBillingPeriodEnum::cases()),
             'allocationRule' => $this->faker->word(),
             'billingRule' => $this->faker->word(),
             'branch' => $this->faker->word(),

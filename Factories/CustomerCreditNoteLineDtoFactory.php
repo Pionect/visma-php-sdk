@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerCreditNoteLineDto;
+use Pionect\VismaSdk\Enums\CustomerInvoiceLineItemTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerCreditNoteLineDtoFactory extends Factory
@@ -14,7 +15,7 @@ class CustomerCreditNoteLineDtoFactory extends Factory
             'termStartDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'termEndDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'isRotRutDeductible' => $this->faker->boolean(),
-            'itemType' => $this->faker->word(),
+            'itemType' => $this->faker->randomElement(CustomerInvoiceLineItemTypeEnum::cases()),
             'typeOfWork' => WorkTypeDtoFactory::new()->make(),
             'deductableAmount' => null,
             'soShipmentNbr' => $this->faker->word(),

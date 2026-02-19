@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\VatInformationScheduleDto;
+use Pionect\VismaSdk\Enums\VatRateLineGroupTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class VatInformationScheduleDtoFactory extends Factory
@@ -17,7 +18,7 @@ class VatInformationScheduleDtoFactory extends Factory
             'maxTaxableAmt' => null,
             'reportingGroup' => $this->faker->word(),
             'deductibleVatRate' => null,
-            'groupType' => $this->faker->word(),
+            'groupType' => $this->faker->randomElement(VatRateLineGroupTypeEnum::cases()),
         ];
     }
 

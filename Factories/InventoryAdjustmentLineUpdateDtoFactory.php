@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\InventoryAdjustmentLineUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class InventoryAdjustmentLineUpdateDtoFactory extends Factory
@@ -14,7 +15,7 @@ class InventoryAdjustmentLineUpdateDtoFactory extends Factory
             'unitCost' => null,
             'extCost' => null,
             'receiptNumber' => $this->faker->word(),
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'inventoryNumber' => $this->faker->word(),
             'locationId' => $this->faker->uuid(),

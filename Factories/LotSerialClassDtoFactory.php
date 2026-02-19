@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\LotSerialClassDto;
+use Pionect\VismaSdk\Enums\LotSerialClassAssignmentMethodEnum;
+use Pionect\VismaSdk\Enums\LotSerialClassIssueMethodEnum;
+use Pionect\VismaSdk\Enums\LotSerialClassTrackingMethodEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class LotSerialClassDtoFactory extends Factory
@@ -13,11 +16,11 @@ class LotSerialClassDtoFactory extends Factory
         return [
             'id' => $this->faker->word(),
             'description' => $this->faker->sentence(),
-            'trackingMethod' => $this->faker->word(),
+            'trackingMethod' => $this->faker->randomElement(LotSerialClassTrackingMethodEnum::cases()),
             'trackExpirationDate' => $this->faker->boolean(),
             'requiredForDropShip' => $this->faker->boolean(),
-            'assignmentMethod' => $this->faker->word(),
-            'issueMethod' => $this->faker->word(),
+            'assignmentMethod' => $this->faker->randomElement(LotSerialClassAssignmentMethodEnum::cases()),
+            'issueMethod' => $this->faker->randomElement(LotSerialClassIssueMethodEnum::cases()),
             'autoIncrementalValueBetweenClasses' => $this->faker->boolean(),
             'autoIncrementalValue' => $this->faker->word(),
             'autoGenerateNextNumber' => $this->faker->boolean(),

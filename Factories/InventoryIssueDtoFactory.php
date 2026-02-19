@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\InventoryIssueDto;
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class InventoryIssueDtoFactory extends Factory
@@ -15,7 +16,7 @@ class InventoryIssueDtoFactory extends Factory
             'controlAmount' => null,
             'issueLines' => [],
             'referenceNumber' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(InventoryAdjustmentStatusEnum::cases()),
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'postPeriod' => $this->faker->word(),

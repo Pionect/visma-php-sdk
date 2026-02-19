@@ -1,6 +1,8 @@
 <?php
 
 use Pionect\VismaSdk\Dto\PurchaseReceiptBasicUpdateDto;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsStatusEnum;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsTypeEnum;
 use Pionect\VismaSdk\Requests\PurchaseReceiptBasic\PurchaseReceiptBasicGetAllReceiptBasicRequest;
 use Pionect\VismaSdk\Requests\PurchaseReceiptBasic\PurchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumberRequest;
 use Pionect\VismaSdk\Requests\PurchaseReceiptBasic\PurchaseReceiptBasicPostRequest;
@@ -17,10 +19,10 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumberRequest 
     Saloon::fake([
         PurchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumberRequest::class => MockResponse::make([
             'timeStamp' => 'String value',
-            'receiptType' => 'String value',
+            'receiptType' => 'PoReceipt',
             'receiptNbr' => 'String value',
             'hold' => true,
-            'status' => 'String value',
+            'status' => 'Hold',
             'date' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
             'warehouse' => [
@@ -81,10 +83,10 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumberRequest 
 
     expect($dto)
         ->timeStamp->toBe('String value')
-        ->receiptType->toBe('String value')
+        ->receiptType->toEqual(PurchaseReceiptsTypeEnum::PO_RECEIPT)
         ->receiptNbr->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(PurchaseReceiptsStatusEnum::HOLD)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
         ->warehouse->description->toBe('String value')
@@ -123,7 +125,7 @@ it('calls the purchaseReceiptBasicGetPurchaseReceiptBasicByreceiptNumberRequest 
 it('calls the purchaseReceiptBasicPutByreceiptNumberRequest method in the PurchaseReceiptBasic resource', function () {
     $bodyData = new PurchaseReceiptBasicUpdateDto(
         lines: [],
-        receiptType: 'String value',
+        receiptType: PurchaseReceiptsTypeEnum::PO_RECEIPT,
         receiptNbr: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -173,10 +175,10 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicRequest method in the Purcha
         PurchaseReceiptBasicGetAllReceiptBasicRequest::class => MockResponse::make([
             0 => [
                 'timeStamp' => 'String value',
-                'receiptType' => 'String value',
+                'receiptType' => 'PoReceipt',
                 'receiptNbr' => 'String value',
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Hold',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
                 'warehouse' => [
@@ -222,10 +224,10 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicRequest method in the Purcha
             ],
             1 => [
                 'timeStamp' => 'String value',
-                'receiptType' => 'String value',
+                'receiptType' => 'PoReceipt',
                 'receiptNbr' => 'String value',
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Hold',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
                 'warehouse' => [
@@ -304,10 +306,10 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicRequest method in the Purcha
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->timeStamp->toBe('String value')
-        ->receiptType->toBe('String value')
+        ->receiptType->toEqual(PurchaseReceiptsTypeEnum::PO_RECEIPT)
         ->receiptNbr->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(PurchaseReceiptsStatusEnum::HOLD)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
         ->warehouse->description->toBe('String value')
@@ -346,7 +348,7 @@ it('calls the purchaseReceiptBasicGetAllReceiptBasicRequest method in the Purcha
 it('calls the purchaseReceiptBasicPostRequest method in the PurchaseReceiptBasic resource', function () {
     $bodyData = new PurchaseReceiptBasicUpdateDto(
         lines: [],
-        receiptType: 'String value',
+        receiptType: PurchaseReceiptsTypeEnum::PO_RECEIPT,
         receiptNbr: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),

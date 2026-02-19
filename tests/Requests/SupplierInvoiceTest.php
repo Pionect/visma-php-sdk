@@ -2,6 +2,11 @@
 
 use Pionect\VismaSdk\Dto\PrebookingUpdateDto;
 use Pionect\VismaSdk\Dto\SupplierInvoiceUpdateDto;
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
+use Pionect\VismaSdk\Enums\LandedCostApDocTypeEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Requests\SupplierInvoice\SupplierInvoiceCorrectInvoiceByinvoiceNumberRequest;
 use Pionect\VismaSdk\Requests\SupplierInvoice\SupplierInvoiceCreateHeaderAttachmentByinvoiceNumberRequest;
 use Pionect\VismaSdk\Requests\SupplierInvoice\SupplierInvoiceCreateHeaderAttachmentByTypeBydocumentTypeinvoiceNumberRequest;
@@ -64,7 +69,7 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
             'roundingDiffInCurrency' => 42,
             'amount' => 42,
             'vatAmount' => 42,
-            'taxCalculationMode' => 'String value',
+            'taxCalculationMode' => 'TaxSetting',
             'supplierTaxZone' => [
                 'description' => 'String value',
                 'defaultVatCategory' => 'String value',
@@ -83,15 +88,15 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Check',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'date' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'dueDate' => '2025-11-22T10:40:04+00:00',
-            'approvalStatus' => 'String value',
-            'status' => 'String value',
+            'approvalStatus' => 'New',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'balance' => 42,
             'balanceInCurrency' => 42,
@@ -162,7 +167,7 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
         ->roundingDiffInCurrency->toBe(42)
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
-        ->taxCalculationMode->toBe('String value')
+        ->taxCalculationMode->toEqual(EntryTypeTaxCalculationModeEnum::TAX_SETTING)
         ->supplierTaxZone->description->toBe('String value')
         ->supplierTaxZone->defaultVatCategory->toBe('String value')
         ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
@@ -175,15 +180,15 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
         ->supplier->internalId->toBe(42)
         ->supplier->number->toBe('String value')
         ->supplier->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(LandedCostApDocTypeEnum::CHECK)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->approvalStatus->toBe('String value')
-        ->status->toBe('String value')
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
+        ->status->toEqual(SupplierInvoiceForSupplierQueryParametersStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(42)
         ->balanceInCurrency->toBe(42)
@@ -211,7 +216,7 @@ it('calls the supplierInvoiceGetByinvoiceNumberRequest method in the SupplierInv
 
 it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInvoice resource', function () {
     $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
+        documentType: SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum::INVOICE,
         referenceNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -231,7 +236,7 @@ it('calls the supplierInvoicePutByinvoiceNumberRequest method in the SupplierInv
         exchangeRate: 42,
         branchNumber: 'String value',
         roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
+        taxCalculationMode: EntryTypeTaxCalculationModeEnum::TAX_SETTING,
         supplierTaxZone: 'String value',
         cashAccount: 'String value',
         paymentMethod: 'String value',
@@ -321,7 +326,7 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
             'roundingDiffInCurrency' => 42,
             'amount' => 42,
             'vatAmount' => 42,
-            'taxCalculationMode' => 'String value',
+            'taxCalculationMode' => 'TaxSetting',
             'supplierTaxZone' => [
                 'description' => 'String value',
                 'defaultVatCategory' => 'String value',
@@ -340,15 +345,15 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Check',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'date' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'dueDate' => '2025-11-22T10:40:04+00:00',
-            'approvalStatus' => 'String value',
-            'status' => 'String value',
+            'approvalStatus' => 'New',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'balance' => 42,
             'balanceInCurrency' => 42,
@@ -420,7 +425,7 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
         ->roundingDiffInCurrency->toBe(42)
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
-        ->taxCalculationMode->toBe('String value')
+        ->taxCalculationMode->toEqual(EntryTypeTaxCalculationModeEnum::TAX_SETTING)
         ->supplierTaxZone->description->toBe('String value')
         ->supplierTaxZone->defaultVatCategory->toBe('String value')
         ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
@@ -433,15 +438,15 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
         ->supplier->internalId->toBe(42)
         ->supplier->number->toBe('String value')
         ->supplier->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(LandedCostApDocTypeEnum::CHECK)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->approvalStatus->toBe('String value')
-        ->status->toBe('String value')
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
+        ->status->toEqual(SupplierInvoiceForSupplierQueryParametersStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(42)
         ->balanceInCurrency->toBe(42)
@@ -469,7 +474,7 @@ it('calls the supplierInvoiceGetByTypeBydocumentTypeinvoiceNumberRequest method 
 
 it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method in the SupplierInvoice resource', function () {
     $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
+        documentType: SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum::INVOICE,
         referenceNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -489,7 +494,7 @@ it('calls the supplierInvoicePutByTypeBydocumentTypeinvoiceNumberRequest method 
         exchangeRate: 42,
         branchNumber: 'String value',
         roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
+        taxCalculationMode: EntryTypeTaxCalculationModeEnum::TAX_SETTING,
         supplierTaxZone: 'String value',
         cashAccount: 'String value',
         paymentMethod: 'String value',
@@ -582,7 +587,7 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
                 'roundingDiffInCurrency' => 42,
                 'amount' => 42,
                 'vatAmount' => 42,
-                'taxCalculationMode' => 'String value',
+                'taxCalculationMode' => 'TaxSetting',
                 'supplierTaxZone' => [
                     'description' => 'String value',
                     'defaultVatCategory' => 'String value',
@@ -601,15 +606,15 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Check',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'dueDate' => '2025-11-22T10:40:04+00:00',
-                'approvalStatus' => 'String value',
-                'status' => 'String value',
+                'approvalStatus' => 'New',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'balance' => 42,
                 'balanceInCurrency' => 42,
@@ -672,7 +677,7 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
                 'roundingDiffInCurrency' => 42,
                 'amount' => 42,
                 'vatAmount' => 42,
-                'taxCalculationMode' => 'String value',
+                'taxCalculationMode' => 'TaxSetting',
                 'supplierTaxZone' => [
                     'description' => 'String value',
                     'defaultVatCategory' => 'String value',
@@ -691,15 +696,15 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Check',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'dueDate' => '2025-11-22T10:40:04+00:00',
-                'approvalStatus' => 'String value',
-                'status' => 'String value',
+                'approvalStatus' => 'New',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'balance' => 42,
                 'balanceInCurrency' => 42,
@@ -797,7 +802,7 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
         ->roundingDiffInCurrency->toBe(42)
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
-        ->taxCalculationMode->toBe('String value')
+        ->taxCalculationMode->toEqual(EntryTypeTaxCalculationModeEnum::TAX_SETTING)
         ->supplierTaxZone->description->toBe('String value')
         ->supplierTaxZone->defaultVatCategory->toBe('String value')
         ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
@@ -810,15 +815,15 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
         ->supplier->internalId->toBe(42)
         ->supplier->number->toBe('String value')
         ->supplier->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(LandedCostApDocTypeEnum::CHECK)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->approvalStatus->toBe('String value')
-        ->status->toBe('String value')
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
+        ->status->toEqual(SupplierInvoiceForSupplierQueryParametersStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(42)
         ->balanceInCurrency->toBe(42)
@@ -846,7 +851,7 @@ it('calls the supplierInvoiceGetAllInvoicesRequest method in the SupplierInvoice
 
 it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource', function () {
     $bodyData = new SupplierInvoiceUpdateDto(
-        documentType: 'String value',
+        documentType: SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum::INVOICE,
         referenceNumber: 'String value',
         hold: true,
         date: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
@@ -866,7 +871,7 @@ it('calls the supplierInvoicePostRequest method in the SupplierInvoice resource'
         exchangeRate: 42,
         branchNumber: 'String value',
         roundingDiffInCurrency: 42,
-        taxCalculationMode: 'String value',
+        taxCalculationMode: EntryTypeTaxCalculationModeEnum::TAX_SETTING,
         supplierTaxZone: 'String value',
         cashAccount: 'String value',
         paymentMethod: 'String value',
@@ -939,7 +944,7 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
                 'roundingDiffInCurrency' => 42,
                 'amount' => 42,
                 'vatAmount' => 42,
-                'taxCalculationMode' => 'String value',
+                'taxCalculationMode' => 'TaxSetting',
                 'supplierTaxZone' => [
                     'description' => 'String value',
                     'defaultVatCategory' => 'String value',
@@ -958,15 +963,15 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Check',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'dueDate' => '2025-11-22T10:40:04+00:00',
-                'approvalStatus' => 'String value',
-                'status' => 'String value',
+                'approvalStatus' => 'New',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'balance' => 42,
                 'balanceInCurrency' => 42,
@@ -1029,7 +1034,7 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
                 'roundingDiffInCurrency' => 42,
                 'amount' => 42,
                 'vatAmount' => 42,
-                'taxCalculationMode' => 'String value',
+                'taxCalculationMode' => 'TaxSetting',
                 'supplierTaxZone' => [
                     'description' => 'String value',
                     'defaultVatCategory' => 'String value',
@@ -1048,15 +1053,15 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Check',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'dueDate' => '2025-11-22T10:40:04+00:00',
-                'approvalStatus' => 'String value',
-                'status' => 'String value',
+                'approvalStatus' => 'New',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'balance' => 42,
                 'balanceInCurrency' => 42,
@@ -1127,7 +1132,7 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
         ->roundingDiffInCurrency->toBe(42)
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
-        ->taxCalculationMode->toBe('String value')
+        ->taxCalculationMode->toEqual(EntryTypeTaxCalculationModeEnum::TAX_SETTING)
         ->supplierTaxZone->description->toBe('String value')
         ->supplierTaxZone->defaultVatCategory->toBe('String value')
         ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
@@ -1140,15 +1145,15 @@ it('calls the supplierInvoiceGetByApprovalDocumentIdRequest method in the Suppli
         ->supplier->internalId->toBe(42)
         ->supplier->number->toBe('String value')
         ->supplier->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(LandedCostApDocTypeEnum::CHECK)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->approvalStatus->toBe('String value')
-        ->status->toBe('String value')
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
+        ->status->toEqual(SupplierInvoiceForSupplierQueryParametersStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(42)
         ->balanceInCurrency->toBe(42)

@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\BranchQueryParameters;
+use Pionect\VismaSdk\Enums\BranchQueryParametersOrderByEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class BranchQueryParametersFactory extends Factory
@@ -12,7 +13,7 @@ class BranchQueryParametersFactory extends Factory
     {
         return [
             'greaterThanValue' => $this->faker->word(),
-            'orderBy' => $this->faker->word(),
+            'orderBy' => $this->faker->randomElement(BranchQueryParametersOrderByEnum::cases()),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'expandAddress' => $this->faker->boolean(),

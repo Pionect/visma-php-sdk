@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SupplierDetailsDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierDetailsDtoFactory extends Factory
@@ -10,7 +11,7 @@ class SupplierDetailsDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'active' => $this->faker->boolean(),
             'default' => $this->faker->boolean(),
             'supplierId' => $this->faker->uuid(),

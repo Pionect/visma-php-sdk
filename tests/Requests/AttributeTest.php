@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\AttributeUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeControlTypeEnum;
 use Pionect\VismaSdk\Requests\Attribute\AttributeDeleteByattributeIdRequest;
 use Pionect\VismaSdk\Requests\Attribute\AttributeGetAttributeByattributeIdRequest;
 use Pionect\VismaSdk\Requests\Attribute\AttributeGetAttributesRequest;
@@ -18,7 +19,7 @@ it('calls the attributeGetAttributeByattributeIdRequest method in the Attribute 
         AttributeGetAttributeByattributeIdRequest::class => MockResponse::make([
             'attributeId' => 'mock-id-123',
             'description' => 'String value',
-            'controlType' => 'String value',
+            'controlType' => 'Text',
             'internal' => true,
             'entryMask' => 'String value',
             'regExp' => 'String value',
@@ -44,7 +45,7 @@ it('calls the attributeGetAttributeByattributeIdRequest method in the Attribute 
     expect($dto)
         ->attributeId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->controlType->toBe('String value')
+        ->controlType->toEqual(AttributeControlTypeEnum::TEXT)
         ->internal->toBe(true)
         ->entryMask->toBe('String value')
         ->regExp->toBe('String value')
@@ -58,7 +59,7 @@ it('calls the attributePutByattributeIdRequest method in the Attribute resource'
         attributeId: 'mock-id-123',
         description: 'String value',
         internal: true,
-        controlType: 'String value',
+        controlType: AttributeControlTypeEnum::TEXT,
         entryMask: 'String value',
         regExp: 'String value',
         details: []
@@ -102,7 +103,7 @@ it('calls the attributeGetAttributesRequest method in the Attribute resource', f
             0 => [
                 'attributeId' => 'mock-id-123',
                 'description' => 'String value',
-                'controlType' => 'String value',
+                'controlType' => 'Text',
                 'internal' => true,
                 'entryMask' => 'String value',
                 'regExp' => 'String value',
@@ -114,7 +115,7 @@ it('calls the attributeGetAttributesRequest method in the Attribute resource', f
             1 => [
                 'attributeId' => 'mock-id-123',
                 'description' => 'String value',
-                'controlType' => 'String value',
+                'controlType' => 'Text',
                 'internal' => true,
                 'entryMask' => 'String value',
                 'regExp' => 'String value',
@@ -153,7 +154,7 @@ it('calls the attributeGetAttributesRequest method in the Attribute resource', f
     expect($collection->first())
         ->attributeId->toBe('mock-id-123')
         ->description->toBe('String value')
-        ->controlType->toBe('String value')
+        ->controlType->toEqual(AttributeControlTypeEnum::TEXT)
         ->internal->toBe(true)
         ->entryMask->toBe('String value')
         ->regExp->toBe('String value')
@@ -167,7 +168,7 @@ it('calls the attributePostRequest method in the Attribute resource', function (
         attributeId: 'mock-id-123',
         description: 'String value',
         internal: true,
-        controlType: 'String value',
+        controlType: AttributeControlTypeEnum::TEXT,
         entryMask: 'String value',
         regExp: 'String value',
         details: []

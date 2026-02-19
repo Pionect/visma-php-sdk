@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\CustomerSalesPriceUpdatePriceTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -15,7 +16,7 @@ class CustomerSalesPriceUpdateDto extends SpatieData
 
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $priceType = null,
+        public ?CustomerSalesPriceUpdatePriceTypeEnum $priceType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $priceCode = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

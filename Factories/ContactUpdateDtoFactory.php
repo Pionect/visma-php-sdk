@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\ContactUpdateDto;
+use Pionect\VismaSdk\Enums\ContactContactMethodEnum;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ContactUpdateDtoFactory extends Factory
@@ -11,7 +13,7 @@ class ContactUpdateDtoFactory extends Factory
     {
         return [
             'active' => $this->faker->boolean(),
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->randomElement(ContactTitleEnum::cases()),
             'firstName' => $this->faker->company(),
             'lastName' => $this->faker->company(),
             'position' => $this->faker->word(),
@@ -24,7 +26,7 @@ class ContactUpdateDtoFactory extends Factory
             'phone2' => $this->faker->word(),
             'phone3' => $this->faker->word(),
             'fax' => $this->faker->word(),
-            'contactMethod' => $this->faker->word(),
+            'contactMethod' => $this->faker->randomElement(ContactContactMethodEnum::cases()),
             'doNotCall' => $this->faker->boolean(),
             'doNotFax' => $this->faker->boolean(),
             'doNotEmail' => $this->faker->boolean(),

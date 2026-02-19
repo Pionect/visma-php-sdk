@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\BudgetUpdateDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Requests\Budget\BudgetCreateBudgetRequest;
 use Pionect\VismaSdk\Requests\Budget\BudgetGetAllRequest;
 use Pionect\VismaSdk\Requests\Budget\BudgetPutRequest;
@@ -19,7 +20,7 @@ it('calls the budgetGetAllRequest method in the Budget resource', function () {
                 'released' => true,
                 'releasedAmount' => 42,
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -46,7 +47,7 @@ it('calls the budgetGetAllRequest method in the Budget resource', function () {
                 'released' => true,
                 'releasedAmount' => 42,
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -98,7 +99,7 @@ it('calls the budgetGetAllRequest method in the Budget resource', function () {
         ->financialYear->toBe('String value')
         ->released->toBe(true)
         ->releasedAmount->toBe(42)
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)

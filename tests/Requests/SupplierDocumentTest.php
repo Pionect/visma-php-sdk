@@ -1,5 +1,9 @@
 <?php
 
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
+use Pionect\VismaSdk\Enums\LandedCostApDocTypeEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Requests\SupplierDocument\SupplierDocumentGetAllDocumentsForSupplierRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -13,7 +17,7 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
         SupplierDocumentGetAllDocumentsForSupplierRequest::class => MockResponse::make([
             0 => [
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -41,15 +45,15 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Check',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'dueDate' => '2025-11-22T10:40:04+00:00',
-                'approvalStatus' => 'String value',
-                'status' => 'String value',
+                'approvalStatus' => 'New',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'balance' => 42,
                 'balanceInCurrency' => 42,
@@ -82,7 +86,7 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
             ],
             1 => [
                 'account' => [
-                    'type' => 'String value',
+                    'type' => 'Asset',
                     'externalCode1' => 'String value',
                     'externalCode2' => 'String value',
                     'active' => true,
@@ -110,15 +114,15 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'documentType' => 'String value',
+                'documentType' => 'Check',
                 'referenceNumber' => 'String value',
                 'postPeriod' => 'String value',
                 'financialPeriod' => 'String value',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
                 'dueDate' => '2025-11-22T10:40:04+00:00',
-                'approvalStatus' => 'String value',
-                'status' => 'String value',
+                'approvalStatus' => 'New',
+                'status' => 'Hold',
                 'currencyId' => 'mock-id-123',
                 'balance' => 42,
                 'balanceInCurrency' => 42,
@@ -191,7 +195,7 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
 
     expect($collection)->toHaveCount(2);
     expect($collection->first())
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)
@@ -211,15 +215,15 @@ it('calls the supplierDocumentGetAllDocumentsForSupplierRequest method in the Su
         ->supplier->internalId->toBe(42)
         ->supplier->number->toBe('String value')
         ->supplier->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(LandedCostApDocTypeEnum::CHECK)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->approvalStatus->toBe('String value')
-        ->status->toBe('String value')
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
+        ->status->toEqual(SupplierInvoiceForSupplierQueryParametersStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(42)
         ->balanceInCurrency->toBe(42)

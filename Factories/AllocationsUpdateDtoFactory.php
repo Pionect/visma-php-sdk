@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\AllocationsUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class AllocationsUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class AllocationsUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNbr' => $this->faker->numberBetween(1, 100),
             'location' => $this->faker->word(),
             'lotSerialNumber' => $this->faker->word(),

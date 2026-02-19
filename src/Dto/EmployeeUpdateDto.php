@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\EmployeeUpdateStatusEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -17,7 +18,7 @@ class EmployeeUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $employeeClass = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $status = null,
+        public ?EmployeeUpdateStatusEnum $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $department = null,
         public ?ContactInEmployeeUpdateDto $contact = null,

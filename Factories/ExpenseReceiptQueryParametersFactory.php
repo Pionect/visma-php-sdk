@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\ExpenseReceiptQueryParameters;
+use Pionect\VismaSdk\Enums\ExpenseReceiptQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ExpenseReceiptQueryParametersFactory extends Factory
@@ -17,7 +18,7 @@ class ExpenseReceiptQueryParametersFactory extends Factory
             'claimedBy' => $this->faker->word(),
             'projectTask' => $this->faker->word(),
             'invoiceable' => $this->faker->boolean(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(ExpenseReceiptQueryParametersStatusEnum::cases()),
             'customer' => $this->faker->word(),
         ];
     }

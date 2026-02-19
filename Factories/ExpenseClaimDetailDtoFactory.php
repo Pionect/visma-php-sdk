@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExpenseClaimDetailDto;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ExpenseClaimDetailDtoFactory extends Factory
@@ -37,7 +38,7 @@ class ExpenseClaimDetailDtoFactory extends Factory
             'customer' => null,
             'location' => null,
             'arReferenceNbr' => $this->faker->word(),
-            'approvalStatus' => $this->faker->word(),
+            'approvalStatus' => $this->faker->randomElement(TimeCardSummaryApprovalStatusEnum::cases()),
             'approvalStatusText' => $this->faker->word(),
             'approver' => $this->faker->word(),
             'attachments' => [],

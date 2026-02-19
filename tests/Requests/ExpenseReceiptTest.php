@@ -1,6 +1,9 @@
 <?php
 
 use Pionect\VismaSdk\Dto\ExpenseReceiptUpdateDto;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
+use Pionect\VismaSdk\Enums\ExpenseReceiptQueryParametersStatusEnum;
 use Pionect\VismaSdk\Requests\ExpenseReceipt\ExpenseReceiptCreateAttachmentByreceiptNumberRequest;
 use Pionect\VismaSdk\Requests\ExpenseReceipt\ExpenseReceiptDeleteByreceiptNumberRequest;
 use Pionect\VismaSdk\Requests\ExpenseReceipt\ExpenseReceiptGetAllRequest;
@@ -36,17 +39,17 @@ it('calls the expenseReceiptGetByreceiptNumberRequest method in the ExpenseRecei
             'totalAmount' => 42,
             'employeePart' => 42,
             'claimAmount' => 42,
-            'status' => 'String value',
+            'status' => 'Open',
             'claimedBy' => [
                 'employeeUserId' => 'mock-id-123',
                 'employeeId' => 42,
                 'employeeNumber' => 'String value',
                 'employeeName' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'department' => 'String value',
                 'contact' => [
                     'employeeContact' => 'String value',
-                    'title' => 'String value',
+                    'title' => 'Doctor',
                     'firstName' => 'String value',
                     'midName' => 'String value',
                     'lastName' => 'String value',
@@ -171,15 +174,15 @@ it('calls the expenseReceiptGetByreceiptNumberRequest method in the ExpenseRecei
         ->totalAmount->toBe(42)
         ->employeePart->toBe(42)
         ->claimAmount->toBe(42)
-        ->status->toBe('String value')
+        ->status->toEqual(ExpenseReceiptQueryParametersStatusEnum::OPEN)
         ->claimedBy->employeeUserId->toBe('mock-id-123')
         ->claimedBy->employeeId->toBe(42)
         ->claimedBy->employeeNumber->toBe('String value')
         ->claimedBy->employeeName->toBe('String value')
-        ->claimedBy->status->toBe('String value')
+        ->claimedBy->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->claimedBy->department->toBe('String value')
         ->claimedBy->contact->employeeContact->toBe('String value')
-        ->claimedBy->contact->title->toBe('String value')
+        ->claimedBy->contact->title->toEqual(ContactTitleEnum::DOCTOR)
         ->claimedBy->contact->firstName->toBe('String value')
         ->claimedBy->contact->midName->toBe('String value')
         ->claimedBy->contact->lastName->toBe('String value')
@@ -321,17 +324,17 @@ it('calls the expenseReceiptGetAllRequest method in the ExpenseReceipt resource'
                 'totalAmount' => 42,
                 'employeePart' => 42,
                 'claimAmount' => 42,
-                'status' => 'String value',
+                'status' => 'Open',
                 'claimedBy' => [
                     'employeeUserId' => 'mock-id-123',
                     'employeeId' => 42,
                     'employeeNumber' => 'String value',
                     'employeeName' => 'String value',
-                    'status' => 'String value',
+                    'status' => 'Active',
                     'department' => 'String value',
                     'contact' => [
                         'employeeContact' => 'String value',
-                        'title' => 'String value',
+                        'title' => 'Doctor',
                         'firstName' => 'String value',
                         'midName' => 'String value',
                         'lastName' => 'String value',
@@ -446,17 +449,17 @@ it('calls the expenseReceiptGetAllRequest method in the ExpenseReceipt resource'
                 'totalAmount' => 42,
                 'employeePart' => 42,
                 'claimAmount' => 42,
-                'status' => 'String value',
+                'status' => 'Open',
                 'claimedBy' => [
                     'employeeUserId' => 'mock-id-123',
                     'employeeId' => 42,
                     'employeeNumber' => 'String value',
                     'employeeName' => 'String value',
-                    'status' => 'String value',
+                    'status' => 'Active',
                     'department' => 'String value',
                     'contact' => [
                         'employeeContact' => 'String value',
-                        'title' => 'String value',
+                        'title' => 'Doctor',
                         'firstName' => 'String value',
                         'midName' => 'String value',
                         'lastName' => 'String value',
@@ -591,15 +594,15 @@ it('calls the expenseReceiptGetAllRequest method in the ExpenseReceipt resource'
         ->totalAmount->toBe(42)
         ->employeePart->toBe(42)
         ->claimAmount->toBe(42)
-        ->status->toBe('String value')
+        ->status->toEqual(ExpenseReceiptQueryParametersStatusEnum::OPEN)
         ->claimedBy->employeeUserId->toBe('mock-id-123')
         ->claimedBy->employeeId->toBe(42)
         ->claimedBy->employeeNumber->toBe('String value')
         ->claimedBy->employeeName->toBe('String value')
-        ->claimedBy->status->toBe('String value')
+        ->claimedBy->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->claimedBy->department->toBe('String value')
         ->claimedBy->contact->employeeContact->toBe('String value')
-        ->claimedBy->contact->title->toBe('String value')
+        ->claimedBy->contact->title->toEqual(ContactTitleEnum::DOCTOR)
         ->claimedBy->contact->firstName->toBe('String value')
         ->claimedBy->contact->midName->toBe('String value')
         ->claimedBy->contact->lastName->toBe('String value')

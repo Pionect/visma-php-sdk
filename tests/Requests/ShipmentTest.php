@@ -6,6 +6,11 @@ use Pionect\VismaSdk\Dto\ShipmentSoline;
 use Pionect\VismaSdk\Dto\ShipmentSoorder;
 use Pionect\VismaSdk\Dto\ShipmentUpdateDeleteLineDto;
 use Pionect\VismaSdk\Dto\ShipmentUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLineOperationEnum;
+use Pionect\VismaSdk\Enums\ShipmentShipmentTypeEnum;
+use Pionect\VismaSdk\Enums\ShipmentStatusEnum;
+use Pionect\VismaSdk\Enums\ShipmentUpdateModeOfTrasportEnum;
 use Pionect\VismaSdk\Requests\Shipment\ShipmentAddLineByshipmentNumberRequest;
 use Pionect\VismaSdk\Requests\Shipment\ShipmentAddSolineByshipmentNumberRequest;
 use Pionect\VismaSdk\Requests\Shipment\ShipmentAddSoorderByshipmentNumberRequest;
@@ -31,10 +36,10 @@ it('calls the shipmentGetByshipmentNbrRequest method in the Shipment resource', 
         ShipmentGetByshipmentNbrRequest::class => MockResponse::make([
             'timeStamp' => 'String value',
             'shipmentNumber' => 'String value',
-            'shipmentType' => 'String value',
-            'status' => 'String value',
+            'shipmentType' => 'Issue',
+            'status' => 'Open',
             'hold' => true,
-            'operation' => 'String value',
+            'operation' => 'Issue',
             'shipmentDate' => '2025-11-22T10:40:04+00:00',
             'customer' => [
                 'internalId' => 42,
@@ -149,10 +154,10 @@ it('calls the shipmentGetByshipmentNbrRequest method in the Shipment resource', 
     expect($dto)
         ->timeStamp->toBe('String value')
         ->shipmentNumber->toBe('String value')
-        ->shipmentType->toBe('String value')
-        ->status->toBe('String value')
+        ->shipmentType->toEqual(ShipmentShipmentTypeEnum::ISSUE)
+        ->status->toEqual(ShipmentStatusEnum::OPEN)
         ->hold->toBe(true)
-        ->operation->toBe('String value')
+        ->operation->toEqual(SalesOrderLineOperationEnum::ISSUE)
         ->shipmentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customer->internalId->toBe(42)
         ->customer->number->toBe('String value')
@@ -219,8 +224,8 @@ it('calls the shipmentGetByshipmentNbrRequest method in the Shipment resource', 
 
 it('calls the shipmentPutByshipmentNbrRequest method in the Shipment resource', function () {
     $bodyData = new ShipmentUpdateDto(
-        shipmentType: 'String value',
-        operation: 'String value',
+        shipmentType: ShipmentShipmentTypeEnum::ISSUE,
+        operation: SalesOrderLineOperationEnum::ISSUE,
         shipmentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         location: 'String value',
         customer: 'String value',
@@ -253,7 +258,7 @@ it('calls the shipmentPutByshipmentNbrRequest method in the Shipment resource', 
         freightAmt: 42,
         freightCost: 42,
         transactionType: 42,
-        modeOfTrasport: 'String value',
+        modeOfTrasport: ShipmentUpdateModeOfTrasportEnum::UNKNOWN,
         container: true,
         note: 'String value',
         shipmentDetailLines: [],
@@ -293,10 +298,10 @@ it('calls the shipmentGetAllShipmentsRequest method in the Shipment resource', f
             0 => [
                 'timeStamp' => 'String value',
                 'shipmentNumber' => 'String value',
-                'shipmentType' => 'String value',
-                'status' => 'String value',
+                'shipmentType' => 'Issue',
+                'status' => 'Open',
                 'hold' => true,
-                'operation' => 'String value',
+                'operation' => 'Issue',
                 'shipmentDate' => '2025-11-22T10:40:04+00:00',
                 'customer' => [
                     'internalId' => 42,
@@ -396,10 +401,10 @@ it('calls the shipmentGetAllShipmentsRequest method in the Shipment resource', f
             1 => [
                 'timeStamp' => 'String value',
                 'shipmentNumber' => 'String value',
-                'shipmentType' => 'String value',
-                'status' => 'String value',
+                'shipmentType' => 'Issue',
+                'status' => 'Open',
                 'hold' => true,
-                'operation' => 'String value',
+                'operation' => 'Issue',
                 'shipmentDate' => '2025-11-22T10:40:04+00:00',
                 'customer' => [
                     'internalId' => 42,
@@ -529,10 +534,10 @@ it('calls the shipmentGetAllShipmentsRequest method in the Shipment resource', f
     expect($collection->first())
         ->timeStamp->toBe('String value')
         ->shipmentNumber->toBe('String value')
-        ->shipmentType->toBe('String value')
-        ->status->toBe('String value')
+        ->shipmentType->toEqual(ShipmentShipmentTypeEnum::ISSUE)
+        ->status->toEqual(ShipmentStatusEnum::OPEN)
         ->hold->toBe(true)
-        ->operation->toBe('String value')
+        ->operation->toEqual(SalesOrderLineOperationEnum::ISSUE)
         ->shipmentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->customer->internalId->toBe(42)
         ->customer->number->toBe('String value')
@@ -599,8 +604,8 @@ it('calls the shipmentGetAllShipmentsRequest method in the Shipment resource', f
 
 it('calls the shipmentPostRequest method in the Shipment resource', function () {
     $bodyData = new ShipmentCreateDto(
-        shipmentType: 'String value',
-        operation: 'String value',
+        shipmentType: ShipmentShipmentTypeEnum::ISSUE,
+        operation: SalesOrderLineOperationEnum::ISSUE,
         shipmentDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         location: 'String value',
         customer: 'String value',
@@ -633,7 +638,7 @@ it('calls the shipmentPostRequest method in the Shipment resource', function () 
         freightAmt: 42,
         freightCost: 42,
         transactionType: 42,
-        modeOfTrasport: 'String value',
+        modeOfTrasport: ShipmentUpdateModeOfTrasportEnum::UNKNOWN,
         container: true,
         note: 'String value',
         shipmentDetailLines: [],
@@ -783,7 +788,7 @@ it('calls the shipmentCorrectShipmentByshipmentNumberRequest method in the Shipm
 
 it('calls the shipmentAddLineByshipmentNumberRequest method in the Shipment resource', function () {
     $bodyData = new ShipmentDetailLineAddDto(
-        operation: 'String value',
+        operation: AttributeDetailUpdateOperationEnum::INSERT,
         inventoryNumber: 'String value',
         lineNumber: 42,
         warehouse: 'String value',

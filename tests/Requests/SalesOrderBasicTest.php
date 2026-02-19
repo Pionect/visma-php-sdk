@@ -2,6 +2,7 @@
 
 use Pionect\VismaSdk\Dto\CreateShipmentActionDto;
 use Pionect\VismaSdk\Dto\SalesOrderBasicUpdateDto;
+use Pionect\VismaSdk\Enums\SalesOrderQueryParametersStatusEnum;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateHeaderAttachmentByorderNumberorderTypeRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateHeaderAttachmentByorderNumberRequest;
 use Pionect\VismaSdk\Requests\SalesOrderBasic\SalesOrderBasicCreateLineAttachmentByorderNumberlineNumberRequest;
@@ -27,7 +28,7 @@ it('calls the salesOrderBasicGetByorderNbrRequest method in the SalesOrderBasic 
             'lines' => [],
             'orderType' => 'String value',
             'orderNo' => 'String value',
-            'status' => 'String value',
+            'status' => 'Open',
             'hold' => true,
             'date' => '2025-11-22T10:40:04+00:00',
             'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -82,7 +83,7 @@ it('calls the salesOrderBasicGetByorderNbrRequest method in the SalesOrderBasic 
     expect($dto)
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SalesOrderQueryParametersStatusEnum::OPEN)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -159,7 +160,7 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest method in 
             'lines' => [],
             'orderType' => 'String value',
             'orderNo' => 'String value',
-            'status' => 'String value',
+            'status' => 'Open',
             'hold' => true,
             'date' => '2025-11-22T10:40:04+00:00',
             'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -215,7 +216,7 @@ it('calls the salesOrderBasicGetOrderByTypeByorderTypeorderNbrRequest method in 
     expect($dto)
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SalesOrderQueryParametersStatusEnum::OPEN)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
@@ -254,7 +255,7 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
                 'lines' => [],
                 'orderType' => 'String value',
                 'orderNo' => 'String value',
-                'status' => 'String value',
+                'status' => 'Open',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04+00:00',
                 'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -296,7 +297,7 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
                 'lines' => [],
                 'orderType' => 'String value',
                 'orderNo' => 'String value',
-                'status' => 'String value',
+                'status' => 'Open',
                 'hold' => true,
                 'date' => '2025-11-22T10:40:04+00:00',
                 'requestOn' => '2025-11-22T10:40:04+00:00',
@@ -363,7 +364,7 @@ it('calls the salesOrderBasicGetAllOrdersRequest method in the SalesOrderBasic r
     expect($collection->first())
         ->orderType->toBe('String value')
         ->orderNo->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(SalesOrderQueryParametersStatusEnum::OPEN)
         ->hold->toBe(true)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->requestOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))

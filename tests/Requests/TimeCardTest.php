@@ -1,6 +1,9 @@
 <?php
 
 use Pionect\VismaSdk\Dto\TimeCardUpdateDto;
+use Pionect\VismaSdk\Enums\EmployeeTimeCardQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\EmployeeTimeCardQueryParametersTypeEnum;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Requests\TimeCard\TimeCardCreateTimeCardRequest;
 use Pionect\VismaSdk\Requests\TimeCard\TimeCardGetAllEmployeeTimeCardsRequest;
 use Pionect\VismaSdk\Requests\TimeCard\TimeCardGetEmployeeTimeCardByreferenceNumberRequest;
@@ -19,8 +22,8 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumberRequest method in the 
     Saloon::fake([
         TimeCardGetEmployeeTimeCardByreferenceNumberRequest::class => MockResponse::make([
             'refNbr' => 'String value',
-            'status' => 'String value',
-            'approvalStatus' => 'String value',
+            'status' => 'Hold',
+            'approvalStatus' => 'New',
             'week' => [
                 'number' => 'String value',
                 'description' => 'String value',
@@ -30,7 +33,7 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumberRequest method in the 
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'type' => 'String value',
+            'type' => 'Normal',
             'origRefNbr' => 'String value',
             'timeSpent' => 42,
             'invoiceable' => 42,
@@ -61,14 +64,14 @@ it('calls the timeCardGetEmployeeTimeCardByreferenceNumberRequest method in the 
 
     expect($dto)
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
-        ->approvalStatus->toBe('String value')
+        ->status->toEqual(EmployeeTimeCardQueryParametersStatusEnum::HOLD)
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
         ->week->number->toBe('String value')
         ->week->description->toBe('String value')
         ->employee->internalId->toBe('mock-id-123')
         ->employee->number->toBe('String value')
         ->employee->name->toBe('String value')
-        ->type->toBe('String value')
+        ->type->toEqual(EmployeeTimeCardQueryParametersTypeEnum::NORMAL)
         ->origRefNbr->toBe('String value')
         ->timeSpent->toBe(42)
         ->invoiceable->toBe(42)
@@ -112,8 +115,8 @@ it('calls the timeCardGetAllEmployeeTimeCardsRequest method in the TimeCard reso
         TimeCardGetAllEmployeeTimeCardsRequest::class => MockResponse::make([
             0 => [
                 'refNbr' => 'String value',
-                'status' => 'String value',
-                'approvalStatus' => 'String value',
+                'status' => 'Hold',
+                'approvalStatus' => 'New',
                 'week' => [
                     'number' => 'String value',
                     'description' => 'String value',
@@ -123,7 +126,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsRequest method in the TimeCard reso
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'type' => 'String value',
+                'type' => 'Normal',
                 'origRefNbr' => 'String value',
                 'timeSpent' => 42,
                 'invoiceable' => 42,
@@ -140,8 +143,8 @@ it('calls the timeCardGetAllEmployeeTimeCardsRequest method in the TimeCard reso
             ],
             1 => [
                 'refNbr' => 'String value',
-                'status' => 'String value',
-                'approvalStatus' => 'String value',
+                'status' => 'Hold',
+                'approvalStatus' => 'New',
                 'week' => [
                     'number' => 'String value',
                     'description' => 'String value',
@@ -151,7 +154,7 @@ it('calls the timeCardGetAllEmployeeTimeCardsRequest method in the TimeCard reso
                     'number' => 'String value',
                     'name' => 'String value',
                 ],
-                'type' => 'String value',
+                'type' => 'Normal',
                 'origRefNbr' => 'String value',
                 'timeSpent' => 42,
                 'invoiceable' => 42,
@@ -193,14 +196,14 @@ it('calls the timeCardGetAllEmployeeTimeCardsRequest method in the TimeCard reso
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->refNbr->toBe('String value')
-        ->status->toBe('String value')
-        ->approvalStatus->toBe('String value')
+        ->status->toEqual(EmployeeTimeCardQueryParametersStatusEnum::HOLD)
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
         ->week->number->toBe('String value')
         ->week->description->toBe('String value')
         ->employee->internalId->toBe('mock-id-123')
         ->employee->number->toBe('String value')
         ->employee->name->toBe('String value')
-        ->type->toBe('String value')
+        ->type->toEqual(EmployeeTimeCardQueryParametersTypeEnum::NORMAL)
         ->origRefNbr->toBe('String value')
         ->timeSpent->toBe(42)
         ->invoiceable->toBe(42)

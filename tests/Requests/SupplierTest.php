@@ -1,6 +1,17 @@
 <?php
 
 use Pionect\VismaSdk\Dto\SupplierUpdateDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
+use Pionect\VismaSdk\Enums\ContactContactMethodEnum;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
+use Pionect\VismaSdk\Enums\LandedCostApDocTypeEnum;
+use Pionect\VismaSdk\Enums\SupplierAccountUsedForPaymentEnum;
+use Pionect\VismaSdk\Enums\SupplierChargeBearerEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\SupplierPaymentByEnum;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Requests\Supplier\SupplierGetAllContactForSupplierBysupplierCdRequest;
 use Pionect\VismaSdk\Requests\Supplier\SupplierGetAllDocumentsForSupplierBysupplierNumberRequest;
 use Pionect\VismaSdk\Requests\Supplier\SupplierGetAllInvoicesForSupplierBysupplierNumberRequest;
@@ -254,7 +265,7 @@ it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', f
             'internalId' => 42,
             'number' => 'String value',
             'name' => 'String value',
-            'status' => 'String value',
+            'status' => 'Active',
             'mainAddress' => [
                 'addressId' => 42,
                 'addressLine1' => 'String value',
@@ -322,9 +333,9 @@ it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', f
                 'description' => 'String value',
             ],
             'cashAccount' => 'String value',
-            'chargeBearer' => 'String value',
-            'accountUsedForPayment' => 'String value',
-            'paymentBy' => 'String value',
+            'chargeBearer' => 'Payer',
+            'accountUsedForPayment' => 'IBAN',
+            'paymentBy' => 'DueDate',
             'paymentLeadTime' => 42,
             'paymentRefDisplayMask' => 'String value',
             'paySeparately' => true,
@@ -436,7 +447,7 @@ it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', f
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->mainAddress->addressId->toBe(42)
         ->mainAddress->addressLine1->toBe('String value')
         ->mainAddress->addressLine2->toBe('String value')
@@ -480,9 +491,9 @@ it('calls the supplierGetBysupplierCdRequest method in the Supplier resource', f
         ->remitContact->fax->toBe('String value')
         ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->chargeBearer->toBe('String value')
-        ->accountUsedForPayment->toBe('String value')
-        ->paymentBy->toBe('String value')
+        ->chargeBearer->toEqual(SupplierChargeBearerEnum::PAYER)
+        ->accountUsedForPayment->toEqual(SupplierAccountUsedForPaymentEnum::IBAN)
+        ->paymentBy->toEqual(SupplierPaymentByEnum::DUE_DATE)
         ->paymentLeadTime->toBe(42)
         ->paymentRefDisplayMask->toBe('String value')
         ->paySeparately->toBe(true)
@@ -549,7 +560,7 @@ it('calls the supplierPutBysupplierCdRequest method in the Supplier resource', f
     $bodyData = new SupplierUpdateDto(
         number: 'String value',
         name: 'String value',
-        status: 'String value',
+        status: EmployeeStatusEnum::ACTIVE,
         accountReference: 'String value',
         numberOfEmployees: 42,
         parentRecordNumber: 'String value',
@@ -568,9 +579,9 @@ it('calls the supplierPutBysupplierCdRequest method in the Supplier resource', f
         vatRegistrationId: 'mock-id-123',
         corporateId: 'mock-id-123',
         vatZoneId: 'mock-id-123',
-        chargeBearer: 'String value',
-        accountUsedForPayment: 'String value',
-        paymentBy: 'String value',
+        chargeBearer: SupplierChargeBearerEnum::PAYER,
+        accountUsedForPayment: SupplierAccountUsedForPaymentEnum::IBAN,
+        paymentBy: SupplierPaymentByEnum::DUE_DATE,
         mainAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
@@ -669,7 +680,7 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
                 'internalId' => 42,
                 'number' => 'String value',
                 'name' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'mainAddress' => [
                     'addressId' => 42,
                     'addressLine1' => 'String value',
@@ -737,9 +748,9 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
                     'description' => 'String value',
                 ],
                 'cashAccount' => 'String value',
-                'chargeBearer' => 'String value',
-                'accountUsedForPayment' => 'String value',
-                'paymentBy' => 'String value',
+                'chargeBearer' => 'Payer',
+                'accountUsedForPayment' => 'IBAN',
+                'paymentBy' => 'DueDate',
                 'paymentLeadTime' => 42,
                 'paymentRefDisplayMask' => 'String value',
                 'paySeparately' => true,
@@ -837,7 +848,7 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
                 'internalId' => 42,
                 'number' => 'String value',
                 'name' => 'String value',
-                'status' => 'String value',
+                'status' => 'Active',
                 'mainAddress' => [
                     'addressId' => 42,
                     'addressLine1' => 'String value',
@@ -905,9 +916,9 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
                     'description' => 'String value',
                 ],
                 'cashAccount' => 'String value',
-                'chargeBearer' => 'String value',
-                'accountUsedForPayment' => 'String value',
-                'paymentBy' => 'String value',
+                'chargeBearer' => 'Payer',
+                'accountUsedForPayment' => 'IBAN',
+                'paymentBy' => 'DueDate',
                 'paymentLeadTime' => 42,
                 'paymentRefDisplayMask' => 'String value',
                 'paySeparately' => true,
@@ -1035,7 +1046,7 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
         ->internalId->toBe(42)
         ->number->toBe('String value')
         ->name->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(EmployeeStatusEnum::ACTIVE)
         ->mainAddress->addressId->toBe(42)
         ->mainAddress->addressLine1->toBe('String value')
         ->mainAddress->addressLine2->toBe('String value')
@@ -1079,9 +1090,9 @@ it('calls the supplierGetAllRequest method in the Supplier resource', function (
         ->remitContact->fax->toBe('String value')
         ->paymentMethod->description->toBe('String value')
         ->cashAccount->toBe('String value')
-        ->chargeBearer->toBe('String value')
-        ->accountUsedForPayment->toBe('String value')
-        ->paymentBy->toBe('String value')
+        ->chargeBearer->toEqual(SupplierChargeBearerEnum::PAYER)
+        ->accountUsedForPayment->toEqual(SupplierAccountUsedForPaymentEnum::IBAN)
+        ->paymentBy->toEqual(SupplierPaymentByEnum::DUE_DATE)
         ->paymentLeadTime->toBe(42)
         ->paymentRefDisplayMask->toBe('String value')
         ->paySeparately->toBe(true)
@@ -1148,7 +1159,7 @@ it('calls the supplierPostRequest method in the Supplier resource', function () 
     $bodyData = new SupplierUpdateDto(
         number: 'String value',
         name: 'String value',
-        status: 'String value',
+        status: EmployeeStatusEnum::ACTIVE,
         accountReference: 'String value',
         numberOfEmployees: 42,
         parentRecordNumber: 'String value',
@@ -1167,9 +1178,9 @@ it('calls the supplierPostRequest method in the Supplier resource', function () 
         vatRegistrationId: 'mock-id-123',
         corporateId: 'mock-id-123',
         vatZoneId: 'mock-id-123',
-        chargeBearer: 'String value',
-        accountUsedForPayment: 'String value',
-        paymentBy: 'String value',
+        chargeBearer: SupplierChargeBearerEnum::PAYER,
+        accountUsedForPayment: SupplierAccountUsedForPaymentEnum::IBAN,
+        paymentBy: SupplierPaymentByEnum::DUE_DATE,
         mainAddress: new \Pionect\VismaSdk\Dto\AddressUpdateDto(
             addressLine1: 'String value',
             addressLine2: 'String value',
@@ -1293,7 +1304,7 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
             'roundingDiffInCurrency' => 42,
             'amount' => 42,
             'vatAmount' => 42,
-            'taxCalculationMode' => 'String value',
+            'taxCalculationMode' => 'TaxSetting',
             'supplierTaxZone' => [
                 'description' => 'String value',
                 'defaultVatCategory' => 'String value',
@@ -1312,15 +1323,15 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Check',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'date' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'dueDate' => '2025-11-22T10:40:04+00:00',
-            'approvalStatus' => 'String value',
-            'status' => 'String value',
+            'approvalStatus' => 'New',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'balance' => 42,
             'balanceInCurrency' => 42,
@@ -1416,7 +1427,7 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
         ->roundingDiffInCurrency->toBe(42)
         ->amount->toBe(42)
         ->vatAmount->toBe(42)
-        ->taxCalculationMode->toBe('String value')
+        ->taxCalculationMode->toEqual(EntryTypeTaxCalculationModeEnum::TAX_SETTING)
         ->supplierTaxZone->description->toBe('String value')
         ->supplierTaxZone->defaultVatCategory->toBe('String value')
         ->supplierTaxZone->defaultTaxCategory->number->toBe('String value')
@@ -1429,15 +1440,15 @@ it('calls the supplierGetAllInvoicesForSupplierBysupplierNumberRequest method in
         ->supplier->internalId->toBe(42)
         ->supplier->number->toBe('String value')
         ->supplier->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(LandedCostApDocTypeEnum::CHECK)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->approvalStatus->toBe('String value')
-        ->status->toBe('String value')
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
+        ->status->toEqual(SupplierInvoiceForSupplierQueryParametersStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(42)
         ->balanceInCurrency->toBe(42)
@@ -1467,7 +1478,7 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumberRequest method i
     Saloon::fake([
         SupplierGetAllDocumentsForSupplierBysupplierNumberRequest::class => MockResponse::make([
             'account' => [
-                'type' => 'String value',
+                'type' => 'Asset',
                 'externalCode1' => 'String value',
                 'externalCode2' => 'String value',
                 'active' => true,
@@ -1495,15 +1506,15 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumberRequest method i
                 'number' => 'String value',
                 'name' => 'String value',
             ],
-            'documentType' => 'String value',
+            'documentType' => 'Check',
             'referenceNumber' => 'String value',
             'postPeriod' => 'String value',
             'financialPeriod' => 'String value',
             'date' => '2025-11-22T10:40:04+00:00',
             'origInvoiceDate' => '2025-11-22T10:40:04+00:00',
             'dueDate' => '2025-11-22T10:40:04+00:00',
-            'approvalStatus' => 'String value',
-            'status' => 'String value',
+            'approvalStatus' => 'New',
+            'status' => 'Hold',
             'currencyId' => 'mock-id-123',
             'balance' => 42,
             'balanceInCurrency' => 42,
@@ -1574,7 +1585,7 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumberRequest method i
     $dto = $response->dto();
 
     expect($dto)
-        ->account->type->toBe('String value')
+        ->account->type->toEqual(AccountTypeEnum::ASSET)
         ->account->externalCode1->toBe('String value')
         ->account->externalCode2->toBe('String value')
         ->account->active->toBe(true)
@@ -1594,15 +1605,15 @@ it('calls the supplierGetAllDocumentsForSupplierBysupplierNumberRequest method i
         ->supplier->internalId->toBe(42)
         ->supplier->number->toBe('String value')
         ->supplier->name->toBe('String value')
-        ->documentType->toBe('String value')
+        ->documentType->toEqual(LandedCostApDocTypeEnum::CHECK)
         ->referenceNumber->toBe('String value')
         ->postPeriod->toBe('String value')
         ->financialPeriod->toBe('String value')
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->origInvoiceDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->dueDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->approvalStatus->toBe('String value')
-        ->status->toBe('String value')
+        ->approvalStatus->toEqual(TimeCardSummaryApprovalStatusEnum::NEW)
+        ->status->toEqual(SupplierInvoiceForSupplierQueryParametersStatusEnum::HOLD)
         ->currencyId->toBe('mock-id-123')
         ->balance->toBe(42)
         ->balanceInCurrency->toBe(42)
@@ -1735,7 +1746,7 @@ it('calls the supplierGetAllContactForSupplierBysupplierCdRequest method in the 
         SupplierGetAllContactForSupplierBysupplierCdRequest::class => MockResponse::make([
             'displayName' => 'String value',
             'active' => true,
-            'title' => 'String value',
+            'title' => 'Doctor',
             'firstName' => 'String value',
             'lastName' => 'String value',
             'position' => 'String value',
@@ -1763,7 +1774,7 @@ it('calls the supplierGetAllContactForSupplierBysupplierCdRequest method in the 
             'phone2' => 'String value',
             'phone3' => 'String value',
             'fax' => 'String value',
-            'contactMethod' => 'String value',
+            'contactMethod' => 'Any',
             'doNotCall' => true,
             'doNotFax' => true,
             'doNotEmail' => true,
@@ -1804,7 +1815,7 @@ it('calls the supplierGetAllContactForSupplierBysupplierCdRequest method in the 
     expect($dto)
         ->displayName->toBe('String value')
         ->active->toBe(true)
-        ->title->toBe('String value')
+        ->title->toEqual(ContactTitleEnum::DOCTOR)
         ->firstName->toBe('String value')
         ->lastName->toBe('String value')
         ->position->toBe('String value')
@@ -1826,7 +1837,7 @@ it('calls the supplierGetAllContactForSupplierBysupplierCdRequest method in the 
         ->phone2->toBe('String value')
         ->phone3->toBe('String value')
         ->fax->toBe('String value')
-        ->contactMethod->toBe('String value')
+        ->contactMethod->toEqual(ContactContactMethodEnum::ANY)
         ->doNotCall->toBe(true)
         ->doNotFax->toBe(true)
         ->doNotEmail->toBe(true)

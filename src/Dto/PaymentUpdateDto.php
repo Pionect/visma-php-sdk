@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\PaymentTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -17,7 +18,7 @@ class PaymentUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $type = null,
+        public ?PaymentTypeEnum $type = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $hold = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -44,9 +45,16 @@ class PaymentUpdateDto extends SpatieData
         public ?string $branch = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $overrideNumberSeries = null,
-        /** @var PaymentOrdersLinesUpdateDto[]|null */
+        /**
+         * @var PaymentOrdersLinesUpdateDto[]|null
+         *                                         The top part > Applied to orders > The total of the orders for which payment
+         *                                         is reserved, minus the amount transferred to invoice.
+         */
         public ?array $ordersToApply = null,
-        /** @var FinanceChargesUpdateDto[]|null */
+        /**
+         * @var FinanceChargesUpdateDto[]|null
+         *                                     Financial Charges
+         */
         public ?array $financeCharges = null,
         /** @var PaymentLinesUpdateDto[]|null */
         public ?array $paymentLines = null,

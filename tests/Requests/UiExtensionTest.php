@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\UiExtensionUpdateDto;
+use Pionect\VismaSdk\Enums\UiExtensionQueryParametersTypeEnum;
 use Pionect\VismaSdk\Requests\UiExtension\UiExtensionDeleteByownerIdinternalIdRequest;
 use Pionect\VismaSdk\Requests\UiExtension\UiExtensionDeleteByownerIdinternalIdscreenIdstepIdRequest;
 use Pionect\VismaSdk\Requests\UiExtension\UiExtensionGetAllUiExtensionsByownerIdRequest;
@@ -49,7 +50,7 @@ it('calls the uiExtensionGetAllUiExtensionsByownerIdRequest method in the UiExte
             'internalId' => 'mock-id-123',
             'title' => 'String value',
             'url' => 'String value',
-            'type' => 'String value',
+            'type' => 'Action',
             'screenId' => 'mock-id-123',
             'stepId' => 'mock-id-123',
             'ownerName' => 'String value',
@@ -75,7 +76,7 @@ it('calls the uiExtensionGetAllUiExtensionsByownerIdRequest method in the UiExte
         ->internalId->toBe('mock-id-123')
         ->title->toBe('String value')
         ->url->toBe('String value')
-        ->type->toBe('String value')
+        ->type->toEqual(UiExtensionQueryParametersTypeEnum::ACTION)
         ->screenId->toBe('mock-id-123')
         ->stepId->toBe('mock-id-123')
         ->ownerName->toBe('String value')
@@ -86,7 +87,7 @@ it('calls the uiExtensionPostRequest method in the UiExtension resource', functi
     $bodyData = new UiExtensionUpdateDto(
         title: 'String value',
         url: 'String value',
-        type: 'String value',
+        type: UiExtensionQueryParametersTypeEnum::ACTION,
         screenId: 'mock-id-123',
         stepId: 'mock-id-123',
         ownerId: 'mock-id-123',

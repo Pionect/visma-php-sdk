@@ -1,6 +1,9 @@
 <?php
 
 use Pionect\VismaSdk\Dto\CustomerContractUpdateDto;
+use Pionect\VismaSdk\Enums\CustomerContractStatusEnum;
+use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoiceToEnum;
+use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoicingPeriodEnum;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractActivateContractBycontractIdRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractActivateUpgradeBycontractIdRequest;
 use Pionect\VismaSdk\Requests\CustomerContract\CustomerContractCreateCustomerContractRequest;
@@ -28,7 +31,7 @@ it('calls the customerContractGetCustomerContractBycontractIdRequest method in t
             'contractTemplate' => [
                 'description' => 'String value',
             ],
-            'status' => 'String value',
+            'status' => 'Draft',
             'customer' => [
                 'number' => 'String value',
                 'name' => 'String value',
@@ -49,10 +52,10 @@ it('calls the customerContractGetCustomerContractBycontractIdRequest method in t
                 'gracePeriod' => 42,
                 'currency' => 'String value',
                 'invoicingScheduleStartsOn' => '2025-11-22T10:40:04+00:00',
-                'invoicingPeriod' => 'String value',
+                'invoicingPeriod' => 'Statement',
                 'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
                 'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
-                'invoiceTo' => 'String value',
+                'invoiceTo' => 'ParentAccount',
                 'invoiceAccount' => [
                     'number' => 'String value',
                     'name' => 'String value',
@@ -106,7 +109,7 @@ it('calls the customerContractGetCustomerContractBycontractIdRequest method in t
     expect($dto)
         ->contractId->toBe('mock-id-123')
         ->contractTemplate->description->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CustomerContractStatusEnum::DRAFT)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
         ->location->description->toBe('String value')
@@ -122,10 +125,10 @@ it('calls the customerContractGetCustomerContractBycontractIdRequest method in t
         ->summary->gracePeriod->toBe(42)
         ->summary->currency->toBe('String value')
         ->summary->invoicingScheduleStartsOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->summary->invoicingPeriod->toBe('String value')
+        ->summary->invoicingPeriod->toEqual(CustomerContractSummaryInvoicingPeriodEnum::STATEMENT)
         ->summary->lastInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->summary->nextInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->summary->invoiceTo->toBe('String value')
+        ->summary->invoiceTo->toEqual(CustomerContractSummaryInvoiceToEnum::PARENT_ACCOUNT)
         ->summary->invoiceAccount->number->toBe('String value')
         ->summary->invoiceAccount->name->toBe('String value')
         ->summary->invoiceLocation->description->toBe('String value')
@@ -160,7 +163,7 @@ it('calls the customerContractPutBycontractIdRequest method in the CustomerContr
         renewalPoint: 42,
         gracePeriod: 42,
         currency: 'String value',
-        invoiceTo: 'String value',
+        invoiceTo: CustomerContractSummaryInvoiceToEnum::PARENT_ACCOUNT,
         invoiceAccount: 'String value',
         invoiceLocation: 'String value',
         owner: 'String value',
@@ -193,7 +196,7 @@ it('calls the customerContractGetAllRequest method in the CustomerContract resou
                 'contractTemplate' => [
                     'description' => 'String value',
                 ],
-                'status' => 'String value',
+                'status' => 'Draft',
                 'customer' => [
                     'number' => 'String value',
                     'name' => 'String value',
@@ -214,10 +217,10 @@ it('calls the customerContractGetAllRequest method in the CustomerContract resou
                     'gracePeriod' => 42,
                     'currency' => 'String value',
                     'invoicingScheduleStartsOn' => '2025-11-22T10:40:04+00:00',
-                    'invoicingPeriod' => 'String value',
+                    'invoicingPeriod' => 'Statement',
                     'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
                     'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
-                    'invoiceTo' => 'String value',
+                    'invoiceTo' => 'ParentAccount',
                     'invoiceAccount' => [
                         'number' => 'String value',
                         'name' => 'String value',
@@ -259,7 +262,7 @@ it('calls the customerContractGetAllRequest method in the CustomerContract resou
                 'contractTemplate' => [
                     'description' => 'String value',
                 ],
-                'status' => 'String value',
+                'status' => 'Draft',
                 'customer' => [
                     'number' => 'String value',
                     'name' => 'String value',
@@ -280,10 +283,10 @@ it('calls the customerContractGetAllRequest method in the CustomerContract resou
                     'gracePeriod' => 42,
                     'currency' => 'String value',
                     'invoicingScheduleStartsOn' => '2025-11-22T10:40:04+00:00',
-                    'invoicingPeriod' => 'String value',
+                    'invoicingPeriod' => 'Statement',
                     'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
                     'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
-                    'invoiceTo' => 'String value',
+                    'invoiceTo' => 'ParentAccount',
                     'invoiceAccount' => [
                         'number' => 'String value',
                         'name' => 'String value',
@@ -351,7 +354,7 @@ it('calls the customerContractGetAllRequest method in the CustomerContract resou
     expect($collection->first())
         ->contractId->toBe('mock-id-123')
         ->contractTemplate->description->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(CustomerContractStatusEnum::DRAFT)
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
         ->location->description->toBe('String value')
@@ -367,10 +370,10 @@ it('calls the customerContractGetAllRequest method in the CustomerContract resou
         ->summary->gracePeriod->toBe(42)
         ->summary->currency->toBe('String value')
         ->summary->invoicingScheduleStartsOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->summary->invoicingPeriod->toBe('String value')
+        ->summary->invoicingPeriod->toEqual(CustomerContractSummaryInvoicingPeriodEnum::STATEMENT)
         ->summary->lastInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->summary->nextInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->summary->invoiceTo->toBe('String value')
+        ->summary->invoiceTo->toEqual(CustomerContractSummaryInvoiceToEnum::PARENT_ACCOUNT)
         ->summary->invoiceAccount->number->toBe('String value')
         ->summary->invoiceAccount->name->toBe('String value')
         ->summary->invoiceLocation->description->toBe('String value')
@@ -405,7 +408,7 @@ it('calls the customerContractCreateCustomerContractRequest method in the Custom
         renewalPoint: 42,
         gracePeriod: 42,
         currency: 'String value',
-        invoiceTo: 'String value',
+        invoiceTo: CustomerContractSummaryInvoiceToEnum::PARENT_ACCOUNT,
         invoiceAccount: 'String value',
         invoiceLocation: 'String value',
         owner: 'String value',
@@ -441,10 +444,10 @@ it('calls the customerContractGetCustomerContractSummaryBycontractIdRequest meth
             'gracePeriod' => 42,
             'currency' => 'String value',
             'invoicingScheduleStartsOn' => '2025-11-22T10:40:04+00:00',
-            'invoicingPeriod' => 'String value',
+            'invoicingPeriod' => 'Statement',
             'lastInvoicingDate' => '2025-11-22T10:40:04+00:00',
             'nextInvoicingDate' => '2025-11-22T10:40:04+00:00',
-            'invoiceTo' => 'String value',
+            'invoiceTo' => 'ParentAccount',
             'invoiceAccount' => [
                 'number' => 'String value',
                 'name' => 'String value',
@@ -489,10 +492,10 @@ it('calls the customerContractGetCustomerContractSummaryBycontractIdRequest meth
         ->gracePeriod->toBe(42)
         ->currency->toBe('String value')
         ->invoicingScheduleStartsOn->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->invoicingPeriod->toBe('String value')
+        ->invoicingPeriod->toEqual(CustomerContractSummaryInvoicingPeriodEnum::STATEMENT)
         ->lastInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->nextInvoicingDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->invoiceTo->toBe('String value')
+        ->invoiceTo->toEqual(CustomerContractSummaryInvoiceToEnum::PARENT_ACCOUNT)
         ->invoiceAccount->number->toBe('String value')
         ->invoiceAccount->name->toBe('String value')
         ->invoiceLocation->description->toBe('String value')

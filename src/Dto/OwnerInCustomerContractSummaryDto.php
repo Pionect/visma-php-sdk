@@ -15,7 +15,9 @@ class OwnerInCustomerContractSummaryDto extends SpatieData
 
     public function __construct(
         public ?string $internalId = null,
+        /** The identifier of the particular destination of the selected type. */
         public ?string $number = null,
+        /** The name of the particular destination of the selected type. */
         public ?string $name = null,
     ) {}
 }

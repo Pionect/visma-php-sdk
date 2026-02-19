@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Enums\PurchaseReceiptsStatusEnum;
+use Pionect\VismaSdk\Enums\PurchaseReceiptsTypeEnum;
 use Pionect\VismaSdk\Requests\PurchaseReceiptV2\PurchaseReceiptV2GetAllReceiptsRequest;
 use Pionect\VismaSdk\Requests\PurchaseReceiptV2\PurchaseReceiptV2GetPurchaseReceiptByreceiptNumberRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -15,10 +17,10 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumberRequest method i
             'landedCost' => [],
             'note' => 'String value',
             'timeStamp' => 'String value',
-            'receiptType' => 'String value',
+            'receiptType' => 'PoReceipt',
             'receiptNbr' => 'String value',
             'hold' => true,
-            'status' => 'String value',
+            'status' => 'Hold',
             'date' => '2025-11-22T10:40:04+00:00',
             'postPeriod' => 'String value',
             'warehouse' => [
@@ -80,10 +82,10 @@ it('calls the purchaseReceiptV2getPurchaseReceiptByreceiptNumberRequest method i
     expect($dto)
         ->note->toBe('String value')
         ->timeStamp->toBe('String value')
-        ->receiptType->toBe('String value')
+        ->receiptType->toEqual(PurchaseReceiptsTypeEnum::PO_RECEIPT)
         ->receiptNbr->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(PurchaseReceiptsStatusEnum::HOLD)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
         ->warehouse->description->toBe('String value')
@@ -126,10 +128,10 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
                 'landedCost' => [],
                 'note' => 'String value',
                 'timeStamp' => 'String value',
-                'receiptType' => 'String value',
+                'receiptType' => 'PoReceipt',
                 'receiptNbr' => 'String value',
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Hold',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
                 'warehouse' => [
@@ -177,10 +179,10 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
                 'landedCost' => [],
                 'note' => 'String value',
                 'timeStamp' => 'String value',
-                'receiptType' => 'String value',
+                'receiptType' => 'PoReceipt',
                 'receiptNbr' => 'String value',
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Hold',
                 'date' => '2025-11-22T10:40:04+00:00',
                 'postPeriod' => 'String value',
                 'warehouse' => [
@@ -259,10 +261,10 @@ it('calls the purchaseReceiptV2getAllReceiptsRequest method in the PurchaseRecei
     expect($collection->first())
         ->note->toBe('String value')
         ->timeStamp->toBe('String value')
-        ->receiptType->toBe('String value')
+        ->receiptType->toEqual(PurchaseReceiptsTypeEnum::PO_RECEIPT)
         ->receiptNbr->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(PurchaseReceiptsStatusEnum::HOLD)
         ->date->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->postPeriod->toBe('String value')
         ->warehouse->description->toBe('String value')

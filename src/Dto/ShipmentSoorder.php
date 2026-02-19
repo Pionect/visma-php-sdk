@@ -12,7 +12,9 @@ class ShipmentSoorder extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Sales Order Type */
         public ?string $orderType = null,
+        /** Sales Order Number */
         public ?string $orderNumber = null,
     ) {}
 }

@@ -14,6 +14,7 @@ class PurchaseReceiptOrderLineNbrUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The line number of the Purchase Order line. */
         public ?string $lineNbr = null,
     ) {}
 }

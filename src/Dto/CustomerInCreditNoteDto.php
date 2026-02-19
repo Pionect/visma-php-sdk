@@ -15,6 +15,7 @@ class CustomerInCreditNoteDto extends SpatieData
 
     public function __construct(
         public ?string $number = null,
+        /** Click the magnifier. > The name. */
         public ?string $name = null,
     ) {}
 }

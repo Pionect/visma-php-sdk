@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\CustomerInvoiceUpdateDto;
+use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Requests\CustomerInvoiceV2\CustomerInvoiceV2CreateRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -23,7 +24,7 @@ it('calls the customerInvoiceV2createRequest method in the CustomerInvoiceV2 res
         domesticServicesDeductibleDocument: true,
         rotRutDetails: new \Pionect\VismaSdk\Dto\RotRutUpdateDto(
             distributedAutomaticaly: true,
-            type: 'String value',
+            type: WorkTypeRutRotTypeEnum::RUT,
             appartment: 'String value',
             estate: 'String value',
             organizationNbr: 'String value',

@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\ShipmentsQueryParameters;
+use Pionect\VismaSdk\Enums\ShipmentShipmentTypeEnum;
+use Pionect\VismaSdk\Enums\ShipmentStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ShipmentsQueryParametersFactory extends Factory
@@ -18,10 +20,10 @@ class ShipmentsQueryParametersFactory extends Factory
             'orderBy' => $this->faker->word(),
             'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(ShipmentStatusEnum::cases()),
             'pageSize' => $this->faker->numberBetween(1, 100),
             'pageNumber' => $this->faker->numberBetween(1, 100),
-            'shipmentType' => $this->faker->word(),
+            'shipmentType' => $this->faker->randomElement(ShipmentShipmentTypeEnum::cases()),
             'shipmentDate' => $this->faker->word(),
             'shipmentDateCondition' => $this->faker->word(),
             'includeCustomFreeFields' => $this->faker->boolean(),

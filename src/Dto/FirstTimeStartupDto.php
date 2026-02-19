@@ -14,6 +14,7 @@ class FirstTimeStartupDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** FTS status for financials */
         public ?bool $financials = null,
         public ?string $message = null,
         public ?string $errorInfo = null,

@@ -3,6 +3,10 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SupplierUpdateDto;
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
+use Pionect\VismaSdk\Enums\SupplierAccountUsedForPaymentEnum;
+use Pionect\VismaSdk\Enums\SupplierChargeBearerEnum;
+use Pionect\VismaSdk\Enums\SupplierPaymentByEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierUpdateDtoFactory extends Factory
@@ -12,7 +16,7 @@ class SupplierUpdateDtoFactory extends Factory
         return [
             'number' => $this->faker->word(),
             'name' => $this->faker->name(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(EmployeeStatusEnum::cases()),
             'accountReference' => $this->faker->word(),
             'numberOfEmployees' => $this->faker->numberBetween(1, 100),
             'parentRecordNumber' => $this->faker->word(),
@@ -31,9 +35,9 @@ class SupplierUpdateDtoFactory extends Factory
             'vatRegistrationId' => $this->faker->uuid(),
             'corporateId' => $this->faker->uuid(),
             'vatZoneId' => $this->faker->uuid(),
-            'chargeBearer' => $this->faker->word(),
-            'accountUsedForPayment' => $this->faker->word(),
-            'paymentBy' => $this->faker->word(),
+            'chargeBearer' => $this->faker->randomElement(SupplierChargeBearerEnum::cases()),
+            'accountUsedForPayment' => $this->faker->randomElement(SupplierAccountUsedForPaymentEnum::cases()),
+            'paymentBy' => $this->faker->randomElement(SupplierPaymentByEnum::cases()),
             'mainAddress' => AddressUpdateDtoFactory::new()->make(),
             'mainContact' => ContactInfoUpdateDtoFactory::new()->make(),
             'remitAddress' => AddressUpdateDtoFactory::new()->make(),

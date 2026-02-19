@@ -1,6 +1,8 @@
 <?php
 
 use Pionect\VismaSdk\Dto\ContactUpdateDto;
+use Pionect\VismaSdk\Enums\ContactContactMethodEnum;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
 use Pionect\VismaSdk\Requests\Contact\ContactCreateContactRequest;
 use Pionect\VismaSdk\Requests\Contact\ContactGetAllContactsRequest;
 use Pionect\VismaSdk\Requests\Contact\ContactGetBycontactIdRequest;
@@ -17,7 +19,7 @@ it('calls the contactGetBycontactIdRequest method in the Contact resource', func
         ContactGetBycontactIdRequest::class => MockResponse::make([
             'displayName' => 'String value',
             'active' => true,
-            'title' => 'String value',
+            'title' => 'Doctor',
             'firstName' => 'String value',
             'lastName' => 'String value',
             'position' => 'String value',
@@ -45,7 +47,7 @@ it('calls the contactGetBycontactIdRequest method in the Contact resource', func
             'phone2' => 'String value',
             'phone3' => 'String value',
             'fax' => 'String value',
-            'contactMethod' => 'String value',
+            'contactMethod' => 'Any',
             'doNotCall' => true,
             'doNotFax' => true,
             'doNotEmail' => true,
@@ -74,7 +76,7 @@ it('calls the contactGetBycontactIdRequest method in the Contact resource', func
     expect($dto)
         ->displayName->toBe('String value')
         ->active->toBe(true)
-        ->title->toBe('String value')
+        ->title->toEqual(ContactTitleEnum::DOCTOR)
         ->firstName->toBe('String value')
         ->lastName->toBe('String value')
         ->position->toBe('String value')
@@ -96,7 +98,7 @@ it('calls the contactGetBycontactIdRequest method in the Contact resource', func
         ->phone2->toBe('String value')
         ->phone3->toBe('String value')
         ->fax->toBe('String value')
-        ->contactMethod->toBe('String value')
+        ->contactMethod->toEqual(ContactContactMethodEnum::ANY)
         ->doNotCall->toBe(true)
         ->doNotFax->toBe(true)
         ->doNotEmail->toBe(true)
@@ -112,7 +114,7 @@ it('calls the contactGetBycontactIdRequest method in the Contact resource', func
 it('calls the contactPutBycontactIdRequest method in the Contact resource', function () {
     $bodyData = new ContactUpdateDto(
         active: true,
-        title: 'String value',
+        title: ContactTitleEnum::DOCTOR,
         firstName: 'String value',
         lastName: 'String value',
         position: 'String value',
@@ -133,7 +135,7 @@ it('calls the contactPutBycontactIdRequest method in the Contact resource', func
         phone2: 'String value',
         phone3: 'String value',
         fax: 'String value',
-        contactMethod: 'String value',
+        contactMethod: ContactContactMethodEnum::ANY,
         doNotCall: true,
         doNotFax: true,
         doNotEmail: true,
@@ -165,7 +167,7 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
             0 => [
                 'displayName' => 'String value',
                 'active' => true,
-                'title' => 'String value',
+                'title' => 'Doctor',
                 'firstName' => 'String value',
                 'lastName' => 'String value',
                 'position' => 'String value',
@@ -193,7 +195,7 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
                 'phone2' => 'String value',
                 'phone3' => 'String value',
                 'fax' => 'String value',
-                'contactMethod' => 'String value',
+                'contactMethod' => 'Any',
                 'doNotCall' => true,
                 'doNotFax' => true,
                 'doNotEmail' => true,
@@ -208,7 +210,7 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
             1 => [
                 'displayName' => 'String value',
                 'active' => true,
-                'title' => 'String value',
+                'title' => 'Doctor',
                 'firstName' => 'String value',
                 'lastName' => 'String value',
                 'position' => 'String value',
@@ -236,7 +238,7 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
                 'phone2' => 'String value',
                 'phone3' => 'String value',
                 'fax' => 'String value',
-                'contactMethod' => 'String value',
+                'contactMethod' => 'Any',
                 'doNotCall' => true,
                 'doNotFax' => true,
                 'doNotEmail' => true,
@@ -278,7 +280,7 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
     expect($collection->first())
         ->displayName->toBe('String value')
         ->active->toBe(true)
-        ->title->toBe('String value')
+        ->title->toEqual(ContactTitleEnum::DOCTOR)
         ->firstName->toBe('String value')
         ->lastName->toBe('String value')
         ->position->toBe('String value')
@@ -300,7 +302,7 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
         ->phone2->toBe('String value')
         ->phone3->toBe('String value')
         ->fax->toBe('String value')
-        ->contactMethod->toBe('String value')
+        ->contactMethod->toEqual(ContactContactMethodEnum::ANY)
         ->doNotCall->toBe(true)
         ->doNotFax->toBe(true)
         ->doNotEmail->toBe(true)
@@ -316,7 +318,7 @@ it('calls the contactGetAllContactsRequest method in the Contact resource', func
 it('calls the contactCreateContactRequest method in the Contact resource', function () {
     $bodyData = new ContactUpdateDto(
         active: true,
-        title: 'String value',
+        title: ContactTitleEnum::DOCTOR,
         firstName: 'String value',
         lastName: 'String value',
         position: 'String value',
@@ -337,7 +339,7 @@ it('calls the contactCreateContactRequest method in the Contact resource', funct
         phone2: 'String value',
         phone3: 'String value',
         fax: 'String value',
-        contactMethod: 'String value',
+        contactMethod: ContactContactMethodEnum::ANY,
         doNotCall: true,
         doNotFax: true,
         doNotEmail: true,

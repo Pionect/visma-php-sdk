@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\OrderToApplyDto;
+use Pionect\VismaSdk\Enums\SalesOrderQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class OrderToApplyDtoFactory extends Factory
@@ -13,7 +14,7 @@ class OrderToApplyDtoFactory extends Factory
         return [
             'orderType' => $this->faker->word(),
             'orderNo' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(SalesOrderQueryParametersStatusEnum::cases()),
             'appliedToOrder' => null,
             'transferredToInvoice' => null,
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

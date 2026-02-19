@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -17,7 +18,7 @@ class RotRutUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $distributedAutomaticaly = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $type = null,
+        public ?WorkTypeRutRotTypeEnum $type = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $appartment = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

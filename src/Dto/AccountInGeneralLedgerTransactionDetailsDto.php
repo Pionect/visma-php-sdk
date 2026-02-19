@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Data as SpatieData;
 
@@ -15,8 +16,10 @@ class AccountInGeneralLedgerTransactionDetailsDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $type = null,
+        public ?AccountTypeEnum $type = null,
+        /** ExternalCode1 is deprecated, please use ExternalCode1Info instead. */
         public ?string $externalCode1 = null,
+        /** ExternalCode2 is deprecated, please use ExternalCode2Info instead. */
         public ?string $externalCode2 = null,
         #[MapName('externalCode1Info')]
         public ?ExternalCodeNumberDescriptionDto $externalCode1info = null,
@@ -24,7 +27,9 @@ class AccountInGeneralLedgerTransactionDetailsDto extends SpatieData
         public ?ExternalCodeNumberDescriptionDto $externalCode2info = null,
         #[MapName('glConsolAccountCD')]
         public ?string $glConsolAccountCd = null,
+        /** Number of item */
         public ?string $number = null,
+        /** Name of item/description */
         public ?string $description = null,
     ) {}
 }

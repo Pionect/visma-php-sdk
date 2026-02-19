@@ -4,6 +4,10 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PurchaseReceiptLineBasicUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineLineTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseReceiptLineTransferOrderTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseReceiptLineBasicUpdateDtoFactory extends Factory
@@ -11,9 +15,9 @@ class PurchaseReceiptLineBasicUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNbr' => $this->faker->numberBetween(1, 100),
-            'lineType' => $this->faker->word(),
+            'lineType' => $this->faker->randomElement(PurchaseOrderLineLineTypeEnum::cases()),
             'branchId' => $this->faker->uuid(),
             'branchNumber' => $this->faker->word(),
             'inventoryId' => $this->faker->uuid(),
@@ -39,10 +43,10 @@ class PurchaseReceiptLineBasicUpdateDtoFactory extends Factory
             'projectTaskId' => $this->faker->uuid(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lotSerialNumber' => $this->faker->word(),
-            'poOrderType' => $this->faker->word(),
+            'poOrderType' => $this->faker->randomElement(PurchaseOrderLineOrderTypeEnum::cases()),
             'poOrderNbr' => $this->faker->word(),
             'poOrderLineNbr' => $this->faker->numberBetween(1, 100),
-            'transferOrderType' => $this->faker->word(),
+            'transferOrderType' => $this->faker->randomElement(PurchaseReceiptLineTransferOrderTypeEnum::cases()),
             'transferOrderNbr' => $this->faker->word(),
             'transferOrderLineNbr' => $this->faker->numberBetween(1, 100),
             'completePoLine' => $this->faker->boolean(),

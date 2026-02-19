@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\AccountDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class AccountDtoFactory extends Factory
@@ -15,7 +16,7 @@ class AccountDtoFactory extends Factory
             'accountCd' => $this->faker->word(),
             'accountGroupCd' => $this->faker->word(),
             'accountClass' => $this->faker->word(),
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(AccountTypeEnum::cases()),
             'active' => $this->faker->boolean(),
             'description' => $this->faker->sentence(),
             'accountClassDescription' => $this->faker->sentence(),

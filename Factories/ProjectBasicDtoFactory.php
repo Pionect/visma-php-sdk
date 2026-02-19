@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ProjectBasicDto;
+use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ProjectBasicDtoFactory extends Factory
@@ -15,7 +16,7 @@ class ProjectBasicDtoFactory extends Factory
             'projectId' => $this->faker->uuid(),
             'customer' => null,
             'hold' => $this->faker->boolean(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(TemplateNumberDescriptionStatusEnum::cases()),
             'description' => $this->faker->sentence(),
             'startDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'endDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

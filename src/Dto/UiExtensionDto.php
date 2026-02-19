@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\UiExtensionQueryParametersTypeEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -15,7 +16,7 @@ class UiExtensionDto extends SpatieData
         public ?string $internalId = null,
         public ?string $title = null,
         public ?string $url = null,
-        public ?string $type = null,
+        public ?UiExtensionQueryParametersTypeEnum $type = null,
         public ?string $screenId = null,
         public ?string $stepId = null,
         public ?string $ownerName = null,

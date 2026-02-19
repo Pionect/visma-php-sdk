@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\InventoryIssueLineDto;
+use Pionect\VismaSdk\Enums\InventoryIssueLineTransactionTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class InventoryIssueLineDtoFactory extends Factory
@@ -11,7 +12,7 @@ class InventoryIssueLineDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'transactionType' => $this->faker->word(),
+            'transactionType' => $this->faker->randomElement(InventoryIssueLineTransactionTypeEnum::cases()),
             'warehouse' => null,
             'unitCost' => null,
             'extCost' => null,

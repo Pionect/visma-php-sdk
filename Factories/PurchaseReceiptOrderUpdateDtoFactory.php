@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\PurchaseReceiptOrderUpdateDto;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseReceiptOrderUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class PurchaseReceiptOrderUpdateDtoFactory extends Factory
     {
         return [
             'orderNbr' => $this->faker->word(),
-            'orderType' => $this->faker->word(),
+            'orderType' => $this->faker->randomElement(PurchaseOrderLineOrderTypeEnum::cases()),
             'allocations' => [],
         ];
     }

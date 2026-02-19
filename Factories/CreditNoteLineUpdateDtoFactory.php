@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CreditNoteLineUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CreditNoteLineUpdateDtoFactory extends Factory
@@ -13,7 +14,7 @@ class CreditNoteLineUpdateDtoFactory extends Factory
         return [
             'discountCode' => $this->faker->word(),
             'taskId' => $this->faker->uuid(),
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'inventoryNumber' => $this->faker->word(),
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'description' => $this->faker->sentence(),

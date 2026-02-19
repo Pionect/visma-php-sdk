@@ -18,7 +18,10 @@ class InventoryIssueUpdateDto extends SpatieData
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $controlAmount = null,
-        /** @var InventoryIssueLineUpdateDto[]|null */
+        /**
+         * @var InventoryIssueLineUpdateDto[]|null
+         *                                         The inventory issue lines
+         */
         public ?array $issueLines = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,

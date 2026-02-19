@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\JournalTransactionDto;
+use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
+use Pionect\VismaSdk\Enums\JournalTransactionStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class JournalTransactionDtoFactory extends Factory
@@ -11,9 +13,9 @@ class JournalTransactionDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'module' => $this->faker->word(),
+            'module' => $this->faker->randomElement(JournalTransactionLineModuleEnum::cases()),
             'batchNumber' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(JournalTransactionStatusEnum::cases()),
             'hold' => $this->faker->boolean(),
             'transactionDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'postPeriod' => $this->faker->word(),

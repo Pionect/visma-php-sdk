@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PurchaseReceiptLineDto;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineLineTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseReceiptLineTransferOrderTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseReceiptLineDtoFactory extends Factory
@@ -18,7 +21,7 @@ class PurchaseReceiptLineDtoFactory extends Factory
             'branch' => null,
             'branchNumber' => $this->faker->word(),
             'inventory' => InventoryNumberDescriptionDtoFactory::new()->make(),
-            'lineType' => $this->faker->word(),
+            'lineType' => $this->faker->randomElement(PurchaseOrderLineLineTypeEnum::cases()),
             'warehouse' => null,
             'location' => null,
             'transactionDescription' => $this->faker->sentence(),
@@ -43,10 +46,10 @@ class PurchaseReceiptLineDtoFactory extends Factory
             'projectTask' => null,
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lotSerialNumber' => $this->faker->word(),
-            'poOrderType' => $this->faker->word(),
+            'poOrderType' => $this->faker->randomElement(PurchaseOrderLineOrderTypeEnum::cases()),
             'poOrderNbr' => $this->faker->word(),
             'poOrderLineNbr' => $this->faker->numberBetween(1, 100),
-            'transferOrderType' => $this->faker->word(),
+            'transferOrderType' => $this->faker->randomElement(PurchaseReceiptLineTransferOrderTypeEnum::cases()),
             'transferOrderNbr' => $this->faker->word(),
             'transferOrderLineNbr' => $this->faker->numberBetween(1, 100),
             'completePoLine' => $this->faker->boolean(),

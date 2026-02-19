@@ -1,5 +1,6 @@
 <?php
 
+use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Requests\ProjectBasic\ProjectBasicGetAllRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -19,7 +20,7 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
                     'name' => 'String value',
                 ],
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Planned',
                 'description' => 'String value',
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
@@ -50,7 +51,7 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
                     'name' => 'String value',
                 ],
                 'hold' => true,
-                'status' => 'String value',
+                'status' => 'Planned',
                 'description' => 'String value',
                 'startDate' => '2025-11-22T10:40:04+00:00',
                 'endDate' => '2025-11-22T10:40:04+00:00',
@@ -122,7 +123,7 @@ it('calls the projectBasicGetAllRequest method in the ProjectBasic resource', fu
         ->customer->number->toBe('String value')
         ->customer->name->toBe('String value')
         ->hold->toBe(true)
-        ->status->toBe('String value')
+        ->status->toEqual(TemplateNumberDescriptionStatusEnum::PLANNED)
         ->description->toBe('String value')
         ->startDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->endDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))

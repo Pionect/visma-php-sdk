@@ -12,6 +12,10 @@ class FinancialPeriodQueryParameters extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /**
+         * Enter the year or year-period lower than the first period or year you want,
+         * format YYYY or YYYYPP
+         */
         public ?string $greaterThanValue = null,
     ) {}
 }

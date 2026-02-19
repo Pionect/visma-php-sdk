@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\InventoryDto;
+use Pionect\VismaSdk\Enums\InventoryStatusEnum;
+use Pionect\VismaSdk\Enums\ItemClassTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class InventoryDtoFactory extends Factory
@@ -13,8 +15,8 @@ class InventoryDtoFactory extends Factory
         return [
             'inventoryId' => $this->faker->numberBetween(1, 1000),
             'inventoryNumber' => $this->faker->word(),
-            'status' => $this->faker->word(),
-            'type' => $this->faker->word(),
+            'status' => $this->faker->randomElement(InventoryStatusEnum::cases()),
+            'type' => $this->faker->randomElement(ItemClassTypeEnum::cases()),
             'description' => $this->faker->sentence(),
             'body' => $this->faker->word(),
             'itemClass' => null,

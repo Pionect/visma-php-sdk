@@ -13,7 +13,9 @@ class AttributeIdValueDto extends SpatieData
 
     public function __construct(
         public ?string $id = null,
+        /** Value > The value of the attribute. */
         public ?string $value = null,
+        /** Attribute > The description of the attribute. */
         public ?string $description = null,
     ) {}
 }

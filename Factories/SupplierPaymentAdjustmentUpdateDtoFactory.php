@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SupplierPaymentAdjustmentUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierPaymentAdjustmentUpdateDtoFactory extends Factory
@@ -10,8 +12,8 @@ class SupplierPaymentAdjustmentUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
-            'documentType' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
+            'documentType' => $this->faker->randomElement(SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum::cases()),
             'refNbr' => $this->faker->word(),
             'amountPaid' => null,
             'cashDiscountTaken' => null,

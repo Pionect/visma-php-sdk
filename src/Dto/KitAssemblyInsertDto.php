@@ -15,6 +15,7 @@ class KitAssemblyInsertDto extends SpatieData
 
     public function __construct(
         public ?KitAssemblyLinkInsertDto $kitAssemblyLink = null,
+        /** Type, possible values: P - Production, D - Disassembly */
         public ?string $type = null,
         public ?string $refNo = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -41,7 +42,11 @@ class KitAssemblyInsertDto extends SpatieData
         public int|float|null $quantity = null,
         /** @var KitAssemblyStockComponentsUpdateDto[]|null */
         public ?array $stockComponentLines = null,
-        /** @var KitAssemblyStockComponentAllocationsUpdateDto[]|null */
+        /**
+         * @var KitAssemblyStockComponentAllocationsUpdateDto[]|null
+         *                                                           This property is deprecated and will be removed in a future version.
+         *                                                           Use StockComponentLineAllocations within each StockComponentLine instead.
+         */
         public ?array $stockComponentAllocations = null,
         /** @var KitAssemblyNonStockComponentsUpdateDto[]|null */
         public ?array $nonStockComponentLines = null,

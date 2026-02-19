@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\AccountUpdateDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Requests\Account\AccountGetAllRequest;
 use Pionect\VismaSdk\Requests\Account\AccountGetByaccountCdRequest;
 use Pionect\VismaSdk\Requests\Account\AccountPostRequest;
@@ -19,7 +20,7 @@ it('calls the accountGetByaccountCdRequest method in the Account resource', func
             'accountCd' => 'String value',
             'accountGroupCd' => 'String value',
             'accountClass' => 'String value',
-            'type' => 'String value',
+            'type' => 'Asset',
             'active' => true,
             'description' => 'String value',
             'accountClassDescription' => 'String value',
@@ -66,7 +67,7 @@ it('calls the accountGetByaccountCdRequest method in the Account resource', func
         ->accountCd->toBe('String value')
         ->accountGroupCd->toBe('String value')
         ->accountClass->toBe('String value')
-        ->type->toBe('String value')
+        ->type->toEqual(AccountTypeEnum::ASSET)
         ->active->toBe(true)
         ->description->toBe('String value')
         ->accountClassDescription->toBe('String value')
@@ -102,7 +103,7 @@ it('calls the accountPutByaccountCdRequest method in the Account resource', func
         accountGroupCd: 'String value',
         postOption: 'String value',
         publicCode1: 'String value',
-        type: 'String value',
+        type: AccountTypeEnum::ASSET,
         useDefaultSub: true,
         taxCategory: 'String value'
     );
@@ -132,7 +133,7 @@ it('calls the accountGetAllRequest method in the Account resource', function () 
                 'accountCd' => 'String value',
                 'accountGroupCd' => 'String value',
                 'accountClass' => 'String value',
-                'type' => 'String value',
+                'type' => 'Asset',
                 'active' => true,
                 'description' => 'String value',
                 'accountClassDescription' => 'String value',
@@ -165,7 +166,7 @@ it('calls the accountGetAllRequest method in the Account resource', function () 
                 'accountCd' => 'String value',
                 'accountGroupCd' => 'String value',
                 'accountClass' => 'String value',
-                'type' => 'String value',
+                'type' => 'Asset',
                 'active' => true,
                 'description' => 'String value',
                 'accountClassDescription' => 'String value',
@@ -224,7 +225,7 @@ it('calls the accountGetAllRequest method in the Account resource', function () 
         ->accountCd->toBe('String value')
         ->accountGroupCd->toBe('String value')
         ->accountClass->toBe('String value')
-        ->type->toBe('String value')
+        ->type->toEqual(AccountTypeEnum::ASSET)
         ->active->toBe(true)
         ->description->toBe('String value')
         ->accountClassDescription->toBe('String value')
@@ -260,7 +261,7 @@ it('calls the accountPostRequest method in the Account resource', function () {
         accountGroupCd: 'String value',
         postOption: 'String value',
         publicCode1: 'String value',
-        type: 'String value',
+        type: AccountTypeEnum::ASSET,
         useDefaultSub: true,
         taxCategory: 'String value'
     );

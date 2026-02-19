@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PurchaseOrderLineUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineLineTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineReceiptActionEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseOrderLineUpdateDtoFactory extends Factory
@@ -11,11 +14,11 @@ class PurchaseOrderLineUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'branch' => $this->faker->word(),
             'inventory' => $this->faker->word(),
-            'lineType' => $this->faker->word(),
+            'lineType' => $this->faker->randomElement(PurchaseOrderLineLineTypeEnum::cases()),
             'warehouse' => $this->faker->word(),
             'lineDescription' => $this->faker->sentence(),
             'uom' => $this->faker->word(),
@@ -31,7 +34,7 @@ class PurchaseOrderLineUpdateDtoFactory extends Factory
             'minReceipt' => null,
             'maxReceipt' => null,
             'completeOn' => null,
-            'receiptAction' => $this->faker->word(),
+            'receiptAction' => $this->faker->randomElement(PurchaseOrderLineReceiptActionEnum::cases()),
             'taxCategory' => $this->faker->word(),
             'account' => $this->faker->word(),
             'sub' => [],

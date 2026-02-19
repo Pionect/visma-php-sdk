@@ -1,6 +1,7 @@
 <?php
 
 use Pionect\VismaSdk\Dto\ProjectTaskUpdateDto;
+use Pionect\VismaSdk\Enums\TaskStatusEnum;
 use Pionect\VismaSdk\Requests\ProjectTask\ProjectTaskGetAllTasksRequest;
 use Pionect\VismaSdk\Requests\ProjectTask\ProjectTaskGetTaskByinternalIdRequest;
 use Pionect\VismaSdk\Requests\ProjectTask\ProjectTaskPostByinternalIdRequest;
@@ -54,7 +55,7 @@ it('calls the projectTaskGetTaskByinternalIdRequest method in the ProjectTask re
             'rateTable' => [
                 'description' => 'String value',
             ],
-            'status' => 'String value',
+            'status' => 'Planned',
             'restrictEmployees' => true,
             'visibility' => [
                 'visibleInGl' => true,
@@ -112,7 +113,7 @@ it('calls the projectTaskGetTaskByinternalIdRequest method in the ProjectTask re
         ->branch->number->toBe('String value')
         ->branch->name->toBe('String value')
         ->rateTable->description->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(TaskStatusEnum::PLANNED)
         ->restrictEmployees->toBe(true)
         ->visibility->visibleInGl->toBe(true)
         ->visibility->visibleInAp->toBe(true)
@@ -135,7 +136,7 @@ it('calls the projectTaskPutByinternalIdRequest method in the ProjectTask resour
         plannedEnd: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rateTable: 'String value',
-        status: 'String value',
+        status: TaskStatusEnum::PLANNED,
         visibility: new \Pionect\VismaSdk\Dto\VisibilityUpdateDto(
             visibleInGl: true,
             visibleInAp: true,
@@ -177,7 +178,7 @@ it('calls the projectTaskPostByinternalIdRequest method in the ProjectTask resou
         plannedEnd: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         startDate: \Carbon\Carbon::parse('2025-11-22T10:40:04+00:00'),
         rateTable: 'String value',
-        status: 'String value',
+        status: TaskStatusEnum::PLANNED,
         visibility: new \Pionect\VismaSdk\Dto\VisibilityUpdateDto(
             visibleInGl: true,
             visibleInAp: true,
@@ -253,7 +254,7 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
                 'rateTable' => [
                     'description' => 'String value',
                 ],
-                'status' => 'String value',
+                'status' => 'Planned',
                 'restrictEmployees' => true,
                 'visibility' => [
                     'visibleInGl' => true,
@@ -311,7 +312,7 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
                 'rateTable' => [
                     'description' => 'String value',
                 ],
-                'status' => 'String value',
+                'status' => 'Planned',
                 'restrictEmployees' => true,
                 'visibility' => [
                     'visibleInGl' => true,
@@ -399,7 +400,7 @@ it('calls the projectTaskGetAllTasksRequest method in the ProjectTask resource',
         ->branch->number->toBe('String value')
         ->branch->name->toBe('String value')
         ->rateTable->description->toBe('String value')
-        ->status->toBe('String value')
+        ->status->toEqual(TaskStatusEnum::PLANNED)
         ->restrictEmployees->toBe(true)
         ->visibility->visibleInGl->toBe(true)
         ->visibility->visibleInAp->toBe(true)

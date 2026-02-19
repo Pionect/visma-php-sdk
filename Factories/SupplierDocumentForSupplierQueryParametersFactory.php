@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierDocumentForSupplierQueryParameters;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierDocumentForSupplierQueryParametersFactory extends Factory
@@ -11,14 +13,14 @@ class SupplierDocumentForSupplierQueryParametersFactory extends Factory
     protected function definition(): array
     {
         return [
-            'documentType' => $this->faker->word(),
+            'documentType' => $this->faker->randomElement(SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum::cases()),
             'released' => $this->faker->numberBetween(1, 100),
             'project' => $this->faker->word(),
             'expandApproval' => $this->faker->boolean(),
             'expandNote' => $this->faker->boolean(),
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(SupplierInvoiceForSupplierQueryParametersStatusEnum::cases()),
             'expandLinePrebookAccounts' => $this->faker->boolean(),
             'branch' => $this->faker->word(),
             'financialPeriod' => $this->faker->word(),

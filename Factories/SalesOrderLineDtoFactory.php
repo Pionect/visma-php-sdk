@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SalesOrderLineDto;
+use Pionect\VismaSdk\Enums\SalesOrderLineOperationEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLinePoSourceEnum;
+use Pionect\VismaSdk\Enums\SalesOrderLineShipCompleteEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SalesOrderLineDtoFactory extends Factory
@@ -12,16 +15,16 @@ class SalesOrderLineDtoFactory extends Factory
     {
         return [
             'invoiceNbr' => $this->faker->word(),
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(SalesOrderLineOperationEnum::cases()),
             'freeItem' => $this->faker->boolean(),
             'requestedOn' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'shipOn' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'shipComplete' => $this->faker->word(),
+            'shipComplete' => $this->faker->randomElement(SalesOrderLineShipCompleteEnum::cases()),
             'undershipThreshold' => null,
             'overshipThreshold' => null,
             'completed' => $this->faker->boolean(),
             'markForPo' => $this->faker->boolean(),
-            'poSource' => $this->faker->word(),
+            'poSource' => $this->faker->randomElement(SalesOrderLinePoSourceEnum::cases()),
             'lotSerialNbr' => $this->faker->word(),
             'expirationDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'reasonCode' => $this->faker->word(),

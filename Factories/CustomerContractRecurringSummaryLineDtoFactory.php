@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\CustomerContractRecurringSummaryLineDto;
+use Pionect\VismaSdk\Enums\CustomerContractRecurringSummaryLineInvoiceTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerContractRecurringSummaryLineDtoFactory extends Factory
@@ -14,7 +15,7 @@ class CustomerContractRecurringSummaryLineDtoFactory extends Factory
             'description' => $this->faker->sentence(),
             'itemId' => $this->faker->uuid(),
             'uom' => $this->faker->word(),
-            'invoiceType' => $this->faker->word(),
+            'invoiceType' => $this->faker->randomElement(CustomerContractRecurringSummaryLineInvoiceTypeEnum::cases()),
             'included' => null,
             'recurringPrice' => null,
             'recurringDiscount' => null,

@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\GeneralLedgerBalanceDto;
+use Pionect\VismaSdk\Enums\GeneralLedgerPeriodBalanceQueryParametersBalanceTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class GeneralLedgerBalanceDtoFactory extends Factory
@@ -13,7 +14,7 @@ class GeneralLedgerBalanceDtoFactory extends Factory
         return [
             'branch' => BranchNumberDtoFactory::new()->make(),
             'ledger' => LedgerDescriptionDtoFactory::new()->make(),
-            'balanceType' => $this->faker->word(),
+            'balanceType' => $this->faker->randomElement(GeneralLedgerPeriodBalanceQueryParametersBalanceTypeEnum::cases()),
             'financialPeriod' => $this->faker->word(),
             'account' => AccountNumberDescriptionDtoFactory::new()->make(),
             'subaccountId' => $this->faker->uuid(),

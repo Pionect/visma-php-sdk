@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\SalesOrderLineShipCompleteEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -52,7 +53,7 @@ class SaleOrderUpdateDtoInReopenSalesOrderActionDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $shipSeparately = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $shipComplete = null,
+        public ?SalesOrderLineShipCompleteEnum $shipComplete = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $cancelBy = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

@@ -4,6 +4,10 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierDto;
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
+use Pionect\VismaSdk\Enums\SupplierAccountUsedForPaymentEnum;
+use Pionect\VismaSdk\Enums\SupplierChargeBearerEnum;
+use Pionect\VismaSdk\Enums\SupplierPaymentByEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierDtoFactory extends Factory
@@ -14,7 +18,7 @@ class SupplierDtoFactory extends Factory
             'internalId' => $this->faker->numberBetween(1, 1000),
             'number' => $this->faker->word(),
             'name' => $this->faker->name(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(EmployeeStatusEnum::cases()),
             'mainAddress' => null,
             'mainContact' => null,
             'accountReference' => $this->faker->word(),
@@ -27,9 +31,9 @@ class SupplierDtoFactory extends Factory
             'remitContact' => null,
             'paymentMethod' => null,
             'cashAccount' => $this->faker->word(),
-            'chargeBearer' => $this->faker->word(),
-            'accountUsedForPayment' => $this->faker->word(),
-            'paymentBy' => $this->faker->word(),
+            'chargeBearer' => $this->faker->randomElement(SupplierChargeBearerEnum::cases()),
+            'accountUsedForPayment' => $this->faker->randomElement(SupplierAccountUsedForPaymentEnum::cases()),
+            'paymentBy' => $this->faker->randomElement(SupplierPaymentByEnum::cases()),
             'paymentLeadTime' => $this->faker->numberBetween(1, 100),
             'paymentRefDisplayMask' => $this->faker->word(),
             'paySeparately' => $this->faker->boolean(),

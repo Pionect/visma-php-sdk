@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CreateCurrencyRateDto;
+use Pionect\VismaSdk\Enums\CreateCurrencyRateMultDivEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CreateCurrencyRateDtoFactory extends Factory
@@ -16,7 +17,7 @@ class CreateCurrencyRateDtoFactory extends Factory
             'rateType' => number_format($this->faker->randomFloat(2, 50, 150), 2, '.', ''),
             'effectiveDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'rate' => null,
-            'multDiv' => $this->faker->word(),
+            'multDiv' => $this->faker->randomElement(CreateCurrencyRateMultDivEnum::cases()),
         ];
     }
 

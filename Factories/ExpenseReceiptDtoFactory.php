@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExpenseReceiptDto;
+use Pionect\VismaSdk\Enums\ExpenseReceiptQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ExpenseReceiptDtoFactory extends Factory
@@ -25,7 +26,7 @@ class ExpenseReceiptDtoFactory extends Factory
             'totalAmount' => null,
             'employeePart' => null,
             'claimAmount' => null,
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(ExpenseReceiptQueryParametersStatusEnum::cases()),
             'claimedBy' => null,
             'branch' => null,
             'expenseClaim' => null,

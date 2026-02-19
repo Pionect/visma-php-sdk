@@ -2,6 +2,9 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\CustomerCreditVerificationEnum;
+use Pionect\VismaSdk\Enums\CustomerStatementTypeEnum;
+use Pionect\VismaSdk\Enums\CustomerStatusEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -20,7 +23,7 @@ class CustomerUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $name = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $status = null,
+        public ?CustomerStatusEnum $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $accountReference = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -71,13 +74,13 @@ class CustomerUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?ContactInfoUpdateDto $mainContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $creditVerification = null,
+        public ?CustomerCreditVerificationEnum $creditVerification = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?AddressUpdateDto $invoiceAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?ContactInfoUpdateDto $invoiceContact = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $statementType = null,
+        public ?CustomerStatementTypeEnum $statementType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?AddressUpdateDto $deliveryAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -90,7 +93,10 @@ class CustomerUpdateDto extends SpatieData
         public ?CustomerDefaultPaymentMethodUpdateDto $defaultPaymentMethod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?CustomerGlAccountsUpdateDto $glAccounts = null,
-        /** @var CustomerDirectDebitUpdateDto[]|null */
+        /**
+         * @var CustomerDirectDebitUpdateDto[]|null
+         *                                          Update direct debit information for a customer(only for Netherlands)
+         */
         public ?array $directDebitLines = null,
         /** @var AttributeLineUpdateDto[]|null */
         public ?array $attributeLines = null,

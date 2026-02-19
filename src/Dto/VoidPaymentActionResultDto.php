@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\PaymentTypeEnum;
+use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Spatie\LaravelData\Data as SpatieData;
 
 /**
@@ -12,11 +14,11 @@ class VoidPaymentActionResultDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
-        public ?string $type = null,
+        public ?PaymentTypeEnum $type = null,
         public ?string $refNbr = null,
         public ?PaymentDto $voidPayment = null,
         public ?string $actionId = null,
-        public ?string $actionResult = null,
+        public ?ReleaseCashTransactionActionResultActionResultEnum $actionResult = null,
         public ?string $errorInfo = null,
     ) {}
 }

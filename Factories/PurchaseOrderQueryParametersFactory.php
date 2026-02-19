@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\PurchaseOrderQueryParameters;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
+use Pionect\VismaSdk\Enums\PurchaseOrderStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseOrderQueryParametersFactory extends Factory
@@ -15,8 +17,8 @@ class PurchaseOrderQueryParametersFactory extends Factory
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
-            'orderType' => $this->faker->word(),
-            'orderStatus' => $this->faker->word(),
+            'orderType' => $this->faker->randomElement(PurchaseOrderLineOrderTypeEnum::cases()),
+            'orderStatus' => $this->faker->randomElement(PurchaseOrderStatusEnum::cases()),
             'supplier' => $this->faker->word(),
             'branch' => $this->faker->word(),
             'orderDate' => $this->faker->word(),

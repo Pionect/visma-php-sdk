@@ -3,6 +3,9 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\ProjectTransactionDocumentDto;
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
+use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
+use Pionect\VismaSdk\Enums\ProjectTransactionDocumentOrigDocTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ProjectTransactionDocumentDtoFactory extends Factory
@@ -13,9 +16,9 @@ class ProjectTransactionDocumentDtoFactory extends Factory
             'refNbr' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'origDocNbr' => $this->faker->word(),
-            'status' => $this->faker->word(),
-            'module' => $this->faker->word(),
-            'origDocType' => $this->faker->word(),
+            'status' => $this->faker->randomElement(InventoryAdjustmentStatusEnum::cases()),
+            'module' => $this->faker->randomElement(JournalTransactionLineModuleEnum::cases()),
+            'origDocType' => $this->faker->randomElement(ProjectTransactionDocumentOrigDocTypeEnum::cases()),
             'note' => $this->faker->word(),
             'timeStamp' => $this->faker->word(),
             'lines' => [],

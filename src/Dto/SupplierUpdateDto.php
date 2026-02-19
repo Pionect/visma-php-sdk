@@ -2,6 +2,10 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
+use Pionect\VismaSdk\Enums\SupplierAccountUsedForPaymentEnum;
+use Pionect\VismaSdk\Enums\SupplierChargeBearerEnum;
+use Pionect\VismaSdk\Enums\SupplierPaymentByEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -22,7 +26,7 @@ class SupplierUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $name = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $status = null,
+        public ?EmployeeStatusEnum $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $accountReference = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -59,11 +63,11 @@ class SupplierUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $vatZoneId = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $chargeBearer = null,
+        public ?SupplierChargeBearerEnum $chargeBearer = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $accountUsedForPayment = null,
+        public ?SupplierAccountUsedForPaymentEnum $accountUsedForPayment = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $paymentBy = null,
+        public ?SupplierPaymentByEnum $paymentBy = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?AddressUpdateDto $mainAddress = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

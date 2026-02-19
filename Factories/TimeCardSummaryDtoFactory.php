@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\TimeCardSummaryDto;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class TimeCardSummaryDtoFactory extends Factory
@@ -26,7 +27,7 @@ class TimeCardSummaryDtoFactory extends Factory
             'projectTask' => null,
             'timeSpent' => $this->faker->numberBetween(1, 100),
             'description' => $this->faker->sentence(),
-            'approvalStatus' => $this->faker->word(),
+            'approvalStatus' => $this->faker->randomElement(TimeCardSummaryApprovalStatusEnum::cases()),
             'approver' => $this->faker->word(),
             'approvalStatusText' => $this->faker->word(),
             'lastModifiedDateTime' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

@@ -13,7 +13,10 @@ class SupplierAccountsDto extends SpatieData
 
     public function __construct(
         public ?SupplierAccountInSupplierAccountsDto $supplierAccount = null,
-        /** @var SupplierItemAccountDto[]|null */
+        /**
+         * @var SupplierItemAccountDto[]|null
+         *                                    The list of SUpplierItems Ids with their expense accounts
+         */
         public ?array $supplierItemAccounts = null,
     ) {}
 }

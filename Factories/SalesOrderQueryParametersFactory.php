@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SalesOrderQueryParameters;
+use Pionect\VismaSdk\Enums\SalesOrderQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SalesOrderQueryParametersFactory extends Factory
@@ -11,7 +12,7 @@ class SalesOrderQueryParametersFactory extends Factory
     {
         return [
             'orderType' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(SalesOrderQueryParametersStatusEnum::cases()),
             'greaterThanValue' => $this->faker->word(),
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),

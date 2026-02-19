@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\RotRutUpdateDto;
+use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class RotRutUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class RotRutUpdateDtoFactory extends Factory
     {
         return [
             'distributedAutomaticaly' => $this->faker->boolean(),
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(WorkTypeRutRotTypeEnum::cases()),
             'appartment' => $this->faker->word(),
             'estate' => $this->faker->word(),
             'organizationNbr' => $this->faker->word(),

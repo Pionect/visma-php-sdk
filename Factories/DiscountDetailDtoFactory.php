@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\DiscountDetailDto;
+use Pionect\VismaSdk\Enums\DiscountDetailTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class DiscountDetailDtoFactory extends Factory
@@ -14,7 +15,7 @@ class DiscountDetailDtoFactory extends Factory
             'skipDiscount' => $this->faker->boolean(),
             'discountCode' => $this->faker->word(),
             'sequanceId' => $this->faker->uuid(),
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(DiscountDetailTypeEnum::cases()),
             'manualDiscount' => $this->faker->boolean(),
             'discountableAmt' => null,
             'discountableQty' => null,

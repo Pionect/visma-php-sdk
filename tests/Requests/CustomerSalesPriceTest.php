@@ -1,6 +1,8 @@
 <?php
 
 use Pionect\VismaSdk\Dto\CustomerSalesPriceUpdateDto;
+use Pionect\VismaSdk\Enums\CustomerSalesPriceQueryParametersPriceTypeEnum;
+use Pionect\VismaSdk\Enums\CustomerSalesPriceUpdatePriceTypeEnum;
 use Pionect\VismaSdk\Requests\CustomerSalesPrice\CustomerSalesPriceGetCustomerSalesPriceByrecordIdRequest;
 use Pionect\VismaSdk\Requests\CustomerSalesPrice\CustomerSalesPriceGetCustomerSalesPricesRequest;
 use Pionect\VismaSdk\Requests\CustomerSalesPrice\CustomerSalesPricePostCustomerSalesPriceRequest;
@@ -17,7 +19,7 @@ it('calls the customerSalesPriceGetCustomerSalesPricesRequest method in the Cust
         CustomerSalesPriceGetCustomerSalesPricesRequest::class => MockResponse::make([
             0 => [
                 'recordId' => 42,
-                'priceType' => 'String value',
+                'priceType' => 'All',
                 'priceCode' => 'String value',
                 'inventoryId' => 'mock-id-123',
                 'description' => 'String value',
@@ -36,7 +38,7 @@ it('calls the customerSalesPriceGetCustomerSalesPricesRequest method in the Cust
             ],
             1 => [
                 'recordId' => 42,
-                'priceType' => 'String value',
+                'priceType' => 'All',
                 'priceCode' => 'String value',
                 'inventoryId' => 'mock-id-123',
                 'description' => 'String value',
@@ -81,7 +83,7 @@ it('calls the customerSalesPriceGetCustomerSalesPricesRequest method in the Cust
     expect($collection)->toHaveCount(2);
     expect($collection->first())
         ->recordId->toBe(42)
-        ->priceType->toBe('String value')
+        ->priceType->toEqual(CustomerSalesPriceQueryParametersPriceTypeEnum::ALL)
         ->priceCode->toBe('String value')
         ->inventoryId->toBe('mock-id-123')
         ->description->toBe('String value')
@@ -101,7 +103,7 @@ it('calls the customerSalesPriceGetCustomerSalesPricesRequest method in the Cust
 
 it('calls the customerSalesPricePostCustomerSalesPriceRequest method in the CustomerSalesPrice resource', function () {
     $bodyData = new CustomerSalesPriceUpdateDto(
-        priceType: 'String value',
+        priceType: CustomerSalesPriceUpdatePriceTypeEnum::BASE,
         priceCode: 'String value',
         inventoryId: 'mock-id-123',
         uoM: 'String value',
@@ -134,7 +136,7 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordIdRequest method in
     Saloon::fake([
         CustomerSalesPriceGetCustomerSalesPriceByrecordIdRequest::class => MockResponse::make([
             'recordId' => 42,
-            'priceType' => 'String value',
+            'priceType' => 'All',
             'priceCode' => 'String value',
             'inventoryId' => 'mock-id-123',
             'description' => 'String value',
@@ -167,7 +169,7 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordIdRequest method in
 
     expect($dto)
         ->recordId->toBe(42)
-        ->priceType->toBe('String value')
+        ->priceType->toEqual(CustomerSalesPriceQueryParametersPriceTypeEnum::ALL)
         ->priceCode->toBe('String value')
         ->inventoryId->toBe('mock-id-123')
         ->description->toBe('String value')
@@ -187,7 +189,7 @@ it('calls the customerSalesPriceGetCustomerSalesPriceByrecordIdRequest method in
 
 it('calls the customerSalesPricePutCustomerSalesPriceByrecordIdRequest method in the CustomerSalesPrice resource', function () {
     $bodyData = new CustomerSalesPriceUpdateDto(
-        priceType: 'String value',
+        priceType: CustomerSalesPriceUpdatePriceTypeEnum::BASE,
         priceCode: 'String value',
         inventoryId: 'mock-id-123',
         uoM: 'String value',

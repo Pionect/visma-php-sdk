@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PurchaseOrderBasicUpdateDto;
+use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PurchaseOrderBasicUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class PurchaseOrderBasicUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'orderType' => $this->faker->word(),
+            'orderType' => $this->faker->randomElement(PurchaseOrderLineOrderTypeEnum::cases()),
             'orderNumber' => $this->faker->word(),
             'hold' => $this->faker->boolean(),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),

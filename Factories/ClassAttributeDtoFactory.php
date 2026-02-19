@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\ClassAttributeDto;
+use Pionect\VismaSdk\Enums\AttributeControlTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ClassAttributeDtoFactory extends Factory
@@ -14,7 +15,7 @@ class ClassAttributeDtoFactory extends Factory
             'description' => $this->faker->sentence(),
             'sortOrder' => $this->faker->numberBetween(1, 100),
             'required' => $this->faker->boolean(),
-            'attributeType' => $this->faker->word(),
+            'attributeType' => $this->faker->randomElement(AttributeControlTypeEnum::cases()),
             'defaultValue' => $this->faker->word(),
             'details' => [],
         ];

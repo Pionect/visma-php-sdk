@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SupplierPaymentAdjustmentDto;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierPaymentAdjustmentDtoFactory extends Factory
@@ -13,7 +14,7 @@ class SupplierPaymentAdjustmentDtoFactory extends Factory
         return [
             'branch' => $this->faker->word(),
             'batchNumber' => $this->faker->word(),
-            'docType' => $this->faker->word(),
+            'docType' => $this->faker->randomElement(SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum::cases()),
             'invoiceRefNbr' => $this->faker->word(),
             'amountPaid' => null,
             'cashDiscountTaken' => null,

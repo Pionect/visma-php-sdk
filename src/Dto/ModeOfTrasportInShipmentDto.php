@@ -15,7 +15,9 @@ class ModeOfTrasportInShipmentDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Click on the magnifier. > The identifier. */
         public ?int $id = null,
+        /** Click on the magnifier. > The description. */
         public ?string $description = null,
     ) {}
 }

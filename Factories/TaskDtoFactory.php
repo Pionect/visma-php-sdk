@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\TaskDto;
+use Pionect\VismaSdk\Enums\TaskStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class TaskDtoFactory extends Factory
@@ -19,7 +20,7 @@ class TaskDtoFactory extends Factory
             'endDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'branch' => null,
             'rateTable' => RateTableIdDescriptionDtoFactory::new()->make(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(TaskStatusEnum::cases()),
             'restrictEmployees' => $this->faker->boolean(),
             'visibility' => VisibilityDtoFactory::new()->make(),
             'timeStamp' => $this->faker->word(),

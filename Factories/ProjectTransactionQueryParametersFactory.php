@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ProjectTransactionQueryParameters;
+use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
+use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ProjectTransactionQueryParametersFactory extends Factory
@@ -11,8 +13,8 @@ class ProjectTransactionQueryParametersFactory extends Factory
     protected function definition(): array
     {
         return [
-            'module' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'module' => $this->faker->randomElement(JournalTransactionLineModuleEnum::cases()),
+            'status' => $this->faker->randomElement(InventoryAdjustmentStatusEnum::cases()),
             'project' => $this->faker->word(),
             'projectTask' => $this->faker->word(),
             'billable' => $this->faker->boolean(),

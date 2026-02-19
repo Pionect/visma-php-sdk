@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\SupplierQueryParameters;
+use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class SupplierQueryParametersFactory extends Factory
@@ -17,7 +18,7 @@ class SupplierQueryParametersFactory extends Factory
             'lastModifiedDateTime' => $this->faker->word(),
             'lastModifiedDateTimeCondition' => $this->faker->word(),
             'name' => $this->faker->name(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(EmployeeStatusEnum::cases()),
             'vatRegistrationId' => $this->faker->uuid(),
             'corporateId' => $this->faker->uuid(),
             'attributes' => $this->faker->word(),

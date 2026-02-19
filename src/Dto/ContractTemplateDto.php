@@ -15,7 +15,9 @@ class ContractTemplateDto extends SpatieData
         public ?\Carbon\Carbon $lastModifiedDateTime = null,
         /** @var ClassAttributeDto[]|null */
         public ?array $attributes = null,
+        /** Click on the magnifier. > The identifier. */
         public ?string $id = null,
+        /** Click on the magnifier. > The description. */
         public ?string $description = null,
     ) {}
 }

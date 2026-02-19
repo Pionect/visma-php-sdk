@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\ReverseInvoiceResultDto;
+use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ReverseInvoiceResultDtoFactory extends Factory
@@ -13,7 +14,7 @@ class ReverseInvoiceResultDtoFactory extends Factory
             'refNbr' => $this->faker->word(),
             'docType' => $this->faker->word(),
             'actionId' => $this->faker->uuid(),
-            'actionResult' => $this->faker->word(),
+            'actionResult' => $this->faker->randomElement(ReleaseCashTransactionActionResultActionResultEnum::cases()),
             'errorInfo' => $this->faker->word(),
         ];
     }

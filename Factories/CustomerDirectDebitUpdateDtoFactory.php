@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerDirectDebitUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerDirectDebitUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class CustomerDirectDebitUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'id' => $this->faker->word(),
             'mandateId' => $this->faker->uuid(),
             'mandateDescription' => $this->faker->sentence(),

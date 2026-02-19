@@ -16,6 +16,7 @@ class CustomerInCustomerPaymentMethodDto extends SpatieData
 
     public function __construct(
         public ?string $id = null,
+        /** Click the magnifier > The displayed name */
         public ?string $name = null,
     ) {}
 }

@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\ContactContactMethodEnum;
+use Pionect\VismaSdk\Enums\ContactTitleEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -17,7 +19,7 @@ class ContactUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $active = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $title = null,
+        public ?ContactTitleEnum $title = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $firstName = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -43,7 +45,7 @@ class ContactUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $fax = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $contactMethod = null,
+        public ?ContactContactMethodEnum $contactMethod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $doNotCall = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

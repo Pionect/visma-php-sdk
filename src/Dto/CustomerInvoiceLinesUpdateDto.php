@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\CustomerInvoiceLineItemTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -19,7 +21,7 @@ class CustomerInvoiceLinesUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $domesticServicesDeductible = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $itemType = null,
+        public ?CustomerInvoiceLineItemTypeEnum $itemType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $typeOfWork = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -28,7 +30,7 @@ class CustomerInvoiceLinesUpdateDto extends SpatieData
         public ?\Carbon\Carbon $startDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $endDate = null,
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $inventoryNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\DetailsDto;
+use Pionect\VismaSdk\Enums\DetailsPropertyTypeEnum;
+use Pionect\VismaSdk\Enums\DetailsStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class DetailsDtoFactory extends Factory
@@ -11,8 +13,8 @@ class DetailsDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'propertyType' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'propertyType' => $this->faker->randomElement(DetailsPropertyTypeEnum::cases()),
+            'status' => $this->faker->randomElement(DetailsStatusEnum::cases()),
             'receiptDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'depreciateFromDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'acquisitionCost' => null,

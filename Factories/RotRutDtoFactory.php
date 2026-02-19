@@ -3,6 +3,8 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\RotRutDto;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class RotRutDtoFactory extends Factory
@@ -10,10 +12,10 @@ class RotRutDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'docType' => $this->faker->word(),
+            'docType' => $this->faker->randomElement(CashSaleDocumentTypeEnum::cases()),
             'refNbr' => $this->faker->word(),
             'distributedAutomaticaly' => $this->faker->boolean(),
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(WorkTypeRutRotTypeEnum::cases()),
             'totalDeductableAmount' => null,
             'otherCost' => null,
             'materialCost' => null,

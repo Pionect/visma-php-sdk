@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\FinancialsDetailInCashTransactionDto;
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class FinancialsDetailInCashTransactionDtoFactory extends Factory
@@ -16,7 +17,7 @@ class FinancialsDetailInCashTransactionDtoFactory extends Factory
             'cleared' => $this->faker->boolean(),
             'clearDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'taxZone' => null,
-            'taxCalcMode' => $this->faker->word(),
+            'taxCalcMode' => $this->faker->randomElement(EntryTypeTaxCalculationModeEnum::cases()),
         ];
     }
 

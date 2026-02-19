@@ -12,6 +12,10 @@ class AttachmentMetadataUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /**
+         * The field SendToAutoinvoice only applies to files attached to Customer
+         * documents
+         */
         public ?object $sendToAutoinvoice = null,
     ) {}
 }

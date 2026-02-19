@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\DocumentQueryParameters;
+use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class DocumentQueryParametersFactory extends Factory
@@ -11,7 +13,7 @@ class DocumentQueryParametersFactory extends Factory
     protected function definition(): array
     {
         return [
-            'documentType' => $this->faker->word(),
+            'documentType' => $this->faker->randomElement(CashSaleDocumentTypeEnum::cases()),
             'released' => $this->faker->numberBetween(1, 100),
             'dunningLevel' => $this->faker->numberBetween(1, 100),
             'closedFinancialPeriod' => $this->faker->word(),
@@ -26,7 +28,7 @@ class DocumentQueryParametersFactory extends Factory
             'financialPeriod' => $this->faker->word(),
             'documentDueDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'documentDueDateCondition' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(CashSaleStatusEnum::cases()),
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'externalReference' => $this->faker->word(),

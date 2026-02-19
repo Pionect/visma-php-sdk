@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\ProjectBillingPeriodEnum;
+use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -31,10 +33,13 @@ class ProjectUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $template = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $status = null,
+        public ?TemplateNumberDescriptionStatusEnum $status = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $defAccount = null,
-        /** @var SegmentUpdateDto[]|null */
+        /**
+         * @var SegmentUpdateDto[]|null
+         *                              Mandatory field when Project Template is not specified.
+         */
         public ?array $defSub = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $defAccrualAccount = null,
@@ -45,7 +50,7 @@ class ProjectUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?\Carbon\Carbon $endDate = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $billingPeriod = null,
+        public ?ProjectBillingPeriodEnum $billingPeriod = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $allocationRule = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

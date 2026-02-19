@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerContractSummaryDto;
+use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoiceToEnum;
+use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoicingPeriodEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CustomerContractSummaryDtoFactory extends Factory
@@ -20,10 +22,10 @@ class CustomerContractSummaryDtoFactory extends Factory
             'gracePeriod' => $this->faker->numberBetween(1, 100),
             'currency' => $this->faker->word(),
             'invoicingScheduleStartsOn' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'invoicingPeriod' => $this->faker->word(),
+            'invoicingPeriod' => $this->faker->randomElement(CustomerContractSummaryInvoicingPeriodEnum::cases()),
             'lastInvoicingDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'nextInvoicingDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
-            'invoiceTo' => $this->faker->word(),
+            'invoiceTo' => $this->faker->randomElement(CustomerContractSummaryInvoiceToEnum::cases()),
             'invoiceAccount' => null,
             'invoiceLocation' => LocationNameDescriptionDtoFactory::new()->make(),
             'owner' => null,

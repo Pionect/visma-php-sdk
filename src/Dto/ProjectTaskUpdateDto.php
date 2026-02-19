@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\TaskStatusEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -27,7 +28,7 @@ class ProjectTaskUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $rateTable = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $status = null,
+        public ?TaskStatusEnum $status = null,
         public ?VisibilityUpdateDto $visibility = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?bool $restrictEmployees = null,

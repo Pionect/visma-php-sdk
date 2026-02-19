@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CashTransactionUpdateDto;
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class CashTransactionUpdateDtoFactory extends Factory
@@ -23,7 +24,7 @@ class CashTransactionUpdateDtoFactory extends Factory
             'controlTotal' => null,
             'vatAmount' => null,
             'vatZone' => $this->faker->word(),
-            'taxCalculationMode' => $this->faker->word(),
+            'taxCalculationMode' => $this->faker->randomElement(EntryTypeTaxCalculationModeEnum::cases()),
             'overrideNumberSeries' => $this->faker->boolean(),
             'cashTransactionDetails' => [],
             'cashTransactionTaxDetails' => [],

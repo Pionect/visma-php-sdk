@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\FixedAssetQueryParameters;
+use Pionect\VismaSdk\Enums\DetailsStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class FixedAssetQueryParametersFactory extends Factory
@@ -13,7 +14,7 @@ class FixedAssetQueryParametersFactory extends Factory
         return [
             'assetId' => $this->faker->uuid(),
             'classId' => $this->faker->uuid(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(DetailsStatusEnum::cases()),
             'fromDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'toDate' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'lastModifiedDateTime' => $this->faker->word(),

@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Enums\CreateCurrencyRateMultDivEnum;
+use Pionect\VismaSdk\Enums\UnitOfMeasureSupplementaryMeasureUnitEnum;
 use Pionect\VismaSdk\Requests\UnitOfMeasure\UnitOfMeasureGetAllUnitsOfMeasureRequest;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -14,16 +16,16 @@ it('calls the unitOfMeasureGetAllUnitsOfMeasureRequest method in the UnitOfMeasu
             0 => [
                 'fromUnit' => 'String value',
                 'toUnit' => 'String value',
-                'unitMultDiv' => 'String value',
+                'unitMultDiv' => 'Multiply',
                 'unitRate' => 42,
-                'supplementaryMeasureUnit' => 'String value',
+                'supplementaryMeasureUnit' => 'None',
             ],
             1 => [
                 'fromUnit' => 'String value',
                 'toUnit' => 'String value',
-                'unitMultDiv' => 'String value',
+                'unitMultDiv' => 'Multiply',
                 'unitRate' => 42,
-                'supplementaryMeasureUnit' => 'String value',
+                'supplementaryMeasureUnit' => 'None',
             ],
         ], 200),
     ]);
@@ -43,7 +45,7 @@ it('calls the unitOfMeasureGetAllUnitsOfMeasureRequest method in the UnitOfMeasu
     expect($collection->first())
         ->fromUnit->toBe('String value')
         ->toUnit->toBe('String value')
-        ->unitMultDiv->toBe('String value')
+        ->unitMultDiv->toEqual(CreateCurrencyRateMultDivEnum::MULTIPLY)
         ->unitRate->toBe(42)
-        ->supplementaryMeasureUnit->toBe('String value');
+        ->supplementaryMeasureUnit->toEqual(UnitOfMeasureSupplementaryMeasureUnitEnum::NONE);
 });

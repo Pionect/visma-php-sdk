@@ -4,6 +4,9 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\TimeCardDto;
+use Pionect\VismaSdk\Enums\EmployeeTimeCardQueryParametersStatusEnum;
+use Pionect\VismaSdk\Enums\EmployeeTimeCardQueryParametersTypeEnum;
+use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class TimeCardDtoFactory extends Factory
@@ -12,11 +15,11 @@ class TimeCardDtoFactory extends Factory
     {
         return [
             'refNbr' => $this->faker->word(),
-            'status' => $this->faker->word(),
-            'approvalStatus' => $this->faker->word(),
+            'status' => $this->faker->randomElement(EmployeeTimeCardQueryParametersStatusEnum::cases()),
+            'approvalStatus' => $this->faker->randomElement(TimeCardSummaryApprovalStatusEnum::cases()),
             'week' => null,
             'employee' => null,
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(EmployeeTimeCardQueryParametersTypeEnum::cases()),
             'origRefNbr' => $this->faker->word(),
             'timeSpent' => $this->faker->numberBetween(1, 100),
             'invoiceable' => $this->faker->numberBetween(1, 100),

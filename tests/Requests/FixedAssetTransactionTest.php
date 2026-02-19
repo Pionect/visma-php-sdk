@@ -1,5 +1,8 @@
 <?php
 
+use Pionect\VismaSdk\Enums\FixedAssetRegisterStatusEnum;
+use Pionect\VismaSdk\Enums\FixedAssetTransactionOriginEnum;
+use Pionect\VismaSdk\Enums\FixedAssetTransactionTransactionTypeEnum;
 use Pionect\VismaSdk\Requests\FixedAssetTransaction\FixedAssetTransactionGetAllRequest;
 use Pionect\VismaSdk\Requests\FixedAssetTransaction\FixedAssetTransactionGetByRefNoRequest;
 use Saloon\Http\Faking\MockResponse;
@@ -15,11 +18,11 @@ it('calls the fixedAssetTransactionGetByRefNoRequest method in the FixedAssetTra
             'refNo' => 'String value',
             'lineNo' => 42,
             'branchId' => 'mock-id-123',
-            'origin' => 'String value',
+            'origin' => 'Adjustment',
             'assetId' => 'mock-id-123',
             'transactionDescription' => 'String value',
             'bookId' => 'mock-id-123',
-            'transactionType' => 'String value',
+            'transactionType' => 'PurchasingPlus',
             'accounts' => [
                 'debitAccountId' => 'mock-id-123',
                 'debitSubAccountId' => 'mock-id-123',
@@ -32,7 +35,7 @@ it('calls the fixedAssetTransactionGetByRefNoRequest method in the FixedAssetTra
             'transactionDate' => '2025-11-22T10:40:04+00:00',
             'register' => [
                 'documentDate' => '2025-11-22T10:40:04+00:00',
-                'status' => 'String value',
+                'status' => 'Balanced',
                 'hold' => true,
             ],
             'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -56,11 +59,11 @@ it('calls the fixedAssetTransactionGetByRefNoRequest method in the FixedAssetTra
         ->refNo->toBe('String value')
         ->lineNo->toBe(42)
         ->branchId->toBe('mock-id-123')
-        ->origin->toBe('String value')
+        ->origin->toEqual(FixedAssetTransactionOriginEnum::ADJUSTMENT)
         ->assetId->toBe('mock-id-123')
         ->transactionDescription->toBe('String value')
         ->bookId->toBe('mock-id-123')
-        ->transactionType->toBe('String value')
+        ->transactionType->toEqual(FixedAssetTransactionTransactionTypeEnum::PURCHASING_PLUS)
         ->accounts->debitAccountId->toBe('mock-id-123')
         ->accounts->debitSubAccountId->toBe('mock-id-123')
         ->accounts->creditAccountId->toBe('mock-id-123')
@@ -70,7 +73,7 @@ it('calls the fixedAssetTransactionGetByRefNoRequest method in the FixedAssetTra
         ->transactionPeriodId->toBe('mock-id-123')
         ->transactionDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->register->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->register->status->toBe('String value')
+        ->register->status->toEqual(FixedAssetRegisterStatusEnum::BALANCED)
         ->register->hold->toBe(true)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');
@@ -83,11 +86,11 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
                 'refNo' => 'String value',
                 'lineNo' => 42,
                 'branchId' => 'mock-id-123',
-                'origin' => 'String value',
+                'origin' => 'Adjustment',
                 'assetId' => 'mock-id-123',
                 'transactionDescription' => 'String value',
                 'bookId' => 'mock-id-123',
-                'transactionType' => 'String value',
+                'transactionType' => 'PurchasingPlus',
                 'accounts' => [
                     'debitAccountId' => 'mock-id-123',
                     'debitSubAccountId' => 'mock-id-123',
@@ -100,7 +103,7 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
                 'transactionDate' => '2025-11-22T10:40:04+00:00',
                 'register' => [
                     'documentDate' => '2025-11-22T10:40:04+00:00',
-                    'status' => 'String value',
+                    'status' => 'Balanced',
                     'hold' => true,
                 ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -110,11 +113,11 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
                 'refNo' => 'String value',
                 'lineNo' => 42,
                 'branchId' => 'mock-id-123',
-                'origin' => 'String value',
+                'origin' => 'Adjustment',
                 'assetId' => 'mock-id-123',
                 'transactionDescription' => 'String value',
                 'bookId' => 'mock-id-123',
-                'transactionType' => 'String value',
+                'transactionType' => 'PurchasingPlus',
                 'accounts' => [
                     'debitAccountId' => 'mock-id-123',
                     'debitSubAccountId' => 'mock-id-123',
@@ -127,7 +130,7 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
                 'transactionDate' => '2025-11-22T10:40:04+00:00',
                 'register' => [
                     'documentDate' => '2025-11-22T10:40:04+00:00',
-                    'status' => 'String value',
+                    'status' => 'Balanced',
                     'hold' => true,
                 ],
                 'lastModifiedDateTime' => '2025-11-22T10:40:04+00:00',
@@ -167,11 +170,11 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
         ->refNo->toBe('String value')
         ->lineNo->toBe(42)
         ->branchId->toBe('mock-id-123')
-        ->origin->toBe('String value')
+        ->origin->toEqual(FixedAssetTransactionOriginEnum::ADJUSTMENT)
         ->assetId->toBe('mock-id-123')
         ->transactionDescription->toBe('String value')
         ->bookId->toBe('mock-id-123')
-        ->transactionType->toBe('String value')
+        ->transactionType->toEqual(FixedAssetTransactionTransactionTypeEnum::PURCHASING_PLUS)
         ->accounts->debitAccountId->toBe('mock-id-123')
         ->accounts->debitSubAccountId->toBe('mock-id-123')
         ->accounts->creditAccountId->toBe('mock-id-123')
@@ -181,7 +184,7 @@ it('calls the fixedAssetTransactionGetAllRequest method in the FixedAssetTransac
         ->transactionPeriodId->toBe('mock-id-123')
         ->transactionDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->register->documentDate->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
-        ->register->status->toBe('String value')
+        ->register->status->toEqual(FixedAssetRegisterStatusEnum::BALANCED)
         ->register->hold->toBe(true)
         ->lastModifiedDateTime->toEqual(new \Carbon\Carbon('2025-11-22T10:40:04+00:00'))
         ->errorInfo->toBe('String value');

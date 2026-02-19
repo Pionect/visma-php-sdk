@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\AccountUpdateDto;
+use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class AccountUpdateDtoFactory extends Factory
@@ -21,7 +22,7 @@ class AccountUpdateDtoFactory extends Factory
             'accountGroupCd' => $this->faker->word(),
             'postOption' => $this->faker->word(),
             'publicCode1' => $this->faker->word(),
-            'type' => $this->faker->word(),
+            'type' => $this->faker->randomElement(AccountTypeEnum::cases()),
             'useDefaultSub' => $this->faker->boolean(),
             'taxCategory' => $this->faker->word(),
         ];

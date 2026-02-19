@@ -1,5 +1,7 @@
 <?php
 
+use Pionect\VismaSdk\Enums\InventoryStatusEnum;
+use Pionect\VismaSdk\Enums\ItemClassTypeEnum;
 use Pionect\VismaSdk\Requests\SalesCategory\SalesCategoryGetCategoryBycategoryIdRequest;
 use Pionect\VismaSdk\Requests\SalesCategory\SalesCategoryGetItemsForCategoryBycategoryIdRequest;
 use Pionect\VismaSdk\Requests\SalesCategory\SalesCategoryGetRequest;
@@ -84,12 +86,12 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryIdRequest method in the 
         SalesCategoryGetItemsForCategoryBycategoryIdRequest::class => MockResponse::make([
             'inventoryId' => 42,
             'inventoryNumber' => 'String value',
-            'status' => 'String value',
-            'type' => 'String value',
+            'status' => 'Active',
+            'type' => 'NonStockItem',
             'description' => 'String value',
             'body' => 'String value',
             'itemClass' => [
-                'type' => 'String value',
+                'type' => 'NonStockItem',
                 'attributes' => [],
                 'description' => 'String value',
                 'errorInfo' => 'String value',
@@ -248,11 +250,11 @@ it('calls the salesCategoryGetItemsForCategoryBycategoryIdRequest method in the 
     expect($dto)
         ->inventoryId->toBe(42)
         ->inventoryNumber->toBe('String value')
-        ->status->toBe('String value')
-        ->type->toBe('String value')
+        ->status->toEqual(InventoryStatusEnum::ACTIVE)
+        ->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->description->toBe('String value')
         ->body->toBe('String value')
-        ->itemClass->type->toBe('String value')
+        ->itemClass->type->toEqual(ItemClassTypeEnum::NON_STOCK_ITEM)
         ->itemClass->description->toBe('String value')
         ->itemClass->errorInfo->toBe('String value')
         ->postingClass->description->toBe('String value')

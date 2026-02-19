@@ -2,6 +2,7 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -22,7 +23,7 @@ class InventoryReceiptLineUpdateDto extends SpatieData
         public int|float|null $extCost = null,
         /** @var InventoryReceiptLineAllocationsUpdateDto[]|null */
         public ?array $allocations = null,
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

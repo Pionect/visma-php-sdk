@@ -16,9 +16,13 @@ class SupplierPaymentMethodDetailDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** The description of the payment method detail. */
         public ?string $paymentMethodDetailDescription = null,
+        /** The ID of the payment method detail. */
         public ?string $paymentMethodDetailValue = null,
+        /** Payment method banking detail type */
         public ?string $paymentMethodDetailBankingDetailType = null,
+        /** payment method detail ID */
         #[MapName('paymentMethodDetailID')]
         public ?string $paymentMethodDetailId = null,
     ) {}

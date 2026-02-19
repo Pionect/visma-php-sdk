@@ -4,6 +4,8 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PaymentQueryParameters;
+use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
+use Pionect\VismaSdk\Enums\PaymentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class PaymentQueryParametersFactory extends Factory
@@ -12,11 +14,11 @@ class PaymentQueryParametersFactory extends Factory
     {
         return [
             'paymentNbr' => $this->faker->word(),
-            'paymentType' => $this->faker->word(),
+            'paymentType' => $this->faker->randomElement(PaymentTypeEnum::cases()),
             'customer' => $this->faker->word(),
             'greaterThanValue' => $this->faker->word(),
             'invoiceRefNbr' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(CashSaleStatusEnum::cases()),
             'numberToRead' => $this->faker->numberBetween(1, 100),
             'skipRecords' => $this->faker->numberBetween(1, 100),
             'orderBy' => $this->faker->word(),

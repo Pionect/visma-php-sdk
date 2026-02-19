@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExpenseClaimDetailUpdateDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ExpenseClaimDetailUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class ExpenseClaimDetailUpdateDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'claimDetailId' => $this->faker->numberBetween(1, 1000),
             'date' => Carbon::now()->subDays($this->faker->numberBetween(0, 365)),
             'expenseItem' => $this->faker->word(),

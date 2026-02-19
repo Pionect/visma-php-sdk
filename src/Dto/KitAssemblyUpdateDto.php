@@ -14,6 +14,7 @@ class KitAssemblyUpdateDto extends SpatieData
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(
+        /** Type, possible values: P - Production, D - Disassembly */
         public ?string $type = null,
         public ?string $refNo = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -40,7 +41,11 @@ class KitAssemblyUpdateDto extends SpatieData
         public int|float|null $quantity = null,
         /** @var KitAssemblyStockComponentsUpdateDto[]|null */
         public ?array $stockComponentLines = null,
-        /** @var KitAssemblyStockComponentAllocationsUpdateDto[]|null */
+        /**
+         * @var KitAssemblyStockComponentAllocationsUpdateDto[]|null
+         *                                                           This property is deprecated and will be removed in a future version.
+         *                                                           Use StockComponentLineAllocations within each StockComponentLine instead.
+         */
         public ?array $stockComponentAllocations = null,
         /** @var KitAssemblyNonStockComponentsUpdateDto[]|null */
         public ?array $nonStockComponentLines = null,

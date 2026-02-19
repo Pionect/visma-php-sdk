@@ -3,6 +3,7 @@
 namespace Pionect\VismaSdk\Factories;
 
 use Pionect\VismaSdk\Dto\EmployeeUpdateDto;
+use Pionect\VismaSdk\Enums\EmployeeUpdateStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class EmployeeUpdateDtoFactory extends Factory
@@ -11,7 +12,7 @@ class EmployeeUpdateDtoFactory extends Factory
     {
         return [
             'employeeClass' => $this->faker->word(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(EmployeeUpdateStatusEnum::cases()),
             'department' => $this->faker->word(),
             'contact' => null,
             'address' => null,

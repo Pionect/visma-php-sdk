@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
+use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -16,7 +18,7 @@ class SupplierInvoiceUpdateDto extends SpatieData
 
     public function __construct(
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $documentType = null,
+        public ?SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum $documentType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $referenceNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -56,7 +58,7 @@ class SupplierInvoiceUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $roundingDiffInCurrency = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $taxCalculationMode = null,
+        public ?EntryTypeTaxCalculationModeEnum $taxCalculationMode = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $supplierTaxZone = null,
         #[WithTransformer(ValueWrapperTransformer::class)]

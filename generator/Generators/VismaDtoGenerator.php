@@ -103,6 +103,7 @@ class VismaDtoGenerator extends DtoGenerator
         }
 
         // Call parent to create the promoted parameter
+        // Parent now handles enum detection via detectEnum() hook
         $mappingGenerated = parent::addPropertyToClass(
             $classType,
             $namespace,
@@ -111,6 +112,15 @@ class VismaDtoGenerator extends DtoGenerator
             $type,
             $classConstructor
         );
+
+        // Add property description from OpenAPI spec
+        $specToCheck = $unwrappedSpec ?? $propertySpec;
+        if ($specToCheck instanceof Schema && $specToCheck->description) {
+            $safeName = NameHelper::safeVariableName($propertyName);
+            $parameter = $classConstructor->getParameter($safeName);
+            $cleanDescription = $this->cleanDescription($specToCheck->description);
+            $parameter->addComment($cleanDescription);
+        }
 
         // Add ValueWrapperTransformer attribute if property was unwrapped
         if ($unwrappedSpec) {
@@ -128,6 +138,36 @@ class VismaDtoGenerator extends DtoGenerator
         }
 
         return $mappingGenerated;
+    }
+
+    /**
+     * Override to detect enums in unwrapped specs.
+     */
+    protected function detectEnum(Schema|Reference $propertySpec, string $dtoClassName, string $propertyName): ?array
+    {
+        // Check unwrapped spec first (for DtoValueOf wrappers)
+        $unwrappedSpec = $this->unwrappedSpecType($propertySpec);
+        $specToCheck = $unwrappedSpec ?? $propertySpec;
+
+        // Use parent's enum detection logic
+        return parent::detectEnum($specToCheck, $dtoClassName, $propertyName);
+    }
+
+    /**
+     * Clean OpenAPI description for PHP docblocks.
+     */
+    protected function cleanDescription(string $description): string
+    {
+        // Decode HTML entities
+        $clean = html_entity_decode($description, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+        // Remove breadcrumb navigation patterns (e.g., "The table > Field >")
+        $clean = preg_replace('/^(The\s+\w+\s*>\s*)+/', '', $clean);
+
+        // Wrap long lines for readability (80 chars)
+        $wrapped = wordwrap($clean, 77, "\n");
+
+        return $wrapped;
     }
 
     /**

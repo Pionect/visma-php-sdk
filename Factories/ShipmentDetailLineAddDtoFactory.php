@@ -4,6 +4,7 @@ namespace Pionect\VismaSdk\Factories;
 
 use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ShipmentDetailLineAddDto;
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
 class ShipmentDetailLineAddDtoFactory extends Factory
@@ -11,7 +12,7 @@ class ShipmentDetailLineAddDtoFactory extends Factory
     protected function definition(): array
     {
         return [
-            'operation' => $this->faker->word(),
+            'operation' => $this->faker->randomElement(AttributeDetailUpdateOperationEnum::cases()),
             'inventoryNumber' => $this->faker->word(),
             'lineNumber' => $this->faker->numberBetween(1, 100),
             'warehouse' => $this->faker->word(),

@@ -16,7 +16,12 @@ class WarehouseDetailDto extends SpatieData
 
     public function __construct(
         public ?bool $isDefault = null,
+        /** Warehouse > The warehouse where the stock item is available. */
         public ?string $warehouse = null,
+        /**
+         * Qty. on hand > The quantity of this item available (on hand) at the
+         * warehouse.
+         */
         public int|float|null $quantityOnHand = null,
         public int|float|null $available = null,
         public int|float|null $availableForShipment = null,

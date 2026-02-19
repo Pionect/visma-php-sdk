@@ -2,6 +2,8 @@
 
 namespace Pionect\VismaSdk\Dto;
 
+use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
+use Pionect\VismaSdk\Enums\InventoryIssueLineTransactionTypeEnum;
 use Pionect\VismaSdk\Foundation\DataTransferObjects\ValueWrapperTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data as SpatieData;
@@ -25,7 +27,7 @@ class InventoryIssueLineUpdateDto extends SpatieData
         #[WithTransformer(ValueWrapperTransformer::class)]
         public int|float|null $extPrice = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
-        public ?string $tranType = null,
+        public ?InventoryIssueLineTransactionTypeEnum $tranType = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $lotSerialNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
@@ -34,7 +36,7 @@ class InventoryIssueLineUpdateDto extends SpatieData
         public ?array $allocations = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?string $costCode = null,
-        public ?string $operation = null,
+        public ?AttributeDetailUpdateOperationEnum $operation = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
         public ?int $lineNumber = null,
         #[WithTransformer(ValueWrapperTransformer::class)]
