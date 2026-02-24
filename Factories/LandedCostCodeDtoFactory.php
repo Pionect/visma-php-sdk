@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\LandedCostCodeApplicationMethodEnum;
 use Pionect\VismaSdk\Enums\LandedCostCodeLandedCostTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LandedCostCodeDto>
+ */
 class LandedCostCodeDtoFactory extends Factory
 {
     protected function definition(): array

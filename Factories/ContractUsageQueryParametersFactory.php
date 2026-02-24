@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\ContractUsageQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ContractUsageQueryParameters>
+ */
 class ContractUsageQueryParametersFactory extends Factory
 {
     protected function definition(): array

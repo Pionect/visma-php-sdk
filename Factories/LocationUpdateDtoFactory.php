@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\LocationUpdateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LocationUpdateDto>
+ */
 class LocationUpdateDtoFactory extends Factory
 {
     protected function definition(): array

@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\PackagingTypeDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\PackagingTypeDto>
+ */
 class PackagingTypeDtoFactory extends Factory
 {
     protected function definition(): array

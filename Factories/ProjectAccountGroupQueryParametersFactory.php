@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\ProjectAccountGroupQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ProjectAccountGroupQueryParameters>
+ */
 class ProjectAccountGroupQueryParametersFactory extends Factory
 {
     protected function definition(): array

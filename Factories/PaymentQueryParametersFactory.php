@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\CashSaleStatusEnum;
 use Pionect\VismaSdk\Enums\PaymentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\PaymentQueryParameters>
+ */
 class PaymentQueryParametersFactory extends Factory
 {
     protected function definition(): array

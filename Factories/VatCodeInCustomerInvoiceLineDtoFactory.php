@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\VatCodeInCustomerInvoiceLineDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\VatCodeInCustomerInvoiceLineDto>
+ */
 class VatCodeInCustomerInvoiceLineDtoFactory extends Factory
 {
     protected function definition(): array

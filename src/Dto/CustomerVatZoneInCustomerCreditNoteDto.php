@@ -11,6 +11,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class CustomerVatZoneInCustomerCreditNoteDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\CustomerVatZoneInCustomerCreditNoteDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\LocationInStocktakeLineV2dto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LocationInStocktakeLineV2dto>
+ */
 class LocationInStocktakeLineV2dtoFactory extends Factory
 {
     protected function definition(): array

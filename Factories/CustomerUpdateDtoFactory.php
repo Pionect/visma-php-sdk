@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\CustomerStatementTypeEnum;
 use Pionect\VismaSdk\Enums\CustomerStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerUpdateDto>
+ */
 class CustomerUpdateDtoFactory extends Factory
 {
     protected function definition(): array

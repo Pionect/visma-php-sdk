@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SubaccountInCustomerCreditNoteLineDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SubaccountInCustomerCreditNoteLineDto>
+ */
 class SubaccountInCustomerCreditNoteLineDtoFactory extends Factory
 {
     protected function definition(): array

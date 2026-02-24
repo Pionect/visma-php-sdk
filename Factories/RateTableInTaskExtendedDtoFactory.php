@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\RateTableInTaskExtendedDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\RateTableInTaskExtendedDto>
+ */
 class RateTableInTaskExtendedDtoFactory extends Factory
 {
     protected function definition(): array

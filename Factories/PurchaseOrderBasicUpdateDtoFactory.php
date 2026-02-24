@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\PurchaseOrderBasicUpdateDto;
 use Pionect\VismaSdk\Enums\PurchaseOrderLineOrderTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\PurchaseOrderBasicUpdateDto>
+ */
 class PurchaseOrderBasicUpdateDtoFactory extends Factory
 {
     protected function definition(): array

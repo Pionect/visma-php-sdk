@@ -11,6 +11,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class ContactInCustomerOverdueChargeDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\ContactInCustomerOverdueChargeDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

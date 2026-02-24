@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class SalesOrderV2queryParameters extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\SalesOrderV2queryParametersFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

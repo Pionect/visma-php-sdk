@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\CreditAccountInProjectTransactionLineDto;
 use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CreditAccountInProjectTransactionLineDto>
+ */
 class CreditAccountInProjectTransactionLineDtoFactory extends Factory
 {
     protected function definition(): array

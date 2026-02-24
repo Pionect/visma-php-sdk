@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\CustomerCreditNoteLineUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerCreditNoteLineUpdateDto>
+ */
 class CustomerCreditNoteLineUpdateDtoFactory extends Factory
 {
     protected function definition(): array

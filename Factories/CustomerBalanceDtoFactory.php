@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CustomerBalanceDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerBalanceDto>
+ */
 class CustomerBalanceDtoFactory extends Factory
 {
     protected function definition(): array

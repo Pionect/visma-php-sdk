@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\CustomerBalanceV2queryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerBalanceV2queryParameters>
+ */
 class CustomerBalanceV2queryParametersFactory extends Factory
 {
     protected function definition(): array

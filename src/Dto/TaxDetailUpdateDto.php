@@ -13,6 +13,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class TaxDetailUpdateDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\TaxDetailUpdateDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

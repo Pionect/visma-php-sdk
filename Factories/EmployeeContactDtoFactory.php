@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\EmployeeContactDto;
 use Pionect\VismaSdk\Enums\ContactTitleEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\EmployeeContactDto>
+ */
 class EmployeeContactDtoFactory extends Factory
 {
     protected function definition(): array

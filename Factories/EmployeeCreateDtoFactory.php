@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\EmployeeCreateDto;
 use Pionect\VismaSdk\Enums\EmployeeUpdateStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\EmployeeCreateDto>
+ */
 class EmployeeCreateDtoFactory extends Factory
 {
     protected function definition(): array

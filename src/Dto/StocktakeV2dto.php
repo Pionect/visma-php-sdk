@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class StocktakeV2dto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\StocktakeV2dtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class TaxCategoryNumberDescriptionDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\TaxCategoryNumberDescriptionDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\VisibilityInTaskExtendedDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\VisibilityInTaskExtendedDto>
+ */
 class VisibilityInTaskExtendedDtoFactory extends Factory
 {
     protected function definition(): array

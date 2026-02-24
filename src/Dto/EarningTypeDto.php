@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class EarningTypeDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\EarningTypeDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

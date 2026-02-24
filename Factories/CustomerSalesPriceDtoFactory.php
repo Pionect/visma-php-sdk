@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\CustomerSalesPriceDto;
 use Pionect\VismaSdk\Enums\CustomerSalesPriceQueryParametersPriceTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerSalesPriceDto>
+ */
 class CustomerSalesPriceDtoFactory extends Factory
 {
     protected function definition(): array

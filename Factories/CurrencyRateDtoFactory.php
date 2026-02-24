@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CurrencyRateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CurrencyRateDto>
+ */
 class CurrencyRateDtoFactory extends Factory
 {
     protected function definition(): array

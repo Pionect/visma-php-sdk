@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExpenseReceiptUpdateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ExpenseReceiptUpdateDto>
+ */
 class ExpenseReceiptUpdateDtoFactory extends Factory
 {
     protected function definition(): array

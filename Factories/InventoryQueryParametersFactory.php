@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\InventoryQueryParameters;
 use Pionect\VismaSdk\Enums\InventoryQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InventoryQueryParameters>
+ */
 class InventoryQueryParametersFactory extends Factory
 {
     protected function definition(): array

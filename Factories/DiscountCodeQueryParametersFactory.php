@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\DiscountCodeQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\DiscountCodeQueryParameters>
+ */
 class DiscountCodeQueryParametersFactory extends Factory
 {
     protected function definition(): array

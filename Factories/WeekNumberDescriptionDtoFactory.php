@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\WeekNumberDescriptionDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\WeekNumberDescriptionDto>
+ */
 class WeekNumberDescriptionDtoFactory extends Factory
 {
     protected function definition(): array

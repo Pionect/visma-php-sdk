@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\SubaccountInBudgetDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SubaccountInBudgetDto>
+ */
 class SubaccountInBudgetDtoFactory extends Factory
 {
     protected function definition(): array

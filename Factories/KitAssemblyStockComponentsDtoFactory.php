@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\KitAssemblyStockComponentsDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\KitAssemblyStockComponentsDto>
+ */
 class KitAssemblyStockComponentsDtoFactory extends Factory
 {
     protected function definition(): array

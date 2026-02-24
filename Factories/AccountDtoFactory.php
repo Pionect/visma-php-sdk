@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\AccountDto;
 use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\AccountDto>
+ */
 class AccountDtoFactory extends Factory
 {
     protected function definition(): array

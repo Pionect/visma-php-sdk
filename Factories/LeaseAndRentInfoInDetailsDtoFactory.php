@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\LeaseAndRentInfoInDetailsDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LeaseAndRentInfoInDetailsDto>
+ */
 class LeaseAndRentInfoInDetailsDtoFactory extends Factory
 {
     protected function definition(): array

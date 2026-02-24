@@ -13,6 +13,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class ProjectInCashSaleDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\ProjectInCashSaleDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\DiscountDetailDto;
 use Pionect\VismaSdk\Enums\DiscountDetailTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\DiscountDetailDto>
+ */
 class DiscountDetailDtoFactory extends Factory
 {
     protected function definition(): array

@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\ClassAttributeDto;
 use Pionect\VismaSdk\Enums\AttributeControlTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ClassAttributeDto>
+ */
 class ClassAttributeDtoFactory extends Factory
 {
     protected function definition(): array

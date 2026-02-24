@@ -12,6 +12,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class ProjectQueryParameters extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\ProjectQueryParametersFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

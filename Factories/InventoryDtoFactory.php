@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\InventoryStatusEnum;
 use Pionect\VismaSdk\Enums\ItemClassTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InventoryDto>
+ */
 class InventoryDtoFactory extends Factory
 {
     protected function definition(): array

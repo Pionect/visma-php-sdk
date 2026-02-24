@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\StocktakeV2dto;
 use Pionect\VismaSdk\Enums\StocktakeV2dtoSummaryStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\StocktakeV2dto>
+ */
 class StocktakeV2dtoFactory extends Factory
 {
     protected function definition(): array

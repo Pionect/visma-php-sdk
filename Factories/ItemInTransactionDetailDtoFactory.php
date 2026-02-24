@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\ItemInTransactionDetailDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ItemInTransactionDetailDto>
+ */
 class ItemInTransactionDetailDtoFactory extends Factory
 {
     protected function definition(): array

@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\VatCategoryLineCashDiscountEnum;
 use Pionect\VismaSdk\Enums\VatCategoryLineTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\VatCategoryLineDto>
+ */
 class VatCategoryLineDtoFactory extends Factory
 {
     protected function definition(): array

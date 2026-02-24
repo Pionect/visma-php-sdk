@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\DefAccrualAccountInTaskExtendedDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\DefAccrualAccountInTaskExtendedDto>
+ */
 class DefAccrualAccountInTaskExtendedDtoFactory extends Factory
 {
     protected function definition(): array

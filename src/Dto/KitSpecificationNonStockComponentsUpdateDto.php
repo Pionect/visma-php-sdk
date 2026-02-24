@@ -13,6 +13,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class KitSpecificationNonStockComponentsUpdateDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\KitSpecificationNonStockComponentsUpdateDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

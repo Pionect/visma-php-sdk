@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SubaccountInCustomerCreditWriteOffDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SubaccountInCustomerCreditWriteOffDto>
+ */
 class SubaccountInCustomerCreditWriteOffDtoFactory extends Factory
 {
     protected function definition(): array

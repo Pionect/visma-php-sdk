@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\CreateShipmentActionDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CreateShipmentActionDto>
+ */
 class CreateShipmentActionDtoFactory extends Factory
 {
     protected function definition(): array

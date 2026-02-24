@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\PaymentTypeEnum;
 use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\VoidPaymentActionResultDto>
+ */
 class VoidPaymentActionResultDtoFactory extends Factory
 {
     protected function definition(): array

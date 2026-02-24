@@ -11,6 +11,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class TaxCategoryInPurchaseOrderLineDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\TaxCategoryInPurchaseOrderLineDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

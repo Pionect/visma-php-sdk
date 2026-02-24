@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\SalesOrderUpdateDto;
 use Pionect\VismaSdk\Enums\SalesOrderLineShipCompleteEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SalesOrderUpdateDto>
+ */
 class SalesOrderUpdateDtoFactory extends Factory
 {
     protected function definition(): array

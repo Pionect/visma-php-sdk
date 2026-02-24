@@ -13,6 +13,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class InventoryAdjustmentUpdateDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\InventoryAdjustmentUpdateDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

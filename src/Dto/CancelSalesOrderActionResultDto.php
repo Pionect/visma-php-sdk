@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class CancelSalesOrderActionResultDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\CancelSalesOrderActionResultDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

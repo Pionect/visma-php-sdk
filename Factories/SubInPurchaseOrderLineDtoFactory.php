@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SubInPurchaseOrderLineDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SubInPurchaseOrderLineDto>
+ */
 class SubInPurchaseOrderLineDtoFactory extends Factory
 {
     protected function definition(): array

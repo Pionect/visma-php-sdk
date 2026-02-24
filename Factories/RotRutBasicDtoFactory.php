@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\RotRutBasicDto;
 use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\RotRutBasicDto>
+ */
 class RotRutBasicDtoFactory extends Factory
 {
     protected function definition(): array

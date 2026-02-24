@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class AddOrderLinesToPurchaseReceiptActionResultDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\AddOrderLinesToPurchaseReceiptActionResultDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

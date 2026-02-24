@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\AddressInEmployeeUpdateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\AddressInEmployeeUpdateDto>
+ */
 class AddressInEmployeeUpdateDtoFactory extends Factory
 {
     protected function definition(): array

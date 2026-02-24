@@ -9,6 +9,9 @@ use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
 use Pionect\VismaSdk\Enums\LandedCostApDocTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LandedCostUpdateDto>
+ */
 class LandedCostUpdateDtoFactory extends Factory
 {
     protected function definition(): array

@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\BranchInExpenseReceiptDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\BranchInExpenseReceiptDto>
+ */
 class BranchInExpenseReceiptDtoFactory extends Factory
 {
     protected function definition(): array

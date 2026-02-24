@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\ReleaseJournalTransactionActionResultDto;
 use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ReleaseJournalTransactionActionResultDto>
+ */
 class ReleaseJournalTransactionActionResultDtoFactory extends Factory
 {
     protected function definition(): array

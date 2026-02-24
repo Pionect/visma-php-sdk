@@ -11,6 +11,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class InventoryInStocktakeLineV2dto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\InventoryInStocktakeLineV2dtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

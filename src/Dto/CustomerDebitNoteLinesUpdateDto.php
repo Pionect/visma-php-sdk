@@ -13,6 +13,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class CustomerDebitNoteLinesUpdateDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\CustomerDebitNoteLinesUpdateDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

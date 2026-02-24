@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\TaskDto;
 use Pionect\VismaSdk\Enums\TaskStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\TaskDto>
+ */
 class TaskDtoFactory extends Factory
 {
     protected function definition(): array

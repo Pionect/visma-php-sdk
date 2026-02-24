@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class CreateShipmentActionResultDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\CreateShipmentActionResultDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

@@ -14,6 +14,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class DebitAccountInProjectTransactionLineDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\DebitAccountInProjectTransactionLineDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

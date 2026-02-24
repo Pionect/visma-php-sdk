@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class InventoryAccountInformationDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\InventoryAccountInformationDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

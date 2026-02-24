@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class BackgroundApiAcceptedDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\BackgroundApiAcceptedDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

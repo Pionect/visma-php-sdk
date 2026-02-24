@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\OffsetSubAccountInTransactionDetailDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\OffsetSubAccountInTransactionDetailDto>
+ */
 class OffsetSubAccountInTransactionDetailDtoFactory extends Factory
 {
     protected function definition(): array

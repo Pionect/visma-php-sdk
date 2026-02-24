@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\InvoiceContactInCashSaleDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InvoiceContactInCashSaleDto>
+ */
 class InvoiceContactInCashSaleDtoFactory extends Factory
 {
     protected function definition(): array

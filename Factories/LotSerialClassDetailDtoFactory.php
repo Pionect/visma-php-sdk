@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\LotSerialClassDetailDto;
 use Pionect\VismaSdk\Enums\LotSerialClassDetailTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LotSerialClassDetailDto>
+ */
 class LotSerialClassDetailDtoFactory extends Factory
 {
     protected function definition(): array

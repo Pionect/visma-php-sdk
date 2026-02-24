@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\SalesOrderV2queryParameters;
 use Pionect\VismaSdk\Enums\SalesOrderQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SalesOrderV2queryParameters>
+ */
 class SalesOrderV2queryParametersFactory extends Factory
 {
     protected function definition(): array

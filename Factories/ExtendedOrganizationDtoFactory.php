@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\ExtendedOrganizationDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ExtendedOrganizationDto>
+ */
 class ExtendedOrganizationDtoFactory extends Factory
 {
     protected function definition(): array

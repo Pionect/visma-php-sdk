@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\TimeCardMaterialsUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\TimeCardMaterialsUpdateDto>
+ */
 class TimeCardMaterialsUpdateDtoFactory extends Factory
 {
     protected function definition(): array

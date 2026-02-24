@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\ExpenseClaimQueryParameters;
 use Pionect\VismaSdk\Enums\ExpenseClaimQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ExpenseClaimQueryParameters>
+ */
 class ExpenseClaimQueryParametersFactory extends Factory
 {
     protected function definition(): array

@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\InventoryReceiptUpdateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InventoryReceiptUpdateDto>
+ */
 class InventoryReceiptUpdateDtoFactory extends Factory
 {
     protected function definition(): array

@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SalesOrderBasicUpdateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SalesOrderBasicUpdateDto>
+ */
 class SalesOrderBasicUpdateDtoFactory extends Factory
 {
     protected function definition(): array

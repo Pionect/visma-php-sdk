@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class ReverseInvoiceActionResultDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\ReverseInvoiceActionResultDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

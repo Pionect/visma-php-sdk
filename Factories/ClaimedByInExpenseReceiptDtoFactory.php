@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\ClaimedByInExpenseReceiptDto;
 use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ClaimedByInExpenseReceiptDto>
+ */
 class ClaimedByInExpenseReceiptDtoFactory extends Factory
 {
     protected function definition(): array

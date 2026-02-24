@@ -12,6 +12,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class LandedCostCodeDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\LandedCostCodeDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

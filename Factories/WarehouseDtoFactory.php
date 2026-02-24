@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\WarehouseAvgDefaultCostEnum;
 use Pionect\VismaSdk\Enums\WarehouseLocationEntryEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\WarehouseDto>
+ */
 class WarehouseDtoFactory extends Factory
 {
     protected function definition(): array

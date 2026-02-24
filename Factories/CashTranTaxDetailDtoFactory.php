@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\CashTranTaxDetailDto;
 use Pionect\VismaSdk\Enums\CashTranTaxDetailTaxTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CashTranTaxDetailDto>
+ */
 class CashTranTaxDetailDtoFactory extends Factory
 {
     protected function definition(): array

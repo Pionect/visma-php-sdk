@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\BranchQueryParameters;
 use Pionect\VismaSdk\Enums\BranchQueryParametersOrderByEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\BranchQueryParameters>
+ */
 class BranchQueryParametersFactory extends Factory
 {
     protected function definition(): array

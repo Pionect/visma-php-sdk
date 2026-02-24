@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\CustomerContractQueryParameters;
 use Pionect\VismaSdk\Enums\CustomerContractStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerContractQueryParameters>
+ */
 class CustomerContractQueryParametersFactory extends Factory
 {
     protected function definition(): array

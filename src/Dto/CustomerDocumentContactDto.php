@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class CustomerDocumentContactDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\CustomerDocumentContactDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

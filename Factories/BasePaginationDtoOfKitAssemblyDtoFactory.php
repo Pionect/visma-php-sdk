@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\BasePaginationDtoOfKitAssemblyDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\BasePaginationDtoOfKitAssemblyDto>
+ */
 class BasePaginationDtoOfKitAssemblyDtoFactory extends Factory
 {
     protected function definition(): array

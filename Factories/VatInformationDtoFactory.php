@@ -11,6 +11,9 @@ use Pionect\VismaSdk\Enums\VatInformationEuReportCodeEnum;
 use Pionect\VismaSdk\Enums\VatInformationVismaXmlVatTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\VatInformationDto>
+ */
 class VatInformationDtoFactory extends Factory
 {
     protected function definition(): array

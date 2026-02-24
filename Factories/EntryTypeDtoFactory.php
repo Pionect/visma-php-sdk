@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\EntryTypeDisableReceiptEnum;
 use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\EntryTypeDto>
+ */
 class EntryTypeDtoFactory extends Factory
 {
     protected function definition(): array

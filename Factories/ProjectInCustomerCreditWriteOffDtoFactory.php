@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\ProjectInCustomerCreditWriteOffDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ProjectInCustomerCreditWriteOffDto>
+ */
 class ProjectInCustomerCreditWriteOffDtoFactory extends Factory
 {
     protected function definition(): array

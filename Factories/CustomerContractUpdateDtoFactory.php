@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\CustomerContractUpdateDto;
 use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoiceToEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerContractUpdateDto>
+ */
 class CustomerContractUpdateDtoFactory extends Factory
 {
     protected function definition(): array

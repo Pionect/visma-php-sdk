@@ -18,6 +18,8 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 
 class VismaDtoGenerator extends DtoGenerator
 {
+    protected ?string $factoryTraitClass = HasTestFactory::class;
+
     /**
      * Determine if a schema should be included in generation.
      * Skip wrapper classes that only have a single 'value' property.
@@ -168,19 +170,5 @@ class VismaDtoGenerator extends DtoGenerator
         $wrapped = wordwrap($clean, 77, "\n");
 
         return $wrapped;
-    }
-
-    /**
-     * Post-process the generated DTO class to add factory method support.
-     */
-    protected function afterDtoClassGenerated(ClassType $classType, PhpNamespace $namespace, Schema $schema): void
-    {
-        $dtoName = $classType->getName();
-        $factoryClass = $this->config->namespace.'\\Factories\\'.$dtoName.'Factory';
-
-        $classType->addTrait(HasTestFactory::class);
-
-        // Add PHPDoc for factory method
-        $classType->addComment("@method static \\{$factoryClass} testFactory()");
     }
 }

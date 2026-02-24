@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\DeliveryAddressInExtendedOrganizationDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\DeliveryAddressInExtendedOrganizationDto>
+ */
 class DeliveryAddressInExtendedOrganizationDtoFactory extends Factory
 {
     protected function definition(): array

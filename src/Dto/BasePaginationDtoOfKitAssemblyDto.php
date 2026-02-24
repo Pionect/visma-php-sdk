@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class BasePaginationDtoOfKitAssemblyDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\BasePaginationDtoOfKitAssemblyDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

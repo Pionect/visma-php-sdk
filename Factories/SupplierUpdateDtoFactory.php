@@ -9,6 +9,9 @@ use Pionect\VismaSdk\Enums\SupplierChargeBearerEnum;
 use Pionect\VismaSdk\Enums\SupplierPaymentByEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SupplierUpdateDto>
+ */
 class SupplierUpdateDtoFactory extends Factory
 {
     protected function definition(): array

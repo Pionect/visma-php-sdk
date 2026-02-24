@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\InventoryIssueLineDto;
 use Pionect\VismaSdk\Enums\InventoryIssueLineTransactionTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InventoryIssueLineDto>
+ */
 class InventoryIssueLineDtoFactory extends Factory
 {
     protected function definition(): array

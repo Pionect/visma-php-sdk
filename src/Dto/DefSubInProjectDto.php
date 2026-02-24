@@ -13,6 +13,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class DefSubInProjectDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\DefSubInProjectDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

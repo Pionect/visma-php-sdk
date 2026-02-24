@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class LedgerDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\LedgerDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

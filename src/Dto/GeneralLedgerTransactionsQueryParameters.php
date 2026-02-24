@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class GeneralLedgerTransactionsQueryParameters extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\GeneralLedgerTransactionsQueryParametersFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
 use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ProjectTransactionDocumentUpdateDto>
+ */
 class ProjectTransactionDocumentUpdateDtoFactory extends Factory
 {
     protected function definition(): array

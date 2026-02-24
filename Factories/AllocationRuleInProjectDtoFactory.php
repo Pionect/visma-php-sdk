@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\AllocationRuleInProjectDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\AllocationRuleInProjectDto>
+ */
 class AllocationRuleInProjectDtoFactory extends Factory
 {
     protected function definition(): array

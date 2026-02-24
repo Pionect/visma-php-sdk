@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\CreateCurrencyRateTypeDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CreateCurrencyRateTypeDto>
+ */
 class CreateCurrencyRateTypeDtoFactory extends Factory
 {
     protected function definition(): array

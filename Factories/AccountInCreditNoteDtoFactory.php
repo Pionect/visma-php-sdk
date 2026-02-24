@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\AccountInCreditNoteDto;
 use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\AccountInCreditNoteDto>
+ */
 class AccountInCreditNoteDtoFactory extends Factory
 {
     protected function definition(): array

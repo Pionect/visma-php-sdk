@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\CustomerContractDto;
 use Pionect\VismaSdk\Enums\CustomerContractStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerContractDto>
+ */
 class CustomerContractDtoFactory extends Factory
 {
     protected function definition(): array

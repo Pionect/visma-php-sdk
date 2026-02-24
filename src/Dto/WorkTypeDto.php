@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class WorkTypeDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\WorkTypeDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

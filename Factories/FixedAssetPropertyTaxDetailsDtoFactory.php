@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\FixedAssetPropertyTaxDetailsDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\FixedAssetPropertyTaxDetailsDto>
+ */
 class FixedAssetPropertyTaxDetailsDtoFactory extends Factory
 {
     protected function definition(): array

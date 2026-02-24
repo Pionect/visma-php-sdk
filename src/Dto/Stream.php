@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class Stream extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\StreamFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

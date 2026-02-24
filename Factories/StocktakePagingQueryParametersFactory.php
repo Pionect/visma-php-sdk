@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\StocktakeLineV2dtoStatusEnum;
 use Pionect\VismaSdk\Enums\StocktakeV2dtoSummaryStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\StocktakePagingQueryParameters>
+ */
 class StocktakePagingQueryParametersFactory extends Factory
 {
     protected function definition(): array

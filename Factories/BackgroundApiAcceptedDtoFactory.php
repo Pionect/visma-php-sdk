@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\BackgroundApiAcceptedDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\BackgroundApiAcceptedDto>
+ */
 class BackgroundApiAcceptedDtoFactory extends Factory
 {
     protected function definition(): array

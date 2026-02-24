@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\CashTransactionUpdateDto;
 use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CashTransactionUpdateDto>
+ */
 class CashTransactionUpdateDtoFactory extends Factory
 {
     protected function definition(): array

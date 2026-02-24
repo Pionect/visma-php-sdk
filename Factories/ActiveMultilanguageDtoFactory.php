@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\ActiveMultilanguageDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ActiveMultilanguageDto>
+ */
 class ActiveMultilanguageDtoFactory extends Factory
 {
     protected function definition(): array

@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\AnalisysCodeInfoInAccountDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\AnalisysCodeInfoInAccountDto>
+ */
 class AnalisysCodeInfoInAccountDtoFactory extends Factory
 {
     protected function definition(): array

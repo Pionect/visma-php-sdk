@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\FixedAssetQueryParameters;
 use Pionect\VismaSdk\Enums\DetailsStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\FixedAssetQueryParameters>
+ */
 class FixedAssetQueryParametersFactory extends Factory
 {
     protected function definition(): array

@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\StocktakeV2exceptionDto;
 use Pionect\VismaSdk\Enums\StocktakeV2exceptionErrorCodeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\StocktakeV2exceptionDto>
+ */
 class StocktakeV2exceptionDtoFactory extends Factory
 {
     protected function definition(): array

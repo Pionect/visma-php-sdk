@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\DeferralCodeCodeTypeEnum;
 use Pionect\VismaSdk\Enums\DeferralCodeRecognitionMethodEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\DeferralCodeDto>
+ */
 class DeferralCodeDtoFactory extends Factory
 {
     protected function definition(): array

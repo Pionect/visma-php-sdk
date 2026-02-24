@@ -9,6 +9,9 @@ use Pionect\VismaSdk\Enums\EmployeeTimeCardQueryParametersTypeEnum;
 use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\TimeCardDto>
+ */
 class TimeCardDtoFactory extends Factory
 {
     protected function definition(): array

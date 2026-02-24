@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\WriteOffReasonCodeInPaymentLineDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\WriteOffReasonCodeInPaymentLineDto>
+ */
 class WriteOffReasonCodeInPaymentLineDtoFactory extends Factory
 {
     protected function definition(): array

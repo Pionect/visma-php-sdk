@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\PaymentOrdersLinesUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\PaymentOrdersLinesUpdateDto>
+ */
 class PaymentOrdersLinesUpdateDtoFactory extends Factory
 {
     protected function definition(): array

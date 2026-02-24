@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\SupplierInvoiceLandedCostUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SupplierInvoiceLandedCostUpdateDto>
+ */
 class SupplierInvoiceLandedCostUpdateDtoFactory extends Factory
 {
     protected function definition(): array

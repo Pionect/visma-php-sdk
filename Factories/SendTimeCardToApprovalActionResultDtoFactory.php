@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\SendTimeCardToApprovalActionResultDto;
 use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SendTimeCardToApprovalActionResultDto>
+ */
 class SendTimeCardToApprovalActionResultDtoFactory extends Factory
 {
     protected function definition(): array

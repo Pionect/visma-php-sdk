@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\KitAssemblyLinkInsertDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\KitAssemblyLinkInsertDto>
+ */
 class KitAssemblyLinkInsertDtoFactory extends Factory
 {
     protected function definition(): array

@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\ShipmentShipmentTypeEnum;
 use Pionect\VismaSdk\Enums\ShipmentStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ShipmentsQueryParameters>
+ */
 class ShipmentsQueryParametersFactory extends Factory
 {
     protected function definition(): array

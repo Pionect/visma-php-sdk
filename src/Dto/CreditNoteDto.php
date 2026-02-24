@@ -14,6 +14,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class CreditNoteDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\CreditNoteDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

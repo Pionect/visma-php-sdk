@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\ExpenseAccountInExpenseClaimDetailDto;
 use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ExpenseAccountInExpenseClaimDetailDto>
+ */
 class ExpenseAccountInExpenseClaimDetailDtoFactory extends Factory
 {
     protected function definition(): array

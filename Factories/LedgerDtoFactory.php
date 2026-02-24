@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\LedgerDto;
 use Pionect\VismaSdk\Enums\GeneralLedgerPeriodBalanceQueryParametersBalanceTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LedgerDto>
+ */
 class LedgerDtoFactory extends Factory
 {
     protected function definition(): array

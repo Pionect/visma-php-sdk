@@ -11,6 +11,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class VisibilityInTaskExtendedDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\VisibilityInTaskExtendedDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

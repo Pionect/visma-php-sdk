@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\EarningTypeInProjectTransactionLineDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\EarningTypeInProjectTransactionLineDto>
+ */
 class EarningTypeInProjectTransactionLineDtoFactory extends Factory
 {
     protected function definition(): array

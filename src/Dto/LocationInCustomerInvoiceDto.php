@@ -15,6 +15,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class LocationInCustomerInvoiceDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\LocationInCustomerInvoiceDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

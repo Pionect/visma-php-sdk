@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\SalesOrderTypeBehaviorEnum;
 use Pionect\VismaSdk\Enums\SalesOrderTypeCustomerDocumentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SalesOrderTypeDto>
+ */
 class SalesOrderTypeDtoFactory extends Factory
 {
     protected function definition(): array

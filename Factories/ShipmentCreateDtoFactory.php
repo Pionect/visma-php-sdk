@@ -9,6 +9,9 @@ use Pionect\VismaSdk\Enums\ShipmentShipmentTypeEnum;
 use Pionect\VismaSdk\Enums\ShipmentUpdateModeOfTrasportEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ShipmentCreateDto>
+ */
 class ShipmentCreateDtoFactory extends Factory
 {
     protected function definition(): array

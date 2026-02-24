@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\CustomerContractRecurringSummaryDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerContractRecurringSummaryDto>
+ */
 class CustomerContractRecurringSummaryDtoFactory extends Factory
 {
     protected function definition(): array

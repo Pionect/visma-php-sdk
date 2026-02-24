@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\CustomerDebitNoteLineDto;
 use Pionect\VismaSdk\Enums\CustomerInvoiceLineItemTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerDebitNoteLineDto>
+ */
 class CustomerDebitNoteLineDtoFactory extends Factory
 {
     protected function definition(): array

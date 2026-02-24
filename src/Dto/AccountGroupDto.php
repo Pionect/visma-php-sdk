@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class AccountGroupDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\AccountGroupDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\FinancialsDetailDto;
 use Pionect\VismaSdk\Enums\EntryTypeTaxCalculationModeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\FinancialsDetailDto>
+ */
 class FinancialsDetailDtoFactory extends Factory
 {
     protected function definition(): array

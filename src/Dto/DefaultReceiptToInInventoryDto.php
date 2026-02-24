@@ -12,6 +12,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class DefaultReceiptToInInventoryDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\DefaultReceiptToInInventoryDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

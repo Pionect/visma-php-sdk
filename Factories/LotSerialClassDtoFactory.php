@@ -9,6 +9,9 @@ use Pionect\VismaSdk\Enums\LotSerialClassIssueMethodEnum;
 use Pionect\VismaSdk\Enums\LotSerialClassTrackingMethodEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LotSerialClassDto>
+ */
 class LotSerialClassDtoFactory extends Factory
 {
     protected function definition(): array

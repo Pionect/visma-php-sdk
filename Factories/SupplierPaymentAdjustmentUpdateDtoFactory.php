@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SupplierPaymentAdjustmentUpdateDto>
+ */
 class SupplierPaymentAdjustmentUpdateDtoFactory extends Factory
 {
     protected function definition(): array

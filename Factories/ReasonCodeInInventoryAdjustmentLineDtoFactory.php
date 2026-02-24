@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\ReasonCodeInInventoryAdjustmentLineDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ReasonCodeInInventoryAdjustmentLineDto>
+ */
 class ReasonCodeInInventoryAdjustmentLineDtoFactory extends Factory
 {
     protected function definition(): array

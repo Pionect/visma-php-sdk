@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\ProjectBillingPeriodEnum;
 use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ProjectUpdateDto>
+ */
 class ProjectUpdateDtoFactory extends Factory
 {
     protected function definition(): array

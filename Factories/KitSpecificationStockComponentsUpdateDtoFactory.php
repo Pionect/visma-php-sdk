@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\KitSpecificationStockComponentsUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\KitSpecificationStockComponentsUpdateDto>
+ */
 class KitSpecificationStockComponentsUpdateDtoFactory extends Factory
 {
     protected function definition(): array

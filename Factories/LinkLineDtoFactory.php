@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\LinkLineDto;
 use Pionect\VismaSdk\Enums\LinkLinePurchaseTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LinkLineDto>
+ */
 class LinkLineDtoFactory extends Factory
 {
     protected function definition(): array

@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\WorkTypeDto;
 use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\WorkTypeDto>
+ */
 class WorkTypeDtoFactory extends Factory
 {
     protected function definition(): array

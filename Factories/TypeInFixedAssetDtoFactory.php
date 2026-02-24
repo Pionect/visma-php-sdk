@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\TypeInFixedAssetDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\TypeInFixedAssetDto>
+ */
 class TypeInFixedAssetDtoFactory extends Factory
 {
     protected function definition(): array

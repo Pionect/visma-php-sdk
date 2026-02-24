@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\CreateCurrencyRateMultDivEnum;
 use Pionect\VismaSdk\Enums\UnitOfMeasureSupplementaryMeasureUnitEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\UnitOfMeasureDto>
+ */
 class UnitOfMeasureDtoFactory extends Factory
 {
     protected function definition(): array

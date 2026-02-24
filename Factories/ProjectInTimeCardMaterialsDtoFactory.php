@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\ProjectInTimeCardMaterialsDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ProjectInTimeCardMaterialsDto>
+ */
 class ProjectInTimeCardMaterialsDtoFactory extends Factory
 {
     protected function definition(): array

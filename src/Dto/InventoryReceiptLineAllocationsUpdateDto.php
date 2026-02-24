@@ -16,6 +16,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class InventoryReceiptLineAllocationsUpdateDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\InventoryReceiptLineAllocationsUpdateDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

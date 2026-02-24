@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\CreateCurrencyRateDto;
 use Pionect\VismaSdk\Enums\CreateCurrencyRateMultDivEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CreateCurrencyRateDto>
+ */
 class CreateCurrencyRateDtoFactory extends Factory
 {
     protected function definition(): array

@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\DetailsPropertyTypeEnum;
 use Pionect\VismaSdk\Enums\DetailsStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\DetailsDto>
+ */
 class DetailsDtoFactory extends Factory
 {
     protected function definition(): array

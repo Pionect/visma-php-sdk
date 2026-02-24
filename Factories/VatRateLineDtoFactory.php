@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\VatRateLineDto;
 use Pionect\VismaSdk\Enums\VatRateLineGroupTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\VatRateLineDto>
+ */
 class VatRateLineDtoFactory extends Factory
 {
     protected function definition(): array

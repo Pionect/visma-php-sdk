@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class KitAssemblyQueryParameters extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\KitAssemblyQueryParametersFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\EarningTypeInTimeCardSummaryDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\EarningTypeInTimeCardSummaryDto>
+ */
 class EarningTypeInTimeCardSummaryDtoFactory extends Factory
 {
     protected function definition(): array

@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Enums\CustomerInvoiceLineItemTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerInvoiceLinesUpdateDto>
+ */
 class CustomerInvoiceLinesUpdateDtoFactory extends Factory
 {
     protected function definition(): array

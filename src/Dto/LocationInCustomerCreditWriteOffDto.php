@@ -15,6 +15,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class LocationInCustomerCreditWriteOffDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\LocationInCustomerCreditWriteOffDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

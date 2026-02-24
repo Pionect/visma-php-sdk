@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\GeneralLedgerTransactionDetailsDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\GeneralLedgerTransactionDetailsDto>
+ */
 class GeneralLedgerTransactionDetailsDtoFactory extends Factory
 {
     protected function definition(): array

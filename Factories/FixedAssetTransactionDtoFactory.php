@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\FixedAssetTransactionOriginEnum;
 use Pionect\VismaSdk\Enums\FixedAssetTransactionTransactionTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\FixedAssetTransactionDto>
+ */
 class FixedAssetTransactionDtoFactory extends Factory
 {
     protected function definition(): array

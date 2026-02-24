@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\VatClaimableSubccountInVatGlAccountsDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\VatClaimableSubccountInVatGlAccountsDto>
+ */
 class VatClaimableSubccountInVatGlAccountsDtoFactory extends Factory
 {
     protected function definition(): array

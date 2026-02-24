@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\SubaccountInJournalTransactionLineDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SubaccountInJournalTransactionLineDto>
+ */
 class SubaccountInJournalTransactionLineDtoFactory extends Factory
 {
     protected function definition(): array

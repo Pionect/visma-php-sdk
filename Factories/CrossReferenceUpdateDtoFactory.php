@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Enums\InventoryCrossReferenceAlternateTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CrossReferenceUpdateDto>
+ */
 class CrossReferenceUpdateDtoFactory extends Factory
 {
     protected function definition(): array

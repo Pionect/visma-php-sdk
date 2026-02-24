@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\ItemClassDto;
 use Pionect\VismaSdk\Enums\ItemClassTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ItemClassDto>
+ */
 class ItemClassDtoFactory extends Factory
 {
     protected function definition(): array

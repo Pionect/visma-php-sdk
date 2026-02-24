@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\EntryTypeIdDescriptionDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\EntryTypeIdDescriptionDto>
+ */
 class EntryTypeIdDescriptionDtoFactory extends Factory
 {
     protected function definition(): array

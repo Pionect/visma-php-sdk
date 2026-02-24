@@ -13,6 +13,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class PaymentLineBaseUpdateDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\PaymentLineBaseUpdateDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

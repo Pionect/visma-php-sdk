@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\InventoryCrossReferenceDto;
 use Pionect\VismaSdk\Enums\InventoryCrossReferenceAlternateTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InventoryCrossReferenceDto>
+ */
 class InventoryCrossReferenceDtoFactory extends Factory
 {
     protected function definition(): array

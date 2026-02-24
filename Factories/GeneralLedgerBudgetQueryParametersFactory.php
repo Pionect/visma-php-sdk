@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\GeneralLedgerBudgetQueryParameters;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\GeneralLedgerBudgetQueryParameters>
+ */
 class GeneralLedgerBudgetQueryParametersFactory extends Factory
 {
     protected function definition(): array

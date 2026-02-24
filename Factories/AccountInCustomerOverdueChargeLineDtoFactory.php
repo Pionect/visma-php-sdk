@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\AccountInCustomerOverdueChargeLineDto;
 use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\AccountInCustomerOverdueChargeLineDto>
+ */
 class AccountInCustomerOverdueChargeLineDtoFactory extends Factory
 {
     protected function definition(): array

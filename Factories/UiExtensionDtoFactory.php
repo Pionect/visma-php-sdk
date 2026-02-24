@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\UiExtensionDto;
 use Pionect\VismaSdk\Enums\UiExtensionQueryParametersTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\UiExtensionDto>
+ */
 class UiExtensionDtoFactory extends Factory
 {
     protected function definition(): array

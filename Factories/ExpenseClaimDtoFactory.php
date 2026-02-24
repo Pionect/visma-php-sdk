@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\ExpenseClaimQueryParametersStatusEnum;
 use Pionect\VismaSdk\Enums\TimeCardSummaryApprovalStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ExpenseClaimDto>
+ */
 class ExpenseClaimDtoFactory extends Factory
 {
     protected function definition(): array

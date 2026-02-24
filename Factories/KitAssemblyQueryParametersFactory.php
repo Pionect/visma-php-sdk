@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\KitAssemblyQueryParameters;
 use Pionect\VismaSdk\Enums\KitAssemblyQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\KitAssemblyQueryParameters>
+ */
 class KitAssemblyQueryParametersFactory extends Factory
 {
     protected function definition(): array

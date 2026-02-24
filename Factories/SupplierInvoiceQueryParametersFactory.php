@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersDocumentType
 use Pionect\VismaSdk\Enums\SupplierInvoiceForSupplierQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SupplierInvoiceQueryParameters>
+ */
 class SupplierInvoiceQueryParametersFactory extends Factory
 {
     protected function definition(): array

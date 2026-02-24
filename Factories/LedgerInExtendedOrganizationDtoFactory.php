@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\LedgerInExtendedOrganizationDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\LedgerInExtendedOrganizationDto>
+ */
 class LedgerInExtendedOrganizationDtoFactory extends Factory
 {
     protected function definition(): array

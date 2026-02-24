@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\TaskStatusEnum;
 use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ProjectQueryParameters>
+ */
 class ProjectQueryParametersFactory extends Factory
 {
     protected function definition(): array

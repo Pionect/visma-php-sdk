@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\CogsAccountInInventoryAccountInformationDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CogsAccountInInventoryAccountInformationDto>
+ */
 class CogsAccountInInventoryAccountInformationDtoFactory extends Factory
 {
     protected function definition(): array

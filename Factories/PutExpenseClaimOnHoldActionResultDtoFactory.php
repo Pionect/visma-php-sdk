@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\PutExpenseClaimOnHoldActionResultDto;
 use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\PutExpenseClaimOnHoldActionResultDto>
+ */
 class PutExpenseClaimOnHoldActionResultDtoFactory extends Factory
 {
     protected function definition(): array

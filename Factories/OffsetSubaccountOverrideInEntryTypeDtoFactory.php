@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\OffsetSubaccountOverrideInEntryTypeDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\OffsetSubaccountOverrideInEntryTypeDto>
+ */
 class OffsetSubaccountOverrideInEntryTypeDtoFactory extends Factory
 {
     protected function definition(): array

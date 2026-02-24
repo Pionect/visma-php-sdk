@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\InventoryTransferLineUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InventoryTransferLineUpdateDto>
+ */
 class InventoryTransferLineUpdateDtoFactory extends Factory
 {
     protected function definition(): array

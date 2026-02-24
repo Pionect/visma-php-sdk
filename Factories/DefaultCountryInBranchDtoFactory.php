@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\DefaultCountryInBranchDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\DefaultCountryInBranchDto>
+ */
 class DefaultCountryInBranchDtoFactory extends Factory
 {
     protected function definition(): array

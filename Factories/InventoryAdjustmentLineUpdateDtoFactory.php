@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\InventoryAdjustmentLineUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InventoryAdjustmentLineUpdateDto>
+ */
 class InventoryAdjustmentLineUpdateDtoFactory extends Factory
 {
     protected function definition(): array

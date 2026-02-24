@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoiceToEnum;
 use Pionect\VismaSdk\Enums\CustomerContractSummaryInvoicingPeriodEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SummaryInCustomerContractDto>
+ */
 class SummaryInCustomerContractDtoFactory extends Factory
 {
     protected function definition(): array

@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\OffsetAccountInTransactionDetailDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\OffsetAccountInTransactionDetailDto>
+ */
 class OffsetAccountInTransactionDetailDtoFactory extends Factory
 {
     protected function definition(): array

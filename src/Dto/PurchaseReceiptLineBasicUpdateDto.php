@@ -19,6 +19,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class PurchaseReceiptLineBasicUpdateDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\PurchaseReceiptLineBasicUpdateDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

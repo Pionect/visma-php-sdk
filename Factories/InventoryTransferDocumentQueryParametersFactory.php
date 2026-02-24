@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\InventoryTransferDocumentQueryParameters;
 use Pionect\VismaSdk\Enums\InventoryAdjustmentStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\InventoryTransferDocumentQueryParameters>
+ */
 class InventoryTransferDocumentQueryParametersFactory extends Factory
 {
     protected function definition(): array

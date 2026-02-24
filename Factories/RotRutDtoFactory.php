@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Enums\CashSaleDocumentTypeEnum;
 use Pionect\VismaSdk\Enums\WorkTypeRutRotTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\RotRutDto>
+ */
 class RotRutDtoFactory extends Factory
 {
     protected function definition(): array

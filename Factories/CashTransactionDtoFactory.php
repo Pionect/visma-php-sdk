@@ -9,6 +9,9 @@ use Pionect\VismaSdk\Enums\CashTransactionTranTypeEnum;
 use Pionect\VismaSdk\Enums\EntryTypeDisableReceiptEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CashTransactionDto>
+ */
 class CashTransactionDtoFactory extends Factory
 {
     protected function definition(): array

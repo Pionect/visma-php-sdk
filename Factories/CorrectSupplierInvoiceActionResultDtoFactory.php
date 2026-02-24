@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\CorrectSupplierInvoiceActionResultDto;
 use Pionect\VismaSdk\Enums\ReleaseCashTransactionActionResultActionResultEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CorrectSupplierInvoiceActionResultDto>
+ */
 class CorrectSupplierInvoiceActionResultDtoFactory extends Factory
 {
     protected function definition(): array

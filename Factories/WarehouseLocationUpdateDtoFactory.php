@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\WarehouseLocationUpdateDto;
 use Pionect\VismaSdk\Enums\WarehouseLocationPrimaryItemValidEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\WarehouseLocationUpdateDto>
+ */
 class WarehouseLocationUpdateDtoFactory extends Factory
 {
     protected function definition(): array

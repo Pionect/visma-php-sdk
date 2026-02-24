@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class FixedAssetBookSettingsDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\FixedAssetBookSettingsDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

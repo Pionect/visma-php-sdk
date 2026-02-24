@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\BackgroundRequestStateDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\BackgroundRequestStateDto>
+ */
 class BackgroundRequestStateDtoFactory extends Factory
 {
     protected function definition(): array

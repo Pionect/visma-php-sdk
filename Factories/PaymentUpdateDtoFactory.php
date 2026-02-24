@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\PaymentUpdateDto;
 use Pionect\VismaSdk\Enums\PaymentTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\PaymentUpdateDto>
+ */
 class PaymentUpdateDtoFactory extends Factory
 {
     protected function definition(): array

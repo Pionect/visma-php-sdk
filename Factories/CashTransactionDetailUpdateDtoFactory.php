@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\CashTransactionDetailUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CashTransactionDetailUpdateDto>
+ */
 class CashTransactionDetailUpdateDtoFactory extends Factory
 {
     protected function definition(): array

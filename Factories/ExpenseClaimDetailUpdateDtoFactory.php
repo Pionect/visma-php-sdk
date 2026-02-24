@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\ExpenseClaimDetailUpdateDto;
 use Pionect\VismaSdk\Enums\AttributeDetailUpdateOperationEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ExpenseClaimDetailUpdateDto>
+ */
 class ExpenseClaimDetailUpdateDtoFactory extends Factory
 {
     protected function definition(): array

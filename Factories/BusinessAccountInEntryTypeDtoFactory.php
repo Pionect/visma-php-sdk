@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\BusinessAccountInEntryTypeDto;
 use Pionect\VismaSdk\Enums\AccountTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\BusinessAccountInEntryTypeDto>
+ */
 class BusinessAccountInEntryTypeDtoFactory extends Factory
 {
     protected function definition(): array

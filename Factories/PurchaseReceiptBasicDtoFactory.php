@@ -8,6 +8,9 @@ use Pionect\VismaSdk\Enums\PurchaseReceiptsStatusEnum;
 use Pionect\VismaSdk\Enums\PurchaseReceiptsTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\PurchaseReceiptBasicDto>
+ */
 class PurchaseReceiptBasicDtoFactory extends Factory
 {
     protected function definition(): array

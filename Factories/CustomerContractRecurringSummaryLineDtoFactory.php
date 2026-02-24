@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\CustomerContractRecurringSummaryLineDto;
 use Pionect\VismaSdk\Enums\CustomerContractRecurringSummaryLineInvoiceTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerContractRecurringSummaryLineDto>
+ */
 class CustomerContractRecurringSummaryLineDtoFactory extends Factory
 {
     protected function definition(): array

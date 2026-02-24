@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\TaxCategoryInTaskExtendedDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\TaxCategoryInTaskExtendedDto>
+ */
 class TaxCategoryInTaskExtendedDtoFactory extends Factory
 {
     protected function definition(): array

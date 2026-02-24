@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\DefSubInTaskExtendedDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\DefSubInTaskExtendedDto>
+ */
 class DefSubInTaskExtendedDtoFactory extends Factory
 {
     protected function definition(): array

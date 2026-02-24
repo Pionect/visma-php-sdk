@@ -11,6 +11,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class EmployeeTimeCardQueryParameters extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\EmployeeTimeCardQueryParametersFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

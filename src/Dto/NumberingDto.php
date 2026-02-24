@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class NumberingDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\NumberingDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

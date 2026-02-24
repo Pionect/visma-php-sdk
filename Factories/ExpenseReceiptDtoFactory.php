@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\ExpenseReceiptDto;
 use Pionect\VismaSdk\Enums\ExpenseReceiptQueryParametersStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ExpenseReceiptDto>
+ */
 class ExpenseReceiptDtoFactory extends Factory
 {
     protected function definition(): array

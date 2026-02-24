@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data as SpatieData;
  */
 class JournalTransactionLineDto extends SpatieData
 {
+    /** @use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory<\Pionect\VismaSdk\Factories\JournalTransactionLineDtoFactory> */
     use \Pionect\VismaSdk\Foundation\Factories\HasTestFactory;
 
     public function __construct(

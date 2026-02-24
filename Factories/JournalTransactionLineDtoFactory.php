@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\JournalTransactionLineDto;
 use Pionect\VismaSdk\Enums\JournalTransactionLineModuleEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\JournalTransactionLineDto>
+ */
 class JournalTransactionLineDtoFactory extends Factory
 {
     protected function definition(): array

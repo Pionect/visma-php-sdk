@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\RegisterInFixedAssetTransactionDto;
 use Pionect\VismaSdk\Enums\FixedAssetRegisterStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\RegisterInFixedAssetTransactionDto>
+ */
 class RegisterInFixedAssetTransactionDtoFactory extends Factory
 {
     protected function definition(): array

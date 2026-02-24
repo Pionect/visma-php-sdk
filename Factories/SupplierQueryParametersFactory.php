@@ -6,6 +6,9 @@ use Pionect\VismaSdk\Dto\SupplierQueryParameters;
 use Pionect\VismaSdk\Enums\EmployeeStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\SupplierQueryParameters>
+ */
 class SupplierQueryParametersFactory extends Factory
 {
     protected function definition(): array

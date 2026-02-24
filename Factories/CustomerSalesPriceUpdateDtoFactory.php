@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\CustomerSalesPriceUpdateDto;
 use Pionect\VismaSdk\Enums\CustomerSalesPriceUpdatePriceTypeEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\CustomerSalesPriceUpdateDto>
+ */
 class CustomerSalesPriceUpdateDtoFactory extends Factory
 {
     protected function definition(): array

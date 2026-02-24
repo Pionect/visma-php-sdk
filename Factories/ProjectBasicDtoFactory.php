@@ -7,6 +7,9 @@ use Pionect\VismaSdk\Dto\ProjectBasicDto;
 use Pionect\VismaSdk\Enums\TemplateNumberDescriptionStatusEnum;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\ProjectBasicDto>
+ */
 class ProjectBasicDtoFactory extends Factory
 {
     protected function definition(): array

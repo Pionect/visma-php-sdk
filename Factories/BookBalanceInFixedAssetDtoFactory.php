@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Pionect\VismaSdk\Dto\BookBalanceInFixedAssetDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\BookBalanceInFixedAssetDto>
+ */
 class BookBalanceInFixedAssetDtoFactory extends Factory
 {
     protected function definition(): array

@@ -5,6 +5,9 @@ namespace Pionect\VismaSdk\Factories;
 use Pionect\VismaSdk\Dto\BaccountInInventoryCrossReferenceDto;
 use Pionect\VismaSdk\Foundation\Factories\Factory;
 
+/**
+ * @extends \Pionect\VismaSdk\Foundation\Factories\Factory<\Pionect\VismaSdk\Dto\BaccountInInventoryCrossReferenceDto>
+ */
 class BaccountInInventoryCrossReferenceDtoFactory extends Factory
 {
     protected function definition(): array
