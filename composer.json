@@ -40,7 +40,7 @@
     "autoload": {
         "psr-4": {
             "Pionect\\VismaSdk\\": "src/",
-            "Pionect\\VismaSdk\\Factories\\": "factories/",
+            "Pionect\\VismaSdk\\Factories\\": "Factories/",
             "Pionect\\VismaSdk\\Generator\\": "generator/"
         }
     },
