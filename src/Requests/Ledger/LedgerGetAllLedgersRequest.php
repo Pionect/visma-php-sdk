@@ -17,7 +17,7 @@ class LedgerGetAllLedgersRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<LedgerDto>
+     * @return Collection<int, LedgerDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

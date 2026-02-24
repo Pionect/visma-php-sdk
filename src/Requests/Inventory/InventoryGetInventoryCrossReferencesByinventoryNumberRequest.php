@@ -17,7 +17,7 @@ class InventoryGetInventoryCrossReferencesByinventoryNumberRequest extends Reque
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<InventoryCrossReferenceDto>
+     * @return Collection<int, InventoryCrossReferenceDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

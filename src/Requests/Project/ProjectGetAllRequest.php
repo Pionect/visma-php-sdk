@@ -17,7 +17,7 @@ class ProjectGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ProjectDto>
+     * @return Collection<int, ProjectDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

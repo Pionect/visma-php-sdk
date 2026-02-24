@@ -17,7 +17,7 @@ class SalesCategoryGetItemsForCategoryBycategoryIdRequest extends Request implem
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<InventoryDto>
+     * @return Collection<int, InventoryDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

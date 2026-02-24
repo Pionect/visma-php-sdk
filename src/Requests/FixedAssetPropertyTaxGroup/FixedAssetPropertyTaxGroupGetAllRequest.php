@@ -17,7 +17,7 @@ class FixedAssetPropertyTaxGroupGetAllRequest extends Request implements Paginat
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<FixedAssetPropertyTaxDto>
+     * @return Collection<int, FixedAssetPropertyTaxDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

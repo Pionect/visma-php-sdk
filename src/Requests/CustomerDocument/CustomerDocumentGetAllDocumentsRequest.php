@@ -19,7 +19,7 @@ class CustomerDocumentGetAllDocumentsRequest extends Request implements Paginata
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerDocumentDto>
+     * @return Collection<int, CustomerDocumentDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

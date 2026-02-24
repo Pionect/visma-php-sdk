@@ -17,7 +17,7 @@ class BlobGetPresignedUrlRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<PresignedUrlResponse>
+     * @return Collection<int, PresignedUrlResponse>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

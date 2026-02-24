@@ -17,7 +17,7 @@ class SupplierGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SupplierDto>
+     * @return Collection<int, SupplierDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

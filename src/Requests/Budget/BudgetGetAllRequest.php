@@ -17,7 +17,7 @@ class BudgetGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<BudgetDto>
+     * @return Collection<int, BudgetDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

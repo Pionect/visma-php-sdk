@@ -17,7 +17,7 @@ class OrganizationGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ExtendedOrganizationDto>
+     * @return Collection<int, ExtendedOrganizationDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

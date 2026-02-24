@@ -17,7 +17,7 @@ class CustomerGetAllDocumentsForCustomerBycustomerNumberRequest extends Request 
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerDocumentDto>
+     * @return Collection<int, CustomerDocumentDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -17,7 +17,7 @@ class CustomerGetAllSalesOrderBasicForCustomerBycustomerCdRequest extends Reques
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SalesOrderBasicDto>
+     * @return Collection<int, SalesOrderBasicDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

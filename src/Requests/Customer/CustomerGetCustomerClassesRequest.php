@@ -17,7 +17,7 @@ class CustomerGetCustomerClassesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerClassDto>
+     * @return Collection<int, CustomerClassDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

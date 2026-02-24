@@ -17,7 +17,7 @@ class AttributeGetAttributesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<AttributeDto>
+     * @return Collection<int, AttributeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

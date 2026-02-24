@@ -17,7 +17,7 @@ class VatGetAllVatsRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<VatInformationDto>
+     * @return Collection<int, VatInformationDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

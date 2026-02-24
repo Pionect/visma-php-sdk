@@ -17,7 +17,7 @@ class GeneralLedgerBalanceV2GetGeneralLedgerBalancesRequest extends Request impl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<GeneralLedgerBalanceDto>
+     * @return Collection<int, GeneralLedgerBalanceDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

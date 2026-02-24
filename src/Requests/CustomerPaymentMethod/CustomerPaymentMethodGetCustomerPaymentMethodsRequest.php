@@ -17,7 +17,7 @@ class CustomerPaymentMethodGetCustomerPaymentMethodsRequest extends Request impl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerPaymentMethodsDto>
+     * @return Collection<int, CustomerPaymentMethodsDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

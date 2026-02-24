@@ -17,7 +17,7 @@ class EmployeeGetEmployeeExpenseReceiptsByemployeeCdRequest extends Request impl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ExpenseReceiptDto>
+     * @return Collection<int, ExpenseReceiptDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -17,7 +17,7 @@ class CreditNoteGetAllCreditNotesDtoRequest extends Request implements Paginatab
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CreditNoteDto>
+     * @return Collection<int, CreditNoteDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

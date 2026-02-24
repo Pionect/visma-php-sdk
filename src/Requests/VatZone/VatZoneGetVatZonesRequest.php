@@ -17,7 +17,7 @@ class VatZoneGetVatZonesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<VatZoneDto>
+     * @return Collection<int, VatZoneDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

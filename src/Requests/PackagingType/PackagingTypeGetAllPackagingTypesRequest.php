@@ -17,7 +17,7 @@ class PackagingTypeGetAllPackagingTypesRequest extends Request implements Pagina
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<PackagingTypeDto>
+     * @return Collection<int, PackagingTypeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

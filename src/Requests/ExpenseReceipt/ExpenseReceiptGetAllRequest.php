@@ -17,7 +17,7 @@ class ExpenseReceiptGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ExpenseReceiptDto>
+     * @return Collection<int, ExpenseReceiptDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

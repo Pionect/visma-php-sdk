@@ -17,7 +17,7 @@ class PaymentMethodGetAllPaymentMethodRequest extends Request implements Paginat
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<PaymentMethodDto>
+     * @return Collection<int, PaymentMethodDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

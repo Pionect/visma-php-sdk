@@ -17,7 +17,7 @@ class CustomerGetCustomerDirectDebitBycustomerCdRequest extends Request implemen
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerDirectDebitDto>
+     * @return Collection<int, CustomerDirectDebitDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

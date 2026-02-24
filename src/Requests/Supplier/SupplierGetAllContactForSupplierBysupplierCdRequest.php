@@ -17,7 +17,7 @@ class SupplierGetAllContactForSupplierBysupplierCdRequest extends Request implem
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ContactDto>
+     * @return Collection<int, ContactDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

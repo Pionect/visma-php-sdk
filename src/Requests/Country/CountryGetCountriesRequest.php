@@ -17,7 +17,7 @@ class CountryGetCountriesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CountryDto>
+     * @return Collection<int, CountryDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

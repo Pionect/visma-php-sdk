@@ -17,7 +17,7 @@ class LotSerialClassGetAllLotSerialClassRequest extends Request implements Pagin
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<LotSerialClassDto>
+     * @return Collection<int, LotSerialClassDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

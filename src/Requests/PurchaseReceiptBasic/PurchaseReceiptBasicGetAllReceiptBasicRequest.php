@@ -17,7 +17,7 @@ class PurchaseReceiptBasicGetAllReceiptBasicRequest extends Request implements P
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<PurchaseReceiptBasicDto>
+     * @return Collection<int, PurchaseReceiptBasicDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

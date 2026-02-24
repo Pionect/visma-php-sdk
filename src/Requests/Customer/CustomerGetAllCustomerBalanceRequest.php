@@ -17,7 +17,7 @@ class CustomerGetAllCustomerBalanceRequest extends Request implements Paginatabl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerBalanceDto>
+     * @return Collection<int, CustomerBalanceDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

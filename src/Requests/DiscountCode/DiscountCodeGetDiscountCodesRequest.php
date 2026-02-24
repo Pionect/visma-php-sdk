@@ -17,7 +17,7 @@ class DiscountCodeGetDiscountCodesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<DiscountCodeDto>
+     * @return Collection<int, DiscountCodeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

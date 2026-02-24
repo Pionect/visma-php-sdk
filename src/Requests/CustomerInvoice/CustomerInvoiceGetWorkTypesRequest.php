@@ -19,7 +19,7 @@ class CustomerInvoiceGetWorkTypesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<WorkTypeDto>
+     * @return Collection<int, WorkTypeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

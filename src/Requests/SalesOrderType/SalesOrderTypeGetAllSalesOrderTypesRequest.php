@@ -17,7 +17,7 @@ class SalesOrderTypeGetAllSalesOrderTypesRequest extends Request implements Pagi
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SalesOrderTypeDto>
+     * @return Collection<int, SalesOrderTypeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

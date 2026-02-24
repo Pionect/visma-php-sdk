@@ -21,7 +21,7 @@ class SubaccountGetAllSubaccountsRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SubAccountDto>
+     * @return Collection<int, SubAccountDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

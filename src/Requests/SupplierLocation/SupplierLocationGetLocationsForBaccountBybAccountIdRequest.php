@@ -19,7 +19,7 @@ class SupplierLocationGetLocationsForBaccountBybAccountIdRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SupplierLocationDto>
+     * @return Collection<int, SupplierLocationDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

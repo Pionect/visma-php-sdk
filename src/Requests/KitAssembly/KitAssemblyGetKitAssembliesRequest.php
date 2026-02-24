@@ -17,7 +17,7 @@ class KitAssemblyGetKitAssembliesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<KitAssemblyDto>
+     * @return Collection<int, KitAssemblyDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -17,7 +17,7 @@ class InventoryIssueGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<InventoryIssueDto>
+     * @return Collection<int, InventoryIssueDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

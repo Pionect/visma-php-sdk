@@ -17,7 +17,7 @@ class SalesCategoryGetRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SalesCategoryDto>
+     * @return Collection<int, SalesCategoryDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

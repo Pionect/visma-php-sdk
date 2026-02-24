@@ -17,7 +17,7 @@ class MultilanguageGetInventoryTranslationsByinventoryNumberRequest extends Requ
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<MultilanguageDto>
+     * @return Collection<int, MultilanguageDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

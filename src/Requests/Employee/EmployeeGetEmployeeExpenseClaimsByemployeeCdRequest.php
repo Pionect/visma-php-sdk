@@ -17,7 +17,7 @@ class EmployeeGetEmployeeExpenseClaimsByemployeeCdRequest extends Request implem
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ExpenseClaimDto>
+     * @return Collection<int, ExpenseClaimDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

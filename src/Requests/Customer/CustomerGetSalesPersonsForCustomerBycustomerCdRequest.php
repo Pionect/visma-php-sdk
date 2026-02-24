@@ -17,7 +17,7 @@ class CustomerGetSalesPersonsForCustomerBycustomerCdRequest extends Request impl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustSalesPersonsDto>
+     * @return Collection<int, CustSalesPersonsDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

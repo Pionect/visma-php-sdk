@@ -17,7 +17,7 @@ class ProjectGetTasksRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<TaskExtendedDto>
+     * @return Collection<int, TaskExtendedDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

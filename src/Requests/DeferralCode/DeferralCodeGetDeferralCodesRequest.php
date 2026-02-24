@@ -17,7 +17,7 @@ class DeferralCodeGetDeferralCodesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<DeferralCodeDto>
+     * @return Collection<int, DeferralCodeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

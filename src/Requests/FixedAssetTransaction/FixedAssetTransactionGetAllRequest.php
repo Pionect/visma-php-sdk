@@ -17,7 +17,7 @@ class FixedAssetTransactionGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<FixedAssetTransactionDto>
+     * @return Collection<int, FixedAssetTransactionDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

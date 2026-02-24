@@ -17,7 +17,7 @@ class SupplierGetAllInvoicesForSupplierBysupplierNumberRequest extends Request i
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SupplierInvoiceDto>
+     * @return Collection<int, SupplierInvoiceDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

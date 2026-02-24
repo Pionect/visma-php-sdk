@@ -17,7 +17,7 @@ class ShipmentGetAllShipmentsRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ShipmentDto>
+     * @return Collection<int, ShipmentDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

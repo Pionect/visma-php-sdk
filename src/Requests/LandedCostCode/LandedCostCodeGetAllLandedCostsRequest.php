@@ -17,7 +17,7 @@ class LandedCostCodeGetAllLandedCostsRequest extends Request implements Paginata
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<LandedCostCodeDto>
+     * @return Collection<int, LandedCostCodeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

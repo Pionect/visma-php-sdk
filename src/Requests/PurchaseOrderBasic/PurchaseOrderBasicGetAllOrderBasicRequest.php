@@ -17,7 +17,7 @@ class PurchaseOrderBasicGetAllOrderBasicRequest extends Request implements Pagin
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<PurchaseOrderBasicDto>
+     * @return Collection<int, PurchaseOrderBasicDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

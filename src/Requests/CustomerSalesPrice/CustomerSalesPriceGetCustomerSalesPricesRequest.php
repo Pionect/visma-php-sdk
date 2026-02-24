@@ -17,7 +17,7 @@ class CustomerSalesPriceGetCustomerSalesPricesRequest extends Request implements
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerSalesPriceDto>
+     * @return Collection<int, CustomerSalesPriceDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

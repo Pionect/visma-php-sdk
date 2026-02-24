@@ -17,7 +17,7 @@ class NumberSequenceGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<NumberingDto>
+     * @return Collection<int, NumberingDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

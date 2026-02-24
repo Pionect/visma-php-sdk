@@ -17,7 +17,7 @@ class UiExtensionGetAllUiExtensionsByownerIdRequest extends Request implements P
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<UiExtensionDto>
+     * @return Collection<int, UiExtensionDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

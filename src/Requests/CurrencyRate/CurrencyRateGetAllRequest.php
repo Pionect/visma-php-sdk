@@ -17,7 +17,7 @@ class CurrencyRateGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CurrencyRateDto>
+     * @return Collection<int, CurrencyRateDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

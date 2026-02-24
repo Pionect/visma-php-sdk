@@ -17,7 +17,7 @@ class CreditTermGetCreditTermsRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CreditTermDto>
+     * @return Collection<int, CreditTermDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -17,7 +17,7 @@ class FirstTimeStartupGetRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<FirstTimeStartupDto>
+     * @return Collection<int, FirstTimeStartupDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

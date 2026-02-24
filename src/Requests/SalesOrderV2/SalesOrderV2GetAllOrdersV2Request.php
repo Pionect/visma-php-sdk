@@ -19,7 +19,7 @@ class SalesOrderV2GetAllOrdersV2Request extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SalesOrderDto>
+     * @return Collection<int, SalesOrderDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

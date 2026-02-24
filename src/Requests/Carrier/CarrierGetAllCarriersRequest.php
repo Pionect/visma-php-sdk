@@ -17,7 +17,7 @@ class CarrierGetAllCarriersRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CarrierDto>
+     * @return Collection<int, CarrierDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

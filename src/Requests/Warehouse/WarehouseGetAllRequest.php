@@ -17,7 +17,7 @@ class WarehouseGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<WarehouseDto>
+     * @return Collection<int, WarehouseDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

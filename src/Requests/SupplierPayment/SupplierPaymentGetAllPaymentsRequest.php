@@ -17,7 +17,7 @@ class SupplierPaymentGetAllPaymentsRequest extends Request implements Paginatabl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SupplierPaymentDto>
+     * @return Collection<int, SupplierPaymentDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

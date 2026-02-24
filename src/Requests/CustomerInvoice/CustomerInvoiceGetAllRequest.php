@@ -19,7 +19,7 @@ class CustomerInvoiceGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerInvoiceDto>
+     * @return Collection<int, CustomerInvoiceDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

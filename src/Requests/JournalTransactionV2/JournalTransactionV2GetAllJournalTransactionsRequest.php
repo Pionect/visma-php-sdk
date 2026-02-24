@@ -19,7 +19,7 @@ class JournalTransactionV2GetAllJournalTransactionsRequest extends Request imple
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<JournalTransactionDto>
+     * @return Collection<int, JournalTransactionDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

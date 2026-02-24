@@ -17,7 +17,7 @@ class InventorySummaryGetAllInventorySummaryByinventoryNumberRequest extends Req
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<InventorySummaryDto>
+     * @return Collection<int, InventorySummaryDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -17,7 +17,7 @@ class DepartmentGetAllDepartmentDtosRequest extends Request implements Paginatab
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<DepartmentDto>
+     * @return Collection<int, DepartmentDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

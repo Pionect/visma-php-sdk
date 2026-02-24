@@ -17,7 +17,7 @@ class FixedAssetTransactionGetByRefNoRequest extends Request implements Paginata
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<FixedAssetTransactionDto>
+     * @return Collection<int, FixedAssetTransactionDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -17,7 +17,7 @@ class ProjectAccountGroupGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ProjectAccountGroupDto>
+     * @return Collection<int, ProjectAccountGroupDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

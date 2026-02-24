@@ -17,7 +17,7 @@ class UnitOfMeasureGetAllUnitsOfMeasureRequest extends Request implements Pagina
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<UnitOfMeasureDto>
+     * @return Collection<int, UnitOfMeasureDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

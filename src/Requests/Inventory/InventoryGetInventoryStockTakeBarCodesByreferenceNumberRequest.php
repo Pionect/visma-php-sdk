@@ -17,7 +17,7 @@ class InventoryGetInventoryStockTakeBarCodesByreferenceNumberRequest extends Req
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<BarCodeDto>
+     * @return Collection<int, BarCodeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

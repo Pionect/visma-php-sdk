@@ -17,7 +17,7 @@ class KitSpecificationsGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<KitSpecificationDto>
+     * @return Collection<int, KitSpecificationDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

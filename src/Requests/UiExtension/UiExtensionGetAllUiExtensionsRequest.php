@@ -17,7 +17,7 @@ class UiExtensionGetAllUiExtensionsRequest extends Request implements Paginatabl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<UiExtensionScreenDto>
+     * @return Collection<int, UiExtensionScreenDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -17,7 +17,7 @@ class SupplierGetAllSupplierBalanceRequest extends Request implements Paginatabl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SupplierBalanceDto>
+     * @return Collection<int, SupplierBalanceDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

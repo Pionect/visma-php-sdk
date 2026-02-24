@@ -17,7 +17,7 @@ class StocktakeV2GetAllStocktakesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<StocktakeV2dto>
+     * @return Collection<int, StocktakeV2dto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

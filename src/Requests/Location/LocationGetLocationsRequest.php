@@ -19,7 +19,7 @@ class LocationGetLocationsRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<LocationDto>
+     * @return Collection<int, LocationDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

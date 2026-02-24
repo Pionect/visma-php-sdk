@@ -17,7 +17,7 @@ class MultilanguageGetAllActiveLanguagesRequest extends Request implements Pagin
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ActiveMultilanguageDto>
+     * @return Collection<int, ActiveMultilanguageDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

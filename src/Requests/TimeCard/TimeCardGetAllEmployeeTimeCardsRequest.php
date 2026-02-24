@@ -17,7 +17,7 @@ class TimeCardGetAllEmployeeTimeCardsRequest extends Request implements Paginata
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<TimeCardDto>
+     * @return Collection<int, TimeCardDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

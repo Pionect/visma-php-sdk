@@ -17,7 +17,7 @@ class EmployeeGetAllEmployeesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<EmployeeDto>
+     * @return Collection<int, EmployeeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

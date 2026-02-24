@@ -17,7 +17,7 @@ class PurchaseReceiptV2GetAllReceiptsRequest extends Request implements Paginata
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<PurchaseReceiptDto>
+     * @return Collection<int, PurchaseReceiptDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

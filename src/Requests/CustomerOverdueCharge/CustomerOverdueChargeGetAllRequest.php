@@ -19,7 +19,7 @@ class CustomerOverdueChargeGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerOverdueChargeDto>
+     * @return Collection<int, CustomerOverdueChargeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

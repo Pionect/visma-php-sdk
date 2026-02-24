@@ -17,7 +17,7 @@ class CustomerGetAllContactsForCustomerBycustomerCdRequest extends Request imple
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ContactDto>
+     * @return Collection<int, ContactDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

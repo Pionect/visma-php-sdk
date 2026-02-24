@@ -17,7 +17,7 @@ class SupplierV2GetAllSupplierBalanceRequest extends Request implements Paginata
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SupplierBalanceV2dto>
+     * @return Collection<int, SupplierBalanceV2dto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

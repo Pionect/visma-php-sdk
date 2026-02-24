@@ -17,7 +17,7 @@ class BranchGetAllBranchesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<BranchDto>
+     * @return Collection<int, BranchDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

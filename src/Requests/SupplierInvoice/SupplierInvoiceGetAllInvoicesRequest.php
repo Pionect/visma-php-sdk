@@ -17,7 +17,7 @@ class SupplierInvoiceGetAllInvoicesRequest extends Request implements Paginatabl
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SupplierInvoiceDto>
+     * @return Collection<int, SupplierInvoiceDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

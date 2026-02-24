@@ -19,7 +19,7 @@ class CashTransactionGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CashTransactionDto>
+     * @return Collection<int, CashTransactionDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

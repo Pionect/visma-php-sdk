@@ -17,7 +17,7 @@ class ContractTemplateGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<ContractTemplateDto>
+     * @return Collection<int, ContractTemplateDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

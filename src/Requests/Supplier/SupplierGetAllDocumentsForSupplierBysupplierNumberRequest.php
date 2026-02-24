@@ -17,7 +17,7 @@ class SupplierGetAllDocumentsForSupplierBysupplierNumberRequest extends Request 
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SupplierDocumentDto>
+     * @return Collection<int, SupplierDocumentDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

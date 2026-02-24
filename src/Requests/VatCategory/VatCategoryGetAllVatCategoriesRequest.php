@@ -17,7 +17,7 @@ class VatCategoryGetAllVatCategoriesRequest extends Request implements Paginatab
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<VatCategoryDto>
+     * @return Collection<int, VatCategoryDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

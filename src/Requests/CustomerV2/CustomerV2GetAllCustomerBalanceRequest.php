@@ -17,7 +17,7 @@ class CustomerV2GetAllCustomerBalanceRequest extends Request implements Paginata
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerBalanceV2dto>
+     * @return Collection<int, CustomerBalanceV2dto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

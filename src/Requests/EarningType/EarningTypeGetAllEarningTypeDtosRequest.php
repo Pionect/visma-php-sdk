@@ -17,7 +17,7 @@ class EarningTypeGetAllEarningTypeDtosRequest extends Request implements Paginat
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<EarningTypeDto>
+     * @return Collection<int, EarningTypeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

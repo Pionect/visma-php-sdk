@@ -17,7 +17,7 @@ class DiscountCodeV2GetDiscountCodesRequest extends Request implements Paginatab
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<DiscountCodeDto>
+     * @return Collection<int, DiscountCodeDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -19,7 +19,7 @@ class AccountGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<AccountDto>
+     * @return Collection<int, AccountDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

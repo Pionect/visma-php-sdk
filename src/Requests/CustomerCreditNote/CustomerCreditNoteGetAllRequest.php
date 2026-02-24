@@ -19,7 +19,7 @@ class CustomerCreditNoteGetAllRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<CustomerCreditNoteDto>
+     * @return Collection<int, CustomerCreditNoteDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

@@ -19,7 +19,7 @@ class SalesOrderGetCommissionsByorderTypeorderNbrRequest extends Request impleme
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<SocommissionDto>
+     * @return Collection<int, SocommissionDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

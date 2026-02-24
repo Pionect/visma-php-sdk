@@ -17,7 +17,7 @@ class GeneralLedgerTransactionsGetAllRequest extends Request implements Paginata
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<GeneralLedgerTransactionDetailsDto>
+     * @return Collection<int, GeneralLedgerTransactionDetailsDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {

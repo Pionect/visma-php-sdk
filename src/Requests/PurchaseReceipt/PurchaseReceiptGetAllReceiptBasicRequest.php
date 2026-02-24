@@ -17,7 +17,7 @@ class PurchaseReceiptGetAllReceiptBasicRequest extends Request implements Pagina
     protected Method $method = Method::GET;
 
     /**
-     * @return Collection<PurchaseReceiptDto>
+     * @return Collection<int, PurchaseReceiptDto>
      */
     public function createDtoFromResponse(Response $response): Collection
     {
