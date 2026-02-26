@@ -31,7 +31,7 @@ class SalesOrderBasicV2SendEmailActionByorderTypeorderNumberRequest extends Vism
     /**
      * @param  string  $orderType  The type of sale order from which the email will be dispatched.
      * @param  string  $orderNumber  The number of sale order from which the email will be dispatched.
-     * @param  null|Spatie\LaravelData\Data|array|null  $data  Request data
+     * @param  null|\Spatie\LaravelData\Data|array|null  $data  Request data
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
      *                                         * a URL: when the background operation is finished, a notification will be posted to the URL with a document containing a reference id, status code and a details state location.

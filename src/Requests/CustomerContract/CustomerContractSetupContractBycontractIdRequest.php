@@ -23,7 +23,7 @@ class CustomerContractSetupContractBycontractIdRequest extends VismaMutationRequ
 
     /**
      * @param  string  $contractId  Reference number of the customer contract to be set up
-     * @param  null|Spatie\LaravelData\Data|array|null  $data  Request data
+     * @param  null|\Spatie\LaravelData\Data|array|null  $data  Request data
      * @param  null|string  $setupDate  Optional Setup Date
      * @param  null|string  $erpApiBackground  Accepts the request and queues it to be executed in the background by our least busy worker. Responds with 202 Accepted and a document containing a JobId reference and details state location.
      *                                         Supported values:
