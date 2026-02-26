@@ -32,25 +32,31 @@ abstract class VismaMutationRequest extends Request implements HasBody
                 continue;
             }
 
-            if (is_array($value)) {
-                if (isset($value['value']) && count($value) === 1) {
-                    if (is_null($value['value'])) {
-                        continue;
-                    }
-                    if (is_array($value['value'])) {
-                        $filtered[$key] = ['value' => $this->recursiveFilterNulls($value['value'])];
-                    } else {
-                        $filtered[$key] = $value;
-                    }
-                } else {
-                    $filtered[$key] = $this->recursiveFilterNulls($value);
-                }
-            } else {
+            if (! is_array($value)) {
                 $filtered[$key] = $value;
+
+                continue;
+            }
+
+            if ($this->isValueWrapper($value)) {
+                if (is_null($value['value'])) {
+                    continue;
+                }
+
+                $filtered[$key] = is_array($value['value'])
+                    ? ['value' => $this->recursiveFilterNulls($value['value'])]
+                    : $value;
+            } else {
+                $filtered[$key] = $this->recursiveFilterNulls($value);
             }
         }
 
         return $filtered;
+    }
+
+    private function isValueWrapper(array $data): bool
+    {
+        return isset($data['value']) && count($data) === 1;
     }
 
     protected function defaultBody(): array
@@ -61,6 +67,6 @@ abstract class VismaMutationRequest extends Request implements HasBody
             return $this->recursiveFilterNulls($data->toArray());
         }
 
-        return is_array($data) ? $data : [];
+        return is_array($data) ? $this->recursiveFilterNulls($data) : [];
     }
 }
