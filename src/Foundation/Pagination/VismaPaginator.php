@@ -60,7 +60,7 @@ class VismaPaginator extends Paginator
 
     protected function getPageItems(Response $response, Request $request): array
     {
-        return $response->dto()->toArray();
+        return $response->dto()->all();
     }
 
     protected function applyPagination(Request $request): Request
