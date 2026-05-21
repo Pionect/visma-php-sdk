@@ -19,4 +19,6 @@ return [
     */
 
     'base_url' => env('VISMA_BASE_URL', 'https://integration.visma.net/API'),
+
+    'timeout' => env('VISMA_API_TIMEOUT', 60),
 ];

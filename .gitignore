@@ -3,3 +3,4 @@
 CLAUDE.local.md
 openapi.json
 .phpunit.cache
+.DS_Store

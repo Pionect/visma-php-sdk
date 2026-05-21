@@ -9,6 +9,7 @@ use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\Traits\OAuth2\ClientCredentialsGrant;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
+use Saloon\Traits\Plugins\HasTimeout;
 
 /**
  * Visma.net ERP API
@@ -17,6 +18,7 @@ class VismaConnector extends Connector implements HasPagination
 {
     use AlwaysThrowOnErrors;
     use ClientCredentialsGrant;
+    use HasTimeout;
 
     /**
      * Visma.net ERP API
@@ -24,6 +26,11 @@ class VismaConnector extends Connector implements HasPagination
     public function __construct()
     {
         //
+    }
+
+    public function getRequestTimeout(): float
+    {
+        return config('visma-sdk.timeout', 60);
     }
 
     public function resolveBaseUrl(): string
