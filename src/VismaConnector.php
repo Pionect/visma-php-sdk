@@ -52,6 +52,7 @@ class VismaConnector extends Connector implements HasPagination
             ->setClientId(config('visma-sdk.application_id'))
             ->setClientSecret(config('visma-sdk.application_secret'))
             ->setTokenEndpoint('https://connect.visma.com/connect/token')
+            ->setAllowBaseUrlOverride(true)
             ->setDefaultScopes([
                 'vismanet_erp_service_api:read',
                 'vismanet_erp_service_api:create',
