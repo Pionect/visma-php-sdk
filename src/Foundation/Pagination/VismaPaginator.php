@@ -45,7 +45,7 @@ class VismaPaginator extends Paginator
             $metadata = MetadataDto::from($firstItem['metadata']);
 
             $request = $response->getPendingRequest();
-            $currentPageNumber = $request->getRequest()->query('pageNumber') ?? 1;
+            $currentPageNumber = $request->getRequest()->query()->get('pageNumber') ?? 1;
 
             if ($metadata->totalCount > $metadata->maxPageSize) {
                 $totalPages = (int) ceil($metadata->totalCount / $metadata->maxPageSize);
